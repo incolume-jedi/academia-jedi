@@ -1,7 +1,9 @@
 import click
 
+CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
-@click.group()
+# @click.command(context_settings=CONTEXT_SETTINGS)
+@click.group(context_settings=CONTEXT_SETTINGS)
 @click.option('--debug/--no-debug', default=False)
 @click.pass_context
 def cli(ctx, **kwargs):
