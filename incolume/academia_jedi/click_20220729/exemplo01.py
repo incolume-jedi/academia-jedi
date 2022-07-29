@@ -8,3 +8,9 @@ def cli(debug):
 @cli.command()  # @cli, not @click!
 def sync():
     click.echo('Syncing')
+
+
+if __name__ == '__main__':
+    cli()
+
+# run: python exemplo01.py --debug sync
