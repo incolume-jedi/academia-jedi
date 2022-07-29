@@ -1,4 +1,4 @@
-from .model import Pessoa
+from model import Pessoa
 
 
 db = {}
