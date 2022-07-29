@@ -2,7 +2,7 @@ import click
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
-@click.group(context_settings=CONTEXT_SETTINGS)
+@click.group(context_settings=CONTEXT_SETTINGS, invoke_without_command=True)
 @click.option('--debug/--no-debug', default=False, help='Activate debug mode.')
 @click.pass_context
 def cli(ctx, **kwargs):
@@ -10,6 +10,8 @@ def cli(ctx, **kwargs):
     # by means other than the `if` block below)
     ctx.ensure_object(dict)
     ctx.obj.update(**kwargs)
+    if ctx.invoked_subcommand is None:
+        click.secho(cli.get_help(ctx), fg='red')
 
 
 @cli.command()
