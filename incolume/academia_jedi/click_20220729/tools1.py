@@ -15,12 +15,14 @@ def cli(ctx, **kwargs):
 @cli.command()
 @click.pass_context
 def show(ctx):
+    """Show context content."""
     click.secho(f'{ctx.obj}')
 
 
 @cli.command()
 @click.pass_context
 def sync(ctx):
+    """Show debug state."""
     click.echo('Debug is %s' % (ctx.obj['debug'] and 'on' or 'off'))
 
 
