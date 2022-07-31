@@ -2,6 +2,8 @@ import click
 from basedados import create_person, select_all_person, select_person
 from model import Pessoa
 import click
+import datetime
+
 
 # CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
@@ -29,7 +31,6 @@ import click
 # def sync(ctx):
 #     """Show debug state."""
 #     click.echo('Debug is %s' % (ctx.obj['debug'] and 'on' or 'off'))
-
 
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
@@ -63,8 +64,10 @@ def insert(ctx, person):
         'date_born': '20/06/1978',
         'email': ['email1', 'email2'], # optional
         'telefone': ['phone1', 'phone2],  # optional
-        'address': ['add1', 'add2]}   # optional
+        'address': ['add1', 'add2]   # optional
+        }
     """
+    person['date_born'] = datetime.datetime.strptime(person.get('date_born'), '%d/%m/%Y')
     click.secho(create_person(Pessoa(**person), ctx.obj.get('debug')), fg='green')
 
 @run.command()
