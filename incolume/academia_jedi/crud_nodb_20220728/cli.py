@@ -54,9 +54,14 @@ def show(ctx):
 
 
 @run.command()
-@click.option('-p', '--person', type=dict, help='Index of record.')
+# @click.option('-p', '--person', type=dict, help='Index of record.')
+@click.argument('name')
+@click.argument('date_born')
+@click.option('--telephone', '-t', multiple=True)
+@click.option('--address', '-a', multiple=True)
+@click.option('--email', '-e', multiple=True)
 @click.pass_context
-def insert(ctx, person):
+def insert(ctx, name, date_born, telephone, address, email):
     """Insert one record into database.
 
     ex: {
@@ -67,8 +72,19 @@ def insert(ctx, person):
         'address': ['add1', 'add2]   # optional
         }
     """
-    person['date_born'] = datetime.datetime.strptime(person.get('date_born'), '%d/%m/%Y')
-    click.secho(create_person(Pessoa(**person), ctx.obj.get('debug')), fg='green')
+    # person['date_born'] = datetime.datetime.strptime(person.get('date_born'), '%d/%m/%Y')
+    click.secho(
+        create_person(
+            Pessoa(
+                nome=name,
+                date_born=date_born,
+                email=email,
+                telefone=telephone,
+                address=address
+            ),
+        ctx.obj.get('debug')),
+        fg='green'
+    )
 
 @run.command()
 @click.pass_context
@@ -83,8 +99,8 @@ def read_all(ctx):
     click.secho(select_all_person(), fg='green')
 
 @run.command()
-@click.option('-i', '--index', type=int, help='Index of record.')
+@click.argument('index', type=int)
 @click.pass_context
 def read_one(ctx, index):
     """Show one record into database."""
-    click.secho(select_person(index), fg='green')
+    click.secho(select_person(index) or None, fg='green')

@@ -13,7 +13,7 @@ def debug_mode(status: bool = False):
 def create_person(pessoa: Pessoa, debug: bool = False):
     debug_mode(debug)
     db[pessoa.id] = pessoa
-    logging.debug(f'Adicionado: {pessoa.to_dict()}')
+    logging.debug(f'Adicionado: {pessoa.__dict__}')
     return True
 
 
@@ -32,7 +32,7 @@ def delete_person(id: int):
 
 
 def select_all_person():
-    return [pessoa for key, pessoa in db.items()]
+    return [pessoa for _, pessoa in db.items()]
 
 
 def select_person(id: int):
