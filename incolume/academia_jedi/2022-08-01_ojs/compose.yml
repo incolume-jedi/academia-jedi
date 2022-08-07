@@ -4,7 +4,7 @@
 # Call example:
 # $ docker-compose -f docker-compose-local.yml up
 
-version: "3.6"
+version: "3.9"
 
 networks:
   inside:
@@ -24,11 +24,11 @@ services:
       MYSQL_DATABASE: "${DB_DATABASE:-ojs}"
       MYSQL_USER: "${DB_USER:-ojs}"
       MYSQL_PASSWORD: "${DB_PASSWORD:-ojsPwd}"
-#    volumes:
-#      - ./volumes/db:/var/lib/mysql
-#      - ./volumes/logs/db:/var/log/mysql
-#      - ./volumes/config/db.charset.conf:/etc/mysql/conf.d/charset.cnf
-#      - ./volumes/migration:/docker-entrypoint-initdb.d
+    volumes:
+      - ./volumes/db:/var/lib/mysql
+      - ./volumes/logs/db:/var/log/mysql
+      - ./volumes/config/db.charset.conf:/etc/mysql/conf.d/charset.cnf
+      - ./volumes/migration:/docker-entrypoint-initdb.d
     networks:
       - inside
 
@@ -44,11 +44,11 @@ services:
     ports:
       - "${HTTP_PORT:-8081}:80"
       - "${HTTPS_PORT:-443}:443"
-#    volumes:
-#      - /etc/localtime:/etc/localtime
-#      - ./volumes/private:/var/www/files
-#      - ./volumes/public:/var/www/html/public
-#      - ./volumes/logs/app:/var/log/apache2
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./volumes/private:/var/www/files
+      - ./volumes/public:/var/www/html/public
+      - ./volumes/logs/app:/var/log/apache2
 #      # WARNING: You can only enable file-volumes if file exists in the container.
 #      - ./volumes/config/ojs.config.inc.php:/var/www/html/config.inc.php
 #      - ./volumes/config/apache.htaccess:/var/www/html/.htaccess
