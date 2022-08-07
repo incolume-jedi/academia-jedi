@@ -11,6 +11,18 @@ networks:
     external: false
 
 services:
+  pgsql:
+    image: postgres:14-alpine
+    container_name: "ojs_pgsql_${COMPOSE_PROJECT_NAME:-demo}"
+    restart: unless-stopped
+    environment:
+        - POSTGRES_USER="${DB_USER:-ojs}"
+        - POSTGRES_PASSWORD="${DB_PASSWORD:-ojsPwd}"
+        - POSTGRES_DB="${DB_DATABASE:-ojs}"
+    ports:
+        - 5432:5432
+    volumes:
+        - ./volumes/pgsql:/var/lib/postgresql/data/
   db:
     image: mariadb:10.2
     restart: unless-stopped
