@@ -1,0 +1,20 @@
+services:
+   db:
+    image: mysql:8.0
+    restart: unless-stopped
+    env_file:
+      - .env
+    container_name: "db_${COMPOSE_PROJECT_NAME:-demo}"
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD:-admin}"
+      MYSQL_DATABASE: "${DB_DATABASE:-demo}"
+      MYSQL_USER: "${DB_USER:-admin}"
+      MYSQL_PASSWORD: "${DB_PASSWORD:-admin}"
+    volumes:
+      - ./volumes/db:/var/lib/mysql
+      - ./volumes/logs/db:/var/log/mysql
+      - ./volumes/config/db.charset.conf:/etc/mysql/conf.d/charset.cnf
+      - ./volumes/migration:/docker-entrypoint-initdb.d
