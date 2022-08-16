@@ -20,14 +20,14 @@ class Point:
     >>> p1 * p2
     Point(8, 18)
 
-    # >>> p1 += p2
-    # Point(6, 9)
+    >>> p1 += p2
+    Point(6, 9)
 
-    # >>> p1 -= p2
-    # Point(2, 3)
+    >>> p1 -= p2
+    Point(2, 3)
 
-    # >>> p1 *= p2
-    # Point(8, 18)
+    >>> p1 *= p2
+    Point(8, 18)
 
     >>> p1 /= p2
     Point(2.0, 2.0)
@@ -75,5 +75,5 @@ class Point:
     def __rmul__(self, o):
         return self.__mul__(o)
 
-    def __irmul__(self, o):
+    def __imul__(self, o):
         return self.__mul__(o)
