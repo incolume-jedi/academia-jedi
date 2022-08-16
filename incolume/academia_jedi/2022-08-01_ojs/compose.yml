@@ -15,14 +15,19 @@ services:
     image: postgres:14-alpine
     container_name: "ojs_pgsql_${COMPOSE_PROJECT_NAME:-demo}"
     restart: unless-stopped
+    # env_file:
+    #   - .env
     environment:
-        - POSTGRES_USER="${DB_USER:-ojs}"
-        - POSTGRES_PASSWORD="${DB_PASSWORD:-ojsPwd}"
-        - POSTGRES_DB="${DB_DATABASE:-ojs}"
+      POSTGRES_INITDB_ARGS: "--data-checksums"
+      POSTGRES_USER: "${DB_USER:-ojs}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD:-ojsPwd}"
+      POSTGRES_DB: "${DB_DATABASE:-ojs}"
     ports:
         - 5432:5432
     volumes:
         - ./volumes/pgsql:/var/lib/postgresql/data/
+    networks:
+      - inside
   db:
     image: mariadb:10.2
     restart: unless-stopped
@@ -70,3 +75,4 @@ services:
       - inside
     depends_on:
       - db
+      - pgsql
