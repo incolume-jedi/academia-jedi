@@ -1,5 +1,6 @@
 FROM alpine:3.11
 
+LABEL application="Open Journal System"
 LABEL maintainer="Public Knowledge Project <marc.bria@gmail.com>"
 
 WORKDIR /var/www/html
@@ -106,7 +107,7 @@ RUN set -xe \
  	&& mkdir -p /var/www/files /run/apache2  \
 	&& cp config.TEMPLATE.inc.php config.inc.php \
 	&& chown -R apache:apache /var/www/* \
-# Prepare freefont for captcha 
+# Prepare freefont for captcha
 	&& ln -s /usr/share/fonts/TTF/FreeSerif.ttf /usr/share/fonts/FreeSerif.ttf \
 # Prepare crontab
 	&& echo "0 * * * *   ojs-run-scheduled" | crontab - \
@@ -127,7 +128,7 @@ RUN set -xe \
 
 COPY root/ /
 
-EXPOSE 80 
+EXPOSE 80
 EXPOSE 443
 
 VOLUME [ "/var/www/files", "/var/www/html/public" ]
