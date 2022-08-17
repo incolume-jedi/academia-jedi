@@ -5,13 +5,13 @@ services:
     restart: unless-stopped
     # env_file:
     #   - .env
-    container_name: "${PROJECT_NAME:-demo}_db"
+    container_name: "${PROJECT_NAME:-default}_db"
     ports:
       - 5432:5432
     environment:
       POSTGRES_INITDB_ARGS: "--data-checksums"
       POSTGRES_USER: "${DB_USER:-admin}"
       POSTGRES_PASSWORD: "${DB_PASSWORD:-admin}"
-      POSTGRES_DB: "${DB_DATABASE:-demo}"
+      POSTGRES_DB: "${DB_DATABASE:-default}"
     volumes:
       - ./volumes/pgdata:/var/lib/postgresql/data
