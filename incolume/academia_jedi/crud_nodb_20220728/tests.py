@@ -1,5 +1,5 @@
-from .basedados import db, create, update, delete, select, select_all
-from .model import Pessoa
+from basedados import db, create_person, update_person, delete_person, select_person, select_all_person
+from model import Pessoa
 from faker import Faker
 import pytest
 
@@ -17,7 +17,7 @@ def pessoa():
             )
 
 def test_create(pessoa):
-    create(pessoa)
+    create_person(pessoa)
     assert db.get(pessoa.id) == pessoa
     db.clear()
 
