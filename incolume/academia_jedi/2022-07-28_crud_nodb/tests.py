@@ -23,28 +23,28 @@ def test_create(pessoa):
 
 
 def test_update(pessoa):
-    create(pessoa)
+    create_person(pessoa)
     telefone = ['555-5555']
     pessoa.telefone = telefone
-    update(pessoa.id, pessoa)
+    update_person(pessoa.id, pessoa)
     assert db.get(pessoa.id).telefone == telefone
     db.clear()
 
 
 def test_delete(pessoa):
-    create(pessoa)
-    delete(pessoa.id)
+    create_person(pessoa)
+    delete_person(pessoa.id)
     assert db.get(pessoa.id) is None
     db.clear()
 
 
 def test_select(pessoa):
-    create(pessoa)
-    assert select(pessoa.id) == pessoa
+    create_person(pessoa)
+    assert select_person(pessoa.id) == pessoa
     db.clear()
 
 
 def test_select_all(pessoa):
-    create(pessoa)
-    assert select_all() == [pessoa]
+    create_person(pessoa)
+    assert select_all_person() == [pessoa]
     db.clear()
