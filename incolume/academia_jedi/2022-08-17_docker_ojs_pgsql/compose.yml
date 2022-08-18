@@ -18,7 +18,7 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_INITDB_ARGS: "--data-checksums"
+      # POSTGRES_INITDB_ARGS: "--data-checksums"
       POSTGRES_USER: "${DB_USER:-admin}"
       POSTGRES_PASSWORD: "${DB_PASSWORD:-admin}"
       POSTGRES_DB: "${DB_DATABASE:-default}"

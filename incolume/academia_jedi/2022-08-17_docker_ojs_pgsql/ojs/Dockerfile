@@ -38,39 +38,58 @@ ENV PACKAGES 		\
 
 # PHP extensions
 ENV PHP_EXTENSIONS	\
-	php7-bcmath		\
-	php7-bz2		\
-	php7-calendar	\
-	php7-ctype		\
-	php7-curl		\
-	php7-dom		\
-	php7-exif		\
-	php7-fileinfo	\
-	php7-ftp		\
-	php7-gettext	\
-	php7-intl		\
-	php7-iconv		\
-	php7-json		\
-	php7-mbstring	\
-	php7-mysqli		\
-	php7-opcache	\
-	php7-openssl	\
-	php7-pdo_mysql	\
-	php7-phar		\
-	php7-posix		\
-	php7-session	\
-	php7-shmop		\
-	php7-simplexml	\
-	php7-sockets	\
-	php7-sysvmsg	\
-	php7-sysvsem	\
-	php7-sysvshm	\
-	php7-tokenizer	\
-	php7-xml		\
-	php7-xmlreader	\
-	php7-xmlwriter	\
-	php7-zip		\
-	php7-zlib
+    php7-bcmath		\
+    php7-bz2		\
+    php7-calendar	\
+    # php7-Core		\
+    php7-ctype		\
+    php7-curl		\
+    # php7-date		\
+    php7-dom		\
+    php7-exif		\
+    php7-fileinfo	\
+    # php7-filter		\
+    php7-ftp		\
+    php7-gd		    \
+    php7-gettext	\
+    # php7-hash		\
+    php7-iconv		\
+    php7-intl		\
+    php7-json		\
+    # php7-libxml		\
+    php7-mbstring	\
+    php7-mysqli		\
+    php7-opcache	\
+    php7-openssl	\
+    php7-pcntl		\
+    # php7-pcre		\
+    # php7-PDO		\
+    php7-pdo_mysql	\
+    php7-pdo_pgsql	\
+    php7-pdo_sqlite	\
+    php7-pgsql		\
+    php7-phar		\
+    php7-posix		\
+    # php7-readline	\
+    # php7-Reflection	\
+    php7-session	\
+    php7-shmop		\
+    php7-simplexml	\
+    php7-sockets	\
+    # php7-SPL		\
+    php7-sqlite3	\
+    # php7-standard	\
+    php7-sysvmsg	\
+    php7-sysvsem	\
+    php7-sysvshm	\
+    php7-tokenizer	\
+    php7-wddx		\
+    php7-xml		\
+    php7-xmlreader	\
+    php7-xmlwriter	\
+    php7-xsl		\
+    php7-zip		\
+    php7-zlib
 
 # Required to build OJS:
 ENV BUILDERS 		\
