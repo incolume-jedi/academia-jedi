@@ -1,5 +1,6 @@
 FROM alpine:3.11
 
+LABEL application="Open Journal System"
 LABEL maintainer="Public Knowledge Project <marc.bria@gmail.com>"
 
 WORKDIR /var/www/html
@@ -127,7 +128,8 @@ RUN set -xe \
 
 COPY root/ /
 
-EXPOSE 80 443
+EXPOSE 80
+EXPOSE 443
 
 VOLUME [ "/var/www/files", "/var/www/html/public" ]
 
