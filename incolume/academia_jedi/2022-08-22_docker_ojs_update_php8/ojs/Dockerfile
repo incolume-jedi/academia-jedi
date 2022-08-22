@@ -83,7 +83,7 @@ ENV PHP_EXTENSIONS	\
     php8-sysvsem	\
     php8-sysvshm	\
     php8-tokenizer	\
-    php8-wddx		\
+    # php8-wddx		\
     php8-xml		\
     php8-xmlreader	\
     php8-xmlwriter	\
