@@ -28,14 +28,14 @@ services:
     networks:
       - inside
   ojs:
+    env_file:
+      - .env
     build:
       context: ojs
       args:
         - OS_APP_BASE=${OS_APP_BASE:-alpine:3.12}
     image: incolume/ojs:3_2_1-4_${OS_APP_NAME:-alpine3.12}
     restart: unless-stopped
-    # env_file:
-    #   - .env
     container_name: "${PROJECT_NAME:-default}_ojs_app"
     hostname: "${PROJECT_NAME:-default}"
     ports:
