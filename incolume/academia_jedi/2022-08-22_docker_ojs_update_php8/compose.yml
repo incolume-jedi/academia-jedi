@@ -24,13 +24,15 @@ services:
       POSTGRES_DB: "${DB_DATABASE:-default}"
     volumes:
       - ./volumes/pgdata:/var/lib/postgresql/data
-      - ./scripts/dbojssajhom_2022-04-27_bkp_pedidoSAJ.sql:/docker-entrypoint-initdb.d/dump.sql
+        #      - ./scripts/dbojssajhom_2022-04-27_bkp_pedidoSAJ.sql:/docker-entrypoint-initdb.d/dump.sql
     networks:
       - inside
   ojs:
-    image: incolume/ojs:3_2_1-4_alpine3.16
     build:
       context: ojs
+      args:
+        - OS_APP_BASE=${OS_APP_BASE:-alpine:3.12}
+    image: incolume/ojs:3_2_1-4_${OS_APP_NAME:-alpine3.12}
     restart: unless-stopped
     # env_file:
     #   - .env
