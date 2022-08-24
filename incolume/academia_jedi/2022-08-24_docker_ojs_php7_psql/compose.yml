@@ -24,7 +24,7 @@ services:
       POSTGRES_DB: "${DB_DATABASE:-default}"
     volumes:
       - ./volumes/pgdata:/var/lib/postgresql/data
-      - ../scripts/dbojssajhom_2022-04-27_bkp_pedidoSAJ.sql:/docker-entrypoint-initdb.d/dump.sql
+      # - ../scripts/dbojssajhom_2022-04-27_bkp_pedidoSAJ.sql:/docker-entrypoint-initdb.d/dump.sql
     networks:
       - inside
   ojs:
