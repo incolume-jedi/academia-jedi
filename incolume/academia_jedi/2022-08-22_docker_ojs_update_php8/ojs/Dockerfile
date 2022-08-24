@@ -1,4 +1,4 @@
-FROM alpine:3.16
+FROM ${OS_APP_BASE:-alpine:3.12}
 
 LABEL application="Open Journal System"
 LABEL maintainer="Public Knowledge Project <marc.bria@gmail.com>"
