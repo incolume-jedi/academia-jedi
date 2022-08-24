@@ -24,7 +24,7 @@ services:
       POSTGRES_DB: "${DB_DATABASE:-default}"
     volumes:
       - ./volumes/pgdata:/var/lib/postgresql/data
-      # - ../scripts/dbojssajhom_2022-04-27_bkp_pedidoSAJ.sql:/docker-entrypoint-initdb.d/dump.sql
+      - ../scripts/dbojssajhom_2022-04-27_bkp_pedidoSAJ.sql:/docker-entrypoint-initdb.d/dump.sql
     networks:
       - inside
   ojs:
@@ -44,7 +44,8 @@ services:
       - ./volumes/private:/var/www/files
       - ./volumes/public:/var/www/html/public
       - ./volumes/logs/app:/var/log/apache2
-#      # WARNING: You can only enable file-volumes if file exists in the container.
+    #  WARNING: You can only enable file-volumes if file exists in the container.
+      - ./volumes/ojs_var_www_html:/var/www/html
 #      - ./volumes/config/ojs.config.inc.php:/var/www/html/config.inc.php
 #      - ./volumes/config/apache.htaccess:/var/www/html/.htaccess
 #      - ./volumes/php.custom.ini:/usr/local/etc/php/conf.d/custom.ini
