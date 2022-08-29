@@ -23,7 +23,7 @@ services:
       POSTGRES_PASSWORD: "${DB_PASSWORD:-admin}"
       POSTGRES_DB: "${DB_DATABASE:-default}"
     volumes:
-      - ../volumes/pgdata:/var/lib/postgresql/data
+      - ./volumes/pgdata:/var/lib/postgresql/data
       - ../scripts/dbojssajhom_2022-04-27_bkp_pedidoSAJ.sql:/docker-entrypoint-initdb.d/dump.sql
     networks:
       - inside
@@ -41,8 +41,9 @@ services:
       - "${HTTPS_PORT:-443}:443"
     volumes:
       - /etc/localtime:/etc/localtime
-      - ../volumes/rjp_hom/ojs-3.2.1-4:/var/www/html
-      - ../volumes/rjp_hom/arquivos_ojssaj:/var/www/public
+      - ../volumes/rjp_hom/arquivos_ojssaj:/var/www/files
+      - ../volumes/rjp_hom/ojs-3.2.1-4/:/var/www/html
+      - ./ojs/config/config.inc.php:/var/www/html/config.inc.php
     # Configurações originais para docker
       # - ./volumes/private:/var/www/files
       # - ./volumes/public:/var/www/html/public
