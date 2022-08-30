@@ -1,5 +1,6 @@
 ARG OS_APP_BASE
 ARG OJS_VERSION
+ARG PHP_ENGINE
 FROM ${OS_APP_BASE:-alpine:3.11}
 
 LABEL application="Open Journal System"
@@ -11,6 +12,7 @@ WORKDIR /var/www/html
 ENV COMPOSER_ALLOW_SUPERUSER=1  \
 	SERVERNAME="localhost"      \
 	HTTPS="on"                  \
+	PHP_ENGINE=${PHP_ENGINE:-php7}     \
 	OJS_VERSION=${OJS_VERSION:-3_2_1-4} \
 	OJS_CLI_INSTALL="0"         \
 	OJS_DB_HOST="localhost"     \
@@ -34,64 +36,64 @@ ENV PACKAGES 		\
 	ttf-freefont	\
 	dcron 			\
 	patch			\
-	php7			\
-	php7-apache2	\
+	${PHP_ENGINE}			\
+	${PHP_ENGINE}-apache2	\
 	runit
 
 # PHP extensions
 ENV PHP_EXTENSIONS	\
-    php7-bcmath		\
-    php7-bz2		\
-    php7-calendar	\
-    # php7-Core		\
-    php7-ctype		\
-    php7-curl		\
-    # php7-date		\
-    php7-dom		\
-    php7-exif		\
-    php7-fileinfo	\
-    # php7-filter		\
-    php7-ftp		\
-    php7-gd		    \
-    php7-gettext	\
-    # php7-hash		\
-    php7-iconv		\
-    php7-intl		\
-    php7-json		\
-    # php7-libxml		\
-    php7-mbstring	\
-    php7-mysqli		\
-    php7-opcache	\
-    php7-openssl	\
-    php7-pcntl		\
-    # php7-pcre		\
-    # php7-PDO		\
-    php7-pdo_mysql	\
-    php7-pdo_pgsql	\
-    php7-pdo_sqlite	\
-    php7-pgsql		\
-    php7-phar		\
-    php7-posix		\
-    # php7-readline	\
-    # php7-Reflection	\
-    php7-session	\
-    php7-shmop		\
-    php7-simplexml	\
-    php7-sockets	\
-    # php7-SPL		\
-    php7-sqlite3	\
-    # php7-standard	\
-    php7-sysvmsg	\
-    php7-sysvsem	\
-    php7-sysvshm	\
-    php7-tokenizer	\
-    php7-wddx		\
-    php7-xml		\
-    php7-xmlreader	\
-    php7-xmlwriter	\
-    php7-xsl		\
-    php7-zip		\
-    php7-zlib
+    ${PHP_ENGINE}-bcmath		\
+    ${PHP_ENGINE}-bz2		\
+    ${PHP_ENGINE}-calendar	\
+    # ${PHP_ENGINE}-Core		\
+    ${PHP_ENGINE}-ctype		\
+    ${PHP_ENGINE}-curl		\
+    # ${PHP_ENGINE:-php7}-date		\
+    ${PHP_ENGINE}-dom		\
+    ${PHP_ENGINE}-exif		\
+    ${PHP_ENGINE}-fileinfo	\
+    # ${PHP_ENGINE}-filter		\
+    ${PHP_ENGINE}-ftp		\
+    ${PHP_ENGINE}-gd		    \
+    ${PHP_ENGINE}-gettext	\
+    # ${PHP_ENGIN}-hash		\
+    ${PHP_ENGINE}-iconv		\
+    ${PHP_ENGINE}-intl		\
+    ${PHP_ENGINE}-json		\
+    # ${PHP_ENGINE}-libxml		\
+    ${PHP_ENGINE}-mbstring	\
+    ${PHP_ENGINE}-mysqli		\
+    ${PHP_ENGINE}-opcache	\
+    ${PHP_ENGINE}-openssl	\
+    ${PHP_ENGINE}-pcntl		\
+    # ${PHP_ENGINE}-pcre		\
+    # ${PHP_ENGINE}-PDO		\
+    ${PHP_ENGINE}-pdo_mysql	\
+    ${PHP_ENGINE}-pdo_pgsql	\
+    ${PHP_ENGINE}-pdo_sqlite	\
+    ${PHP_ENGINE}-pgsql		\
+    ${PHP_ENGINE}-phar		\
+    ${PHP_ENGINE}-posix		\
+    # ${PHP_ENGINE}-readline	\
+    # ${PHP_ENGINE}-Reflection	\
+    ${PHP_ENGINE}-session	\
+    ${PHP_ENGINE}-shmop		\
+    ${PHP_ENGINE}-simplexml	\
+    ${PHP_ENGINE}-sockets	\
+    # ${PHP_ENGINE}-SPL		\
+    ${PHP_ENGINEphp7}-sqlite3	\
+    # ${PHP_ENGINE}-standard	\
+    ${PHP_ENGINE}-sysvmsg	\
+    ${PHP_ENGINE}-sysvsem	\
+    ${PHP_ENGINE}-sysvshm	\
+    ${PHP_ENGINE}-tokenizer	\
+    ${PHP_ENGINE}-wddx		\
+    ${PHP_ENGINE}-xml		\
+    ${PHP_ENGINE}-xmlreader	\
+    ${PHP_ENGINE}-xmlwriter	\
+    ${PHP_ENGINE}-xsl		\
+    ${PHP_ENGINE}-zip		\
+    ${PHP_ENGINE}-zlib
 
 # Required to build OJS:
 ENV BUILDERS 		\
