@@ -43,7 +43,6 @@ services:
       - /etc/localtime:/etc/localtime
       - ../volumes/rjp_hom/arquivos_ojssaj:/var/www/files
       - ../volumes/rjp_hom/ojs-3.2.1-4/public:/var/www/html/public
-      - ../volumes/rjp_hom/ojs-3.2.1-4/:/var/www/html
       - ./ojs/config/config.inc.php:/var/www/html/config.inc.php
     # Configurações originais para docker
       # - ./volumes/private:/var/www/files
