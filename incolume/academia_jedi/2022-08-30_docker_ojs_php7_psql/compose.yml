@@ -37,7 +37,9 @@ services:
         OS_APP_BASE: ${OS_APP_BASE:-alpine:3.11}
         OJS_VERSION: ${OJS_VERSION:-3_2_1-4}
         PHP_ENGINE: ${PHP_ENGINE:-php7}
-    # environment:
+        HTTP_PROXY: ${HTTP_PROXY:-}
+        HTTPS_PROXY: ${HTTPS_PROXY:-}
+#    environment:
     #   PHP_ENGINE: ${PHP_ENGINE:-php7}
     restart: unless-stopped
     container_name: "${PROJECT_NAME:-default}_ojs_app"

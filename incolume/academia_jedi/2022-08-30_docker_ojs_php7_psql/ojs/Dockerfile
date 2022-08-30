@@ -1,6 +1,8 @@
 ARG OS_APP_BASE
 ARG OJS_VERSION
 ARG PHP_ENGINE
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
 FROM ${OS_APP_BASE:-alpine:3.11}
 
 LABEL application="Open Journal System"
@@ -12,6 +14,8 @@ WORKDIR /var/www/html
 ENV COMPOSER_ALLOW_SUPERUSER=1  \
 	SERVERNAME="localhost"      \
 	HTTPS="on"                  \
+	HTTP_PROXY=${HTTP_PROXY:-}  \
+	HTTPS_PROXY=${HTTPS_PROXY:-}  \
 	PHP_ENGINE=${PHP_ENGINE:-php7}     \
 	OJS_VERSION=${OJS_VERSION:-3_2_1-4} \
 	OJS_CLI_INSTALL="0"         \
