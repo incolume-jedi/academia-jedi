@@ -1,27 +1,48 @@
 # Set your journal Tag:
+PROJECT_NAME='rjp'
 COMPOSE_PROJECT_NAME=journal
 PROJECT_DOMAIN=journal.localhost
 SERVERNAME=$PROJECT_DOMAIN
+
+#
+PGSQL_VERSION='14-alpine3.16'
+OS_APP_BASE='alpine:3.12'
+OS_APP_NAME='alpine3.12'
+PHP_ENGINE='php7'
+OJS_VERSION=3_2_1-4
+
+# PROXY
+HTTPS_PROXY=''
+HTTP_PROXY=''
 
 # Warning: Dockerfile is not taking this variable yet.
 # OJS_BRANCH=ojs-stable-3_1_2-0
 
 # IMPORTANT: Set a non used port.
-HTTP_PORT=8081
-HTTPS_PORT=8481
+HTTP_PORT=8000
+HTTPS_PORT=8443
 ADMINER_HTTP=9081
 
-# Remember this to fill your installation form in a clean installatio
+# SGBD Definitions
+MYSQL_DRIVER=mysqli
+PGSQL_DRIVER=postgres9
+DB_ROOT_PASSWORD=root
+DB_DATABASE=dbojssajhom
+DB_USER=usojssajhom
+DB_PASSWORD=pwojssajhom
+
+# Remember this to fill your installation form in a clean installation
 # MYSQL_VERSION=10.3
-MYSQL_ROOT_PASSWORD=root
-MYSQL_USER=ojs
-MYSQL_PASSWORD=ojs
-MYSQL_DATABASE=ojs
+MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+MYSQL_USER=${DB_USER}
+MYSQL_PASSWORD=${DB_PASSWORD}
+MYSQL_DATABASE=${DB_DATABASE}
 
 # OJS variables
 OJS_CLI_INSTALL=0
 OJS_DB_HOST=db
-OJS_DB_DRIVER=mysqli
-OJS_DB_USER=ojs 
-OJS_DB_PASSWORD=ojs 
-OJS_DB_NAME=ojs 
+OJS_DB_DRIVER=${PGSQL_DRIVER}
+OJS_DB_USER=${DB_USER}
+OJS_DB_PASSWORD=${DB_PASSWORD}
+OJS_DB_NAME=${DB_DATABASE}
+

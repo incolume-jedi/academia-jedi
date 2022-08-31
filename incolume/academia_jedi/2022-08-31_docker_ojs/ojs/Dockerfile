@@ -1,5 +1,11 @@
-FROM alpine:3.11
+ARG OS_APP_BASE \
+    ARG OJS_VERSION \
+    PHP_ENGINE \
+    HTTP_PROXY \
+    HTTPS_PROXY
+FROM ${OS_APP_BASE:-alpine:3.11}
 
+LABEL application="Open Journal System"
 LABEL maintainer="Public Knowledge Project <marc.bria@gmail.com>"
 
 WORKDIR /var/www/html
@@ -8,7 +14,10 @@ WORKDIR /var/www/html
 ENV COMPOSER_ALLOW_SUPERUSER=1  \
 	SERVERNAME="localhost"      \
 	HTTPS="on"                  \
-	OJS_VERSION=stable-3_2_1 \
+	HTTP_PROXY=${HTTP_PROXY:-}  \
+	HTTPS_PROXY=${HTTPS_PROXY:-}  \
+	PHP_ENGINE=${PHP_ENGINE:-php7}     \
+	OJS_VERSION=${OJS_VERSION:-3_2_1-4} \
 	OJS_CLI_INSTALL="0"         \
 	OJS_DB_HOST="localhost"     \
 	OJS_DB_USER="ojs"           \
@@ -106,7 +115,7 @@ RUN set -xe \
  	&& mkdir -p /var/www/files /run/apache2  \
 	&& cp config.TEMPLATE.inc.php config.inc.php \
 	&& chown -R apache:apache /var/www/* \
-# Prepare freefont for captcha 
+# Prepare freefont for captcha
 	&& ln -s /usr/share/fonts/TTF/FreeSerif.ttf /usr/share/fonts/FreeSerif.ttf \
 # Prepare crontab
 	&& echo "0 * * * *   ojs-run-scheduled" | crontab - \
@@ -127,8 +136,7 @@ RUN set -xe \
 
 COPY root/ /
 
-EXPOSE 80 
-EXPOSE 443
+EXPOSE 80 443
 
 VOLUME [ "/var/www/files", "/var/www/html/public" ]
 
