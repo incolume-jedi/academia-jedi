@@ -21,14 +21,14 @@ assignees: ''
 
 Descrição/apresentação do problema.
 
-## Exemplos
-
-Exemplos de solução e resposta do problema. Geralmente utilizado para validar os testes do TDD.
-
 ## Resultado esperado
 
 O que é esperado na conclusão deste ‘sprint’
 
+## Exemplos
+
+Exemplos de solução e resposta do problema. Geralmente utilizado para validar os testes do TDD.
+
 ## Referências
 
- - N/A
+ - N/A (Caso haja referências podem ser listadas aqui)
