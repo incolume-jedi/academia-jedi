@@ -497,8 +497,8 @@ xslt_command = ""
 ; http_port = 80
 ; proxy_username = username
 ; proxy_password = password
-; http_host = 10.1.101.101
-; http_port = 8080
+http_host = 10.1.101.101
+http_port = 8080
 
 
 ;;;;;;;;;;;;;;;;;;
