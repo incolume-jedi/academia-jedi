@@ -44,5 +44,8 @@ $ dynaconf --instance config.settings list
     DICT<dict> {'foo': 'bar'}
     FLOAT<float> 4.2
     BOOL<bool> False
+export INCOLUME_MODE='production'; dynaconf --instance config.settings list
+export INCOLUME_MODE='testing'; dynaconf --instance config.settings list
+export INCOLUME_MODE='development'; dynaconf --instance config.settings list
 
 """
