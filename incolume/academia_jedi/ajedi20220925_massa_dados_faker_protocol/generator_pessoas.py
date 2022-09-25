@@ -4,7 +4,8 @@ from typing import List
 from pprint import pprint
 from faker import Faker
 import datetime as dt
-from models import Pessoa, Pessoa0, Event
+from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol\
+    .models import Pessoa, Pessoa0, Event
 from typing import Protocol
 
 
