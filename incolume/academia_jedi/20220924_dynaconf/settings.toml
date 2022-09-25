@@ -1,0 +1,11 @@
+[default]
+  MSG="Hello World"
+
+[development]
+MSG="Hello Dev"
+
+[testing]
+MSG="Hello tester"
+
+[production]
+MSG="Hello User"
