@@ -1,0 +1,21 @@
+frutas = [
+  "abacate",
+  "amexa",
+  "banana",
+  "jabuticaba",
+  "lichia",
+  "maça",
+  "melância",
+  "morango",
+  "pêssego",
+  "uva",
+]
+carros = [
+  "uno",
+  "HB20-S",
+]
+cep = [
+  "Brasília",
+  "Brasil",
+  "Distrito Federal",
+]
