@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "academia-jedi"
-version = "0.21.0-alpha.7"
+version = "0.21.0-alpha.8"
 description = ""
 authors = ["Britodfbr <britodfbr@gmail.com>"]
 packages = [
