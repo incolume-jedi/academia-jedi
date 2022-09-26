@@ -1,5 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
+import logging
 from typing import List
 from pprint import pprint
 from faker import Faker
@@ -21,12 +22,19 @@ class IPessoa(Protocol):
     data_de_nascimento: dt.datetime
     cpf: str
 
+    def jsonify(self): ...
+
 
 def massa_pessoas(
-        objeto: IPessoa = None, quantidade: int = 0) -> List[IPessoa]:
+        objeto: IPessoa = None,
+        quantidade: int = 0,
+        is_json: bool = False) -> List[IPessoa]:
+
+    logging.debug(f"params: {objeto}, {quantidade}, {is_json}")
     objeto = objeto or Pessoa
     quantidade = quantidade or 100
-    return [
+    logging.debug(f"settings: {objeto}, {quantidade}, {is_json}")
+    result = [
         objeto(
             nome_completo=(f'{fake.first_name()} '
                            f'{fake.last_name()} '
@@ -39,6 +47,7 @@ def massa_pessoas(
         )
         for _ in range(quantidade)
     ]
+    return [pessoa.jsonify() for pessoa in result] if is_json else result
 
 
 def run():
