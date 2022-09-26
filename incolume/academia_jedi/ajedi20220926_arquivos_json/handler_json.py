@@ -16,7 +16,7 @@ def json_0():
     pessoas = massa_pessoas()
     with open("pessoas.json", "w") as file:
         for pessoa in pessoas:
-            json.dump(pessoa.__dict__, file, indent=4)
+            json.dump(pessoa.jsonify(), file, indent=4)
 
 
 def run():
