@@ -13,10 +13,11 @@ logging.basicConfig(level=logging.DEBUG, format=logFormat)
 
 def json_0():
     logging.debug(f"ran ..")
-    pessoas = massa_pessoas()
+    pessoas = [pessoa.jsonify() for pessoa in massa_pessoas()]
     with open("pessoas.json", "w") as file:
-        for pessoa in pessoas:
-            json.dump(pessoa.jsonify(), file, indent=4)
+        json.dump(pessoas, file, indent=4)
+        # for pessoa in pessoas:
+        #     json.dump(pessoa, file, indent=4, )
 
 
 def run():
