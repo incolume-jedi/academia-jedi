@@ -40,7 +40,7 @@ def massa_pessoas(
                            f'{fake.last_name()} '
                            f'{fake.last_name()}'),
             data_de_nascimento=fake.date_between(
-                start_date=dt.datetime.strptime('1970-01-01', '%Y-%m-%d'),
+                start_date=dt.datetime.strptime('1965-01-01', '%Y-%m-%d'),
                 end_date=dt.datetime.strptime('2003-12-31', '%Y-%m-%d')
             ),
             cpf=fake.bothify(text='###.###.###-##')
