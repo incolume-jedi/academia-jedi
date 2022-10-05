@@ -21,7 +21,9 @@ def run():
         end='\n\n'
     )
     print(
-        datetime.now().strftime('%%'),
+        datetime.now().strftime('%FT%T'),
+        datetime.now().strftime('%F %T.%f'),
+        datetime.now().isoformat(timespec='milliseconds'),
         sep='\n'
     )
 
