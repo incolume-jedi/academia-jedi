@@ -4,6 +4,7 @@ from pathlib import Path
 from datetime import datetime
 from itertools import count
 from copy import copy
+from typing import List
 import logging
 from inspect import stack
 
@@ -30,28 +31,33 @@ class Event:
     def jsonify(self):
         ...
 
-    def toJSON(self):
+    def to_json(self):
         o = copy(self.__dict__)
-        o['create_at'] = self.create_at.strftime('%Y-%m-%d %H:%M:%S.%f')
+        # o['create_at'] = self.create_at.strftime('%Y-%m-%d %H:%M:%S.%f ')
+        o['create_at'] = self.create_at.strftime('%F %T.%f')
         logging.debug(f'{self.__class__.__name__}({o}).{stack()[0][3]}')
         return json.dumps(o, sort_keys=True, indent=4)
 
 
-def get_events():
+def get_events() -> List[Event]:
     logging.debug(f'{stack()[0][3]}')
-    return [Event(f'event_{x:03}').toJSON() for x in range(1, 101)]
+    return [Event(f'event_{x:03}') for x in range(1, 101)]
 
 
 def write_json(list_events: list, filename: (Path | str)):
     logging.debug(f'{stack()[0][3]}')
     filename = filename or 'events.json'
     with Path(filename).open('w') as file:
-        json.dump(list_events, file, indent=4)
         logging.debug(f'write file "{filename}"')
+        json.dump([e.to_json() for e in list_events], file, indent=4)
 
 
 def run():
     logging.debug(f'{stack()[0][3]}')
+    logging.debug(
+        "logging date: "
+        f"{datetime.fromisoformat('1978-06-20T05:31:23.123456-03:00')}"
+    )
     e = Event('')
     print(
         e,
