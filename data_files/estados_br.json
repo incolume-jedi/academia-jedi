@@ -1,0 +1,164 @@
+[
+  {
+    "SIGLA":"AC",
+    "ESTADO":"Acre",
+    "CAPITAL":"Rio Branco",
+    "REGIAO":"NORTE"
+  },
+  {
+    "SIGLA":"AL",
+    "ESTADO":"Alagoas",
+    "CAPITAL":"Macei\u00f3",
+    "REGIAO":"NORDESTE"
+  },
+  {
+    "SIGLA":"AP",
+    "ESTADO":"Amap\u00e1",
+    "CAPITAL":"Macap\u00e1",
+    "REGIAO":"NORTE"
+  },
+  {
+    "SIGLA":"AM",
+    "ESTADO":"Amazonas",
+    "CAPITAL":"Manaus",
+    "REGIAO":"NORTE"
+  },
+  {
+    "SIGLA":"BA",
+    "ESTADO":"Bahia",
+    "CAPITAL":"Salvador",
+    "REGIAO":"NORDESTE"
+  },
+  {
+    "SIGLA":"CE",
+    "ESTADO":"Cear\u00e1",
+    "CAPITAL":"Fortaleza",
+    "REGIAO":"NORDESTE"
+  },
+  {
+    "SIGLA":"DF",
+    "ESTADO":"Distrito Federal",
+    "CAPITAL":"Bras\u00edlia",
+    "REGIAO":"CENTROESTE"
+  },
+  {
+    "SIGLA":"ES",
+    "ESTADO":"Esp\u00edrito Santo",
+    "CAPITAL":"Vit\u00f3ria",
+    "REGIAO":"SUDESTE"
+  },
+  {
+    "SIGLA":"GO",
+    "ESTADO":"Goi\u00e1s",
+    "CAPITAL":"Goi\u00e2nia",
+    "REGIAO":"CENTROESTE"
+  },
+  {
+    "SIGLA":"MA",
+    "ESTADO":"Maranh\u00e3o",
+    "CAPITAL":"S\u00e3o Lu\u00eds",
+    "REGIAO":"NORDESTE"
+  },
+  {
+    "SIGLA":"MT",
+    "ESTADO":"Mato Grosso",
+    "CAPITAL":"Cuiab\u00e1",
+    "REGIAO":"CENTROESTE"
+  },
+  {
+    "SIGLA":"MS",
+    "ESTADO":"Mato Grosso do Sul",
+    "CAPITAL":"Campo Grande",
+    "REGIAO":"CENTROESTE"
+  },
+  {
+    "SIGLA":"MG",
+    "ESTADO":"Minas Gerais",
+    "CAPITAL":"Belo Horizonte",
+    "REGIAO":"SUDESTE"
+  },
+  {
+    "SIGLA":"PR",
+    "ESTADO":"Paran\u00e1",
+    "CAPITAL":"Curitiba",
+    "REGIAO":"SUL"
+  },
+  {
+    "SIGLA":"PB",
+    "ESTADO":"Para\u00edba",
+    "CAPITAL":"Jo\u00e3o Pessoa",
+    "REGIAO":"NORDESTE"
+  },
+  {
+    "SIGLA":"PA",
+    "ESTADO":"Par\u00e1",
+    "CAPITAL":"Bel\u00e9m",
+    "REGIAO":"NORTE"
+  },
+  {
+    "SIGLA":"PE",
+    "ESTADO":"Pernambuco",
+    "CAPITAL":"Recife",
+    "REGIAO":"NORDESTE"
+  },
+  {
+    "SIGLA":"PI",
+    "ESTADO":"Piau\u00ed",
+    "CAPITAL":"Teresina",
+    "REGIAO":"NORDESTE"
+  },
+  {
+    "SIGLA":"RN",
+    "ESTADO":"Rio Grande do Norte",
+    "CAPITAL":"Natal",
+    "REGIAO":"NORDESTE"
+  },
+  {
+    "SIGLA":"RS",
+    "ESTADO":"Rio Grande do Sul",
+    "CAPITAL":"Porto Alegre",
+    "REGIAO":"SUL"
+  },
+  {
+    "SIGLA":"RJ",
+    "ESTADO":"Rio de Janeiro",
+    "CAPITAL":"Rio de Janeiro",
+    "REGIAO":"SUDESTE"
+  },
+  {
+    "SIGLA":"RO",
+    "ESTADO":"Rond\u00f4nia",
+    "CAPITAL":"Porto Velho",
+    "REGIAO":"NORTE"
+  },
+  {
+    "SIGLA":"RR",
+    "ESTADO":"Roraima",
+    "CAPITAL":"Boa Vista",
+    "REGIAO":"NORTE"
+  },
+  {
+    "SIGLA":"SC",
+    "ESTADO":"Santa Catarina",
+    "CAPITAL":"Florian\u00f3polis",
+    "REGIAO":"SUL"
+  },
+  {
+    "SIGLA":"SE",
+    "ESTADO":"Sergipe",
+    "CAPITAL":"Aracaju",
+    "REGIAO":"NORDESTE"
+  },
+  {
+    "SIGLA":"SP",
+    "ESTADO":"S\u00e3o Paulo",
+    "CAPITAL":"S\u00e3o Paulo",
+    "REGIAO":"SUDESTE"
+  },
+  {
+    "SIGLA":"TO",
+    "ESTADO":"Tocantins",
+    "CAPITAL":"Palmas",
+    "REGIAO":"NORTE"
+  }
+]
