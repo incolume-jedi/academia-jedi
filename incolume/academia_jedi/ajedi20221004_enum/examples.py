@@ -1,3 +1,5 @@
+"""Enum examples."""
+
 from enum import Enum, auto, unique
 import string
 
