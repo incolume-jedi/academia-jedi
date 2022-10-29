@@ -30,10 +30,10 @@ def massa_pessoas(
         quantidade: int = 0,
         is_json: bool = False) -> List[IPessoa]:
 
-    logging.debug(f"params: {objeto}, {quantidade}, {is_json}")
+    logging.debug(f"params: {objeto=}, {quantidade=}, {is_json=}")
     objeto = objeto or Pessoa
     quantidade = quantidade or 100
-    logging.debug(f"settings: {objeto}, {quantidade}, {is_json}")
+    logging.debug(f"settings: {objeto=}, {quantidade=}, {is_json=}")
     result = [
         objeto(
             nome_completo=(f'{fake.first_name()} '
