@@ -22,7 +22,7 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 # Para testar
-# curl http://localhost:5000/todo1 -d "data=Remember the milk" -X PUT
-# curl http://localhost:5000/todo1
-# curl http://localhost:5000/todo2 -d "data=Change my brakepads" -X PUT
-# curl http://localhost:5000/todo2
+# curl http://localhost:5000/1 -d "data=Remember the milk" -X PUT
+# curl http://localhost:5000/1
+# curl http://localhost:5000/2 -d "data=Change my brakepads" -X PUT
+# curl http://localhost:5000/2
