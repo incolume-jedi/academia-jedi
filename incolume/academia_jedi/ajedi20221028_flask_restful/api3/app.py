@@ -51,8 +51,17 @@ class GameList(Resource):
 
 
 class GameDetail(Resource):
-    def get(self):
-        ...
+    def get(self, game_id):
+        try:
+            with orm.db_session:
+                item = Game.get(game_id=game_id)
+            return {
+                'result': item.to_dict()
+            }
+        except AttributeError:
+            return {
+                'error': 'Game does not exists!'
+            }
 
 
 api.add_resource(GameList, '/')
