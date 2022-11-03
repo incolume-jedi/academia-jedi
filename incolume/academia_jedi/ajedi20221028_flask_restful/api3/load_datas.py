@@ -19,7 +19,12 @@ df = pd.read_csv('https://raw.githubusercontent.com/jhnwr/flask-restful-demo'
 
 
 def post_data(item):
-    headers = {"Content-type": "application/json"}
+    headers = {
+        "Content-type": "application/json",
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) "
+                      "AppleWebKit/537.36 (KHTML, like Gecko) "
+                      "Chrome/104.0.5112.102 Safari/537.36",
+    }
     payload = {
         "game_id": item[0],
         "home_team": item[1],
