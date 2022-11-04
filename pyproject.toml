@@ -19,6 +19,7 @@ jupyter = "^1.0.0"
 getch = "^1.0"
 flask-restful = "^0.3.9"
 pony = "^0.7.16"
+pydantic = "^1.10.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
