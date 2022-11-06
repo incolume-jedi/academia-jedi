@@ -279,6 +279,14 @@ vault = ["hvac"]
 yaml = ["ruamel.yaml"]
 
 [[package]]
+name = "easygui"
+version = "0.98.3"
+description = "EasyGUI is a module for very simple, very easy GUI programming in Python.  EasyGUI is different from other GUI generators in that EasyGUI is NOT event-driven.  Instead, all GUI interactions are invoked by simple function calls."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "entrypoints"
 version = "0.4"
 description = "Discover and load entry points from installed packages."
@@ -1512,7 +1520,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "039ebbddea1dca71604c0d883f7c0d510ed74f294395a628745a7b26ee30fa09"
+content-hash = "63838495fb77ca0f59e60dec3098f65eb84cad4dac7ab10319be1f2cde2d10c5"
 
 [metadata.files]
 aniso8601 = [
@@ -1756,6 +1764,10 @@ defusedxml = [
 dynaconf = [
     {file = "dynaconf-3.1.11-py2.py3-none-any.whl", hash = "sha256:87e0b3b12b5db9e8fb465e1f8c7fdb926cd2ec5b6d88aa7f821f316df93fb165"},
     {file = "dynaconf-3.1.11.tar.gz", hash = "sha256:d9cfb50fd4a71a543fd23845d4f585b620b6ff6d9d3cc1825c614f7b2097cb39"},
+]
+easygui = [
+    {file = "easygui-0.98.3-py2.py3-none-any.whl", hash = "sha256:33498710c68b5376b459cd3fc48d1d1f33822139eb3ed01defbc0528326da3ba"},
+    {file = "easygui-0.98.3.tar.gz", hash = "sha256:d653ff79ee1f42f63b5a090f2f98ce02335d86ad8963b3ce2661805cafe99a04"},
 ]
 entrypoints = [
     {file = "entrypoints-0.4-py3-none-any.whl", hash = "sha256:f174b5ff827504fd3cd97cc3f8649f3693f51538c7e4bdf3ef002c8429d42f9f"},
