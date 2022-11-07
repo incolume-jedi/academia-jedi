@@ -1,24 +1,20 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 from positional_parameters import (
-divmod,
-func,
-myfunc,
-myfunc1,
-myfunc2,
-myfunc3,
-myfunc4
+    divmod,
+    func,
+    myfunc,
+    myfunc1,
+    myfunc2,
+    myfunc3,
+    myfunc4
 )
-
 
 __author__ = "@britodfbr"  # pragma: no cover
 
 
 def example1():
     """Argumentos predefinidos como posicionais e/ou chaveados."""
-
-    def func(a, b, /, c, d, *, e, f):
-        print(a, b, c, d, e, f)
 
     func(10, 20, 30, d=40, e=50, f=60)  # Válido
     try:
@@ -35,10 +31,6 @@ def example1():
 def example2():
     """Argumentos exclusivamente posicionais."""
 
-    def divmod(a, b, /):
-        """Emulate the built in divmod() function"""
-        return a // b, a % b
-
     divmod(10, 3)  # Válido
 
     try:
@@ -49,9 +41,6 @@ def example2():
 
 def example3():
     """Argumentos posicionais/chaveados. Comportamento padrão python"""
-
-    def myfunc(a, b):
-        return a, b
 
     print(
         myfunc(1, 2),
@@ -64,20 +53,17 @@ def example3():
 def example4():
     """Argumentos posicionais exclusivamente."""
 
-    def myfunc(a, b, /):
-        return a, b
-
-    print(myfunc(1, 2), )
+    print(myfunc2(1, 2), )
     try:
-        myfunc(1, b=2),
+        myfunc2(1, b=2),
     except TypeError as e:
         print(e)
     try:
-        myfunc(a=1, b=2),
+        myfunc2(a=1, b=2),
     except TypeError as e:
         print(e)
     try:
-        myfunc(b=2, a=1),
+        myfunc2(b=2, a=1),
     except TypeError as e:
         print(e)
 
@@ -85,59 +71,50 @@ def example4():
 def example5():
     """Argumentos chaveados exclusivamente."""
 
-    def myfunc(*, a, b):
-        return a, b
-
     try:
-        myfunc(1, 2)
+        myfunc3(1, 2)
     except TypeError as e:
         print(e)
     try:
-        myfunc(1, b=2)
+        myfunc3(1, b=2)
     except TypeError as e:
         print(e)
 
-    print(myfunc(a=1, b=2))
-    print(myfunc(b=2, a=1))
+    print(myfunc3(a=1, b=2))
+    print(myfunc3(b=2, a=1))
 
 
 def example6():
     """Ambos argumentos posicionais e chaveados."""
 
-    def myfunc(a=None, b=None, /, **kwargs):
-        return a, b, kwargs
-
     print(
-        myfunc(1, 2),
-        myfunc(a=1, b=2),
-        myfunc(1, b=2),
-        myfunc(a=1),
-        myfunc(b=2),
-        myfunc(1),
-        myfunc(None, 2),
-        myfunc(1, 2, a=1, b=2),
+        myfunc4(1, 2),
+        myfunc4(a=1, b=2),
+        myfunc4(1, b=2),
+        myfunc4(a=1),
+        myfunc4(b=2),
+        myfunc4(1),
+        myfunc4(None, 2),
+        myfunc4(1, 2, a=1, b=2),
     )
 
 
 def example7():
     """"""
-    def myfunc(a=None, b=None, **kwargs):
-        return a, b, kwargs
     print(
-        myfunc(1),
-        myfunc(None, 2),
-        myfunc(a=1, b=2),
-        myfunc(1, 2),
-        myfunc(1, b=2),
-        myfunc(a=1),
-        myfunc(b=2),
+        myfunc1(1),
+        myfunc1(None, 2),
+        myfunc1(a=1, b=2),
+        myfunc1(1, 2),
+        myfunc1(1, b=2),
+        myfunc1(a=1),
+        myfunc1(b=2),
     )
     try:
-        myfunc(None, a=1)
-        myfunc(1, 2, a=1, b=2),
+        myfunc1(None, a=1)
+        myfunc1(1, 2, a=1, b=2),
     except TypeError as e:
         print(e)
-
 
 
 def run():
