@@ -1,6 +1,6 @@
 from math import pi
 from typing import Container, Generator
-from utils import description
+from utils import description, successive_execution
 
 number = 1000000000
 n = 1_000_000_000_000
@@ -79,9 +79,18 @@ def example9() -> (Container | Generator):
 
 
 def run():
-    for func in (f'example{x}' for x in range(1, 10)):
-        # print(type(func))
-        exec(func)
+    funcs = [
+        example1,
+        example2,
+        example3,
+        example4,
+        example5,
+        example6,
+        example7,
+        example8,
+        example9,
+    ]
+    successive_execution(funcs)
 
 
 if __name__ == '__main__':  # pragma: no cover

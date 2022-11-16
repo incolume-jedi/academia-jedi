@@ -1,6 +1,14 @@
 __author__ = "@britodfbr"  # pragma: no cover
 
 from functools import wraps
+from typing import Callable, Any
+
+
+def successive_execution(funcs: Any):
+    for i, func in enumerate(funcs):
+        # print(type(func))
+        func()
+    ...
 
 
 def description(func):
@@ -16,4 +24,5 @@ def description(func):
             '',
             sep='\n'
         )
+
     return inner
