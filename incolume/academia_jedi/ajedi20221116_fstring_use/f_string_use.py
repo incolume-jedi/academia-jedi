@@ -79,20 +79,9 @@ def example9() -> (Container | Generator):
 
 
 def run():
-    funcs = [
-        example1,
-        example2,
-        example3,
-        example4,
-        example5,
-        example6,
-        example7,
-        example8,
-        example9,
-    ]
-    for i, func in enumerate(funcs):
+    for func in (f'example{x}' for x in range(1, 10)):
         # print(type(func))
-        func()
+        exec(func)
 
 
 if __name__ == '__main__':  # pragma: no cover
