@@ -1,3 +1,4 @@
+from datetime import datetime
 from math import pi
 from typing import Container, Generator
 from utils import description, successive_execution
@@ -126,6 +127,14 @@ def example15() -> (Container | Generator):
     return f'{100:0x}', f'{n:0X}', f'{number:0x}',
 
 
+@description
+def example16() -> (Container | Generator):
+    """Formatar datas.
+    """
+    hoje = datetime.now()
+    return f'{hoje:%F}', f'{hoje:%c}', f'{hoje:%FT%T.%f}',
+
+
 def run():
     funcs = [
         example1,
@@ -143,6 +152,7 @@ def run():
         example13,
         example14,
         example15,
+        example16,
     ]
     successive_execution(funcs)
 
