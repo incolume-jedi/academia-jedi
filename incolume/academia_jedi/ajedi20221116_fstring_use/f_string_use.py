@@ -135,6 +135,15 @@ def example16() -> (Container | Generator):
     return f'{hoje:%F}', f'{hoje:%c}', f'{hoje:%FT%T.%f}',
 
 
+@description
+def example17() -> (Container | Generator):
+    """Formatar com notação cientifica.
+    f'{100:.3e}' == 1.000e+02
+    """
+    hoje = datetime.now()
+    return f'{pi:e}', f'{n:.1e}', f'{n:.2e}', f'{number:.3e}', f'{100:.4e}'
+
+
 def run():
     funcs = [
         example1,
@@ -153,6 +162,7 @@ def run():
         example14,
         example15,
         example16,
+        example17,
     ]
     successive_execution(funcs)
 
