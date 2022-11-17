@@ -102,6 +102,30 @@ def example12() -> (Container | Generator):
     return f'{n:,.1%}', f'{number:,.2%}', f'{pi:,.3%}', f'{100:,.4%}'
 
 
+@description
+def example13() -> (Container | Generator):
+    """Formatar base para Octal.
+    f'{100:0o}'
+    """
+    return f'{100:0o}', f'{n:0o}'
+
+
+@description
+def example14() -> (Container | Generator):
+    """Formatar base para binario.
+    f'{100:0b}'
+    """
+    return f'{100:0b}', f'{n:0b}'
+
+
+@description
+def example15() -> (Container | Generator):
+    """Formatar base para binario.
+    f'{100:0x}'
+    """
+    return f'{100:0x}', f'{n:0X}', f'{number:0x}',
+
+
 def run():
     funcs = [
         example1,
@@ -116,6 +140,9 @@ def run():
         example10,
         example11,
         example12,
+        example13,
+        example14,
+        example15,
     ]
     successive_execution(funcs)
 
