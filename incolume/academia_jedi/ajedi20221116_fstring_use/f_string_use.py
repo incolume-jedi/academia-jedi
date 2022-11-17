@@ -78,6 +78,30 @@ def example9() -> (Container | Generator):
     return f'{n:.1f}', f'{number:.2f}', f'{pi:.3f}', f'{100:.4f}'
 
 
+@description
+def example10() -> (Container | Generator):
+    """Uso de valores com formatação numérica com decimal e milhar.
+    f'{n:,.0f}' decimal, onde 0 é o numero de casas.
+    """
+    return f'{n:,.1f}', f'{number:,.2f}', f'{pi:,.3f}', f'{100:,.4f}'
+
+
+@description
+def example11() -> (Container | Generator):
+    """Uso de valores com formatação percentual.
+    f'{n:.0%}' decimal, onde 0 é o numero de casas.
+    """
+    return f'{n:.1%}', f'{number:.2%}', f'{pi:.3%}', f'{100:.4%}'
+
+
+@description
+def example12() -> (Container | Generator):
+    """Uso de valores com formatação percentual e milhar.
+    f'{n:.0%}' decimal, onde 0 é o numero de casas.
+    """
+    return f'{n:,.1%}', f'{number:,.2%}', f'{pi:,.3%}', f'{100:,.4%}'
+
+
 def run():
     funcs = [
         example1,
@@ -89,6 +113,9 @@ def run():
         example7,
         example8,
         example9,
+        example10,
+        example11,
+        example12,
     ]
     successive_execution(funcs)
 
