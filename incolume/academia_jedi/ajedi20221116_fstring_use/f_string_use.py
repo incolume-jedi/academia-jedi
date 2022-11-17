@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from datetime import datetime
 from math import pi
 from typing import Container, Generator
@@ -6,6 +7,16 @@ from utils import description, successive_execution
 number = 1000000000
 n = 1_000_000_000_000
 title = 'title'
+
+
+@dataclass
+class User:
+    name: str
+    born: datetime
+
+    def __str__(self):
+        return f'{self.__class__.__name__}' \
+               f'({self.name=}, {self.born=:%FT%T.%f})'
 
 
 @description
@@ -144,6 +155,22 @@ def example17() -> (Container | Generator):
     return f'{pi:e}', f'{n:.1e}', f'{n:.2e}', f'{number:.3e}', f'{100:.4e}'
 
 
+@description
+def example18() -> (Container | Generator):
+    """Exibir __repr__ ou __str__.
+    """
+    u = User('Ana Brito', datetime.now())
+    return '{!s}'.format(u), '{!r}'.format(u),
+
+
+@description
+def example19() -> (Container | Generator):
+    """Exibir __repr__ ou __str__.
+    """
+    u = User('Ada Brito', datetime.now())
+    return f'{u}', f'{type(u.born)=}'
+
+
 def run():
     funcs = [
         example1,
@@ -163,6 +190,8 @@ def run():
         example15,
         example16,
         example17,
+        example18,
+        example19,
     ]
     successive_execution(funcs)
 
