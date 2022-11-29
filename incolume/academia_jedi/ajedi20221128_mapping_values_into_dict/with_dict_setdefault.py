@@ -98,7 +98,18 @@ def tratativa05():
 
 
 def tratativa06():
-    ...
+    dct = {}
+    msg = MSG.strip().splitlines()[-1]
+    logging.debug(msg)
+    key, txt = msg.strip().split(maxsplit=1)
+    txt = re.sub('(Added|Fixed|Changed|Deprecated|Removed|Security)', "§\\1",
+                 txt)
+    logging.debug(txt)
+    logging.debug(txt.split('§'))
+    for i, j in [x.strip().split(':') for x in txt.split('§') if x]:
+        dct.setdefault(i, []).extend(j.split(';'))
+    print(dct)
+    return dct
 
 
 def tratativa07():
@@ -229,14 +240,14 @@ def tratativa11():
             key, msg = msg.split(maxsplit=1)
             txt = re.sub(
                 "(Added|Changed|Deprecated|Removed|Fixed|Security):",
-                r"§\1:",
+                r"§§\1§:",
                 msg,
                 flags=re.I
             )
             dct = {}
             for i, j in (
-                x.rstrip().rstrip(';').split(':')
-                for x in txt.strip().split('§') if x
+                x.rstrip().rstrip(';').split('§:')
+                for x in txt.strip().split('§§') if x
             ):
                 dct.setdefault(i, []).extend(j.strip().split(';'))
 
@@ -260,7 +271,8 @@ def translate():
 
 
 def run():
-    translate()
+    # translate()
+    # tratativa06()
     tratativa11()
 
 
