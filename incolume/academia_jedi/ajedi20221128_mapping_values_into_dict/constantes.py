@@ -1,8 +1,11 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 __author__ = "@britodfbr"  # pragma: no cover
+
+labels = "Added Changed Deprecated Removed Fixed Security".split()
+
 MSG = """
-0.1.0           :D
+0.1.0           Added: initial commit
 0.2.0           Added: implementação para def namespace
 0.3.0           Added: incolumepy.utils.sequencia
 0.4.0           Added: incolumepy.utils.fake_cpf adding

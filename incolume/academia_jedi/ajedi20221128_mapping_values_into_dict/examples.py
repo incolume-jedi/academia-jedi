@@ -5,7 +5,8 @@ from typing import Container, Iterable
 __author__ = "@britodfbr"  # pragma: no cover
 
 tup = (
-    ("Boba", 21), ("Din", 19), ("Grogu", 46), ("Ahsoka", 11),
+    ("Boba", 21), ("Din", 18), ("Grogu", 40), ("Ahsoka", 21),
+    ("Boba", 22), ("Din", 19), ("Grogu", 46), ("Ahsoka", 11),
     (11, "eleven"), (21, "mike"), (19, "dustin"), (46, "caleb"))
 tups = list(tup)
 
