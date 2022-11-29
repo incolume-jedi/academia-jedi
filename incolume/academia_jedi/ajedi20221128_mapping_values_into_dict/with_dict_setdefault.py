@@ -158,13 +158,43 @@ def tratativa08():
     return result
 
 
+def tratativa09():
+    def msg_classify(msg: str) -> dict:
+        key, msg = msg.split(maxsplit=1)
+        txt = re.sub(
+            "(Added|Changed|Deprecated|Removed|Fixed|Security):",
+            r"§\1:",
+            msg,
+            flags=re.I
+        )
+        dct = {}
+        for i, j in (
+            x.strip().split(':') for x in txt.strip().split('§') if x
+        ):
+            logging.debug(f"{i=} {j=}")
+            dct.setdefault(i, []).extend(j.strip().split(';'))
+        for x, y in dct.items():
+            dct[x] = [a for a in y if a]
+
+        result = {'key': key, 'date': dt.datetime.now(), 'messages': dct}
+        return result
+
+    def changelog_messages(text: str) -> list:
+        result = []
+        for msg in text.strip().splitlines()[:]:
+            result.append(msg_classify(msg))
+        return result
+
+    print(changelog_messages(MSG))
+
+
 def translate():
     ...
 
 
 def run():
     translate()
-    tratativa08()
+    tratativa09()
 
 
 if __name__ == '__main__':  # pragma: no cover
