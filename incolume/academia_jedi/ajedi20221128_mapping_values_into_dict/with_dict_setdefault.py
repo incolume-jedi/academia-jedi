@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 import logging
 import re
+import subprocess
 from copy import copy
+from dataclasses import dataclass
 from typing import Any
 
 from constantes import MSG, labels
@@ -209,7 +211,7 @@ def tratativa10():
         return result
 
     def changelog_messages(
-            *, text: str, start: Any = None, end: Any = None) -> list:
+        *, text: str, start: Any = None, end: Any = None) -> list:
         result = []
         for msg in text.strip().splitlines()[start:end]:
             result.append(msg_classify(msg))
@@ -218,13 +220,48 @@ def tratativa10():
     print(changelog_messages(text=MSG, start=10, end=20))
 
 
+def tratativa11():
+    class ChangeLog:
+        def __init__(self):
+            self.messages = []
+
+        def __msg_classify(self, msg) -> dict:
+            key, msg = msg.split(maxsplit=1)
+            txt = re.sub(
+                "(Added|Changed|Deprecated|Removed|Fixed|Security):",
+                r"§\1:",
+                msg,
+                flags=re.I
+            )
+            dct = {}
+            for i, j in (
+                x.rstrip().rstrip(';').split(':')
+                for x in txt.strip().split('§') if x
+            ):
+                dct.setdefault(i, []).extend(j.strip().split(';'))
+
+            result = {'key': key, 'date': dt.datetime.now(), 'messages': dct}
+            return result
+
+        def messages_update(
+              self, *, start: Any = None, end: Any = None) -> list:
+            text = subprocess.getoutput('git tag -n')
+            result = []
+            for msg in text.strip().splitlines()[start:end]:
+                result.append(self.__msg_classify(msg))
+            self.messages = result
+            return self.messages
+
+    print(ChangeLog().messages)
+
+
 def translate():
     ...
 
 
 def run():
     translate()
-    tratativa10()
+    tratativa11()
 
 
 if __name__ == '__main__':  # pragma: no cover
