@@ -93,6 +93,9 @@ def tratativa05():
         print(d)
 
 
+def tratativa06():
+    ...
+
 
 def translate():
     ...
