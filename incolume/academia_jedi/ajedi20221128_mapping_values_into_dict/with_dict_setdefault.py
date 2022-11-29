@@ -1,6 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 import logging
+import re
 from copy import copy
 
 from constantes import MSG, labels
@@ -97,13 +98,42 @@ def tratativa06():
     ...
 
 
+def tratativa07():
+    msg = MSG.strip().splitlines()[-1]
+    logging.debug(f"{msg=}")
+    key, msg = msg.split(maxsplit=1)
+    logging.debug(f"{key=}")
+    logging.debug(f"{msg=}")
+    txt = re.sub(
+        "(Added|Changed|Deprecated|Removed|Fixed|Security):",
+        "§\\1:",
+        msg,
+        flags=re.I
+    )
+    logging.debug(f"{txt=}")
+    logging.debug(txt.strip().split('§'))
+    logging.debug(list(x.strip() for x in txt.strip().split('§') if x))
+    dct = {}
+    for i, j in (x.strip().split(':') for x in txt.strip().split('§') if x):
+        logging.debug(f"{i=} {j=}")
+        dct.setdefault(i, []).extend(j.strip().split(';'))
+    logging.debug(dct)
+    # values = dct.values()
+    # logging.debug(f"{values=}")
+    for x, y in dct.items():
+        # print(x, y)
+        dct[x] = [a for a in y if a]
+    logging.debug(dct)
+    ...
+
+
 def translate():
     ...
 
 
 def run():
     translate()
-    tratativa05()
+    tratativa07()
 
 
 if __name__ == '__main__':  # pragma: no cover
