@@ -7,6 +7,11 @@ from constantes import MSG, labels
 import datetime as dt
 
 __author__ = "@britodfbr"  # pragma: no cover
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s;%(levelname)-8s;%(name)s;"
+           "%(module)s;%(funcName)s;%(message)s",
+)
 
 
 def tratativa01():
