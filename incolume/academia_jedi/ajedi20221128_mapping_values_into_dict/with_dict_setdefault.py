@@ -3,6 +3,7 @@
 import logging
 import re
 from copy import copy
+from typing import Any
 
 from constantes import MSG, labels
 import datetime as dt
@@ -188,13 +189,42 @@ def tratativa09():
     print(changelog_messages(MSG))
 
 
+def tratativa10():
+    def msg_classify(msg: str) -> dict:
+        key, msg = msg.split(maxsplit=1)
+        txt = re.sub(
+            "(Added|Changed|Deprecated|Removed|Fixed|Security):",
+            r"§\1:",
+            msg,
+            flags=re.I
+        )
+        dct = {}
+        for i, j in (
+            x.rstrip().rstrip(';').split(':')
+            for x in txt.strip().split('§') if x
+        ):
+            dct.setdefault(i, []).extend(j.strip().split(';'))
+
+        result = {'key': key, 'date': dt.datetime.now(), 'messages': dct}
+        return result
+
+    def changelog_messages(
+            *, text: str, start: Any = None, end: Any = None) -> list:
+        result = []
+        for msg in text.strip().splitlines()[start:end]:
+            result.append(msg_classify(msg))
+        return result
+
+    print(changelog_messages(text=MSG, start=10, end=20))
+
+
 def translate():
     ...
 
 
 def run():
     translate()
-    tratativa09()
+    tratativa10()
 
 
 if __name__ == '__main__':  # pragma: no cover
