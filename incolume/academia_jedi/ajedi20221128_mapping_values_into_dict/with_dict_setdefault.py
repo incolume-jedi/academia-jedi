@@ -31,7 +31,10 @@ def tratativa02():
         print(f"{key=} {value=}")
         print(type(value))
         print(value)
-        tag, value = value[:value.index(':')], value[value.index(':')+1:].strip()
+        tag, value = (
+            value[:value.index(':')],
+            value[value.index(':') + 1:].strip()
+        )
         print(f"{tag=} {value=}")
 
 
@@ -46,7 +49,10 @@ def tratativa03():
         logging.debug(value)
         while value:
             try:
-                tag, value = value[:value.index(':')], value[value.index(':')+1:].strip()
+                tag, value = (
+                    value[:value.index(':')],
+                    value[value.index(':') + 1:].strip()
+                )
                 print(f"{tag=} {value=}")
             except ValueError:
                 pass
@@ -97,6 +103,5 @@ def run():
     tratativa05()
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()
-
