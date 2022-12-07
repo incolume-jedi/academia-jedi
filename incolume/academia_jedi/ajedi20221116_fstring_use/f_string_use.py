@@ -168,7 +168,15 @@ def example19() -> (Container | Generator):
     """Exibir __repr__ ou __str__.
     """
     u = User('Ada Brito', datetime.now())
-    return f'{u}', f'{type(u.born)=}'
+    return f'{u}', f'{type(u.born)}', f'{u.born!s}', f'{u.born!r}'
+
+
+@description
+def example20() -> (Container | Generator):
+    """Exibir __repr__ ou __str__.
+    """
+    u = User('Ada Brito', datetime.now())
+    return f'{u!s}', f'{u!r}', f'{u!a}'
 
 
 def run():
@@ -192,6 +200,7 @@ def run():
         example17,
         example18,
         example19,
+        example20,
     ]
     successive_execution(funcs)
 

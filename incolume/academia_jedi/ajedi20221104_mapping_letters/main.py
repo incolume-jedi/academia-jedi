@@ -38,7 +38,9 @@ def run():
         mapping_letters3,
     ]
     for func in funcs:
+        print(func.__name__)
         func()
+        print()
 
 
 if __name__ == '__main__':  # pragma: no cover
