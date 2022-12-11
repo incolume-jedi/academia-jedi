@@ -25,7 +25,7 @@ for item in html.css('article.product_pod'):
         'name': item.css('h3 a').attrib['title'],
         'link': item.css('a').attrib['href'],
         'price': item.css('p.price_color::text').get(),
-        'img': item.css('img thumbnail').attrib['src']
+        'img': item.css('img.thumbnail').attrib['src']
     }
     print(book)
     books.append(book)
