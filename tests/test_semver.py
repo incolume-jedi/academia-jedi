@@ -1,9 +1,7 @@
 import re
 import pytest
 from pathlib import Path
-from tomli import load
-
-from incolume.academia_jedi import __version__
+from incolume.academia_jedi import __version__, load
 
 
 __author__ = "@britodfbr"  # pragma: no cover
