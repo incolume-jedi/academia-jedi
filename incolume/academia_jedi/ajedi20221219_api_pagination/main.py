@@ -16,26 +16,24 @@ def data_get(url: str) -> Iterator:
     """"""
     totals: list = []
 
-    def make_request(url: str):
+    def make_request(url: str, result: list):
         resp = requests.get(url)
-        print(url)
+        logging.debug(url)
 
-        # totals += resp.json()["results"]
-        for item in resp.json()["results"]:
-            totals.append(item)
-
+        # result.extend(resp.json()["results"])
+        result += resp.json()["results"]
         if resp.json()["info"]["next"] is None:
             return
 
-        make_request(resp.json()["info"]["next"])
-    make_request(url)
+        make_request(resp.json()["info"]["next"], result)
+    make_request(url, totals)
     return totals
 
 
 def run():
     url = "https://rickandmortyapi.com/api/character?page=1"
     result = data_get(url)
-    print(len(result), result)
+    print(len(result))
 
 
 if __name__ == '__main__':    # pragma: no cover
