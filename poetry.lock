@@ -1562,6 +1562,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "rstr"
+version = "3.2.0"
+description = "Generate random strings in Python"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "selectolax"
 version = "0.3.11"
 description = "Fast HTML5 parser with CSS selectors."
@@ -1839,7 +1847,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "55365a01aa5c20b698d02e3ec653940b623ef40048585bf17c237077069eb8e1"
+content-hash = "1011b853fb58c2ff42dd6147877c7ec804d778a6b4f2c3fa7ce5d65a7cfd598e"
 
 [metadata.files]
 aniso8601 = [
@@ -2932,6 +2940,10 @@ rfc3339-validator = [
 rfc3986-validator = [
     {file = "rfc3986_validator-0.1.1-py2.py3-none-any.whl", hash = "sha256:2f235c432ef459970b4306369336b9d5dbdda31b510ca1e327636e01f528bfa9"},
     {file = "rfc3986_validator-0.1.1.tar.gz", hash = "sha256:3d44bde7921b3b9ec3ae4e3adca370438eccebc676456449b145d533b240d055"},
+]
+rstr = [
+    {file = "rstr-3.2.0-py3-none-any.whl", hash = "sha256:29f4870c70141c26cb75cc639fbd658e2aad1e75c7dedfb5d3afd74de62acb02"},
+    {file = "rstr-3.2.0.tar.gz", hash = "sha256:54b36313a3aecb37450083004f3951cbf04687eeadb1ede90e8bf48fcbabd736"},
 ]
 selectolax = [
     {file = "selectolax-0.3.11-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:ad0cfc7f66a2863d199af819c79bfa160bcc830e0f83fd5391cdd80e545af758"},
