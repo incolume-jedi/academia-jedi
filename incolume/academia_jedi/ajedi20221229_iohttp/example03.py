@@ -47,5 +47,6 @@ if __name__ == '__main__':
         'https://books.toscrape.com/catalogue/page-3.html',
     ]
     results = asyncio.run(main(urls))
-    print(len(results), results)
+    # print(len(results), results)
+    print(len(results))
     parse(results)
