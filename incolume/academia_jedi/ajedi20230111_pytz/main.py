@@ -33,12 +33,25 @@ def ex05():
     #print(data.isoformat())
 
 
+def ex06():
+    """Exemplo 5"""
+    utc_now = pytz.utc.localize(dt.datetime.utcnow())
+    pst_now = utc_now.astimezone(pytz.timezone("America/Los_Angeles"))
+
+    print('<',
+        pst_now == utc_now, '> <',
+        utc_now.isoformat(), '> <',
+        pst_now.isoformat(), '>'
+    )
+
+
 def run():
     ex01()
     ex02()
     ex03()
     ex04()
     ex05()
+    ex06()
 
 
 if __name__ == "__main__":
