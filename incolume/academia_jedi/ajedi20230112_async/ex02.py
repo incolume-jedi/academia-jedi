@@ -21,6 +21,7 @@ def run():
     ]
     loop.run_until_complete(asyncio.wait(tasks))
     print("Tempo de execução: {}s".format(perf_counter() - start_time))
+    loop.close()
 
 
 if __name__ == '__main__':    # pragma: no cover
