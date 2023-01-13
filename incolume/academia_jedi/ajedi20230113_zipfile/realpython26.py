@@ -1,0 +1,23 @@
+import zipfile
+from pathlib import Path
+import datetime
+import logging
+import io
+import tempfile
+
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s;%(levelname)-8s;%(name)s;"
+           "%(module)s;%(funcName)s;%(message)s",
+)
+
+root = Path(__file__).parent
+logging.debug(root)
+
+
+if __name__ == "__main__":
+    with zipfile.ZipFile(root/"sample.zip", mode="r") as archive:
+        for file in archive.namelist():
+            if file.endswith(".md"):
+                archive.extract(file, root/"new_output_dir/")
