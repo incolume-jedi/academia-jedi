@@ -11,8 +11,7 @@ logging.basicConfig(
 
 directory = Path(__file__).parent
 
-
-if __name__ == "__main__":
+def run():
     logging.debug(directory.parts)
     with zipfile.ZipFile(directory/"sample_file_pwd.zip", mode="r") as archive:
         for line in archive.read("hello.txt", pwd=b"secret1").split(b"\n"):
@@ -21,3 +20,7 @@ if __name__ == "__main__":
     with zipfile.ZipFile(directory/"sample_file_pwd1.zip", mode="r") as archive:
         for line in archive.read("new_hello.txt", pwd=b"secret2").split(b"\n"):
             print(line)
+
+
+if __name__ == "__main__":
+    run()

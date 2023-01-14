@@ -12,11 +12,15 @@ logging.basicConfig(
 directory = Path(__file__).parent
 
 
-if __name__ == "__main__":
+def run():
     logging.debug(directory.parts)
 
-    with zipfile.ZipFile(directory/"sample.zip", mode="r") as archive:
+    with zipfile.ZipFile(directory / "sample.zip", mode="r") as archive:
+        logging.debug(archive.filename)
         text = archive.read("hello.txt").decode(encoding="utf-8")
 
-
     print(text)
+
+
+if __name__ == "__main__":
+    run()

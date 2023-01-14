@@ -7,8 +7,12 @@ hello = directory.joinpath('hello.txt')
 hello.write_text('hello again.')
 
 
-if __name__ == "__main__":
+def run():
+    """raise FileNotFoundError:
+    [Errno 2] No such file or directory: 'missing/hello.zip'"""
     with zipfile.ZipFile("missing/hello.zip", mode="w") as archive:
         archive.write("hello.txt")
 
-    """FileNotFoundError: [Errno 2] No such file or directory: 'missing/hello.zip'"""
+
+if __name__ == "__main__":
+    run()

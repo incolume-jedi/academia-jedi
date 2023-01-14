@@ -16,7 +16,8 @@ root = Path(__file__).parent
 logging.debug(root)
 
 
-if __name__ == "__main__":
+def run():
+    logging.debug('Creted object zipfile to handler')
     hello_txt = zipfile.Path(root/"sample.zip", "hello.txt")
     print(
         hello_txt,
@@ -26,3 +27,7 @@ if __name__ == "__main__":
         hello_txt.read_text(),
         sep='\n'
     )
+
+
+if __name__ == "__main__":
+    run()

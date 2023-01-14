@@ -17,6 +17,10 @@ root = Path(__file__).parent
 logging.debug(root)
 
 
-if __name__ == "__main__":
+def run():
     files = zipfile.Path(root/"sample.zip")
     pprint(list(files.iterdir()))
+
+
+if __name__ == "__main__":
+    run()

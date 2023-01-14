@@ -16,10 +16,16 @@ logging.debug(root)
 hello = root.joinpath('python-zipfile', "hello.zip")
 logging.debug(hello)
 
-# Gerar o zip com pacote .pyc
-with zipfile.PyZipFile(hello.as_posix(), mode="w") as zip_module:
-    [zip_module.writepy(x.as_posix()) for x in hello.parent.rglob('*.py')]
 
-# Exibe o conteúdo do pacote python zip
-with zipfile.PyZipFile(hello.as_posix(), mode="r") as zip_module:
-    zip_module.printdir()
+def run():
+    # Gerar o zip com pacote .pyc
+    with zipfile.PyZipFile(hello.as_posix(), mode="w") as zip_module:
+        [zip_module.writepy(x.as_posix()) for x in hello.parent.rglob('*.py')]
+
+    # Exibe o conteúdo do pacote python zip
+    with zipfile.PyZipFile(hello.as_posix(), mode="r") as zip_module:
+        zip_module.printdir()
+
+
+if __name__ == '__main__':    # pragma: no cover
+    run()

@@ -14,9 +14,13 @@ logging.basicConfig(
 directory = Path(__file__).parent
 
 
-if __name__ == "__main__":
+def run():
     """Extracting Member Files From Your ZIP Archives."""
     logging.debug(directory.parts)
 
     with zipfile.ZipFile(directory/"sample.zip", mode="r") as archive:
         archive.extract("new_hello.txt", path=directory/"output_dir/")
+
+
+if __name__ == "__main__":
+    run()

@@ -19,6 +19,7 @@ logging.debug(root)
 
 def append_member(zip_file, member):
     with zipfile.ZipFile(zip_file, mode="a") as archive:
+        logging.debug('Appended %s into %s' % (zip_file, archive.filename))
         archive.write(member)
 
 

@@ -14,7 +14,7 @@ logging.basicConfig(
 directory = Path(__file__).parent
 
 
-if __name__ == "__main__":
+def run():
     archive = zipfile.ZipFile(directory/"sample.zip", mode="r")
 
     # Use archive in different parts of your code
@@ -23,3 +23,7 @@ if __name__ == "__main__":
     # Close the archive when you're done
     archive.close()
     print(archive)
+
+
+if __name__ == "__main__":
+    run()

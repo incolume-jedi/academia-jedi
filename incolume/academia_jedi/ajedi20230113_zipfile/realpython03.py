@@ -11,11 +11,14 @@ def tratativa2(filename):
         print("File is not a zip file")
 
 
-
-if __name__ == '__main__':
+def run():
     zipnames = (
-        Path(__file__).resolve().parent/'sample.zip',
-        Path(__file__).resolve().parent/'bad_sample.zip',
+        Path(__file__).resolve().parent / 'sample.zip',
+        Path(__file__).resolve().parent / 'bad_sample.zip',
     )
     for file in zipnames:
         tratativa2(file)
+
+
+if __name__ == '__main__':
+    run()

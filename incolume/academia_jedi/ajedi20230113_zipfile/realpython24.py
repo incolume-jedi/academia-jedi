@@ -15,11 +15,18 @@ logging.basicConfig(
 root = Path(__file__).parent
 logging.debug(root)
 
-if __name__ == "__main__":
+
+def run():
 
     directory = Path(root/"output_dir/")
 
     with zipfile.ZipFile(root/"comp_dir.zip", "w", zipfile.ZIP_DEFLATED,
                          compresslevel=9) as archive:
+        logging.debug('Created %s', archive.filename)
         for file_path in directory.rglob("*"):
+            logging.debug('Added %s' % file_path)
             archive.write(file_path, arcname=file_path.relative_to(directory))
+
+
+if __name__ == "__main__":
+    run()

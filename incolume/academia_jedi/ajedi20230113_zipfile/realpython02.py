@@ -12,12 +12,14 @@ def tratativa1(zipname):
         logging.error(error)
 
 
-if __name__ == '__main__':
+def run():
     zipnames = (
-        Path(__file__).resolve().parent/'sample.zip',
-        Path(__file__).resolve().parent/'realpython02.py',
+        Path(__file__).resolve().parent / 'sample.zip',
+        Path(__file__).resolve().parent / 'realpython02.py',
     )
     for file in zipnames:
         tratativa1(file)
 
 
+if __name__ == '__main__':
+    run()
