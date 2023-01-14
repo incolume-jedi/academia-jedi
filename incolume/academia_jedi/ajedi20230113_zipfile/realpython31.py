@@ -1,7 +1,7 @@
 import zipfile
 import logging
 from pathlib import Path
-import sys
+
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -9,20 +9,23 @@ logging.basicConfig(
            "%(module)s;%(funcName)s;%(message)s",
 )
 
+
 root = Path(__file__).parent
 logging.debug(root)
 
-packhello = root.joinpath('python-zipfile', "hello.zip")
-logging.debug(packhello)
+hello = root.joinpath('python-zipfile', "hello.zip")
+logging.debug(hello)
 
 
 def run():
-    sys.path.insert(0, packhello.as_posix())
-    logging.debug(sys.path[0])
-    from hello import hello
+    # Gerar o zip com pacote .pyc
+    with zipfile.PyZipFile(hello.as_posix(), mode="w") as zip_module:
+        [zip_module.writepy(x.as_posix()) for x in hello.parent.rglob('*.py')]
 
-    print(hello.greet("Pythonista"))
+    # Exibe o conteúdo do pacote python zip
+    with zipfile.PyZipFile(hello.as_posix(), mode="r") as zip_module:
+        zip_module.printdir()
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == '__main__':    # pragma: no cover
     run()

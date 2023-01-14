@@ -1,6 +1,7 @@
-import subprocess
+import zipfile
 import logging
 from pathlib import Path
+import sys
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -11,20 +12,17 @@ logging.basicConfig(
 root = Path(__file__).parent
 logging.debug(root)
 
+packhello = root.joinpath('python-zipfile', "hello.zip")
+logging.debug(packhello)
+
 
 def run():
-    p = subprocess.Popen(
-        'poetry run python -m zipfile --list sample.zip',
-        stdout=subprocess.PIPE, shell=True)
+    sys.path.insert(0, packhello.as_posix())
+    logging.debug(sys.path[0])
+    from hello import hello
 
-    print(p.communicate())
-
-    with subprocess.Popen(
-        [f"poetry run python -m zipfile -c {root/'source_dir.zip'} {root/'output_dir/'}"],
-        stdout=subprocess.PIPE
-    ) as proc:
-        print(proc.stdout.read())
+    print(hello.greet("Pythonista"))
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()
