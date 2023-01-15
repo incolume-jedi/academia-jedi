@@ -36,8 +36,10 @@ def run():
     print(8, t - 1)
     print(9, t - Currency(.12))
     print(10, Currency(.12) - t)
-    # print(t // 2)
-    # print(t / 2)
+    print(t // 2)
+    print(2 // t)
+    print(Currency(120) // t)
+    print(t / 2)
     m = [NC(random()) for _ in range(5)]
     print(m)
     print(sorted(m))

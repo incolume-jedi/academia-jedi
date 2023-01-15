@@ -58,6 +58,33 @@ class Currency:
     def __rmul__(self, other):
         return self.__mul__(other)
 
+    def __floordiv__(self, other):
+        if isinstance(other, Currency) and self.sigla == other.sigla:
+            self.value //= other.value
+        else:
+            self.value //= other
+        return self
+
+    def __rfloordiv__(self, other):
+        return self.__floordiv__(other)
+
+    def __truediv__(self, other):
+        if isinstance(other, Currency) and self.sigla == other.sigla:
+            self.value /= other.value
+        else:
+            self.value /= other
+        return self
+
+    def __rtruediv__(self, other):
+        return self.__truediv__(other)
+
+    def __neg__(self):
+        self.value *= -1
+        return self
+
+
+
+
 
 @dataclass
 class NC:
