@@ -17,6 +17,7 @@ def run():
     tratativa1.ex04()
     tratativa2.ex01()
     tratativa2.ex02()
+    tratativa2.ex03()
 
 
 
