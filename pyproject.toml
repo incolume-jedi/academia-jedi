@@ -41,6 +41,7 @@ aiohttp = "^3.8.3"
 pwinput = "^1.0.2"
 fastparquet = "^2022.12.0"
 pyarrow = "^10.0.1"
+pypdf2 = "^3.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
