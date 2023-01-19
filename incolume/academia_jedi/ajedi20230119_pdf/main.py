@@ -11,6 +11,9 @@ logging.basicConfig(
 
 def run():
     tratativa1.ex01()
+    tratativa1.ex02()
+    tratativa1.ex03()
+    tratativa1.ex04()
 
 
 
