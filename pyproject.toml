@@ -44,6 +44,7 @@ pyarrow = "^10.0.1"
 pypdf2 = "^3.0.1"
 pymupdf = "^1.21.1"
 pdfplumber = "^0.7.6"
+pdfminer3 = "^2018.12.3.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
