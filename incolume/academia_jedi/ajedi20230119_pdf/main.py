@@ -1,4 +1,5 @@
 import tratativa1
+import tratativa2
 import logging
 
 
@@ -14,6 +15,8 @@ def run():
     tratativa1.ex02()
     tratativa1.ex03()
     tratativa1.ex04()
+    tratativa2.ex01()
+    tratativa2.ex02()
 
 
 
