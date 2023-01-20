@@ -46,6 +46,7 @@ pymupdf = "^1.21.1"
 pdfplumber = "^0.7.6"
 pdfminer3 = "^2018.12.3.0"
 pytesseract = "^0.3.10"
+pdf2image = "^1.16.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
