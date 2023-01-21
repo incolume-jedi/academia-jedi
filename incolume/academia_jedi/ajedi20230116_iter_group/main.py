@@ -13,7 +13,6 @@ def run():
     print(list(tratativa1()))
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     # print(help(chain))
     run()
-

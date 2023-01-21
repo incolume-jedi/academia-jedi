@@ -17,7 +17,7 @@ class Game(db.Entity):
     away_score = orm.Required(int)
 
 
-db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
+db.bind(provider="sqlite", filename="database.sqlite", create_db=True)
 db.generate_mapping(create_tables=True)
 
 
@@ -45,8 +45,7 @@ class GameList(Resource):
         except orm.TransactionIntegrityError as err:
             print(err)
             return {
-                "error": f"game id "
-                         f"**{new_game.get('game_id')}** already exists"
+                "error": f"game id " f"**{new_game.get('game_id')}** already exists"
             }
 
 
@@ -55,17 +54,13 @@ class GameDetail(Resource):
         try:
             with orm.db_session:
                 item = Game.get(game_id=game_id)
-            return {
-                'result': item.to_dict()
-            }
+            return {"result": item.to_dict()}
         except AttributeError:
-            return {
-                'error': 'Game does not exists!'
-            }
+            return {"error": "Game does not exists!"}
 
 
-api.add_resource(GameList, '/')
-api.add_resource(GameDetail, '/<string:game_id>')
+api.add_resource(GameList, "/")
+api.add_resource(GameDetail, "/<string:game_id>")
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     app.run(debug=True, port=5555)

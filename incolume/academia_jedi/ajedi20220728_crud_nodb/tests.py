@@ -1,20 +1,29 @@
-from basedados import db, create_person, update_person, delete_person, select_person, select_all_person
+from basedados import (
+    db,
+    create_person,
+    update_person,
+    delete_person,
+    select_person,
+    select_all_person,
+)
 from model import Pessoa
 from faker import Faker
 import pytest
 
 Faker.seed(17)
-fake = Faker('pt_Br')
+fake = Faker("pt_Br")
+
 
 @pytest.fixture
 def pessoa():
     fname = fake.first_name()
     lname = fake.last_name()
     return Pessoa(
-                f'{fname} {lname}',
-                fake.date_time_this_century(),
-                [f'{fname.casefold()}_{lname.casefold()}@example.org']
-            )
+        f"{fname} {lname}",
+        fake.date_time_this_century(),
+        [f"{fname.casefold()}_{lname.casefold()}@example.org"],
+    )
+
 
 def test_create(pessoa):
     create_person(pessoa)
@@ -24,7 +33,7 @@ def test_create(pessoa):
 
 def test_update(pessoa):
     create(pessoa)
-    telefone = ['555-5555']
+    telefone = ["555-5555"]
     pessoa.telefone = telefone
     update(pessoa.id, pessoa)
     assert db.get(pessoa.id).telefone == telefone

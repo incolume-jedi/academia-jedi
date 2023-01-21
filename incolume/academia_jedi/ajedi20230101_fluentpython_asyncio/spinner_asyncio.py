@@ -12,14 +12,14 @@ import itertools
 
 
 async def spin(msg):  # <1>
-    for char in itertools.cycle('|/-\\'):
-        status = char + ' ' + msg
-        print(status, flush=True, end='\r')
+    for char in itertools.cycle("|/-\\"):
+        status = char + " " + msg
+        print(status, flush=True, end="\r")
         try:
-            await asyncio.sleep(.1)  # <2>
+            await asyncio.sleep(0.1)  # <2>
         except asyncio.CancelledError:  # <3>
             break
-    print(' ' * len(status), end='\r')
+    print(" " * len(status), end="\r")
 
 
 async def slow_function():  # <4>
@@ -29,8 +29,8 @@ async def slow_function():  # <4>
 
 
 async def supervisor():  # <6>
-    spinner = asyncio.create_task(spin('thinking!'))  # <7>
-    print('spinner object:', spinner)  # <8>
+    spinner = asyncio.create_task(spin("thinking!"))  # <7>
+    print("spinner object:", spinner)  # <8>
     result = await slow_function()  # <9>
     spinner.cancel()  # <10>
     return result
@@ -38,9 +38,9 @@ async def supervisor():  # <6>
 
 def main():
     result = asyncio.run(supervisor())  # <11>
-    print('Answer:', result)
+    print("Answer:", result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 # END SPINNER_ASYNCIO

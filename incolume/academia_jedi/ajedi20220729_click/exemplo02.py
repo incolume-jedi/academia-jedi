@@ -5,14 +5,15 @@ import click
 @click.pass_context
 def cli(ctx):
     if ctx.invoked_subcommand is None:
-        click.echo('I was invoked without subcommand')
+        click.echo("I was invoked without subcommand")
     else:
-        click.echo('I am about to invoke %s' % ctx.invoked_subcommand)
+        click.echo("I am about to invoke %s" % ctx.invoked_subcommand)
+
 
 @cli.command()
 def sync():
-    click.echo('The subcommand')
+    click.echo("The subcommand")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     cli()

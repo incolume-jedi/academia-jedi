@@ -11,6 +11,6 @@ load_dotenv()
 
 for env in environ.items():
     print(env)
-print(getenv('DOMAIN'))
-print(getenv('ADMIN_EMAIL'))
-print(getenv('ROOT_URL'))
+print(getenv("DOMAIN"))
+print(getenv("ADMIN_EMAIL"))
+print(getenv("ROOT_URL"))

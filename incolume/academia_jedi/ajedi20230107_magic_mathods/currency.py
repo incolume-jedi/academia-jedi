@@ -4,17 +4,16 @@ from dataclasses import dataclass
 
 
 class Currency:
-    def __init__(self,
-                 value: float = .0, *, sigla: str = 'BRL', symbol: str = 'R$'):
+    def __init__(self, value: float = 0.0, *, sigla: str = "BRL", symbol: str = "R$"):
         self.sigla = sigla
         self.symbol = symbol
         self.value = value
 
     def __str__(self):
-        return 'Currency({sigla} {value:0.2f})'.format(**self.__dict__)
+        return "Currency({sigla} {value:0.2f})".format(**self.__dict__)
 
     def __repr__(self):
-        return '{symbol} {value:0.2f}'.format(**self.__dict__)
+        return "{symbol} {value:0.2f}".format(**self.__dict__)
 
     def __lt__(self, other):
         return self.value < other.value
@@ -83,20 +82,17 @@ class Currency:
         return self
 
 
-
-
-
 @dataclass
 class NC:
-    value: float = .0
-    sigla: str = 'BRL'
-    symbol: str = 'R$'
+    value: float = 0.0
+    sigla: str = "BRL"
+    symbol: str = "R$"
 
     def __str__(self):
-        return 'Currency({sigla} {value:0.2f})'.format(**self.__dict__)
+        return "Currency({sigla} {value:0.2f})".format(**self.__dict__)
 
     def __repr__(self):
-        return '{symbol} {value:0.2f}'.format(**self.__dict__)
+        return "{symbol} {value:0.2f}".format(**self.__dict__)
 
     def __lt__(self, other):
         return self.value < other.value

@@ -20,7 +20,7 @@ class TestGroup:
         return 123
 
     def test_one(self, param1, param2, fixt):
-        print(f'\n{inspect.stack()[0][3]} {param1} {param2} {fixt}')
+        print(f"\n{inspect.stack()[0][3]} {param1} {param2} {fixt}")
 
     def test_two(self, param1, param2):
-        print(f'\n{inspect.stack()[0][3]} {param1} {param2}')
+        print(f"\n{inspect.stack()[0][3]} {param1} {param2}")

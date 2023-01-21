@@ -3,24 +3,24 @@ from functools import wraps
 from typing import Callable
 
 names = (
-    'Francois',
-    'Rupert Cambrige',
-    'Mike Whitney',
-    'Sagun Khatri',
-    'Nick Francesco',
-    'Pickles',
-    'K5ANR',
-    'Bryan Ander Berge',
-    'Bob   Finger',
-    'Carlos Alterto',
-    'SussexCambrige',
-    'Jedi Incolume',
-    'João das Colves',
-    'm!sha',
-    'http://brito.blog.incolume.com.br',
-    'https://brito.blog.incolume.com.br',
-    'ftp://ftp.incolume.com.br',
-    'https://snu.socratica.com/python'
+    "Francois",
+    "Rupert Cambrige",
+    "Mike Whitney",
+    "Sagun Khatri",
+    "Nick Francesco",
+    "Pickles",
+    "K5ANR",
+    "Bryan Ander Berge",
+    "Bob   Finger",
+    "Carlos Alterto",
+    "SussexCambrige",
+    "Jedi Incolume",
+    "João das Colves",
+    "m!sha",
+    "http://brito.blog.incolume.com.br",
+    "https://brito.blog.incolume.com.br",
+    "ftp://ftp.incolume.com.br",
+    "https://snu.socratica.com/python",
 )
 
 
@@ -30,9 +30,9 @@ def show_examples(func: Callable):
         print(func.__name__)
         print(f"{args=} {kwargs=}")
         print(f"   >>> {func.__doc__}")
-        print('---')
+        print("---")
         func(*args, **kwargs)
-        print('---\n')
+        print("---\n")
 
     return inner
 
@@ -40,7 +40,7 @@ def show_examples(func: Callable):
 @show_examples
 def ex01():
     """Find people with first and last name only."""
-    regex = r'^\w+ \w+$'
+    regex = r"^\w+ \w+$"
     for name in names:
         result = re.search(regex, name)
         if result:
@@ -50,7 +50,7 @@ def ex01():
 @show_examples
 def ex02():
     """Find people with first and last name only."""
-    regex = r'^\w+\s+\w+$'
+    regex = r"^\w+\s+\w+$"
     for name in names:
         result = re.search(regex, name)
         if result:
@@ -60,7 +60,7 @@ def ex02():
 @show_examples
 def ex03():
     """Search for word char sequence starting with C."""
-    regex = r'C\w*'
+    regex = r"C\w*"
     for name in names:
         match = re.match(regex, name)
         if match:
@@ -72,7 +72,7 @@ def ex03():
 @show_examples
 def ex04():
     """Search for word char sequence starting with C."""
-    regex = r'C\w*'
+    regex = r"C\w*"
     for name in names:
         match = re.match(regex, name)
         if match:
@@ -83,7 +83,7 @@ def ex04():
 @show_examples
 def ex05():
     """Test for first name and last name by groups."""
-    regex = r'^(\w+)\s+(\w+)$'
+    regex = r"^(\w+)\s+(\w+)$"
     for name in names:
         match = re.search(regex, name)
         if match:
@@ -95,20 +95,24 @@ def ex05():
 @show_examples
 def ex06():
     """Test for first name, midle name and last name by named groups."""
-    regex = r'^(?P<fn>\w+)\s+(?P<mn>\w+)\s+(?P<ln>\w+)$'
+    regex = r"^(?P<fn>\w+)\s+(?P<mn>\w+)\s+(?P<ln>\w+)$"
     for name in names:
         match = re.search(regex, name)
         if match:
             print(name)
-            print(match.group('fn'),
-                  match.group('mn'),
-                  match.group('ln'), sep='\n', end='\n\n')
+            print(
+                match.group("fn"),
+                match.group("mn"),
+                match.group("ln"),
+                sep="\n",
+                end="\n\n",
+            )
 
 
 @show_examples
 def ex07():
     """Detect unique name"""
-    regex = '^[a-zA-Z!]+$'
+    regex = "^[a-zA-Z!]+$"
     for name in names:
         if re.search(regex, name):
             print(name)
@@ -117,7 +121,7 @@ def ex07():
 @show_examples
 def ex08():
     """Scan for blocks of lower case letters."""
-    regex=r'[a-z]+'
+    regex = r"[a-z]+"
     for name in names:
         matches = re.findall(regex, name)
         if matches:
@@ -127,7 +131,7 @@ def ex08():
 @show_examples
 def ex09():
     """Scan for blocks of lower case letters."""
-    regex=r'[a-z]+'
+    regex = r"[a-z]+"
     for name in names:
         matches = re.findall(regex, name)
         for match in matches:
@@ -137,7 +141,7 @@ def ex09():
 @show_examples
 def ex10():
     """Test if string starts with http or https."""
-    regex = r'https?'
+    regex = r"https?"
     for value in names:
         if re.match(regex, value):
             print(value)
@@ -146,7 +150,7 @@ def ex10():
 @show_examples
 def ex11():
     """Test if string starts with http, https or ftp."""
-    regex = r'(ht|f)tps?'
+    regex = r"(ht|f)tps?"
     for value in names:
         if re.match(regex, value):
             print(value)
@@ -155,7 +159,7 @@ def ex11():
 @show_examples
 def ex12():
     """Test if URL valid."""
-    regex = r'(ht|f)tps?://snu.\w+.(org|com)'
+    regex = r"(ht|f)tps?://snu.\w+.(org|com)"
     for value in names:
         if re.match(regex, value):
             print(value)
@@ -176,5 +180,5 @@ def run():
     ex12()
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

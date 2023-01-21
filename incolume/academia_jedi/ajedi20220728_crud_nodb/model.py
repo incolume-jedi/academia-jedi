@@ -26,6 +26,6 @@ class Pessoa:
     address: list[str] = field(default_factory=list)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     for i in range(10):
         print(get_id())

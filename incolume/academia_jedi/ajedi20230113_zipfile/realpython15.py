@@ -6,7 +6,7 @@ import logging
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s;%(levelname)-8s;%(name)s;"
-           "%(module)s;%(funcName)s;%(message)s",
+    "%(module)s;%(funcName)s;%(message)s",
 )
 
 directory = Path(__file__).parent

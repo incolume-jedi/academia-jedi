@@ -7,7 +7,7 @@ __author__ = "@britodfbr"  # pragma: no cover
 
 def run():
     seed(23)
-    r = Real(.2)
+    r = Real(0.2)
     p = Real(1)
     print(r)
     print(r + p)
@@ -16,7 +16,7 @@ def run():
     print(sorted((r, p), reverse=True))
 
     q = list(Currency(random()) for _ in range(10))
-    s = list(Currency(random(), symbol='$', sigla='USD') for _ in range(10))
+    s = list(Currency(random(), symbol="$", sigla="USD") for _ in range(10))
     print(q, s)
 
     print(Currency(10) + Currency(12))
@@ -34,8 +34,8 @@ def run():
     print(6, 1 + t)
     print(7, 1 - t)
     print(8, t - 1)
-    print(9, t - Currency(.12))
-    print(10, Currency(.12) - t)
+    print(9, t - Currency(0.12))
+    print(10, Currency(0.12) - t)
     print(t // 2)
     print(2 // t)
     print(Currency(120) // t)
@@ -48,5 +48,5 @@ def run():
     print(n)
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

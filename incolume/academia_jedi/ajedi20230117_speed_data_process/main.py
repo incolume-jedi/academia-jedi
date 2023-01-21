@@ -12,31 +12,35 @@ __author__ = "@britodfbr"  # pragma: no cover
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s;%(levelname)-8s;%(name)s;"
-           "%(module)s;%(funcName)s;%(message)s",
+    "%(module)s;%(funcName)s;%(message)s",
 )
 
-file = Path(gettempdir()) / 'file.txt'
+file = Path(gettempdir()) / "file.txt"
 
 
-def write(df: pd.DataFrame, file: Path, suffix: str = 'csv') -> bool:
+def write(df: pd.DataFrame, file: Path, suffix: str = "csv") -> bool:
     """Write databases."""
-    suffix = suffix if suffix.startswith('.') else f'.{suffix}'
+    suffix = suffix if suffix.startswith(".") else f".{suffix}"
     rfunctions = {
-        '.csv': df.read_csv,
-        '.json': df.read_json,
+        ".csv": df.read_csv,
+        ".json": df.read_json,
     }
     wfunctions = {
-        '.csv': df.to_csv,
-        '.json': df.to_json,
+        ".csv": df.to_csv,
+        ".json": df.to_json,
     }
     logging.debug(suffix.upper())
     it = perf_counter()
-    wfunctions.get(suffix)(f := file.with_suffix(f'.{suffix}'), index=False)
+    wfunctions.get(suffix)(f := file.with_suffix(f".{suffix}"), index=False)
     it = perf_counter() - it
     ft = perf_counter()
     rfunctions.get(suffix)(f)
     ft = perf_counter() - ft
-    logging.debug('{:15}: {:15}; time w:{}; time r: {}'.format(f.as_posix(), f.stat().st_size, it, ft))
+    logging.debug(
+        "{:15}: {:15}; time w:{}; time r: {}".format(
+            f.as_posix(), f.stat().st_size, it, ft
+        )
+    )
     return True
 
 
@@ -47,60 +51,84 @@ def run():
 
     # CSV
     it = perf_counter()
-    df.to_csv(f := file.with_suffix('.csv'), index=False)
+    df.to_csv(f := file.with_suffix(".csv"), index=False)
     it = perf_counter() - it
     ft = perf_counter()
     df = pd.read_csv(f)
     ft = perf_counter() - ft
-    logging.debug('{:15}: {:15}; time w:{}; time r: {}'.format(f.as_posix(), f.stat().st_size, it, ft))
+    logging.debug(
+        "{:15}: {:15}; time w:{}; time r: {}".format(
+            f.as_posix(), f.stat().st_size, it, ft
+        )
+    )
 
     # JSON
     it = perf_counter()
-    df.to_json(f := file.with_suffix('.json'), orient='records', indent=2)
+    df.to_json(f := file.with_suffix(".json"), orient="records", indent=2)
     it = perf_counter() - it
     ft = perf_counter()
     df = pd.read_json(f)
     ft = perf_counter() - ft
-    logging.debug('{:15}: {:15}; time w:{}; time r: {}'.format(f.as_posix(), f.stat().st_size, it, ft))
+    logging.debug(
+        "{:15}: {:15}; time w:{}; time r: {}".format(
+            f.as_posix(), f.stat().st_size, it, ft
+        )
+    )
 
     # XLSX
     it = perf_counter()
-    df.to_excel(f := file.with_suffix('.xlsx'), index=False)
+    df.to_excel(f := file.with_suffix(".xlsx"), index=False)
     it = perf_counter() - it
     ft = perf_counter()
     df = pd.read_excel(f)
     ft = perf_counter() - ft
-    logging.debug('{:15}: {:15}; time w:{}; time r: {}'.format(f.as_posix(), f.stat().st_size, it, ft))
+    logging.debug(
+        "{:15}: {:15}; time w:{}; time r: {}".format(
+            f.as_posix(), f.stat().st_size, it, ft
+        )
+    )
 
     # Pickle
     it = perf_counter()
-    df.to_pickle(f := file.with_suffix('.pkl'))
+    df.to_pickle(f := file.with_suffix(".pkl"))
     it = perf_counter() - it
     ft = perf_counter()
     df = pd.read_pickle(f)
     ft = perf_counter() - ft
-    logging.debug('{:15}: {:15}; time w:{}; time r: {}'.format(f.as_posix(), f.stat().st_size, it, ft))
+    logging.debug(
+        "{:15}: {:15}; time w:{}; time r: {}".format(
+            f.as_posix(), f.stat().st_size, it, ft
+        )
+    )
 
     # Parquet
     it = perf_counter()
-    df.to_parquet(f := file.with_suffix('.parquet'))
+    df.to_parquet(f := file.with_suffix(".parquet"))
     it = perf_counter() - it
     ft = perf_counter()
     df = pd.read_parquet(f)
     ft = perf_counter() - ft
-    logging.debug('{:15}: {:15}; time w:{}; time r: {}'.format(f.as_posix(), f.stat().st_size, it, ft))
+    logging.debug(
+        "{:15}: {:15}; time w:{}; time r: {}".format(
+            f.as_posix(), f.stat().st_size, it, ft
+        )
+    )
 
     # Feather
     it = perf_counter()
-    df.to_feather(f := file.with_suffix('.feather'))
+    df.to_feather(f := file.with_suffix(".feather"))
     it = perf_counter() - it
     ft = perf_counter()
     df = pd.read_feather(f)
     ft = perf_counter() - ft
-    logging.debug('{:15}: {:15}; time w:{}; time r: {}'.format(f.as_posix(), f.stat().st_size, it, ft))
+    logging.debug(
+        "{:15}: {:15}; time w:{}; time r: {}".format(
+            f.as_posix(), f.stat().st_size, it, ft
+        )
+    )
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()
     """
     2023-01-17 23:36:54,559;DEBUG   ;root;main;run;/tmp/file.csv  :        37205166; time w:1.8565981949977868; time r: 0.2632749270014756

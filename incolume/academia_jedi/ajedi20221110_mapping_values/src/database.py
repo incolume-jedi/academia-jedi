@@ -13,25 +13,26 @@ class Cliente:
 
 def get_client_list(**kwargs) -> list[Cliente, ...]:
     """Return a client fake list."""
-    fake = Faker(kwargs.get('lang', 'pt_Br'))
-    fake.seed_instance(kwargs.get('seed', 31))
+    fake = Faker(kwargs.get("lang", "pt_Br"))
+    fake.seed_instance(kwargs.get("seed", 31))
 
     clients = list(
-        Cliente(**{
-            'nome':
-                f"{fake.first_name()} {fake.last_name()} {fake.last_name()}",
-            'size_at': fake.date_between(),
-        })
-        for _ in range(kwargs.get('count', 10))
+        Cliente(
+            **{
+                "nome": f"{fake.first_name()} {fake.last_name()} {fake.last_name()}",
+                "size_at": fake.date_between(),
+            }
+        )
+        for _ in range(kwargs.get("count", 10))
     )
     return clients
 
 
-if __name__ == '__main__':  # pragma: no cover
-    clientes = get_client_list(seed=17, lang='jp_Jp', count=15)
+if __name__ == "__main__":  # pragma: no cover
+    clientes = get_client_list(seed=17, lang="jp_Jp", count=15)
     print(getsizeof(clientes), getsizeof(clientes[0]))
     print(
         # fake.name(),
-        f'{20 * .05}',
+        f"{20 * .05}",
         clientes,
     )

@@ -7,7 +7,7 @@ from positional_parameters import (
     myfunc1,
     myfunc2,
     myfunc3,
-    myfunc4
+    myfunc4,
 )
 
 __author__ = "@britodfbr"  # pragma: no cover
@@ -53,7 +53,9 @@ def example3():
 def example4():
     """Argumentos posicionais exclusivamente."""
 
-    print(myfunc2(1, 2), )
+    print(
+        myfunc2(1, 2),
+    )
     try:
         myfunc2(1, b=2),
     except TypeError as e:
@@ -129,15 +131,15 @@ def run():
     ]
 
     for func in funcs:
-        print('')
-        print(f'{func.__name__}'.ljust(90, '-'))
-        print(f'{func.__name__:^90}')
-        print('doc:', f'{func.__doc__}')
-        print('doc'.rjust(90, '-'))
+        print("")
+        print(f"{func.__name__}".ljust(90, "-"))
+        print(f"{func.__name__:^90}")
+        print("doc:", f"{func.__doc__}")
+        print("doc".rjust(90, "-"))
         func()
-        print(f'{func.__name__:->90}')
-        print('')
+        print(f"{func.__name__:->90}")
+        print("")
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

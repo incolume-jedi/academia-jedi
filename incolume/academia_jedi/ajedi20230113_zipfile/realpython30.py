@@ -5,13 +5,13 @@ from pathlib import Path
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s;%(levelname)-8s;%(name)s;"
-           "%(module)s;%(funcName)s;%(message)s",
+    "%(module)s;%(funcName)s;%(message)s",
 )
 
 root = Path(__file__).parent
 logging.debug(root)
 
-hello = root.joinpath('python-zipfile', "hello.zip")
+hello = root.joinpath("python-zipfile", "hello.zip")
 logging.debug(hello)
 
 
@@ -25,5 +25,5 @@ def run():
         zip_module.printdir()
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

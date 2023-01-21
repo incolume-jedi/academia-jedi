@@ -26,12 +26,12 @@ def example1():
     """Exemplo com montar os objetos."""
     print(
         Release(
-            '0.1.0',
+            "0.1.0",
             dt.datetime.now(),
             [
-                Message('Added', ['abc', 'xpto', 'khaqi']),
-                Message('Changed', ['xxxxx', 'x9'])
-            ]
+                Message("Added", ["abc", "xpto", "khaqi"]),
+                Message("Changed", ["xxxxx", "x9"]),
+            ],
         )
     )
 

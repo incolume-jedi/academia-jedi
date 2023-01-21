@@ -6,6 +6,7 @@ import string
 
 class Day(Enum):
     """Creating Enumerations With the Functional API"""
+
     MONDAY = 1
     TUESDAY = 2
     WEDNESDAY = 3
@@ -17,11 +18,13 @@ class Day(Enum):
 
 class Season(Enum):
     """Creating Enumerations With the Functional API"""
+
     WINTER, SPRING, SUMMER, FALL = range(1, 5)
 
 
 class Grade(Enum):
     """Creating Enumerations With the Functional API"""
+
     A = 90
     B = 80
     C = 70
@@ -31,6 +34,7 @@ class Grade(Enum):
 
 class Size(Enum):
     """Creating Enumerations With the Functional API"""
+
     S = "small"
     M = "medium"
     L = "large"
@@ -39,11 +43,13 @@ class Size(Enum):
 
 class Size1(Enum):
     """Creating Enumerations With the Functional API"""
-    S, M,  L, XL = 1, 2, 3, 4
+
+    S, M, L, XL = 1, 2, 3, 4
 
 
 class SwitchPosition(Enum):
     """Creating Enumerations With the Functional API"""
+
     ON = True
     OFF = False
 
@@ -58,6 +64,7 @@ class BaseTextEnum(Enum):
 
 class Alphabet(BaseTextEnum):
     """Creating Enumerations With the Functional API"""
+
     LOWERCASE = string.ascii_lowercase
     UPPERCASE = string.ascii_uppercase
 
@@ -68,6 +75,7 @@ HTTPMethod0 = Enum("HTTPMethod", ["GET", "POST", "PUSH", "PATCH", "DELETE"])
 
 class HTTPMethod(Enum):
     """Creating Enumerations With the Functional API"""
+
     GET = 1
     POST = 2
     PUSH = 3
@@ -90,6 +98,7 @@ HTTPStatusCode = Enum(
 
 class WDay(Enum):
     """Building Enumerations From Automatic Values"""
+
     MONDAY = auto()
     TUESDAY = auto()
     WEDNESDAY = 3
@@ -209,79 +218,69 @@ def compare():
 def run():
     print(
         *list(Day),
-        '---',
+        "---",
         type(Day.SUNDAY),
         type(Day.TUESDAY),
-        '---',
+        "---",
         *list(Season),
-        '---',
+        "---",
         *list(Grade),
-        '---',
+        "---",
         *list(Size),
-        '---',
+        "---",
         list(SwitchPosition),
-        '---',
+        "---",
         Alphabet.LOWERCASE.as_list(),
-        '---',
+        "---",
         Alphabet.UPPERCASE.as_list(),
-        '---',
+        "---",
         list(HTTPMethod0),
-        '---',
+        "---",
         list(HTTPMethod),
-        '---',
+        "---",
         list(HTTPStatusCode),
-        '---',
+        "---",
         list(WDay),
-        '---',
+        "---",
         list(CardinalDirection),
-        '---',
+        "---",
         list(OperatingSystem0),
-        '---',
+        "---",
         list(OperatingSystem0.__members__.items()),
         # '---',
         # list(OperatingSystem1),
         # '---',
         # list(OperatingSystem1.__members__.items()),
-        '---',
+        "---",
         # Dot notation
         CardinalDirection1.NORTH,
         # Call notation
         CardinalDirection1("N"),
         # Subscript notation
         CardinalDirection1["NORTH"],
-        '---',
+        "---",
         CardinalDirection1.NORTH.name,
         CardinalDirection1.NORTH.value,
         CardinalDirection1.WEST.name,
-        '---',
-        '---',
-
-        sep='\n'
+        "---",
+        "---",
+        sep="\n",
     )
-    print('---')
+    print("---")
     loop1()
-    print('---')
+    print("---")
     handle_semaphore(Semaphore.GREEN),
     handle_semaphore(Semaphore.YELLOW),
     handle_semaphore(Semaphore.RED),
-    print('---')
-    print(
-        Mood.HAPPY.describe_mood(),
-        Mood.HAPPY,
-        Mood.favorite_mood(),
-        sep='\n'
-    )
-    print('---')
+    print("---")
+    print(Mood.HAPPY.describe_mood(), Mood.HAPPY, Mood.favorite_mood(), sep="\n")
+    print("---")
     numbers = [5, 2, 7, 6, 3, 9, 8, 4]
-    print(
-        Sort.ASCENDING(numbers),
-        Sort.DESCENDING(numbers),
-        sep='\n'
-    )
-    print('---')
+    print(Sort.ASCENDING(numbers), Sort.DESCENDING(numbers), sep="\n")
+    print("---")
 
     ...
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()

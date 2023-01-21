@@ -26,6 +26,3 @@ class Point:
         self.x -= o.x
         self.y -= o.y
         return self
-
-
-

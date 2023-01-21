@@ -24,45 +24,44 @@ def example1():
 
 def example2():
     discount = 0.0
-    advertisement = f'{random.randint(10, 40)}% discount'
-    if mo := re.search(r'(\d+)% discount', advertisement):
+    advertisement = f"{random.randint(10, 40)}% discount"
+    if mo := re.search(r"(\d+)% discount", advertisement):
         discount = float(mo.group(1)) / 100.0
     print(discount)
 
 
 def example3():
-    files = Path(__file__).parents[3].joinpath('data_files').glob('*.csv')
+    files = Path(__file__).parents[3].joinpath("data_files").glob("*.csv")
     # print(list(files))
     file = random.choice(list(files))
     print(file)
 
     def process(value):
         """Fake process."""
-        print('---\n', value, '\n---')
+        print("---\n", value, "\n---")
 
     with file.open() as f:
         # Loop over fixed length blocks
-        while (block := f.read(256)) != '':
+        while (block := f.read(256)) != "":
             process(block)
 
 
 def example4(encode=False):
     """allowed_named not contains kwy"""
 
-    fake = Faker('pt_Br' if encode else None)
+    fake = Faker("pt_Br" if encode else None)
     fake.seed_instance(13)
     names = [
-        f'{fake.first_name()} {fake.last_name()} {fake.last_name()}'
-        for _ in range(100)
+        f"{fake.first_name()} {fake.last_name()} {fake.last_name()}" for _ in range(100)
     ]
 
     def allowed_names(name: str):
-        return not bool(re.search('[kwy]', name, re.I))
+        return not bool(re.search("[kwy]", name, re.I))
 
     result = [
         clean_name.title()
         for name in names
-        if (clean_name := normalize('NFC', name)) and allowed_names(clean_name)
+        if (clean_name := normalize("NFC", name)) and allowed_names(clean_name)
     ]
     print(len(result), result)
 
@@ -77,5 +76,5 @@ def run():
     ...
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     run()
