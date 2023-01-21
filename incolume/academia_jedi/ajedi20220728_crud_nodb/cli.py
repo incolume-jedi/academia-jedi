@@ -31,10 +31,11 @@ import click
 #     click.echo('Debug is %s' % (ctx.obj['debug'] and 'on' or 'off'))
 
 
+CONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])
 
-CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
+
 @click.group(context_settings=CONTEXT_SETTINGS, invoke_without_command=True)
-@click.option('--debug/--no-debug', default=False, help='Activate debug mode.')
+@click.option("--debug/--no-debug", default=False, help="Activate debug mode.")
 @click.pass_context
 def run(ctx, **kwargs):
     # ensure that ctx.obj exists and is a dict (in case `cli()` is called
@@ -42,18 +43,18 @@ def run(ctx, **kwargs):
     ctx.ensure_object(dict)
     ctx.obj.update(**kwargs)
     if ctx.invoked_subcommand is None:
-        click.secho(run.get_help(ctx), fg='red')
+        click.secho(run.get_help(ctx), fg="red")
 
 
 @run.command()
 @click.pass_context
 def show(ctx):
     """Show context content."""
-    click.secho(f'{ctx.obj}')
+    click.secho(f"{ctx.obj}")
 
 
 @run.command()
-@click.option('-p', '--person', type=dict, help='Index of record.')
+@click.option("-p", "--person", type=dict, help="Index of record.")
 @click.pass_context
 def insert(ctx, person):
     """Insert one record into database.
@@ -65,23 +66,26 @@ def insert(ctx, person):
         'telefone': ['phone1', 'phone2],  # optional
         'address': ['add1', 'add2]}   # optional
     """
-    click.secho(create_person(Pessoa(**person), ctx.obj.get('debug')), fg='green')
+    click.secho(create_person(Pessoa(**person), ctx.obj.get("debug")), fg="green")
+
 
 @run.command()
 @click.pass_context
 def sync(ctx):
     """Show debug state."""
-    click.echo('Debug is %s' % (ctx.obj['debug'] and 'on' or 'off'))
+    click.echo("Debug is %s" % (ctx.obj["debug"] and "on" or "off"))
+
 
 @run.command()
 @click.pass_context
 def read_all(ctx):
     """Show all records into database."""
-    click.secho(select_all_person(), fg='green')
+    click.secho(select_all_person(), fg="green")
+
 
 @run.command()
-@click.option('-i', '--index', type=int, help='Index of record.')
+@click.option("-i", "--index", type=int, help="Index of record.")
 @click.pass_context
 def read_one(ctx, index):
     """Show one record into database."""
-    click.secho(select_person(index), fg='green')
+    click.secho(select_person(index), fg="green")

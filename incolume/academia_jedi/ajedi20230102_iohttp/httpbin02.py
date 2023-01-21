@@ -1,9 +1,11 @@
 import asyncio
 from aiohttp import ClientSession
 
+
 async def fetch(url, session):
     async with session.get(url) as response:
         return await response.read()
+
 
 async def run(r):
     url = "http://httpbin.org/delay/{}"
@@ -20,8 +22,10 @@ async def run(r):
         # you now have all response bodies in this variable
         print(responses)
 
+
 def print_responses(result):
     print(result)
+
 
 loop = asyncio.get_event_loop()
 future = asyncio.ensure_future(run(4))

@@ -22,7 +22,8 @@ async def main():
     f2 = loop.create_task(function_2())
     await asyncio.wait([f1, f2])
 
-if __name__ == '__main__':    # pragma: no cover
+
+if __name__ == "__main__":  # pragma: no cover
 
     # to run the above function we'll
     # use Event Loops these are low level

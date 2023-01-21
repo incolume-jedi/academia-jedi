@@ -8,7 +8,7 @@ __author__ = "@britodfbr"  # pragma: no cover
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s;%(levelname)-8s;%(name)s;"
-           "%(module)s;%(funcName)s;%(message)s",
+    "%(module)s;%(funcName)s;%(message)s",
 )
 
 
@@ -26,6 +26,7 @@ def data_get(url: str) -> Iterator:
             return
 
         make_request(resp.json()["info"]["next"], result)
+
     make_request(url, totals)
     return totals
 
@@ -36,5 +37,5 @@ def run():
     print(len(result))
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

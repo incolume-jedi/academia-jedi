@@ -8,8 +8,7 @@ from model import get_model_municipios
 
 db = orm.Database()
 
-with Path(__file__).parents[4] \
-        .joinpath('data_files', 'municipios_br.json').open() as f:
+with Path(__file__).parents[4].joinpath("data_files", "municipios_br.json").open() as f:
     municipios = json.load(f)
 
 
@@ -23,22 +22,22 @@ class MunicipioAPI:
         with orm.db_session:
             new_municipio = get_model_municipios(self.db, self.orm)
             new_municipio(
-                CODIGO_MUNICIPIO=kwargs.get('CODIGO_MUNICIPIO'),
-                NOME_MUNICIPIO=kwargs.get('NOME_MUNICIPIO'),
-                UF=kwargs.get('UF'),
-                DIA=kwargs.get('DIA'),
-                MES=kwargs.get('MES'),
+                CODIGO_MUNICIPIO=kwargs.get("CODIGO_MUNICIPIO"),
+                NOME_MUNICIPIO=kwargs.get("NOME_MUNICIPIO"),
+                UF=kwargs.get("UF"),
+                DIA=kwargs.get("DIA"),
+                MES=kwargs.get("MES"),
             )
         return self
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     print(
         municipios[0],
         type(municipios[0]),
-        municipios[0]['UF'],
-        municipios[0].get('UF'),
-        '',
+        municipios[0]["UF"],
+        municipios[0].get("UF"),
+        "",
         # **municipios[0],
     )
     msm = MunicipioAPI(db, orm)

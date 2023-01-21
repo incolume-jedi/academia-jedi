@@ -12,17 +12,17 @@ def activate_envvar(activate: bool = False) -> bool:
     """Configura variavle de ambiente através do python."""
     # pprint(environ)
     if activate:
-        environ['INCOLUME_AUTHOR'] = 'Ricardo Brito do Nascimento'
-        environ['INCOLUME_NAME'] = 'MyApp'
-        environ['INCOLUME_NUM'] = '42'
-        environ['INCOLUME_FLOAT'] = '4.2'
-        environ['INCOLUME_BOOL'] = 'true'
-        environ['INCOLUME_DICT'] = '{foo="bar", fuz="foo"}'
-        environ['INCOLUME_NUMBER'] = '@float 42'
-        environ['INCOLUME_NUMB'] = '@str 42'
-        environ['INCOLUME_PATH'] = '@format /tmp/xpto/{this.NAME}'
-        environ['INCOLUME_DATA'] = '@json {"key": "value"}'
-        environ['INCOLUME_DATA__newkey'] = 'new value'
+        environ["INCOLUME_AUTHOR"] = "Ricardo Brito do Nascimento"
+        environ["INCOLUME_NAME"] = "MyApp"
+        environ["INCOLUME_NUM"] = "42"
+        environ["INCOLUME_FLOAT"] = "4.2"
+        environ["INCOLUME_BOOL"] = "true"
+        environ["INCOLUME_DICT"] = '{foo="bar", fuz="foo"}'
+        environ["INCOLUME_NUMBER"] = "@float 42"
+        environ["INCOLUME_NUMB"] = "@str 42"
+        environ["INCOLUME_PATH"] = "@format /tmp/xpto/{this.NAME}"
+        environ["INCOLUME_DATA"] = '@json {"key": "value"}'
+        environ["INCOLUME_DATA__newkey"] = "new value"
     return activate
 
 

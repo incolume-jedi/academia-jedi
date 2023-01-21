@@ -9,7 +9,7 @@ import tempfile
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s;%(levelname)-8s;%(name)s;"
-           "%(module)s;%(funcName)s;%(message)s",
+    "%(module)s;%(funcName)s;%(message)s",
 )
 
 root = Path(__file__).parent
@@ -19,7 +19,7 @@ logging.debug(root)
 
 def append_member(zip_file, member):
     with zipfile.ZipFile(zip_file, mode="a") as archive:
-        logging.debug('Appended %s into %s' % (zip_file, archive.filename))
+        logging.debug("Appended %s into %s" % (zip_file, archive.filename))
         archive.write(member)
 
 
@@ -29,8 +29,8 @@ def get_file_from_stream():
         yield file
 
 
-def run(zipname: str = ''):
-    zipname = zipname or root/"incremental.zip"
+def run(zipname: str = ""):
+    zipname = zipname or root / "incremental.zip"
 
     for filename in get_file_from_stream():
         append_member(zipname, filename)

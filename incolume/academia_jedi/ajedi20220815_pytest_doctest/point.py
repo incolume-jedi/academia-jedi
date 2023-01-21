@@ -36,12 +36,12 @@ class Point:
     Point(2, 2)
     """
 
-    def __init__(self, x:int, y:int) -> None:
+    def __init__(self, x: int, y: int) -> None:
         self.x = x
         self.y = y
 
     def __repr__(self) -> str:
-        return f'Point({self.x!r}, {self.y!r})'
+        return f"Point({self.x!r}, {self.y!r})"
 
     def __add__(self, o):
         return Point(self.x + o.x, self.y + o.y)

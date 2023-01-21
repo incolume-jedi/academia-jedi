@@ -1,9 +1,10 @@
 import click
 
-CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
+CONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])
+
 
 @click.group(context_settings=CONTEXT_SETTINGS)
-@click.option('--debug/--no-debug', default=False, help='Activate debug mode.')
+@click.option("--debug/--no-debug", default=False, help="Activate debug mode.")
 @click.pass_context
 def cli(ctx, **kwargs):
     # ensure that ctx.obj exists and is a dict (in case `cli()` is called
@@ -15,14 +16,14 @@ def cli(ctx, **kwargs):
 @cli.command()
 @click.pass_context
 def show(ctx):
-    click.secho(f'{ctx.obj}')
+    click.secho(f"{ctx.obj}")
 
 
 @cli.command()
 @click.pass_context
 def sync(ctx):
-    click.echo('Debug is %s' % (ctx.obj['debug'] and 'on' or 'off'))
+    click.echo("Debug is %s" % (ctx.obj["debug"] and "on" or "off"))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     cli()

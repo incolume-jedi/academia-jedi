@@ -6,7 +6,7 @@ import tempfile
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s;%(levelname)-8s;%(name)s;"
-           "%(module)s;%(funcName)s;%(message)s",
+    "%(module)s;%(funcName)s;%(message)s",
 )
 
 root = Path(__file__).parent
@@ -21,10 +21,7 @@ def run():
 
     with zipfile.ZipFile(root / "directory_tree.zip", mode="w") as archive:
         for file_path in directory.rglob("*"):
-            archive.write(
-                file_path,
-                arcname=file_path.relative_to(directory)
-            )
+            archive.write(file_path, arcname=file_path.relative_to(directory))
 
     with zipfile.ZipFile(root / "directory_tree.zip", mode="r") as archive:
         archive.printdir()

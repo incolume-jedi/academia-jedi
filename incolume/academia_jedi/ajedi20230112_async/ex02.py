@@ -4,12 +4,12 @@ import asyncio
 from time import perf_counter
 
 
-servers = (f'192.168.1.{x}' for x in range(1, 100))
+servers = (f"192.168.1.{x}" for x in range(1, 100))
 
 
 async def simulation_ssh_connection(position, ip):
     await asyncio.sleep(1)
-    print(f'{position} - {ip}')
+    print(f"{position} - {ip}")
 
 
 def run():
@@ -24,5 +24,5 @@ def run():
     loop.close()
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

@@ -16,12 +16,13 @@ async def main():
 
         tasks = []
         for number in range(1, 151):
-            url = f'https://rickandmortyapi.com/api/episode/{number}'
+            url = f"https://rickandmortyapi.com/api/episode/{number}"
             tasks.append(asyncio.ensure_future(get_uuid(session, url)))
 
         original_pokemon = await asyncio.gather(*tasks)
         for pokemon in original_pokemon:
             print(pokemon)
+
 
 asyncio.run(main())
 print("--- %s seconds ---" % (time.time() - start_time))

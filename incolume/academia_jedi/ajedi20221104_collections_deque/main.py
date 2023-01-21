@@ -14,12 +14,12 @@ from typing import Iterator
 
 
 def example1():
-    d = deque('ghi')  # make a new deque with three items
+    d = deque("ghi")  # make a new deque with three items
     for elem in d:  # iterate over the deque's elements
         print(elem.upper())
 
-    d.append('j')  # add a new entry to the right side
-    d.appendleft('f')  # add a new entry to the left side
+    d.append("j")  # add a new entry to the right side
+    d.appendleft("f")  # add a new entry to the left side
     print(d)  # show the representation of the deque
     # deque(['f', 'g', 'h', 'i', 'j'])
 
@@ -29,32 +29,28 @@ def example1():
         list(d),  # list the contents of the deque ['g', 'h', 'i']
         d[0],  # peek at leftmost item 'g'
         d[-1],  # peek at rightmost item 'i'
-
         list(reversed(d)),
         # list the contents of a deque in reverse ['i', 'h', 'g']
-        'h' in d,  # search the deque True
-        d.extend('jkl'),  # add multiple elements at once d
-        deque(['g', 'h', 'i', 'j', 'k', 'l']),
+        "h" in d,  # search the deque True
+        d.extend("jkl"),  # add multiple elements at once d
+        deque(["g", "h", "i", "j", "k", "l"]),
         d.rotate(1),  # right rotation  d
-        deque(['l', 'g', 'h', 'i', 'j', 'k']),
+        deque(["l", "g", "h", "i", "j", "k"]),
         d.rotate(-1),  # left rotation d
-        deque(['g', 'h', 'i', 'j', 'k', 'l']),
-
+        deque(["g", "h", "i", "j", "k", "l"]),
         deque(reversed(d)),  # make a new deque in reverse order
-        deque(['l', 'k', 'j', 'i', 'h', 'g']),
+        deque(["l", "k", "j", "i", "h", "g"]),
         d.clear(),  # empty the deque
         # d.pop(),  # cannot pop from an empty deque
-
-        d.extendleft('abc'),  # extendleft() reverses the input order d
-
-        deque(['c', 'b', 'a']),
-        sep='\n'
+        d.extendleft("abc"),  # extendleft() reverses the input order d
+        deque(["c", "b", "a"]),
+        sep="\n",
     )
 
 
 def example2():
     """Access file."""
-    file = Path(__file__).parents[3] / 'data_files' / 'proxies_1663514130.csv'
+    file = Path(__file__).parents[3] / "data_files" / "proxies_1663514130.csv"
 
     def tail(filename, n=10):
         """Return the last n lines of a file"""
@@ -96,14 +92,14 @@ def example4():
                 # Remove an exhausted iterator.
                 iterators.popleft()
 
-    rr = roundrobin('ABCD', 'EF', 'GHI')
+    rr = roundrobin("ABCD", "EF", "GHI")
 
     print([next(rr) for _ in range(9)])
 
 
 def example5():
     """Deletar Nezimo termo."""
-    l = ['A', 'E', 'G', 'B', 'F', 'H', 'C', 'I', 'D']
+    l = ["A", "E", "G", "B", "F", "H", "C", "I", "D"]
 
     def delete_nth(d: Iterator, n: int = 0):
         d = deque(d)
@@ -126,12 +122,12 @@ def run():
     ]
 
     for func in functions:
-        print('===' * 30)
-        print(f'{func.__name__.upper()}'.center(90))
-        print(f'{func.__doc__}'.center(90))
-        print('---' * 30)
+        print("===" * 30)
+        print(f"{func.__name__.upper()}".center(90))
+        print(f"{func.__doc__}".center(90))
+        print("---" * 30)
         func()
-        print('---' * 30)
+        print("---" * 30)
 
 
 if __name__ == "__main__":

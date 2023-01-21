@@ -13,12 +13,13 @@ import time
 
 
 def spin(msg, done):  # <1>
-    for char in itertools.cycle('|/-\\'):  # <3>
-        status = char + ' ' + msg
-        print(status, flush=True, end='\r')
-        if done.wait(.1):  # <5>
+    for char in itertools.cycle("|/-\\"):  # <3>
+        status = char + " " + msg
+        print(status, flush=True, end="\r")
+        if done.wait(0.1):  # <5>
             break
-    print(' ' * len(status), end='\r')
+    print(" " * len(status), end="\r")
+
 
 def slow_function():  # <7>
     # pretend waiting a long time for I/O
@@ -28,9 +29,8 @@ def slow_function():  # <7>
 
 def supervisor():  # <9>
     done = threading.Event()
-    spinner = threading.Thread(target=spin,
-                               args=('thinking!', done))
-    print('spinner object:', spinner)  # <10>
+    spinner = threading.Thread(target=spin, args=("thinking!", done))
+    print("spinner object:", spinner)  # <10>
     spinner.start()  # <11>
     result = slow_function()  # <12>
     done.set()  # <13>
@@ -40,9 +40,9 @@ def supervisor():  # <9>
 
 def main():
     result = supervisor()  # <15>
-    print('Answer:', result)
+    print("Answer:", result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 # END SPINNER_THREAD
