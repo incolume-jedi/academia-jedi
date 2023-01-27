@@ -10,7 +10,14 @@ def languages_list():
 
 
 def translate_example1():
+    """..."""
+    print(translator.translate('안녕하세요.'))
+
+
+def translate_example2():
     result = [
+        translator.translate('안녕하세요.', dest='ja'),
+        translator.translate('veritas lux mea', src='la'),
         translator.translate('Mitä sinä teet'),
         translator.translate('Mikä on nimesi', src='fi'),
         translator.translate('Mikä on nimesi', src='fi', dest='pt'),
