@@ -1,12 +1,13 @@
 import contextlib
 import io
+import platform
 import sys
-from functools import namedtuple
-
+from collections import namedtuple
 
 if sys.version_info < (3, 8):
-    raise Exception(f'Incompatible python version. Current {platform.python_version()}. minimal Python 3.8+')
-
+    raise Exception(
+        f'Incompatible python version. Current {platform.python_version()}.'
+        f' minimal Python 3.8+')
 
 
 def elements_this():
