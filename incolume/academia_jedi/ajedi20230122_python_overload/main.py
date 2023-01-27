@@ -14,18 +14,18 @@ logging.basicConfig(
 
 def run():
     """"""
-    logging.debug('..')
+    logging.debug("..")
     print(inverse("abc"))
     print(inverse(123))
     print(inverse(123.4))
     print(inverse(False))
 
     hadler = HandlerReverse()
-    print(hadler.reverse('abc'))
+    print(hadler.reverse("abc"))
     print(hadler.reverse(123))
     print(hadler.reverse(123.4))
     print(hadler.reverse(True))
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()
