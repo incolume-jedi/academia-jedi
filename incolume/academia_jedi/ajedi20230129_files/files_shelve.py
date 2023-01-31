@@ -26,6 +26,7 @@ def ex01():
         db['b'] = 2
         db['c'] = 3
         db['d'] = 4
+        logging.debug(dict(db.items()))
 
 
 def ex02():
@@ -37,6 +38,7 @@ def ex02():
             db.get('a'),
             sep='\n'
         )
+        logging.debug(db.items())
 
 
 def ex03():
@@ -44,6 +46,7 @@ def ex03():
     data: dict = {'f': 1, 'a': 5}
     with shelve.open(fileoutput.as_posix()) as db:
         db.update(data)
+        logging.debug(dict(db.items()))
 
 
 def ex04():
@@ -51,6 +54,7 @@ def ex04():
     file = fileoutput.with_name('Obj').as_posix()
     with shelve.open(file) as db:
         db['0'] = dados[0]
+        logging.debug(dict(db.items()))
 
     with shelve.open(file) as db:
         print(dict(db.items()))
@@ -62,12 +66,14 @@ def ex05():
     with shelve.open(file) as db:
         for i, data in enumerate(dados):
             db[str(i)] = data
+        logging.debug(dict(db.items()))
 
     with shelve.open(file) as db:
         print(dict(db.items()))
 
 
 def run():
+    logging.debug('running..')
     ex01()
     ex02()
     ex03()
