@@ -25,6 +25,7 @@ pysimplegui = "^4.60.4"
 pysimpleguiqt = "^0.35.0"
 easygui = "^0.98.3"
 openpyxl = "^3.0.10"
+tqdm = "^4.64.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
