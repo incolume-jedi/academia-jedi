@@ -2,7 +2,7 @@ import dotenv
 import os
 import logging
 from pathlib import Path
-from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol. \
+from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol. \
     generator_pessoas import massa_pessoas
 
 
@@ -12,8 +12,11 @@ __author__ = "@britodfbr"  # pragma: no cover
 config = dotenv.load_dotenv(dotenv.find_dotenv())
 logging.debug(config)
 
-dados = massa_pessoas(is_json=False)
-logging.debug(dados)
+dados_json = massa_pessoas()
+logging.debug(dados_json)
+
+dados_dict = massa_pessoas(type='dict')
+logging.debug(dados_dict)
 
 fileoutput = Path.cwd() / 'databases' / os.getenv('BASENAME')
 fileoutput.parent.mkdir(exist_ok=True, parents=True)
