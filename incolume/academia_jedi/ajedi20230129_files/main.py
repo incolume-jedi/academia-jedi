@@ -11,11 +11,11 @@ logging.basicConfig(
 )
 
 
-def run():
+def main():
     """Run main module."""
     run1()
     run4()
 
 
 if __name__ == "__main__":
-    run()
+    main()
