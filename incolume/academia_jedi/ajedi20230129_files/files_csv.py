@@ -1,10 +1,8 @@
 import csv
 import logging
-from pathlib import Path
 from config import config, fileoutput, dados_dict
 from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.models import \
     Pessoa
-import json
 
 __author__ = "@britodfbr"  # pragma: no cover
 

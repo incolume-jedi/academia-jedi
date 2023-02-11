@@ -1,6 +1,7 @@
 """Main Module."""
 import logging
 from files_shelve import run as run1
+from files_csv import run as run2
 from files_pickles import run as run4
 
 
@@ -14,6 +15,7 @@ logging.basicConfig(
 def main():
     """Run main module."""
     run1()
+    run2()
     run4()
 
 
