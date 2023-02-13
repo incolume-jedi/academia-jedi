@@ -1,6 +1,7 @@
 """Main Module."""
 import logging
-from files_shelve import ex01
+from files_shelve import run as run1
+
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -11,7 +12,7 @@ logging.basicConfig(
 
 def run():
     """Run main module."""
-    ex01()
+    run1()
 
 
 if __name__ == "__main__":
