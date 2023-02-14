@@ -3,12 +3,13 @@
 import logging
 from typing import List
 from pprint import pprint
+
+import pytz
 from faker import Faker
 import datetime as dt
-from incolume.academia_jedi.\
+from incolume.academia_jedi. \
     ajedi20230211_massa_dados_faker_protocol.models import Pessoa
 from typing import Protocol
-
 
 __author__ = "@britodfbr"  # pragma: no cover
 
@@ -30,9 +31,8 @@ class IPessoa(Protocol):
 def massa_pessoas(
     objeto: IPessoa = None,
     quantidade: int = 10,
-    type: str = 'json',
+    type: str | None = None,
 ) -> List[IPessoa]:
-
     logging.debug(f"params: {objeto=}, {quantidade=}, {type=}")
     objeto = objeto or Pessoa
     quantidade: int = quantidade or 100
@@ -42,9 +42,16 @@ def massa_pessoas(
             nome_completo=(
                 f"{fake.first_name()} " f"{fake.last_name()} " f"{fake.last_name()}"
             ),
-            data_de_nascimento=fake.date_between(
-                start_date=dt.datetime.strptime("1965-01-01", "%Y-%m-%d"),
-                end_date=dt.datetime.strptime("2003-12-31", "%Y-%m-%d"),
+            data_de_nascimento=(
+                dt.datetime.combine(   # convert date > datetime
+                    fake.date_between(   # Date fake
+                        start_date=dt.datetime.strptime(
+                            "1965-01-01", "%Y-%m-%d"),
+                        end_date=dt.datetime.strptime(
+                            "2003-12-31", "%Y-%m-%d"),
+                    ),
+                    dt.time()   # time supplementary
+                )
             ),
             cpf=fake.bothify(text="###.###.###-##"),
         )
@@ -55,6 +62,8 @@ def massa_pessoas(
             return [pessoa.jsonify() for pessoa in result]
         case 'dict':
             return [pessoa.to_dict() for pessoa in result]
+        case _:
+            return result
 
 
 def run():
