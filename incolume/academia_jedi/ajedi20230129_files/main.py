@@ -2,6 +2,7 @@
 import logging
 from files_shelve import run as run1
 from files_csv import run as run2
+from files_json import run as run3
 from files_pickles import run as run4
 
 
@@ -16,6 +17,7 @@ def main():
     """Run main module."""
     run1()
     run2()
+    run3()
     run4()
 
 
