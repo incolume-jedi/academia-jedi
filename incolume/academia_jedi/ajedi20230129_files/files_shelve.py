@@ -1,5 +1,5 @@
 import shelve
-from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.\
+from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol. \
     generator_pessoas import massa_pessoas, Pessoa
 from pathlib import Path
 import dotenv
@@ -72,6 +72,21 @@ def ex05():
         print(dict(db.items()))
 
 
+def ex06():
+    """Recuperações de dados."""
+    file = fileoutput.with_name('Obj2').as_posix()
+    with shelve.open(file) as db:
+        for person in db.items():
+            print(person)
+
+        print(db['99'])  # raise Erro se 99 não existir
+        print(db.get('100'))  # None
+        print(db.get('100', 'Ops'))  # Ops
+
+        db.setdefault('2', 0)
+        print(db.get('99'))
+
+
 def run():
     logging.debug('running..')
     ex01()
@@ -80,7 +95,9 @@ def run():
     ex02()
     ex04()
     ex05()
+    print('===' * 30)
+    ex06()
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()
