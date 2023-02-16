@@ -21,8 +21,13 @@ class Pessoa:
 
     def jsonify(self):
         temp = copy(self)
-        temp.data_de_nascimento = self.data_de_nascimento.strftime("%Y-%m-%d")
+        temp.data_de_nascimento = self.data_de_nascimento.isoformat()
         return json.dumps(temp.__dict__)
+
+    def to_dict(self):
+        temp = copy(self)
+        temp.data_de_nascimento = self.data_de_nascimento.isoformat()
+        return temp.__dict__
 
 
 @dataclass
