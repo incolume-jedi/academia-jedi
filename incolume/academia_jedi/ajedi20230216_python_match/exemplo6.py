@@ -30,7 +30,7 @@ def run():
         Location('Germany', 'Berlin'),
         Location('Brazil', 'Brasilia'),
         Location('France', 'Paris'),
-        Location('Portual', 'Porto'),
+        Location('Portugal', 'Porto'),
     )
 
     for location in locations:
