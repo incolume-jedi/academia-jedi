@@ -11,6 +11,8 @@ import exemplo8
 import exemplo9
 import exemplo10
 import exemplo11
+import exemplo12
+import exemplo13
 
 
 logging.basicConfig(
@@ -34,6 +36,8 @@ def run():
     exemplo9.run()
     exemplo10.run()
     exemplo11.run()
+    exemplo12.run()
+    exemplo13.run()
 
 
 if __name__ == "__main__":
