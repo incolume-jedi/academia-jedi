@@ -1,8 +1,8 @@
-ARG OS_APP_BASE \
-    ARG OJS_VERSION \
-    PHP_ENGINE \
-    HTTP_PROXY \
-    HTTPS_PROXY
+ARG OS_APP_BASE
+ARG OJS_VERSION
+ARG PHP_ENGINE
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
 FROM ${OS_APP_BASE:-alpine:3.11}
 
 LABEL application="Open Journal System"
@@ -126,15 +126,15 @@ RUN set -xe \
 	&& cd /var/www/html \
  	&& rm -rf $(cat /tmp/exclude.list) \
 	&& apk del --no-cache .build-deps \
-	&& rm -rf /tmp/* \
-	&& rm -rf /root/.cache/* \
+	&& rm -rf /tmp/*
+#	&& rm -rf /root/.cache/* \
 # Some folders are not required (as .git .travis.yml test .gitignore .gitmodules ...)
-	&& find . -name ".git" -exec rm -Rf '{}' \; \
-	&& find . -name ".travis.yml" -exec rm -Rf '{}' \; \
-	&& find . -name "test" -exec rm -Rf '{}' \; \
-	&& find . \( -name .gitignore -o -name .gitmodules -o -name .keepme \) -exec rm -Rf '{}' \;
+#	&& find . -name ".git" -exec rm -Rf '{}' \; \
+#	&& find . -name ".travis.yml" -exec rm -Rf '{}' \; \
+#	&& find . -name "test" -exec rm -Rf '{}' \; \
+#	&& find . \( -name .gitignore -o -name .gitmodules -o -name .keepme \) -exec rm -Rf '{}' \;
 
-COPY root/ /
+COPY root /
 
 EXPOSE 80 443
 
