@@ -39,10 +39,8 @@ services:
         PHP_ENGINE: ${PHP_ENGINE:-php7}
         HTTP_PROXY: ${HTTP_PROXY:-}
         HTTPS_PROXY: ${HTTPS_PROXY:-}
-    environment:
-#      PHP_ENGINE: ${PHP_ENGINE:-php7}
-      HTTP_PROXY: ${HTTP_PROXY:-}
-      HTTPS_PROXY: ${HTTPS_PROXY:-}
+#    environment:
+    #   PHP_ENGINE: ${PHP_ENGINE:-php7}
     restart: unless-stopped
     container_name: "${PROJECT_NAME:-default}_ojs_app"
     hostname: "${PROJECT_NAME:-default}"
