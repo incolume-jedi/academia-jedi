@@ -1,5 +1,6 @@
 """Main Module."""
 import logging
+from incolume.academia_jedi.ajedi20230222_opencv import tratativa1
 
 
 logging.basicConfig(
@@ -12,7 +13,8 @@ logging.basicConfig(
 def run():
     """Run main module."""
     logging.debug('starting ..')
-
+    tratativa1.run()
+    
 
 if __name__ == "__main__":
     run()
