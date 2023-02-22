@@ -33,6 +33,7 @@ opencv-python = "^4.7.0.68"
 pytesseract = "^0.3.10"
 pyspellchecker = "^0.7.1"
 language-tool-python = "^2.7.1"
+pypdf2 = "^3.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
