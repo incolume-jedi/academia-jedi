@@ -842,7 +842,7 @@ files = [
 name = "dynaconf"
 version = "3.1.11"
 description = "The dynamic configurator for your Python Project"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -4244,4 +4244,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "0cbb8be62141f1dd6708cf7849a3f1402f716475873347730c7dd2d8cecbf05d"
+content-hash = "62e33844e0a374dc83d63df8cda23b2835d3d6000842038e94500de109093a8c"
