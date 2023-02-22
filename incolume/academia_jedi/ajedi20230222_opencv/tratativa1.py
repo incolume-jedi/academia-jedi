@@ -1,0 +1,20 @@
+"""
+
+Faz-se necessário instalar o binário no OS:
+sudo apt install tesseract-ocr
+"""
+import cv2
+import pytesseract
+from pathlib import Path
+
+def exemplo1()-> None:
+    """"""
+    img_file = Path(__file__).parent.joinpath('images', 'img2.png')
+    img = cv2.imread(img_file.as_posix())
+
+    resultado = pytesseract.image_to_string(img)
+    print(resultado)
+
+
+if __name__ == '__main__':
+    exemplo1()
