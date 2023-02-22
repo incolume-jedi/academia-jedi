@@ -13,12 +13,14 @@ def ex1():
 
     # separar o texto em palavras
     palavras = texto.split()
+    logging.debug(f'{palavras}')
 
     # verificar a ortografia de cada palavra
     for palavra in palavras:
-        if not spell.correction(palavra) == palavra:
+        s = spell.correction(palavra)
+        logging.debug(f'{palavra}: {s=}')
+        if not s == palavra:
             print(f"A palavra {palavra} está"
-                  f" escrita incorretamente. Sugestão:"
-                  f" {spell.correction(palavra)}")
+                  f" escrita incorretamente. Sugestão: {s}")
 
 
