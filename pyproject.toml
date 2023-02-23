@@ -38,6 +38,7 @@ deprecated = "^1.2.13"
 transformers = "^4.26.1"
 scikit-learn = "^1.2.1"
 nltk = "^3.8.1"
+textblob = "^0.17.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
