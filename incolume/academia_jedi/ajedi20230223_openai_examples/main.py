@@ -1,6 +1,9 @@
 """Main Module."""
 import logging
 from platform import python_version
+import ex_spellchecker
+import ex_textblob
+import ex_ml_sklearn_nltk_spellchecker
 
 
 logging.basicConfig(
@@ -9,7 +12,7 @@ logging.basicConfig(
     "%(module)s;%(funcName)s;%(message)s",
 )
 
-if '3.8.6' > python_version() > '3.11.0':
+if '3.8.6' > python_version() >= '3.11.0':
     msg = (
         f"Python-{python_version()} is incompatible! "
         f"Use 3.8.6 < version < 3.11.0"
@@ -21,6 +24,9 @@ if '3.8.6' > python_version() > '3.11.0':
 def run():
     """Run main module."""
     logging.debug('starting ..')
+    ex_spellchecker.run()
+    ex_textblob.run()
+    ex_ml_sklearn_nltk_spellchecker.run()
 
 
 if __name__ == "__main__":
