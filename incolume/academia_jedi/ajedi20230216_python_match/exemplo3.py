@@ -5,6 +5,8 @@ orders = [
     {"statusCode": 500, "id": 0, "price": 0, "items": []},
     {"statusCode": 202, "id": 3453, "price": 30.80, "items": ["Thumb Drive"]},
     {"statusCode": 404, },
+    {"statusCode": 200, "price": 30.80, "items": ["Thumb Drive"]},
+    {"statusCode": 200, "id": 3453, "price": 30.80, "items": ["Thumb Drive"]},
 ]
 
 
