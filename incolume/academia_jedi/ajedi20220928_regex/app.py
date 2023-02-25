@@ -5,7 +5,6 @@ __author__ = "@britodfbr"  # pragma: no cover
 import re
 from collections import namedtuple
 
-
 User = namedtuple("User", "name zipcode fone celfone email pw")
 u1 = User(
     "Ricardo Brito do Nascimento",
@@ -33,12 +32,13 @@ def show():
     )
 
 
-def example1(entrada: str):
+def example1(entrada: str) -> str:
     """
     Validação nome completo.
     """
     pat = re.compile(r"^(\w+\s)+\w+$", flags=re.I)
-    return pat.search(entrada).string
+    result = pat.search(entrada)
+    return pat.search(entrada).string if result else ''
 
 
 def example2(entrada: str):
