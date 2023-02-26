@@ -3,6 +3,8 @@
 import logging
 from typing import List
 from pprint import pprint
+
+from deprecated import deprecated
 from faker import Faker
 import datetime as dt
 from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.models import (
@@ -30,6 +32,10 @@ class IPessoa(Protocol):
         ...
 
 
+@deprecated(
+    version='0.88.0',
+    reason="Use an other implementation into 'incolume.academia_"
+           "jedi.ajedi20230211_massa_dados_fake_protocol.generator_pessoas'")
 def massa_pessoas(
     objeto: IPessoa = None, quantidade: int = 0, is_json: bool = False
 ) -> List[IPessoa]:
