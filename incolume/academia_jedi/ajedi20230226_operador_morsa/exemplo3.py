@@ -1,3 +1,9 @@
+"""
+Unificados a partir dos arquivos oriundos de
+incolume/academia_jedi/ajedi20221106_operador_morsa/
+"""
+import easygui as eg
+from enum import Enum, auto, unique
 import logging
 from enum import Enum, auto
 
