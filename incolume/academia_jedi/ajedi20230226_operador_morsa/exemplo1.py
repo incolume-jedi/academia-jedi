@@ -12,3 +12,11 @@ def menu():
 
     while (op := input("Escolha um numero (zero (0) para sair): ")) != "0":
         print(op)
+
+
+def run():
+    menu()
+
+
+if __name__ == '__main__':    # pragma: no cover
+    run()

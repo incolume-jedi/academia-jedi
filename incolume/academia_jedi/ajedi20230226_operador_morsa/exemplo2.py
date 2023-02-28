@@ -53,7 +53,8 @@ def example4(encode=False):
     fake = Faker("pt_Br" if encode else None)
     fake.seed_instance(13)
     names = [
-        f"{fake.first_name()} {fake.last_name()} {fake.last_name()}" for _ in range(100)
+        f"{fake.first_name()} {fake.last_name()} {fake.last_name()}"
+        for _ in range(100)
     ]
 
     def allowed_names(name: str):
