@@ -3,14 +3,14 @@ import logging
 import xmltodict
 from pathlib import Path
 from collections import OrderedDict
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
-
-FILES_XML: typing.Final = list(Path(__file__).parent.joinpath('NFs_Finais').rglob("*.xml"))
+FILES_XML: typing.Final = list(
+    Path(__file__).parent.joinpath('NFs_Finais').rglob("*.xml"))
 logging.debug(FILES_XML)
 
 
-def open_files(file: Path|str, mode: str = 'rb') -> OrderedDict:
+def open_files(file: Path | str, mode: str = 'rb') -> OrderedDict:
     """Abre arquivos XML e converte para dict."""
     file = Path(file)
     with file.open(mode) as f:
@@ -19,8 +19,24 @@ def open_files(file: Path|str, mode: str = 'rb') -> OrderedDict:
 
 
 @dataclass
+class ItensNFe:
+    """Produtos."""
+    nome: str
+    quantia: int = field(default=0)
+    valor_unitario: float = field(default=0)
+    valor_total: float = field(default=0)
+
+
+@dataclass
 class NFe:
-    """"""
+    """Nota Fistal Eletrônica."""
+    valor_total: float
+    cnpj_vend: str
+    nome_vend: str
+    cpf_comp: str
+    nome_comp: str
+    nome_fantasia: str = field(default='')
+    itens_nf: typing.List[ItensNFe] = field(default_factory=list)
 
 
 def tratativa0():
@@ -73,13 +89,52 @@ def tratativa6():
         'nome_vendeu': tratativa3()['emit']['xNome'],
         'cpf_comprou': tratativa3()['dest']['CPF'],
         'nome_comprou': tratativa3()['dest']['xNome'],
-        'lista_produtos': [(prod['prod']['qCom'], prod['prod']['xProd'], prod['prod']['vUnCom'], prod['prod']['vProd']) for prod in tratativa3()['det']],
+        'lista_produtos': [(float(prod['prod']['qCom']), prod['prod']['xProd'],
+                            prod['prod']['vUnCom'], prod['prod']['vProd']) for
+                           prod in tratativa3()['det']],
     }
     return resposta
 
 
 def tratativa7():
-    """"""
+    """Resposta do problema para outra NFe."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Nespresso'))
+    logging.debug(xml_file)
+    documento = open_files(xml_file)['nfeProc']['NFe']['infNFe']
+    resposta = {
+        'valor_total': documento['total']['ICMSTot']['vNF'],
+        'cnpj_vendeu': documento['emit']['CNPJ'],
+        'nome_vendeu': documento['emit']['xNome'],
+        'cpf_comprou': documento['dest']['CPF'],
+        'nome_comprou': documento['dest']['xNome'],
+        'lista_produtos': [(float(prod['prod']['qCom']), prod['prod']['xProd'],
+                            prod['prod']['vUnCom'], prod['prod']['vProd']) for
+                           prod in documento['det']],
+    }
+    return resposta
+
+
+def tratativa8():
+    """Resposta do problema para outra NFe."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Nespresso'))
+    logging.debug(xml_file)
+    documento = open_files(xml_file)['nfeProc']['NFe']['infNFe']
+    resposta = NFe(**{
+        'valor_total': documento['total']['ICMSTot']['vNF'],
+        'cnpj_vend': documento['emit']['CNPJ'],
+        'nome_vend': documento['emit']['xNome'],
+        'cpf_comp': documento['dest']['CPF'],
+        'nome_comp': documento['dest']['xNome'],
+        'itens_nf': [
+            ItensNFe(*(
+                prod['prod']['xProd'],
+                float(prod['prod']['qCom']),
+                float(prod['prod']['vUnCom']),
+                float(prod['prod']['vProd'])
+            ))
+            for prod in documento['det']],
+    })
+    return resposta
 
 
 def run():
