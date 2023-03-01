@@ -1,9 +1,11 @@
+import pandas as pd
 import typing
 import logging
 import xmltodict
 from pathlib import Path
 from collections import OrderedDict
 from dataclasses import dataclass, field, asdict, astuple
+
 
 FILES_XML: typing.Final = list(
     Path(__file__).parent.joinpath('NFs_Finais').rglob("*.xml"))
@@ -23,8 +25,30 @@ def get_info_nfe(file: Path| str, mode: str = 'rb') -> OrderedDict:
     return open_files(file, mode)['nfeProc']['NFe']['infNFe']
 
 
-def get_content_nfe(xml_file: Path|str, tp: str = '') -> OrderedDict:
-    """Resposta do problema para outra NFe."""
+def get_content_service_nfe(xml_file: Path|str, tp: str = '') -> OrderedDict:
+    """Retorna elementos da NFe de serviços."""
+    logging.debug(xml_file)
+    documento = open_files(xml_file)['ConsultarNfseResposta']['ListaNfse']['CompNfse']['Nfse']['InfNfse']
+    resposta = NFe(**{
+        'valor_total': documento['Servico']['Valores']['ValorServicos'],
+        'cnpj_vend': documento['PrestadorServico']['IdentificacaoPrestador']['Cnpj'],
+        'nome_vend': documento['PrestadorServico']['RazaoSocial'],
+        'cpf_comp': documento['TomadorServico']['IdentificacaoTomador']['CpfCnpj']['Cnpj'],
+        'nome_comp': documento['TomadorServico']['RazaoSocial'],
+        'itens_nf': ServicoNFe(documento['Servico']['Discriminacao'])
+        }
+    )
+    match tp:
+        case 'dict':
+            return asdict(resposta)
+        case 'tuple':
+            return astuple(resposta)
+        case _:
+            return resposta
+
+
+def get_content_danfe_nfe(xml_file: Path|str, tp: str = '') -> OrderedDict:
+    """Retorna elemento da NFe Danfe."""
     logging.debug(xml_file)
     documento = get_info_nfe(xml_file)
     resposta = NFe(**{
@@ -60,6 +84,13 @@ class ItensNFe:
 
 
 @dataclass
+class ServicoNFe:
+    """Serviços."""
+    description: str
+    quantia: int = field(default=1)
+
+
+@dataclass
 class NFe:
     """Nota Fistal Eletrônica."""
     valor_total: float
@@ -68,7 +99,7 @@ class NFe:
     cpf_comp: str
     nome_comp: str
     nome_fantasia: str = field(default='')
-    itens_nf: typing.List[ItensNFe] = field(default_factory=list)
+    itens_nf: typing.List[ItensNFe|ServicoNFe] = field(default_factory=list)
 
 
 def tratativa0():
@@ -195,37 +226,88 @@ def tratativa9():
 def tratativa10():
     """Resposta do problema para outra NFe."""
     xml_file = next(x for x in FILES_XML if x.name.__contains__('Brot'))
-    return get_content_nfe(xml_file)
+    return get_content_danfe_nfe(xml_file)
 
 
 def tratativa11():
     """Resposta do problema para outra NFe."""
     xml_file = next(x for x in FILES_XML if x.name.__contains__('Brot'))
-    return get_content_nfe(xml_file, 'dict')
+    return get_content_danfe_nfe(xml_file, 'dict')
 
 
 def tratativa12():
     """Resposta do problema para outra NFe."""
     xml_file = next(x for x in FILES_XML if x.name.__contains__('Brot'))
-    return get_content_nfe(xml_file, 'tuple')
+    return get_content_danfe_nfe(xml_file, 'tuple')
 
 
 def tratativa13():
     """Resposta do problema para outra NFe."""
     xml_file = next(x for x in FILES_XML if x.name.__contains__('Nespresso'))
-    return get_content_nfe(xml_file)
+    return get_content_danfe_nfe(xml_file)
 
 
 def tratativa14():
     """Resposta do problema para outra NFe."""
     xml_file = next(x for x in FILES_XML if x.name.__contains__('Nespresso'))
-    return get_content_nfe(xml_file, 'dict')
+    return get_content_danfe_nfe(xml_file, 'dict')
 
 
 def tratativa15():
     """Resposta do problema para outra NFe."""
     xml_file = next(x for x in FILES_XML if x.name.__contains__('Nespresso'))
-    return get_content_nfe(xml_file, 'tuple')
+    return get_content_danfe_nfe(xml_file, 'tuple')
+
+
+def tratativa16():
+    """Converte para Dataframe."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Brot'))
+    dados = get_content_danfe_nfe(xml_file, 'dict')
+    DF = pd.DataFrame.from_dict(dados)
+    print(DF)
+
+
+def tratativa17():
+    """Converte para Dataframe."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Brot'))
+    dados = get_content_danfe_nfe(xml_file, 'tuple')
+    DF = pd.DataFrame(dados).T
+    columns=["valor_total", "cnpj_vend", "nome_vend", "cpf_comp", "nome_comp", "nome_fantasia", "itens_nf"]
+    DF.columns = columns
+    print(DF)
+
+
+def tratativa18():
+    """Converte para Dataframe."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Brot'))
+    dados = get_content_danfe_nfe(xml_file, 'tuple')
+    columns=["valor_total", "cnpj_vend", "nome_vend", "cpf_comp", "nome_comp", "nome_fantasia", "itens_nf"]
+    DF = pd.DataFrame(dados, index=columns).T
+    print(DF)
+
+
+def tratativa19():
+    """Multiplas excuções danfe."""
+    for xml_file in (x for x in FILES_XML if x.name.__contains__('DANFE')):
+        print(get_content_danfe_nfe(xml_file, 'dict'))
+
+
+def tratativa20():
+    """Nota de Serviço carioca."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Carioca'))
+    logging.debug(xml_file)
+    return get_content_service_nfe(xml_file)
+
+
+def tratativa21():
+    """Multiplas execuções NFe danfe + carioca."""
+    for xml_file in FILES_XML:
+        print(xml_file)
+        match xml_file.as_posix().__contains__('Carioca'):
+            case True:
+                print(get_content_service_nfe(xml_file, 'dict'))
+            case _:
+                print(get_content_danfe_nfe(xml_file, 'dict'))
 
 
 def run():
@@ -241,7 +323,7 @@ def run():
         try:
             if result := func():
                 print(result)
-        except ValueError as e:
+        except (TypeError, ValueError) as e:
             logging.error(f'{e.__class__.__name__}: {e}')
         print('------\n')
 
