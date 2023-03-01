@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 import typing
 import logging
 import xmltodict
@@ -100,6 +101,19 @@ class NFe:
     nome_comp: str
     nome_fantasia: str = field(default='')
     itens_nf: typing.List[ItensNFe|ServicoNFe] = field(default_factory=list)
+
+
+@dataclass
+class MatchRegex(str):
+    string: str
+    match: re.Match = None
+
+    def __eq__(self, pattern):
+        self.match = re.search(pattern, self.string)
+        return self.match is not None
+
+    def __getitem__(self, group):
+        return self.match[group]
 
 
 def tratativa0():
@@ -303,11 +317,39 @@ def tratativa21():
     """Multiplas execuções NFe danfe + carioca."""
     for xml_file in FILES_XML:
         print(xml_file)
+        if xml_file.as_posix().__contains__('Carioca'):
+            print(get_content_service_nfe(xml_file, 'dict'))
+        else:
+            print(get_content_danfe_nfe(xml_file, 'dict'))
+
+
+def tratativa22():
+    """Multiplas execuções NFe com match/case."""
+    for xml_file in FILES_XML:
+        print(xml_file)
         match xml_file.as_posix().__contains__('Carioca'):
             case True:
                 print(get_content_service_nfe(xml_file, 'dict'))
             case _:
                 print(get_content_danfe_nfe(xml_file, 'dict'))
+
+
+def tratativa23():
+    """Multiplas execuções NFe com regex match/case."""
+
+    for xml_file in FILES_XML:
+        logging.debug(xml_file)
+
+        match MatchRegex(xml_file.as_posix()):
+            case 'Carioca':
+                print(1, xml_file)
+                print(get_content_service_nfe(xml_file, 'dict'))
+            case 'DANFE':
+                print(2, xml_file)
+                print(get_content_danfe_nfe(xml_file, 'dict'))
+            case _:
+                raise AssertionError(f'NFe {xml_file} do not match any case configured.')
+
 
 
 def run():
