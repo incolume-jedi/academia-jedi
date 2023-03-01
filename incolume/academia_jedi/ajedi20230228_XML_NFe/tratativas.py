@@ -3,7 +3,7 @@ import logging
 import xmltodict
 from pathlib import Path
 from collections import OrderedDict
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict, astuple
 
 FILES_XML: typing.Final = list(
     Path(__file__).parent.joinpath('NFs_Finais').rglob("*.xml"))
@@ -22,6 +22,33 @@ def get_info_nfe(file: Path| str, mode: str = 'rb') -> OrderedDict:
     """Abre arquivos XML e converte para dict retornando as informações da NFe."""
     return open_files(file, mode)['nfeProc']['NFe']['infNFe']
 
+
+def get_content_nfe(xml_file: Path|str, tp: str = '') -> OrderedDict:
+    """Resposta do problema para outra NFe."""
+    logging.debug(xml_file)
+    documento = get_info_nfe(xml_file)
+    resposta = NFe(**{
+        'valor_total': documento['total']['ICMSTot']['vNF'],
+        'cnpj_vend': documento['emit']['CNPJ'],
+        'nome_vend': documento['emit']['xNome'],
+        'cpf_comp': documento['dest']['CPF'],
+        'nome_comp': documento['dest']['xNome'],
+        'itens_nf': [
+            ItensNFe(*(
+                prod['prod']['xProd'],
+                float(prod['prod']['qCom']),
+                float(prod['prod']['vUnCom']),
+                float(prod['prod']['vProd'])
+            ))
+            for prod in documento['det']],
+    })
+    match tp:
+        case 'dict':
+            return asdict(resposta)
+        case 'tuple':
+            return astuple(resposta)
+        case _:
+            return resposta
 
 @dataclass
 class ItensNFe:
@@ -140,6 +167,65 @@ def tratativa8():
             for prod in documento['det']],
     })
     return resposta
+
+
+def tratativa9():
+    """Resposta do problema para outra NFe."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Nespresso'))
+    logging.debug(xml_file)
+    documento = get_info_nfe(xml_file)
+    resposta = NFe(**{
+        'valor_total': documento['total']['ICMSTot']['vNF'],
+        'cnpj_vend': documento['emit']['CNPJ'],
+        'nome_vend': documento['emit']['xNome'],
+        'cpf_comp': documento['dest']['CPF'],
+        'nome_comp': documento['dest']['xNome'],
+        'itens_nf': [
+            ItensNFe(*(
+                prod['prod']['xProd'],
+                float(prod['prod']['qCom']),
+                float(prod['prod']['vUnCom']),
+                float(prod['prod']['vProd'])
+            ))
+            for prod in documento['det']],
+    })
+    return asdict(resposta)
+
+
+def tratativa10():
+    """Resposta do problema para outra NFe."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Brot'))
+    return get_content_nfe(xml_file)
+
+
+def tratativa11():
+    """Resposta do problema para outra NFe."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Brot'))
+    return get_content_nfe(xml_file, 'dict')
+
+
+def tratativa12():
+    """Resposta do problema para outra NFe."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Brot'))
+    return get_content_nfe(xml_file, 'tuple')
+
+
+def tratativa13():
+    """Resposta do problema para outra NFe."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Nespresso'))
+    return get_content_nfe(xml_file)
+
+
+def tratativa14():
+    """Resposta do problema para outra NFe."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Nespresso'))
+    return get_content_nfe(xml_file, 'dict')
+
+
+def tratativa15():
+    """Resposta do problema para outra NFe."""
+    xml_file = next(x for x in FILES_XML if x.name.__contains__('Nespresso'))
+    return get_content_nfe(xml_file, 'tuple')
 
 
 def run():
