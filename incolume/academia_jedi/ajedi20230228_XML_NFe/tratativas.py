@@ -18,6 +18,11 @@ def open_files(file: Path | str, mode: str = 'rb') -> OrderedDict:
     return documento
 
 
+def get_info_nfe(file: Path| str, mode: str = 'rb') -> OrderedDict:
+    """Abre arquivos XML e converte para dict retornando as informações da NFe."""
+    return open_files(file, mode)['nfeProc']['NFe']['infNFe']
+
+
 @dataclass
 class ItensNFe:
     """Produtos."""
