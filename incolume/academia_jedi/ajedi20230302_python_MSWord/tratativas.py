@@ -83,6 +83,8 @@ def tratativa3():
     paragraf.style.font.size = Pt(15)
     paragraf.style.font.bold = True
     paragraf.style.font.italic = True
+    paragraf.style.font.underline = True
+    paragraf.style.font.color.rgb = RGBColor(255, 0, 0)
     
     # sem estilo aplicado
     documento.add_paragraph("Novo paragrafo.")
@@ -121,6 +123,17 @@ def tratativa6():
     documento.add_paragraph("Segundo paragrafo.", "Mystyle")
     documento.add_paragraph("Terceiro paragrafo.", "Mystyle")
     documento.add_paragraph("Quarto paragrafo.", "Mystyle")
+
+    documento.save(Path(__file__).parent/f'{inspect.stack()[0][3]}.docx')
+
+
+def tratativa7():
+    """Formatação Negrito em texto."""
+    documento = Document()
+    paragraf = documento.add_paragraph("Texto gerado em ")
+    paragraf.add_run(f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} ").bold = True
+    paragraf.add_run("através do ")
+    paragraf.add_run("Python").italic = True
 
     documento.save(Path(__file__).parent/f'{inspect.stack()[0][3]}.docx')
 
