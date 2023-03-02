@@ -22,5 +22,5 @@ def run():
             print(f"Captured: '{capture[1]}'")  # Captured: 'thing'
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

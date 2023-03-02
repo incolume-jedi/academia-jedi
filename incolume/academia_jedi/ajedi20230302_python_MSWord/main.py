@@ -1,6 +1,6 @@
 """Main Module."""
 import logging
-from tratativa1 import ex1
+import tratativas
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -12,7 +12,7 @@ logging.basicConfig(
 def run():
     """Run main module."""
     logging.debug("starting ..")
-    ex1()
+    tratativas.run()
 
 
 if __name__ == "__main__":

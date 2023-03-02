@@ -23,5 +23,5 @@ def run():
     print(bool(RegexEqual("Something") == "^S.*ing$"))  # True
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

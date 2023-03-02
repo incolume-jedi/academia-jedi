@@ -15,24 +15,26 @@ def exemplo0():
 
 def exemplo1():
     """"""
+
     def corrigir_texto(texto):
         blob = TextBlob(texto)
         corrigido = blob.correct()
         return str(corrigido)
 
-    texto = 'Este texto contém erros de ortografia e gramática. O aple é uma fruta.'
+    texto = "Este texto contém erros de ortografia e gramática. O aple é uma fruta."
     texto_corrigido = corrigir_texto(texto)
     print(texto_corrigido)
 
 
 def exemplo2():
     """"""
+
     def corrigir_texto(texto):
-        blob = TextBlob(texto, language='pt-br')
+        blob = TextBlob(texto, language="pt-br")
         corrigido = blob.correct()
         return str(corrigido)
 
-    texto = 'Este texto contém erros de ortografia. A camisa azul é mai bonita.'
+    texto = "Este texto contém erros de ortografia. A camisa azul é mai bonita."
     texto_corrigido = corrigir_texto(texto)
     print(texto_corrigido)
 
@@ -41,12 +43,12 @@ def exemplo3():
     """"""
 
     def corrigir_texto(texto):
-        blobber = Blobber(lang='pt')
+        blobber = Blobber(lang="pt")
         blob = blobber(texto)
         corrigido = blob.correct()
         return str(corrigido)
 
-    texto = 'Este texto contém erros de ortografia. A camisa azul é mai bonita.'
+    texto = "Este texto contém erros de ortografia. A camisa azul é mai bonita."
     texto_corrigido = corrigir_texto(texto)
     print(texto_corrigido)
 
@@ -81,12 +83,13 @@ def _exemplo4():
 
     # Corrigindo o texto com o modelo treinado
     def corrigir_texto(texto):
-        blob = TextBlob(texto, pos_tagger=clf.predict_proba,
-                        analyzer=NaiveBayesAnalyzer())
+        blob = TextBlob(
+            texto, pos_tagger=clf.predict_proba, analyzer=NaiveBayesAnalyzer()
+        )
         corrigido = blob.correct()
         return str(corrigido)
 
-    texto = 'Este texto contém erros de ortografia. A camisa azul é mai bonita.'
+    texto = "Este texto contém erros de ortografia. A camisa azul é mai bonita."
     texto_corrigido = corrigir_texto(texto)
     print(texto_corrigido)
 
@@ -103,9 +106,9 @@ def exemplo5():
     corpus = brown.sents()
     corrected_corpus = []
     for sentence in corpus:
-        text = ' '.join(sentence)
+        text = " ".join(sentence)
         corrected_text = TextBlob(text).correct()
-        corrected_sentence = ' '.join(corrected_text.words)
+        corrected_sentence = " ".join(corrected_text.words)
         corrected_corpus.append(corrected_sentence)
 
     vectorizer = CountVectorizer(ngram_range=(1, 3))
@@ -119,10 +122,10 @@ def exemplo5():
     def correct_text(text):
         corrected_text = TextBlob(text).correct()
         corrected_words = corrected_text.words
-        corrected_sentence = ' '.join(corrected_words)
+        corrected_sentence = " ".join(corrected_words)
         X_test = vectorizer.transform([corrected_sentence])
         y_pred = clf.predict(X_test)
-        return ' '.join(y_pred[0])
+        return " ".join(y_pred[0])
 
     text = "Ola, tudo ben?"
     corrected_text = correct_text(text)
@@ -141,9 +144,9 @@ def exemplo6():
     corpus = machado.sents()
     corrected_corpus = []
     for sentence in corpus:
-        text = ' '.join(sentence)
+        text = " ".join(sentence)
         corrected_text = TextBlob(text).correct()
-        corrected_sentence = ' '.join(corrected_text.words)
+        corrected_sentence = " ".join(corrected_text.words)
         corrected_corpus.append(corrected_sentence)
 
     vectorizer = CountVectorizer(ngram_range=(1, 3))
@@ -157,15 +160,14 @@ def exemplo6():
     def correct_text(text):
         corrected_text = TextBlob(text).correct()
         corrected_words = corrected_text.words
-        corrected_sentence = ' '.join(corrected_words)
+        corrected_sentence = " ".join(corrected_words)
         X_test = vectorizer.transform([corrected_sentence])
         y_pred = clf.predict(X_test)
-        return ' '.join(y_pred[0])
+        return " ".join(y_pred[0])
 
     text = "Eu tenho um livvro muito interesssante para ler."
     corrected_text = correct_text(text)
-    print(
-        corrected_text)  # saída: "Eu tenho um livro muito interessante para ler."
+    print(corrected_text)  # saída: "Eu tenho um livro muito interessante para ler."
 
 
 def _exemplo0():
@@ -173,68 +175,68 @@ def _exemplo0():
 
     # Exemplo de dados de treinamento
     train = [
-        ('Este carro é muito bom', 'correto'),
-        ('Estou indo para a casa', 'correto'),
-        ('Eu gosto de gatas', 'incorreto'),
-        ('Este time é campeão', 'correto'),
-        ('A bela adormecida é uma historia infantil', 'correto'),
-        ('Ele fizeram o jantar', 'incorreto'),
-        ('Ela vai pra igreja todo domingo', 'correto'),
-        ('Eu presciso comprar leite', 'incorreto'),
-        ('O céu é azul', 'correto'),
-        ('Ela disse que ta com fome', 'correto'),
-        ('Eles compraram duas camisas', 'correto'),
-        ('Eu já fui no cinema com ela', 'correto'),
-        ('Ouviram do Ipiranga as margens plácidas', 'correto'),
-        ('Eu prefiro cerveja do que vinho', 'correto'),
-        ('Ela mora perto do trabalho', 'correto'),
-        ('Este filme é ótimo', 'correto'),
-        ('Eles gostam de dançar samba', 'correto'),
-        ('Este livro é interessante', 'correto'),
-        ('Eu tenho um gato em casa', 'correto'),
-        ('Eu tomo café todas as manhãs', 'correto'),
-        ('Ela tem muitas roupas', 'correto'),
-        ('Eu comprei um celular novo', 'correto'),
-        ('Estou com saudades dos meus amigos', 'correto'),
-        ('Ela gosta de cozinhar', 'correto'),
-        ('Ele prefere nadar do que correr', 'correto'),
-        ('Eu sou um desenvolvedor de software', 'correto'),
-        ('Eles foram ao parque', 'correto'),
-        ('Eu falo portugues fluentemente', 'correto'),
-        ('Ela não gosta de dormir cedo', 'correto'),
-        ('Eu quero aprender mais sobre Machine Learning', 'correto'),
-        ('Eles foram jantar fora', 'correto'),
-        ('Este livro é um best-seller', 'correto'),
-        ('Ela adora sorvete de morango', 'correto'),
-        ('Eu gosto de ler romances', 'correto'),
-        ('Eles vão ao cinema toda semana', 'correto'),
-        ('Este restaurante é muito bom', 'correto'),
-        ('Ela não tem tempo para isso', 'correto'),
-        ('Eu não gosto de acordar cedo', 'correto'),
-        ('Eles moram perto do parque', 'correto'),
-        ('Este é um problema difícil', 'correto'),
-        ('Ela não gosta de estudar', 'correto'),
-        ('Eu adoro música', 'correto'),
-        ('Eles foram à praia', 'correto'),
-        ('Este programa é muito útil', 'correto'),
-        ('Ela'),
+        ("Este carro é muito bom", "correto"),
+        ("Estou indo para a casa", "correto"),
+        ("Eu gosto de gatas", "incorreto"),
+        ("Este time é campeão", "correto"),
+        ("A bela adormecida é uma historia infantil", "correto"),
+        ("Ele fizeram o jantar", "incorreto"),
+        ("Ela vai pra igreja todo domingo", "correto"),
+        ("Eu presciso comprar leite", "incorreto"),
+        ("O céu é azul", "correto"),
+        ("Ela disse que ta com fome", "correto"),
+        ("Eles compraram duas camisas", "correto"),
+        ("Eu já fui no cinema com ela", "correto"),
+        ("Ouviram do Ipiranga as margens plácidas", "correto"),
+        ("Eu prefiro cerveja do que vinho", "correto"),
+        ("Ela mora perto do trabalho", "correto"),
+        ("Este filme é ótimo", "correto"),
+        ("Eles gostam de dançar samba", "correto"),
+        ("Este livro é interessante", "correto"),
+        ("Eu tenho um gato em casa", "correto"),
+        ("Eu tomo café todas as manhãs", "correto"),
+        ("Ela tem muitas roupas", "correto"),
+        ("Eu comprei um celular novo", "correto"),
+        ("Estou com saudades dos meus amigos", "correto"),
+        ("Ela gosta de cozinhar", "correto"),
+        ("Ele prefere nadar do que correr", "correto"),
+        ("Eu sou um desenvolvedor de software", "correto"),
+        ("Eles foram ao parque", "correto"),
+        ("Eu falo portugues fluentemente", "correto"),
+        ("Ela não gosta de dormir cedo", "correto"),
+        ("Eu quero aprender mais sobre Machine Learning", "correto"),
+        ("Eles foram jantar fora", "correto"),
+        ("Este livro é um best-seller", "correto"),
+        ("Ela adora sorvete de morango", "correto"),
+        ("Eu gosto de ler romances", "correto"),
+        ("Eles vão ao cinema toda semana", "correto"),
+        ("Este restaurante é muito bom", "correto"),
+        ("Ela não tem tempo para isso", "correto"),
+        ("Eu não gosto de acordar cedo", "correto"),
+        ("Eles moram perto do parque", "correto"),
+        ("Este é um problema difícil", "correto"),
+        ("Ela não gosta de estudar", "correto"),
+        ("Eu adoro música", "correto"),
+        ("Eles foram à praia", "correto"),
+        ("Este programa é muito útil", "correto"),
+        ("Ela"),
     ]
 
 
 def run():
-    functions = (b for a, b in globals().items() if a.startswith('exemplo'))
+    functions = (b for a, b in globals().items() if a.startswith("exemplo"))
     for func in functions:
-        logging.info(f'starting {func.__name__}')
-        print('----')
+        logging.info(f"starting {func.__name__}")
+        print("----")
         print(func.__name__)
-        print('----')
+        print("----")
         try:
             func()
         except (ValueError, AttributeError, TypeError) as e:
             logging.error(f'"{e.__class__.__name__}: {e}"')
         print()
-        logging.info(f'finishing {func.__name__}')
+        logging.info(f"finishing {func.__name__}")
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

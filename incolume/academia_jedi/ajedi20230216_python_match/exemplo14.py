@@ -17,23 +17,23 @@ class regex_in:
 
 def tratativa1(validated_string):
     match regex_in(validated_string):
-        case r'\d+':
-            print('Digits')
-        case r'\s+':
-            print('Whitespaces')
+        case r"\d+":
+            print("Digits")
+        case r"\s+":
+            print("Whitespaces")
         case _:
-            print('Something else')
+            print("Something else")
 
 
 def run():
     itens = [
-        'abc',
-        '123',
-        '   ',
+        "abc",
+        "123",
+        "   ",
     ]
     for item in itens:
         tratativa1(item)
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

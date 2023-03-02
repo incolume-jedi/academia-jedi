@@ -10,7 +10,7 @@ logging.basicConfig(
 
 def run():
     """Run main module."""
-    logging.debug('starting ..')
+    logging.debug("starting ..")
 
 
 if __name__ == "__main__":

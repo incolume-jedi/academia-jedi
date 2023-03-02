@@ -23,22 +23,20 @@ class regex_in:
 def tratativa(validated_string):
     # Note the `as m` in in the case specification
     match regex_in(validated_string):
-        case r'\d(\d)\d' as m:
-            print(f'The second digit is {m[1]}')
-            print(f'The whole match is {m.match}')
+        case r"\d(\d)\d" as m:
+            print(f"The second digit is {m[1]}")
+            print(f"The whole match is {m.match}")
 
 
 def run():
     itens = [
-        'abc4',
-        '123',
-        '   ',
+        "abc4",
+        "123",
+        "   ",
     ]
     for item in itens:
         tratativa(item)
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()
-
-

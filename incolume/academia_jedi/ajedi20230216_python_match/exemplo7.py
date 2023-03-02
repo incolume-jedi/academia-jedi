@@ -4,10 +4,7 @@ import re
 
 def check(support_ticket: str):
 
-    match = re.match(
-        r"Support case no\.: (\d+) is (opened|closed)\.",
-        support_ticket
-    )
+    match = re.match(r"Support case no\.: (\d+) is (opened|closed)\.", support_ticket)
     match = match.groups() if match else None
     match match:
         case case, "closed":
@@ -28,5 +25,5 @@ def run():
         check(ticket)
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

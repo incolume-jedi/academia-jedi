@@ -12,7 +12,7 @@ class Color(Enum):
 
 
 def exhaustiveness_check(value: NoReturn) -> NoReturn:
-    assert False, 'This code should never be reached, got: {0}'.format(value)
+    assert False, "This code should never be reached, got: {0}".format(value)
 
 
 def some_func(color: Color) -> str:
@@ -28,9 +28,9 @@ def run():
     try:
         print(some_func(Color.BLUE))
     except AssertionError as e:
-        e.add_note('Ops..')
+        e.add_note("Ops..")
         logging.error(e)
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()
