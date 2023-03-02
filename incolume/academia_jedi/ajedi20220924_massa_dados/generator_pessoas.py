@@ -14,9 +14,10 @@ fake = Faker("pt_BR")
 
 
 @deprecated(
-    version='0.88.0',
+    version="0.88.0",
     reason="Use an other implementation into 'incolume.academia_jedi.ajedi20220925"
-           "_massa_dados_fake_protocol.generator_pessoas'")
+    "_massa_dados_fake_protocol.generator_pessoas'",
+)
 def massa_pessoas(quantidade: int = 0) -> List:
     quantidade = quantidade or 100
     pessoas = [

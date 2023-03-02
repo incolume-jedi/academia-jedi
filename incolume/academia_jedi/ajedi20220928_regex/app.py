@@ -38,7 +38,7 @@ def example1(entrada: str) -> str:
     """
     pat = re.compile(r"^(\w+\s)+\w+$", flags=re.I)
     result = pat.search(entrada)
-    return pat.search(entrada).string if result else ''
+    return pat.search(entrada).string if result else ""
 
 
 def example2(entrada: str):

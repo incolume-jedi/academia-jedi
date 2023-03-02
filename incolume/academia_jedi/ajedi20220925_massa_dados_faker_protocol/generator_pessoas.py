@@ -33,9 +33,10 @@ class IPessoa(Protocol):
 
 
 @deprecated(
-    version='0.88.0',
+    version="0.88.0",
     reason="Use an other implementation into 'incolume.academia_"
-           "jedi.ajedi20230211_massa_dados_fake_protocol.generator_pessoas'")
+    "jedi.ajedi20230211_massa_dados_fake_protocol.generator_pessoas'",
+)
 def massa_pessoas(
     objeto: IPessoa = None, quantidade: int = 0, is_json: bool = False
 ) -> List[IPessoa]:

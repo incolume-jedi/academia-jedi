@@ -31,5 +31,5 @@ def run():
             logging.error(f"{e}")
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

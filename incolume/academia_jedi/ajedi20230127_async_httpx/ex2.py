@@ -41,5 +41,5 @@ def run():
     logging.debug(f"acesso sincrono: {perf_counter() - initial}s")
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

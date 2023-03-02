@@ -27,7 +27,7 @@ names = (
 def show_examples(func: Callable):
     @wraps(func)
     def inner(*args, **kwargs):
-        print('===')
+        print("===")
         print(func.__name__)
         print(f"{args=} {kwargs=}")
         print(f"   >>> {func.__doc__}")

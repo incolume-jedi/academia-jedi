@@ -14,7 +14,7 @@ class Color(Enum):
 
 
 def exhaustiveness_check(value: NoReturn) -> NoReturn:
-    assert False, 'This code should never be reached, got: {0}'.format(value)
+    assert False, "This code should never be reached, got: {0}".format(value)
 
 
 def some_func0(color: str) -> str:
@@ -25,9 +25,9 @@ def some_func0(color: str) -> str:
     match = color.title() if color.title() in colors else None
     print(match)
     match match:
-        case 'Red':
+        case "Red":
             return "Color is red."
-        case 'Green':
+        case "Green":
             return "Color is green."
     exhaustiveness_check(color)
 
@@ -41,8 +41,8 @@ def some_func1(color: str) -> str:
     logging.debug({x: Color.__getitem__(x).value for x in Color.__members__.keys()})
     logging.debug({x: y.value for x, y in Color.__members__.items()})
     logging.debug({x.name: x.value for x in Color.__members__.values()})
-    logging.debug(Color.__getitem__('BLUE'))
-    logging.debug(Color('Green'))
+    logging.debug(Color.__getitem__("BLUE"))
+    logging.debug(Color("Green"))
     match = Color(color.title())
     logging.debug(match)
     match match:
@@ -67,12 +67,12 @@ def some_func(color: str) -> str:
 
 def run():
     colors = (
-        'green',
-        'blue',
-        'purple',
-        'black',
-        'yellow',
-        'red',
+        "green",
+        "blue",
+        "purple",
+        "black",
+        "yellow",
+        "red",
     )
     for color in colors:
         try:
@@ -81,5 +81,5 @@ def run():
             logging.error(f"<{type(e).__name__}: {e}>")
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()

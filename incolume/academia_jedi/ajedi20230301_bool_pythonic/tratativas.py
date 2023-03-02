@@ -20,11 +20,7 @@ def dundler_bool_convert(x):
 def tratativa1():
     """Compare boolean conveters."""
     trails = 10_000_000
-    kwargs = {
-        'setup': 'x=42',
-        'globals': globals(),
-        'number': trails
-    }
+    kwargs = {"setup": "x=42", "globals": globals(), "number": trails}
 
     notnot_time = timeit.timeit("notnot_convert(x)", **kwargs)
     bool_time = timeit.timeit("bool_convert(x)", **kwargs)
@@ -38,8 +34,7 @@ def tratativa1():
 def run():
     """Running it."""
     functions: typing.List[typing.Callable] = [
-        value for key, value in globals().items() if
-        key.__contains__("tratativa")
+        value for key, value in globals().items() if key.__contains__("tratativa")
     ]
     for func in functions:
         logging.debug(f"{type(func)} {func.__name__}")

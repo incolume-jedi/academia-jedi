@@ -63,22 +63,19 @@ def get_content_service_nfe(
 ) -> NFe | typing.Container:
     """Retorna elementos da NFe de serviços."""
     logging.debug(xml_file)
-    documento = \
-    open_files(xml_file)["ConsultarNfseResposta"]["ListaNfse"]["CompNfse"][
+    documento = open_files(xml_file)["ConsultarNfseResposta"]["ListaNfse"]["CompNfse"][
         "Nfse"
     ]["InfNfse"]
     resposta = NFe(
         **{
             "valor_total": documento["Servico"]["Valores"]["ValorServicos"],
-            "cnpj_vend":
-                documento["PrestadorServico"]["IdentificacaoPrestador"][
-                    "Cnpj"
-                ],
+            "cnpj_vend": documento["PrestadorServico"]["IdentificacaoPrestador"][
+                "Cnpj"
+            ],
             "nome_vend": documento["PrestadorServico"]["RazaoSocial"],
-            "cpf_comp":
-                documento["TomadorServico"]["IdentificacaoTomador"]["CpfCnpj"][
-                    "Cnpj"
-                ],
+            "cpf_comp": documento["TomadorServico"]["IdentificacaoTomador"]["CpfCnpj"][
+                "Cnpj"
+            ],
             "nome_comp": documento["TomadorServico"]["RazaoSocial"],
             "itens_nf": ServicoNFe(documento["Servico"]["Discriminacao"]),
         }
@@ -105,8 +102,7 @@ class MatchRegex(str):
         return self.match[group]
 
 
-def get_content_danfe_nfe(xml_file: Path | str,
-                          tp: str = "") -> NFe | typing.Container:
+def get_content_danfe_nfe(xml_file: Path | str, tp: str = "") -> NFe | typing.Container:
     """Retorna elemento da NFe Danfe."""
     logging.debug(xml_file)
     documento = get_info_nfe(xml_file)
@@ -370,8 +366,7 @@ def tratativa19():
 def tratativa20():
     """Nota de Serviço carioca."""
     logging.debug(
-        xml_file := next(
-            x for x in FILES_XML if x.name.__contains__("Carioca"))
+        xml_file := next(x for x in FILES_XML if x.name.__contains__("Carioca"))
     )
     return get_content_service_nfe(xml_file)
 
@@ -419,8 +414,7 @@ def tratativa23():
 def run():
     """Running it."""
     functions: typing.List[typing.Callable] = [
-        value for key, value in globals().items() if
-        key.__contains__("tratativa")
+        value for key, value in globals().items() if key.__contains__("tratativa")
     ]
     for func in functions:
         logging.debug(f"{type(func)} {func.__name__}")

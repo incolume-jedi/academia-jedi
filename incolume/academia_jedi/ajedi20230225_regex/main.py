@@ -12,7 +12,7 @@ logging.basicConfig(
 
 def run():
     """Run main module."""
-    logging.debug('starting ..')
+    logging.debug("starting ..")
     exemplos.run()
 
 

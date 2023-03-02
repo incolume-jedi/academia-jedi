@@ -12,9 +12,9 @@ logging.basicConfig(
 
 def run():
     """Run main module."""
-    logging.debug('starting ..')
+    logging.debug("starting ..")
     tratativa1.run()
-    
+
 
 if __name__ == "__main__":
     run()

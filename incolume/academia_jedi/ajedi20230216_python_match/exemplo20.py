@@ -22,7 +22,7 @@ def location(point):
 
 
 def run():
-    points =(
+    points = (
         Point(0, 0),
         Point(-1, 1),
         Point(1, 1),
@@ -34,5 +34,5 @@ def run():
         location(point)
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     run()
