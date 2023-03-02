@@ -140,6 +140,8 @@ def run():
                 print(result)
         except (TypeError, ValueError) as e:
             logging.error(f"{e.__class__.__name__}: {e}")
+        finally:
+            logging.debug("{} finalizada.".format(func.__name__))
         print("------\n")
 
 
