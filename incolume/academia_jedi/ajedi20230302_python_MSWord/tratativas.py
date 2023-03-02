@@ -1,9 +1,14 @@
+"""Gerar documentos DOCX com python-docx.
+
+https://python-docx.readthedocs.io/en/latest/.
+"""
 import logging
 import typing
 import re
 from docx import Document 
 from docx.shared import Pt, RGBColor, Cm 
 from docx.enum.style import WD_STYLE_TYPE
+from docx.enum.text import WD_ALIGN_PARAGRAPH
 from pathlib import Path
 import datetime as dt 
 import pytz
@@ -115,6 +120,203 @@ def tratativa7():
     paragraf.add_run(f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} ").bold = True
     paragraf.add_run("através do ")
     paragraf.add_run("Python").italic = True
+
+    documento.save(Path(__file__).parent/f'{inspect.stack()[0][3]}.docx')
+
+
+def tratativa8():
+    """Quebra de página."""
+    documento = Document()
+    
+    documento.add_paragraph("Título", "Heading 1")
+    
+    paragraf = documento.add_paragraph("Texto gerado em ")
+    paragraf.add_run(f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} ").bold = True
+    paragraf.add_run("através do ")
+    paragraf.add_run("Python").italic = True
+    
+    documento.add_page_break()
+    documento.add_paragraph("Título", "Heading 1")
+    documento.add_paragraph("Primeiro paragrafo.")
+    documento.add_paragraph("Segundo paragrafo.")
+    documento.add_paragraph("Terceiro paragrafo.")
+    documento.add_paragraph("Quarto paragrafo.")
+
+    documento.save(Path(__file__).parent/f'{inspect.stack()[0][3]}.docx')
+
+
+def tratativa9():
+    """Controle de margem e seções de página."""
+    documento = Document()
+    for section in documento.sections:
+        section.top_margin = Cm(.5)
+        section.bottom_margin = Cm(.5)
+        section.left_margin = Cm(2.5)
+        section.right_margin = Cm(.5)
+    
+    paragraf = documento.add_paragraph("Texto gerado em ")
+    paragraf.add_run(f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} ").bold = True
+    paragraf.add_run("através do ")
+    paragraf.add_run("Python").italic = True
+    
+    documento.save(Path(__file__).parent/f'{inspect.stack()[0][3]}.docx')
+
+
+def tratativa10():
+    """Controle de margem e seções de página."""
+    documento = Document()
+    for section in documento.sections:
+        section.top_margin = Cm(.5)
+        section.bottom_margin = Cm(.5)
+        section.left_margin = Cm(2.5)
+        section.right_margin = Cm(.5)
+    
+    paragraf = documento.add_paragraph(texto)
+    paragraf.add_run("\nTexto gerado em ")
+    paragraf.add_run(f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} ").bold = True
+    paragraf.add_run("através do ")
+    paragraf.add_run("Python").italic = True
+    paragraf.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    documento.save(Path(__file__).parent/f'{inspect.stack()[0][3]}.docx')
+
+
+def tratativa11():
+    """Imagem."""
+    documento = Document()
+    content = texto.split('\n')
+    logging.debug(content)
+    paragraf = documento.add_paragraph(content.pop(0), 'Heading 1')
+    documento.add_paragraph(content.pop(0))
+    documento.add_paragraph(content.pop(0))
+
+    documento.add_picture(Path(__file__).parent.joinpath('imagem.png').as_posix())
+    documento.add_paragraph(content.pop(0))
+
+    documento.save(Path(__file__).parent/f'{inspect.stack()[0][3]}.docx')
+
+
+def tratativa12():
+    """Imagem."""
+    documento = Document()
+    content = texto.split('\n')
+    paragraf = documento.add_paragraph(content.pop(0), 'Heading 1')
+    documento.add_paragraph(content.pop(0))
+    documento.add_paragraph(content.pop(0))
+
+    documento.add_picture(Path(__file__).parent.joinpath('imagem.png').as_posix(), width=Cm(4), height=Cm(4))
+    documento.add_paragraph(content.pop(0))
+
+    documento.save(Path(__file__).parent/f'{inspect.stack()[0][3]}.docx')
+
+
+def tratativa13():
+    """Imagem."""
+    documento = Document()
+    content = texto.split('\n')
+    paragraf = documento.add_paragraph(content.pop(0), 'Heading 1')
+    documento.add_paragraph(content.pop(0))
+    documento.add_paragraph(content.pop(0))
+
+    image = documento.add_picture(Path(__file__).parent.joinpath('imagem.png').as_posix(), width=Cm(4), height=Cm(4))
+    image.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    for cont in content:
+        parag = documento.add_paragraph(cont)
+        parag.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+
+
+    documento.save(Path(__file__).parent/f'{inspect.stack()[0][3]}.docx')
+
+
+def tratativa14():
+    """Tabela."""
+    documento = Document()
+    paragrafos = texto.format(pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()).split('\n')
+    
+    documento.add_paragraph(paragrafos.pop(0), 'Heading 1')
+    
+    for parag in paragrafos[:2]: 
+        paragraf = documento.add_paragraph(parag)
+        paragraf.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        paragrafos.pop(0)
+    
+    image = documento.add_picture(Path(__file__).parent.joinpath('imagem.png').as_posix(), width=Cm(4), height=Cm(4))
+    image.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    
+    for cont in paragrafos[:5]:
+        parag = documento.add_paragraph(cont)
+        parag.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        paragrafos.pop(0)
+    records = (
+        (3, '101', 'Spam'),
+        (7, '422', 'Eggs'),
+        (4, '631', 'Spam, spam, eggs, and spam')
+    )
+
+    table = documento.add_table(rows=1, cols=3)
+    hdr_cells = table.rows[0].cells
+    hdr_cells[0].text = 'Qty'
+    hdr_cells[1].text = 'Id'
+    hdr_cells[2].text = 'Desc'
+    for qty, id, desc in records:
+        row_cells = table.add_row().cells
+        row_cells[0].text = str(qty)
+        row_cells[1].text = id
+        row_cells[2].text = desc
+
+    for cont in paragrafos:
+        parag = documento.add_paragraph(cont)
+        parag.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+
+    documento.save(Path(__file__).parent/f'{inspect.stack()[0][3]}.docx')
+
+
+def tratativa15():
+    """Tabela: Estilos disponíveis."""
+    documento = Document()
+    for estilo in (x for x in documento.styles):
+        print(estilo)
+
+
+
+def tratativa16():
+    """Tabela."""
+    documento = Document()
+    paragrafos = texto.format(pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()).split('\n')
+    
+    documento.add_paragraph(paragrafos.pop(0), 'Heading 1')
+    
+    for parag in paragrafos[:2]: 
+        paragraf = documento.add_paragraph(parag)
+        paragraf.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        paragrafos.pop(0)
+    
+    image = documento.add_picture(Path(__file__).parent.joinpath('imagem.png').as_posix(), width=Cm(4), height=Cm(4))
+    image.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    
+    for cont in paragrafos[:5]:
+        parag = documento.add_paragraph(cont)
+        parag.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        paragrafos.pop(0)
+    records = (
+        (3, '101', 'Spam'),
+        (7, '422', 'Eggs'),
+        (4, '631', 'Spam, spam, eggs, and spam')
+    )
+
+    table = documento.add_table(rows=1, cols=3, style='Light List Accent 1')
+    hdr_cells = table.rows[0].cells
+    hdr_cells[0].text = 'Qty'
+    hdr_cells[1].text = 'Id'
+    hdr_cells[2].text = 'Desc'
+    for qty, id, desc in records:
+        row_cells = table.add_row().cells
+        row_cells[0].text = str(qty)
+        row_cells[1].text = id
+        row_cells[2].text = desc
+
+    for cont in paragrafos:
+        parag = documento.add_paragraph(cont)
+        parag.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
     documento.save(Path(__file__).parent/f'{inspect.stack()[0][3]}.docx')
 
