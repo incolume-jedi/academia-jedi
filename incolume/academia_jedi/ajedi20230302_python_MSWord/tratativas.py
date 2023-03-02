@@ -350,10 +350,65 @@ def tratativa16():
     documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
 
 
+def tratativa17():
+    """Mala direta MSWord via Python."""
+    contrato = Document("Contrato.docx")
+
+    nome = "Lira da Hashtag"
+    item1 = "Serviço de Treinamento em Excel"
+    item2 = "Apostila Completa de Excel"
+    item3 = "Serviço de Treinamentos de Python"
+
+    dicionario_valores = {
+        "XXXX": nome,
+        "YYYY": item1,
+        "ZZZZ": item2,
+        "WWWW": item3,
+        "DD": str(dt.datetime.now().day),
+        "MM": str(dt.datetime.now().month),
+        "AAAA": str(dt.datetime.now().year),
+    }
+    for paragraf in contrato.paragraphs:
+        print(paragraf)
+        if 'XXXX' in paragraf.text:
+            paragraf.text = paragraf.text.replace('XXXX', nome)
+
+    contrato.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+
+
+def tratativa18():
+    """Mala direta MSWord via Python."""
+    contrato = Document("Contrato.docx")
+
+    nome = "Lira da Hashtag"
+    item1 = "Serviço de Treinamento em Excel"
+    item2 = "Apostila Completa de Excel"
+    item3 = "Serviço de Treinamentos de Python"
+
+    dicionario_valores = {
+        "XXXX": nome,
+        "YYYY": item1,
+        "ZZZZ": item2,
+        "WWWW": item3,
+        "DD": str(dt.datetime.now().day),
+        "MM": str(dt.datetime.now().month),
+        "AAAA": str(dt.datetime.now().year),
+    }
+    for paragraf in contrato.paragraphs:
+        for key in dicionario_valores.keys():
+            if key in paragraf.text:
+                logging.debug(paragraf, key)
+                paragraf.text = paragraf.text.replace(
+                    key, dicionario_valores.get(key))
+
+    contrato.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+
+
 def run():
     """Running it."""
     functions: typing.List[typing.Callable] = [
-        value for key, value in globals().items() if key.__contains__("tratativa")
+        value for key, value in globals().items()
+        if key.__contains__("tratativa")
     ]
     for func in functions:
         logging.debug(f"{type(func)} {func.__name__}")
