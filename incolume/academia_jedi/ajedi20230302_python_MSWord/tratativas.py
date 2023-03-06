@@ -352,7 +352,7 @@ def tratativa16():
 
 def tratativa17():
     """Mala direta MSWord via Python."""
-    contrato = Document("Contrato.docx")
+    contrato = Document(Path(__file__).parent/"Contrato.docx")
 
     nome = "Lira da Hashtag"
     item1 = "Serviço de Treinamento em Excel"
