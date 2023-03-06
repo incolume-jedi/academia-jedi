@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "academia-jedi"
-version = "0.99.0"
+version = "0.99.1a0"
 description = ""
 authors = ["Britodfbr <britodfbr@gmail.com>"]
 packages = [
@@ -70,3 +70,6 @@ taskipy = "^1.10.3"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+prerelease={cmd='v=$(poetry version prerelease) && poetry run pytest tests/ && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version prerelease'}
