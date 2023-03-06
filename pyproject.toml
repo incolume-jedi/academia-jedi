@@ -65,6 +65,7 @@ pytesseract = "^0.3.10"
 pdf2image = "^1.16.2"
 pillow = "^9.4.0"
 googletrans = "^3.0.0"
+taskipy = "^1.10.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
