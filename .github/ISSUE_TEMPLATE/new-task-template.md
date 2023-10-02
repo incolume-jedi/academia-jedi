@@ -1,7 +1,7 @@
 ---
 name: New Task template
 about: Task Title
-title: ''
+title: '[task] '
 labels: enhancement
 assignees: ''
 
@@ -12,6 +12,7 @@ assignees: ''
 **[Guilda JEDI Incolume](https://discord.gg/eBNamXVtBW) - Grupo Python Incolume**
 
 **JEDI - Junta Especializada de Desenvolvimento e Inovação**
+- _[Seja membro da Guilda JEDI Incolume](https://discord.gg/eBNamXVtBW)_
 
 ---
 
@@ -32,3 +33,6 @@ Exemplos de solução e resposta do problema. Geralmente utilizado para validar 
 ## Referências
 
  - N/A (Caso haja referências podem ser listadas aqui)
+
+---
+(c) Incolume.com.br
