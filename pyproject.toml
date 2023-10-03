@@ -42,12 +42,6 @@ textblob = "^0.17.1"
 xmltodict = "^0.13.0"
 python-docx = "^0.8.11"
 
-[tool.poetry.dev-dependencies]
-pytest = "^7.1.2"
-black = {extras = ["jupyter"], version = "^22.12.0"}
-Faker = "^13.15.1"
-dynaconf = "^3.1.11"
-fake = "^0.8"
 
 [tool.poetry.group.dev.dependencies]
 markdown = "^3.4.1"
@@ -67,6 +61,15 @@ pillow = "^9.4.0"
 googletrans = "^3.0.0"
 taskipy = "^1.10.3"
 pytest-cov = "^4.0.0"
+blue = "^0.9.1"
+isort = "^5.12.0"
+pydocstyle = "^6.3.0"
+pylint = "^3.0.0"
+mypy = "^1.5.1"
+mypy-extensions = "^1.0.0"
+ruff = "^0.0.292"
+dynaconf = "^3.2.3"
+faker = "^19.6.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
