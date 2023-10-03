@@ -12,13 +12,13 @@ class Weekday0(Enum):
 
 
 class Weekday(Enum):
-    DOM = "Domingo"
-    SEG = "Segunda"
-    TER = "Terça"
-    QUA = "Quarta"
-    QUI = "Quinta"
-    SEX = "Sexta"
-    SAB = "Sábado"
+    DOM = 'Domingo'
+    SEG = 'Segunda'
+    TER = 'Terça'
+    QUA = 'Quarta'
+    QUI = 'Quinta'
+    SEX = 'Sexta'
+    SAB = 'Sábado'
 
 
 def weekend0(dia):
@@ -31,7 +31,7 @@ def weekend0(dia):
 
 def weekend(dia):
     match Weekday(dia).value:
-        case "Sábado" | "Domingo":
+        case 'Sábado' | 'Domingo':
             return True
         case _:
             return False
@@ -40,11 +40,11 @@ def weekend(dia):
 def run():
     print(Weekday0(1))
 
-    print(Weekday("Segunda"), f"{weekend('Segunda')=}")
-    print(Weekday("Domingo"), f"{weekend('Domingo')=}")
-    print(Weekday("Sábado"), f"{weekend('Sábado')=}")
+    print(Weekday('Segunda'), f"{weekend('Segunda')=}")
+    print(Weekday('Domingo'), f"{weekend('Domingo')=}")
+    print(Weekday('Sábado'), f"{weekend('Sábado')=}")
     print(f"{Weekday('Sexta')} {weekend('Sexta')=}")
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

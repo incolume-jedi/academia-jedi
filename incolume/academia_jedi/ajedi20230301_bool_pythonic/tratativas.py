@@ -20,33 +20,35 @@ def dundler_bool_convert(x):
 def tratativa1():
     """Compare boolean conveters."""
     trails = 10_000_000
-    kwargs = {"setup": "x=42", "globals": globals(), "number": trails}
+    kwargs = {'setup': 'x=42', 'globals': globals(), 'number': trails}
 
-    notnot_time = timeit.timeit("notnot_convert(x)", **kwargs)
-    bool_time = timeit.timeit("bool_convert(x)", **kwargs)
-    dundler_bool_time = timeit.timeit("dundler_bool_convert(x)", **kwargs)
+    notnot_time = timeit.timeit('notnot_convert(x)', **kwargs)
+    bool_time = timeit.timeit('bool_convert(x)', **kwargs)
+    dundler_bool_time = timeit.timeit('dundler_bool_convert(x)', **kwargs)
 
-    print(f"{bool_time=:.02f}")
-    print(f"{notnot_time=:.02f}")
-    print(f"{dundler_bool_time=:.02f}")
+    print(f'{bool_time=:.02f}')
+    print(f'{notnot_time=:.02f}')
+    print(f'{dundler_bool_time=:.02f}')
 
 
 def run():
     """Running it."""
     functions: typing.List[typing.Callable] = [
-        value for key, value in globals().items() if key.__contains__("tratativa")
+        value
+        for key, value in globals().items()
+        if key.__contains__('tratativa')
     ]
     for func in functions:
-        logging.debug(f"{type(func)} {func.__name__}")
-        print(f"--- {func.__name__} ---")
-        print("    >>> {}".format(func.__doc__))
+        logging.debug(f'{type(func)} {func.__name__}')
+        print(f'--- {func.__name__} ---')
+        print('    >>> {}'.format(func.__doc__))
         try:
             if result := func():
                 print(result)
         except (TypeError, ValueError) as e:
-            logging.error(f"{e.__class__.__name__}: {e}")
-        print("------\n")
+            logging.error(f'{e.__class__.__name__}: {e}')
+        print('------\n')
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

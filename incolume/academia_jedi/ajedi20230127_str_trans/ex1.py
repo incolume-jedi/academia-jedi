@@ -16,5 +16,5 @@ def tratativa1():
     return result
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print(tratativa1())

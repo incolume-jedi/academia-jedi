@@ -1,4 +1,4 @@
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 class Real:
@@ -6,7 +6,7 @@ class Real:
         self.value = value
 
     def __repr__(self):
-        return "R$ {:0.2f}".format(self.value)
+        return 'R$ {:0.2f}'.format(self.value)
 
     def __add__(self, other):
         return Real(self.value + other.value)

@@ -7,10 +7,10 @@ from dataclasses import dataclass, field
 from itertools import count
 import json
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 counter = count()
 
-Pessoa0 = namedtuple("Pessoa", ["nome_completo", "data_de_nascimento", "cpf"])
+Pessoa0 = namedtuple('Pessoa', ['nome_completo', 'data_de_nascimento', 'cpf'])
 
 
 @dataclass

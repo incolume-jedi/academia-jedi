@@ -7,8 +7,8 @@ from dataclasses import dataclass
 
 logging.basicConfig(
     level=logging.DEBUG,
-    format="%(asctime)s;%(levelname)-8s;%(name)s;"
-    "%(module)s;%(funcName)s;%(message)s",
+    format='%(asctime)s;%(levelname)-8s;%(name)s;'
+    '%(module)s;%(funcName)s;%(message)s',
 )
 
 
@@ -25,27 +25,27 @@ class Movie:
 class ScrapingIMDB:
     def __init__(
         self,
-        url: str = "",
-        excel_output: (str | Path) = "",
-        sheet_title: str = "",
+        url: str = '',
+        excel_output: (str | Path) = '',
+        sheet_title: str = '',
         columns_name: list = None,
     ):
-        self.url = url or "https://www.imdb.com/chart/top"
-        self.excel_output = Path(excel_output or "my_IMDB_Movies_Ratings.xlsx")
-        self.sheet_title = sheet_title or "Top rate movies"
+        self.url = url or 'https://www.imdb.com/chart/top'
+        self.excel_output = Path(excel_output or 'my_IMDB_Movies_Ratings.xlsx')
+        self.sheet_title = sheet_title or 'Top rate movies'
         self.columns_name = columns_name or [
-            "Movie Rank",
-            "Movie name",
-            "Year of release",
-            "IMDB Ranking",
-            "Poster",
+            'Movie Rank',
+            'Movie name',
+            'Year of release',
+            'IMDB Ranking',
+            'Poster',
         ]
         self.req = None
         self.soup = None
         self.movies = []
         ...
 
-    def connect(self, url: str = ""):
+    def connect(self, url: str = ''):
         url = url or self.url
         try:
             self.req = requests.get(url)
@@ -56,33 +56,41 @@ class ScrapingIMDB:
         return self
 
     def get_soup(self):
-        self.soup = BeautifulSoup(self.req.content, "html.parser")
+        self.soup = BeautifulSoup(self.req.content, 'html.parser')
         return self
 
     def get_movies(self):
-        movies = self.soup.find("tbody", class_="lister-list").find_all("tr")
+        movies = self.soup.find('tbody', class_='lister-list').find_all('tr')
 
         for movie in movies:
             # print(movie)
             obj = Movie(
-                rank=movie.find("td", class_="titleColumn")
+                rank=movie.find('td', class_='titleColumn')
                 .get_text(strip=True)
-                .split(".")[0],
-                name=movie.find("td", class_="titleColumn").a.text,
-                year=movie.find("td", class_="titleColumn").span.text.strip("()"),
-                rating=movie.find("td", class_="ratingColumn imdbRating").strong.text,
-                poster=movie.find("td", class_="posterColumn").img["src"],
+                .split('.')[0],
+                name=movie.find('td', class_='titleColumn').a.text,
+                year=movie.find('td', class_='titleColumn').span.text.strip(
+                    '()'
+                ),
+                rating=movie.find(
+                    'td', class_='ratingColumn imdbRating'
+                ).strong.text,
+                poster=movie.find('td', class_='posterColumn').img['src'],
             )
             logging.debug(
-                "{ rank: %s, name: %s,year: %s, rating: %s, poster: %s}",
+                '{ rank: %s, name: %s,year: %s, rating: %s, poster: %s}',
                 *obj.__dict__.values()
             )
             self.movies.append(obj)
-        logging.debug("Quantidade encontrada: %s", len(self.movies))
+        logging.debug('Quantidade encontrada: %s', len(self.movies))
         return self
 
     def save_excel(
-        self, *, excel_output: (str | Path) = "", columns_name: list = None, **kwargs
+        self,
+        *,
+        excel_output: (str | Path) = '',
+        columns_name: list = None,
+        **kwargs
     ):
         if columns_name is None:
             columns_name = []
@@ -91,7 +99,7 @@ class ScrapingIMDB:
         logging.debug(excel.sheetnames)
 
         sheet = excel.active
-        sheet.title = kwargs.get("sheet_title") or self.sheet_title
+        sheet.title = kwargs.get('sheet_title') or self.sheet_title
         logging.debug(excel.sheetnames)
 
         sheet.append(columns_name or self.columns_name)
@@ -101,10 +109,10 @@ class ScrapingIMDB:
         return True
 
     def scraping(self, **kwargs):
-        url = kwargs.get("url") or self.url
-        excel_output = Path(kwargs.get("excel_output") or self.excel_output)
-        sheet_title = kwargs.get("sheet_title") or self.sheet_title
-        columns_name = kwargs.get("columns_name") or self.columns_name
+        url = kwargs.get('url') or self.url
+        excel_output = Path(kwargs.get('excel_output') or self.excel_output)
+        sheet_title = kwargs.get('sheet_title') or self.sheet_title
+        columns_name = kwargs.get('columns_name') or self.columns_name
         return (
             self.connect(url)
             .get_soup()

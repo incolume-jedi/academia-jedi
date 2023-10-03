@@ -1,6 +1,6 @@
 from functools import lru_cache
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 def fibonacci0():

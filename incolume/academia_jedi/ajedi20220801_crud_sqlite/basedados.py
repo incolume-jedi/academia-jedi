@@ -5,12 +5,12 @@ import logging
 import sqlite3
 
 logging.basicConfig(level=logging.WARNING)
-file_sqlite = Path("pessoas.sqlite")
+file_sqlite = Path('pessoas.sqlite')
 
 
 con = sqlite3.connect(file_sqlite)
 cur = con.cursor()
-USER_DDL = "CREATE TABLE IF NOT EXISTS users(user_id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, date_born DATETIME NOT NULL)"
+USER_DDL = 'CREATE TABLE IF NOT EXISTS users(user_id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, date_born DATETIME NOT NULL)'
 EMAIL_DDL = """CREATE TABLE IF NOT EXISTS emails(
     email_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER, email TEXT NOT NULL,

@@ -6,7 +6,7 @@ import logging
 from time import sleep
 
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 def tratativa1():
@@ -27,5 +27,5 @@ def run():
     tratativa2()
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

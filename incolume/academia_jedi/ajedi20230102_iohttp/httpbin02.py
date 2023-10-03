@@ -8,7 +8,7 @@ async def fetch(url, session):
 
 
 async def run(r):
-    url = "http://httpbin.org/delay/{}"
+    url = 'http://httpbin.org/delay/{}'
     tasks = []
 
     # Fetch all responses within one Client session,

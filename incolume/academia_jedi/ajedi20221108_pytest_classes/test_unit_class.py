@@ -5,10 +5,10 @@ import pytest
 
 
 @pytest.mark.parametrize(
-    "param1,param2",
+    'param1,param2',
     [
-        ("a", "b"),
-        ("c", "d"),
+        ('a', 'b'),
+        ('c', 'd'),
     ],
 )
 class TestGroup:
@@ -20,7 +20,7 @@ class TestGroup:
         return 123
 
     def test_one(self, param1, param2, fixt):
-        print(f"\n{inspect.stack()[0][3]} {param1} {param2} {fixt}")
+        print(f'\n{inspect.stack()[0][3]} {param1} {param2} {fixt}')
 
     def test_two(self, param1, param2):
-        print(f"\n{inspect.stack()[0][3]} {param1} {param2}")
+        print(f'\n{inspect.stack()[0][3]} {param1} {param2}')

@@ -1,20 +1,20 @@
 from pdf2image import convert_from_path
 from pytesseract import image_to_string
-from PIL import Image 
-from pathlib import Path 
+from PIL import Image
+from pathlib import Path
 import logging
 import typing
 
 
 PDFDIR: typing.Final = Path(__file__).parents[3] / 'data_files' / 'pdf'
-PDFFILES: Path = list(PDFDIR.glob("*.pdf"))
+PDFFILES: Path = list(PDFDIR.glob('*.pdf'))
 
 
 def convert_pdf_to_image(pdf_file):
     """"""
     img = convert_from_path(pdf_file)
     logging.debug(img.__name__)
-    return img 
+    return img
 
 
 def convert_image_to_text(file):
@@ -27,7 +27,7 @@ def convert_image_to_text(file):
 def get_txt_from_any_pdf(pdf_file):
     """"""
     images = convert_pdf_to_image(pdf_file)
-    final_text = ""
+    final_text = ''
     for pg, img in enumerate(images):
         final_text += convert_image_to_text(img)
     return final_text
@@ -56,22 +56,23 @@ def tratativa3():
 def run():
     """Running it."""
     functions: typing.List[typing.Callable] = [
-        value for key, value in globals().items()
-        if key.__contains__("tratativa")
+        value
+        for key, value in globals().items()
+        if key.__contains__('tratativa')
     ]
     for func in functions:
-        logging.debug(f"{type(func)} {func.__name__}")
-        print(f"--- {func.__name__} ---")
-        print("    >>> {}".format(func.__doc__))
+        logging.debug(f'{type(func)} {func.__name__}')
+        print(f'--- {func.__name__} ---')
+        print('    >>> {}'.format(func.__doc__))
         try:
             if result := func():
                 print(result)
         except (TypeError, ValueError) as e:
-            logging.error(f"{e.__class__.__name__}: {e}")
+            logging.error(f'{e.__class__.__name__}: {e}')
         finally:
-            logging.debug("{} finalizada.".format(func.__name__))
-        print("------\n")
+            logging.debug('{} finalizada.'.format(func.__name__))
+        print('------\n')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     run()

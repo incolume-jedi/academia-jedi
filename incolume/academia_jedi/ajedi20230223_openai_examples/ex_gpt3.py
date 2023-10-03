@@ -3,11 +3,11 @@ import openai
 import json
 
 # Configura a chave secreta da API
-openai.api_key = openai_secret_manager.get_secret("openai")["api_key"]
+openai.api_key = openai_secret_manager.get_secret('openai')['api_key']
 
 # Chama a API do GPT-3
 response = openai.Completion.create(
-    engine="davinci", prompt="The quick brown fox", max_tokens=5
+    engine='davinci', prompt='The quick brown fox', max_tokens=5
 )
 
 # Imprime a resposta

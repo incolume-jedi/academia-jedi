@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 from unidecode import unidecode
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 words = [
-    "missíssipi",
-    "abracadabra",
-    "açaí",
-    "água",
+    'missíssipi',
+    'abracadabra',
+    'açaí',
+    'água',
 ]
 
 
@@ -25,7 +25,7 @@ def mapping_letters2():
 def mapping_letters3():
     for word in (unidecode(w) for w in words):
         d = {}
-        print(word, end=" ")
+        print(word, end=' ')
         for index, letter in enumerate(word):
             d.setdefault(letter, []).append(index)
         print(d)
@@ -43,5 +43,5 @@ def run():
         print()
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

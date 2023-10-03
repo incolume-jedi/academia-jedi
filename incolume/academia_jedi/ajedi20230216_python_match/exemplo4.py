@@ -7,7 +7,7 @@ def classifier(value: Any):
     """"""
     match value:
         case float():  # Correct!
-            print(f"{value} is float")
+            print(f'{value} is float')
         case _:
             print(f'"{value}" not is float!')
 
@@ -16,15 +16,15 @@ def match_builtins(type_):
     """Matches raw types, not their instances."""
     match type_:
         case builtins.str:
-            print(f"{type_} is a String.")
+            print(f'{type_} is a String.')
         case builtins.int:
-            print(f"{type_} is an Integer.")
+            print(f'{type_} is an Integer.')
         case _:
-            print(f"{type_} Invalid type.")
+            print(f'{type_} Invalid type.')
 
 
 def run():
-    some_var = ["not a float", 3.14]
+    some_var = ['not a float', 3.14]
     for value in some_var:
         classifier(value)
 
@@ -33,5 +33,5 @@ def run():
         match_builtins(value)
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

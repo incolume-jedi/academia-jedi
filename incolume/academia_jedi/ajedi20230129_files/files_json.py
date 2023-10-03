@@ -6,7 +6,7 @@ from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.models impo
 )
 
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 logging.debug(config)
 logging.debug(fileoutput)
 
@@ -14,7 +14,7 @@ logging.debug(fileoutput)
 def ex1():
     """Create JSON file."""
     logging.debug(dados_json)
-    with fileoutput.with_suffix(".json").open("w") as file:
+    with fileoutput.with_suffix('.json').open('w') as file:
         json.dump(
             dados_dict,
             file,
@@ -24,17 +24,17 @@ def ex1():
 
 def ex2():
     """Read JSON file."""
-    with fileoutput.with_suffix(".json").open() as file:
+    with fileoutput.with_suffix('.json').open() as file:
         people = json.load(file)
         for person in people:
-            logging.debug(f"{person}: {type(person)}")
-            print(person.get("nome_completo"))
+            logging.debug(f'{person}: {type(person)}')
+            print(person.get('nome_completo'))
 
 
 def ex3():
     """Create JSON file."""
     logging.debug(dados_dict)
-    with fileoutput.with_suffix(".json").open() as file:
+    with fileoutput.with_suffix('.json').open() as file:
         p = json.load(file)
         people = [Pessoa(**d) for d in p]
         print(people)
@@ -48,7 +48,7 @@ def run() -> None:
     ex3()
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()
 
 
@@ -57,5 +57,5 @@ def run() -> None:
     # ex2()
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

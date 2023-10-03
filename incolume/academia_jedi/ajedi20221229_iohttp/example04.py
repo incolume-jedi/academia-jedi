@@ -12,8 +12,8 @@ from time import sleep
 
 logging.basicConfig(
     level=logging.DEBUG,
-    format="%(asctime)s;%(levelname)-8s;%(name)s;"
-    "%(module)s;%(funcName)s;%(message)s",
+    format='%(asctime)s;%(levelname)-8s;%(name)s;'
+    '%(module)s;%(funcName)s;%(message)s',
 )
 
 
@@ -44,25 +44,25 @@ def parse(results: Iterable):
 
     leis = []
     for html in results:
-        soup = BeautifulSoup(html, "html.parser")
+        soup = BeautifulSoup(html, 'html.parser')
     return leis
 
 
 def run():
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/108.0.0.0 Safari/537.36",
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+        'AppleWebKit/537.36 (KHTML, like Gecko) '
+        'Chrome/108.0.0.0 Safari/537.36',
     }
     urlbase = (
-        "https://www.lexml.gov.br/busca/search?"
-        "f1-tipoDocumento=Legisla%C3%A7%C3%A3o;tipoDocumento=lei;"
-        "tipoDocumento-exclude=decreto;f2-autoridade=Federal;"
-        "year=1800;year-max=2022;smode=advanced;startDoc={}"
+        'https://www.lexml.gov.br/busca/search?'
+        'f1-tipoDocumento=Legisla%C3%A7%C3%A3o;tipoDocumento=lei;'
+        'tipoDocumento-exclude=decreto;f2-autoridade=Federal;'
+        'year=1800;year-max=2022;smode=advanced;startDoc={}'
     )
     total_query = int(
-        BeautifulSoup(requests.get(urlbase.format(1)).content, "html.parser")
-        .select_one("#itemCount")
+        BeautifulSoup(requests.get(urlbase.format(1)).content, 'html.parser')
+        .select_one('#itemCount')
         .text
     )
     urls = [urlbase.format(page) for page in range(1, total_query, 20)]
@@ -73,5 +73,5 @@ def run():
     parse(results)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     run()

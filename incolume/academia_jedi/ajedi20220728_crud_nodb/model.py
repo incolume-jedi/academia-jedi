@@ -22,6 +22,7 @@ def get_id():
 @dataclass
 class Pessoa:
     """Class Pessoa."""
+
     nome: str
     date_born: datetime
     id: int = field(init=False, default_factory=get_id)
@@ -34,6 +35,6 @@ class Pessoa:
         return self.__dict__
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     for i in range(10):
         print(get_id())

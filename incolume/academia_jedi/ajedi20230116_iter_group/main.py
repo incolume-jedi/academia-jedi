@@ -1,7 +1,7 @@
 from itertools import chain
 
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 def tratativa1():
@@ -13,6 +13,6 @@ def run():
     print(list(tratativa1()))
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     # print(help(chain))
     run()

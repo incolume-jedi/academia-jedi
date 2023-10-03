@@ -7,7 +7,7 @@ ranger = range(1, 11)
 listcompreention = [x for x in range(1, 11)]
 generator = (x for x in range(1, 11))
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     print(
         f"""
         tupla: {getsizeof(tupla)} bytes
