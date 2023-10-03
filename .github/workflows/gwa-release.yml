@@ -1,0 +1,136 @@
+name: GWA Flow    # Success run
+
+on:
+  pull_request:
+    branches: ["main", "dev"]
+  push:
+    tags:
+      - "*.*.*"
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ['3.10', '3.11']
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install -U poetry
+        poetry install
+
+    - name: Test with pytest
+      run: poetry run pytest
+
+  build:
+    name: Build package release
+    runs-on: "ubuntu-latest"
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade poetry
+
+      - name: Build with poetry
+        run: |
+          poetry build
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        if: success()   # failure():: => contexts#job-status-check-functions
+        with:
+          name: build-package
+          path: dist/
+          if-no-files-found: error   # 'error', 'warn' or 'ignore' are also available, defaults to `warn`
+
+  tagged-release:
+    name: "Tagged Release"
+    runs-on: "ubuntu-latest"
+    needs: [build]
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-package
+          path: dist/
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            dist/*
+
+#  publish-testpypi:
+#    name: Publish Test PyPI
+#    runs-on: ubuntu-latest
+#    needs: [tagged-release]
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Set up Python
+#        uses: actions/setup-python@v2
+#        with:
+#          python-version: 3.x
+#
+#      - name: Install dependencies
+#        run: |
+#          python -m pip install --upgrade poetry
+#
+#      - name: Configure repository access
+#        run: |
+#          poetry config repositories.testpypi https://test.pypi.org/legacy/
+#          poetry config pypi-token.testpypi ${{ secrets.TEST_PYPI_TOKEN }}
+#
+#      - uses: actions/download-artifact@v2
+#        with:
+#          name: build-package
+#          path: dist/
+#
+#      - name: Publish to testpypi
+#        run: |
+#          poetry publish -r testpypi
+#
+#  publish-pypi:
+#    name: Publish PyPI
+#    runs-on: ubuntu-latest
+#    needs: [tagged-release]
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Set up Python
+#        uses: actions/setup-python@v2
+#        with:
+#          python-version: 3.x
+#
+#      - name: Install dependencies
+#        run: |
+#          python -m pip install --upgrade poetry
+#
+#      - name: Configure repository access
+#        run: |
+#          poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
+#
+#      - uses: actions/download-artifact@v2
+#        with:
+#          name: build-package
+#          path: dist/
+#
+#      - name: Publish to pypi
+#        run: |
+#          poetry publish
+#
