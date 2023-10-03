@@ -11,6 +11,6 @@ def convert_case(match_obj):
         return match_obj.group(2).upper()
 
 
-if __name__ == "__main__":
-    str = "jOE kIM mAx ABY lIzA"
-    print(re.sub(r"([A-Z]+) | ([a-z]+)", convert_case, str))
+if __name__ == '__main__':
+    str = 'jOE kIM mAx ABY lIzA'
+    print(re.sub(r'([A-Z]+) | ([a-z]+)', convert_case, str))

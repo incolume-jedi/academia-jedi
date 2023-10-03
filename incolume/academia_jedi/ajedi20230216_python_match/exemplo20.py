@@ -12,13 +12,13 @@ def location(point):
         case Point(x=0, y=0):
             print("Origin is the point's location.")
         case Point(x=0, y=y):
-            print(f"Y={y} and the point is on the y-axis.")
+            print(f'Y={y} and the point is on the y-axis.')
         case Point(x=x, y=0):
-            print(f"X={x} and the point is on the x-axis.")
+            print(f'X={x} and the point is on the x-axis.')
         case Point():
-            print("The point is located somewhere else on the plane.")
+            print('The point is located somewhere else on the plane.')
         case _:
-            print("Not a point")
+            print('Not a point')
 
 
 def run():
@@ -34,5 +34,5 @@ def run():
         location(point)
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

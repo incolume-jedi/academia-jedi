@@ -9,7 +9,7 @@ def exemplo1():
     spell = SpellChecker()
 
     # Define o texto para correção
-    texto = "Esse sit é muito legau"
+    texto = 'Esse sit é muito legau'
 
     # Separa as palavras do texto
     palavras = texto.split()
@@ -29,10 +29,10 @@ def exemplo1():
 
 def exemplo2():
     # Carrega o corretor ortográfico em pt-BR
-    spell = SpellChecker(language="pt")
+    spell = SpellChecker(language='pt')
 
     # Define o texto para correção
-    texto = "Esse sit é muito legau"
+    texto = 'Esse sit é muito legau'
 
     # Separa as palavras do texto
     palavras = texto.split()
@@ -62,7 +62,7 @@ def exemplo3():
     spell = SpellChecker()
 
     # Define o texto para correção
-    texto = "Eu adro meu trabalho e as pessos com quem trabalho."
+    texto = 'Eu adro meu trabalho e as pessos com quem trabalho.'
 
     # Separa as palavras do texto
     palavras = word_tokenize(texto.lower())
@@ -78,7 +78,7 @@ def exemplo3():
                 palavras[i] = list(sugestoes)[0]
 
     # Concatena as palavras corrigidas para formar o texto corrigido
-    texto_corrigido = " ".join(palavras)
+    texto_corrigido = ' '.join(palavras)
 
     # Imprime o texto corrigido
     print(texto_corrigido)
@@ -96,7 +96,7 @@ def exemplo4():
     spell = SpellChecker()
 
     # Define o texto para correção
-    texto = "Eu adro meu trabalho e as pessos com quem trabalho."
+    texto = 'Eu adro meu trabalho e as pessos com quem trabalho.'
 
     # Separa as palavras do texto
     palavras = word_tokenize(texto.lower())
@@ -112,7 +112,7 @@ def exemplo4():
                 palavras[i] = list(sugestoes)[0]
 
     # Concatena as palavras corrigidas para formar o texto corrigido
-    texto_corrigido = " ".join(palavras)
+    texto_corrigido = ' '.join(palavras)
 
     # Imprime o texto corrigido
     print(texto_corrigido)
@@ -127,10 +127,10 @@ def exemplo5():
     """
 
     # Carrega o corretor ortográfico
-    spell = SpellChecker(language="pt")
+    spell = SpellChecker(language='pt')
 
     # Define o texto para correção
-    texto = "Eu adro meu trabalho e as pessos com quem trabalho."
+    texto = 'Eu adro meu trabalho e as pessos com quem trabalho.'
 
     # Separa as palavras do texto
     palavras = word_tokenize(texto.lower())
@@ -146,7 +146,7 @@ def exemplo5():
                 palavras[i] = list(sugestoes)[0]
 
     # Concatena as palavras corrigidas para formar o texto corrigido
-    texto_corrigido = " ".join(palavras)
+    texto_corrigido = ' '.join(palavras)
 
     # Imprime o texto corrigido
     print(texto_corrigido)
@@ -154,10 +154,10 @@ def exemplo5():
 
 def exemplo6():
     # Cria uma instância do corretor ortográfico para o idioma pt-br
-    spell = SpellChecker(language="pt")
+    spell = SpellChecker(language='pt')
 
     # Corrige a ortografia de uma palavra
-    palavra = "carrtero"
+    palavra = 'carrtero'
     correcao = spell.correction(palavra)
 
     # Imprime a correção
@@ -166,7 +166,7 @@ def exemplo6():
 
 def exemplo7():
     """"""
-    spell = SpellChecker(language="pt")
+    spell = SpellChecker(language='pt')
 
     def corrigir_texto(texto):
         palavras = texto.split()
@@ -175,10 +175,10 @@ def exemplo7():
             palavra_str = str(palavra)  # converte para string
             palavra_corrigida = spell.correction(palavra_str)
             palavras_corrigidas.append(palavra_corrigida)
-        texto_corrigido = " ".join(palavras_corrigidas)
+        texto_corrigido = ' '.join(palavras_corrigidas)
         return texto_corrigido
 
-    texto = "Este texto está com varios eroos de ortografia"
+    texto = 'Este texto está com varios eroos de ortografia'
     texto_corrigido = corrigir_texto(texto)
     print(texto_corrigido)
 
@@ -190,16 +190,16 @@ def run():
     #
     # )
     # print(f for f in dict(globals().items()) if f.startswith('exemplo'))
-    functions = (b for a, b in globals().items() if a.startswith("exemplo"))
+    functions = (b for a, b in globals().items() if a.startswith('exemplo'))
     for func in functions:
-        logging.info(f"starting {func.__name__}")
-        print("----")
+        logging.info(f'starting {func.__name__}')
+        print('----')
         print(func.__name__)
-        print("----")
+        print('----')
         func()
         print()
-        logging.info(f"finishing {func.__name__}")
+        logging.info(f'finishing {func.__name__}')
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

@@ -35,10 +35,10 @@ class Grade(Enum):
 class Size(Enum):
     """Creating Enumerations With the Functional API"""
 
-    S = "small"
-    M = "medium"
-    L = "large"
-    XL = "extra large"
+    S = 'small'
+    M = 'medium'
+    L = 'large'
+    XL = 'extra large'
 
 
 class Size1(Enum):
@@ -70,7 +70,7 @@ class Alphabet(BaseTextEnum):
 
 
 #   Creating Enumerations With the Functional API
-HTTPMethod0 = Enum("HTTPMethod", ["GET", "POST", "PUSH", "PATCH", "DELETE"])
+HTTPMethod0 = Enum('HTTPMethod', ['GET', 'POST', 'PUSH', 'PATCH', 'DELETE'])
 
 
 class HTTPMethod(Enum):
@@ -85,13 +85,13 @@ class HTTPMethod(Enum):
 
 HTTPStatusCode = Enum(
     # Creating Enumerations With the Functional API
-    value="HTTPStatusCode",
+    value='HTTPStatusCode',
     names=[
-        ("OK", 200),
-        ("CREATED", 201),
-        ("BAD_REQUEST", 400),
-        ("NOT_FOUND", 404),
-        ("SERVER_ERROR", 500),
+        ('OK', 200),
+        ('CREATED', 201),
+        ('BAD_REQUEST', 400),
+        ('NOT_FOUND', 404),
+        ('SERVER_ERROR', 500),
     ],
 )
 
@@ -121,10 +121,10 @@ class CardinalDirection(Enum):
 
 
 class OperatingSystem0(Enum):
-    UBUNTU = "linux"
-    MACOS = "darwin"
-    WINDOWS = "win"
-    DEBIAN = "linux"
+    UBUNTU = 'linux'
+    MACOS = 'darwin'
+    WINDOWS = 'win'
+    DEBIAN = 'linux'
 
 
 # @unique
@@ -138,10 +138,10 @@ class OperatingSystem0(Enum):
 
 
 class CardinalDirection1(Enum):
-    NORTH = "N"
-    SOUTH = "S"
-    EAST = "E"
-    WEST = "W"
+    NORTH = 'N'
+    SOUTH = 'S'
+    EAST = 'E'
+    WEST = 'W'
 
 
 class Flavor(Enum):
@@ -177,11 +177,11 @@ class Semaphore(Enum):
 def handle_semaphore(light):
     match light:
         case Semaphore.RED:
-            print("You must stop!")
+            print('You must stop!')
         case Semaphore.YELLOW:
-            print("Light will change to red, be careful!")
+            print('Light will change to red, be careful!')
         case Semaphore.GREEN:
-            print("You can continue!")
+            print('You can continue!')
 
 
 class Mood(Enum):
@@ -191,7 +191,7 @@ class Mood(Enum):
         return self.name, self.value
 
     def __str__(self):
-        return f"I feel {self.name}"
+        return f'I feel {self.name}'
 
     @classmethod
     def favorite_mood(cls):
@@ -218,69 +218,71 @@ def compare():
 def run():
     print(
         *list(Day),
-        "---",
+        '---',
         type(Day.SUNDAY),
         type(Day.TUESDAY),
-        "---",
+        '---',
         *list(Season),
-        "---",
+        '---',
         *list(Grade),
-        "---",
+        '---',
         *list(Size),
-        "---",
+        '---',
         list(SwitchPosition),
-        "---",
+        '---',
         Alphabet.LOWERCASE.as_list(),
-        "---",
+        '---',
         Alphabet.UPPERCASE.as_list(),
-        "---",
+        '---',
         list(HTTPMethod0),
-        "---",
+        '---',
         list(HTTPMethod),
-        "---",
+        '---',
         list(HTTPStatusCode),
-        "---",
+        '---',
         list(WDay),
-        "---",
+        '---',
         list(CardinalDirection),
-        "---",
+        '---',
         list(OperatingSystem0),
-        "---",
+        '---',
         list(OperatingSystem0.__members__.items()),
         # '---',
         # list(OperatingSystem1),
         # '---',
         # list(OperatingSystem1.__members__.items()),
-        "---",
+        '---',
         # Dot notation
         CardinalDirection1.NORTH,
         # Call notation
-        CardinalDirection1("N"),
+        CardinalDirection1('N'),
         # Subscript notation
-        CardinalDirection1["NORTH"],
-        "---",
+        CardinalDirection1['NORTH'],
+        '---',
         CardinalDirection1.NORTH.name,
         CardinalDirection1.NORTH.value,
         CardinalDirection1.WEST.name,
-        "---",
-        "---",
-        sep="\n",
+        '---',
+        '---',
+        sep='\n',
     )
-    print("---")
+    print('---')
     loop1()
-    print("---")
+    print('---')
     handle_semaphore(Semaphore.GREEN),
     handle_semaphore(Semaphore.YELLOW),
     handle_semaphore(Semaphore.RED),
-    print("---")
-    print(Mood.HAPPY.describe_mood(), Mood.HAPPY, Mood.favorite_mood(), sep="\n")
-    print("---")
+    print('---')
+    print(
+        Mood.HAPPY.describe_mood(), Mood.HAPPY, Mood.favorite_mood(), sep='\n'
+    )
+    print('---')
     numbers = [5, 2, 7, 6, 3, 9, 8, 4]
-    print(Sort.ASCENDING(numbers), Sort.DESCENDING(numbers), sep="\n")
-    print("---")
+    print(Sort.ASCENDING(numbers), Sort.DESCENDING(numbers), sep='\n')
+    print('---')
 
     ...
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     run()

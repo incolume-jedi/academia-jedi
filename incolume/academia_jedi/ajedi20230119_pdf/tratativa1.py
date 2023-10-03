@@ -12,7 +12,7 @@ def ex01():
     logging.debug(inspect.stack()[0][3].__doc__)
 
     # creating a pdf file object
-    pdfFileObj = open(file, "rb")
+    pdfFileObj = open(file, 'rb')
 
     # creating a pdf reader object
     pdfReader = PyPDF2.PdfReader(pdfFileObj)
@@ -35,7 +35,7 @@ def ex02():
     logging.debug(inspect.stack()[0][3].__doc__)
 
     # creating a pdf file object
-    with open(file, "rb") as pdfFileObj:
+    with open(file, 'rb') as pdfFileObj:
         # creating a pdf reader object
         pdfReader = PyPDF2.PdfReader(pdfFileObj)
 
@@ -53,7 +53,7 @@ def ex03():
     """Exemplo PyMUPDF oriundo de https://www.geeksforgeeks.org/extract-text-from-pdf-file-using-python/."""
     logging.debug(inspect.stack()[0][3].__doc__)
     doc = fitz.open(file)
-    text = ""
+    text = ''
     for page in doc:
         text += page.get_text()
     print(text)
@@ -63,7 +63,7 @@ def ex04():
     """Exemplo PyMUPDF baseado de https://www.geeksforgeeks.org/extract-text-from-pdf-file-using-python/."""
     logging.debug(inspect.stack()[0][3].__doc__)
     with fitz.open(file) as doc:
-        print("".join([page.get_text() for page in doc]))
+        print(''.join([page.get_text() for page in doc]))
 
 
 def run():
@@ -73,5 +73,5 @@ def run():
     ex04()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     run()

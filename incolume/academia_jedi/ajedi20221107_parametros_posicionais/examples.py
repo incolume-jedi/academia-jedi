@@ -10,7 +10,7 @@ from positional_parameters import (
     myfunc4,
 )
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 def example1():
@@ -131,15 +131,15 @@ def run():
     ]
 
     for func in funcs:
-        print("")
-        print(f"{func.__name__}".ljust(90, "-"))
-        print(f"{func.__name__:^90}")
-        print("doc:", f"{func.__doc__}")
-        print("doc".rjust(90, "-"))
+        print('')
+        print(f'{func.__name__}'.ljust(90, '-'))
+        print(f'{func.__name__:^90}')
+        print('doc:', f'{func.__doc__}')
+        print('doc'.rjust(90, '-'))
         func()
-        print(f"{func.__name__:->90}")
-        print("")
+        print(f'{func.__name__:->90}')
+        print('')
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

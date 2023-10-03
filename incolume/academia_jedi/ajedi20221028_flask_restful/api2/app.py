@@ -12,13 +12,13 @@ class TodoSimple(Resource):
         return {todo_id: todos[todo_id]}
 
     def put(self, todo_id):
-        todos[todo_id] = request.form["data"]
+        todos[todo_id] = request.form['data']
         return {todo_id: todos[todo_id]}
 
 
-api.add_resource(TodoSimple, "/<string:todo_id>")
+api.add_resource(TodoSimple, '/<string:todo_id>')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
 
 # Para testar

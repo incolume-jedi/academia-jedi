@@ -4,7 +4,7 @@ import secrets
 import string
 
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 def generate_password(length: int = 8):
@@ -77,22 +77,23 @@ def tratativa11():
 def run():
     """Running it."""
     functions: typing.List[typing.Callable] = [
-        value for key, value in globals().items()
-        if key.__contains__("tratativa")
+        value
+        for key, value in globals().items()
+        if key.__contains__('tratativa')
     ]
     for func in functions:
-        logging.debug(f"{type(func)} {func.__name__}")
-        print(f"--- {func.__name__} ---")
-        print("    >>> {}".format(func.__doc__))
+        logging.debug(f'{type(func)} {func.__name__}')
+        print(f'--- {func.__name__} ---')
+        print('    >>> {}'.format(func.__doc__))
         try:
             if result := func():
                 print(result)
         except ValueError as e:
-            logging.error(f"{e.__class__.__name__}: {e}")
+            logging.error(f'{e.__class__.__name__}: {e}')
         finally:
             logging.debug(f'{func.__name__} finished.')
-        print("------\n")
+        print('------\n')
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

@@ -5,7 +5,7 @@ from collections import Counter
 spell = SpellChecker()
 
 # Define o texto para correção
-texto = "Esse sit é muito legau"
+texto = 'Esse sit é muito legau'
 
 # Separa as palavras do texto
 palavras = texto.split()
@@ -26,7 +26,9 @@ def sugestoes_correcao(palavra):
             probabilidades[w] += spell.word_probability(w) / n
 
     # Retorna as sugestões de correção ordenadas por probabilidade
-    return [sugestao for sugestao in probabilidades.keys() if sugestao in sugestoes]
+    return [
+        sugestao for sugestao in probabilidades.keys() if sugestao in sugestoes
+    ]
 
 
 # Corrige a ortografia de cada palavra
@@ -40,7 +42,7 @@ for i, palavra in enumerate(palavras):
             palavras[i] = sugestoes[0]
 
 # Concatena as palavras corrigidas para formar o texto corrigido
-texto_corrigido = " ".join(palavras)
+texto_corrigido = ' '.join(palavras)
 
 # Imprime o texto corrigido
 print(texto_corrigido)

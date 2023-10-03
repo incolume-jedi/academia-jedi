@@ -1,8 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
-labels = "Added Changed Deprecated Removed Fixed Security".split()
+labels = 'Added Changed Deprecated Removed Fixed Security'.split()
 
 MSG = """
 0.1.0           Added: initial commit

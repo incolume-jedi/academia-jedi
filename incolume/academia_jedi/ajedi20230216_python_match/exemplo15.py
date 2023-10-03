@@ -3,9 +3,9 @@ from dataclasses import dataclass
 
 
 class MyPatterns:
-    ALPHA = re.compile(r"\w+")
-    WHITESPACES = re.compile(r"\s+")
-    DIGITS = re.compile(r"\d+")
+    ALPHA = re.compile(r'\w+')
+    WHITESPACES = re.compile(r'\s+')
+    DIGITS = re.compile(r'\d+')
 
 
 # noinspection PyPep8Naming
@@ -28,22 +28,22 @@ def tratativa1(validated_string):
         case MyPatterns.DIGITS:
             print("This works, it's all digits")
         case MyPatterns.WHITESPACES:
-            print("Whitespaces detected.")
+            print('Whitespaces detected.')
         case MyPatterns.ALPHA:
-            print("Alphanumeric detected.")
+            print('Alphanumeric detected.')
         case _:
-            print("Do not match!")
+            print('Do not match!')
 
 
 def run():
     itens = [
-        "abc4",
-        "123",
-        "   ",
+        'abc4',
+        '123',
+        '   ',
     ]
     for item in itens:
         tratativa1(item)
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

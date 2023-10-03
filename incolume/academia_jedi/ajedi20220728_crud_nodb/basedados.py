@@ -15,7 +15,7 @@ def debug_mode(status: bool = False):
 def create_person(pessoa: Pessoa, debug: bool = False):
     debug_mode(debug)
     db[pessoa.id] = pessoa
-    logging.debug(f"Adicionado: {pessoa.to_dict()}")
+    logging.debug(f'Adicionado: {pessoa.to_dict()}')
     return True
 
 

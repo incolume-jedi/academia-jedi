@@ -41,7 +41,7 @@ class Point:
         self.y = y
 
     def __repr__(self) -> str:
-        return f"Point({self.x!r}, {self.y!r})"
+        return f'Point({self.x!r}, {self.y!r})'
 
     def __add__(self, o):
         return Point(self.x + o.x, self.y + o.y)

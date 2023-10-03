@@ -12,11 +12,11 @@ def exemplo1():
 
     # Define um conjunto de textos para treinamento
     textos_treinamento = [
-        "Eu sempre gosto de correr no parque",
-        "Eu gosto de laranjas, mas não de maçãs",
-        "A música é minha paixão desde que eu era criança",
-        "O cachorro late o dia todo no quintal",
-        "A matemática é uma ciência fascinante",
+        'Eu sempre gosto de correr no parque',
+        'Eu gosto de laranjas, mas não de maçãs',
+        'A música é minha paixão desde que eu era criança',
+        'O cachorro late o dia todo no quintal',
+        'A matemática é uma ciência fascinante',
     ]
     logging.debug(textos_treinamento)
 
@@ -45,7 +45,7 @@ def exemplo1():
     modelo.fit(vetor_caracteristicas, y_treinamento)
 
     # Define o texto para correção
-    texto = "Ela comprou uma blusa azul no shoping"
+    texto = 'Ela comprou uma blusa azul no shoping'
     logging.debug(texto)
 
     # Separa as palavras do texto
@@ -67,12 +67,14 @@ def exemplo1():
             else:
                 sugestoes = spell.candidates(palavra)
                 palavras[i] = (
-                    spell.correction(palavra) if not sugestoes else sugestoes[0]
+                    spell.correction(palavra)
+                    if not sugestoes
+                    else sugestoes[0]
                 )
 
     # Concatena as palavras corrigidas para formar o texto corrigido
-    texto_corrigido = " ".join(palavras)
-    logging.debug(f"{texto_corrigido=}")
+    texto_corrigido = ' '.join(palavras)
+    logging.debug(f'{texto_corrigido=}')
     # Imprime o texto corrigido
     print(texto_corrigido)
 
@@ -90,11 +92,11 @@ def exemplo2():
 
     # Define um conjunto de textos para treinamento
     textos_treinamento = [
-        "Eu sempre gosto de correr no parque",
-        "Eu gosto de laranjas, mas não de maçãs",
-        "A música é minha paixão desde que eu era criança",
-        "O cachorro late o dia todo no quintal",
-        "A matemática é uma ciência fascinante",
+        'Eu sempre gosto de correr no parque',
+        'Eu gosto de laranjas, mas não de maçãs',
+        'A música é minha paixão desde que eu era criança',
+        'O cachorro late o dia todo no quintal',
+        'A matemática é uma ciência fascinante',
     ]
 
     # Extrai as palavras dos textos de treinamento
@@ -118,7 +120,7 @@ def exemplo2():
     modelo.fit(vetor_caracteristicas, y_treinamento)
 
     # Define o texto para correção
-    texto = "Ela comprou uma blusa azul no shoping"
+    texto = 'Ela comprou uma blusa azul no shoping'
 
     # Separa as palavras do texto
     palavras = word_tokenize(texto.lower())
@@ -138,11 +140,13 @@ def exemplo2():
             else:
                 sugestoes = spell.candidates(palavra)
                 palavras[i] = (
-                    spell.correction(palavra) if not sugestoes else list(sugestoes)[0]
+                    spell.correction(palavra)
+                    if not sugestoes
+                    else list(sugestoes)[0]
                 )
 
     # Concatena as palavras corrigidas para formar o texto corrigido
-    texto_corrigido = " ".join(palavras)
+    texto_corrigido = ' '.join(palavras)
 
     # Imprime o texto corrigido
     print(texto_corrigido)
@@ -154,31 +158,31 @@ def exemplo3():
     from sklearn.naive_bayes import MultinomialNB
 
     # Cria uma instância do corretor ortográfico para o idioma pt-br
-    spell = SpellChecker(language="pt")
+    spell = SpellChecker(language='pt')
 
     # Define os dados de treinamento e teste
     textos_treinamento = [
-        "Este é um texto de exemplo",
-        "O carrtero entregou a carta",
-        "O aviaum decolou do aeroporto",
-        "Vou almoçar no resauranti",
-        "Amanhã irei ao medico",
+        'Este é um texto de exemplo',
+        'O carrtero entregou a carta',
+        'O aviaum decolou do aeroporto',
+        'Vou almoçar no resauranti',
+        'Amanhã irei ao medico',
     ]
 
     textos_teste = [
-        "Este texto está com erros de ortografia",
-        "O coretor ortográfico pode ajudar",
-        "Vou ao restaruante hoje",
-        "O avião está preste a decolar",
+        'Este texto está com erros de ortografia',
+        'O coretor ortográfico pode ajudar',
+        'Vou ao restaruante hoje',
+        'O avião está preste a decolar',
     ]
 
     # Prepara os dados de entrada
-    cv = CountVectorizer(strip_accents="unicode", lowercase=True)
+    cv = CountVectorizer(strip_accents='unicode', lowercase=True)
     X_treinamento = cv.fit_transform(textos_treinamento)
     X_teste = cv.transform(textos_teste)
 
     # Treina o modelo de aprendizado de máquina
-    y_treinamento = ["exemplo", "carta", "avião", "restaurante", "médico"]
+    y_treinamento = ['exemplo', 'carta', 'avião', 'restaurante', 'médico']
     modelo = MultinomialNB()
     modelo.fit(X_treinamento, y_treinamento)
 
@@ -193,10 +197,12 @@ def exemplo3():
                 palavras_corrigidas.append(palavra)
             else:
                 # Se a palavra estiver incorreta, usa o modelo de ML para sugerir a correção
-                palavras_sugeridas = cv.transform(list(spell.candidates(palavra)))
+                palavras_sugeridas = cv.transform(
+                    list(spell.candidates(palavra))
+                )
                 sugestao = modelo.predict(palavras_sugeridas)[0]
                 palavras_corrigidas.append(sugestao)
-        texto_corrigido = " ".join(palavras_corrigidas)
+        texto_corrigido = ' '.join(palavras_corrigidas)
         textos_corrigidos.append(texto_corrigido)
 
     # Imprime os textos corrigidos
@@ -205,19 +211,19 @@ def exemplo3():
 
 
 def run():
-    functions = (b for a, b in globals().items() if a.startswith("exemplo"))
+    functions = (b for a, b in globals().items() if a.startswith('exemplo'))
     for func in functions:
-        logging.info(f"starting {func.__name__}")
-        print("----")
+        logging.info(f'starting {func.__name__}')
+        print('----')
         print(func.__name__)
-        print("----")
+        print('----')
         try:
             func()
         except (ValueError) as e:
             logging.error(f'"{e.__class__.__name__}: {e}"')
         print()
-        logging.info(f"finishing {func.__name__}")
+        logging.info(f'finishing {func.__name__}')
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

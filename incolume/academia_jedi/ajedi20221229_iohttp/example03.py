@@ -1,4 +1,4 @@
-""" aiohttp + asyncio
+"""aiohttp + asyncio
 
 https://youtu.be/nFn4_nA_yk8
 https://youtu.be/lUwZ9rS0SeM
@@ -31,20 +31,20 @@ async def main(urls):
 
 def parse(results):
     for html in results:
-        soup = BeautifulSoup(html, "html.parser")
+        soup = BeautifulSoup(html, 'html.parser')
         # print(soup)
         try:
-            print(soup.find("form", {"class": "form-horizontal"}).text.strip())
+            print(soup.find('form', {'class': 'form-horizontal'}).text.strip())
         except AttributeError as e:
             logging.error(e)
     return
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     urls = [
-        "https://books.toscrape.com/catalogue/page-1.html",
-        "https://books.toscrape.com/catalogue/page-2.html",
-        "https://books.toscrape.com/catalogue/page-3.html",
+        'https://books.toscrape.com/catalogue/page-1.html',
+        'https://books.toscrape.com/catalogue/page-2.html',
+        'https://books.toscrape.com/catalogue/page-3.html',
     ]
     results = asyncio.run(main(urls))
     # print(len(results), results)

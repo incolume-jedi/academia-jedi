@@ -13,10 +13,12 @@ import logging
 
 logging.basicConfig(
     level=logging.DEBUG,
-    format="%(asctime)s;%(levelname)-8s;%(name)s;"
-    "%(module)s;%(funcName)s;%(message)s",
+    format='%(asctime)s;%(levelname)-8s;%(name)s;'
+    '%(module)s;%(funcName)s;%(message)s',
 )
-DATE = datetime(1978, 6, 20, 1, 23, 45, 6789, pytz.timezone("America/Sao_Paulo"))
+DATE = datetime(
+    1978, 6, 20, 1, 23, 45, 6789, pytz.timezone('America/Sao_Paulo')
+)
 
 
 def run():
@@ -28,9 +30,9 @@ def run():
         iso8601_format_05(DATE),
         iso8601_format_06(DATE),
         iso8601_format_07(DATE),
-        sep="\n",
+        sep='\n',
     )
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

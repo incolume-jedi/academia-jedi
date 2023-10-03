@@ -2,7 +2,7 @@ from real import Real
 from currency import Currency, NC
 from random import seed, random
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 def run():
@@ -16,7 +16,7 @@ def run():
     print(sorted((r, p), reverse=True))
 
     q = list(Currency(random()) for _ in range(10))
-    s = list(Currency(random(), symbol="$", sigla="USD") for _ in range(10))
+    s = list(Currency(random(), symbol='$', sigla='USD') for _ in range(10))
     print(q, s)
 
     print(Currency(10) + Currency(12))
@@ -48,5 +48,5 @@ def run():
     print(n)
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

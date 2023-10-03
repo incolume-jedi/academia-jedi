@@ -33,11 +33,11 @@ import datetime
 #     click.echo('Debug is %s' % (ctx.obj['debug'] and 'on' or 'off'))
 
 
-CONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])
+CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
 
 @click.group(context_settings=CONTEXT_SETTINGS, invoke_without_command=True)
-@click.option("--debug/--no-debug", default=False, help="Activate debug mode.")
+@click.option('--debug/--no-debug', default=False, help='Activate debug mode.')
 @click.pass_context
 def run(ctx, **kwargs):
     # ensure that ctx.obj exists and is a dict (in case `cli()` is called
@@ -45,23 +45,23 @@ def run(ctx, **kwargs):
     ctx.ensure_object(dict)
     ctx.obj.update(**kwargs)
     if ctx.invoked_subcommand is None:
-        click.secho(run.get_help(ctx), fg="red")
+        click.secho(run.get_help(ctx), fg='red')
 
 
 @run.command()
 @click.pass_context
 def show(ctx):
     """Show context content."""
-    click.secho(f"{ctx.obj}")
+    click.secho(f'{ctx.obj}')
 
 
 @run.command()
 # @click.option('-p', '--person', type=dict, help='Index of record.')
-@click.argument("name")
-@click.argument("date_born")
-@click.option("--telephone", "-t", multiple=True)
-@click.option("--address", "-a", multiple=True)
-@click.option("--email", "-e", multiple=True)
+@click.argument('name')
+@click.argument('date_born')
+@click.option('--telephone', '-t', multiple=True)
+@click.option('--address', '-a', multiple=True)
+@click.option('--email', '-e', multiple=True)
 @click.pass_context
 def insert(ctx, name, date_born, telephone, address, email):
     """Insert one record into database.
@@ -84,9 +84,9 @@ def insert(ctx, name, date_born, telephone, address, email):
                 telefone=telephone,
                 address=address,
             ),
-            ctx.obj.get("debug"),
+            ctx.obj.get('debug'),
         ),
-        fg="green",
+        fg='green',
     )
 
 
@@ -94,19 +94,19 @@ def insert(ctx, name, date_born, telephone, address, email):
 @click.pass_context
 def sync(ctx):
     """Show debug state."""
-    click.echo("Debug is %s" % (ctx.obj["debug"] and "on" or "off"))
+    click.echo('Debug is %s' % (ctx.obj['debug'] and 'on' or 'off'))
 
 
 @run.command()
 @click.pass_context
 def read_all(ctx):
     """Show all records into database."""
-    click.secho(select_all_person(), fg="green")
+    click.secho(select_all_person(), fg='green')
 
 
 @run.command()
-@click.argument("index", type=int)
+@click.argument('index', type=int)
 @click.pass_context
 def read_one(ctx, index):
     """Show one record into database."""
-    click.secho(select_person(index) or None, fg="green")
+    click.secho(select_person(index) or None, fg='green')

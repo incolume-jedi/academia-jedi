@@ -7,7 +7,7 @@ from decimal import Decimal
 
 db = orm.Database()
 # db.bind(provider='sqlite', filename=':memory:')
-db.bind(provider="sqlite", filename="database.sqlite", create_db=True)
+db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
 
 
 class Customer(db.Entity):
@@ -16,20 +16,20 @@ class Customer(db.Entity):
     name = orm.Required(str)
     country = orm.Required(str)
     address = orm.Required(str)
-    cart_items = orm.Set("CartItem")
-    orders = orm.Set("Order")
+    cart_items = orm.Set('CartItem')
+    orders = orm.Set('Order')
 
 
 class Product(db.Entity):
     id = orm.PrimaryKey(int, auto=True)
     name = orm.Required(str)
-    categories = orm.Set("Category")
+    categories = orm.Set('Category')
     description = orm.Optional(str)
     picture = orm.Optional(orm.buffer)
     price = orm.Required(Decimal)
     quantity = orm.Required(int)
-    cart_items = orm.Set("CartItem")
-    order_items = orm.Set("OrderItem")
+    cart_items = orm.Set('CartItem')
+    order_items = orm.Set('OrderItem')
 
 
 class CartItem(db.Entity):
@@ -41,7 +41,7 @@ class CartItem(db.Entity):
 class OrderItem(db.Entity):
     quantity = orm.Required(int)
     price = orm.Required(Decimal)
-    order = orm.Required("Order")
+    order = orm.Required('Order')
     product = orm.Required(Product)
     orm.PrimaryKey(order, product)
 
@@ -65,7 +65,7 @@ class Category(db.Entity):
 db.generate_mapping(create_tables=True)
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
 
     with orm.db_session:
         try:
@@ -76,12 +76,15 @@ if __name__ == "__main__":  # pragma: no cover
             'SELECT "customer"."country", COUNT(DISTINCT "customer"."id") '
             'FROM "Customer" "customer" '
             'GROUP BY "customer"."country" '
-            "ORDER BY 2 DESC LIMIT 1"
+            'ORDER BY 2 DESC LIMIT 1'
         )
-        print(f"{result=}")
+        print(f'{result=}')
         result = (
-            orm.select((customer.country, orm.count(customer)) for customer in Customer)
+            orm.select(
+                (customer.country, orm.count(customer))
+                for customer in Customer
+            )
             .order_by(-2)
             .first()
         )
-        print(f"{result=}")
+        print(f'{result=}')

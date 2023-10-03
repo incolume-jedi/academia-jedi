@@ -13,15 +13,15 @@ class RegexEqual(str):
 
 
 def run():
-    match RegexEqual("Something to match"):
-        case "^...match":
-            print("Nope...")
-        case "^S.*ing$":
-            print("Closer...")
-        case "^S.*match$":
-            print("Yep!")
-    print(bool(RegexEqual("Something") == "^S.*ing$"))  # True
+    match RegexEqual('Something to match'):
+        case '^...match':
+            print('Nope...')
+        case '^S.*ing$':
+            print('Closer...')
+        case '^S.*match$':
+            print('Yep!')
+    print(bool(RegexEqual('Something') == '^S.*ing$'))  # True
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

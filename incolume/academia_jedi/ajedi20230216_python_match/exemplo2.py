@@ -16,11 +16,11 @@ class RegexEqual(str):
 
 
 def run():
-    match RegexEqual("Something to match"):
-        case "^Some(.*ing).*$" as capture:
+    match RegexEqual('Something to match'):
+        case '^Some(.*ing).*$' as capture:
             print(f"Captured: '{capture}'")  # Captured: 'thing'
             print(f"Captured: '{capture[1]}'")  # Captured: 'thing'
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

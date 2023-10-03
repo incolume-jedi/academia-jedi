@@ -4,11 +4,11 @@ import requests
 from typing import Iterator
 import logging
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 logging.basicConfig(
     level=logging.DEBUG,
-    format="%(asctime)s;%(levelname)-8s;%(name)s;"
-    "%(module)s;%(funcName)s;%(message)s",
+    format='%(asctime)s;%(levelname)-8s;%(name)s;'
+    '%(module)s;%(funcName)s;%(message)s',
 )
 
 
@@ -21,21 +21,21 @@ def data_get(url: str) -> Iterator:
         logging.debug(url)
 
         # result.extend(resp.json()["results"])
-        result += resp.json()["results"]
-        if resp.json()["info"]["next"] is None:
+        result += resp.json()['results']
+        if resp.json()['info']['next'] is None:
             return
 
-        make_request(resp.json()["info"]["next"], result)
+        make_request(resp.json()['info']['next'], result)
 
     make_request(url, totals)
     return totals
 
 
 def run():
-    url = "https://rickandmortyapi.com/api/character?page=1"
+    url = 'https://rickandmortyapi.com/api/character?page=1'
     result = data_get(url)
     print(len(result))
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

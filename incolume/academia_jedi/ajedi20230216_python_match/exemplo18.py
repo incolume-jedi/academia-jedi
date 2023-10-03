@@ -11,22 +11,22 @@ def tratativa():
         (?P<string>".*")
     """
     )
-    Token = namedtuple("Token", ("kind", "value", "position"))
-    env = {"x": "hello", "y": 10}
+    Token = namedtuple('Token', ('kind', 'value', 'position'))
+    env = {'x': 'hello', 'y': 10}
 
-    for s in ["123", "123.45", "x", "y", '"goodbye"']:
+    for s in ['123', '123.45', 'x', 'y', '"goodbye"']:
         mo = pattern.fullmatch(s)
         match mo.lastgroup:
-            case "float":
-                tok = Token("NUM", float(s), mo.span())
-            case "int":
-                tok = Token("NUM", int(s), mo.span())
-            case "variable":
-                tok = Token("VAR", env[s], mo.span())
-            case "string":
-                tok = Token("TEXT", s[1:-1], mo.span())
+            case 'float':
+                tok = Token('NUM', float(s), mo.span())
+            case 'int':
+                tok = Token('NUM', int(s), mo.span())
+            case 'variable':
+                tok = Token('VAR', env[s], mo.span())
+            case 'string':
+                tok = Token('TEXT', s[1:-1], mo.span())
             case _:
-                raise ValueError(f"Unknown pattern for {s!r}")
+                raise ValueError(f'Unknown pattern for {s!r}')
         print(tok)
 
 
@@ -34,5 +34,5 @@ def run():
     tratativa()
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

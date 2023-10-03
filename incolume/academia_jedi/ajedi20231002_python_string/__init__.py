@@ -8,7 +8,7 @@ def python_string0(string):
 
 def python_string(string):
     """Retorna uma string ao contrário.
-    
+
     Implementação pythonica
     """
     return string[::-1]

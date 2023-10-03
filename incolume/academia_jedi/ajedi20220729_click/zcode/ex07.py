@@ -4,10 +4,10 @@ import click
 
 
 @click.command()
-@click.option("--name", prompt="Your name", help="Provide your name")
+@click.option('--name', prompt='Your name', help='Provide your name')
 def hello(name):
-    click.echo(f"Hello, {name}")
+    click.echo(f'Hello, {name}')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     hello()

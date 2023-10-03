@@ -39,11 +39,13 @@ def tratativa1():
     """"""
     documento = Document()
     texto.format(
-        pytz.timezone("America/Sao_Paulo").localize(dt.datetime.now()).isoformat()
+        pytz.timezone('America/Sao_Paulo')
+        .localize(dt.datetime.now())
+        .isoformat()
     )
     paragraf = documento.add_paragraph(texto)
     # documento.save(Path(__file__).parent/'test.docx')
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa2():
@@ -51,13 +53,15 @@ def tratativa2():
     documento = Document()
     texto = """Olá Mundo!!!"""
     paragraf = documento.add_paragraph(texto)
-    paragraf.style = documento.styles.add_style("Mystyle", WD_STYLE_TYPE.PARAGRAPH)
-    paragraf.style.font.name = "Algerian"
+    paragraf.style = documento.styles.add_style(
+        'Mystyle', WD_STYLE_TYPE.PARAGRAPH
+    )
+    paragraf.style.font.name = 'Algerian'
     paragraf.style.font.size = Pt(15)
     paragraf.style.font.bold = True
     paragraf.style.font.italic = True
 
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa3():
@@ -68,7 +72,7 @@ def tratativa3():
     paragraf.style = documento.styles.add_style(
         (mystyle := inspect.stack()[0][3]), WD_STYLE_TYPE.PARAGRAPH
     )
-    paragraf.style.font.name = "Algerian"
+    paragraf.style.font.name = 'Algerian'
     paragraf.style.font.size = Pt(15)
     paragraf.style.font.bold = True
     paragraf.style.font.italic = True
@@ -76,12 +80,12 @@ def tratativa3():
     paragraf.style.font.color.rgb = RGBColor(255, 0, 0)
 
     # sem estilo aplicado
-    documento.add_paragraph("Novo paragrafo.")
+    documento.add_paragraph('Novo paragrafo.')
 
     # com estilo previamente criado
-    documento.add_paragraph("Novo paragrafo.", mystyle)
+    documento.add_paragraph('Novo paragrafo.', mystyle)
 
-    documento.save(Path(__file__).parent / f"{mystyle}.docx")
+    documento.save(Path(__file__).parent / f'{mystyle}.docx')
 
 
 def tratativa4():
@@ -95,61 +99,61 @@ def tratativa5():
     """Utilizar estilos pré-existentes."""
     documento = Document()
 
-    documento.add_paragraph("Cabeçalho", "Header")
-    documento.add_paragraph("Primeiro paragrafo.", "Heading 1")
-    documento.add_paragraph("Segundo paragrafo.")
-    documento.add_paragraph("Terceiro paragrafo.")
-    documento.add_paragraph("Quarto paragrafo.")
+    documento.add_paragraph('Cabeçalho', 'Header')
+    documento.add_paragraph('Primeiro paragrafo.', 'Heading 1')
+    documento.add_paragraph('Segundo paragrafo.')
+    documento.add_paragraph('Terceiro paragrafo.')
+    documento.add_paragraph('Quarto paragrafo.')
 
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa6():
     """Criar um documento a partir de uma configuração de estilo preexistente em outro arquivo."""
-    documento = Document(Path(__file__).parent / "tratativa2.docx")
-    documento.add_paragraph("Cabeçalho", "Heading 1")
-    documento.add_paragraph("Primeiro paragrafo.", "Mystyle")
-    documento.add_paragraph("Segundo paragrafo.", "Mystyle")
-    documento.add_paragraph("Terceiro paragrafo.", "Mystyle")
-    documento.add_paragraph("Quarto paragrafo.", "Mystyle")
+    documento = Document(Path(__file__).parent / 'tratativa2.docx')
+    documento.add_paragraph('Cabeçalho', 'Heading 1')
+    documento.add_paragraph('Primeiro paragrafo.', 'Mystyle')
+    documento.add_paragraph('Segundo paragrafo.', 'Mystyle')
+    documento.add_paragraph('Terceiro paragrafo.', 'Mystyle')
+    documento.add_paragraph('Quarto paragrafo.', 'Mystyle')
 
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa7():
     """Formatação Negrito em texto."""
     documento = Document()
-    paragraf = documento.add_paragraph("Texto gerado em ")
+    paragraf = documento.add_paragraph('Texto gerado em ')
     paragraf.add_run(
         f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} "
     ).bold = True
-    paragraf.add_run("através do ")
-    paragraf.add_run("Python").italic = True
+    paragraf.add_run('através do ')
+    paragraf.add_run('Python').italic = True
 
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa8():
     """Quebra de página."""
     documento = Document()
 
-    documento.add_paragraph("Título", "Heading 1")
+    documento.add_paragraph('Título', 'Heading 1')
 
-    paragraf = documento.add_paragraph("Texto gerado em ")
+    paragraf = documento.add_paragraph('Texto gerado em ')
     paragraf.add_run(
         f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} "
     ).bold = True
-    paragraf.add_run("através do ")
-    paragraf.add_run("Python").italic = True
+    paragraf.add_run('através do ')
+    paragraf.add_run('Python').italic = True
 
     documento.add_page_break()
-    documento.add_paragraph("Título", "Heading 1")
-    documento.add_paragraph("Primeiro paragrafo.")
-    documento.add_paragraph("Segundo paragrafo.")
-    documento.add_paragraph("Terceiro paragrafo.")
-    documento.add_paragraph("Quarto paragrafo.")
+    documento.add_paragraph('Título', 'Heading 1')
+    documento.add_paragraph('Primeiro paragrafo.')
+    documento.add_paragraph('Segundo paragrafo.')
+    documento.add_paragraph('Terceiro paragrafo.')
+    documento.add_paragraph('Quarto paragrafo.')
 
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa9():
@@ -161,14 +165,14 @@ def tratativa9():
         section.left_margin = Cm(2.5)
         section.right_margin = Cm(0.5)
 
-    paragraf = documento.add_paragraph("Texto gerado em ")
+    paragraf = documento.add_paragraph('Texto gerado em ')
     paragraf.add_run(
         f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} "
     ).bold = True
-    paragraf.add_run("através do ")
-    paragraf.add_run("Python").italic = True
+    paragraf.add_run('através do ')
+    paragraf.add_run('Python').italic = True
 
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa10():
@@ -181,59 +185,61 @@ def tratativa10():
         section.right_margin = Cm(0.5)
 
     paragraf = documento.add_paragraph(texto)
-    paragraf.add_run("\nTexto gerado em ")
+    paragraf.add_run('\nTexto gerado em ')
     paragraf.add_run(
         f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} "
     ).bold = True
-    paragraf.add_run("através do ")
-    paragraf.add_run("Python").italic = True
+    paragraf.add_run('através do ')
+    paragraf.add_run('Python').italic = True
     paragraf.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa11():
     """Imagem."""
     documento = Document()
-    content = texto.split("\n")
+    content = texto.split('\n')
     logging.debug(content)
-    paragraf = documento.add_paragraph(content.pop(0), "Heading 1")
+    paragraf = documento.add_paragraph(content.pop(0), 'Heading 1')
     documento.add_paragraph(content.pop(0))
     documento.add_paragraph(content.pop(0))
 
-    documento.add_picture(Path(__file__).parent.joinpath("imagem.png").as_posix())
+    documento.add_picture(
+        Path(__file__).parent.joinpath('imagem.png').as_posix()
+    )
     documento.add_paragraph(content.pop(0))
 
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa12():
     """Imagem."""
     documento = Document()
-    content = texto.split("\n")
-    paragraf = documento.add_paragraph(content.pop(0), "Heading 1")
+    content = texto.split('\n')
+    paragraf = documento.add_paragraph(content.pop(0), 'Heading 1')
     documento.add_paragraph(content.pop(0))
     documento.add_paragraph(content.pop(0))
 
     documento.add_picture(
-        Path(__file__).parent.joinpath("imagem.png").as_posix(),
+        Path(__file__).parent.joinpath('imagem.png').as_posix(),
         width=Cm(4),
         height=Cm(4),
     )
     documento.add_paragraph(content.pop(0))
 
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa13():
     """Imagem."""
     documento = Document()
-    content = texto.split("\n")
-    paragraf = documento.add_paragraph(content.pop(0), "Heading 1")
+    content = texto.split('\n')
+    paragraf = documento.add_paragraph(content.pop(0), 'Heading 1')
     documento.add_paragraph(content.pop(0))
     documento.add_paragraph(content.pop(0))
 
     image = documento.add_picture(
-        Path(__file__).parent.joinpath("imagem.png").as_posix(),
+        Path(__file__).parent.joinpath('imagem.png').as_posix(),
         width=Cm(4),
         height=Cm(4),
     )
@@ -242,17 +248,19 @@ def tratativa13():
         parag = documento.add_paragraph(cont)
         parag.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa14():
     """Tabela."""
     documento = Document()
     paragrafos = texto.format(
-        pytz.timezone("America/Sao_Paulo").localize(dt.datetime.now()).isoformat()
-    ).split("\n")
+        pytz.timezone('America/Sao_Paulo')
+        .localize(dt.datetime.now())
+        .isoformat()
+    ).split('\n')
 
-    documento.add_paragraph(paragrafos.pop(0), "Heading 1")
+    documento.add_paragraph(paragrafos.pop(0), 'Heading 1')
 
     for parag in paragrafos[:2]:
         paragraf = documento.add_paragraph(parag)
@@ -260,7 +268,7 @@ def tratativa14():
         paragrafos.pop(0)
 
     image = documento.add_picture(
-        Path(__file__).parent.joinpath("imagem.png").as_posix(),
+        Path(__file__).parent.joinpath('imagem.png').as_posix(),
         width=Cm(4),
         height=Cm(4),
     )
@@ -271,16 +279,16 @@ def tratativa14():
         parag.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
         paragrafos.pop(0)
     records = (
-        (3, "101", "Spam"),
-        (7, "422", "Eggs"),
-        (4, "631", "Spam, spam, eggs, and spam"),
+        (3, '101', 'Spam'),
+        (7, '422', 'Eggs'),
+        (4, '631', 'Spam, spam, eggs, and spam'),
     )
 
     table = documento.add_table(rows=1, cols=3)
     hdr_cells = table.rows[0].cells
-    hdr_cells[0].text = "Qty"
-    hdr_cells[1].text = "Id"
-    hdr_cells[2].text = "Desc"
+    hdr_cells[0].text = 'Qty'
+    hdr_cells[1].text = 'Id'
+    hdr_cells[2].text = 'Desc'
     for qty, id, desc in records:
         row_cells = table.add_row().cells
         row_cells[0].text = str(qty)
@@ -291,7 +299,7 @@ def tratativa14():
         parag = documento.add_paragraph(cont)
         parag.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa15():
@@ -305,10 +313,12 @@ def tratativa16():
     """Tabela."""
     documento = Document()
     paragrafos = texto.format(
-        pytz.timezone("America/Sao_Paulo").localize(dt.datetime.now()).isoformat()
-    ).split("\n")
+        pytz.timezone('America/Sao_Paulo')
+        .localize(dt.datetime.now())
+        .isoformat()
+    ).split('\n')
 
-    documento.add_paragraph(paragrafos.pop(0), "Heading 1")
+    documento.add_paragraph(paragrafos.pop(0), 'Heading 1')
 
     for parag in paragrafos[:2]:
         paragraf = documento.add_paragraph(parag)
@@ -316,7 +326,7 @@ def tratativa16():
         paragrafos.pop(0)
 
     image = documento.add_picture(
-        Path(__file__).parent.joinpath("imagem.png").as_posix(),
+        Path(__file__).parent.joinpath('imagem.png').as_posix(),
         width=Cm(4),
         height=Cm(4),
     )
@@ -327,16 +337,16 @@ def tratativa16():
         parag.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
         paragrafos.pop(0)
     records = (
-        (3, "101", "Spam"),
-        (7, "422", "Eggs"),
-        (4, "631", "Spam, spam, eggs, and spam"),
+        (3, '101', 'Spam'),
+        (7, '422', 'Eggs'),
+        (4, '631', 'Spam, spam, eggs, and spam'),
     )
 
-    table = documento.add_table(rows=1, cols=3, style="Light List Accent 1")
+    table = documento.add_table(rows=1, cols=3, style='Light List Accent 1')
     hdr_cells = table.rows[0].cells
-    hdr_cells[0].text = "Qty"
-    hdr_cells[1].text = "Id"
-    hdr_cells[2].text = "Desc"
+    hdr_cells[0].text = 'Qty'
+    hdr_cells[1].text = 'Id'
+    hdr_cells[2].text = 'Desc'
     for qty, id, desc in records:
         row_cells = table.add_row().cells
         row_cells[0].text = str(qty)
@@ -347,82 +357,84 @@ def tratativa16():
         parag = documento.add_paragraph(cont)
         parag.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
-    documento.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa17():
     """Mala direta MSWord via Python."""
-    contrato = Document(Path(__file__).parent/"Contrato.docx")
+    contrato = Document(Path(__file__).parent / 'Contrato.docx')
 
-    nome = "Lira da Hashtag"
-    item1 = "Serviço de Treinamento em Excel"
-    item2 = "Apostila Completa de Excel"
-    item3 = "Serviço de Treinamentos de Python"
+    nome = 'Lira da Hashtag'
+    item1 = 'Serviço de Treinamento em Excel'
+    item2 = 'Apostila Completa de Excel'
+    item3 = 'Serviço de Treinamentos de Python'
 
     dicionario_valores = {
-        "XXXX": nome,
-        "YYYY": item1,
-        "ZZZZ": item2,
-        "WWWW": item3,
-        "DD": str(dt.datetime.now().day),
-        "MM": str(dt.datetime.now().month),
-        "AAAA": str(dt.datetime.now().year),
+        'XXXX': nome,
+        'YYYY': item1,
+        'ZZZZ': item2,
+        'WWWW': item3,
+        'DD': str(dt.datetime.now().day),
+        'MM': str(dt.datetime.now().month),
+        'AAAA': str(dt.datetime.now().year),
     }
     for paragraf in contrato.paragraphs:
         print(paragraf)
         if 'XXXX' in paragraf.text:
             paragraf.text = paragraf.text.replace('XXXX', nome)
 
-    contrato.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    contrato.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def tratativa18():
     """Mala direta MSWord via Python."""
-    contrato = Document("Contrato.docx")
+    contrato = Document('Contrato.docx')
 
-    nome = "Lira da Hashtag"
-    item1 = "Serviço de Treinamento em Excel"
-    item2 = "Apostila Completa de Excel"
-    item3 = "Serviço de Treinamentos de Python"
+    nome = 'Lira da Hashtag'
+    item1 = 'Serviço de Treinamento em Excel'
+    item2 = 'Apostila Completa de Excel'
+    item3 = 'Serviço de Treinamentos de Python'
 
     dicionario_valores = {
-        "XXXX": nome,
-        "YYYY": item1,
-        "ZZZZ": item2,
-        "WWWW": item3,
-        "DD": str(dt.datetime.now().day),
-        "MM": str(dt.datetime.now().month),
-        "AAAA": str(dt.datetime.now().year),
+        'XXXX': nome,
+        'YYYY': item1,
+        'ZZZZ': item2,
+        'WWWW': item3,
+        'DD': str(dt.datetime.now().day),
+        'MM': str(dt.datetime.now().month),
+        'AAAA': str(dt.datetime.now().year),
     }
     for paragraf in contrato.paragraphs:
         for key in dicionario_valores.keys():
             if key in paragraf.text:
                 logging.debug(paragraf, key)
                 paragraf.text = paragraf.text.replace(
-                    key, dicionario_valores.get(key))
+                    key, dicionario_valores.get(key)
+                )
 
-    contrato.save(Path(__file__).parent / f"{inspect.stack()[0][3]}.docx")
+    contrato.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
 def run():
     """Running it."""
     functions: typing.List[typing.Callable] = [
-        value for key, value in globals().items()
-        if key.__contains__("tratativa")
+        value
+        for key, value in globals().items()
+        if key.__contains__('tratativa')
     ]
     for func in functions:
-        logging.debug(f"{type(func)} {func.__name__}")
-        print(f"--- {func.__name__} ---")
-        print("    >>> {}".format(func.__doc__))
+        logging.debug(f'{type(func)} {func.__name__}')
+        print(f'--- {func.__name__} ---')
+        print('    >>> {}'.format(func.__doc__))
         try:
             if result := func():
                 print(result)
         except (TypeError, ValueError) as e:
-            logging.error(f"{e.__class__.__name__}: {e}")
+            logging.error(f'{e.__class__.__name__}: {e}')
         finally:
-            logging.debug("{} finalizada.".format(func.__name__))
-        print("------\n")
+            logging.debug('{} finalizada.'.format(func.__name__))
+        print('------\n')
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

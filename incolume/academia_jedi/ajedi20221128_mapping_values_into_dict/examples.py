@@ -2,21 +2,21 @@
 # -*- coding: utf-8 -*-
 from typing import Container, Iterable
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 tup = (
-    ("Boba", 21),
-    ("Din", 18),
-    ("Grogu", 40),
-    ("Ahsoka", 21),
-    ("Boba", 22),
-    ("Din", 19),
-    ("Grogu", 46),
-    ("Ahsoka", 11),
-    (11, "eleven"),
-    (21, "mike"),
-    (19, "dustin"),
-    (46, "caleb"),
+    ('Boba', 21),
+    ('Din', 18),
+    ('Grogu', 40),
+    ('Ahsoka', 21),
+    ('Boba', 22),
+    ('Din', 19),
+    ('Grogu', 46),
+    ('Ahsoka', 11),
+    (11, 'eleven'),
+    (21, 'mike'),
+    (19, 'dustin'),
+    (46, 'caleb'),
 )
 tups = list(tup)
 
@@ -90,8 +90,8 @@ def example03(t: Iterable = None):
 
 
 def run():
-    print(example01(tup), example02(tup), example03(tups), sep="\n")
+    print(example01(tup), example02(tup), example03(tups), sep='\n')
 
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()
