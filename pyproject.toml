@@ -236,6 +236,10 @@ module = "pyautogui.*"
 disable_error_code = "attr-defined"
 disallow_untyped_defs = true
 
+[pycodestyle]
+max_line_length = 79
+ignore = ['E203']
+
 [tool.taskipy.tasks]
 prerelease={cmd='v=$(poetry version prerelease) && poetry run pytest -xv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version prerelease'}
 patch={cmd='v=$(poetry version patch) && poetry run pytest -xv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version patch'}
