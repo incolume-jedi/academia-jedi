@@ -94,6 +94,41 @@ markers = [
   "fast: marks tests as fast (deselect with '-m \"not fast\"')",
 ]
 
+[tool.coverage.html]
+directory = "coverage_report/html"
+
+
+[tool.coverage.xml]
+
+
+[tool.coverage.run]
+omit = [
+  # omit anything in a .local directory anywhere
+  "*/.local/*",
+  # omit everything in /usr
+  "/usr/*",
+  # omit this single file
+  "configure/truncus.py",
+]
+
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "if __name__ == .__main__.:",
+  "logger.debug",
+  "logger.info",
+  "logger.warning",
+  "logger.error",
+  "ImportError",
+  "ModuleNotFoundError",
+  "__package__ =",
+  "def run",
+  "def terminal.",
+  "__author__",
+  "class IElements"
+]
+
 [tool.taskipy.tasks]
 prerelease={cmd='v=$(poetry version prerelease) && poetry run pytest -xv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version prerelease'}
 patch={cmd='v=$(poetry version patch) && poetry run pytest -xv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version patch'}
