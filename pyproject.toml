@@ -75,6 +75,25 @@ faker = "^19.6.2"
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.pytest.ini_options]
+log_format = '%(asctime)s; %(levelname)-8s; %(name)s; %(module)s; %(funcName)s; %(message)s'
+log_date_format ='%FT%T%N%z'
+addopts = "--doctest-modules --cov=incolume -sx --cov-report term-missing --cov-report html:coverage_report/html --cov-report xml:coverage_report/cov.xml"
+testpaths = [
+  "tests",
+  "incolume/py/coding_dojo_jedi",
+]
+python_files = [
+  "test_*.py",
+  "tests.py"
+]
+
+markers = [
+  "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+  "webtest: marks tests as webtest (deselect with '-m \"not webtest\"')",
+  "fast: marks tests as fast (deselect with '-m \"not fast\"')",
+]
+
 [tool.taskipy.tasks]
 prerelease={cmd='v=$(poetry version prerelease) && poetry run pytest -xv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version prerelease'}
 patch={cmd='v=$(poetry version patch) && poetry run pytest -xv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version patch'}
