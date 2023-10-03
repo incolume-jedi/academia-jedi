@@ -246,7 +246,38 @@ CHANGELOGFILE = "CHANGELOG.md"
 URLCOMPARE = "https://github.com/incolume-jedi/academia-jedi/compare"
 
 [tool.taskipy.tasks]
-prerelease={cmd='v=$(poetry version prerelease) && poetry run pytest -xv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version prerelease'}
-patch={cmd='v=$(poetry version patch) && poetry run pytest -xv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version patch'}
-preminor={cmd='v=$(poetry version preminor) && poetry run pytest -xv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version preminor'}
-premajor={cmd='v=$(poetry version premajor) && poetry run pytest -xv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version premajor'}
+#bandit={help='', cmd='poetry run bandit -c pyproject.toml -r {path}', use_vars=true}
+#pre_check-all = {cmd='echo Starting Check all ..', help=''}
+#check-all = {cmd='poetry run task clean-all; poetry run task lint; poetry run task sec',  help = "Checking all" }
+#post_check-all = {cmd='echo Checking finished!', help=''}
+clean = {cmd = "echo -n 'Starting cleanning environment..'; find ./ \\( -wholename '*report_coverage' -o -name '*.pyc' -o -name '*~' -o -name '*.log' -o -name '*.log.*' -o -name '.cache' -o -name '.coverage' \\) -delete ; echo ' ok' ",  help = "Shallow clean into environment (.pyc, .cache, .egg, .log, et all)" }
+pre_clean-all = {cmd='poetry run task clean', help=''}
+clean-all = {cmd = "echo -n 'Starting Deep cleanning ..'; find ./ \\( -name '*_cache' -o -name '*cache__' -o -name dist -o -name build -o -name .tox -o -name site -o -name coverage_report \\) -exec rm -rf {} 2> /dev/null \\; ; echo ' Deep cleaning finished!' ",  help = "Deep cleanning into environment (dist, build, htmlcov, .tox, *_cache, et all)" }
+#pre_docs-build={help='Pre docs-build', cmd="poetry run task changelog"}
+#docs-build = {help="Generate documentation", cmd="poetry run mkdocs gh-deploy --config-file mkdocs.yml --remote-branch webdoc"}
+#docs-serve = {help="Run server documentation", cmd="poetry run mkdocs serve"}
+pre_lint="task lint_blue && task lint_isort && task lint_flake8 && task lint_pydocstyle"
+#pre_lint="task lint_blue && task lint_isort && task lint_flake8 && task lint_pydocstyle && task lint_mypy"
+#pre_lint="task lint_blue && task lint_isort && task lint_flake8 && task lint_pydocstyle && task lint_pylint && task lint_mypy"
+lint={help='Checking all linters configurated', cmd=''}
+lint_black={help='Checking with black', cmd='echo --black--; poetry run black --check --diff {path}', use_vars=true}
+lint_blue={help='Checking with blue', cmd='echo --blue--; poetry run blue --check --diff {path}', use_vars=true}
+lint_flake8={help='Checking with flake8', cmd='echo --flake8--; poetry run flake8 --config pyproject.toml {path}', use_vars=true}
+lint_isort={help='Checking with isort', cmd='echo --isort--; poetry run isort --profile black --check --atomic --py all -m 3 {path}', use_vars=true}
+lint_mypy={help='Checking with mypy', cmd='echo --mypy--; poetry run mypy --check {path}', use_vars=true}
+lint_pydocstyle={help='Checking with pydocstyle', cmd='echo --pydocstyle--; poetry run pydocstyle {path}', use_vars=true}
+lint_pylint={help='Checking with pylint', cmd='echo --pylint--; poetry run pylint {path}', use_vars=true}
+lint_ruff={help='', cmd='echo --ruff--; poetry run ruff check --preview {path}', use_vars=true}
+pre_patch={help='Run linters tools', cmd="poetry run task lint"}
+patch={cmd='v=$(poetry version patch) && poetry run pytest && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='Generate a patch Sematic Version'}
+post_patch={help='Run securety tools', cmd="poetry run task bandit && poetry run task safety"}
+premajor={cmd='v=$(poetry version premajor) && poetry run pytest && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version premajor'}
+preminor={cmd='v=$(poetry version preminor) && poetry run pytest && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version preminor'}
+prerelease={cmd='v=$(poetry version prerelease) && poetry run pytest && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version prerelease'}
+safety={help='Check safety of packages into project.', cmd='poetry run safety check'}
+pre_sec={help='Securance validations', cmd='poetry run task bandit && poetry run task safety'}
+sec={help="Checking environment's safety", cmd=''}
+pre_changelog='poetry run pytest -m fast'
+changelog = {help='Update changelog file', cmd = "poetry run gcl {CHANGELOGFILE} -u {URLCOMPARE} && echo CHANGELOG file - {CHANGELOGFILE} - updated with success.;echo", use_vars = true }
+gcl = {help='Update changelog file', cmd='poetry run task changelog'}
+setup = { help = 'Configure environment develop', cmd='git config core.hooksPath .git-hooks/'}
