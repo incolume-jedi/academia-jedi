@@ -223,6 +223,18 @@ disable = [
 [flake8]
 max-line-length = 79
 
+[tool.mypy]
+namespace_packages = true
+explicit_package_bases = true
+#ignore_missing_imports = true
+#ignore_errors = false
+#warn_return_any = true
+#warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = "pyautogui.*"
+disable_error_code = "attr-defined"
+disallow_untyped_defs = true
 
 [tool.taskipy.tasks]
 prerelease={cmd='v=$(poetry version prerelease) && poetry run pytest -xv --cov-report html:coverage_report/html --cov-report xml:coverage_report/xml/cov.xml && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='poetry version prerelease'}
