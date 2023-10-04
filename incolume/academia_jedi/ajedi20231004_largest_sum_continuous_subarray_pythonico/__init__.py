@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 import sys
 from sys import maxsize
@@ -28,9 +28,9 @@ def maxSubArraySum(a, size):
             max_ending_here = 0
             s = i + 1
 
-    print("Maximum contiguous sum is %d" % (max_so_far))
-    print("Starting Index %d" % (start))
-    print("Ending Index %d" % (end))
+    print('Maximum contiguous sum is %d' % (max_so_far))
+    print('Starting Index %d' % (start))
+    print('Ending Index %d' % (end))
 
 
 # Define a function to find the maximum subarray sum
@@ -86,4 +86,4 @@ if __name__ == '__main__':  # pragma: no cover
     # Example usage
     arr = [-2, -3, 4, -1, -2, 1, 5, -3]
     max_sum = maxSubArraySum1(arr)
-    print("Maximum contiguous sum is", max_sum)
+    print('Maximum contiguous sum is', max_sum)
