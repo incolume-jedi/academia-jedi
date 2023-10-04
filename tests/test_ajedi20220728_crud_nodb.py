@@ -6,7 +6,11 @@ from incolume.academia_jedi.ajedi20220728_crud_nodb.basedados import (
     select_person,
     select_all_person,
 )
-from incolume.academia_jedi.ajedi20220728_crud_nodb.model import Pessoa, gen_id, get_id
+from incolume.academia_jedi.ajedi20220728_crud_nodb.model import (
+    Pessoa,
+    gen_id,
+    get_id
+)
 from faker import Faker
 import pytest
 
