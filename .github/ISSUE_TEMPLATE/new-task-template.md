@@ -35,4 +35,4 @@ Exemplos de solução e resposta do problema. Geralmente utilizado para validar 
  - N/A (Caso haja referências podem ser listadas aqui)
 
 ---
-(c) Incolume.com.br
+&copy; Incolume.com.br
