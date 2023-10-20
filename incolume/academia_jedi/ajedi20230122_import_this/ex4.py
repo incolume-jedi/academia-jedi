@@ -1,8 +1,7 @@
 def run():
     import this
 
-    s = ''.join([this.d.get(c, c) for c in this.s])
-    return s
+    return ''.join([this.d.get(c, c) for c in this.s])
 
 
 if __name__ == '__main__':

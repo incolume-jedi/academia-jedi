@@ -1,9 +1,6 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 import datetime as dt
 from dataclasses import dataclass
-from typing import List
-
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -11,14 +8,14 @@ __author__ = '@britodfbr'  # pragma: no cover
 @dataclass
 class Message:
     tag: str
-    messages: List[str]
+    messages: list[str]
 
 
 @dataclass
 class Release:
     release: str
     date: dt.datetime
-    records: List[Message]
+    records: list[Message]
 
 
 def example1():
@@ -31,7 +28,7 @@ def example1():
                 Message('Added', ['abc', 'xpto', 'khaqi']),
                 Message('Changed', ['xxxxx', 'x9']),
             ],
-        )
+        ),
     )
 
 

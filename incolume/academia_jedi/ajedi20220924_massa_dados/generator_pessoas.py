@@ -1,8 +1,6 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 import datetime as dt
 from pprint import pprint
-from typing import List
 
 from deprecated import deprecated
 from faker import Faker
@@ -19,22 +17,21 @@ fake = Faker('pt_BR')
     reason="Use an other implementation into 'incolume.academia_jedi.ajedi20220925"
     "_massa_dados_fake_protocol.generator_pessoas'",
 )
-def massa_pessoas(quantidade: int = 0) -> List:
+def massa_pessoas(quantidade: int = 0) -> list:
     quantidade = quantidade or 100
-    pessoas = [
+    return [
         pessoa(
             nome_completo=(
                 f'{fake.first_name()} {fake.last_name()} {fake.last_name()}'
             ),
             data_de_nascimento=fake.date_between(
-                end_date=dt.datetime.strptime('2003-12-31', '%Y-%m-%d')
+                end_date=dt.datetime.strptime('2003-12-31', '%Y-%m-%d'),
             ),
             cpf=fake.bothify(text='###.###.###-##'),
         )
         for _ in range(quantidade)
     ]
 
-    return pessoas
 
 
 def run():

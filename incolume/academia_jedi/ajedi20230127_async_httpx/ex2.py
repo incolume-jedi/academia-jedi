@@ -32,8 +32,7 @@ async def fetch():
 
     async with httpx.AsyncClient() as client:
         reqs = [client.get(url) for url in urls]
-        results = await asyncio.gather(*reqs)
-    return results
+        return await asyncio.gather(*reqs)
 
 
 def run():

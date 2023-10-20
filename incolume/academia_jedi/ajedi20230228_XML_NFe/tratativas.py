@@ -9,7 +9,7 @@ import pandas as pd
 import xmltodict
 
 FILES_XML: typing.Final = list(
-    Path(__file__).parent.joinpath('NFs_Finais').rglob('*.xml')
+    Path(__file__).parent.joinpath('NFs_Finais').rglob('*.xml'),
 )
 logging.debug(FILES_XML)
 
@@ -42,25 +42,25 @@ class NFe:
     cpf_comp: str
     nome_comp: str
     nome_fantasia: str = field(default='')
-    itens_nf: typing.List[ItensNFe | ServicoNFe] = field(default_factory=list)
+    itens_nf: list[ItensNFe | ServicoNFe] = field(default_factory=list)
 
 
 def open_files(file: Path | str, mode: str = 'rb') -> OrderedDict:
     """Abre arquivos XML e converte para dict."""
     file = Path(file)
     with file.open(mode) as f:
-        documento = xmltodict.parse(f)
-    return documento
+        return xmltodict.parse(f)
 
 
 def get_info_nfe(file: Path | str, mode: str = 'rb') -> OrderedDict:
     """Abre arquivos XML e converte para dict
-    retornando as informações da NFe."""
+    retornando as informações da NFe.
+    """
     return open_files(file, mode)['nfeProc']['NFe']['infNFe']
 
 
 def get_content_service_nfe(
-    xml_file: Path | str, tp: str = ''
+    xml_file: Path | str, tp: str = '',
 ) -> NFe | typing.Container:
     """Retorna elementos da NFe de serviços."""
     logging.debug(xml_file)
@@ -79,7 +79,7 @@ def get_content_service_nfe(
             ]['Cnpj'],
             'nome_comp': documento['TomadorServico']['RazaoSocial'],
             'itens_nf': ServicoNFe(documento['Servico']['Discriminacao']),
-        }
+        },
     )
     match tp:
         case 'dict':
@@ -104,7 +104,7 @@ class MatchRegex(str):
 
 
 def get_content_danfe_nfe(
-    xml_file: Path | str, tp: str = ''
+    xml_file: Path | str, tp: str = '',
 ) -> NFe | typing.Container:
     """Retorna elemento da NFe Danfe."""
     logging.debug(xml_file)
@@ -123,11 +123,11 @@ def get_content_danfe_nfe(
                         float(prod['prod']['qCom']),
                         float(prod['prod']['vUnCom']),
                         float(prod['prod']['vProd']),
-                    )
+                    ),
                 )
                 for prod in documento['det']
             ],
-        }
+        },
     )
     match tp:
         case 'dict':
@@ -182,7 +182,7 @@ def tratativa5():
 
 def tratativa6():
     """Resposta do problema proposto."""
-    resposta = {
+    return {
         'valor_total': tratativa3()['total']['ICMSTot']['vNF'],
         'cnpj_vendeu': tratativa3()['emit']['CNPJ'],
         'nome_vendeu': tratativa3()['emit']['xNome'],
@@ -198,7 +198,6 @@ def tratativa6():
             for prod in tratativa3()['det']
         ],
     }
-    return resposta
 
 
 def tratativa7():
@@ -206,7 +205,7 @@ def tratativa7():
     xml_file = next(x for x in FILES_XML if x.name.__contains__('Nespresso'))
     logging.debug(xml_file)
     documento = open_files(xml_file)['nfeProc']['NFe']['infNFe']
-    resposta = {
+    return {
         'valor_total': documento['total']['ICMSTot']['vNF'],
         'cnpj_vendeu': documento['emit']['CNPJ'],
         'nome_vendeu': documento['emit']['xNome'],
@@ -222,7 +221,6 @@ def tratativa7():
             for prod in documento['det']
         ],
     }
-    return resposta
 
 
 def tratativa8():
@@ -230,7 +228,7 @@ def tratativa8():
     xml_file = next(x for x in FILES_XML if x.name.__contains__('Nespresso'))
     logging.debug(xml_file)
     documento = open_files(xml_file)['nfeProc']['NFe']['infNFe']
-    resposta = NFe(
+    return NFe(
         **{
             'valor_total': documento['total']['ICMSTot']['vNF'],
             'cnpj_vend': documento['emit']['CNPJ'],
@@ -244,13 +242,12 @@ def tratativa8():
                         float(prod['prod']['qCom']),
                         float(prod['prod']['vUnCom']),
                         float(prod['prod']['vProd']),
-                    )
+                    ),
                 )
                 for prod in documento['det']
             ],
-        }
+        },
     )
-    return resposta
 
 
 def tratativa9():
@@ -272,11 +269,11 @@ def tratativa9():
                         float(prod['prod']['qCom']),
                         float(prod['prod']['vUnCom']),
                         float(prod['prod']['vProd']),
-                    )
+                    ),
                 )
                 for prod in documento['det']
             ],
-        }
+        },
     )
     return asdict(resposta)
 
@@ -371,7 +368,7 @@ def tratativa20():
     logging.debug(
         xml_file := next(
             x for x in FILES_XML if x.name.__contains__('Carioca')
-        )
+        ),
     )
     return get_content_service_nfe(xml_file)
 
@@ -399,7 +396,6 @@ def tratativa22():
 
 def tratativa23():
     """Multiplas execuções NFe com regex match/case."""
-
     for xml_file in FILES_XML:
         logging.debug(xml_file)
 
@@ -411,14 +407,15 @@ def tratativa23():
                 print(2, xml_file)
                 print(get_content_danfe_nfe(xml_file))
             case _:
+                msg = f'NFe {xml_file} do not match any case configured.'
                 raise AssertionError(
-                    f'NFe {xml_file} do not match any case configured.'
+                    msg,
                 )
 
 
 def run():
     """Running it."""
-    functions: typing.List[typing.Callable] = [
+    functions: list[typing.Callable] = [
         value
         for key, value in globals().items()
         if key.__contains__('tratativa')
@@ -426,7 +423,7 @@ def run():
     for func in functions:
         logging.debug(f'{type(func)} {func.__name__}')
         print(f'--- {func.__name__} ---')
-        print('    >>> {}'.format(func.__doc__))
+        print(f'    >>> {func.__doc__}')
         try:
             if result := func():
                 print(result)

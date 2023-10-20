@@ -1,5 +1,5 @@
 """Exhaustiveness.
-Personalização com entrada em string
+Personalização com entrada em string.
 """
 import logging
 from enum import Enum
@@ -13,7 +13,7 @@ class Color(Enum):
 
 
 def exhaustiveness_check(value: NoReturn) -> NoReturn:
-    assert False, 'This code should never be reached, got: {0}'.format(value)
+    assert False, f'This code should never be reached, got: {value}'
 
 
 def some_func0(color: str) -> str:
@@ -29,6 +29,7 @@ def some_func0(color: str) -> str:
         case 'Green':
             return 'Color is green.'
     exhaustiveness_check(color)
+    return None
 
 
 def some_func1(color: str) -> str:
@@ -38,7 +39,7 @@ def some_func1(color: str) -> str:
     logging.debug(Color.__members__.values())
     logging.debug(Color.__members__.items())
     logging.debug(
-        {x: Color.__getitem__(x).value for x in Color.__members__.keys()}
+        {x: Color.__getitem__(x).value for x in Color.__members__},
     )
     logging.debug({x: y.value for x, y in Color.__members__.items()})
     logging.debug({x.name: x.value for x in Color.__members__.values()})
@@ -52,6 +53,7 @@ def some_func1(color: str) -> str:
         case Color.GREEN:
             return 'Color is green.'
     exhaustiveness_check(color)
+    return None
 
 
 def some_func(color: str) -> str:
@@ -64,6 +66,7 @@ def some_func(color: str) -> str:
         case Color.GREEN:
             return 'Color is green.'
     exhaustiveness_check(color)
+    return None
 
 
 def run():

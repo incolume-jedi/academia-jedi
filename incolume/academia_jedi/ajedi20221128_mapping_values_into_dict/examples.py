@@ -1,6 +1,6 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
-from typing import Iterable
+from collections.abc import Iterable
+from typing import Optional
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -21,9 +21,8 @@ tup = (
 tups = list(tup)
 
 
-def example01(t: tuple = None) -> dict:
-    """
-    Python tuple to dictionary
+def example01(t: Optional[tuple] = None) -> dict:
+    """Python tuple to dictionary.
 
     To convert a tuple to dictionary in Python, use the dict() method.
     The dict() function takes a tuple of tuples as an argument and returns
@@ -35,13 +34,11 @@ def example01(t: tuple = None) -> dict:
     ((11, 'eleven'), (21, 'mike'), (19, 'dustin'), (46, 'caleb'))
     {'eleven': 11, 'mike': 21, 'dustin': 19, 'caleb': 46}
     """
-    dct = dict((y, x) for x, y in t)
-    return dct
+    return {y: x for x, y in t}
 
 
-def example02(t: Iterable = None) -> dict:
-    """
-    Using dict(), map() and reversed() method
+def example02(t: Optional[Iterable] = None) -> dict:
+    """Using dict(), map() and reversed() method
     You can use the combination of the dict(), map(), and reversed()
     method to convert a tuple to the dictionary. The map() method returns a
     map object, which is an iterator. The changed () function returns the
@@ -55,13 +52,11 @@ def example02(t: Iterable = None) -> dict:
     ((11, 'eleven'), (21, 'mike'), (19, 'dustin'), (46, 'caleb'))
     {'eleven': 11, 'mike': 21, 'dustin': 19, 'caleb': 46}
     """
-    dct = dict(map(reversed, t))
-    return dct
+    return dict(map(reversed, t))
 
 
-def example03(t: Iterable = None):
-    """
-    To convert a list of tuples into a dictionary, use the setdefault() method.
+def example03(t: Optional[Iterable] = None):
+    """To convert a list of tuples into a dictionary, use the setdefault() method.
      The setdefault() method takes the first parameter to the key and the
      second parameter to a value of the dictionary.
 

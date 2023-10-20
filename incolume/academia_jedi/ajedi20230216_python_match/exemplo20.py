@@ -27,7 +27,6 @@ def run():
         Point(-1, 1),
         Point(1, 1),
         Point(2, 0),
-        # Point('s', 's'),
     )
 
     for point in points:

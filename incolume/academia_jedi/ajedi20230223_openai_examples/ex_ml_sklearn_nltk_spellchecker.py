@@ -107,7 +107,7 @@ def exemplo2():
     # Cria um vetor de características com as palavras únicas dos textos de treinamento
     vetorizador = CountVectorizer(tokenizer=lambda doc: doc, lowercase=False)
     vetor_caracteristicas = vetorizador.fit_transform(
-        [palavra for texto in palavras_treinamento for palavra in texto]
+        [palavra for texto in palavras_treinamento for palavra in texto],
     )
 
     # Cria um modelo de classificação para prever se uma palavra está correta ou não
@@ -142,7 +142,7 @@ def exemplo2():
                 palavras[i] = (
                     spell.correction(palavra)
                     if not sugestoes
-                    else list(sugestoes)[0]
+                    else next(iter(sugestoes))
                 )
 
     # Concatena as palavras corrigidas para formar o texto corrigido
@@ -198,7 +198,7 @@ def exemplo3():
             else:
                 # Se a palavra estiver incorreta, usa o modelo de ML para sugerir a correção
                 palavras_sugeridas = cv.transform(
-                    list(spell.candidates(palavra))
+                    list(spell.candidates(palavra)),
                 )
                 sugestao = modelo.predict(palavras_sugeridas)[0]
                 palavras_corrigidas.append(sugestao)

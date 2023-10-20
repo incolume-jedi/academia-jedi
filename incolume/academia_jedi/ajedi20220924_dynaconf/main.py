@@ -1,5 +1,4 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 from os import environ
 
 from app import run
@@ -9,7 +8,6 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 def activate_envvar(activate: bool = False) -> bool:
     """Configura variavle de ambiente através do python."""
-    # pprint(environ)
     if activate:
         environ['INCOLUME_AUTHOR'] = 'Ricardo Brito do Nascimento'
         environ['INCOLUME_NAME'] = 'MyApp'

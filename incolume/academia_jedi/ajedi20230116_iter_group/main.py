@@ -3,8 +3,7 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 
 def tratativa1():
-    matrix = [[x for x in range(3)] * 3]
-    return matrix
+    return [list(range(3)) * 3]
 
 
 def run():
@@ -12,5 +11,4 @@ def run():
 
 
 if __name__ == '__main__':  # pragma: no cover
-    # print(help(chain))
     run()

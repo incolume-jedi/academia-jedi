@@ -1,7 +1,7 @@
+from collections.abc import Container, Generator
 from dataclasses import dataclass
 from datetime import datetime
 from math import pi
-from typing import Container, Generator
 
 from utils import description, successive_execution
 
@@ -15,7 +15,7 @@ class User:
     name: str
     born: datetime
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (
             f'{self.__class__.__name__}'
             f'({self.name=}, {self.born=:%FT%T.%f})'
@@ -84,7 +84,7 @@ def example7() -> (Container | Generator):
 @description
 def example8() -> (Container | Generator):
     """Uso de valores com formatação numérica.
-    f'{n:,}' milhar
+    f'{n:,}' milhar.
     """
     return f'{n:,}', f'{number:,}', f'{pi:,}', 100
 
@@ -124,7 +124,7 @@ def example12() -> (Container | Generator):
 @description
 def example13() -> (Container | Generator):
     """Formatar base para Octal.
-    f'{100:0o}'
+    f'{100:0o}'.
     """
     return f'{100:0o}', f'{n:0o}'
 
@@ -132,7 +132,7 @@ def example13() -> (Container | Generator):
 @description
 def example14() -> (Container | Generator):
     """Formatar base para binario.
-    f'{100:0b}'
+    f'{100:0b}'.
     """
     return f'{100:0b}', f'{n:0b}'
 
@@ -140,7 +140,7 @@ def example14() -> (Container | Generator):
 @description
 def example15() -> (Container | Generator):
     """Formatar base para binario.
-    f'{100:0x}'
+    f'{100:0x}'.
     """
     return (
         f'{100:0x}',
@@ -163,7 +163,7 @@ def example16() -> (Container | Generator):
 @description
 def example17() -> (Container | Generator):
     """Formatar com notação cientifica.
-    f'{100:.3e}' == 1.000e+02
+    f'{100:.3e}' == 1.000e+02.
     """
     datetime.now()
     return f'{pi:e}', f'{n:.1e}', f'{n:.2e}', f'{number:.3e}', f'{100:.4e}'
@@ -174,8 +174,8 @@ def example18() -> (Container | Generator):
     """Exibir __repr__ ou __str__."""
     u = User('Ana Brito', datetime.now())
     return (
-        '{!s}'.format(u),
-        '{!r}'.format(u),
+        f'{u!s}',
+        f'{u!r}',
     )
 
 

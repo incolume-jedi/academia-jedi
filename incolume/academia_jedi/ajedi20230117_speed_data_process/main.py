@@ -35,9 +35,7 @@ def write(df: pd.DataFrame, file: Path, suffix: str = 'csv') -> bool:
     rfunctions.get(suffix)(f)
     ft = perf_counter() - ft
     logging.debug(
-        '{:15}: {:15}; time w:{}; time r: {}'.format(
-            f.as_posix(), f.stat().st_size, it, ft
-        )
+        f'{f.as_posix():15}: {f.stat().st_size:15}; time w:{it}; time r: {ft}',
     )
     return True
 
@@ -55,9 +53,7 @@ def run():
     df = pd.read_csv(f)
     ft = perf_counter() - ft
     logging.debug(
-        '{:15}: {:15}; time w:{}; time r: {}'.format(
-            f.as_posix(), f.stat().st_size, it, ft
-        )
+        f'{f.as_posix():15}: {f.stat().st_size:15}; time w:{it}; time r: {ft}',
     )
 
     # JSON
@@ -68,9 +64,7 @@ def run():
     df = pd.read_json(f)
     ft = perf_counter() - ft
     logging.debug(
-        '{:15}: {:15}; time w:{}; time r: {}'.format(
-            f.as_posix(), f.stat().st_size, it, ft
-        )
+        f'{f.as_posix():15}: {f.stat().st_size:15}; time w:{it}; time r: {ft}',
     )
 
     # XLSX
@@ -81,9 +75,7 @@ def run():
     df = pd.read_excel(f)
     ft = perf_counter() - ft
     logging.debug(
-        '{:15}: {:15}; time w:{}; time r: {}'.format(
-            f.as_posix(), f.stat().st_size, it, ft
-        )
+        f'{f.as_posix():15}: {f.stat().st_size:15}; time w:{it}; time r: {ft}',
     )
 
     # Pickle
@@ -94,9 +86,7 @@ def run():
     df = pd.read_pickle(f)
     ft = perf_counter() - ft
     logging.debug(
-        '{:15}: {:15}; time w:{}; time r: {}'.format(
-            f.as_posix(), f.stat().st_size, it, ft
-        )
+        f'{f.as_posix():15}: {f.stat().st_size:15}; time w:{it}; time r: {ft}',
     )
 
     # Parquet
@@ -107,9 +97,7 @@ def run():
     df = pd.read_parquet(f)
     ft = perf_counter() - ft
     logging.debug(
-        '{:15}: {:15}; time w:{}; time r: {}'.format(
-            f.as_posix(), f.stat().st_size, it, ft
-        )
+        f'{f.as_posix():15}: {f.stat().st_size:15}; time w:{it}; time r: {ft}',
     )
 
     # Feather
@@ -120,9 +108,7 @@ def run():
     df = pd.read_feather(f)
     ft = perf_counter() - ft
     logging.debug(
-        '{:15}: {:15}; time w:{}; time r: {}'.format(
-            f.as_posix(), f.stat().st_size, it, ft
-        )
+        f'{f.as_posix():15}: {f.stat().st_size:15}; time w:{it}; time r: {ft}',
     )
 
 

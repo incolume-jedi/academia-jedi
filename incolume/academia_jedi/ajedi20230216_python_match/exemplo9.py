@@ -11,7 +11,7 @@ class Color(Enum):
 
 
 def exhaustiveness_check(value: NoReturn) -> NoReturn:
-    assert False, 'This code should never be reached, got: {0}'.format(value)
+    assert False, f'This code should never be reached, got: {value}'
 
 
 def some_func(color: Color) -> str:
@@ -21,6 +21,7 @@ def some_func(color: Color) -> str:
         case Color.GREEN:
             return 'Color is green.'
     exhaustiveness_check(color)
+    return None
 
 
 def run():

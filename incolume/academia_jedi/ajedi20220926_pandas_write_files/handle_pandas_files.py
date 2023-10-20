@@ -1,11 +1,9 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 import inspect
 import logging
 from pathlib import Path
 
 import pandas as pd
-
 from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.generator_pessoas import (
     massa_pessoas,
 )
@@ -20,7 +18,6 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 def get_df():
     df = pd.DataFrame(massa_pessoas())
-    # df.data_de_nascimento = pd.to_datetime(df.data_de_nascimento)
     logging.debug(df.shape)
     print(df.info())
     return df
@@ -54,10 +51,9 @@ def pd_3_write_json():
     df = get_df()
     print(df.head())
     print(df.info())
-    # print(pd.json_normalize(df.data_de_nascimento))
 
     df.to_json(
-        f'{Path(inspect.stack()[0][1]).stem}.json', indent=4, orient='records'
+        f'{Path(inspect.stack()[0][1]).stem}.json', indent=4, orient='records',
     )
 
 
@@ -75,10 +71,6 @@ def pd_4_read_all():
 
 
 def run():
-    # pd_0_write_csv()
-    # pd_1_write_json()
-    # pd_2_read_all()
-    # pd_3_write_json()
     pd_4_read_all()
 
 

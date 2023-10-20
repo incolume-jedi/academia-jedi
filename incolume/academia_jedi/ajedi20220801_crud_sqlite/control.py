@@ -14,6 +14,6 @@ if __name__ == '__main__':
                 f'{fname} {lname}',
                 faker.date_time_this_century(),
                 [f'{fname.casefold()}_{lname.casefold()}@example.org'],
-            )
+            ),
         )
     print(d)

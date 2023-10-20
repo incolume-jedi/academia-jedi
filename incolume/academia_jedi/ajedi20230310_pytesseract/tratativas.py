@@ -27,7 +27,7 @@ def get_txt_from_any_pdf(pdf_file):
     """"""
     images = convert_pdf_to_image(pdf_file)
     final_text = ''
-    for pg, img in enumerate(images):
+    for img in images:
         final_text += convert_image_to_text(img)
     return final_text
 
@@ -40,7 +40,7 @@ def tratativa1():
 
 
 def tratativa2():
-    """Listar arquivos PDF"""
+    """Listar arquivos PDF."""
     for file in PDFFILES:
         print(file)
 
@@ -54,7 +54,7 @@ def tratativa3():
 
 def run():
     """Running it."""
-    functions: typing.List[typing.Callable] = [
+    functions: list[typing.Callable] = [
         value
         for key, value in globals().items()
         if key.__contains__('tratativa')
@@ -62,14 +62,14 @@ def run():
     for func in functions:
         logging.debug(f'{type(func)} {func.__name__}')
         print(f'--- {func.__name__} ---')
-        print('    >>> {}'.format(func.__doc__))
+        print(f'    >>> {func.__doc__}')
         try:
             if result := func():
                 print(result)
         except (TypeError, ValueError) as e:
             logging.error(f'{e.__class__.__name__}: {e}')
         finally:
-            logging.debug('{} finalizada.'.format(func.__name__))
+            logging.debug(f'{func.__name__} finalizada.')
         print('------\n')
 
 

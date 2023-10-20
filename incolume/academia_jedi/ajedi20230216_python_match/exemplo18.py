@@ -9,7 +9,7 @@ def tratativa():
         (?P<int>\d+) |
         (?P<variable>\w+) |
         (?P<string>".*")
-    """
+    """,
     )
     Token = namedtuple('Token', ('kind', 'value', 'position'))
     env = {'x': 'hello', 'y': 10}
@@ -26,7 +26,8 @@ def tratativa():
             case 'string':
                 tok = Token('TEXT', s[1:-1], mo.span())
             case _:
-                raise ValueError(f'Unknown pattern for {s!r}')
+                msg = f'Unknown pattern for {s!r}'
+                raise ValueError(msg)
         print(tok)
 
 

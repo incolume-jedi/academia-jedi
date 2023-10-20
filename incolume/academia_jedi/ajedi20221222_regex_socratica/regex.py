@@ -112,7 +112,7 @@ def ex06():
 
 @show_examples
 def ex07():
-    """Detect unique name"""
+    """Detect unique name."""
     regex = '^[a-zA-Z!]+$'
     for name in names:
         if re.search(regex, name):

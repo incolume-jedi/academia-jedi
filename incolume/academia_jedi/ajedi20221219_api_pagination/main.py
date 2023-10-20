@@ -1,7 +1,8 @@
 """[Is This a Good Way to deal with API Pagination?]
-(https://www.youtube.com/watch?v=X4WctWZ2ANw)"""
+(https://www.youtube.com/watch?v=X4WctWZ2ANw).
+"""
 import logging
-from typing import Iterator
+from collections.abc import Iterator
 
 import requests
 
@@ -21,7 +22,6 @@ def data_get(url: str) -> Iterator:
         resp = requests.get(url)
         logging.debug(url)
 
-        # result.extend(resp.json()["results"])
         result += resp.json()['results']
         if resp.json()['info']['next'] is None:
             return

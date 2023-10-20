@@ -4,7 +4,7 @@
 class Location:
     __match_args__ = ('country', 'city')
 
-    def __init__(self, country, city):
+    def __init__(self, country, city) -> None:
         self.country = country
         self.city = city
 

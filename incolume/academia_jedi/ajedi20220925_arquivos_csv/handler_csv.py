@@ -1,5 +1,4 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 __author__ = '@britodfbr'  # pragma: no cover
 import csv
 import logging
@@ -19,9 +18,8 @@ def csv_0():
     """Exemplo criação de CSV a partir de listas."""
     with open('eggs.csv', 'w', newline='') as csvfile:
         spamwriter = csv.writer(
-            csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL
+            csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL,
         )
-        # spamwriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         spamwriter.writerow(['Spam'] * 5 + ['Baked Beans'])
         spamwriter.writerow(['Spam', 'Lovely Spam', 'Wonderful Spam'])
 
@@ -30,7 +28,6 @@ def csv_1():
     """Exemplo leitura de CSV."""
     with open('eggs.csv', newline='') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-        # spamreader = csv.reader(csvfile, delimiter=',')
         for row in spamreader:
             print(', '.join(row))
 
@@ -57,7 +54,6 @@ def csv_3():
 
 def csv_4_write_pessoas():
     """Gravar pessoas em CSV."""
-
     pessoas = massa_pessoas()
     for pessoa in pessoas:
         logging.debug(pessoa.__dict__)
@@ -79,7 +75,6 @@ def csv_5_read_pessoas():
 
 
 def run():
-    # print(massa_pessoas())
     csv_0()
     csv_1()
     csv_2()

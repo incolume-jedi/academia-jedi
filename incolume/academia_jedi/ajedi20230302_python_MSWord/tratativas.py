@@ -41,10 +41,9 @@ def tratativa1():
     texto.format(
         pytz.timezone('America/Sao_Paulo')
         .localize(dt.datetime.now())
-        .isoformat()
+        .isoformat(),
     )
     documento.add_paragraph(texto)
-    # documento.save(Path(__file__).parent/'test.docx')
     documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
 
@@ -54,7 +53,7 @@ def tratativa2():
     texto = """Olá Mundo!!!"""
     paragraf = documento.add_paragraph(texto)
     paragraf.style = documento.styles.add_style(
-        'Mystyle', WD_STYLE_TYPE.PARAGRAPH
+        'Mystyle', WD_STYLE_TYPE.PARAGRAPH,
     )
     paragraf.style.font.name = 'Algerian'
     paragraf.style.font.size = Pt(15)
@@ -70,7 +69,7 @@ def tratativa3():
     texto = """Olá Mundo!!!"""
     paragraf = documento.add_paragraph(texto)
     paragraf.style = documento.styles.add_style(
-        (mystyle := inspect.stack()[0][3]), WD_STYLE_TYPE.PARAGRAPH
+        (mystyle := inspect.stack()[0][3]), WD_STYLE_TYPE.PARAGRAPH,
     )
     paragraf.style.font.name = 'Algerian'
     paragraf.style.font.size = Pt(15)
@@ -89,7 +88,7 @@ def tratativa3():
 
 
 def tratativa4():
-    """Exibir estilos disponiveis"""
+    """Exibir estilos disponiveis."""
     documento = Document()
     for estilo in documento.styles:
         print(estilo)
@@ -125,7 +124,7 @@ def tratativa7():
     documento = Document()
     paragraf = documento.add_paragraph('Texto gerado em ')
     paragraf.add_run(
-        f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} "
+        f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} ",
     ).bold = True
     paragraf.add_run('através do ')
     paragraf.add_run('Python').italic = True
@@ -141,7 +140,7 @@ def tratativa8():
 
     paragraf = documento.add_paragraph('Texto gerado em ')
     paragraf.add_run(
-        f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} "
+        f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} ",
     ).bold = True
     paragraf.add_run('através do ')
     paragraf.add_run('Python').italic = True
@@ -167,7 +166,7 @@ def tratativa9():
 
     paragraf = documento.add_paragraph('Texto gerado em ')
     paragraf.add_run(
-        f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} "
+        f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} ",
     ).bold = True
     paragraf.add_run('através do ')
     paragraf.add_run('Python').italic = True
@@ -187,7 +186,7 @@ def tratativa10():
     paragraf = documento.add_paragraph(texto)
     paragraf.add_run('\nTexto gerado em ')
     paragraf.add_run(
-        f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} "
+        f"{pytz.timezone('America/Sao_Paulo').localize(dt.datetime.now()).isoformat()} ",
     ).bold = True
     paragraf.add_run('através do ')
     paragraf.add_run('Python').italic = True
@@ -205,7 +204,7 @@ def tratativa11():
     documento.add_paragraph(content.pop(0))
 
     documento.add_picture(
-        Path(__file__).parent.joinpath('imagem.png').as_posix()
+        Path(__file__).parent.joinpath('imagem.png').as_posix(),
     )
     documento.add_paragraph(content.pop(0))
 
@@ -257,7 +256,7 @@ def tratativa14():
     paragrafos = texto.format(
         pytz.timezone('America/Sao_Paulo')
         .localize(dt.datetime.now())
-        .isoformat()
+        .isoformat(),
     ).split('\n')
 
     documento.add_paragraph(paragrafos.pop(0), 'Heading 1')
@@ -315,7 +314,7 @@ def tratativa16():
     paragrafos = texto.format(
         pytz.timezone('America/Sao_Paulo')
         .localize(dt.datetime.now())
-        .isoformat()
+        .isoformat(),
     ).split('\n')
 
     documento.add_paragraph(paragrafos.pop(0), 'Heading 1')
@@ -405,11 +404,11 @@ def tratativa18():
         'AAAA': str(dt.datetime.now().year),
     }
     for paragraf in contrato.paragraphs:
-        for key in dicionario_valores.keys():
+        for key in dicionario_valores:
             if key in paragraf.text:
                 logging.debug(paragraf, key)
                 paragraf.text = paragraf.text.replace(
-                    key, dicionario_valores.get(key)
+                    key, dicionario_valores.get(key),
                 )
 
     contrato.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
@@ -417,7 +416,7 @@ def tratativa18():
 
 def run():
     """Running it."""
-    functions: typing.List[typing.Callable] = [
+    functions: list[typing.Callable] = [
         value
         for key, value in globals().items()
         if key.__contains__('tratativa')
@@ -425,14 +424,14 @@ def run():
     for func in functions:
         logging.debug(f'{type(func)} {func.__name__}')
         print(f'--- {func.__name__} ---')
-        print('    >>> {}'.format(func.__doc__))
+        print(f'    >>> {func.__doc__}')
         try:
             if result := func():
                 print(result)
         except (TypeError, ValueError) as e:
             logging.error(f'{e.__class__.__name__}: {e}')
         finally:
-            logging.debug('{} finalizada.'.format(func.__name__))
+            logging.debug(f'{func.__name__} finalizada.')
         print('------\n')
 
 

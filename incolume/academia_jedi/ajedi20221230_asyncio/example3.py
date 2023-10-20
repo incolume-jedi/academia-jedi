@@ -1,6 +1,4 @@
-"""
-tarefas comcorrentes
-"""
+"""tarefas comcorrentes."""
 
 
 import asyncio

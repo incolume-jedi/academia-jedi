@@ -12,12 +12,9 @@ logging.basicConfig(
 
 
 def get_logger(**kwargs):
-    """
-
-    :param kwargs:
+    """:param kwargs:
     :return:
     """
-
     # Create a custom logger
     logger = logging.getLogger(__name__)
 
@@ -35,14 +32,14 @@ def get_logger(**kwargs):
         kwargs.get(
             'logformatstream',
             '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        )
+        ),
     )
     f_format = logging.Formatter(
         kwargs.get(
             'logformatfile',
             '%(asctime)s; %(levelname)-8s; %(name)s; %(module)s; '
             '%(funcName)s; %(threadName)s; %(thread)d; %(message)s',
-        )
+        ),
     )
     c_handler.setFormatter(c_format)
     f_handler.setFormatter(f_format)
@@ -59,8 +56,8 @@ def setup_applevel_logger(**kwargs):
     logger.setLevel(kwargs.get('loglevel', logging.DEBUG))
     formatter = logging.Formatter(
         kwargs.get(
-            'logformat', '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-        )
+            'logformat', '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        ),
     )
     sh = logging.StreamHandler(sys.stdout)
     sh.setFormatter(formatter)
@@ -79,7 +76,6 @@ def setup_applevel_logger(**kwargs):
 if __name__ == '__main__':  # pragma: no cover
     logger = get_logger(
         loglevelstream=logging.DEBUG,
-        # logfile='records.log',
         loglevelfile=logging.DEBUG,
     )
     logger.debug('This is a debug')

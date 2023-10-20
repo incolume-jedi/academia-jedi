@@ -1,5 +1,5 @@
 """Converter PDF para Imagem
-https://www.geeksforgeeks.org/convert-pdf-to-image-using-python/
+https://www.geeksforgeeks.org/convert-pdf-to-image-using-python/.
 
 sudo apt install poppler-utils
 """
@@ -63,5 +63,4 @@ def run():
 
 
 if __name__ == '__main__':
-    pass
     run()

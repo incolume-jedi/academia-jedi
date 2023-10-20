@@ -2,7 +2,7 @@ from transformers import pipeline
 
 # Configura o analisador de sentimentos do BERT
 sentiment_classifier = pipeline(
-    'sentiment-analysis', model='bert-base-uncased'
+    'sentiment-analysis', model='bert-base-uncased',
 )
 
 # Analisa o sentimento de uma frase

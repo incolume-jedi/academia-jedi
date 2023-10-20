@@ -4,7 +4,6 @@ import pickle
 from pathlib import Path
 
 import dotenv
-
 from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.generator_pessoas import (
     massa_pessoas,
 )
@@ -25,7 +24,7 @@ logging.debug(file)
 
 
 def ex01():
-    """Gravar dados em arquivo pickle"""
+    """Gravar dados em arquivo pickle."""
     logging.debug('..')
 
     people = massa_pessoas(quantidade=3)

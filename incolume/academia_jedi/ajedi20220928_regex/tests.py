@@ -1,9 +1,8 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 import pytest
 from faker import Faker
 
-import incolume.academia_jedi.ajedi20220928_regex.app as app
+from incolume.academia_jedi.ajedi20220928_regex import app
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -40,7 +39,6 @@ def test_example2(entrance):
 
 @pytest.mark.parametrize(
     'entrance',
-    # [fake.random_number(digits=8) for _ in range(5)]
     [fake.bothify(text='####-####') for _ in range(15)],
 )
 def test_example3(entrance):
@@ -58,7 +56,7 @@ def test_example3(entrance):
     + [fake.bothify(text='#####-####') for _ in range(10)],
 )
 def test_example4(entrance):
-    if entrance[0] in [x for x in '789']:
+    if entrance[0] in list('789'):
         assert app.example4(entrance)
     else:
         assert not app.example4(entrance)

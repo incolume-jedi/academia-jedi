@@ -33,4 +33,3 @@ if __name__ == '__main__':  # pragma: no cover
     loop.close()
 
     # You can also use High Level functions Like:
-    # asyncio.run(function_asyc())

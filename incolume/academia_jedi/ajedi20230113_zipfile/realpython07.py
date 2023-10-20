@@ -15,10 +15,9 @@ def run():
         print(archive.namelist())
         print(directory)
 
-        # info = archive.getinfo('home/user/projetos/jedi/academia-jedi/incolume/academia_jedi/ajedi20230113_zipfile/hello.txt')
         info = archive.getinfo(Path(*hello.parts[1:]).as_posix())
     print(
-        f'{info.file_size=}\n{info.compress_size=}\n{info.filename=}\n{info.date_time=}\n'
+        f'{info.file_size=}\n{info.compress_size=}\n{info.filename=}\n{info.date_time=}\n',
     )
 
 

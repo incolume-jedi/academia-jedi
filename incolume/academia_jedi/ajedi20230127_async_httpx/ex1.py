@@ -29,8 +29,7 @@ def fetch():
         'https://books.toscrape.com/catalogue/category/books/default_15/page-8.html',
     ]
 
-    results = [requests.get(url) for url in urls]
-    return results
+    return [requests.get(url) for url in urls]
 
 
 def run():

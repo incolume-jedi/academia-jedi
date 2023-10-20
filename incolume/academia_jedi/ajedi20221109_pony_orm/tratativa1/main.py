@@ -9,14 +9,14 @@ from pony import orm
 db = orm.Database()
 
 with Path(__file__).parents[4].joinpath(
-    'data_files', 'municipios_br.json'
+    'data_files', 'municipios_br.json',
 ).open() as f:
     municipios = json.load(f)
 
 
 @dataclass
 class MunicipioAPI:
-    def __init__(self, db, orm):
+    def __init__(self, db, orm) -> None:
         self.db = db
         self.orm = orm
 
@@ -45,4 +45,3 @@ if __name__ == '__main__':  # pragma: no cover
     msm = MunicipioAPI(db, orm)
     print(msm)
     msm.add(**municipios[0])
-    # msm.add(**{'CODIGO_MUNICIPIO': 520005, 'NOME_MUNICIPIO': 'Abadia de Goiás', 'DIA': 29, 'MES': 3})

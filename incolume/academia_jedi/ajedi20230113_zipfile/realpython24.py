@@ -17,7 +17,7 @@ def run():
     directory = Path(root / 'output_dir/')
 
     with zipfile.ZipFile(
-        root / 'comp_dir.zip', 'w', zipfile.ZIP_DEFLATED, compresslevel=9
+        root / 'comp_dir.zip', 'w', zipfile.ZIP_DEFLATED, compresslevel=9,
     ) as archive:
         logging.debug('Created %s', archive.filename)
         for file_path in directory.rglob('*'):

@@ -9,21 +9,22 @@ from functools import singledispatchmethod
 __author__ = '@britodfbr'  # pragma: no cover
 
 if sys.version_info < (3, 11):
+    msg = f'Incompatible python version. Current {platform.python_version()}. minimal Python 3.11+'
     raise Exception(
-        f'Incompatible python version. Current {platform.python_version()}.'
-        f' minimal Python 3.11+'
+        msg,
     )
 
 
 @dataclass
 class HandlerReverse:
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         logging.debug(f'Class {self.__class__.__name__} inited..')
         super().__init__(*args, **kwargs)
 
     @singledispatchmethod
     def reverse(self, value):
-        raise NotImplementedError('Not Implemented ..')
+        msg = 'Not Implemented ..'
+        raise NotImplementedError(msg)
 
     @reverse.register
     def _(self, value: (int | float)):

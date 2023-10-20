@@ -53,9 +53,7 @@ user = User(
 
 
 def example6(entrada: str) -> bool:
-    """
-    Validação nome completo.
-    """
+    """Validação nome completo."""
     pat = re.compile(r'^(\w+\s)+\w+$', flags=re.I)
     return bool(pat.search(entrada))
 
@@ -97,18 +95,18 @@ def example9(entrada: str, regex: str = '') -> bool:
 def tratativa0():
     """Tratativa em capturar a docstring."""
     logging.debug(
-        f'>>> {inspect.stack()[0][3]} {inspect.currentframe().f_code.co_name}'
+        f'>>> {inspect.stack()[0][3]} {inspect.currentframe().f_code.co_name}',
     )
     print(f'{locals()=}')
     print(f'{globals()=}')
     print(
-        f'>>> {inspect.stack()[0][3]} {inspect.currentframe().f_code.co_name}'
+        f'>>> {inspect.stack()[0][3]} {inspect.currentframe().f_code.co_name}',
     )
     print(f'>>> {globals().get(inspect.stack()[0][3]).__doc__}\n')
 
 
 def tratativa1():
-    """Reescrita do metodo app.show"""
+    """Reescrita do metodo app.show."""
     print(f'>>> {globals().get(inspect.stack()[0][3]).__doc__}\n')
     regex = r'^[A-Z]+$'
     pattern = re.compile(regex, flags=re.I)
@@ -169,9 +167,8 @@ def tratativa7():
     Deve conter pelo menos 2 número
     Deve conter pelo menos 2 caractere especial
     """
-
     print(f'>>> {globals().get(inspect.stack()[0][3]).__doc__}\n')
-    regex = '^(?=(?:.*[a-z]){2})(?=(?:.*[A-Z]){2})(?=(?:.*\d){2})(?=(?:.*[@$!%*?&]){2})[A-Za-z\d@$!%*?&]{8,}$'
+    regex = r'^(?=(?:.*[a-z]){2})(?=(?:.*[A-Z]){2})(?=(?:.*\d){2})(?=(?:.*[@$!%*?&]){2})[A-Za-z\d@$!%*?&]{8,}$'
 
     print(f'{user.pw=} {example8(user.pw)=}')
     print(f'{user.pw=} {example8(user.pw, regex)=}')

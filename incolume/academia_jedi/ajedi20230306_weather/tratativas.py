@@ -3,8 +3,8 @@ import requests
 
 def tratativa1(session: requests.Session, city_name: str):
     """https://www.hashtagtreinamentos.com/previsao-do-tempo-com-python
-    link do open_weather: https://openweathermap.org/"""
-
+    link do open_weather: https://openweathermap.org/.
+    """
     API_KEY = 'coloque sua API aqui'
     link = f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={API_KEY}&lang=pt_br'
 
@@ -16,7 +16,7 @@ def tratativa1(session: requests.Session, city_name: str):
 
 
 def tratativa2(session: requests.Session, city_name: str):
-    """from https://youtu.be/CJjSOzb0IYs"""
+    """From https://youtu.be/CJjSOzb0IYs."""
     API_KEY = ''
     url = f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={API_KEY}&lang=pt_br'
     result = session.get(url)

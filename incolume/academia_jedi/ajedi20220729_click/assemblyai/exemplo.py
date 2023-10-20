@@ -1,4 +1,4 @@
-"""https://www.assemblyai.com/blog/the-definitive-guide-to-python-click/"""
+"""https://www.assemblyai.com/blog/the-definitive-guide-to-python-click/."""
 
 
 """
@@ -49,7 +49,7 @@ In our example we'll name our group "cli"
 @click.pass_context
 @click.argument('document')
 def cli(ctx, document):
-    """An example CLI for interfacing with a document"""
+    """An example CLI for interfacing with a document."""
     _stream = open(document)
     _dict = json.load(_stream)
     _stream.close()
@@ -123,7 +123,7 @@ whether or not we want to save our results to a json file
     help='Pass to download the result to a json file',
 )
 @click.option(
-    '-k', '--key', help='Pass a key to specify that key from the results'
+    '-k', '--key', help='Pass a key to specify that key from the results',
 )
 @click.pass_context
 def get_results(ctx, download: bool, key: str):
@@ -138,10 +138,7 @@ def get_results(ctx, download: bool, key: str):
                     result[key] = entry[key]
         results = result
     if download:
-        if key is not None:
-            filename = key + '.json'
-        else:
-            filename = 'results.json'
+        filename = key + '.json' if key is not None else 'results.json'
         with open(filename, 'w') as w:
             w.write(json.dumps(results))
         print('File saved to', filename)
@@ -178,15 +175,15 @@ default to returning one big block of text
 
 @cli.command('get_text')
 @click.option(
-    '-s', '--sentences', is_flag=True, help='Pass to return sentences'
+    '-s', '--sentences', is_flag=True, help='Pass to return sentences',
 )
 @click.option(
-    '-p', '--paragraphs', is_flag=True, help='Pass to return paragraphs'
+    '-p', '--paragraphs', is_flag=True, help='Pass to return paragraphs',
 )
 @click.option('-d', '--download', is_flag=True, help='Download as a json file')
 @click.pass_obj
 def get_text(_dict, sentences, paragraphs, download):
-    """Returns the text as sentences, paragraphs, or one block by default"""
+    """Returns the text as sentences, paragraphs, or one block by default."""
     results = _dict['results']
     text = {}
     for idx, entry in enumerate(results):
@@ -233,7 +230,7 @@ CHUNK_SIZE = 5242880
 @click.pass_context
 @click.argument('location')
 def assembly(ctx, location):
-    """A CLI for interacting with AssemblyAI"""
+    """A CLI for interacting with AssemblyAI."""
 
     def read_file(location):
         with open(location, 'rb') as _file:
@@ -244,7 +241,7 @@ def assembly(ctx, location):
                 yield data
 
     upload_response = requests.post(
-        upload_endpoint, headers=headers, data=read_file(location)
+        upload_endpoint, headers=headers, data=read_file(location),
     )
     audio_url = upload_response.json()['upload_url']
     print('Uploaded to', audio_url)
@@ -254,7 +251,7 @@ def assembly(ctx, location):
     }
 
     transcript_response = requests.post(
-        transcript_endpoint, json=transcript_request, headers=headers
+        transcript_endpoint, json=transcript_request, headers=headers,
     )
     transcript_id = transcript_response.json()['id']
     polling_endpoint = transcript_endpoint + '/' + transcript_id
@@ -274,6 +271,7 @@ def assembly(ctx, location):
         f.write(json.dumps(polling_response.json()['iab_categories_result']))
     print('Categories saved to', categories_filename)
     ctx.obj = polling_response.json()['id']
+    return None
 
 
 @assembly.command('get_sentences')

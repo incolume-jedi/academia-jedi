@@ -16,7 +16,6 @@ class Car(db.Entity):
 
 
 db.bind(provider='sqlite', filename=':memory:')
-# db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
 db.generate_mapping(create_tables=True)
 
 
@@ -27,7 +26,6 @@ def persistir():
     p3 = Person(name='Bob', age=30)
     Car(make='Toyota', model='Prius', owner=p2)
     Car(make='Ford', model='Explorer', owner=p3)
-    # orm.commit()
 
 
 @orm.db_session
@@ -114,13 +112,12 @@ if __name__ == '__main__':  # pragma: no cover
         # FROM "Person"
         # WHERE "name" = ?
         print(mary.name, mary.age, [f'{c.make}/{c.model}' for c in mary.cars])
-        # orm.show(mary)
         mary.age += 1
         print(mary.age)
         Person.select().show()
 
         idade = 25
         for person in Person.select_by_sql(
-            'SELECT * FROM Person p WHERE p.age < $idade'
+            'SELECT * FROM Person p WHERE p.age < $idade',
         ):
             print(person.name, person.age)

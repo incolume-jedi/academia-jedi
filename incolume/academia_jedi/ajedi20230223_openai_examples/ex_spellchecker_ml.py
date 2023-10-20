@@ -28,14 +28,14 @@ def sugestoes_correcao(palavra):
 
     # Retorna as sugestões de correção ordenadas por probabilidade
     return [
-        sugestao for sugestao in probabilidades.keys() if sugestao in sugestoes
+        sugestao for sugestao in probabilidades if sugestao in sugestoes
     ]
 
 
 # Corrige a ortografia de cada palavra
 for i, palavra in enumerate(palavras):
     # Verifica se a palavra está escrita corretamente
-    if not spell.correction(palavra) == palavra:
+    if spell.correction(palavra) != palavra:
         # Gera sugestões de correção
         sugestoes = sugestoes_correcao(palavra)
         # Se houver sugestões de correção, substitui a palavra no texto

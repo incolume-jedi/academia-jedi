@@ -2,7 +2,7 @@ import customtkinter as ctk
 
 
 class App:
-    def __init__(self, master: ctk.CTk):
+    def __init__(self, master: ctk.CTk) -> None:
         self.master = master
         self.master.geometry('250x200')
         self.master.resizable(False, False)

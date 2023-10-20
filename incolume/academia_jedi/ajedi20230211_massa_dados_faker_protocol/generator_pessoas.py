@@ -1,9 +1,8 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 import datetime as dt
 import logging
 from pprint import pprint
-from typing import List, Protocol
+from typing import Protocol
 
 from faker import Faker
 
@@ -32,7 +31,7 @@ def massa_pessoas(
     objeto: IPessoa = None,
     quantidade: int = 10,
     type: str | None = None,
-) -> List[IPessoa]:
+) -> list[IPessoa]:
     logging.debug(f'params: {objeto=}, {quantidade=}, {type=}')
     objeto = objeto or Pessoa
     quantidade: int = quantidade or 100
@@ -48,10 +47,10 @@ def massa_pessoas(
                 dt.datetime.combine(  # convert date > datetime
                     fake.date_between(  # Date fake
                         start_date=dt.datetime.strptime(
-                            '1965-01-01', '%Y-%m-%d'
+                            '1965-01-01', '%Y-%m-%d',
                         ),
                         end_date=dt.datetime.strptime(
-                            '2003-12-31', '%Y-%m-%d'
+                            '2003-12-31', '%Y-%m-%d',
                         ),
                     ),
                     dt.time(),  # time supplementary

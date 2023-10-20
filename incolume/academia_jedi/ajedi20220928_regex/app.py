@@ -1,5 +1,4 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 __author__ = '@britodfbr'  # pragma: no cover
 
 import re
@@ -33,9 +32,7 @@ def show():
 
 
 def example1(entrada: str) -> str:
-    """
-    Validação nome completo.
-    """
+    """Validação nome completo."""
     pat = re.compile(r'^(\w+\s)+\w+$', flags=re.I)
     result = pat.search(entrada)
     return pat.search(entrada).string if result else ''
@@ -62,7 +59,7 @@ def example4(entrada: str):
 def example5(entrada: str):
     """Validação de email."""
     pat = re.compile(
-        r'^([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+$'
+        r'^([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+$',
     )
     return pat.match(entrada)
 

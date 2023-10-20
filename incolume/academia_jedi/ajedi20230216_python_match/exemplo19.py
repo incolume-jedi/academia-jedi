@@ -13,7 +13,8 @@ def check_point(point: tuple) -> None:
         case (x, y):
             print(f'X={x}, Y={y}')
         case _:
-            raise ValueError('Not a point')
+            msg = 'Not a point'
+            raise ValueError(msg)
 
 
 def run():

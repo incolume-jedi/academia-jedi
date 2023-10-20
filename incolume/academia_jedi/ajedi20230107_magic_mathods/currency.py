@@ -5,16 +5,16 @@ from dataclasses import dataclass
 
 class Currency:
     def __init__(
-        self, value: float = 0.0, *, sigla: str = 'BRL', symbol: str = 'R$'
-    ):
+        self, value: float = 0.0, *, sigla: str = 'BRL', symbol: str = 'R$',
+    ) -> None:
         self.sigla = sigla
         self.symbol = symbol
         self.value = value
 
-    def __str__(self):
+    def __str__(self) -> str:
         return 'Currency({sigla} {value:0.2f})'.format(**self.__dict__)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return '{symbol} {value:0.2f}'.format(**self.__dict__)
 
     def __lt__(self, other):
@@ -90,10 +90,10 @@ class NC:
     sigla: str = 'BRL'
     symbol: str = 'R$'
 
-    def __str__(self):
+    def __str__(self) -> str:
         return 'Currency({sigla} {value:0.2f})'.format(**self.__dict__)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return '{symbol} {value:0.2f}'.format(**self.__dict__)
 
     def __lt__(self, other):

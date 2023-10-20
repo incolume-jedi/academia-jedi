@@ -1,9 +1,6 @@
 import logging
 from getpass import getpass
 
-# import getch
-
-
 logFormat = (
     '%(asctime)s; %(levelname)-8s; %(name)s; %(module)s;'
     ' %(funcName)s; %(threadName)s; %(thread)d; %(message)s'
@@ -13,7 +10,7 @@ logging.basicConfig(format=logFormat, level=logging.DEBUG)
 
 def auth0():
     user, pwd = input('Enter with your Username: '), input(
-        'Enter with your Password: '
+        'Enter with your Password: ',
     )
     logging.debug(f'{user=}, {pwd=}')
     return (
@@ -24,7 +21,7 @@ def auth0():
 
 def auth1():
     user, pwd = input('Enter with your Username: '), getpass(
-        'Enter with your Password: '
+        'Enter with your Password: ',
     )
     logging.debug(f'{user=}, {pwd=}')
     return (
@@ -48,7 +45,7 @@ def encoded_input(message: str) -> str:
 
 def auth2():
     user, pwd = input('Enter with your Username: '), encoded_input(
-        'Enter with your Password: '
+        'Enter with your Password: ',
     )
     logging.debug(f'{user=}, {pwd=}')
     return (
@@ -61,7 +58,6 @@ def run():
     auth0()
     print()
     auth1()
-    # auth2()
 
 
 if __name__ == '__main__':

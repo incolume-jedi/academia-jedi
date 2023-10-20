@@ -23,8 +23,7 @@ url = {
 async def get_page(url: str = ''):
     url = url or 'http://httpbin.org'
     with aiohttp.ClientSession as session:
-        req = await session.get(url)
-        return req
+        return await session.get(url)
 
 
 def main():

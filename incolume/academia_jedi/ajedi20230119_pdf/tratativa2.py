@@ -7,7 +7,7 @@ from variaveis import file
 
 
 def ex01():
-    """exemplo pypdf2 oriundo de https://towardsdatascience.com/how-to-extract-text-from-pdf-245482a96de7"""
+    """Exemplo pypdf2 oriundo de https://towardsdatascience.com/how-to-extract-text-from-pdf-245482a96de7."""
     logging.debug(inspect.stack()[0][3].__doc__)
     fhandle = open(file, 'rb')
     pdfReader = PyPDF2.PdfReader(fhandle)
@@ -16,7 +16,7 @@ def ex01():
 
 
 def ex02():
-    """exemplo pdfplumber oriundo de https://towardsdatascience.com/how-to-extract-text-from-pdf-245482a96de7"""
+    """Exemplo pdfplumber oriundo de https://towardsdatascience.com/how-to-extract-text-from-pdf-245482a96de7."""
     logging.debug(inspect.stack()[0][3].__doc__)
     with pdfplumber.open(file) as pdf:
         first_page = pdf.pages[0]
@@ -24,8 +24,7 @@ def ex02():
 
 
 def ex03():
-    """exemplo pdfMiner3 oriundo de https://towardsdatascience.com/how-to-extract-text-from-pdf-245482a96de7"""
-
+    """Exemplo pdfMiner3 oriundo de https://towardsdatascience.com/how-to-extract-text-from-pdf-245482a96de7."""
     logging.debug(inspect.stack()[0][3].__doc__)
 
     import io
@@ -38,14 +37,14 @@ def ex03():
     resource_manager = PDFResourceManager()
     fake_file_handle = io.StringIO()
     converter = TextConverter(
-        resource_manager, fake_file_handle, laparams=LAParams()
+        resource_manager, fake_file_handle, laparams=LAParams(),
     )
     page_interpreter = PDFPageInterpreter(resource_manager, converter)
 
     with open(file, 'rb') as fh:
 
         for page in PDFPage.get_pages(
-            fh, caching=True, check_extractable=True
+            fh, caching=True, check_extractable=True,
         ):
             page_interpreter.process_page(page)
 

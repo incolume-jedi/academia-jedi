@@ -54,7 +54,6 @@ if __name__ == '__main__':  # pragma: no cover
 
 def run() -> None:
     ex1()
-    # ex2()
 
 
 if __name__ == '__main__':  # pragma: no cover

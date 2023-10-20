@@ -1,9 +1,9 @@
 import asyncio
 import inspect
 import logging
+from collections.abc import Iterable
 from random import randint
 from time import sleep
-from typing import Iterable
 
 import aiohttp
 import requests
@@ -29,14 +29,12 @@ async def get_page(session, url):
 async def get_pages(session, urls):
     logging.debug(inspect.stack()[0][3])
     tasks = [asyncio.create_task(get_page(session, url)) for url in urls]
-    results = await asyncio.gather(*tasks)
-    return results
+    return await asyncio.gather(*tasks)
 
 
 async def main(urls, headers):
     async with aiohttp.ClientSession(headers=headers) as session:
-        data = await get_pages(session, urls)
-        return data
+        return await get_pages(session, urls)
 
 
 def parse(results: Iterable):
@@ -62,12 +60,11 @@ def run():
     total_query = int(
         BeautifulSoup(requests.get(urlbase.format(1)).content, 'html.parser')
         .select_one('#itemCount')
-        .text
+        .text,
     )
     urls = [urlbase.format(page) for page in range(1, total_query, 20)]
 
     results = asyncio.run(main(urls, headers=headers))
-    # print(len(results), results)
     print(len(results))
     parse(results)
 

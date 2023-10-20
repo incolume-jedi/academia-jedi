@@ -9,6 +9,7 @@ __author__ = '@britodfbr'  # pragma: no cover
 def gretting(username: str = '') -> str:
     if name := username or 'world':
         return f'Hello {name.title()}.'
+    return None
 
 
 class Viewer(Enum):
@@ -26,7 +27,7 @@ class Viewer(Enum):
                 return gretting(input(f'{msg} '))
             case 'EASYGUI':
                 return gretting(
-                    eg.enterbox(msg=f'{msg} ', title=title, default=default)
+                    eg.enterbox(msg=f'{msg} ', title=title, default=default),
                 )
             case _:
                 raise NotImplementedError
@@ -37,8 +38,6 @@ def viewer():
 
 
 def run():
-    # gretting(input('What is your name? '))
-    # print(viewer())
     print(Viewer.CLI(msg='What is your name?'))
     print(Viewer.EASYGUI(msg='What is your name?'))
     print(Viewer.EASYGUI(msg='What is your name?', title='Get username'))

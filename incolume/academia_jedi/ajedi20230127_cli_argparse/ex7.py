@@ -3,13 +3,12 @@ from argparse import ArgumentParser, Namespace
 
 parser = ArgumentParser()
 
-# parser.usage = 'Use it like this'
 parser.add_argument('a', help='base value', type=int, default=1, nargs='?')
 parser.add_argument(
-    'b', help='expoent value', type=float, default=1, nargs='?'
+    'b', help='expoent value', type=float, default=1, nargs='?',
 )
 parser.add_argument(
-    '-v', '--verbose', help='show details (-v| -vv| -vvv)', action='count'
+    '-v', '--verbose', help='show details (-v| -vv| -vvv)', action='count',
 )
 
 args: Namespace = parser.parse_args()

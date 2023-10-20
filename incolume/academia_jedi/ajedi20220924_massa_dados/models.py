@@ -1,5 +1,4 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 from collections import namedtuple
 
 __author__ = '@britodfbr'  # pragma: no cover

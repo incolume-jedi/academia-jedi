@@ -1,6 +1,4 @@
-"""
-tarefas comcorrentes
-"""
+"""tarefas comcorrentes."""
 
 import asyncio
 import logging
@@ -39,8 +37,7 @@ async def main():
         asyncio.create_task(tarefa(seq, url))
         for seq, url in enumerate(urls, start=1)
     ]
-    results = await asyncio.gather(*tasks)
-    return results
+    return await asyncio.gather(*tasks)
 
 
 def run():

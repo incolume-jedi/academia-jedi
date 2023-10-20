@@ -1,6 +1,4 @@
-"""
-tarefas comcorrentes
-"""
+"""tarefas comcorrentes."""
 
 import asyncio
 import logging
@@ -19,7 +17,7 @@ async def tarefa(number: int, url):
     logging.debug('inicio: %s%s', stack()[0][3], number)
     async with aiohttp.ClientSession() as session:
         async with session.get(url, ssl=False) as response:
-            print((await response.text()))
+            print(await response.text())
     logging.debug('fim: %s%s', stack()[0][3], number)
 
 
@@ -33,8 +31,7 @@ async def main():
     tasks = [
         asyncio.create_task(tarefa(seq, url)) for seq, url in enumerate(urls)
     ]
-    results = await asyncio.gather(*tasks)
-    return results
+    return await asyncio.gather(*tasks)
 
 
 if __name__ == '__main__':  # pragma: no cover

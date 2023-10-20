@@ -2,7 +2,6 @@ import logging
 import shutil
 from pathlib import Path
 
-
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s;%(levelname)-8s;%(name)s;'
@@ -14,7 +13,6 @@ logging.debug(root)
 
 def clean_workdir():
     """Remover arquivos gerados após execução."""
-
     all_files = set(root.rglob('*'))
     logging.debug(all_files)
 
