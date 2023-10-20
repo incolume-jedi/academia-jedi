@@ -44,15 +44,11 @@ O que é esperado na conclusão deste ‘sprint’
 
    **Considerar em caso de fatoração**:
 
-  > modo pythônico
-
-  > sem condicionais
-
-  > estruturas performáticas
-
-  > redução de complexidade ciclomática
-
-  > análise assintótica de algoritmos (big O)
+    > modo pythônico
+    > sem condicionais
+    > estruturas performáticas
+    > redução de complexidade ciclomática
+    > análise assintótica de algoritmos (big O)
 
 </details>
 
