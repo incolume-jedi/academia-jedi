@@ -1,9 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
+import datetime as dt
 from dataclasses import dataclass
 from typing import List
-from constantes import MSG
-import datetime as dt
 
 
 __author__ = '@britodfbr'  # pragma: no cover

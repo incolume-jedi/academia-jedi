@@ -6,7 +6,6 @@ def tratativa1(session: requests.Session, city_name: str):
     link do open_weather: https://openweathermap.org/"""
 
     API_KEY = 'coloque sua API aqui'
-    cidade = 'rio de janeiro'
     link = f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={API_KEY}&lang=pt_br'
 
     requisicao = requests.get(link)

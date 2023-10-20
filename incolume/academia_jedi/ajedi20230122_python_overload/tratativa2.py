@@ -3,8 +3,8 @@
 import logging
 import platform
 import sys
-from functools import singledispatchmethod
 from dataclasses import dataclass
+from functools import singledispatchmethod
 
 __author__ = '@britodfbr'  # pragma: no cover
 

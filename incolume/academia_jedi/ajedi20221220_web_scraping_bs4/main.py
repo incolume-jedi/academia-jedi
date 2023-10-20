@@ -1,6 +1,7 @@
 # import scrap_imdb
-from tempfile import gettempdir
 from pathlib import Path
+from tempfile import gettempdir
+
 from my_scrap_imdb import scraping_ranking
 from my_scrap_imdb1 import scraping_ranking1
 from my_scrap_imdb2 import ScrapingIMDB

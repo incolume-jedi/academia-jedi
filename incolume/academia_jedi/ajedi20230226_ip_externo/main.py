@@ -1,5 +1,6 @@
 """Main Module."""
 import logging
+
 import external_ip
 import tratativas
 

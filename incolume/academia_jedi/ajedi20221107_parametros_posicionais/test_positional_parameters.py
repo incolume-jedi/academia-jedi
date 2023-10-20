@@ -1,8 +1,6 @@
 import pytest
-from .positional_parameters import (
-    func,
-    divmod,
-)
+
+from .positional_parameters import divmod, func
 
 __author__ = '@britodfbr'  # pragma: no cover
 

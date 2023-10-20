@@ -6,9 +6,10 @@
 # multiprocessing example in the python-list:
 # https://mail.python.org/pipermail/python-list/2009-February/538048.html
 
+import itertools
+
 # BEGIN SPINNER_THREAD
 import threading
-import itertools
 import time
 
 

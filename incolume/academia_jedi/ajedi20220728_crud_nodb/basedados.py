@@ -1,6 +1,6 @@
 import logging
-from .model import Pessoa
 
+from .model import Pessoa
 
 logging.basicConfig(level=logging.WARNING)
 

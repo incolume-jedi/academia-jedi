@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-from typing import Container, Iterable
+from typing import Iterable
 
 __author__ = '@britodfbr'  # pragma: no cover
 

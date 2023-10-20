@@ -1,8 +1,7 @@
 import contextlib
 import io
-import sys
 import platform
-
+import sys
 
 if sys.version_info < (3, 8):
     raise Exception(
@@ -12,7 +11,6 @@ if sys.version_info < (3, 8):
 
 def run():
     with contextlib.redirect_stdout(zen := io.StringIO()):
-        import this
 
         return zen.getvalue()
 

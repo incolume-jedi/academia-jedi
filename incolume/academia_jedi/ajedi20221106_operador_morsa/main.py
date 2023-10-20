@@ -1,8 +1,7 @@
-import easygui as eg
-from enum import Enum, auto, unique
 import logging
-import PySimpleGUI as psg
+from enum import Enum, auto
 
+import easygui as eg
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -30,7 +29,7 @@ class Viewer(Enum):
                     eg.enterbox(msg=f'{msg} ', title=title, default=default)
                 )
             case _:
-                raise NotImplemented
+                raise NotImplementedError
 
 
 def viewer():

@@ -1,7 +1,7 @@
 """Enum examples."""
 
-from enum import Enum, auto, unique
 import string
+from enum import Enum, auto
 
 
 class Day(Enum):

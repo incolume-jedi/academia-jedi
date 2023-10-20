@@ -1,6 +1,6 @@
+import logging
 from typing import List
 
-import logging
 from faker import Faker
 
 Faker.seed(13)

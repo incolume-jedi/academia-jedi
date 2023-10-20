@@ -1,7 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-import requests
 import pandas as pd
+import requests
 from bs4 import BeautifulSoup
 
 __author__ = '@britodfbr'  # pragma: no cover

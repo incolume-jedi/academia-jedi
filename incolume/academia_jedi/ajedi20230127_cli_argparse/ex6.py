@@ -1,6 +1,5 @@
-from argparse import ArgumentParser, Namespace
 import logging
-
+from argparse import ArgumentParser, Namespace
 
 parser = ArgumentParser()
 

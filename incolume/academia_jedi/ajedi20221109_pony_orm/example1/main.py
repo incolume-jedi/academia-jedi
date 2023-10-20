@@ -1,9 +1,9 @@
-import pony.orm.core
-from pony.orm.examples.estore import populate_database
-from pony import orm
 from datetime import datetime
 from decimal import Decimal
 
+import pony.orm.core
+from pony import orm
+from pony.orm.examples.estore import populate_database
 
 db = orm.Database()
 # db.bind(provider='sqlite', filename=':memory:')

@@ -33,14 +33,6 @@ def maxSubArraySum(a, size):
     print('Ending Index %d' % (end))
 
 
-# Define a function to find the maximum subarray sum
-
-import sys
-
-
-# Define a function to find the maximum subarray sum
-
-
 def maxSubArraySum1(arr):
     # Base case: when there is only one element in the array
     if len(arr) == 1:

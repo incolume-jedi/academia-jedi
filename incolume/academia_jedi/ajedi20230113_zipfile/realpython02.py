@@ -1,6 +1,6 @@
+import logging
 import zipfile
 from pathlib import Path
-import logging
 
 
 def tratativa1(zipname):

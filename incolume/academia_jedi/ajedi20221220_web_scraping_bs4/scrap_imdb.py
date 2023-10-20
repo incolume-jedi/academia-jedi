@@ -3,9 +3,9 @@ Writing a Python program to Scrape IMDB website]
 (https://www.youtube.com/watch?v=LCVSmkyB4v8)"""
 import logging
 
-from bs4 import BeautifulSoup
-import requests
 import openpyxl
+import requests
+from bs4 import BeautifulSoup
 
 logging.basicConfig(
     level=logging.DEBUG,

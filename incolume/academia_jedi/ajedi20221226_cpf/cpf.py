@@ -1,7 +1,7 @@
-import rstr
 import logging
 import re
 
+import rstr
 
 logging.basicConfig(
     level=logging.DEBUG,

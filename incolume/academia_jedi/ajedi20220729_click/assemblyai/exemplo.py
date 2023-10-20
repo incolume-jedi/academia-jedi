@@ -1,6 +1,5 @@
 """https://www.assemblyai.com/blog/the-definitive-guide-to-python-click/"""
 
-from pathlib import Path
 
 """
 An overview of how to build command line interfaces in click via
@@ -25,12 +24,13 @@ get_text
 
 Author: Yujian Tang
 """
-import requests
-import click
 import json
 import pprint
 import sys
 from time import sleep
+
+import click
+import requests
 from configure import auth_key
 
 """

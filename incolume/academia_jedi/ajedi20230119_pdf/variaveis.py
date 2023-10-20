@@ -1,6 +1,5 @@
-from pathlib import Path
 import logging
-
+from pathlib import Path
 
 # PDF files
 root = Path.cwd()

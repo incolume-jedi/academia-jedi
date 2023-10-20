@@ -1,4 +1,5 @@
 import os
+
 import openai
 
 openai.api_key = os.getenv('ACADEMIA_JEDI_OPENAI_API_KEY')

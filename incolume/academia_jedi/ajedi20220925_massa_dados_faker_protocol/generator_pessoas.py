@@ -1,19 +1,18 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
+import datetime as dt
 import logging
-from typing import List
 from pprint import pprint
+from typing import List, Protocol
 
 from deprecated import deprecated
 from faker import Faker
-import datetime as dt
+
 from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.models import (
+    Event,
     Pessoa,
     Pessoa0,
-    Event,
 )
-from typing import Protocol
-
 
 __author__ = '@britodfbr'  # pragma: no cover
 

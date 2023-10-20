@@ -1,6 +1,6 @@
-import requests
-import csv
+
 import pandas as pd
+import requests
 
 __author__ = '@britodfbr'  # pragma: no cover
 

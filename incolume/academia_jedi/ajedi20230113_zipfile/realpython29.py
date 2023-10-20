@@ -1,11 +1,7 @@
+import logging
 import zipfile
 from pathlib import Path
-import datetime
-import logging
-import io
-import tempfile
 from pprint import pprint
-
 
 logging.basicConfig(
     level=logging.DEBUG,

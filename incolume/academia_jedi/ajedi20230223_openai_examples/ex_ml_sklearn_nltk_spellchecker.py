@@ -1,9 +1,9 @@
-import re
-from spellchecker import SpellChecker
+import logging
+
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
-import logging
+from spellchecker import SpellChecker
 
 
 def exemplo1():
@@ -81,11 +81,11 @@ def exemplo1():
 
 def exemplo2():
     """"""
-    import re
-    from spellchecker import SpellChecker
+
     from nltk.tokenize import word_tokenize
     from sklearn.feature_extraction.text import CountVectorizer
     from sklearn.linear_model import LogisticRegression
+    from spellchecker import SpellChecker
 
     # Carrega o corretor ortográfico
     spell = SpellChecker()
@@ -153,9 +153,9 @@ def exemplo2():
 
 
 def exemplo3():
-    from spellchecker import SpellChecker
     from sklearn.feature_extraction.text import CountVectorizer
     from sklearn.naive_bayes import MultinomialNB
+    from spellchecker import SpellChecker
 
     # Cria uma instância do corretor ortográfico para o idioma pt-br
     spell = SpellChecker(language='pt')
@@ -179,7 +179,7 @@ def exemplo3():
     # Prepara os dados de entrada
     cv = CountVectorizer(strip_accents='unicode', lowercase=True)
     X_treinamento = cv.fit_transform(textos_treinamento)
-    X_teste = cv.transform(textos_teste)
+    cv.transform(textos_teste)
 
     # Treina o modelo de aprendizado de máquina
     y_treinamento = ['exemplo', 'carta', 'avião', 'restaurante', 'médico']

@@ -20,7 +20,7 @@ def positional_args_test(location):
         case Location('France', _):
             print('Bonjour la France!')
         case Location('Brazil', _):
-            print(f'Olá Falante de português!!')
+            print('Olá Falante de português!!')
         case Location('Brazil|Portugal|Angola|Macau', _):
             print(f'Olá {Location}')
 

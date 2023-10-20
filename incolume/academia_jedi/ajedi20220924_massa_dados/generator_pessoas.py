@@ -1,11 +1,12 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-from typing import List
-from pprint import pprint
-from faker import Faker
 import datetime as dt
-from models import pessoa
+from pprint import pprint
+from typing import List
+
 from deprecated import deprecated
+from faker import Faker
+from models import pessoa
 
 __author__ = '@britodfbr'  # pragma: no cover
 

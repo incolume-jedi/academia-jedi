@@ -1,14 +1,10 @@
-from basedados import (
-    db,
-    create_person,
-    update_person,
-    delete_person,
-    select_person,
-    select_all_person,
-)
-from model import Pessoa
-from faker import Faker
 import pytest
+from basedados import (
+    create_person,
+    db,
+)
+from faker import Faker
+from model import Pessoa
 
 Faker.seed(17)
 fake = Faker('pt_Br')

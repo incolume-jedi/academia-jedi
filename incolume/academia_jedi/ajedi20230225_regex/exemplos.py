@@ -4,13 +4,14 @@ import logging
 import re
 import typing
 from dataclasses import dataclass, field
+
 from incolume.academia_jedi.ajedi20220928_regex.app import (
-    show,
     example1,
     example2,
     example3,
     example4,
     example5,
+    show,
 )
 
 __author__ = '@britodfbr'  # pragma: no cover

@@ -1,8 +1,6 @@
-from textblob import TextBlob
-from textblob.classifiers import NaiveBayesClassifier
-from textblob import Blobber
-from textblob.sentiments import NaiveBayesAnalyzer
 import logging
+
+from textblob import Blobber, TextBlob
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -102,11 +100,10 @@ def _exemplo4():
 
 def exemplo5():
     """"""
-    import nltk
-    from textblob import TextBlob
     from nltk.corpus import brown
-    from sklearn.naive_bayes import MultinomialNB
     from sklearn.feature_extraction.text import CountVectorizer
+    from sklearn.naive_bayes import MultinomialNB
+    from textblob import TextBlob
 
     # Treinando o modelo com o corpus Brown
     corpus = brown.sents()
@@ -140,11 +137,10 @@ def exemplo5():
 
 def exemplo6():
     """"""
-    import nltk
-    from textblob import TextBlob
     from nltk.corpus import machado
-    from sklearn.naive_bayes import MultinomialNB
     from sklearn.feature_extraction.text import CountVectorizer
+    from sklearn.naive_bayes import MultinomialNB
+    from textblob import TextBlob
 
     # Treinando o modelo com o corpus Machado
     corpus = machado.sents()
@@ -182,53 +178,6 @@ def _exemplo0():
     """"""
 
     # Exemplo de dados de treinamento
-    train = [
-        ('Este carro é muito bom', 'correto'),
-        ('Estou indo para a casa', 'correto'),
-        ('Eu gosto de gatas', 'incorreto'),
-        ('Este time é campeão', 'correto'),
-        ('A bela adormecida é uma historia infantil', 'correto'),
-        ('Ele fizeram o jantar', 'incorreto'),
-        ('Ela vai pra igreja todo domingo', 'correto'),
-        ('Eu presciso comprar leite', 'incorreto'),
-        ('O céu é azul', 'correto'),
-        ('Ela disse que ta com fome', 'correto'),
-        ('Eles compraram duas camisas', 'correto'),
-        ('Eu já fui no cinema com ela', 'correto'),
-        ('Ouviram do Ipiranga as margens plácidas', 'correto'),
-        ('Eu prefiro cerveja do que vinho', 'correto'),
-        ('Ela mora perto do trabalho', 'correto'),
-        ('Este filme é ótimo', 'correto'),
-        ('Eles gostam de dançar samba', 'correto'),
-        ('Este livro é interessante', 'correto'),
-        ('Eu tenho um gato em casa', 'correto'),
-        ('Eu tomo café todas as manhãs', 'correto'),
-        ('Ela tem muitas roupas', 'correto'),
-        ('Eu comprei um celular novo', 'correto'),
-        ('Estou com saudades dos meus amigos', 'correto'),
-        ('Ela gosta de cozinhar', 'correto'),
-        ('Ele prefere nadar do que correr', 'correto'),
-        ('Eu sou um desenvolvedor de software', 'correto'),
-        ('Eles foram ao parque', 'correto'),
-        ('Eu falo portugues fluentemente', 'correto'),
-        ('Ela não gosta de dormir cedo', 'correto'),
-        ('Eu quero aprender mais sobre Machine Learning', 'correto'),
-        ('Eles foram jantar fora', 'correto'),
-        ('Este livro é um best-seller', 'correto'),
-        ('Ela adora sorvete de morango', 'correto'),
-        ('Eu gosto de ler romances', 'correto'),
-        ('Eles vão ao cinema toda semana', 'correto'),
-        ('Este restaurante é muito bom', 'correto'),
-        ('Ela não tem tempo para isso', 'correto'),
-        ('Eu não gosto de acordar cedo', 'correto'),
-        ('Eles moram perto do parque', 'correto'),
-        ('Este é um problema difícil', 'correto'),
-        ('Ela não gosta de estudar', 'correto'),
-        ('Eu adoro música', 'correto'),
-        ('Eles foram à praia', 'correto'),
-        ('Este programa é muito útil', 'correto'),
-        ('Ela'),
-    ]
 
 
 def run():

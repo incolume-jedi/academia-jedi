@@ -1,8 +1,7 @@
-from functools import wraps
-from time import perf_counter_ns, sleep
 import logging
+from functools import wraps
 from inspect import stack
-
+from time import perf_counter_ns, sleep
 
 __author__ = '@britodfbr'  # pragma: no cover
 logging.basicConfig(level=logging.DEBUG)

@@ -1,7 +1,7 @@
 """Main Module."""
 import logging
-from incolume.academia_jedi.ajedi20230222_opencv import tratativa1
 
+from incolume.academia_jedi.ajedi20230222_opencv import tratativa1
 
 logging.basicConfig(
     level=logging.DEBUG,

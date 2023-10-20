@@ -1,8 +1,9 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-import incolume.academia_jedi.ajedi20220928_regex.app as app
 import pytest
 from faker import Faker
+
+import incolume.academia_jedi.ajedi20220928_regex.app as app
 
 __author__ = '@britodfbr'  # pragma: no cover
 

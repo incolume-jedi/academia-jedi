@@ -1,8 +1,9 @@
 # importing required modules
-import PyPDF2
-import logging
 import inspect
+import logging
+
 import fitz  # pyMuPDF
+import PyPDF2
 from variaveis import file
 
 

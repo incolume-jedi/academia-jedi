@@ -4,7 +4,6 @@ Personalização com entrada em string
 import logging
 from enum import Enum
 from typing import NoReturn
-import os
 
 
 class Color(Enum):

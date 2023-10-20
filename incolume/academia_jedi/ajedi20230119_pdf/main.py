@@ -1,6 +1,7 @@
+import logging
+
 import tratativa1
 import tratativa2
-import logging
 
 logging.basicConfig(
     level=logging.DEBUG,

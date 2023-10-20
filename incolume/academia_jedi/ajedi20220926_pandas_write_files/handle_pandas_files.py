@@ -4,14 +4,11 @@ import inspect
 import logging
 from pathlib import Path
 
+import pandas as pd
+
 from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.generator_pessoas import (
     massa_pessoas,
 )
-from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.models import (
-    Pessoa,
-)
-import pandas as pd
-
 
 logFormat = (
     '%(asctime)s; %(levelname)-8s; %(name)s; %(module)s;'

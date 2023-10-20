@@ -1,7 +1,7 @@
 """Main Module."""
 import logging
-import exemplos
 
+import exemplos
 
 logging.basicConfig(
     level=logging.DEBUG,

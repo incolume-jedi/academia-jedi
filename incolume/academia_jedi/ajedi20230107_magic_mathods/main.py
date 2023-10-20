@@ -1,6 +1,7 @@
+from random import random, seed
+
+from currency import NC, Currency
 from real import Real
-from currency import Currency, NC
-from random import seed, random
 
 __author__ = '@britodfbr'  # pragma: no cover
 

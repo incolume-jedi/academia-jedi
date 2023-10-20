@@ -2,10 +2,11 @@
 tarefas comcorrentes
 """
 
-import aiohttp
 import asyncio
 import logging
 from inspect import stack
+
+import aiohttp
 
 logging.basicConfig(
     level=logging.DEBUG,

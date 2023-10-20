@@ -1,5 +1,6 @@
-from basic_use import create_eg
 from platform import python_version
+
+from basic_use import create_eg
 
 if python_version() < "3.11.0":
     print("This application need Python 3.11+")

@@ -1,9 +1,8 @@
+import logging
 import timeit
 from typing import Callable
 
 from truncus import brazilian_name_list
-import logging
-
 
 logging.basicConfig(
     level=logging.DEBUG,

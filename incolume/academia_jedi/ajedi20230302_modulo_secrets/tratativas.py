@@ -1,8 +1,7 @@
 import logging
-import typing
 import secrets
 import string
-
+import typing
 
 __author__ = '@britodfbr'  # pragma: no cover
 

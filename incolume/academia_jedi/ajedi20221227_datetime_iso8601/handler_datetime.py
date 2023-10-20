@@ -1,7 +1,6 @@
 import datetime as dt
 import logging
 
-
 __author__ = '@britodfbr'  # pragma: no cover
 
 

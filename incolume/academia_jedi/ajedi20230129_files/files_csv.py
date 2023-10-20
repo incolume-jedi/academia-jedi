@@ -1,6 +1,7 @@
 import csv
 import logging
-from config import config, fileoutput, dados_dict
+
+from config import config, dados_dict, fileoutput
 from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.models import (
     Pessoa,
 )

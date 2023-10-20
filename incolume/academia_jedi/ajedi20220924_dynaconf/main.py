@@ -1,9 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-from app import run
-from os import environ, getenv, putenv
-from pprint import pprint
+from os import environ
 
+from app import run
 
 __author__ = '@britodfbr'  # pragma: no cover
 

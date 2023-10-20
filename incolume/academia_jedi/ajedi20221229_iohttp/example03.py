@@ -3,10 +3,11 @@
 https://youtu.be/nFn4_nA_yk8
 https://youtu.be/lUwZ9rS0SeM
 """
-import aiohttp
 import asyncio
-from bs4 import BeautifulSoup
 import logging
+
+import aiohttp
+from bs4 import BeautifulSoup
 
 
 async def get_page(session, url):

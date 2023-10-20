@@ -1,12 +1,13 @@
-import shelve
-from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.generator_pessoas import (
-    massa_pessoas,
-    Pessoa,
-)
-from pathlib import Path
-import dotenv
 import logging
 import os
+import shelve
+from pathlib import Path
+
+import dotenv
+
+from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.generator_pessoas import (
+    massa_pessoas,
+)
 
 __author__ = '@britodfbr'  # pragma: no cover
 

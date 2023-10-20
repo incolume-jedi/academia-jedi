@@ -1,4 +1,4 @@
-from time import sleep, perf_counter
+from time import perf_counter, sleep
 
 # exemplo sincrono
 st = perf_counter()

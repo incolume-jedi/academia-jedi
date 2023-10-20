@@ -1,7 +1,7 @@
 __author__ = '@britodfbr'  # pragma: no cover
 
 from functools import wraps
-from typing import Callable, Any
+from typing import Any
 
 
 def successive_execution(funcs: Any):
