@@ -22,17 +22,34 @@ assignees: ''
 
 Descrição/apresentação do problema.
 
+
 ## Resultado esperado
 
 O que é esperado na conclusão deste ‘sprint’
 
+
 ## Exemplos
 
-Exemplos de solução e resposta do problema. Geralmente utilizado para validar os testes do TDD.
+<details>
+  <summary>Spoiler?</summary>
+   Considerar em caso de fatoração:
+
+    > modo pythônico
+    > sem condicionais
+    > estruturas performáticas
+    > redução de complexidade ciclomática
+    > análise assintótica de algoritmos (big O)
+
+</details>
+
+N/A - Exemplos de solução e resposta do problema. Geralmente utilizado para validar os testes do TDD.
+
+
 
 ## Referências
 
  - N/A (Caso haja referências podem ser listadas aqui)
+
 
 ---
 &copy; Incolume.com.br
