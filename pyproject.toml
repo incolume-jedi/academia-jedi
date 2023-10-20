@@ -240,6 +240,114 @@ disallow_untyped_defs = true
 max_line_length = 79
 ignore = ['E203']
 
+[tool.ruff]
+# Always generate Python compatible code.
+target-version = "py39"
+# Decrease the maximum line length to 79 characters.
+line-length = 79
+tab-size = 4
+src = ["incolume/", "tests/"]
+respect-gitignore = true
+select = [
+  "A",    #flake8-builtins
+  "AIR",    #Airflow
+  "ANN",    #flake8-annotations
+  "ARG",    #flake8-unused-arguments
+  "ASYNC",    #flake8-async
+  "B",    #flake8-bugbear
+  "BLE",    #flake8-blind-except
+  "C4",    #flake8-comprehensions
+  "C90",    #mccabe
+  "COM",    #flake8-commas
+  "CPY",    #flake8-copyright
+  "D",   # pydocstyle
+  "DJ",    #flake8-django
+  "DTZ",    #flake8-datetimez
+  "E",   # pycodestyle
+  "W",    #pycodestyle
+  "EM",    #flake8-errmsg
+  "ERA",    #eradicate
+  "EXE",    #flake8-executable
+  "F",   # pyflakes
+  "FA",    #flake8-future-annotations
+  "FBT",    #flake8-boolean-trap
+  "FIX",    #flake8-fixme
+  "FLY",    #flynt
+  "FURB",    #refurb
+  "G",    #flake8-logging-format
+  "I",    #isort
+  "ICN",    #flake8-import-conventions
+  "INP",    #flake8-no-pep420
+  "INT",    #flake8-gettext
+  "ISC",    #flake8-implicit-str-concat
+  "N",    #pep8-naming
+  "NPY",    #NumPy-specific rules
+  "PD",    #pandas-vet
+  "PERF",    #Perflint
+  "PGH",    #pygrep-hooks
+  "PIE",    #flake8-pie
+  "PL",    #Pylint
+  "PT",    #flake8-pytest-style
+  "PTH",    #flake8-use-pathlib
+  "PYI",    #flake8-pyi
+  "Q",    #flake8-quotes
+  "RET",    #flake8-return
+  "RSE",    #flake8-raise
+  "RUF",    #Ruff-specific rules
+  "S",    #flake8-bandit
+  "SIM",    #flake8-simplify
+  "SLF",    #flake8-self
+  "SLOT",    #flake8-slots
+  "T10",    #flake8-debugger
+  "T20",    #flake8-print
+  "TCH",    #flake8-type-checking
+  "TD",    #flake8-todos
+  "TID",    #flake8-tidy-imports
+  "TRY",    #tryceratops
+  "UP",  # pyupgrade
+  "YTT",    #flake8-2020
+]
+
+# Never enforce `E501` (line length violations).
+ignore = ["INP001", "CPY001"]
+
+# Avoid trying to fix flake8-bugbear (`B`) violations.
+unfixable = ["B"]
+
+[tool.ruff.per-file-ignores]
+# Ignore `E402` (import violations) in all `__init__.py` files, and in `path/to/file.py`.
+#"__init__.py" = ["E402"]
+#"path/to/file.py" = ["E402"]
+"**/{tests,docs,tools,utils}/*" = ["EXE002"]
+"**/test_*.py" = [
+  "I001",
+  "EXE002",
+  "ANN001",
+  "ANN101",
+  "PLR6301",
+  "S101",
+#  TODO remover ANN001 ANN201 ANN202 D100 D103 D202 PT007 após estabilizar teste piloto
+#  TODO remover temporários no futuro
+#  "ANN201",
+#  "ANN202",
+#  "D100",
+#  "D103",
+#  "D202",
+#  "PT007",
+]
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 5
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "single"
+multiline-quotes = "double"
+
 [tool.taskipy.variables]
 path = "incolume/ tests/"
 CHANGELOGFILE = "CHANGELOG.md"
