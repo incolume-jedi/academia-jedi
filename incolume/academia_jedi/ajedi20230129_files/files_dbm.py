@@ -5,6 +5,7 @@ from pathlib import Path
 from tempfile import NamedTemporaryFile
 
 import dotenv
+
 from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.generator_pessoas import (
     massa_pessoas,
 )

@@ -74,7 +74,8 @@ class ScrapingIMDB:
                     '()',
                 ),
                 rating=movie.find(
-                    'td', class_='ratingColumn imdbRating',
+                    'td',
+                    class_='ratingColumn imdbRating',
                 ).strong.text,
                 poster=movie.find('td', class_='posterColumn').img['src'],
             )

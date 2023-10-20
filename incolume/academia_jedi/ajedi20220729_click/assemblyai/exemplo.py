@@ -123,7 +123,9 @@ whether or not we want to save our results to a json file
     help='Pass to download the result to a json file',
 )
 @click.option(
-    '-k', '--key', help='Pass a key to specify that key from the results',
+    '-k',
+    '--key',
+    help='Pass a key to specify that key from the results',
 )
 @click.pass_context
 def get_results(ctx, download: bool, key: str):
@@ -175,10 +177,16 @@ default to returning one big block of text
 
 @cli.command('get_text')
 @click.option(
-    '-s', '--sentences', is_flag=True, help='Pass to return sentences',
+    '-s',
+    '--sentences',
+    is_flag=True,
+    help='Pass to return sentences',
 )
 @click.option(
-    '-p', '--paragraphs', is_flag=True, help='Pass to return paragraphs',
+    '-p',
+    '--paragraphs',
+    is_flag=True,
+    help='Pass to return paragraphs',
 )
 @click.option('-d', '--download', is_flag=True, help='Download as a json file')
 @click.pass_obj
@@ -241,7 +249,9 @@ def assembly(ctx, location):
                 yield data
 
     upload_response = requests.post(
-        upload_endpoint, headers=headers, data=read_file(location),
+        upload_endpoint,
+        headers=headers,
+        data=read_file(location),
     )
     audio_url = upload_response.json()['upload_url']
     print('Uploaded to', audio_url)
@@ -251,7 +261,9 @@ def assembly(ctx, location):
     }
 
     transcript_response = requests.post(
-        transcript_endpoint, json=transcript_request, headers=headers,
+        transcript_endpoint,
+        json=transcript_request,
+        headers=headers,
     )
     transcript_id = transcript_response.json()['id']
     polling_endpoint = transcript_endpoint + '/' + transcript_id

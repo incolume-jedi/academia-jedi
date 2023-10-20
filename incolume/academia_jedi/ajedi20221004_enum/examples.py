@@ -268,7 +268,10 @@ def run():
     handle_semaphore(Semaphore.RED),
     print('---')
     print(
-        Mood.HAPPY.describe_mood(), Mood.HAPPY, Mood.favorite_mood(), sep='\n',
+        Mood.HAPPY.describe_mood(),
+        Mood.HAPPY,
+        Mood.favorite_mood(),
+        sep='\n',
     )
     print('---')
     numbers = [5, 2, 7, 6, 3, 9, 8, 4]

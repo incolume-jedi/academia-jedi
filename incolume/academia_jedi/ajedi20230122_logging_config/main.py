@@ -56,7 +56,8 @@ def setup_applevel_logger(**kwargs):
     logger.setLevel(kwargs.get('loglevel', logging.DEBUG))
     formatter = logging.Formatter(
         kwargs.get(
-            'logformat', '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            'logformat',
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         ),
     )
     sh = logging.StreamHandler(sys.stdout)

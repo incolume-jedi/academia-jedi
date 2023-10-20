@@ -16,16 +16,19 @@ def run():
 
     try:
         with zipfile.ZipFile(
-            directory / 'sample_pwd.zip', mode='r',
+            directory / 'sample_pwd.zip',
+            mode='r',
         ) as archive:
             logging.debug(archive.namelist())
             for line in archive.read(
-                'sample/wzxnlQNFSlVoPJe.md', pwd=b'secret',
+                'sample/wzxnlQNFSlVoPJe.md',
+                pwd=b'secret',
             ).split(b'\n'):
                 print(line)
 
         with zipfile.ZipFile(
-            directory / 'sample_pwd.zip', mode='r',
+            directory / 'sample_pwd.zip',
+            mode='r',
         ) as archive:
             for line in archive.read('sample/wzxnlQNFSlVoPJe.md').split(b'\n'):
                 print(line)

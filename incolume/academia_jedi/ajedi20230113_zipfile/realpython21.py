@@ -15,7 +15,8 @@ def run():
     filenames = directory.rglob('*.txt')
 
     with zipfile.ZipFile(
-        directory / 'multiple_files.zip', mode='w',
+        directory / 'multiple_files.zip',
+        mode='w',
     ) as archive:
         for filename in filenames:
             archive.write(filename)

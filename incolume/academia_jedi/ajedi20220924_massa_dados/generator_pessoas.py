@@ -33,7 +33,6 @@ def massa_pessoas(quantidade: int = 0) -> list:
     ]
 
 
-
 def run():
     pprint(massa_pessoas(3))
 

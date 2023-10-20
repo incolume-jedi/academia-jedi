@@ -24,7 +24,9 @@ class Movie:
 
 
 def scraping_ranking1(
-    url: str = '', excel_output: (str, Path) = '', columns_name: Optional[list] = None,
+    url: str = '',
+    excel_output: (str, Path) = '',
+    columns_name: Optional[list] = None,
 ) -> bool:
     excel_output = Path(excel_output or 'my_IMDB_Movies_Ratings.xlsx')
     excel = openpyxl.Workbook()
@@ -61,7 +63,8 @@ def scraping_ranking1(
                     '()',
                 ),
                 rating=movie.find(
-                    'td', class_='ratingColumn imdbRating',
+                    'td',
+                    class_='ratingColumn imdbRating',
                 ).strong.text,
                 poster=movie.find('td', class_='posterColumn').img['src'],
             )

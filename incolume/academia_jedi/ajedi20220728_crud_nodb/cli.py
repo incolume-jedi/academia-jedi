@@ -59,7 +59,8 @@ def insert(ctx, person):
         'address': ['add1', 'add2]}   # optional
     """
     click.secho(
-        create_person(Pessoa(**person), ctx.obj.get('debug')), fg='green',
+        create_person(Pessoa(**person), ctx.obj.get('debug')),
+        fg='green',
     )
 
 

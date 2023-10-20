@@ -37,14 +37,18 @@ def ex03():
     resource_manager = PDFResourceManager()
     fake_file_handle = io.StringIO()
     converter = TextConverter(
-        resource_manager, fake_file_handle, laparams=LAParams(),
+        resource_manager,
+        fake_file_handle,
+        laparams=LAParams(),
     )
     page_interpreter = PDFPageInterpreter(resource_manager, converter)
 
     with open(file, 'rb') as fh:
 
         for page in PDFPage.get_pages(
-            fh, caching=True, check_extractable=True,
+            fh,
+            caching=True,
+            check_extractable=True,
         ):
             page_interpreter.process_page(page)
 

@@ -24,7 +24,8 @@ class Event:
     def __repr__(self) -> str:
         logging.debug(f'{self.__class__.__name__}{stack()[0][3]}')
         return "{}(message='{message}',create_at='{create_at}', index={index})".format(
-            self.__class__.__name__, **self.__dict__,
+            self.__class__.__name__,
+            **self.__dict__,
         )
 
     def jsonify(self):

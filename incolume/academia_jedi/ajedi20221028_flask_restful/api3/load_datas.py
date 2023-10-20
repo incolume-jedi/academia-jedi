@@ -1,4 +1,3 @@
-
 import pandas as pd
 import requests
 
@@ -20,7 +19,9 @@ def post_data(item):
     }
     payload = item.to_dict()
     resp = requests.post(
-        'http://localhost:5555', headers=headers, json=payload,
+        'http://localhost:5555',
+        headers=headers,
+        json=payload,
     )
     return resp.json()
 

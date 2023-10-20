@@ -18,7 +18,14 @@ logging.basicConfig(
     '%(module)s;%(funcName)s;%(message)s',
 )
 DATE = datetime(
-    1978, 6, 20, 1, 23, 45, 6789, pytz.timezone('America/Sao_Paulo'),
+    1978,
+    6,
+    20,
+    1,
+    23,
+    45,
+    6789,
+    pytz.timezone('America/Sao_Paulo'),
 )
 
 
