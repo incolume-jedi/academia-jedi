@@ -36,7 +36,9 @@ class IPessoa(Protocol):
     "jedi.ajedi20230211_massa_dados_fake_protocol.generator_pessoas'",
 )
 def massa_pessoas(
-    objeto: IPessoa = None, quantidade: int = 0, is_json: bool = False,
+    objeto: IPessoa = None,
+    quantidade: int = 0,
+    is_json: bool = False,
 ) -> list[IPessoa]:
 
     logging.debug(f'params: {objeto=}, {quantidade=}, {is_json=}')

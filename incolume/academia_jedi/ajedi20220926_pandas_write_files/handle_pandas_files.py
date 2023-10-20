@@ -4,6 +4,7 @@ import logging
 from pathlib import Path
 
 import pandas as pd
+
 from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.generator_pessoas import (
     massa_pessoas,
 )
@@ -53,7 +54,9 @@ def pd_3_write_json():
     print(df.info())
 
     df.to_json(
-        f'{Path(inspect.stack()[0][1]).stem}.json', indent=4, orient='records',
+        f'{Path(inspect.stack()[0][1]).stem}.json',
+        indent=4,
+        orient='records',
     )
 
 

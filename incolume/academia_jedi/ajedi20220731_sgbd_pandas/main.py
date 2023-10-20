@@ -29,7 +29,9 @@ def massa_test():
 def example01():
     """Pandas + SQLite + SQLAlchemy rodando em RAM."""
     engine = create_engine(
-        'sqlite+pysqlite:///:memory:', echo=True, future=True,
+        'sqlite+pysqlite:///:memory:',
+        echo=True,
+        future=True,
     )
 
     df = pd.DataFrame(massa_test())
@@ -43,7 +45,9 @@ def example02():
     file_db = Path(__file__).parent.joinpath('db', f'{stack()[0][3]}.sqlite')
     file_db.parent.mkdir(exist_ok=True, parents=True)
     engine = create_engine(
-        f'sqlite+pysqlite:///{file_db.as_posix()}', echo=True, future=True,
+        f'sqlite+pysqlite:///{file_db.as_posix()}',
+        echo=True,
+        future=True,
     )
 
     df = pd.DataFrame(massa_test())

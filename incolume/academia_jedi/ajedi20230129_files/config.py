@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 
 import dotenv
+
 from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.generator_pessoas import (
     massa_pessoas,
 )

@@ -4,7 +4,11 @@ from argparse import ArgumentParser, Namespace
 parser = ArgumentParser()
 
 parser.add_argument(
-    'square', help='squares a given number', type=int, default=0, nargs='?',
+    'square',
+    help='squares a given number',
+    type=int,
+    default=0,
+    nargs='?',
 )
 parser.add_argument('-v', '--verbose', help='show details', action='count')
 

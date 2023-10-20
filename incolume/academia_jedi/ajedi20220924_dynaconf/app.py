@@ -19,10 +19,12 @@ def run():
         '{}: {}'.format(settings.get('DICT'), type(settings.get('dict'))),
         '{}: {}'.format(settings.get('BOOL'), type(settings.get('bool'))),
         '{}: {}'.format(
-            settings.get('DICT')['fuz'], type(settings.get('dict')['fuz']),
+            settings.get('DICT')['fuz'],
+            type(settings.get('dict')['fuz']),
         ),
         '{}: {}'.format(
-            settings.get('DICT').foo, type(settings.get('dict').foo),
+            settings.get('DICT').foo,
+            type(settings.get('dict').foo),
         ),
         '{}: {}'.format(settings.get('NUM'), type(settings.get('num'))),
         '{}: {}'.format(settings.get('NUMB'), type(settings.get('numb'))),

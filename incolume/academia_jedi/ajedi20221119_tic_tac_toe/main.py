@@ -13,7 +13,11 @@ def show_board():
 
 
 def move_game(
-    board: list, gamer: str, row: int, col: int, options: Optional[list] = None,
+    board: list,
+    gamer: str,
+    row: int,
+    col: int,
+    options: Optional[list] = None,
 ):
     options = options or ['X', 'O']
     gamer = gamer.upper()
@@ -35,20 +39,9 @@ def check_winner(board: list, options=None):
 
     def element_pos(option):
         return (
-            [
-                board[x][y] == option
-                for x in range(rows)
-                for y in range(cols)
-            ]
-            + [
-                board[y][x] == option
-                for x in range(rows)
-                for y in range(cols)
-            ]
-            + [
-                board[x][x] == option
-                for x in range(len(board))
-            ]
+            [board[x][y] == option for x in range(rows) for y in range(cols)]
+            + [board[y][x] == option for x in range(rows) for y in range(cols)]
+            + [board[x][x] == option for x in range(len(board))]
             + [
                 board[len(board) - 1 - x][x] == option
                 for x in range(len(board))
@@ -57,7 +50,7 @@ def check_winner(board: list, options=None):
 
     def check_values(pos: list):
         for x in range(3, len(pos) + 1, 3):
-            if all(pos[x - 3: x]):
+            if all(pos[x - 3 : x]):
                 return True
         return None
 

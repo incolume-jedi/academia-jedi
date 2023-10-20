@@ -5,7 +5,11 @@ from dataclasses import dataclass
 
 class Currency:
     def __init__(
-        self, value: float = 0.0, *, sigla: str = 'BRL', symbol: str = 'R$',
+        self,
+        value: float = 0.0,
+        *,
+        sigla: str = 'BRL',
+        symbol: str = 'R$',
     ) -> None:
         self.sigla = sigla
         self.symbol = symbol

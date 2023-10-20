@@ -60,7 +60,8 @@ def get_info_nfe(file: Path | str, mode: str = 'rb') -> OrderedDict:
 
 
 def get_content_service_nfe(
-    xml_file: Path | str, tp: str = '',
+    xml_file: Path | str,
+    tp: str = '',
 ) -> NFe | typing.Container:
     """Retorna elementos da NFe de serviços."""
     logging.debug(xml_file)
@@ -104,7 +105,8 @@ class MatchRegex(str):
 
 
 def get_content_danfe_nfe(
-    xml_file: Path | str, tp: str = '',
+    xml_file: Path | str,
+    tp: str = '',
 ) -> NFe | typing.Container:
     """Retorna elemento da NFe Danfe."""
     logging.debug(xml_file)

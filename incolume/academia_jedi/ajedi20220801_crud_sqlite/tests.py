@@ -1,8 +1,5 @@
 import pytest
-from basedados import (
-    create_person,
-    db,
-)
+from basedados import create_person, db
 from faker import Faker
 from model import Pessoa
 

@@ -27,9 +27,7 @@ def sugestoes_correcao(palavra):
             probabilidades[w] += spell.word_probability(w) / n
 
     # Retorna as sugestões de correção ordenadas por probabilidade
-    return [
-        sugestao for sugestao in probabilidades if sugestao in sugestoes
-    ]
+    return [sugestao for sugestao in probabilidades if sugestao in sugestoes]
 
 
 # Corrige a ortografia de cada palavra

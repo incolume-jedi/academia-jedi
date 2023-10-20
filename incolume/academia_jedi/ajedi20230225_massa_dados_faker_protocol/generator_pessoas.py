@@ -53,10 +53,12 @@ def massa_pessoas(
                 dt.datetime.combine(  # convert date > datetime
                     fake.date_between(  # Date fake
                         start_date=dt.datetime.strptime(
-                            '1965-01-01', '%Y-%m-%d',
+                            '1965-01-01',
+                            '%Y-%m-%d',
                         ),
                         end_date=dt.datetime.strptime(
-                            '2003-12-31', '%Y-%m-%d',
+                            '2003-12-31',
+                            '%Y-%m-%d',
                         ),
                     ),
                     dt.time(),  # time supplementary

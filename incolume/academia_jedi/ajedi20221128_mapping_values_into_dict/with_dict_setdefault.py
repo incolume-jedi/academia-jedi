@@ -33,7 +33,7 @@ def tratativa02():
         print(value)
         tag, value = (
             value[: value.index(':')],
-            value[value.index(':') + 1:].strip(),
+            value[value.index(':') + 1 :].strip(),
         )
         print(f'{tag=} {value=}')
 
@@ -50,7 +50,7 @@ def tratativa03():
             try:
                 tag, value = (
                     value[: value.index(':')],
-                    value[value.index(':') + 1:].strip(),
+                    value[value.index(':') + 1 :].strip(),
                 )
                 print(f'{tag=} {value=}')
             except ValueError:
@@ -95,7 +95,9 @@ def tratativa06():
     logging.debug(msg)
     key, txt = msg.strip().split(maxsplit=1)
     txt = re.sub(
-        '(Added|Fixed|Changed|Deprecated|Removed|Security)', '§\\1', txt,
+        '(Added|Fixed|Changed|Deprecated|Removed|Security)',
+        '§\\1',
+        txt,
     )
     logging.debug(txt)
     logging.debug(txt.split('§'))
@@ -208,7 +210,10 @@ def tratativa10():
         return {'key': key, 'date': dt.datetime.now(), 'messages': dct}
 
     def changelog_messages(
-        *, text: str, start: Any = None, end: Any = None,
+        *,
+        text: str,
+        start: Any = None,
+        end: Any = None,
     ) -> list:
         result = []
         for msg in text.strip().splitlines()[start:end]:
@@ -242,7 +247,10 @@ def tratativa11():
             return {'key': key, 'date': dt.datetime.now(), 'messages': dct}
 
         def messages_update(
-            self, *, start: Any = None, end: Any = None,
+            self,
+            *,
+            start: Any = None,
+            end: Any = None,
         ) -> list:
             text = subprocess.getoutput('git tag -n')
             result = []

@@ -24,7 +24,13 @@ def ex03():
 def ex04():
     """Exemplo 4."""
     a = dt.datetime(
-        2002, 10, 27, 12, 0, 0, tzinfo=pytz.timezone('America/Sao_Paulo'),
+        2002,
+        10,
+        27,
+        12,
+        0,
+        0,
+        tzinfo=pytz.timezone('America/Sao_Paulo'),
     ).isoformat()
     print(a)
 

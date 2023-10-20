@@ -53,7 +53,8 @@ def tratativa2():
     texto = """Olá Mundo!!!"""
     paragraf = documento.add_paragraph(texto)
     paragraf.style = documento.styles.add_style(
-        'Mystyle', WD_STYLE_TYPE.PARAGRAPH,
+        'Mystyle',
+        WD_STYLE_TYPE.PARAGRAPH,
     )
     paragraf.style.font.name = 'Algerian'
     paragraf.style.font.size = Pt(15)
@@ -69,7 +70,8 @@ def tratativa3():
     texto = """Olá Mundo!!!"""
     paragraf = documento.add_paragraph(texto)
     paragraf.style = documento.styles.add_style(
-        (mystyle := inspect.stack()[0][3]), WD_STYLE_TYPE.PARAGRAPH,
+        (mystyle := inspect.stack()[0][3]),
+        WD_STYLE_TYPE.PARAGRAPH,
     )
     paragraf.style.font.name = 'Algerian'
     paragraf.style.font.size = Pt(15)
@@ -408,7 +410,8 @@ def tratativa18():
             if key in paragraf.text:
                 logging.debug(paragraf, key)
                 paragraf.text = paragraf.text.replace(
-                    key, dicionario_valores.get(key),
+                    key,
+                    dicionario_valores.get(key),
                 )
 
     contrato.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
