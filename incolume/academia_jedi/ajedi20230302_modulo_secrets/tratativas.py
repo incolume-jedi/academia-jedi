@@ -30,23 +30,22 @@ def tratativa3():
 
 def tratativa4():
     """Numero aleatório com a quantia de bits indicada."""
-    # k = int(input('Informa a quantia de bits: '))
     k = 2
     return secrets.randbits(k)
 
 
 def tratativa5():
-    """token de bytes."""
+    """Token de bytes."""
     return secrets.token_bytes(16)
 
 
 def tratativa6():
-    """token de hex."""
+    """Token de hex."""
     return secrets.token_hex(32)
 
 
 def tratativa7():
-    """token urlsafe."""
+    """Token urlsafe."""
     return secrets.token_urlsafe(64)
 
 
@@ -75,7 +74,7 @@ def tratativa11():
 
 def run():
     """Running it."""
-    functions: typing.List[typing.Callable] = [
+    functions: list[typing.Callable] = [
         value
         for key, value in globals().items()
         if key.__contains__('tratativa')
@@ -83,7 +82,7 @@ def run():
     for func in functions:
         logging.debug(f'{type(func)} {func.__name__}')
         print(f'--- {func.__name__} ---')
-        print('    >>> {}'.format(func.__doc__))
+        print(f'    >>> {func.__doc__}')
         try:
             if result := func():
                 print(result)

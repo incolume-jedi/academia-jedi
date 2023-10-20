@@ -21,23 +21,22 @@ def date_parser(timestamp: str) -> dt.datetime:
     """"""
     regexes = {
         '%Y-%m-%dT%H:%M:%S.%f%z': re.compile(
-            r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3,6}-\d{2}:\d{2}'
+            r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3,6}-\d{2}:\d{2}',
         ),
         '%Y-%m-%dT%H:%M:%S.%f': re.compile(
-            r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3,6}'
+            r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3,6}',
         ),
         '%Y-%m-%dT%H:%M:%S%z': re.compile(
-            r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{2}:\d{2}'
+            r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{2}:\d{2}',
         ),
         '%Y-%m-%dT%H:%M:%S': re.compile(
-            r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}'
+            r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}',
         ),
         '%Y-%m-%d': re.compile(r'\d{4}-\d{2}-\d{2}'),
     }
     for regex in regexes.items():
         case = regex[1].fullmatch(timestamp)
         if case:
-            # print(case)
             print(dt.datetime.strptime(timestamp, regex[0]))
 
 
@@ -84,14 +83,7 @@ def run():
     (date_parser('2023-02-13T19:52:24-03:00'))
     (date_parser('2023-02-13T19:52:24'))
     (date_parser('2011-11-11'))
-    # print(date_parser('2023-02-13T19:52:24,891454546-03:00'))
 
-    # p = Pessoa('João Filho', dt.datetime.now(), '123.456.789-01')
-    # q = Pessoa('João Neto', '2011-11-11', '012.345.678-90')
-    # r = Pessoa('João Junior', '2021-11-11', '012.345.678-90')
-    # print(p, p.to_dict(), p.jsonify())
-    # print(q, q.to_dict(), q.jsonify())
-    # print(r, r.to_dict(), r.jsonify())
 
 
 if __name__ == '__main__':  # pragma: no cover

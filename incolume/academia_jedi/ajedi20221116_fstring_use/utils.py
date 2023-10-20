@@ -5,8 +5,7 @@ from typing import Any
 
 
 def successive_execution(funcs: Any):
-    for i, func in enumerate(funcs):
-        # print(type(func))
+    for func in funcs:
         func()
     ...
 

@@ -11,7 +11,7 @@ from pathlib import Path
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-from typing import Iterator
+from collections.abc import Iterator
 
 
 def example1():
@@ -22,7 +22,6 @@ def example1():
     d.append('j')  # add a new entry to the right side
     d.appendleft('f')  # add a new entry to the left side
     print(d)  # show the representation of the deque
-    # deque(['f', 'g', 'h', 'i', 'j'])
 
     print(
         d.pop(),  # return and remove the rightmost item 'j'
@@ -42,7 +41,6 @@ def example1():
         deque(reversed(d)),  # make a new deque in reverse order
         deque(['l', 'k', 'j', 'i', 'h', 'g']),
         d.clear(),  # empty the deque
-        # d.pop(),  # cannot pop from an empty deque
         d.extendleft('abc'),  # extendleft() reverses the input order d
         deque(['c', 'b', 'a']),
         sep='\n',
@@ -54,7 +52,7 @@ def example2():
     file = Path(__file__).parents[3] / 'data_files' / 'proxies_1663514130.csv'
 
     def tail(filename, n=10):
-        """Return the last n lines of a file"""
+        """Return the last n lines of a file."""
         with open(filename) as f:
             return deque(f, n)
 
@@ -82,7 +80,7 @@ def example3():
 
 def example4():
     def roundrobin(*iterables):
-        """roundrobin('ABC', 'D', 'EF') --> A D E B F C"""
+        """roundrobin('ABC', 'D', 'EF') --> A D E B F C."""
         iterators = deque(map(iter, iterables))
         while iterators:
             try:

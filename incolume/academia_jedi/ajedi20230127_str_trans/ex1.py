@@ -6,7 +6,6 @@ from tratativa1 import elements_this
 def tratativa1():
     entrance, cipher, _ = elements_this()
     logging.debug(entrance)
-    # result = entrance[:]
 
     decoder = str.maketrans(cipher)
     logging.debug(decoder)

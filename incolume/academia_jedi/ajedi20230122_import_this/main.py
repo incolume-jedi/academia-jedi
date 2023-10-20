@@ -1,7 +1,6 @@
 """zen do python."""
 import logging
 
-
 __author__ = '@britodfbr'  # pragma: no cover
 logging.basicConfig(
     level=logging.DEBUG,

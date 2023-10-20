@@ -5,7 +5,7 @@ import re
 def check(support_ticket: str):
 
     match = re.match(
-        r'Support case no\.: (\d+) is (opened|closed)\.', support_ticket
+        r'Support case no\.: (\d+) is (opened|closed)\.', support_ticket,
     )
     match = match.groups() if match else None
     match match:

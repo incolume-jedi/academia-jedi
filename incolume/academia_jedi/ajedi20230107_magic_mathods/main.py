@@ -16,8 +16,8 @@ def run():
     print(r < p)
     print(sorted((r, p), reverse=True))
 
-    q = list(Currency(random()) for _ in range(10))
-    s = list(Currency(random(), symbol='$', sigla='USD') for _ in range(10))
+    q = [Currency(random()) for _ in range(10)]
+    s = [Currency(random(), symbol='$', sigla='USD') for _ in range(10)]
     print(q, s)
 
     print(Currency(10) + Currency(12))

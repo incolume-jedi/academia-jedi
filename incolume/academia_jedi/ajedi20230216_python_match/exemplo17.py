@@ -19,7 +19,8 @@ def tratativa():
             case 4:
                 tok = Token('TEXT', s[1:-1], mo.span())
             case _:
-                raise ValueError(f'Unknown pattern for {s!r}')
+                msg = f'Unknown pattern for {s!r}'
+                raise ValueError(msg)
         print(tok)
 
 

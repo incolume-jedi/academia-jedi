@@ -18,7 +18,7 @@ def ex1():
     logging.debug(Pessoa.__annotations__.keys())
     with fileoutput.with_suffix('.csv').open('w') as file:
         handler_csv = csv.DictWriter(
-            file, fieldnames=Pessoa.__annotations__.keys()
+            file, fieldnames=Pessoa.__annotations__.keys(),
         )
         handler_csv.writeheader()
         handler_csv.writerows(dados_dict)

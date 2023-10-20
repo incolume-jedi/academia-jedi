@@ -1,6 +1,6 @@
 import logging
 import timeit
-from typing import Callable
+from typing import Callable, Optional
 
 from truncus import brazilian_name_list
 
@@ -11,24 +11,22 @@ logging.basicConfig(
 )
 
 
-def tratativa1(list_names: list = None) -> list:
+def tratativa1(list_names: Optional[list] = None) -> list:
     """Uppercase."""
     list_names = list_names or []
-    result = list(map(str.upper, list_names))
-    return result
+    return list(map(str.upper, list_names))
 
 
-def tratativa2(list_names: list = None) -> list:
+def tratativa2(list_names: Optional[list] = None) -> list:
     """Uppercase."""
     list_names = list_names or []
-    result = [name.upper() for name in list_names]
-    return result
+    return [name.upper() for name in list_names]
 
 
 def get_timeit(func: Callable, listnames: list, name: str) -> float:
 
     speed = min(
-        timeit.repeat(lambda: func(listnames), repeat=10, number=500_000)
+        timeit.repeat(lambda: func(listnames), repeat=10, number=500_000),
     )
     logging.debug(f'{name:10}: {speed}"')
     return speed

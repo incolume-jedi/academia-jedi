@@ -5,7 +5,6 @@ from pathlib import Path
 from tempfile import NamedTemporaryFile
 
 import dotenv
-
 from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.generator_pessoas import (
     massa_pessoas,
 )
@@ -24,7 +23,7 @@ logging.debug(file)
 
 
 def ex01():
-    """dados em cache dbm."""
+    """Dados em cache dbm."""
     logging.debug('..')
 
     # Open database, creating it if necessary.
@@ -53,8 +52,7 @@ def ex01():
 
 
 def ex02():
-    """
-    # Storing a non-string key or value will raise an exception (most
+    """# Storing a non-string key or value will raise an exception (most
     # likely a TypeError).
     """
     try:
@@ -74,11 +72,6 @@ def ex03():
         records['4'] = 'quatro'
 
     # with dbm.open(file.as_posix(), 'r') as db:
-    #     key = db.firstkey()
-    #     print(f'{key=}: {db.get(key)=}')
-    #     nkey = db.nextkey(key)
-    #     print(f'{nkey=}: {db.get(nkey)=}')
-    #     print(dict(db))
 
 
 def ex04():
@@ -93,7 +86,6 @@ def ex04():
         db['Short name'] = 'GfG'
         db['Date'] = '01/01/2000'
 
-        # getting and printing
         # the value through get method.
         print(db.get('name'))
         print()
@@ -107,7 +99,7 @@ def ex04():
 
         # printing the values through
         # key iterator.
-        for key in db.keys():
+        for key in db:
             print(db.get(key))
         print()
 
@@ -156,7 +148,6 @@ def ex0x():
             f[i] = person
 
     # with dbm.open() as f:
-    #     print(f)
 
 
 def run():

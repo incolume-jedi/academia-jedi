@@ -17,7 +17,7 @@ def run():
     with zipfile.ZipFile(directory / 'hello.zip', mode='r') as archive:
         logging.debug(archive.namelist())
         for line in archive.read(
-            Path(*directory.parts[1:]).joinpath('hello.txt').as_posix()
+            Path(*directory.parts[1:]).joinpath('hello.txt').as_posix(),
         ).split(b'\n'):
             print(line)
 

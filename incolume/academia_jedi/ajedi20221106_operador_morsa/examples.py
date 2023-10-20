@@ -1,7 +1,5 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
-"""
-Exemplos adaptados do site oficial.
+"""Exemplos adaptados do site oficial.
 
 https://docs.python.org/pt-br/dev/whatsnew/3.8.html
 """
@@ -32,7 +30,6 @@ def example2():
 
 def example3():
     files = Path(__file__).parents[3].joinpath('data_files').glob('*.csv')
-    # print(list(files))
     file = random.choice(list(files))
     print(file)
 
@@ -47,8 +44,7 @@ def example3():
 
 
 def example4(encode=False):
-    """allowed_named not contains kwy"""
-
+    """allowed_named not contains kwy."""
     fake = Faker('pt_Br' if encode else None)
     fake.seed_instance(13)
     names = [

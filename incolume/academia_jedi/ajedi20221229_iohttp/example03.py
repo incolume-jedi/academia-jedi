@@ -1,4 +1,4 @@
-"""aiohttp + asyncio
+"""aiohttp + asyncio.
 
 https://youtu.be/nFn4_nA_yk8
 https://youtu.be/lUwZ9rS0SeM
@@ -20,25 +20,21 @@ async def get_all(session, urls):
     for url in urls:
         task = asyncio.create_task(get_page(session, url))
         tasks.append(task)
-    results = await asyncio.gather(*tasks)
-    return results
+    return await asyncio.gather(*tasks)
 
 
 async def main(urls):
     async with aiohttp.ClientSession() as session:
-        data = await get_all(session, urls)
-        return data
+        return await get_all(session, urls)
 
 
 def parse(results):
     for html in results:
         soup = BeautifulSoup(html, 'html.parser')
-        # print(soup)
         try:
             print(soup.find('form', {'class': 'form-horizontal'}).text.strip())
         except AttributeError as e:
             logging.error(e)
-    return
 
 
 if __name__ == '__main__':
@@ -48,6 +44,5 @@ if __name__ == '__main__':
         'https://books.toscrape.com/catalogue/page-3.html',
     ]
     results = asyncio.run(main(urls))
-    # print(len(results), results)
     print(len(results))
     parse(results)

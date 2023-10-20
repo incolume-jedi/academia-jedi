@@ -6,7 +6,6 @@ from pony import orm
 from pony.orm.examples.estore import populate_database
 
 db = orm.Database()
-# db.bind(provider='sqlite', filename=':memory:')
 db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
 
 
@@ -76,7 +75,7 @@ if __name__ == '__main__':  # pragma: no cover
             'SELECT "customer"."country", COUNT(DISTINCT "customer"."id") '
             'FROM "Customer" "customer" '
             'GROUP BY "customer"."country" '
-            'ORDER BY 2 DESC LIMIT 1'
+            'ORDER BY 2 DESC LIMIT 1',
         )
         print(f'{result=}')
         result = (

@@ -4,8 +4,7 @@ import codecs
 def run():
     import this
 
-    zen_of_python = codecs.encode(this.s, 'rot13')
-    return zen_of_python
+    return codecs.encode(this.s, 'rot13')
 
 
 if __name__ == '__main__':

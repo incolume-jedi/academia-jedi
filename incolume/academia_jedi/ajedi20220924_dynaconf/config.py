@@ -11,7 +11,7 @@ settings = Dynaconf(
     env_switcher='INCOLUME_MODE',
     validators=[
         Validator(
-            'NAME', must_exist=True, ne='App'
+            'NAME', must_exist=True, ne='App',
         ),  # NAME deve existir != App
     ],
 )

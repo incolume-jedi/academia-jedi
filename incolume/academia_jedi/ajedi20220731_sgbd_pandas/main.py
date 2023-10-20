@@ -13,27 +13,23 @@ fake = Faker()
 
 def massa_test():
     """Gera a massa de dados para testar ação da engine."""
-
     result = []
     for i in range(1, 101):
-        name = '{} {}'.format(fake.first_name(), fake.last_name())
+        name = f'{fake.first_name()} {fake.last_name()}'
         result.append(
             {
                 'nome': name,
                 'email': f'{name.casefold().replace(" ", "_")}@example.org',
                 'id': f'{i:03}',
-            }
+            },
         )
     return result
 
 
 def example01():
-    """
-    Pandas + SQLite + SQLAlchemy rodando em RAM.
-    """
-
+    """Pandas + SQLite + SQLAlchemy rodando em RAM."""
     engine = create_engine(
-        'sqlite+pysqlite:///:memory:', echo=True, future=True
+        'sqlite+pysqlite:///:memory:', echo=True, future=True,
     )
 
     df = pd.DataFrame(massa_test())
@@ -43,13 +39,11 @@ def example01():
 
 
 def example02():
-    """
-    Pandas + SQLite + SQLAlchemy.
-    """
+    """Pandas + SQLite + SQLAlchemy."""
     file_db = Path(__file__).parent.joinpath('db', f'{stack()[0][3]}.sqlite')
     file_db.parent.mkdir(exist_ok=True, parents=True)
     engine = create_engine(
-        f'sqlite+pysqlite:///{file_db.as_posix()}', echo=True, future=True
+        f'sqlite+pysqlite:///{file_db.as_posix()}', echo=True, future=True,
     )
 
     df = pd.DataFrame(massa_test())
@@ -57,9 +51,7 @@ def example02():
 
 
 def example03():
-    """
-    Pandas + SQLite
-    """
+    """Pandas + SQLite."""
     file_db = Path(__file__).parent.joinpath('db', f'{stack()[0][3]}.sqlite')
     con = sqlite3.connect(file_db.as_posix())
     df = pd.DataFrame(massa_test())
@@ -81,9 +73,6 @@ def example04():
 
 def run():
     """Run code."""
-    # print(massa_test())
-    # file_db = Path(__file__).parent.joinpath('db', f'{stack()[0][3]}.sqlite')
-    # print(file_db, file_db.name, file_db.as_posix())
     example01()
     example02()
     example03()

@@ -4,7 +4,7 @@ from language_tool_python import LanguageTool
 
 
 class Exemplos:
-    def __init__(self, tool: LanguageTool = None):
+    def __init__(self, tool: LanguageTool = None) -> None:
         # criar objeto LanguageTool para português do Brasil
         self.tool = tool or LanguageTool('pt-BR')
 

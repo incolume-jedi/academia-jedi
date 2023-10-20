@@ -10,7 +10,7 @@ Faker.seed(17)
 fake = Faker('pt_Br')
 
 
-@pytest.fixture
+@pytest.fixture()
 def pessoa():
     fname = fake.first_name()
     lname = fake.last_name()

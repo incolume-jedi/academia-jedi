@@ -17,7 +17,7 @@ def fibonacci1(n: int):
         a, b = b, a + b
 
 
-@lru_cache()
+@lru_cache
 def fibonacci2(n: int):
     a, b = 1, 1
     for _ in range(n):

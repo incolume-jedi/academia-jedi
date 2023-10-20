@@ -1,5 +1,4 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 import json
 import logging
 
@@ -25,7 +24,7 @@ def json_0_write_pessoas():
 
 
 def json_1_read_pessoas():
-    """Ler arquivo JSON e trazer valores como dict"""
+    """Ler arquivo JSON e trazer valores como dict."""
     logging.debug('ran ..')
     with open('pessoas.json') as file:
         pessoas = [json.loads(pessoa) for pessoa in json.load(file)]
@@ -35,7 +34,7 @@ def json_1_read_pessoas():
 
 
 def json_2_read_pessoas():
-    """Ler arquivo JSON e trazer valores como instancia de Pessoa"""
+    """Ler arquivo JSON e trazer valores como instancia de Pessoa."""
     logging.debug('ran ..')
     with open('pessoas.json') as file:
         pessoas = [Pessoa(**json.loads(pessoa)) for pessoa in json.load(file)]

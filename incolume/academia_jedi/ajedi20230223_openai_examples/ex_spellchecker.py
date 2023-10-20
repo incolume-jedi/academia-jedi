@@ -17,7 +17,7 @@ def exemplo1():
     # Corrige a ortografia de cada palavra
     for palavra in palavras:
         # Verifica se a palavra está escrita corretamente
-        if not spell.correction(palavra) == palavra:
+        if spell.correction(palavra) != palavra:
             # Corrige a palavra
             correcao = spell.correction(palavra)
             # Substitui a palavra corrigida no texto
@@ -40,7 +40,7 @@ def exemplo2():
     # Corrige a ortografia de cada palavra
     for palavra in palavras:
         # Verifica se a palavra está escrita corretamente
-        if not spell.correction(palavra) == palavra:
+        if spell.correction(palavra) != palavra:
             # Corrige a palavra
             correcao = spell.correction(palavra)
             # Substitui a palavra corrigida no texto
@@ -51,13 +51,11 @@ def exemplo2():
 
 
 def exemplo3():
-    """
-    Neste exemplo, estamos utilizando o PySpellChecker para corrigir a
+    """Neste exemplo, estamos utilizando o PySpellChecker para corrigir a
     ortografia de um texto. O texto é primeiro tokenizado em palavras usando
     a biblioteca NLTK e, em seguida, cada palavra é
     verificada pelo PySpellChecker.
     """
-
     # Carrega o corretor ortográfico
     spell = SpellChecker()
 
@@ -75,7 +73,7 @@ def exemplo3():
             sugestoes = spell.candidates(palavra)
             # Se houver sugestões de correção, substitui a palavra pela sugestão mais provável
             if sugestoes:
-                palavras[i] = list(sugestoes)[0]
+                palavras[i] = next(iter(sugestoes))
 
     # Concatena as palavras corrigidas para formar o texto corrigido
     texto_corrigido = ' '.join(palavras)
@@ -85,13 +83,11 @@ def exemplo3():
 
 
 def exemplo4():
-    """
-    Neste exemplo, estamos utilizando o PySpellChecker para corrigir a
+    """Neste exemplo, estamos utilizando o PySpellChecker para corrigir a
     ortografia de um texto. O texto é primeiro tokenizado em palavras usando
     a biblioteca NLTK e, em seguida, cada palavra é
     verificada pelo PySpellChecker.
     """
-
     # Carrega o corretor ortográfico
     spell = SpellChecker()
 
@@ -109,7 +105,7 @@ def exemplo4():
             sugestoes = spell.candidates(palavra)
             # Se houver sugestões de correção, substitui a palavra pela sugestão mais provável
             if sugestoes:
-                palavras[i] = list(sugestoes)[0]
+                palavras[i] = next(iter(sugestoes))
 
     # Concatena as palavras corrigidas para formar o texto corrigido
     texto_corrigido = ' '.join(palavras)
@@ -119,13 +115,11 @@ def exemplo4():
 
 
 def exemplo5():
-    """
-    Neste exemplo, estamos utilizando o PySpellChecker em pt-br para corrigir a
+    """Neste exemplo, estamos utilizando o PySpellChecker em pt-br para corrigir a
     ortografia de um texto. O texto é primeiro tokenizado em palavras usando
     a biblioteca NLTK e, em seguida, cada palavra é
     verificada pelo PySpellChecker.
     """
-
     # Carrega o corretor ortográfico
     spell = SpellChecker(language='pt')
 
@@ -143,7 +137,7 @@ def exemplo5():
             sugestoes = spell.candidates(palavra)
             # Se houver sugestões de correção, substitui a palavra pela sugestão mais provável
             if sugestoes:
-                palavras[i] = list(sugestoes)[0]
+                palavras[i] = next(iter(sugestoes))
 
     # Concatena as palavras corrigidas para formar o texto corrigido
     texto_corrigido = ' '.join(palavras)
@@ -175,8 +169,7 @@ def exemplo7():
             palavra_str = str(palavra)  # converte para string
             palavra_corrigida = spell.correction(palavra_str)
             palavras_corrigidas.append(palavra_corrigida)
-        texto_corrigido = ' '.join(palavras_corrigidas)
-        return texto_corrigido
+        return ' '.join(palavras_corrigidas)
 
     texto = 'Este texto está com varios eroos de ortografia'
     texto_corrigido = corrigir_texto(texto)
@@ -184,12 +177,9 @@ def exemplo7():
 
 
 def run():
-    # functions = (
     #     exemplo1,
     #     exemplo2,
     #
-    # )
-    # print(f for f in dict(globals().items()) if f.startswith('exemplo'))
     functions = (b for a, b in globals().items() if a.startswith('exemplo'))
     for func in functions:
         logging.info(f'starting {func.__name__}')

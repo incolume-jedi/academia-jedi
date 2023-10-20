@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 def gen_id(initial: int = 1) -> int:
-    """generate id function."""
+    """Generate id function."""
     count = initial or 1
     while True:
         yield count
@@ -15,7 +15,7 @@ a = gen_id()
 
 
 def get_id():
-    """get id next."""
+    """Get id next."""
     return next(a)
 
 
@@ -31,7 +31,7 @@ class Pessoa:
     address: list[str] = field(default_factory=list)
 
     def to_dict(self):
-        """return self.dict"""
+        """Return self.dict."""
         return self.__dict__
 
 

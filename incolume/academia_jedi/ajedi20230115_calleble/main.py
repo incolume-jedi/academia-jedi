@@ -10,19 +10,18 @@ logging.basicConfig(
 
 
 class Engine:
-    """Motor"""
+    """Motor."""
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         self.args = args
         self.__dict__.update(kwargs)
 
     def __call__(self):
-        result = f'{stack()[0][3]}({self.__dict__})'
-        return result
+        return f'{stack()[0][3]}({self.__dict__})'
 
 
 class NewEngine(Engine):
-    def __init__(self, /, **kwargs):
+    def __init__(self, /, **kwargs) -> None:
         super().__init__(**kwargs)
         super().__dict__.update(kwargs)
 
@@ -30,15 +29,14 @@ class NewEngine(Engine):
 class Gear:
     """Engrenagem."""
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         self.args = args
         self.__dict__.update(kwargs)
 
 
 def truncus(*args, **kwargs):
     """Function."""
-    result = f'{stack()[0][3]}({args=}, {kwargs=})'
-    return result
+    return f'{stack()[0][3]}({args=}, {kwargs=})'
 
 
 def check_calleble(func: Callable) -> bool:

@@ -9,7 +9,6 @@ from variaveis import file
 
 def ex01():
     """Exemplo atualizado de https://www.geeksforgeeks.org/extract-text-from-pdf-file-using-python/."""
-
     logging.debug(inspect.stack()[0][3].__doc__)
 
     # creating a pdf file object

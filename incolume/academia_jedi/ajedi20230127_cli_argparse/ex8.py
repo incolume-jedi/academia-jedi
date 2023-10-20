@@ -5,17 +5,16 @@ from argparse import ArgumentParser, Namespace
 def run():
     parser = ArgumentParser()
     group = parser.add_mutually_exclusive_group()
-    # parser.usage = 'Use it like this'
 
     parser.add_argument('a', help='base value', type=int, default=1, nargs='?')
     parser.add_argument(
-        'b', help='expoent value', type=float, default=1, nargs='?'
+        'b', help='expoent value', type=float, default=1, nargs='?',
     )
     group.add_argument(
-        '-v', '--verbose', help='show details (-v| -vv| -vvv)', action='count'
+        '-v', '--verbose', help='show details (-v| -vv| -vvv)', action='count',
     )
     group.add_argument(
-        '-s', '--silence', help='silence mode', action='store_true'
+        '-s', '--silence', help='silence mode', action='store_true',
     )
 
     args: Namespace = parser.parse_args()

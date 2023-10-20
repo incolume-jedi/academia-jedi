@@ -43,8 +43,6 @@ def create_person(pessoa: Pessoa, debug: bool = False):
     cur.execute(EMAIL_DDL)
     cur.execute(TEL_DDL)
     cur.execute(ADD_DDL)
-    # db[pessoa.id] = pessoa
-    # logging.debug(f'Adicionado: {pessoa.__dict__}')
     return True
 
 

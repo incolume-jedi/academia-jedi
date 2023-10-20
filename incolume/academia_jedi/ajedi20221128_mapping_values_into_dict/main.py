@@ -1,13 +1,10 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 from with_dict_setdefault import tratativa11
 
 __author__ = '@britodfbr'  # pragma: no cover
 
 
 def run():
-    # print(MSG, labels)
-    # example1()
     tratativa11()
 
 

@@ -1,6 +1,4 @@
-"""
-tarefas sequenciais
-"""
+"""tarefas sequenciais."""
 
 
 import asyncio

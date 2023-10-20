@@ -1,4 +1,4 @@
-"""Baseado em https://www.youtube.com/watch?v=jF3_g8eDeEo"""
+"""Baseado em https://www.youtube.com/watch?v=jF3_g8eDeEo."""
 
 import logging
 import re

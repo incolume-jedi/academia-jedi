@@ -1,4 +1,3 @@
-# import scrap_imdb
 from pathlib import Path
 from tempfile import gettempdir
 
@@ -13,6 +12,6 @@ if __name__ == '__main__':  # pragma: no cover
     scraping_ranking1(excel_output=Path(gettempdir()) / 'bcd.xlsx')
     scrap_imdb = ScrapingIMDB()
     scrap_imdb.connect().get_soup().get_movies().save_excel(
-        excel_output=Path(gettempdir()) / 'xpto.xlsx'
+        excel_output=Path(gettempdir()) / 'xpto.xlsx',
     )
     ScrapingIMDB().scraping(excel_output='a1b2.xlsx')

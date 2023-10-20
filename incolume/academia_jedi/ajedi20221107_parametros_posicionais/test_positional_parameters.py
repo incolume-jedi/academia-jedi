@@ -6,24 +6,14 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 
 # @pytest.mark.parametrize(
-#     'tparam dparam expected'.split(),
-#     (
-#         ((10, 20, 30), {'d': 40, 'e': 50, 'f': 60}, None),
 #     ),
-# )
 # def test_func(tparam, dparam, expected):
-#     assert func(*tparam, **dparam) == expected
 #
 #
 # @pytest.mark.parametrize(
-#     'a b c d'.split(),
-#     (
-#         (1, 2),
 #     ),
-# )
 # class MyTestCase:
 #     def test_something(self, a, b):
-#         assert func(a, b)
 
 
 def test_func(capsys):
@@ -45,7 +35,7 @@ def test_func2():
     with pytest.raises(
         TypeError,
         match=r'takes 4 positional arguments but 5 positional '
-        'arguments \(and 1 keyword-only argument\) were given',
+        r'arguments \(and 1 keyword-only argument\) were given',
     ):
         func(10, 20, 30, 40, 50, f=60)  # b cannot be keyword argument
 

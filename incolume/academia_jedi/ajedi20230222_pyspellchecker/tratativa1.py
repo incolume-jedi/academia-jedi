@@ -20,8 +20,8 @@ def ex1():
     for palavra in palavras:
         s = spell.correction(palavra)
         logging.debug(f'{palavra}: {s=}')
-        if not s == palavra:
+        if s != palavra:
             print(
                 f'A palavra {palavra} está'
-                f' escrita incorretamente. Sugestão: {s}'
+                f' escrita incorretamente. Sugestão: {s}',
             )

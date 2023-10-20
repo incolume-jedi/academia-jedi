@@ -1,6 +1,7 @@
 import logging
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Optional
 
 import openpyxl
 import requests
@@ -29,8 +30,8 @@ class ScrapingIMDB:
         url: str = '',
         excel_output: (str | Path) = '',
         sheet_title: str = '',
-        columns_name: list = None,
-    ):
+        columns_name: Optional[list] = None,
+    ) -> None:
         self.url = url or 'https://www.imdb.com/chart/top'
         self.excel_output = Path(excel_output or 'my_IMDB_Movies_Ratings.xlsx')
         self.sheet_title = sheet_title or 'Top rate movies'
@@ -64,23 +65,22 @@ class ScrapingIMDB:
         movies = self.soup.find('tbody', class_='lister-list').find_all('tr')
 
         for movie in movies:
-            # print(movie)
             obj = Movie(
                 rank=movie.find('td', class_='titleColumn')
                 .get_text(strip=True)
                 .split('.')[0],
                 name=movie.find('td', class_='titleColumn').a.text,
                 year=movie.find('td', class_='titleColumn').span.text.strip(
-                    '()'
+                    '()',
                 ),
                 rating=movie.find(
-                    'td', class_='ratingColumn imdbRating'
+                    'td', class_='ratingColumn imdbRating',
                 ).strong.text,
                 poster=movie.find('td', class_='posterColumn').img['src'],
             )
             logging.debug(
                 '{ rank: %s, name: %s,year: %s, rating: %s, poster: %s}',
-                *obj.__dict__.values()
+                *obj.__dict__.values(),
             )
             self.movies.append(obj)
         logging.debug('Quantidade encontrada: %s', len(self.movies))
@@ -90,8 +90,8 @@ class ScrapingIMDB:
         self,
         *,
         excel_output: (str | Path) = '',
-        columns_name: list = None,
-        **kwargs
+        columns_name: Optional[list] = None,
+        **kwargs,
     ):
         if columns_name is None:
             columns_name = []
@@ -104,7 +104,6 @@ class ScrapingIMDB:
         logging.debug(excel.sheetnames)
 
         sheet.append(columns_name or self.columns_name)
-        # print([movie.__dict__.values() for movie in self.movies])
         [sheet.append(list(movie.__dict__.values())) for movie in self.movies]
         excel.save(excel_output.as_posix())
         return True

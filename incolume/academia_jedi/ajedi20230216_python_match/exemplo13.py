@@ -6,7 +6,7 @@ def subareas(*args):
             print(f'"{area}" possui apenas uma subarea: "{args}"')
         case [area, *args]:
             print(
-                f'"{area}" possui {len(args):02} subareas. São elas: "{args}"'
+                f'"{area}" possui {len(args):02} subareas. São elas: "{args}"',
             )
 
 

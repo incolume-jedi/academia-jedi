@@ -1,6 +1,5 @@
 class Point:
-    """
-    Class Point.
+    """Class Point.
 
     >>> p1 = Point(4, 6)
     >>> p2 = Point(2, 3)

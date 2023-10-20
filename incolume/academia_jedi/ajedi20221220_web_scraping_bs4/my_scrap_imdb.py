@@ -1,5 +1,6 @@
 import logging
 from pathlib import Path
+from typing import Optional
 
 import openpyxl
 import requests
@@ -13,7 +14,7 @@ logging.basicConfig(
 
 
 def scraping_ranking(
-    url: str = '', excel_output: (str, Path) = '', columns_name: list = None
+    url: str = '', excel_output: (str, Path) = '', columns_name: Optional[list] = None,
 ) -> bool:
     excel_output = Path(excel_output or 'my_IMDB_Movies_Ratings.xlsx')
     excel = openpyxl.Workbook()
@@ -29,7 +30,7 @@ def scraping_ranking(
             'Year of release',
             'IMDB Ranking',
             'Poster',
-        ]
+        ],
     )
 
     url = url or 'https://www.imdb.com/chart/top'
@@ -38,11 +39,9 @@ def scraping_ranking(
         req.raise_for_status()
 
         soup = BeautifulSoup(req.content, 'html.parser')
-        # logging.debug(soup)
         movies = soup.find('tbody', class_='lister-list').find_all('tr')
         logging.debug('%s; %s', len(movies), movies)
         for movie in movies:
-            # print(movie)
             name = movie.find('td', class_='titleColumn').a.text
             rank = (
                 movie.find('td', class_='titleColumn')
@@ -51,7 +50,7 @@ def scraping_ranking(
             )
             year = movie.find('td', class_='titleColumn').span.text.strip('()')
             rating = movie.find(
-                'td', class_='ratingColumn imdbRating'
+                'td', class_='ratingColumn imdbRating',
             ).strong.text
             poster = movie.find('td', class_='posterColumn').img['src']
             logging.debug(
@@ -63,7 +62,6 @@ def scraping_ranking(
                 poster,
             )
             sheet.append([rank, name, year, rating, poster])
-            # break
     except requests.exceptions.HTTPError as e:
         logging.error(e)
 

@@ -1,7 +1,5 @@
-"""
-
-Faz-se necessário instalar o binário no OS:
-sudo apt install tesseract-ocr
+"""Faz-se necessário instalar o binário no OS:
+sudo apt install tesseract-ocr.
 """
 import logging
 from pathlib import Path
@@ -22,10 +20,7 @@ def exemplo1() -> None:
 
 
 def exemplo2() -> None:
-    """
-
-    A base para portugues deve ser disponibilizada em /usr/share/tesseract-ocr/4.00/tessdata/por.traineddata
-    """
+    """A base para portugues deve ser disponibilizada em /usr/share/tesseract-ocr/4.00/tessdata/por.traineddata."""
     img_file = Path(__file__).parent.joinpath('images', 'img3.png')
     logging.debug(img_file)
 

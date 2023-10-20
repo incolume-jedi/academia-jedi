@@ -1,6 +1,7 @@
 """Baseado em [Web Scraping in Python using Beautiful Soup |
 Writing a Python program to Scrape IMDB website]
-(https://www.youtube.com/watch?v=LCVSmkyB4v8)"""
+(https://www.youtube.com/watch?v=LCVSmkyB4v8).
+"""
 import logging
 
 import openpyxl
@@ -19,7 +20,7 @@ sheet = excel.active
 sheet.title = 'Top rate movies'
 logging.debug(excel.sheetnames)
 sheet.append(
-    ['Movie Rank', 'Movie name', 'Year of release', 'IMDB Ranking', 'Poster']
+    ['Movie Rank', 'Movie name', 'Year of release', 'IMDB Ranking', 'Poster'],
 )
 
 url = 'https://www.imdb.com/chart/top'
@@ -28,11 +29,9 @@ try:
     req.raise_for_status()
 
     soup = BeautifulSoup(req.content, 'html.parser')
-    # logging.debug(soup)
     movies = soup.find('tbody', class_='lister-list').find_all('tr')
     logging.debug('%s; %s', len(movies), movies)
     for movie in movies:
-        # print(movie)
         name = movie.find('td', class_='titleColumn').a.text
         rank = (
             movie.find('td', class_='titleColumn')
@@ -51,7 +50,6 @@ try:
             poster,
         )
         sheet.append([rank, name, year, rating, poster])
-        # break
 except requests.exceptions.HTTPError as e:
     logging.error(e)
 

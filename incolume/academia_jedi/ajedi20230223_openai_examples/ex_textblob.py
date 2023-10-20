@@ -86,7 +86,7 @@ def _exemplo4():
     # Corrigindo o texto com o modelo treinado
     def corrigir_texto(texto):
         blob = TextBlob(
-            texto, pos_tagger=clf.predict_proba, analyzer=NaiveBayesAnalyzer()
+            texto, pos_tagger=clf.predict_proba, analyzer=NaiveBayesAnalyzer(),
         )
         corrigido = blob.correct()
         return str(corrigido)
@@ -170,7 +170,7 @@ def exemplo6():
     text = 'Eu tenho um livvro muito interesssante para ler.'
     corrected_text = correct_text(text)
     print(
-        corrected_text
+        corrected_text,
     )  # saída: "Eu tenho um livro muito interessante para ler."
 
 

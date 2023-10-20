@@ -1,9 +1,8 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 import datetime as dt
 import logging
 from pprint import pprint
-from typing import List, Protocol
+from typing import Protocol
 
 from deprecated import deprecated
 from faker import Faker
@@ -37,8 +36,8 @@ class IPessoa(Protocol):
     "jedi.ajedi20230211_massa_dados_fake_protocol.generator_pessoas'",
 )
 def massa_pessoas(
-    objeto: IPessoa = None, quantidade: int = 0, is_json: bool = False
-) -> List[IPessoa]:
+    objeto: IPessoa = None, quantidade: int = 0, is_json: bool = False,
+) -> list[IPessoa]:
 
     logging.debug(f'params: {objeto=}, {quantidade=}, {is_json=}')
     objeto = objeto or Pessoa

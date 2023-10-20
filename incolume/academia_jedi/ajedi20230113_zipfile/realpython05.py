@@ -8,8 +8,9 @@ hello.write_text('hello again.')
 
 
 def run():
-    """raise FileNotFoundError:
-    [Errno 2] No such file or directory: 'missing/hello.zip'"""
+    """Raise FileNotFoundError:
+    [Errno 2] No such file or directory: 'missing/hello.zip'.
+    """
     with zipfile.ZipFile('missing/hello.zip', mode='w') as archive:
         archive.write('hello.txt')
 
