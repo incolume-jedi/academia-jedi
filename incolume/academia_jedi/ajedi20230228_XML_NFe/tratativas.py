@@ -1,11 +1,12 @@
-import pandas as pd
+import logging
 import re
 import typing
-import logging
-import xmltodict
-from pathlib import Path
 from collections import OrderedDict
-from dataclasses import dataclass, field, asdict, astuple
+from dataclasses import asdict, astuple, dataclass, field
+from pathlib import Path
+
+import pandas as pd
+import xmltodict
 
 FILES_XML: typing.Final = list(
     Path(__file__).parent.joinpath('NFs_Finais').rglob('*.xml')

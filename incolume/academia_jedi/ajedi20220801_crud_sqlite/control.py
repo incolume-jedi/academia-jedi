@@ -1,5 +1,5 @@
-from model import Pessoa
 from faker import Faker
+from model import Pessoa
 
 faker = Faker('pt_BR')
 

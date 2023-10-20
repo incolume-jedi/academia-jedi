@@ -1,7 +1,7 @@
 """Main Module."""
 import logging
-from ex1 import tratativa1
 
+from ex1 import tratativa1
 
 logging.basicConfig(
     level=logging.DEBUG,

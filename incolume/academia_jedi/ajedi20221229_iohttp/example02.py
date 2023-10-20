@@ -1,8 +1,9 @@
 """https://youtu.be/lUwZ9rS0SeM."""
 
 
-import aiohttp
 import asyncio
+
+import aiohttp
 
 
 async def main():

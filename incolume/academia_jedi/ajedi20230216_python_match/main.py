@@ -1,5 +1,6 @@
 """Main Module."""
 import logging
+
 import exemplo1
 import exemplo2
 import exemplo3
@@ -13,7 +14,6 @@ import exemplo10
 import exemplo11
 import exemplo12
 import exemplo13
-
 
 logging.basicConfig(
     level=logging.DEBUG,

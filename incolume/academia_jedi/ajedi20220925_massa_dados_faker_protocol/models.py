@@ -1,11 +1,11 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 import datetime as dt
+import json
 from collections import namedtuple
 from copy import copy
 from dataclasses import dataclass, field
 from itertools import count
-import json
 
 __author__ = '@britodfbr'  # pragma: no cover
 counter = count()

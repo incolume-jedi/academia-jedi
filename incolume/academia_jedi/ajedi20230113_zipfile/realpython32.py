@@ -1,7 +1,6 @@
-import zipfile
 import logging
-from pathlib import Path
 import sys
+from pathlib import Path
 
 logging.basicConfig(
     level=logging.DEBUG,

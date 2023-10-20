@@ -1,7 +1,7 @@
 import logging
+
 from tratativa1 import inverse
 from tratativa2 import HandlerReverse
-
 
 __author__ = '@britodfbr'  # pragma: no cover
 

@@ -5,7 +5,6 @@ import sys
 
 import ex1
 
-
 if sys.version_info < (3, 8):
     raise Exception(
         f'Incompatible python version. Current {platform.python_version()}.'

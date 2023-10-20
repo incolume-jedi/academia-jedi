@@ -1,10 +1,10 @@
 import json
 import logging
-from config import config, fileoutput, dados_json, dados_dict
+
+from config import config, dados_dict, dados_json, fileoutput
 from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.models import (
     Pessoa,
 )
-
 
 __author__ = '@britodfbr'  # pragma: no cover
 logging.debug(config)

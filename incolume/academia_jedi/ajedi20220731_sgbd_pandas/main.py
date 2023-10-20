@@ -1,11 +1,11 @@
-from typing import Any
-from sqlalchemy import create_engine
-from faker import Faker
-import pandas as pd
 import sqlite3
 from inspect import stack
 from pathlib import Path
+from typing import Any
 
+import pandas as pd
+from faker import Faker
+from sqlalchemy import create_engine
 
 Faker(seed=13)
 fake = Faker()

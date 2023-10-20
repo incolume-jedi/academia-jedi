@@ -1,6 +1,7 @@
 """Pydantic python 3.9+."""
 from datetime import datetime
 from typing import Optional
+
 from pydantic import BaseModel
 
 

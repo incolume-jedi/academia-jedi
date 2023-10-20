@@ -1,5 +1,6 @@
-from spellchecker import SpellChecker
 import logging
+
+from spellchecker import SpellChecker
 
 
 def ex1():

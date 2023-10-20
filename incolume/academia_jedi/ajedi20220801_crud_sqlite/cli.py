@@ -1,9 +1,7 @@
+
 import click
 from basedados import create_person, select_all_person, select_person
 from model import Pessoa
-import click
-import datetime
-
 
 # CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 

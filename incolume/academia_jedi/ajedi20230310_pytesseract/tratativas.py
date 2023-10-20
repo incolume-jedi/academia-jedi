@@ -1,10 +1,9 @@
-from pdf2image import convert_from_path
-from pytesseract import image_to_string
-from PIL import Image
-from pathlib import Path
 import logging
 import typing
+from pathlib import Path
 
+from pdf2image import convert_from_path
+from pytesseract import image_to_string
 
 PDFDIR: typing.Final = Path(__file__).parents[3] / 'data_files' / 'pdf'
 PDFFILES: Path = list(PDFDIR.glob('*.pdf'))

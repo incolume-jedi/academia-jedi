@@ -1,7 +1,7 @@
 import logging
-import re
-from spellchecker import SpellChecker
+
 from nltk.tokenize import word_tokenize
+from spellchecker import SpellChecker
 
 
 def exemplo1():

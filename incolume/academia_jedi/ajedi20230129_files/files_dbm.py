@@ -1,15 +1,14 @@
 import dbm
-import dotenv
 import logging
-from pathlib import Path
 import os
+from pathlib import Path
+from tempfile import NamedTemporaryFile
+
+import dotenv
+
 from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.generator_pessoas import (
     massa_pessoas,
-    Pessoa,
 )
-from tempfile import NamedTemporaryFile
-import inspect
-
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -138,7 +137,7 @@ def ex04():
 def ex05():
     """"""
     logging.debug('..')
-    with dbm.dumb.open() as db:
+    with dbm.dumb.open():
         ...
 
 

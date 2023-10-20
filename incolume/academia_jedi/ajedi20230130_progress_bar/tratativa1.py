@@ -1,10 +1,11 @@
-from tqdm import tqdm
-from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.generator_pessoas import (
-    massa_pessoas,
-)
 import logging
 from time import sleep
 
+from tqdm import tqdm
+
+from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.generator_pessoas import (
+    massa_pessoas,
+)
 
 __author__ = '@britodfbr'  # pragma: no cover
 

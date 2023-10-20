@@ -1,12 +1,10 @@
-import pandas as pd
-
-from fake_data import get_dataset, set_dtypes
-from pathlib import Path
 import logging
-from time import perf_counter
-from timeit import timeit
+from pathlib import Path
 from tempfile import gettempdir
+from time import perf_counter
 
+import pandas as pd
+from fake_data import get_dataset, set_dtypes
 
 __author__ = '@britodfbr'  # pragma: no cover
 logging.basicConfig(

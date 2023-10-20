@@ -1,22 +1,22 @@
+import pytest
+from faker import Faker
+
 from incolume.academia_jedi.ajedi20220728_crud_nodb.basedados import (
-    db,
     create_person,
-    update_person,
+    db,
     delete_person,
-    select_person,
     select_all_person,
+    select_person,
+    update_person,
 )
 from incolume.academia_jedi.ajedi20220728_crud_nodb.model import (
     Pessoa,
     gen_id,
-    get_id
+    get_id,
 )
-from faker import Faker
-import pytest
-
 
 Faker.seed(17)
-fake = Faker("pt_Br")
+fake = Faker('pt_Br')
 
 
 @pytest.mark.parametrize(
@@ -54,9 +54,9 @@ def pessoa():
     fname = fake.first_name()
     lname = fake.last_name()
     return Pessoa(
-        f"{fname} {lname}",
+        f'{fname} {lname}',
         fake.date_time_this_century(),
-        [f"{fname.casefold()}_{lname.casefold()}@example.org"],
+        [f'{fname.casefold()}_{lname.casefold()}@example.org'],
     )
 
 
@@ -70,7 +70,7 @@ def test_create(pessoa):
 def test_update(pessoa):
     """test update pessoa."""
     create_person(pessoa)
-    telefone = ["555-5555"]
+    telefone = ['555-5555']
     pessoa.telefone = telefone
     update_person(pessoa.id, pessoa)
     assert db.get(pessoa.id).telefone == telefone

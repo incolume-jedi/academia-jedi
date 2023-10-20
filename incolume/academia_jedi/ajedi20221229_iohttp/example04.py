@@ -1,14 +1,13 @@
-from typing import Container, Iterable
-
-import aiohttp
 import asyncio
-from bs4 import BeautifulSoup
-import logging
-import requests
 import inspect
+import logging
 from random import randint
 from time import sleep
+from typing import Iterable
 
+import aiohttp
+import requests
+from bs4 import BeautifulSoup
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -44,7 +43,7 @@ def parse(results: Iterable):
 
     leis = []
     for html in results:
-        soup = BeautifulSoup(html, 'html.parser')
+        BeautifulSoup(html, 'html.parser')
     return leis
 
 

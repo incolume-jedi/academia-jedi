@@ -1,5 +1,3 @@
-from itertools import chain
-
 
 __author__ = '@britodfbr'  # pragma: no cover
 

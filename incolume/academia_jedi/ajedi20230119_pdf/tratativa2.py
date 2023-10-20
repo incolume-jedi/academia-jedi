@@ -1,7 +1,8 @@
-import PyPDF2
-import logging
 import inspect
+import logging
+
 import pdfplumber
+import PyPDF2
 from variaveis import file
 
 
@@ -27,13 +28,12 @@ def ex03():
 
     logging.debug(inspect.stack()[0][3].__doc__)
 
-    from pdfminer3.layout import LAParams, LTTextBox
-    from pdfminer3.pdfpage import PDFPage
-    from pdfminer3.pdfinterp import PDFResourceManager
-    from pdfminer3.pdfinterp import PDFPageInterpreter
-    from pdfminer3.converter import PDFPageAggregator
-    from pdfminer3.converter import TextConverter
     import io
+
+    from pdfminer3.converter import TextConverter
+    from pdfminer3.layout import LAParams
+    from pdfminer3.pdfinterp import PDFPageInterpreter, PDFResourceManager
+    from pdfminer3.pdfpage import PDFPage
 
     resource_manager = PDFResourceManager()
     fake_file_handle = io.StringIO()

@@ -3,12 +3,12 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 import datetime as dt
+import json
 import logging
+import re
 from copy import copy
 from dataclasses import dataclass, field
 from itertools import count
-import json
-import re
 
 __author__ = '@britodfbr'  # pragma: no cover
 

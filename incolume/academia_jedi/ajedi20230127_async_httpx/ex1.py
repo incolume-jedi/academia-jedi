@@ -1,6 +1,7 @@
-from time import perf_counter
-import requests
 import logging
+from time import perf_counter
+
+import requests
 
 __author__ = '@britodfbr'  # pragma: no cover
 

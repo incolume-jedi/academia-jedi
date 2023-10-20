@@ -1,7 +1,8 @@
-from time import perf_counter
-import httpx
 import asyncio
 import logging
+from time import perf_counter
+
+import httpx
 
 __author__ = '@britodfbr'  # pragma: no cover
 

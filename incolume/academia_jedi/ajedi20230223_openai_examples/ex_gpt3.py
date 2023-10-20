@@ -1,6 +1,6 @@
-import openai_secret_manager
+
 import openai
-import json
+import openai_secret_manager
 
 # Configura a chave secreta da API
 openai.api_key = openai_secret_manager.get_secret('openai')['api_key']

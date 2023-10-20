@@ -1,6 +1,5 @@
-import pandas as pd
 import numpy as np
-
+import pandas as pd
 
 __author__ = '@britodfbr'  # pragma: no cover
 

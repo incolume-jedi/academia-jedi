@@ -1,10 +1,10 @@
 """Main Module."""
 import logging
 from platform import python_version
+
+import ex_ml_sklearn_nltk_spellchecker
 import ex_spellchecker
 import ex_textblob
-import ex_ml_sklearn_nltk_spellchecker
-
 
 logging.basicConfig(
     level=logging.DEBUG,

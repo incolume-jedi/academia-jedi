@@ -1,9 +1,10 @@
 import logging
-from pathlib import Path
-from bs4 import BeautifulSoup
-import requests
-import openpyxl
 from dataclasses import dataclass
+from pathlib import Path
+
+import openpyxl
+import requests
+from bs4 import BeautifulSoup
 
 logging.basicConfig(
     level=logging.DEBUG,

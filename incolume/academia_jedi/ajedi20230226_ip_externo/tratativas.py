@@ -1,11 +1,11 @@
 import logging
+import re
 import typing
 import urllib.request
-import urllib3.connection
 
 import httpx
-import re
 import requests
+import urllib3.connection
 
 __author__ = '@britodfbr'  # pragma: no cover
 URL: typing.Final[str] = 'http://checkip.dyndns.com'

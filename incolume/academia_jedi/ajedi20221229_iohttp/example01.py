@@ -1,8 +1,9 @@
 """https://docs.aiohttp.org/en/stable/."""
 
 
-import aiohttp
 import asyncio
+
+import aiohttp
 
 
 async def main():

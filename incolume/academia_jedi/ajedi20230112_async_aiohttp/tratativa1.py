@@ -1,5 +1,5 @@
+
 import aiohttp
-import asyncio
 
 url = {
     'CF': 'https://www.camara.leg.br/legislacao/busca?'

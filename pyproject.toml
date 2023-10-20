@@ -259,7 +259,9 @@ clean-all = {cmd = "echo -n 'Starting Deep cleanning ..'; find ./ \\( -name '*_c
 pre_lint="task lint_blue && task lint_isort && task lint_flake8 && task lint_pydocstyle"
 #pre_lint="task lint_blue && task lint_isort && task lint_flake8 && task lint_pydocstyle && task lint_mypy"
 #pre_lint="task lint_blue && task lint_isort && task lint_flake8 && task lint_pydocstyle && task lint_pylint && task lint_mypy"
-lint={help='Checking all linters configurated', cmd=''}
+lint={help='Checking all linters approved', cmd=''}
+pre_lint_all='task lint && task lint_ruff'
+lint_all={help='Checking all linters configurated', cmd=''}
 lint_black={help='Checking with black', cmd='echo --black--; poetry run black --check --diff {path}', use_vars=true}
 lint_blue={help='Checking with blue', cmd='echo --blue--; poetry run blue --check --diff {path}', use_vars=true}
 lint_flake8={help='Checking with flake8', cmd='echo --flake8--; poetry run flake8 --config pyproject.toml {path}', use_vars=true}

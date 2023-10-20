@@ -3,6 +3,7 @@
 __author__ = '@britodfbr'  # pragma: no cover
 import csv
 import logging
+
 from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.generator_pessoas import (
     massa_pessoas,
 )

@@ -1,5 +1,6 @@
-from language_tool_python import LanguageTool
 import logging
+
+from language_tool_python import LanguageTool
 
 
 class Exemplos:

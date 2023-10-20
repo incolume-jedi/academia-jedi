@@ -1,9 +1,9 @@
+import logging
+from pathlib import Path
+
 import requests
 from selectolax.parser import HTMLParser
-from pathlib import Path
 from tomli import load
-import logging
-
 
 config = Path(__file__).parent / 'conf.toml'
 assert config.exists(), f'Error: {config}'

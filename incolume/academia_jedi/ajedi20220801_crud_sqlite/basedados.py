@@ -1,8 +1,8 @@
 import logging
-from model import Pessoa
-from pathlib import Path
-import logging
 import sqlite3
+from pathlib import Path
+
+from model import Pessoa
 
 logging.basicConfig(level=logging.WARNING)
 file_sqlite = Path('pessoas.sqlite')

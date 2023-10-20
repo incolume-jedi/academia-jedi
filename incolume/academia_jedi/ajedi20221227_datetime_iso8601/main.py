@@ -1,3 +1,7 @@
+import logging
+from datetime import datetime
+
+import pytz
 from handler_datetime import (
     iso8601_format_01,
     iso8601_format_02,
@@ -7,9 +11,6 @@ from handler_datetime import (
     iso8601_format_06,
     iso8601_format_07,
 )
-from datetime import datetime
-import pytz
-import logging
 
 logging.basicConfig(
     level=logging.DEBUG,

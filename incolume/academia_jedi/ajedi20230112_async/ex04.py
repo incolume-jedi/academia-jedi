@@ -3,7 +3,6 @@
 import asyncio
 from time import perf_counter
 
-
 servers = (f'192.168.1.{x}' for x in range(1, 101))
 
 

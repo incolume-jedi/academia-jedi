@@ -1,39 +1,7 @@
 import logging
-from pathlib import Path
 import shutil
-import realpython01
-import realpython02
-import realpython03
-import realpython04
-import realpython05
-import realpython06
-import realpython07
-import realpython08
-import realpython09
-import realpython10
-import realpython11
-import realpython12
-import realpython13
-import realpython14
-import realpython15
-import realpython16
-import realpython17
-import realpython18
-import realpython19
-import realpython20
-import realpython21
-import realpython22
-import realpython23
-import realpython24
-import realpython25
-import realpython26
-import realpython27
-import realpython28
-import realpython29
-import realpython30
-import realpython31
-import realpython32
-import realpython33
+from pathlib import Path
+
 
 logging.basicConfig(
     level=logging.DEBUG,

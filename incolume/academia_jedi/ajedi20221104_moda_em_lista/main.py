@@ -1,6 +1,4 @@
 import random
-from functools import lru_cache
-from itertools import zip_longest
 from collections import Counter
 
 __author__ = '@britodfbr'  # pragma: no cover

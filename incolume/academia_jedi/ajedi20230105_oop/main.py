@@ -1,6 +1,7 @@
+import random
+
 import frutas
 import interface
-import random
 
 
 def run():

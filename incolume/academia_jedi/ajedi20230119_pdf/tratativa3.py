@@ -4,12 +4,12 @@ https://www.geeksforgeeks.org/convert-pdf-to-image-using-python/
 sudo apt install poppler-utils
 """
 
-from pathlib import Path
-from pdf2image import convert_from_path
-from typing import Final
-from variaveis import pdffiles, root
 import logging
+from pathlib import Path
+from typing import Final
 
+from pdf2image import convert_from_path
+from variaveis import pdffiles
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -35,7 +35,7 @@ def tratativa1(pdffile: (Path | str) = ''):
 
 
 def tratativa2():
-    from pdf2image import convert_from_path, convert_from_bytes
+    from pdf2image import convert_from_path
 
     print(PDFFILE)
     pages = convert_from_path(PDFFILE)
@@ -47,7 +47,7 @@ def tratativa2():
 
 
 def tratativa3():
-    from pdf2image import convert_from_path, convert_from_bytes
+    from pdf2image import convert_from_path
 
     print(PDFFILE)
     pages = convert_from_path(PDFFILE)

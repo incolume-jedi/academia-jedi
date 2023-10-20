@@ -1,8 +1,8 @@
-from faker import Faker
-from random import randint
 import datetime as dt
 from dataclasses import dataclass
 from sys import getsizeof
+
+from faker import Faker
 
 
 @dataclass

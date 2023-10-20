@@ -1,5 +1,6 @@
-from tratativa1 import elements_this
 import logging
+
+from tratativa1 import elements_this
 
 
 def tratativa1():

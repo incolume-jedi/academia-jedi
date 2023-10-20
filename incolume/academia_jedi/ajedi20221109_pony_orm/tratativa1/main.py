@@ -2,9 +2,9 @@ __author__ = '@britodfbr'  # pragma: no cover
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from pony import orm
-from model import get_model_municipios
 
+from model import get_model_municipios
+from pony import orm
 
 db = orm.Database()
 

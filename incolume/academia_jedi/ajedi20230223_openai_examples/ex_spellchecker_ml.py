@@ -1,5 +1,6 @@
-from spellchecker import SpellChecker
 from collections import Counter
+
+from spellchecker import SpellChecker
 
 # Carrega o corretor ortográfico
 spell = SpellChecker()

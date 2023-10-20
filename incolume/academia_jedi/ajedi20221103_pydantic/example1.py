@@ -1,5 +1,6 @@
 """Pydantic python 3.10+."""
 from datetime import datetime
+
 from pydantic import BaseModel
 
 

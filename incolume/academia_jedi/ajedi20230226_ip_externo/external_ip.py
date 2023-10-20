@@ -1,8 +1,8 @@
 """Baseado em https://www.youtube.com/watch?v=jF3_g8eDeEo"""
 
+import logging
 import re
 from urllib.request import urlopen
-import logging
 
 __author__ = '@britodfbr'  # pragma: no cover
 logging.basicConfig(

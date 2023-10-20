@@ -2,11 +2,12 @@
 
 https://docs.python.org/3/library/collections.html#collections.deque
 """
+import itertools
+
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 from collections import deque
 from pathlib import Path
-import itertools
 
 __author__ = '@britodfbr'  # pragma: no cover
 

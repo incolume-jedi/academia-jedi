@@ -1,14 +1,13 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
+import datetime as dt
 import logging
 import re
 import subprocess
 from copy import copy
-from dataclasses import dataclass
 from typing import Any
 
 from constantes import MSG, labels
-import datetime as dt
 
 __author__ = '@britodfbr'  # pragma: no cover
 logging.basicConfig(
@@ -19,7 +18,6 @@ logging.basicConfig(
 
 
 def tratativa01():
-    d = {}
     # d.setdefault(letter, []).append(index)
     for i, text in enumerate(MSG.strip().split('\n')):
         print(i)
@@ -44,7 +42,6 @@ def tratativa02():
 
 def tratativa03():
     """Fail loop infinito."""
-    d = {}
     for i, text in enumerate(MSG.strip().split('\n')):
         logging.debug(i, text)
         key, value = text.split(maxsplit=1)
@@ -68,7 +65,6 @@ def tratativa04():
     key, txt = msgs[-1].split(maxsplit=1)
     print(f'{key=} {txt=}')
     # print(txt[1:])
-    d = {}
     while txt:
         try:
             word, txt = txt.split(maxsplit=1)

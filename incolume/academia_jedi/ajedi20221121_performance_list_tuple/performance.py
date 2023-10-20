@@ -1,6 +1,5 @@
 from sys import getsizeof
 
-
 tupla = (1, 2, 3, 4, 5, 6, 7, 8, 9)
 lista = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ranger = range(1, 11)

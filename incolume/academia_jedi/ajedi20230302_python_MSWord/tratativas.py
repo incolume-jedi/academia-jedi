@@ -2,17 +2,17 @@
 
 https://python-docx.readthedocs.io/en/latest/.
 """
+import datetime as dt
+import inspect
 import logging
 import typing
-import re
+from pathlib import Path
+
+import pytz
 from docx import Document
-from docx.shared import Pt, RGBColor, Cm
 from docx.enum.style import WD_STYLE_TYPE
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from pathlib import Path
-import datetime as dt
-import pytz
-import inspect
+from docx.shared import Cm, Pt, RGBColor
 
 texto = """Lorem Ipsum
 "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
@@ -43,7 +43,7 @@ def tratativa1():
         .localize(dt.datetime.now())
         .isoformat()
     )
-    paragraf = documento.add_paragraph(texto)
+    documento.add_paragraph(texto)
     # documento.save(Path(__file__).parent/'test.docx')
     documento.save(Path(__file__).parent / f'{inspect.stack()[0][3]}.docx')
 
@@ -200,7 +200,7 @@ def tratativa11():
     documento = Document()
     content = texto.split('\n')
     logging.debug(content)
-    paragraf = documento.add_paragraph(content.pop(0), 'Heading 1')
+    documento.add_paragraph(content.pop(0), 'Heading 1')
     documento.add_paragraph(content.pop(0))
     documento.add_paragraph(content.pop(0))
 
@@ -216,7 +216,7 @@ def tratativa12():
     """Imagem."""
     documento = Document()
     content = texto.split('\n')
-    paragraf = documento.add_paragraph(content.pop(0), 'Heading 1')
+    documento.add_paragraph(content.pop(0), 'Heading 1')
     documento.add_paragraph(content.pop(0))
     documento.add_paragraph(content.pop(0))
 
@@ -234,7 +234,7 @@ def tratativa13():
     """Imagem."""
     documento = Document()
     content = texto.split('\n')
-    paragraf = documento.add_paragraph(content.pop(0), 'Heading 1')
+    documento.add_paragraph(content.pop(0), 'Heading 1')
     documento.add_paragraph(content.pop(0))
     documento.add_paragraph(content.pop(0))
 
@@ -369,7 +369,7 @@ def tratativa17():
     item2 = 'Apostila Completa de Excel'
     item3 = 'Serviço de Treinamentos de Python'
 
-    dicionario_valores = {
+    {
         'XXXX': nome,
         'YYYY': item1,
         'ZZZZ': item2,

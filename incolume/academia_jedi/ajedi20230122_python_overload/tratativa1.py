@@ -1,7 +1,7 @@
 """Exemplo singledispatch."""
 
-from functools import singledispatch
 import logging
+from functools import singledispatch
 
 __author__ = '@britodfbr'  # pragma: no cover
 

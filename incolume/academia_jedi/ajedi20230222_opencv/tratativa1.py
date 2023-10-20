@@ -3,10 +3,11 @@
 Faz-se necessário instalar o binário no OS:
 sudo apt install tesseract-ocr
 """
+import logging
+from pathlib import Path
+
 import cv2
 import pytesseract
-from pathlib import Path
-import logging
 
 
 def exemplo1() -> None:

@@ -1,6 +1,5 @@
 from itertools import islice
 
-
 lines = [
     'line1',
     'line2',

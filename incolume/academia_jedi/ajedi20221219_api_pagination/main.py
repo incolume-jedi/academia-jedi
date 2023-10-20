@@ -1,8 +1,9 @@
 """[Is This a Good Way to deal with API Pagination?]
 (https://www.youtube.com/watch?v=X4WctWZ2ANw)"""
-import requests
-from typing import Iterator
 import logging
+from typing import Iterator
+
+import requests
 
 __author__ = '@britodfbr'  # pragma: no cover
 logging.basicConfig(
