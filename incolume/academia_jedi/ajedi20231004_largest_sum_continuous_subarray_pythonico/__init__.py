@@ -73,6 +73,17 @@ def max_sub_array_sum1(arr: list) -> int:
     return max(cross_max, left_max, right_max)
 
 
+def max_subarray_sum(array: list) -> int:
+    """Max subarray sum."""
+    result, soma = 0, 0
+    for num in array:
+        soma += num
+        soma = max(0, soma)
+        result = max(result, soma)
+
+    return result
+
+
 if __name__ == '__main__':  # pragma: no cover
     # Driver program to test max_sub_array_sum
     a = [-2, -3, 4, -1, -2, 1, 5, -3]
