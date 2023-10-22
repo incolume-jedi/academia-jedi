@@ -10,7 +10,7 @@ logging.basicConfig(
 )
 
 
-def run():
+def run() -> None:
     """Run main module."""
     logging.debug('starting ..')
     tratativas.run()
