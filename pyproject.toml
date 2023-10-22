@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "academia-jedi"
-version = "0.101.0a14"
+version = "0.101.0a15"
 description = ""
 authors = ["Britodfbr <britodfbr@gmail.com>"]
 packages = [
@@ -174,7 +174,7 @@ exclude = '''
 # Maximum number of characters on a single line.
 max-line-length = 79
 
-            [tool.pylint.basic]
+             [tool.pylint.basic]
 # Allow shorter and longer variable names than the default.
 argument-rgx = "[a-z_][a-z0-9_]*$"
 attr-rgx = "[a-z_][a-z0-9_]*$"
@@ -184,7 +184,7 @@ variable-rgx = "[a-z_][a-z0-9_]*$"
 extension-pkg-whitelist = "orjson"
 
 
-            [tool.pylint.messages_control]
+             [tool.pylint.messages_control]
 disable = [
     # Disable too many and too few checks.
     "too-many-ancestors",
