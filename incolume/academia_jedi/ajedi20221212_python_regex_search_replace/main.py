@@ -12,5 +12,5 @@ def convert_case(match_obj):
 
 
 if __name__ == '__main__':
-    str = 'jOE kIM mAx ABY lIzA'
-    print(re.sub(r'([A-Z]+) | ([a-z]+)', convert_case, str))
+    s = 'jOE kIM mAx ABY lIzA'
+    print(re.sub(r'([A-Z]+) | ([a-z]+)', convert_case, s))

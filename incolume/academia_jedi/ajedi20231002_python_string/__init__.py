@@ -1,4 +1,7 @@
-def python_string0(string):
+"""Reverse string."""
+
+
+def python_string0(string: str) -> str:
     """Retorna uma string ao contrário."""
     result = ''
     for letra in string:
@@ -6,7 +9,7 @@ def python_string0(string):
     return result
 
 
-def python_string(string):
+def python_string(string: str) -> str:
     """Retorna uma string ao contrário.
 
     Implementação pythonica

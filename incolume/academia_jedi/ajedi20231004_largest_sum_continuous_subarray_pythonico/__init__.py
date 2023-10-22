@@ -1,12 +1,15 @@
+"""Solving question."""
 # !/usr/bin/env python
 __author__ = '@britodfbr'  # pragma: no cover
 
+import logging
 import sys
 from sys import maxsize
 
 
-def maxSubArraySum(a, size):
-    """Function to find the maximum contiguous subarray
+def max_sub_array_sum(array: list, size: int) -> str:
+    """Function to find the maximum contiguous subarray.
+
     and print its starting and end index.
     """
     max_so_far = -maxsize - 1
@@ -16,7 +19,7 @@ def maxSubArraySum(a, size):
     s = 0
 
     for i in range(size):
-        max_ending_here += a[i]
+        max_ending_here += array[i]
         if max_so_far < max_ending_here:
             max_so_far = max_ending_here
             start = s
@@ -25,12 +28,15 @@ def maxSubArraySum(a, size):
             max_ending_here = 0
             s = i + 1
 
-    print('Maximum contiguous sum is %d' % (max_so_far))
-    print('Starting Index %d' % (start))
-    print('Ending Index %d' % (end))
+    return (
+        f'Maximum contiguous sum is {max_so_far},\n'
+        f'Starting Index {start},\n'
+        f'Ending Index {end}'
+    )
 
 
-def maxSubArraySum1(arr):
+def max_sub_array_sum1(arr: list) -> int:
+    """Max subarray sum."""
     # Base case: when there is only one element in the array
     if len(arr) == 1:
         return arr[0]
@@ -39,27 +45,27 @@ def maxSubArraySum1(arr):
     m = len(arr) // 2
 
     # Find the maximum subarray sum in the left half
-    left_max = maxSubArraySum1(arr[:m])
+    left_max = max_sub_array_sum1(arr[:m])
 
     # Find the maximum subarray sum in the right half
-    right_max = maxSubArraySum1(arr[m:])
+    right_max = max_sub_array_sum1(arr[m:])
 
     # Find the maximum subarray sum that crosses the middle element
     left_sum = -sys.maxsize - 1
     right_sum = -sys.maxsize - 1
-    sum = 0
+    sum_value = 0
 
     # Traverse the array from the middle to the right
     for i in range(m, len(arr)):
-        sum += arr[i]
-        right_sum = max(right_sum, sum)
+        sum_value += arr[i]
+        right_sum = max(right_sum, sum_value)
 
-    sum = 0
+    sum_value = 0
 
     # Traverse the array from the middle to the left
     for i in range(m - 1, -1, -1):
-        sum += arr[i]
-        left_sum = max(left_sum, sum)
+        sum_value += arr[i]
+        left_sum = max(left_sum, sum_value)
 
     cross_max = left_sum + right_sum
 
@@ -68,11 +74,11 @@ def maxSubArraySum1(arr):
 
 
 if __name__ == '__main__':  # pragma: no cover
-    # Driver program to test maxSubArraySum
+    # Driver program to test max_sub_array_sum
     a = [-2, -3, 4, -1, -2, 1, 5, -3]
-    maxSubArraySum(a, len(a))
+    max_sub_array_sum(a, len(a))
 
     # Example usage
     arr = [-2, -3, 4, -1, -2, 1, 5, -3]
-    max_sum = maxSubArraySum1(arr)
-    print('Maximum contiguous sum is', max_sum)
+    max_sum = max_sub_array_sum1(arr)
+    logging.info('Maximum contiguous sum is %s', max_sum)

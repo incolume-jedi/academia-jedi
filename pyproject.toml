@@ -81,7 +81,7 @@ log_date_format ='%FT%T%N%z'
 addopts = "--doctest-modules --cov=incolume -sx --cov-report term-missing --cov-report html:coverage_report/html --cov-report xml:coverage_report/cov.xml"
 testpaths = [
   "tests",
-  "incolume/py/coding_dojo_jedi",
+  "incolume/academia_jedi",
 ]
 python_files = [
   "test_*.py",

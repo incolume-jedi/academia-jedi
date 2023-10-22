@@ -1,3 +1,4 @@
+"""Solving question."""
 import click
 from basedados import create_person, select_all_person, select_person
 from model import Pessoa

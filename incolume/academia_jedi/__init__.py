@@ -1,3 +1,4 @@
+"""Module academia_jedi."""
 try:
     from tomli import load
 except (ModuleNotFoundError, ImportError):
