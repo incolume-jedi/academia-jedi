@@ -25,8 +25,8 @@ from incolume.academia_jedi.ajedi20231020_massa_test_codons.codons import (
 )
 def test_massa_codon_dna_alfabeto0(entrance: int) -> None:
     """Testar alfabeto contido no codon."""
-    ALFABETO: str = 'ATGC'
-    assert all(s in ALFABETO for s in massa_codon_dna0(entrance))
+    alfabeto: str = 'ATGC'
+    assert all(s in alfabeto for s in massa_codon_dna0(entrance))
 
 
 @pytest.mark.parametrize(
@@ -70,8 +70,8 @@ def test_massa_codon_dna_limites0(entrance: int) -> None:
 )
 def test_massa_codon_dna_alfabeto(entrance: int) -> None:
     """Testar alfabeto contido no codon."""
-    ALFABETO: str = 'ATGC'
-    assert all(s in ALFABETO for s in massa_codon_dna(entrance))
+    alfabeto: str = 'ATGC'
+    assert all(s in alfabeto for s in massa_codon_dna(entrance))
 
 
 @pytest.mark.skip()
@@ -159,3 +159,5 @@ def test_massa_codon_dna_limites(entrance: int, exceptions) -> None:
     if exceptions:
         with pytest.raises(**exceptions):
             massa_codon_dna(entrance)
+    else:
+        assert len(massa_codon_dna(entrance)) == entrance
