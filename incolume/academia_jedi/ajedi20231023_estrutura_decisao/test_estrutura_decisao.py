@@ -28,3 +28,20 @@ def test_exercicio02(entrada, esperado):
     """testar exercicio02."""
     assert pkg.exercicio02(entrada) == esperado
 
+
+@pytest.mark.parametrize(
+    'entrada esperado'.split(),
+    [
+        pytest.param("X", "Sexo Inválido"),
+        pytest.param("F", "F - Feminino"),
+        pytest.param("f", "F - Feminino"),
+        pytest.param("M", "M - Masculino"),
+        pytest.param("m", "M - Masculino"),
+        pytest.param("G", "Sexo Inválido"),
+        pytest.param(12, "Sexo Inválido"),
+        pytest.param(False, "Sexo Inválido"),
+    ],
+)
+def test_exercicio03(entrada, esperado):
+    """testar exercicio03."""
+    assert pkg.exercicio03(entrada) == esperado

@@ -17,10 +17,19 @@ def exercicio02(num: float) -> str:
    return 'negativo' if num < 0  else 'positivo' 
 
 
-def exercicio03():
+def exercicio03(sexo: str) -> str:
     """
     Faça um Programa que verifique se uma letra digitada é "F" ou "M". Conforme a letra escrever: F - Feminino, M - Masculino, Sexo Inválido.
-   """
+    """
+    sexo = str(sexo).upper()
+    if sexo == 'F':
+        return "F - Feminino"
+    if sexo == 'M':
+        return 'M - Masculino'
+    return "Sexo Inválido"
+
+
+
 def exercicio04():
    """
    Faça um Programa que verifique se uma letra digitada é vogal ou consoante.
