@@ -34,10 +34,12 @@ def exercicio04(letra: str) -> str:
     """
     Faça um Programa que verifique se uma letra digitada é vogal ou consoante.
     """
-    vogais = ['A', 'E', 'I', 'O', 'U']
-    if letra.upper() in vogais:
-        return "Vogal"
-    return "Consoante"
+    vogais = 'AEIOU'
+
+    def isVogal(letra: str) -> bool:
+        return letra in vogais
+    
+    return  "Vogal" if isVogal else "Consoante"
 
 def exercicio05():
    """
