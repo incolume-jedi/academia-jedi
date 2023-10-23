@@ -1,8 +1,12 @@
 from dynaconf import Dynaconf, Validator
+from pathlib import Path
 
 settings = Dynaconf(
     envvar_prefix='INCOLUME',
-    settings_files=['settings.toml', '.secrets.toml'],
+    settings_files=[
+        Path(__file__).parent/'settings.toml',
+        Path(__file__).parent/'.secrets.toml',
+    ],
     environments=[
         'development',
         'production',

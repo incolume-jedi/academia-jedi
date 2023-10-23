@@ -1,5 +1,5 @@
 # !/usr/bin/env python
-from config import settings
+from incolume.academia_jedi.ajedi20220924_dynaconf.config import settings
 
 __author__ = '@britodfbr'  # pragma: no cover
 
