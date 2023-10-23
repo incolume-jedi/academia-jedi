@@ -4,9 +4,7 @@ def exercicio01(num1: float, num2: float) -> None:
    """
    Faça um Programa que peça dois números e imprima o maior deles.
    """
-   if num1 > num2:
-       return num1
-   return num2
+   return max(num1, num2)
        
 
 
