@@ -1,4 +1,6 @@
-from database import get_client_list
+from incolume.academia_jedi.ajedi20221110_mapping_values.database import (
+    get_client_list,
+)
 
 clientes = get_client_list(count=2)
 
