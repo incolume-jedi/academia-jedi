@@ -8,12 +8,17 @@ def exercicio01(num1: float, num2: float) -> None:
        
 
 
-def exercicio02():
+def exercicio02(num: float) -> str:
    """
     Faça um Programa que peça um valor e mostre na tela se o valor é positivo ou negativo.
    """
+   if num == 0:
+       return 'neutro'
+   return 'negativo' if num < 0  else 'positivo' 
+
+
 def exercicio03():
-   """
+    """
     Faça um Programa que verifique se uma letra digitada é "F" ou "M". Conforme a letra escrever: F - Feminino, M - Masculino, Sexo Inválido.
    """
 def exercicio04():

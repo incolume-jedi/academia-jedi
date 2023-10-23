@@ -14,3 +14,17 @@ import pytest
 def test_exercicio01(entrada, esperado):
     """testar exercicio01."""
     assert pkg.exercicio01(*entrada) == esperado
+
+
+@pytest.mark.parametrize(
+    'entrada esperado'.split(),
+    [
+        pytest.param(0, 'neutro', marks=''),
+        (-1, 'negativo'),
+        (1, 'positivo'),
+    ],
+)
+def test_exercicio02(entrada, esperado):
+    """testar exercicio02."""
+    assert pkg.exercicio02(entrada) == esperado
+
