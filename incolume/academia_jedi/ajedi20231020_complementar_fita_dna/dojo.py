@@ -16,11 +16,11 @@ def complemento_fita_dna(fita: str) -> str:
 def complemento_codon(fita: str) -> str:
     """Complementar fita."""
     codon = {
-        'A': 'T', 
-        'T': 'A', 
-        'C': 'G', 
+        'A': 'T',
+        'T': 'A',
+        'C': 'G',
         'G': 'C',
-        }
+    }
     sc = ''
     for s in fita.upper()[::-1]:
         sc += codon[s]
@@ -30,9 +30,9 @@ def complemento_codon(fita: str) -> str:
 def complement_codon(fita: str) -> str:
     """Complementar fita."""
     codon = {
-        'A': 'T', 
-        'T': 'A', 
-        'C': 'G', 
+        'A': 'T',
+        'T': 'A',
+        'C': 'G',
         'G': 'C',
-        }
+    }
     return ''.join(codon[s] for s in fita.upper()[::-1])

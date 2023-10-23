@@ -3,8 +3,8 @@
 import pytest
 
 from incolume.academia_jedi.ajedi20231020_contagem_nucleotideos.dojo import (
-    contador_nucleotideos, 
     cont_nucleotideos,
+    contador_nucleotideos,
 )
 
 

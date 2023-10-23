@@ -27,7 +27,6 @@ class TestCase:
         assert output == ''
         assert result == 7
 
-
     @pytest.mark.parametrize(
         'entrance expected'.split(),
         [
