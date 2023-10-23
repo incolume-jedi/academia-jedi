@@ -30,10 +30,15 @@ def exercicio03(sexo: str) -> str:
 
 
 
-def exercicio04():
-   """
-   Faça um Programa que verifique se uma letra digitada é vogal ou consoante.
-   """
+def exercicio04(letra: str) -> str:
+    """
+    Faça um Programa que verifique se uma letra digitada é vogal ou consoante.
+    """
+    vogais = ['A', 'E', 'I', 'O', 'U']
+    if letra.upper() in vogais:
+        return "Vogal"
+    return "Consoante"
+
 def exercicio05():
    """
    Faça um programa para a leitura de duas notas parciais de um aluno. O programa deve calcular a média alcançada por aluno e apresentar:

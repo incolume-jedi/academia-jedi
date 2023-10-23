@@ -45,3 +45,26 @@ def test_exercicio02(entrada, esperado):
 def test_exercicio03(entrada, esperado):
     """testar exercicio03."""
     assert pkg.exercicio03(entrada) == esperado
+
+
+@pytest.mark.parametrize(
+    'entrada esperado'.split(),
+    [
+        pytest.param("a", "Vogal"),
+        pytest.param("e", "Vogal"),
+        pytest.param("i", "Vogal"),
+        pytest.param("o", "Vogal"),
+        pytest.param("u", "Vogal"),
+        pytest.param("A", "Vogal"),
+        pytest.param("E", "Vogal"),
+        pytest.param("I", "Vogal"),
+        pytest.param("O", "Vogal"),
+        pytest.param("U", "Vogal"),
+        pytest.param("X", "Consoante"),
+        pytest.param("x", "Consoante"),
+        pytest.param("J", "Consoante"),
+        pytest.param("G", "Consoante"),
+    ],
+)
+def test_exercicio04(entrada, esperado):
+    """testar exercicio04."""
