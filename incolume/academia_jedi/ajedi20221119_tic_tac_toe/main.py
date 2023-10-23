@@ -50,7 +50,7 @@ def check_winner(board: list, options=None):
 
     def check_values(pos: list):
         for x in range(3, len(pos) + 1, 3):
-            if all(pos[x - 3 : x]):
+            if all(pos[x - 3: x]):
                 return True
         return None
 

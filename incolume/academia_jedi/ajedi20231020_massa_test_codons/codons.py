@@ -27,8 +27,10 @@ def massa_codon_dna(tamanho_codon: int = 4) -> str:
     """Verificar se codon está no alfabeto do DNA."""
     ALFABETO = 'ACGT'
     if tamanho_codon > 1000:
-        raise ValueError('Tamanho superior ao limite de 1000')
+        msg = 'Tamanho superior ao limite de 1000'
+        raise ValueError(msg)
     if tamanho_codon <= 4:
-        raise ValueError('Tamanho inferior ao limite de 4')
+        msg = 'Tamanho inferior ao limite de 4'
+        raise ValueError(msg)
     codon = random.choices(ALFABETO, k=tamanho_codon)
     return ''.join(codon)

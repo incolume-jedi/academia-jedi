@@ -15,9 +15,7 @@ def contador_nucleotideos(nucleotideo: str) -> str:
         elif codigo == 'T':
             t += 1
 
-    result = str(a) + ' ' + str(c) + ' ' + str(g) + ' ' + str(t)
-
-    return result
+    return str(a) + ' ' + str(c) + ' ' + str(g) + ' ' + str(t)
 
 
 def cont_nucleotideos(codon: str) -> str:

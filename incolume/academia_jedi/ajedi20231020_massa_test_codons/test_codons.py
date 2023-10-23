@@ -47,13 +47,11 @@ def test_massa_codon_dna_alfabeto0(entrance: int) -> None:
 )
 def test_massa_codon_dna_limites0(entrance: int) -> None:
     """Testar limites maximos e minimos de caracteres."""
-    assert (
-        len(massa_codon_dna0(entrance)) >= 4
-        and len(massa_codon_dna0(entrance)) <= 1000
-    )
+    assert len(massa_codon_dna0(entrance)) >= 4
+    assert len(massa_codon_dna0(entrance)) <= 1000
 
 
-@pytest.mark.skip
+@pytest.mark.skip()
 @pytest.mark.parametrize(
     'entrance',
     [
@@ -76,7 +74,7 @@ def test_massa_codon_dna_alfabeto(entrance: int) -> None:
     assert all(s in ALFABETO for s in massa_codon_dna(entrance))
 
 
-@pytest.mark.skip
+@pytest.mark.skip()
 @pytest.mark.parametrize(
     ('entrance', 'expected'),
     [
