@@ -69,10 +69,11 @@ def exercicio07(*args) -> tuple:
     return maior, menor
 
 
-def exercicio08():
+def exercicio08(*args) -> float:
     """Faça um programa que pergunte o preço de três produtos
     e informe qual produto você deve comprar,
     sabendo que a decisão é sempre pelo mais barato."""
+    return exercicio07(*args)[-1]
 
 
 def exercicio9():
