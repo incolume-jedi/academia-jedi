@@ -106,7 +106,7 @@ def exercicio10(turno: str):
     
 
 
-def exercicio11():
+def exercicio11(salario: float) -> None:
     """ Reajustar salário.
 
     As Organizações Tabajara resolveram dar um aumento de salário aos seus
@@ -124,6 +124,28 @@ def exercicio11():
     - o valor do aumento;
     - o novo salário, após o aumento.
     """
+    # salarios = [280, 700, 1500, 1500.01]
+    # ajustes = [.2, .15, .1, .05]
+
+    def reajuste(salario: float) -> tuple:
+        """Calcular reajuste."""  
+        taxa = .2  
+        if salario > 1500:
+            taxa = .05
+        if 700 < salario <= 1500:
+            taxa = .1
+        if 280 < salario <= 700:
+            taxa = .15
+        return taxa, salario * taxa  
+    
+    def saida(salario: float)->str:
+        """Resultado do problema."""
+        tax, aumento = reajuste(salario)
+        return f"Salário atual: R$ {salario: .2f}\n aumento: {tax*100} %\n aumento: R$ {aumento: .2f}\n Salário novo: R$ {salario+aumento:.2f}"
+    
+    return saida(salario)
+
+
 
 
 def exercicio12():

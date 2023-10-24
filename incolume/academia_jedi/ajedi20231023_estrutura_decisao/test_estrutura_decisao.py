@@ -177,3 +177,17 @@ def test_exercicio10_exceptions(entrance, excpt):
     with pytest.raises(**excpt):
         pkg.exercicio10(entrance)
 
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
+        (1500.01, 'Salário atual: R$  1500.01\n aumento: 5.0 %\n aumento: R$  75.00\n Salário novo: R$ 1575.01'),
+        (280, 'Salário atual: R$  280.00\n aumento: 20.0 %\n aumento: R$  56.00\n Salário novo: R$ 336.00'),
+        (700, 'Salário atual: R$  700.00\n aumento: 15.0 %\n aumento: R$  105.00\n Salário novo: R$ 805.00'),
+        (1500, 'Salário atual: R$  1500.00\n aumento: 10.0 %\n aumento: R$  150.00\n Salário novo: R$ 1650.00'),
+    ],
+)
+def test_exercicio11(entrance, expected):
+    """Testar exercicio11."""
+    assert pkg.exercicio11(entrance) == expected
+
