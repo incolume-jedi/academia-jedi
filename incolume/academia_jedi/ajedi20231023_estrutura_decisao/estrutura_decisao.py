@@ -56,9 +56,17 @@ def exercicio06(*args) -> float:
     """Faça um Programa que leia três números e mostre o maior deles."""
     return max(args)
 
-
-def exercicio07():
+def exercicio07(*args) -> tuple:
     """Faça um Programa que leia três números e mostre o maior e o menor deles."""
+    maior = -999999999999999999
+    menor = 9999999999999999999
+
+    for n in args:
+        if n > maior:
+            maior = n
+        if n < menor:
+            menor = n
+    return maior, menor
 
 
 def exercicio08():
