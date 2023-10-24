@@ -39,7 +39,7 @@ def exercicio04(letra: str) -> str:
     return 'Vogal' if isVogal(letra) else 'Consoante'
 
 
-def exercicio05():
+def exercicio05(nota1: float, nota2: float) -> str:
     """Faça um programa para a leitura de duas notas parciais de um aluno.
 
     O programa deve calcular a média alcançada por aluno e apresentar:
@@ -47,6 +47,9 @@ def exercicio05():
     A mensagem "Reprovado", se a média for menor do que sete;
     A mensagem "Aprovado com Distinção", se a média for igual a dez.
     """
+    mensao = ['Reprovado', 'Aprovado', 'Aprovado com Distinção']
+    media = (nota1 + nota2) / 2
+    return mensao[int(media >= 7.0) + int(media == 10.0)]
 
 
 def exercicio06():
