@@ -76,9 +76,10 @@ def exercicio08(*args) -> float:
     return exercicio07(*args)[-1]
 
 
-def exercicio9():
+def exercicio9(*args):
     """Faça um Programa que leia três números
     e mostre-os em ordem decrescente."""
+    return sorted(args, reverse=True)
 
 
 def exercicio10():
