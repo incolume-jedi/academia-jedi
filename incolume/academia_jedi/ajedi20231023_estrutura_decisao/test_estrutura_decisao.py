@@ -191,3 +191,22 @@ def test_exercicio11(entrance, expected):
     """Testar exercicio11."""
     assert pkg.exercicio11(entrance) == expected
 
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
+        (1, '1-Domingo'),
+        (2, '2-Segunda'),
+        (3, '3-Terça'),
+        (4, '4-Quarta'),
+        (5, '5-Quinta'),
+        (6, '6-Sexta'),
+        (7, '7-Sabado'),
+        (8, 'valor inválido'),
+        ('a', 'valor inválido'),
+        (8., 'valor inválido'),
+    ],
+)
+def test_exercicio13(entrance, expected):
+    """Testar exercicio13."""
+    assert pkg.exercicio13(entrance) == expected

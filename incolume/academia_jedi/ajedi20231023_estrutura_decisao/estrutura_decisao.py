@@ -173,10 +173,22 @@ def exercicio12():
     """
 
 
-def exercicio13():
+def exercicio13(dia: int) -> str:
     """Faça um Programa que leia um número e exiba
     o dia correspondente da semana. (1-Domingo, 2- Segunda, etc.),
     se digitar outro valor deve aparecer valor inválido."""
+
+    dow = {
+        1: '1-Domingo',
+        2: '2-Segunda',
+        3: '3-Terça',
+        4: '4-Quarta',
+        5: '5-Quinta',
+        6: '6-Sexta',
+        7: '7-Sabado',
+    }
+    return dow.get(dia, 'valor inválido')
+
 
 
 def exercicio14():
