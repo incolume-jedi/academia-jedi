@@ -82,7 +82,7 @@ def exercicio9(*args):
     return sorted(args, reverse=True)
 
 
-def exercicio10():
+def exercicio10(turno: str):
     """ Checar turno.
 
     Faça um Programa que pergunte em que turno você estuda.
@@ -91,6 +91,19 @@ def exercicio10():
         Imprima a mensagem "Bom Dia!", "Boa Tarde!" ou "Boa Noite!"
         ou "Valor Inválido!", conforme o caso.
     """
+    turnos = {
+        'm': 'Bom Dia!',
+        'v': 'Boa Tarde!',
+        'n': 'Boa Noite!',
+        'matutino': 'Bom Dia!',
+        'vespertino': 'Boa Tarde!',
+        'noturno': 'Boa Noite!',
+    }
+    try:
+        return turnos[turno.casefold()]
+    except KeyError as err:
+        raise ValueError('Turno inválido: "%s".' % turno)
+    
 
 
 def exercicio11():

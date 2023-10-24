@@ -139,3 +139,41 @@ def test_exercicio9(entrance, expected):
     """Testar exercicio9."""
     assert pkg.exercicio9(*entrance) == expected
 
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
+        ('m', 'Bom Dia!'),
+        ('M', 'Bom Dia!'),
+        ('matutino', 'Bom Dia!'),
+        ('Matutino', 'Bom Dia!'),
+        ('MATUTINO', 'Bom Dia!'),
+        ('v', 'Boa Tarde!'),
+        ('V', 'Boa Tarde!'),
+        ('vespertino', 'Boa Tarde!'),
+        ('Vespertino', 'Boa Tarde!'),
+        ('VESPERTINO', 'Boa Tarde!'),
+        ('n', 'Boa Noite!'),
+        ('N', 'Boa Noite!'),
+        ('noturno', 'Boa Noite!'),
+        ('Noturno', 'Boa Noite!'),
+        ('NOTURNO', 'Boa Noite!'),
+    ],
+)
+def test_exercicio10(entrance, expected):
+    """Testar exercicio10."""
+    assert pkg.exercicio10(entrance) == expected
+
+
+@pytest.mark.parametrize(
+    'entrance excpt'.split(),
+    [
+        ('Guitarra', {'expected_exception': ValueError, 'match': 'Turno inválido: "Guitarra".'}),
+        ('G', {'expected_exception': ValueError, 'match': 'Turno inválido: "G".'}),
+    ],
+)
+def test_exercicio10_exceptions(entrance, excpt):
+    """Testar exercicio10."""
+    with pytest.raises(**excpt):
+        pkg.exercicio10(entrance)
+
