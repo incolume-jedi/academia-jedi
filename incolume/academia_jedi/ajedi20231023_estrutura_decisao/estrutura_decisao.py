@@ -52,8 +52,9 @@ def exercicio05(nota1: float, nota2: float) -> str:
     return mensao[int(media >= 7.0) + int(media == 10.0)]
 
 
-def exercicio06():
+def exercicio06(*args) -> float:
     """Faça um Programa que leia três números e mostre o maior deles."""
+    return max(args)
 
 
 def exercicio07():
