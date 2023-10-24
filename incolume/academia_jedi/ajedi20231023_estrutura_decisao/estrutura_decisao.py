@@ -34,7 +34,7 @@ def exercicio04(letra: str) -> str:
     vogais = 'AEIOU'
 
     def isVogal(letra: str) -> bool:
-        return letra in vogais
+        return letra.upper() in vogais
 
     return 'Vogal' if isVogal(letra) else 'Consoante'
 

@@ -68,3 +68,5 @@ def test_exercicio03(entrada, esperado):
 )
 def test_exercicio04(entrada, esperado):
     """Testar exercicio04."""
+    assert pkg.exercicio04(entrada) == esperado
+    
