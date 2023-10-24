@@ -12,7 +12,7 @@ import pytest
     ],
 )
 def test_exercicio01(entrada, esperado):
-    """testar exercicio01."""
+    """Testar exercicio01."""
     assert pkg.exercicio01(*entrada) == esperado
 
 
@@ -25,46 +25,46 @@ def test_exercicio01(entrada, esperado):
     ],
 )
 def test_exercicio02(entrada, esperado):
-    """testar exercicio02."""
+    """Testar exercicio02."""
     assert pkg.exercicio02(entrada) == esperado
 
 
 @pytest.mark.parametrize(
     'entrada esperado'.split(),
     [
-        pytest.param("X", "Sexo Inválido"),
-        pytest.param("F", "F - Feminino"),
-        pytest.param("f", "F - Feminino"),
-        pytest.param("M", "M - Masculino"),
-        pytest.param("m", "M - Masculino"),
-        pytest.param("G", "Sexo Inválido"),
-        pytest.param(12, "Sexo Inválido"),
-        pytest.param(False, "Sexo Inválido"),
+        pytest.param('X', 'Sexo Inválido'),
+        pytest.param('F', 'F - Feminino'),
+        pytest.param('f', 'F - Feminino'),
+        pytest.param('M', 'M - Masculino'),
+        pytest.param('m', 'M - Masculino'),
+        pytest.param('G', 'Sexo Inválido'),
+        pytest.param(12, 'Sexo Inválido'),
+        pytest.param(False, 'Sexo Inválido'),
     ],
 )
 def test_exercicio03(entrada, esperado):
-    """testar exercicio03."""
+    """Testar exercicio03."""
     assert pkg.exercicio03(entrada) == esperado
 
 
 @pytest.mark.parametrize(
     'entrada esperado'.split(),
     [
-        pytest.param("a", "Vogal"),
-        pytest.param("e", "Vogal"),
-        pytest.param("i", "Vogal"),
-        pytest.param("o", "Vogal"),
-        pytest.param("u", "Vogal"),
-        pytest.param("A", "Vogal"),
-        pytest.param("E", "Vogal"),
-        pytest.param("I", "Vogal"),
-        pytest.param("O", "Vogal"),
-        pytest.param("U", "Vogal"),
-        pytest.param("X", "Consoante"),
-        pytest.param("x", "Consoante"),
-        pytest.param("J", "Consoante"),
-        pytest.param("G", "Consoante"),
+        pytest.param('a', 'Vogal'),
+        pytest.param('e', 'Vogal'),
+        pytest.param('i', 'Vogal'),
+        pytest.param('o', 'Vogal'),
+        pytest.param('u', 'Vogal'),
+        pytest.param('A', 'Vogal'),
+        pytest.param('E', 'Vogal'),
+        pytest.param('I', 'Vogal'),
+        pytest.param('O', 'Vogal'),
+        pytest.param('U', 'Vogal'),
+        pytest.param('X', 'Consoante'),
+        pytest.param('x', 'Consoante'),
+        pytest.param('J', 'Consoante'),
+        pytest.param('G', 'Consoante'),
     ],
 )
 def test_exercicio04(entrada, esperado):
-    """testar exercicio04."""
+    """Testar exercicio04."""
