@@ -21,13 +21,12 @@ def exercicio03(sexo: str) -> str:
 
     Conforme a letra escrever: F - Feminino, M - Masculino, Sexo Inválido.
     """
-    # TODO implementar sem condicionais
-    sexo = str(sexo).upper()
-    if sexo == 'F':
-        return 'F - Feminino'
-    if sexo == 'M':
-        return 'M - Masculino'
-    return 'Sexo Inválido'
+    valores = {
+        'F': 'F - Feminino',
+        'M': 'M - Masculino',
+    }
+
+    return valores.get(str(sexo).upper(), 'Sexo Inválido')
 
 
 def exercicio04(letra: str) -> str:
