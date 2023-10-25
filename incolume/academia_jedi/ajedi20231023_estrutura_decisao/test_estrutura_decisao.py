@@ -70,6 +70,7 @@ def test_exercicio04(entrada, esperado):
     """Testar exercicio04."""
     assert pkg.exercicio04(entrada) == esperado
 
+
 @pytest.mark.parametrize(
     'entrance expected'.split(),
     [
@@ -118,7 +119,18 @@ def test_exercicio07(entrance, expected):
         ((10, 9, 1), 1),
         ((10, 100, 1), 1),
         ((9, 21, 1), 1),
-        ((9, 21, 3, 6, 7, 9, 13,), 3),
+        (
+            (
+                9,
+                21,
+                3,
+                6,
+                7,
+                9,
+                13,
+            ),
+            3,
+        ),
     ],
 )
 def test_exercicio08(entrance, expected):
@@ -132,7 +144,18 @@ def test_exercicio08(entrance, expected):
         ((10, 9, 1), [10, 9, 1]),
         ((10, 100, 1), [100, 10, 1]),
         ((9, 21, 1), [21, 9, 1]),
-        ((9, 21, 3, 6, 7, 44, 13,), [44, 21, 13, 9, 7, 6, 3]),
+        (
+            (
+                9,
+                21,
+                3,
+                6,
+                7,
+                44,
+                13,
+            ),
+            [44, 21, 13, 9, 7, 6, 3],
+        ),
     ],
 )
 def test_exercicio9(entrance, expected):
@@ -168,8 +191,20 @@ def test_exercicio10(entrance, expected):
 @pytest.mark.parametrize(
     'entrance excpt'.split(),
     [
-        ('Guitarra', {'expected_exception': ValueError, 'match': 'Turno inválido: "Guitarra".'}),
-        ('G', {'expected_exception': ValueError, 'match': 'Turno inválido: "G".'}),
+        (
+            'Guitarra',
+            {
+                'expected_exception': ValueError,
+                'match': 'Turno inválido: "Guitarra".',
+            },
+        ),
+        (
+            'G',
+            {
+                'expected_exception': ValueError,
+                'match': 'Turno inválido: "G".',
+            },
+        ),
     ],
 )
 def test_exercicio10_exceptions(entrance, excpt):
@@ -181,10 +216,22 @@ def test_exercicio10_exceptions(entrance, excpt):
 @pytest.mark.parametrize(
     'entrance expected'.split(),
     [
-        (1500.01, 'Salário atual: R$  1500.01\n aumento: 5.0 %\n aumento: R$  75.00\n Salário novo: R$ 1575.01'),
-        (280, 'Salário atual: R$  280.00\n aumento: 20.0 %\n aumento: R$  56.00\n Salário novo: R$ 336.00'),
-        (700, 'Salário atual: R$  700.00\n aumento: 15.0 %\n aumento: R$  105.00\n Salário novo: R$ 805.00'),
-        (1500, 'Salário atual: R$  1500.00\n aumento: 10.0 %\n aumento: R$  150.00\n Salário novo: R$ 1650.00'),
+        (
+            1500.01,
+            'Salário atual: R$  1500.01\n aumento: 5.0 %\n aumento: R$  75.00\n Salário novo: R$ 1575.01',
+        ),
+        (
+            280,
+            'Salário atual: R$  280.00\n aumento: 20.0 %\n aumento: R$  56.00\n Salário novo: R$ 336.00',
+        ),
+        (
+            700,
+            'Salário atual: R$  700.00\n aumento: 15.0 %\n aumento: R$  105.00\n Salário novo: R$ 805.00',
+        ),
+        (
+            1500,
+            'Salário atual: R$  1500.00\n aumento: 10.0 %\n aumento: R$  150.00\n Salário novo: R$ 1650.00',
+        ),
     ],
 )
 def test_exercicio11(entrance, expected):
@@ -204,7 +251,7 @@ def test_exercicio11(entrance, expected):
         (7, '7-Sabado'),
         (8, 'valor inválido'),
         ('a', 'valor inválido'),
-        (8., 'valor inválido'),
+        (8.0, 'valor inválido'),
     ],
 )
 def test_exercicio13(entrance, expected):

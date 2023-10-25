@@ -56,6 +56,7 @@ def exercicio06(*args) -> float:
     """Faça um Programa que leia três números e mostre o maior deles."""
     return max(args)
 
+
 def exercicio07(*args) -> tuple:
     """Faça um Programa que leia três números e mostre o maior e o menor deles."""
     maior = -999999999999999999
@@ -72,18 +73,20 @@ def exercicio07(*args) -> tuple:
 def exercicio08(*args) -> float:
     """Faça um programa que pergunte o preço de três produtos
     e informe qual produto você deve comprar,
-    sabendo que a decisão é sempre pelo mais barato."""
+    sabendo que a decisão é sempre pelo mais barato.
+    """
     return exercicio07(*args)[-1]
 
 
 def exercicio9(*args):
     """Faça um Programa que leia três números
-    e mostre-os em ordem decrescente."""
+    e mostre-os em ordem decrescente.
+    """
     return sorted(args, reverse=True)
 
 
 def exercicio10(turno: str):
-    """ Checar turno.
+    """Checar turno.
 
     Faça um Programa que pergunte em que turno você estuda.
 
@@ -101,13 +104,12 @@ def exercicio10(turno: str):
     }
     try:
         return turnos[turno.casefold()]
-    except KeyError as err:
+    except KeyError:
         raise ValueError('Turno inválido: "%s".' % turno)
-    
 
 
 def exercicio11(salario: float) -> None:
-    """ Reajustar salário.
+    """Reajustar salário.
 
     As Organizações Tabajara resolveram dar um aumento de salário aos seus
     colaboradores e lhe contrataram para desenvolver o programa que
@@ -176,8 +178,8 @@ def exercicio12():
 def exercicio13(dia: int) -> str:
     """Faça um Programa que leia um número e exiba
     o dia correspondente da semana. (1-Domingo, 2- Segunda, etc.),
-    se digitar outro valor deve aparecer valor inválido."""
-
+    se digitar outro valor deve aparecer valor inválido.
+    """
     dow = {
         1: '1-Domingo',
         2: '2-Segunda',
@@ -188,7 +190,6 @@ def exercicio13(dia: int) -> str:
         7: '7-Sabado',
     }
     return dow.get(dia, 'valor inválido')
-
 
 
 def exercicio14():
@@ -242,12 +243,19 @@ def exercicio16():
 
 def exercicio17():
     """Faça um Programa que peça um número correspondente a
-    um determinado ano e em seguida informe se este ano é ou não bissexto."""
+    um determinado ano e em seguida informe se este ano é ou não bissexto.
+
+    Obs:
+         Bissexto - Um ano é bissexto se ele for divisível por 400 ou se ele
+       for divisível por 4 e não por 100.
+      if ano % 100 != 0 and ano % 4 == 0 or ano % 400 == 0:
+    """
 
 
 def exercicio18():
     """Faça um Programa que peça uma data no formato
-    dd/mm/aaaa e determine se a mesma é uma data válida."""
+    dd/mm/aaaa e determine se a mesma é uma data válida.
+    """
 
 
 def exercicio19():
@@ -264,8 +272,7 @@ def exercicio19():
 
 
 def exercicio20():
-    """
-    Faça um Programa para leitura de três notas parciais de um aluno. O programa deve calcular a média alcançada por aluno e presentar:
+    """Faça um Programa para leitura de três notas parciais de um aluno. O programa deve calcular a média alcançada por aluno e presentar:
     A mensagem "Aprovado", se a média for maior ou igual a 7, com a respectiva média alcançada;
     A mensagem "Reprovado", se a média for menor do que 7, com a respectiva média alcançada;
     A mensagem "Aprovado com Distinção", se a média for igual a 10.
@@ -273,22 +280,44 @@ def exercicio20():
 
 
 def exercicio21():
-    """Faça um Programa para um caixa eletrônico. O programa deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas. As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O programa não deve se preocupar com a quantidade de notas existentes na máquina.
-    Exemplo 1: Para sacar a quantia de 256 reais, o programa fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
-    Exemplo 2: Para sacar a quantia de 399 reais, o programa fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
+    """Faça um Programa para um caixa eletrônico.
+
+    O programa deverá perguntar ao usuário a valor do saque e depois informar
+    quantas notas de cada valor serão fornecidas. As notas disponíveis serão
+    as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo
+    de 600 reais. O programa não deve se preocupar com a quantidade de notas
+    existentes na máquina.
+
+    Exemplo 1: Para sacar a quantia de 256 reais, o programa fornece duas
+    notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
+
+    Exemplo 2: Para sacar a quantia de 399 reais, o programa fornece três
+    notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5
+    e quatro notas de 1.
     """
 
 
 def exercicio22():
-    """Faça um Programa que peça um número inteiro e determine se ele é par ou impar. Dica: utilize o operador módulo (resto da divisão)."""
+    """Faça um Programa que peça um número inteiro e determine
+    se ele é par ou impar.
+
+    Dica: utilize o operador módulo (resto da divisão).
+    """
 
 
 def exercicio23():
-    """Faça um Programa que peça um número e informe se o número é inteiro ou decimal. Dica: utilize uma função de arredondamento."""
+    """Faça um Programa que peça um número e informe se o número é
+    inteiro ou decimal.
+
+    Dica: utilize uma função de arredondamento.
+
+    """
 
 
 def exercicio24():
-    """Faça um Programa que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
+    """Faça um Programa que leia 2 números e em seguida pergunte ao
+    usuário qual operação ele deseja realizar. O resultado da operação
+    deve ser acompanhado de uma frase que diga se o número é:
     par ou ímpar;
     positivo ou negativo;
     inteiro ou decimal.
@@ -296,12 +325,20 @@ def exercicio24():
 
 
 def exercicio25():
-    """Faça um programa que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
+    """Faça um programa que faça 5 perguntas para uma pessoa sobre um crime.
+
+     As perguntas são:
     "Telefonou para a vítima?"
     "Esteve no local do crime?"
     "Mora perto da vítima?"
     "Devia para a vítima?"
-    "Já trabalhou com a vítima?" O programa deve no final emitir uma classificação sobre a participação da pessoa no crime. Se a pessoa responder positivamente a 2 questões ela deve ser classificada como "Suspeita", entre 3 e 4 como "Cúmplice" e 5 como "Assassino". Caso contrário, ele será classificado como "Inocente".
+    "Já trabalhou com a vítima?"
+
+    O programa deve no final emitir uma classificação sobre a participação
+    da pessoa no crime. Se a pessoa responder positivamente a 2 questões
+    ela deve ser classificada como "Suspeita", entre 3 e 4 como "Cúmplice" e
+     5 como "Assassino".
+     Caso contrário, ele será classificado como "Inocente".
     """
 
 
@@ -312,7 +349,11 @@ def exercicio26():
     acima de 20 litros, desconto de 5% por litro
     Gasolina:
     até 20 litros, desconto de 4% por litro
-    acima de 20 litros, desconto de 6% por litro Escreva um algoritmo que leia o número de litros vendidos, o tipo de combustível (codificado da seguinte forma: A-álcool, G-gasolina), calcule e imprima o valor a ser pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 2,50 o preço do litro do álcool é R$ 1,90.
+    acima de 20 litros, desconto de 6% por litro Escreva um algoritmo que
+    leia o número de litros vendidos, o tipo de combustível (codificado da
+    seguinte forma: A-álcool, G-gasolina), calcule e imprima o valor a ser
+    pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 2,50
+    o preço do litro do álcool é R$ 1,90.
     """
 
 
@@ -329,7 +370,11 @@ def exercicio27():
     R$ 1,50 por Kg
 
 
-    Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00, receberá ainda um desconto de 10% sobre este total. Escreva um algoritmo para ler a quantidade (em Kg) de morangos e a quantidade (em Kg) de maças adquiridas e escreva o valor a ser pago pelo cliente.
+    Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra
+    ultrapassar R$ 25,00, receberá ainda um desconto de 10% sobre este total.
+    Escreva um algoritmo para ler a quantidade (em Kg) de morangos e a
+    quantidade (em Kg) de maças adquiridas e escreva o valor a ser
+    pago pelo cliente.
     """
 
 
@@ -349,5 +394,13 @@ def exercicio28():
     R$ 6,90 por Kg
 
 
-    Para atender a todos os clientes, cada cliente poderá levar apenas um dos tipos de carne da promoção, porém não há limites para a quantidade de carne por cliente. Se compra for feita no cartão Tabajara o cliente receberá ainda um desconto de 5% sobre o total da compra. Escreva um programa que peça o tipo e a quantidade de carne comprada pelo usuário e gere um cupom fiscal, contendo as informações da compra: tipo e quantidade de carne, preço total, tipo de pagamento, valor do desconto e valor a pagar.
+    Para atender a todos os clientes, cada cliente poderá levar apenas um
+    dos tipos de carne da promoção, porém não há limites para a quantidade
+    de carne por cliente. Se compra for feita no cartão Tabajara o cliente
+    receberá ainda um desconto de 5% sobre o total da compra.
+
+    Escreva um programa que peça o tipo e a quantidade de carne comprada pelo
+    usuário e gere um cupom fiscal, contendo as informações da compra: tipo
+    e quantidade de carne, preço total, tipo de pagamento,
+    valor do desconto e valor a pagar.
     """
