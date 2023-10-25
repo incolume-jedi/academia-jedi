@@ -192,7 +192,7 @@ def exercicio13(dia: int) -> str:
     return dow.get(dia, 'valor inválido')
 
 
-def exercicio14():
+def exercicio14(*args):
     """Faça um programa que lê as duas notas parciais obtidas por um aluno
     numa disciplina ao longo de um semestre, e calcule a sua média.
 
@@ -207,7 +207,27 @@ def exercicio14():
     correspondente e a mensagem “APROVADO” se o conceito for A, B, C
     ou “REPROVADO” se o conceito for D ou E.
     """
+    media = sum(args) / len(args)
+    if 9 <= media <= 10:
+        return 'A'
+    if 7.5 <= media <= 9:
+        return 'B'
+    if 6 <= media <= 7.5:
+        return 'C'
+    if 4 <= media <= 6:
+        return 'D'
+    return 'E'
 
+
+    def mostrar_resultado(conceito: str):
+        mensagens = {
+            'A': 'APROVADO',
+            'B': 'APROVADO',
+            'C': 'APROVADO',
+            'D': 'REPROVADO',
+            'E': 'REPROVADO',
+        }
+        return media, mensagens[conceito]
 
 def exercicio15():
     """Faça um Programa que peça os 3 lados de um triângulo.
