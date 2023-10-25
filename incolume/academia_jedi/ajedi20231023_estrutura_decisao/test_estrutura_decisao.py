@@ -262,12 +262,12 @@ def test_exercicio13(entrance, expected):
 @pytest.mark.parametrize(
     'entrance expected'.split(),
     [
-        ((10, 10), 'A'),
-        ((7, 7), 'C'),
-        ((7, 9), 'B'),
-        ((7, 6), 'C'),
-        ((5, 5), 'D'),
-        ((0, 2), 'E'),
+        ((10, 10), 'Notas: 10.0 e 10.0, Média: 10, Conceito: A "Aprovado"'),
+        ((7, 7),  'Notas: 7.0 e 7.0, Média: 7.0, Conceito: C "Aprovado"'),
+        ((7, 9),  'Notas: 7.0 e 9.0, Média: 8.0, Conceito: B "Aprovado"'),
+        ((7, 6),  'Notas: 7.0 e 6.0, Média: 6.5, Conceito: C "Aprovado"'),
+        ((5, 5),  'Notas: 5.0 e 5.0, Média: 5.0, Conceito: D "Reprovado"'),
+        ((0, 2),  'Notas: 0.0 e 2.0, Média: 1.0, Conceito: E "Reprovado"'),
     ],
 )
 def test_exercicio14(entrance, expected):
