@@ -41,6 +41,7 @@ nltk = "^3.8.1"
 textblob = "^0.17.1"
 xmltodict = "^0.13.0"
 python-docx = "^0.8.11"
+html5lib = "^1.1"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -174,7 +175,7 @@ exclude = '''
 # Maximum number of characters on a single line.
 max-line-length = 79
 
-              [tool.pylint.basic]
+               [tool.pylint.basic]
 # Allow shorter and longer variable names than the default.
 argument-rgx = "[a-z_][a-z0-9_]*$"
 attr-rgx = "[a-z_][a-z0-9_]*$"
@@ -184,7 +185,7 @@ variable-rgx = "[a-z_][a-z0-9_]*$"
 extension-pkg-whitelist = "orjson"
 
 
-              [tool.pylint.messages_control]
+               [tool.pylint.messages_control]
 disable = [
     # Disable too many and too few checks.
     "too-many-ancestors",
