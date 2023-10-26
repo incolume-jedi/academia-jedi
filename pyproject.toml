@@ -171,11 +171,11 @@ exclude = '''
  )/
  '''
 
- [tool.pylint.format]
+[tool.pylint.format]
 # Maximum number of characters on a single line.
 max-line-length = 79
 
-                [tool.pylint.basic]
+[tool.pylint.basic]
 # Allow shorter and longer variable names than the default.
 argument-rgx = "[a-z_][a-z0-9_]*$"
 attr-rgx = "[a-z_][a-z0-9_]*$"
@@ -185,7 +185,7 @@ variable-rgx = "[a-z_][a-z0-9_]*$"
 extension-pkg-whitelist = "orjson"
 
 
-                [tool.pylint.messages_control]
+[tool.pylint.messages_control]
 disable = [
     # Disable too many and too few checks.
     "too-many-ancestors",
@@ -351,6 +351,7 @@ multiline-quotes = "double"
 
 [tool.taskipy.variables]
 path = "incolume/ tests/"
+ruff_path_valid = "incolume/academia_jedi/ajedi20231002* incolume/academia_jedi/ajedi20231022* incolume/academia_jedi/ajedi20231026*"
 CHANGELOGFILE = "CHANGELOG.md"
 URLCOMPARE = "https://github.com/incolume-jedi/academia-jedi/compare"
 
@@ -378,7 +379,7 @@ lint_isort={help='Checking with isort', cmd='echo --isort--; poetry run isort --
 lint_mypy={help='Checking with mypy', cmd='echo --mypy--; poetry run mypy --check {path}', use_vars=true}
 lint_pydocstyle={help='Checking with pydocstyle', cmd='echo --pydocstyle--; poetry run pydocstyle {path}', use_vars=true}
 lint_pylint={help='Checking with pylint', cmd='echo --pylint--; poetry run pylint {path}', use_vars=true}
-lint_ruff={help='', cmd='echo --ruff--; poetry run ruff check --preview {path}', use_vars=true}
+lint_ruff={help='', cmd='echo --ruff--; poetry run ruff check --preview {ruff_path_valid} #{path}', use_vars=true}
 pre_patch={help='Run linters tools', cmd="poetry run task lint"}
 patch={cmd='v=$(poetry version patch) && poetry run pytest && git ci -m "$v" pyproject.toml $(find incolume* -name version.txt)', help='Generate a patch Sematic Version'}
 post_patch={help='Run securety tools', cmd="poetry run task bandit && poetry run task safety"}
