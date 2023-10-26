@@ -262,14 +262,30 @@ def test_exercicio13(entrance, expected):
 @pytest.mark.parametrize(
     'entrance expected'.split(),
     [
-        ((10, 10), 'Notas: 10.0 e 10.0, Média: 10, Conceito: A "Aprovado"'),
-        ((7, 7),  'Notas: 7.0 e 7.0, Média: 7.0, Conceito: C "Aprovado"'),
-        ((7, 9),  'Notas: 7.0 e 9.0, Média: 8.0, Conceito: B "Aprovado"'),
-        ((7, 6),  'Notas: 7.0 e 6.0, Média: 6.5, Conceito: C "Aprovado"'),
-        ((5, 5),  'Notas: 5.0 e 5.0, Média: 5.0, Conceito: D "Reprovado"'),
-        ((0, 2),  'Notas: 0.0 e 2.0, Média: 1.0, Conceito: E "Reprovado"'),
+        ((10, 10), 'Notas: (10.0, 10.0), Média: 10.0, Conceito: A "APROVADO"'),
+        ((7, 7),  'Notas: (7.0, 7.0), Média: 7.0, Conceito: C "APROVADO"'),
+        ((7, 9),  'Notas: (7.0, 9.0), Média: 8.0, Conceito: B "APROVADO"'),
+        ((7, 6),  'Notas: (7.0, 6.0), Média: 6.5, Conceito: C "APROVADO"'),
+        ((5, 5),  'Notas: (5.0, 5.0), Média: 5.0, Conceito: D "REPROVADO"'),
+        ((0, 2),  'Notas: (0.0, 2.0), Média: 1.0, Conceito: E "REPROVADO"'),
+        ((10, 9, 0, 2),  'Notas: (10.0, 9.0, 0.0, 2.0), Média: 5.25, Conceito: D "REPROVADO"'),
     ],
 )
 def test_exercicio14(entrance, expected):
     """Testar exercicio14."""
     assert pkg.exercicio14(*entrance) == expected
+
+
+@pytest.mark.parametrize(
+    'entrance xcpt'.split(),
+    [
+        ((10, 'a'), {'expected_exception': ValueError, 'match': 'Somente valores numéricos'}),
+        (('A', 7),  {'expected_exception': ValueError, 'match': 'Somente valores numéricos'}),
+        (('a', '9'), {'expected_exception': ValueError, 'match': 'Somente valores numéricos'}), 
+        (('', 6), {'expected_exception': ValueError, 'match': 'Somente valores numéricos'}),
+    ],
+)
+def test_exercicio14_exceptions(entrance, xcpt):
+    """Testar exercicio14."""
+    with pytest.raises(**xcpt):
+        pkg.exercicio14(*entrance)
