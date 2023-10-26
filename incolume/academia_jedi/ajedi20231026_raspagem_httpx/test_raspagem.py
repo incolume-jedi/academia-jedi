@@ -1,4 +1,5 @@
 """Testing it."""
+from inspect import stack
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 
@@ -34,6 +35,6 @@ def test_write_content() -> None:
         'https://www.diariodasleis.com.br/legislacao/federal/'
         'exibe_artigo.php?ifl=203526'
     )
-    with Path(NamedTemporaryFile().name) as file:
+    with Path(NamedTemporaryFile(prefix=stack()[0][3]).name) as file:
         write_content(file, get_content(url))
         assert file.is_file()
