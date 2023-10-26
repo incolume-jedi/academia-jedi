@@ -1,7 +1,10 @@
+"""Submodule."""
 import re
+import logging
 
 
-def convert_case(match_obj):
+def convert_case(match_obj) -> str | None:
+    """Converter case."""
     """https://flexiple.com/python/python-regex-replace/."""
     if match_obj.group(1) is not None:
         return match_obj.group(1).lower()
@@ -13,4 +16,4 @@ def convert_case(match_obj):
 
 if __name__ == '__main__':
     s = 'jOE kIM mAx ABY lIzA'
-    print(re.sub(r'([A-Z]+) | ([a-z]+)', convert_case, s))
+    logging.info(re.sub(r'([A-Z]+) | ([a-z]+)', convert_case, s))
