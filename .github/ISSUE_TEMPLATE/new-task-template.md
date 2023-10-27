@@ -62,4 +62,4 @@ N/A - Exemplos de solução e resposta do problema. Geralmente utilizado para va
 
 
 ---
-&copy; Incolume.com.br
+Copyright &copy; **incolume.com.br** since 2010
