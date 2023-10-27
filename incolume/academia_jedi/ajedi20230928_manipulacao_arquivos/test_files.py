@@ -44,5 +44,23 @@ class TestCase:
     def test_files_exemplo6_csv(self):
         """Teste para arquivos CSV."""
 
-    def test_files_exemplo1_json(self):
+    def test_files_exemplo7_csv(self):
+        """Teste para arquivos CSV."""
+
+    def test_files_exemplo8_csv(self):
+        """Teste para arquivos CSV."""
+
+    def test_files_exemplo9_csv(self):
+        """Teste para arquivos CSV."""
+
+    def test_files_exemplo10_csv(self):
+        """Teste para arquivos CSV."""
+
+    def test_files_exemplo11_json(self):
         """Teste para arquivos JSON."""
+
+    def test_files_exemplo12_json(self):
+        """Teste para arquivos JSON."""
+
+    def test_files_exemplo13_xlsx(self):
+        """Teste para arquivos XLSX."""
