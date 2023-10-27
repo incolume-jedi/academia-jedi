@@ -35,4 +35,4 @@ assignees: ''
 </details>
 
 ---
-&copy; Incolume.com.br
+Copyright &copy; **incolume.com.br** since 2010
