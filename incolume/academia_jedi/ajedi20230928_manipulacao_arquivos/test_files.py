@@ -1,13 +1,23 @@
-import incolume.academia_jedi.ajedi20230928_manipulacao_arquivos.files as pkg
-import pytest
+"""Test for files module."""
 from pathlib import Path
 from tempfile import NamedTemporaryFile
-from functools import partialmethod
+
+import pytest
+
+import incolume.academia_jedi.ajedi20230928_manipulacao_arquivos.files as pkg
+
+
+@pytest.fixture()
+def nfile(ext: str = '') -> Path:
+    """Arquivo temp."""
+    ext = f'.{ext.strip(".")}' if ext else '.txt'
+    return Path(NamedTemporaryFile(prefix='AJEDI-', suffix=ext).name)
 
 
 class TestCase:
     """Caso de teste."""
 
+    # pylint: disable=W0621
     content_fake = (
         'id,nome,telefone\n'
         '1,ciclano,614235-6789\n'
@@ -18,51 +28,50 @@ class TestCase:
         '6,sabino cruz das colves,(61) 95555-5555\n'
     )
 
-    @pytest.fixture()
-    def nfile(self, ext: str = '') -> Path:
-        """Arquivo temp."""
-        ext = f'.{ext.strip(".")}' if ext else '.txt'
-        return Path(NamedTemporaryFile(prefix='AJEDI-', suffix=ext).name)
-
-    def test_content_origin(self):
+    def test_content_origin(self) -> None:
         """Teste para conteúdo de origem."""
         assert isinstance(pkg.CONTENT, list)
 
     @pytest.mark.parametrize(
         'function',
-        [getattr(pkg, func) for func in dir(pkg) if func.startswith('exemplo')]
+        [
+            getattr(pkg, func)
+            for func in dir(pkg)
+            if func.startswith('exemplo')
+            and 'write' in getattr(pkg, func).__doc__.casefold()
+        ],
     )
-    def test_files_examples_exists(self, nfile, function):
-        """Testar se arquivo gerado existe."""
+    def test_files_examples_write_exists(self, nfile, function) -> None:
+        """Testar se arquivo gerado pelas funções de escrita existe."""
         function(nfile)
         assert nfile.is_file()
 
-    def test_files_exemplo1_txt(self, nfile):
+    def test_files_exemplo01_txt(self, nfile) -> None:
         """Teste para arquivos TXT."""
         pkg.exemplo01(nfile)
         assert nfile.read_text() == 'alguma coisa'
 
-    def test_files_exemplo2_txt(self, nfile):
+    def test_files_exemplo02_txt(self, nfile) -> None:
         """Teste para arquivos TXT."""
         pkg.exemplo02(nfile)
         assert nfile.read_text() == 'alguma coisa\noutra coisa'
 
-    def test_files_exemplo3_txt(self, nfile):
+    def test_files_exemplo03_txt(self, nfile) -> None:
         """Teste para arquivos TXT."""
         pkg.exemplo03(nfile)
         assert nfile.read_text() == 'alguma coisa.'
 
-    def test_files_exemplo4_txt(self, nfile):
+    def test_files_exemplo04_txt(self, nfile) -> None:
         """Teste para arquivos TXT."""
         pkg.exemplo04(nfile)
         assert nfile.read_text() == 'alguma coisa'
 
-    def test_files_exemplo5_txt(self, nfile):
+    def test_files_exemplo05_txt(self, nfile) -> None:
         """Teste para arquivos TXT."""
         pkg.exemplo05(nfile)
         assert nfile.read_text() == 'alguma coisaoutra coisa'
 
-    def test_files_exemplo6_csv(self, nfile) -> None:
+    def test_files_exemplo06_csv(self, nfile) -> None:
         """Teste para arquivos CSV."""
         nfile = nfile.with_suffix('.csv')
         pkg.exemplo06(nfile)
@@ -71,14 +80,14 @@ class TestCase:
             '\nLovely,Spam\nWonderful,Spam\n'
         ) in nfile.read_text()
 
-    def test_files_exemplo7_csv(self, nfile) -> None:
+    def test_files_exemplo07_csv(self, nfile) -> None:
         """Teste para arquivos CSV."""
         nfile = nfile.with_suffix('.csv')
         pkg.exemplo07(nfile, pkg.CONTENT)
         result = nfile.read_text()
         assert 'id,nome,telefone' in result
 
-    def test_files_exemplo6_csv(self, nfile):
+    def test_files_exemplo08_csv(self, nfile, capsys) -> None:
         """Teste para arquivos CSV."""
         nfile = nfile.with_suffix('.csv')
         nfile.write_text(self.content_fake)
@@ -94,7 +103,7 @@ class TestCase:
             "['6,sabino cruz das colves,(61) 95555-5555']\n"
         )
 
-    def test_files_exemplo7_csv(self):
+    def test_files_exemplo09_csv(self, nfile, capsys) -> None:
         """Teste para arquivos CSV."""
         nfile = nfile.with_suffix('.csv')
         nfile.write_text(self.content_fake)
@@ -110,7 +119,7 @@ class TestCase:
             "['6,sabino cruz das colves,(61) 95555-5555']\n"
         )
 
-    def test_files_exemplo8_csv(self):
+    def test_files_exemplo10_csv(self, nfile, capsys) -> None:
         """Teste para arquivos CSV."""
         nfile = nfile.with_suffix('.csv')
         nfile.write_text(self.content_fake.replace(',', ';'))
@@ -131,7 +140,7 @@ class TestCase:
             "('telefone', '(61) 95555-5555')]\n"
         )
 
-    def test_files_exemplo9_csv(self):
+    def test_files_exemplo11_csv(self, nfile, capsys) -> None:
         """Teste para arquivos CSV."""
         nfile = nfile.with_suffix('.csv')
         nfile.write_text(self.content_fake.replace(',', ';'))
@@ -149,7 +158,7 @@ class TestCase:
             "'telefone': '(61) 95555-5555'}]\n"
         )
 
-    def test_files_exemplo10_csv(self):
+    def test_files_exemplo12_csv(self, nfile, capsys) -> None:
         """Teste para arquivos CSV."""
         nfile = nfile.with_suffix('.csv')
         nfile.write_text(self.content_fake.replace(',', ';'))
@@ -214,7 +223,7 @@ class TestCase:
             '        "telefone": "(61) 95555-5555"\n    }\n]'
         )
 
-    def test_files_exemplo12_json(self):
+    def test_files_exemplo15_json(self, nfile, capsys) -> None:
         """Teste para arquivos JSON."""
         nfile = nfile.with_suffix('.json')
         nfile.write_text(
@@ -245,3 +254,14 @@ class TestCase:
             },
         ]
 
+    def test_files_exemplo17_xlsx(self, nfile) -> None:
+        """Teste para arquivos XLSX."""
+        nfile = nfile.with_suffix('.xlsx')
+        pkg.exemplo17(nfile)
+        assert nfile.is_file()
+
+    def test_files_exemplo18_xlsx(self, nfile) -> None:
+        """Teste para arquivos XLSX."""
+        nfile = nfile.with_suffix('.xlsx')
+        pkg.exemplo18(nfile)
+        assert nfile.is_file()
