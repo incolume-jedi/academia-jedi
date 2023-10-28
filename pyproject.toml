@@ -244,7 +244,7 @@ ignore = ['E203']
 
 [tool.ruff]
 # Always generate Python compatible code.
-target-version = "py39"
+target-version = "py310"
 # Decrease the maximum line length to 79 characters.
 line-length = 79
 tab-size = 4
