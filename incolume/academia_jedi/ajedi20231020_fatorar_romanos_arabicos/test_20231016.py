@@ -2,8 +2,9 @@
 # !/usr/bin/env python
 import pytest
 
-from incolume.academia_jedi.\
-    ajedi20231020_fatorar_romanos_arabicos.dojo import from_roman
+from incolume.academia_jedi.ajedi20231020_fatorar_romanos_arabicos.dojo import (
+    from_roman,
+)
 
 __author__ = '@britodfbr'  # pragma: no cover
 

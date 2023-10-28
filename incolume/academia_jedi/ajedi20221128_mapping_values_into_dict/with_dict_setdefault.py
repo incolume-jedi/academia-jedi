@@ -33,7 +33,7 @@ def tratativa02():
         print(value)
         tag, value = (
             value[: value.index(':')],
-            value[value.index(':') + 1:].strip(),
+            value[value.index(':') + 1 :].strip(),
         )
         print(f'{tag=} {value=}')
 
@@ -50,7 +50,7 @@ def tratativa03():
             try:
                 tag, value = (
                     value[: value.index(':')],
-                    value[value.index(':') + 1:].strip(),
+                    value[value.index(':') + 1 :].strip(),
                 )
                 print(f'{tag=} {value=}')
             except ValueError:

@@ -13,7 +13,8 @@ def get_content(url: str) -> list:
     content: str = req.text
     soup = BeautifulSoup(content, 'html5lib')
     result = soup.select_one(
-        'div.corpo_texto_noticia').contents  # type: ignore[union-attr]
+        'div.corpo_texto_noticia'
+    ).contents  # type: ignore[union-attr]
     return [line.strip() for line in result if line and isinstance(line, str)]
 
 
