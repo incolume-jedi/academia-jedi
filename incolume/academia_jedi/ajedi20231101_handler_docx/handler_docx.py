@@ -11,6 +11,7 @@ def example_default(fout: Path = None, fimg: Path = None):
     """Exemplo oficial da documentação python-docx."""
     fout = Path(getenv('HANDLER_DOCX_FILENAME'))
     fimg = fimg or Path(__file__).parent /'img' / 'image001.png'
+
     document = Document()
 
     document.add_heading('Document Title', 0)
@@ -54,5 +55,35 @@ def example_default(fout: Path = None, fimg: Path = None):
     document.save(fout.as_posix())
 
 
+def docx_basic(fout: Path = None, content: list = None) -> bool:
+    """Criar um docx básico."""
+    fout = fout or Path(getenv('HANDLER_DOCX_FILENAME'))
+    # file = Path(__file__).parent.joinpath('texto.txt')
+
+    document = Document()
+    document.add_heading('Epigrafe', 0)
+    p = document.add_paragraph('')
+    p.add_run('Ementa').italic = True
+    document.add_paragraph('Paragrafo 1')
+    document.add_paragraph('Paragrafo 2')
+    document.add_paragraph('data')
+    document.add_paragraph('Referenda 1')
+    document.add_paragraph('Referenda 2')
+    document.add_paragraph('Referenda 3')
+    document.add_paragraph('CLBR')
+    
+        
+    document.save(fout.as_posix())
+
+     
+    return fout.is_file()
+
+
+def run():
+    """Run it."""
+    # example_default()
+    docx_basic()
+
+                
 if __name__ == '__main__':
-    example_default()
+    run()
