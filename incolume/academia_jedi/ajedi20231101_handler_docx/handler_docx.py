@@ -58,20 +58,16 @@ def example_default(fout: Path = None, fimg: Path = None):
 def docx_basic(fout: Path = None, content: list = None) -> bool:
     """Criar um docx básico."""
     fout = fout or Path(getenv('HANDLER_DOCX_FILENAME'))
-    # file = Path(__file__).parent.joinpath('texto.txt')
 
     document = Document()
-    document.add_heading('Epigrafe', 0)
-    p = document.add_paragraph('')
-    p.add_run('Ementa').italic = True
-    document.add_paragraph('Paragrafo 1')
-    document.add_paragraph('Paragrafo 2')
-    document.add_paragraph('data')
-    document.add_paragraph('Referenda 1')
-    document.add_paragraph('Referenda 2')
-    document.add_paragraph('Referenda 3')
-    document.add_paragraph('CLBR')
+
+    document.add_heading(content[0], 0)
     
+    p = document.add_paragraph('')
+    p.add_run(content[1]).italic = True
+
+    for conteudo in content[2:]:
+        document.add_paragraph(conteudo)
         
     document.save(fout.as_posix())
 
@@ -82,7 +78,10 @@ def docx_basic(fout: Path = None, content: list = None) -> bool:
 def run():
     """Run it."""
     # example_default()
-    docx_basic()
+    
+    file = Path(__file__).parent.joinpath('texto.docx')
+    with Path(__file__).parent.joinpath('texto.txt').open() as f:
+        docx_basic(file, [x.strip() for x in f.readlines()])
 
                 
 if __name__ == '__main__':
