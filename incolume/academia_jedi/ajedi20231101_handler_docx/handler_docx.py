@@ -61,12 +61,12 @@ def docx_basic(fout: Path = None, content: list = None) -> bool:
 
     document = Document()
 
-    document.add_heading(content[0], 0)
+    document.add_heading(content.pop(0))
     
     p = document.add_paragraph('')
-    p.add_run(content[1]).italic = True
+    p.add_run(content.pop(0)).italic = True
 
-    for conteudo in content[2:]:
+    for conteudo in content:
         document.add_paragraph(conteudo)
         
     document.save(fout.as_posix())
