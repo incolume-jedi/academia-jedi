@@ -20,3 +20,19 @@ def get_connection(filesqlite: Path = None) -> sqlite3.Connection:
     return conn
 
 
+def create_table():
+    conn = get_connection()
+    c = conn.cursor()
+    c.execute(
+        """CREATE TABLE IF NOT EXISTS user(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        contact TEXT,
+        age INTEGER,
+        gender TEXT,
+        email TEXT,
+        address TEXT,
+        )
+        """
+    )
+    conn.commit()
