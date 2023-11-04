@@ -37,3 +37,8 @@ def massa_codon_dna(tamanho_codon: int = 4) -> str:
         raise ValueError(msg)
     codon = random.choices(alfabeto, k=tamanho_codon)
     return ''.join(codon)
+
+
+if __name__ == '__main__':    # pragma: no cover
+    for i in range(10):
+        print(massa_codon_dna(random.randint(2, 1001)))
