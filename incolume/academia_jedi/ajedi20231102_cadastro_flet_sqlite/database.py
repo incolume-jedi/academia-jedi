@@ -9,12 +9,8 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 def get_connection(filesqlite: Path | None = None) -> sqlite3.Connection:
     """Connetion database."""
-    if not filesqlite:
-        filesqlite = (
-            Path(getenv('APP_INCOLUME_DB'))
-            if getenv('APP_INCOLUME_DB')
-            else None
-        )
+    if not filesqlite and getenv('APP_INCOLUME_DB'):
+        filesqlite = Path(getenv('APP_INCOLUME_DB'))
     if not filesqlite:
         filesqlite = Path(__file__).parent / 'db/cad.db'
 
