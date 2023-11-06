@@ -1,7 +1,7 @@
 """Solução dos exercícios estrutura de decisão."""
 
 
-def exercicio01(num1: float, num2: float) -> None:
+def exercicio01(num1: float, num2: float) -> float:
     """Faça um Programa que peça dois números e imprima o maior deles."""
     return max(num1, num2)
 
@@ -30,7 +30,9 @@ def exercicio03(sexo: str) -> str:
 
 
 def exercicio04(letra: str) -> str:
-    """Faça um Programa que verifique se uma letra digitada é vogal ou consoante."""
+    """Vogal ou consoante.
+    Faça um Programa que verifique se uma letra digitada
+    é vogal ou consoante."""
     vogais = 'AEIOU'
 
     def isVogal(letra: str) -> bool:
@@ -58,7 +60,9 @@ def exercicio06(*args) -> float:
 
 
 def exercicio07(*args) -> tuple:
-    """Faça um Programa que leia três números e mostre o maior e o menor deles."""
+    """Maior e menor.
+    Faça um Programa que leia três números e mostre
+    o maior e o menor deles."""
     maior = -999999999999999999
     menor = 9999999999999999999
 
@@ -108,7 +112,7 @@ def exercicio10(turno: str):
         raise ValueError('Turno inválido: "%s".' % turno)
 
 
-def exercicio11(salario: float) -> None:
+def exercicio11(salario: float) -> str:
     """Reajustar salário.
 
     As Organizações Tabajara resolveram dar um aumento de salário aos seus
@@ -130,27 +134,27 @@ def exercicio11(salario: float) -> None:
     # ajustes = [.2, .15, .1, .05]
 
     def reajuste(salario: float) -> tuple:
-        """Calcular reajuste."""  
-        taxa = .2  
+        """Calcular reajuste."""
+        taxa = .2
         if salario > 1500:
             taxa = .05
         if 700 < salario <= 1500:
             taxa = .1
         if 280 < salario <= 700:
             taxa = .15
-        return taxa, salario * taxa  
-    
+        return taxa, salario * taxa
+
     def saida(salario: float)->str:
         """Resultado do problema."""
         tax, aumento = reajuste(salario)
-        return f"Salário atual: R$ {salario: .2f}\n aumento: {tax*100} %\n aumento: R$ {aumento: .2f}\n Salário novo: R$ {salario+aumento:.2f}"
-    
+        return (f"Salário atual: R$ {salario: .2f}\n "
+                f"aumento: {tax*100} %\n aumento: R$ {aumento: .2f}\n "
+                f"Salário novo: R$ {salario+aumento:.2f}")
+
     return saida(salario)
 
 
-
-
-def exercicio12():
+def exercicio12(valor_hora: float, quantia_hora: float) -> str:
     """Faça um programa para o cálculo de uma folha de pagamento.
 
     Sabendo que os descontos são do Imposto de Renda, que depende do
@@ -173,6 +177,23 @@ def exercicio12():
             Total de descontos              : R$  165,00
             Salário Liquido                 : R$  935,00
     """
+    taxa_ir = {900: 0, 1500: 5, 2500: 10, 2500.01: 20}
+    taxa_inss = .1
+    taxa_fgts = .11
+    sal_bruto = valor_hora * quantia_hora
+    inss = sal_bruto * taxa_inss
+    fgts = sal_bruto * taxa_fgts
+    ir = 0
+    descontos = ir + fgts
+
+    print(f"""
+            Salário Bruto: ({valor_hora} * {quantia_hora}): R$ {sal_bruto}
+            (-) IR (5%)                     : R$   {ir}
+            (-) INSS ( 10%)                 : R$  {inss}
+            FGTS (11%)                      : R$  {fgts}
+            Total de descontos              : R$  {descontos}
+            Salário Liquido                 : R$  {sal_bruto - descontos}
+    """)
 
 
 def exercicio13(dia: int) -> str:
@@ -237,7 +258,7 @@ def exercicio14(*args) -> str:
         """Apresentação do resultado."""
         conceito = calc_conceito(media)
         return f'Notas: {args}, Média: {media}, Conceito: {conceito} "{mensagens[conceito]}"'
-    
+
     return mostrar_resultado(media)
 
 def exercicio15():

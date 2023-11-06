@@ -239,6 +239,12 @@ def test_exercicio11(entrance, expected):
     assert pkg.exercicio11(entrance) == expected
 
 
+def test_exercicio12(capsys):
+    """Testar exercicio 12."""
+    stream, out = capsys.readouterr()
+    assert pkg.exercicio12(5, 220) == stream
+
+
 @pytest.mark.parametrize(
     'entrance expected'.split(),
     [
@@ -281,7 +287,7 @@ def test_exercicio14(entrance, expected):
     [
         ((10, 'a'), {'expected_exception': ValueError, 'match': 'Somente valores numéricos'}),
         (('A', 7),  {'expected_exception': ValueError, 'match': 'Somente valores numéricos'}),
-        (('a', '9'), {'expected_exception': ValueError, 'match': 'Somente valores numéricos'}), 
+        (('a', '9'), {'expected_exception': ValueError, 'match': 'Somente valores numéricos'}),
         (('', 6), {'expected_exception': ValueError, 'match': 'Somente valores numéricos'}),
     ],
 )
