@@ -327,3 +327,15 @@ def test_exercicio19(entrance, expected):
     assert pkg.exercicio19(entrance) == expected
 
 
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
+        (1, 'inteiro'),
+        (1.0, 'inteiro'),
+        (3.1415, 'decimal'),
+        (100, 'inteiro'),
+    ],
+)
+def test_exercicio23(entrance, expected):
+    """Testar exercicio23."""
+    assert pkg.exercicio23(entrance) == expected

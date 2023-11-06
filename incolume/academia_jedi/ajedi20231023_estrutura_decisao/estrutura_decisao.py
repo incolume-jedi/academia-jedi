@@ -374,13 +374,14 @@ def exercicio22():
     """
 
 
-def exercicio23():
+def exercicio23(num: float) -> str:
     """Faça um Programa que peça um número e informe se o número é
     inteiro ou decimal.
 
     Dica: utilize uma função de arredondamento.
 
     """
+    return 'inteiro' if int(num) == num else 'decimal'
 
 
 def exercicio24():
