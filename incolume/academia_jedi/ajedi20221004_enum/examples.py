@@ -1,11 +1,12 @@
 """Enum examples."""
 
-from enum import Enum, auto, unique
 import string
+from enum import Enum, auto
 
 
 class Day(Enum):
-    """Creating Enumerations With the Functional API"""
+    """Creating Enumerations With the Functional API."""
+
     MONDAY = 1
     TUESDAY = 2
     WEDNESDAY = 3
@@ -16,12 +17,14 @@ class Day(Enum):
 
 
 class Season(Enum):
-    """Creating Enumerations With the Functional API"""
+    """Creating Enumerations With the Functional API."""
+
     WINTER, SPRING, SUMMER, FALL = range(1, 5)
 
 
 class Grade(Enum):
-    """Creating Enumerations With the Functional API"""
+    """Creating Enumerations With the Functional API."""
+
     A = 90
     B = 80
     C = 70
@@ -30,20 +33,23 @@ class Grade(Enum):
 
 
 class Size(Enum):
-    """Creating Enumerations With the Functional API"""
-    S = "small"
-    M = "medium"
-    L = "large"
-    XL = "extra large"
+    """Creating Enumerations With the Functional API."""
+
+    S = 'small'
+    M = 'medium'
+    L = 'large'
+    XL = 'extra large'
 
 
 class Size1(Enum):
-    """Creating Enumerations With the Functional API"""
-    S, M,  L, XL = 1, 2, 3, 4
+    """Creating Enumerations With the Functional API."""
+
+    S, M, L, XL = 1, 2, 3, 4
 
 
 class SwitchPosition(Enum):
-    """Creating Enumerations With the Functional API"""
+    """Creating Enumerations With the Functional API."""
+
     ON = True
     OFF = False
 
@@ -57,17 +63,19 @@ class BaseTextEnum(Enum):
 
 
 class Alphabet(BaseTextEnum):
-    """Creating Enumerations With the Functional API"""
+    """Creating Enumerations With the Functional API."""
+
     LOWERCASE = string.ascii_lowercase
     UPPERCASE = string.ascii_uppercase
 
 
 #   Creating Enumerations With the Functional API
-HTTPMethod0 = Enum("HTTPMethod", ["GET", "POST", "PUSH", "PATCH", "DELETE"])
+HTTPMethod0 = Enum('HTTPMethod', ['GET', 'POST', 'PUSH', 'PATCH', 'DELETE'])
 
 
 class HTTPMethod(Enum):
-    """Creating Enumerations With the Functional API"""
+    """Creating Enumerations With the Functional API."""
+
     GET = 1
     POST = 2
     PUSH = 3
@@ -77,19 +85,20 @@ class HTTPMethod(Enum):
 
 HTTPStatusCode = Enum(
     # Creating Enumerations With the Functional API
-    value="HTTPStatusCode",
+    value='HTTPStatusCode',
     names=[
-        ("OK", 200),
-        ("CREATED", 201),
-        ("BAD_REQUEST", 400),
-        ("NOT_FOUND", 404),
-        ("SERVER_ERROR", 500),
+        ('OK', 200),
+        ('CREATED', 201),
+        ('BAD_REQUEST', 400),
+        ('NOT_FOUND', 404),
+        ('SERVER_ERROR', 500),
     ],
 )
 
 
 class WDay(Enum):
-    """Building Enumerations From Automatic Values"""
+    """Building Enumerations From Automatic Values."""
+
     MONDAY = auto()
     TUESDAY = auto()
     WEDNESDAY = 3
@@ -100,7 +109,7 @@ class WDay(Enum):
 
 
 class CardinalDirection(Enum):
-    """Building Enumerations From Automatic Values"""
+    """Building Enumerations From Automatic Values."""
 
     def _generate_next_value_(name, start, count, last_values):
         return name[0]
@@ -112,27 +121,23 @@ class CardinalDirection(Enum):
 
 
 class OperatingSystem0(Enum):
-    UBUNTU = "linux"
-    MACOS = "darwin"
-    WINDOWS = "win"
-    DEBIAN = "linux"
+    UBUNTU = 'linux'
+    MACOS = 'darwin'
+    WINDOWS = 'win'
+    DEBIAN = 'linux'
 
 
 # @unique
 # class OperatingSystem1(Enum):
 #     """ValueError: duplicate values found in
 #     <enum 'OperatingSystem1'>: DEBIAN -> UBUNTU"""
-#     UBUNTU = "linux"
-#     MACOS = "darwin"
-#     WINDOWS = "win"
-#     DEBIAN = "linux"
 
 
 class CardinalDirection1(Enum):
-    NORTH = "N"
-    SOUTH = "S"
-    EAST = "E"
-    WEST = "W"
+    NORTH = 'N'
+    SOUTH = 'S'
+    EAST = 'E'
+    WEST = 'W'
 
 
 class Flavor(Enum):
@@ -151,7 +156,7 @@ def loop1():
     for name in Flavor.__members__:
         print(name)
 
-    for name in Flavor.__members__.keys():
+    for name in Flavor.__members__:
         print(name)
 
     for name in Flavor.__members__.values():
@@ -168,11 +173,11 @@ class Semaphore(Enum):
 def handle_semaphore(light):
     match light:
         case Semaphore.RED:
-            print("You must stop!")
+            print('You must stop!')
         case Semaphore.YELLOW:
-            print("Light will change to red, be careful!")
+            print('Light will change to red, be careful!')
         case Semaphore.GREEN:
-            print("You can continue!")
+            print('You can continue!')
 
 
 class Mood(Enum):
@@ -181,8 +186,8 @@ class Mood(Enum):
     def describe_mood(self):
         return self.name, self.value
 
-    def __str__(self):
-        return f"I feel {self.name}"
+    def __str__(self) -> str:
+        return f'I feel {self.name}'
 
     @classmethod
     def favorite_mood(cls):
@@ -239,24 +244,21 @@ def run():
         '---',
         list(OperatingSystem0.__members__.items()),
         # '---',
-        # list(OperatingSystem1),
         # '---',
-        # list(OperatingSystem1.__members__.items()),
         '---',
         # Dot notation
         CardinalDirection1.NORTH,
         # Call notation
-        CardinalDirection1("N"),
+        CardinalDirection1('N'),
         # Subscript notation
-        CardinalDirection1["NORTH"],
+        CardinalDirection1['NORTH'],
         '---',
         CardinalDirection1.NORTH.name,
         CardinalDirection1.NORTH.value,
         CardinalDirection1.WEST.name,
         '---',
         '---',
-
-        sep='\n'
+        sep='\n',
     )
     print('---')
     loop1()
@@ -269,15 +271,11 @@ def run():
         Mood.HAPPY.describe_mood(),
         Mood.HAPPY,
         Mood.favorite_mood(),
-        sep='\n'
+        sep='\n',
     )
     print('---')
     numbers = [5, 2, 7, 6, 3, 9, 8, 4]
-    print(
-        Sort.ASCENDING(numbers),
-        Sort.DESCENDING(numbers),
-        sep='\n'
-    )
+    print(Sort.ASCENDING(numbers), Sort.DESCENDING(numbers), sep='\n')
     print('---')
 
     ...

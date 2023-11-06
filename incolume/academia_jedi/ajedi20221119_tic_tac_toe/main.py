@@ -1,10 +1,7 @@
 import logging
+from typing import Optional
 
-board = [
-    [' ', ' ', ' '],
-    [' ', ' ', ' '],
-    [' ', ' ', ' ']
-]
+board = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
 
 logging.debug(board)
 
@@ -15,14 +12,21 @@ def show_board():
         print(index, row)
 
 
-def move_game(board: list, gamer: str,
-              row: int, col: int, options: list = None):
+def move_game(
+    board: list,
+    gamer: str,
+    row: int,
+    col: int,
+    options: Optional[list] = None,
+):
     options = options or ['X', 'O']
     gamer = gamer.upper()
     if gamer not in options:
-        raise ValueError('Invalid Gamer.')
+        msg = 'Invalid Gamer.'
+        raise ValueError(msg)
     if board[row][col] in options:
-        raise OverflowError('Field ocupade.')
+        msg = 'Field ocupade.'
+        raise OverflowError(msg)
     board[row][col] = gamer
     show_board()
     logging.debug(check_winner(board))
@@ -34,30 +38,21 @@ def check_winner(board: list, options=None):
     rows, cols = len(board), len(board[0])
 
     def element_pos(option):
-        return [
-                   board[x][y] == option
-                   # (x, y)
-                   for x in range(rows)
-                   for y in range(cols)
-               ] + [
-                   board[y][x] == option
-                   # (y, x)
-                   for x in range(rows)
-                   for y in range(cols)
-               ] + [
-                   board[x][x] == option
-                   # (x, x)
-                   for x in range(len(board))
-               ] + [
-                   board[len(board) - 1 - x][x] == option
-                   # (len(board) - 1 - x, x)
-                   for x in range(len(board))
-               ]
+        return (
+            [board[x][y] == option for x in range(rows) for y in range(cols)]
+            + [board[y][x] == option for x in range(rows) for y in range(cols)]
+            + [board[x][x] == option for x in range(len(board))]
+            + [
+                board[len(board) - 1 - x][x] == option
+                for x in range(len(board))
+            ]
+        )
 
     def check_values(pos: list):
-        for x in range(3, len(pos)+1, 3):
-            if all(pos[x-3:x]):
+        for x in range(3, len(pos) + 1, 3):
+            if all(pos[x - 3 : x]):
                 return True
+        return None
 
     def get_winner(xpos: list, opos: list):
         winner = ''
@@ -71,8 +66,7 @@ def check_winner(board: list, options=None):
     xpos = element_pos(options[0])
     opos = element_pos(options[1])
     winner = get_winner(xpos, opos)
-    result = f"{winner}'s Wins"
-    return result
+    return f"{winner}'s Wins"
 
 
 def run():

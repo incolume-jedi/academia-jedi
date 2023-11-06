@@ -1,12 +1,11 @@
-import pony.orm.core
-from pony.orm.examples.estore import populate_database
-from pony import orm
 from datetime import datetime
 from decimal import Decimal
 
+import pony.orm.core
+from pony import orm
+from pony.orm.examples.estore import populate_database
 
 db = orm.Database()
-# db.bind(provider='sqlite', filename=':memory:')
 db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
 
 
@@ -65,7 +64,7 @@ class Category(db.Entity):
 db.generate_mapping(create_tables=True)
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
 
     with orm.db_session:
         try:
@@ -76,11 +75,15 @@ if __name__ == '__main__':    # pragma: no cover
             'SELECT "customer"."country", COUNT(DISTINCT "customer"."id") '
             'FROM "Customer" "customer" '
             'GROUP BY "customer"."country" '
-            'ORDER BY 2 DESC LIMIT 1'
+            'ORDER BY 2 DESC LIMIT 1',
         )
         print(f'{result=}')
-        result = orm.select(
-            (customer.country, orm.count(customer))
-            for customer in Customer).order_by(-2).first()
+        result = (
+            orm.select(
+                (customer.country, orm.count(customer))
+                for customer in Customer
+            )
+            .order_by(-2)
+            .first()
+        )
         print(f'{result=}')
-

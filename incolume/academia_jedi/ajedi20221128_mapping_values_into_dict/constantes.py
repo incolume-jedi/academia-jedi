@@ -1,8 +1,7 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
-labels = "Added Changed Deprecated Removed Fixed Security".split()
+labels = 'Added Changed Deprecated Removed Fixed Security'.split()
 
 MSG = """
 0.1.0           Added: initial commit
@@ -51,4 +50,3 @@ MSG = """
 2.5.4           Added: Documentação automatizada com sphinx2.6.0   Added: adicionado; Removed: Removido; Changed: Alterado; asdfafafafasf; afasdfasdfadsfasdf; asfasdfasdfasfasdf; Fixed: Corrigido; Alterado; Validado
 2.5.5           Added: Documentação automatizada com sphinx2.6.0   Added: adicionado; Removed: Removido; Changed: Alterado; asdfafafafasf; afasdfasdfadsfasdf; asfasdfasdfasfasdf; Fixed: Corrigido; Alterado; Validado; Deprecated: Módulo incolumepy.utils.sequences deixou de existir; Security: Gerenciador de pacotes alterado para poetry; Changed: Switch de testes alterado para pytest; Redefinição de estrutura; Deprecated: Funcionalidades obsoletas sinalizadas como deprecated; Atualização de teste para key_sort_2_versions
 """
-

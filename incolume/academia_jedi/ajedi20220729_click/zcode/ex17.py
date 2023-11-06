@@ -5,7 +5,7 @@ import click
 
 @click.group()
 def cli():
-  pass
+    pass
 
 
 @cli.command(name='gen')

@@ -1,13 +1,16 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 
-def gen_id(initial: int = 1)->int:
+
+def gen_id(initial: int = 1) -> int:
     count = initial or 1
     while True:
         yield count
         count += 1
 
+
 a = gen_id()
+
 
 def get_id():
     return next(a)

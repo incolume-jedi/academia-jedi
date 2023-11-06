@@ -1,18 +1,26 @@
+from pathlib import Path
 
 from dynaconf import Dynaconf, Validator
 
 settings = Dynaconf(
-    envvar_prefix="INCOLUME",
-    settings_files=['settings.toml', '.secrets.toml'],
-    environments=[
-        "development",
-        "production",
-        "testing",
+    envvar_prefix='INCOLUME',
+    settings_files=[
+        Path(__file__).parent / 'settings.toml',
+        Path(__file__).parent / '.secrets.toml',
     ],
-    env_switcher="INCOLUME_MODE",
+    environments=[
+        'development',
+        'production',
+        'testing',
+    ],
+    env_switcher='INCOLUME_MODE',
     validators=[
-        Validator("NAME", must_exist=True, ne="App"),  # NAME deve existir != App
-    ]
+        Validator(
+            'NAME',
+            must_exist=True,
+            ne='App',
+        ),  # NAME deve existir != App
+    ],
 )
 
 # `envvar_prefix` = export envvars with `export DYNACONF_FOO=bar`.

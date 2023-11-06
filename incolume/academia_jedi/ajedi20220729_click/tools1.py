@@ -1,6 +1,7 @@
 import click
 
-CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
+CONTEXT_SETTINGS = {'help_option_names': ['-h', '--help']}
+
 
 @click.group(context_settings=CONTEXT_SETTINGS, invoke_without_command=True)
 @click.option('--debug/--no-debug', default=False, help='Activate debug mode.')

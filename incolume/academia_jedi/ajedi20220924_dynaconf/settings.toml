@@ -1,8 +1,9 @@
 [default]
-  MSG="Hello World"
+MSG="Hello World"
 
 [development]
 MSG="Hello Dev"
+NAME="Application"
 
 [testing]
 MSG="Hello tester"

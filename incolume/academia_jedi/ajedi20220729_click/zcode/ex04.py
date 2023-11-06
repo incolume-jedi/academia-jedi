@@ -1,8 +1,10 @@
 #!/usr/bin/python
 
-import click
-from operator import mul
 from functools import reduce
+from operator import mul
+
+import click
+
 
 @click.command()
 @click.argument('vals', type=int, nargs=-1)

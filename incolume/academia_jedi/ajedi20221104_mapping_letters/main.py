@@ -1,8 +1,7 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 from unidecode import unidecode
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 words = [
     'missíssipi',
@@ -19,7 +18,7 @@ def mapping_letters1():
 
 def mapping_letters2():
     for word in (unidecode(w) for w in words):
-        print((word))
+        print(word)
 
 
 def mapping_letters3():

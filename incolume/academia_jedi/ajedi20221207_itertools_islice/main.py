@@ -1,6 +1,5 @@
 from itertools import islice
 
-
 lines = [
     'line1',
     'line2',
@@ -11,15 +10,14 @@ lines = [
     'line7',
     'line8',
     'line9',
-    'line10'
-    ]
+    'line10',
+]
 
 # Sem islice
 for i, line in enumerate(lines):
     if i >= 5:
         break
     print(line)
-
 
 
 print()

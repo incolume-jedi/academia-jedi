@@ -3,8 +3,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Point:
-    """
-    Class Point with dataclass decorator.
+    """Class Point with dataclass decorator.
 
     >>> p1 = Point(4, 9)
     >>> p2 = Point(2, 3)
@@ -26,6 +25,3 @@ class Point:
         self.x -= o.x
         self.y -= o.y
         return self
-
-
-

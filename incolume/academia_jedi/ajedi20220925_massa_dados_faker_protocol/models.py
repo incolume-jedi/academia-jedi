@@ -1,13 +1,12 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
 import datetime as dt
+import json
 from collections import namedtuple
 from copy import copy
 from dataclasses import dataclass, field
 from itertools import count
-import json
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 counter = count()
 
 Pessoa0 = namedtuple('Pessoa', ['nome_completo', 'data_de_nascimento', 'cpf'])
@@ -21,8 +20,13 @@ class Pessoa:
 
     def jsonify(self):
         temp = copy(self)
-        temp.data_de_nascimento = self.data_de_nascimento.strftime("%Y-%m-%d")
+        temp.data_de_nascimento = self.data_de_nascimento.isoformat()
         return json.dumps(temp.__dict__)
+
+    def to_dict(self):
+        temp = copy(self)
+        temp.data_de_nascimento = self.data_de_nascimento.isoformat()
+        return temp.__dict__
 
 
 @dataclass

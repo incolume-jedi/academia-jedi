@@ -1,16 +1,13 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
-from app import run
-from os import environ, getenv, putenv
-from pprint import pprint
+from os import environ
 
+from incolume.academia_jedi.ajedi20220924_dynaconf.app import run
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 def activate_envvar(activate: bool = False) -> bool:
-    """Configura variavle de ambiente através do python."""
-    # pprint(environ)
+    """Configura variáveis de ambiente através do python."""
     if activate:
         environ['INCOLUME_AUTHOR'] = 'Ricardo Brito do Nascimento'
         environ['INCOLUME_NAME'] = 'MyApp'

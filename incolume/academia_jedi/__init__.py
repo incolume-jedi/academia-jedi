@@ -1,4 +1,9 @@
-from tomli import load
+"""Module academia_jedi."""
+try:
+    from tomli import load
+except (ModuleNotFoundError, ImportError):
+    from tomllib import load
+
 from pathlib import Path
 
 versionfile = Path(__file__).parent / 'version.txt'

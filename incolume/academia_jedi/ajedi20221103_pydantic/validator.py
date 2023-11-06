@@ -10,13 +10,15 @@ class UserModel(BaseModel):
     @validator('name')
     def name_must_contain_space(cls, v):
         if ' ' not in v:
-            raise ValueError('must contain a space')
+            msg = 'must contain a space'
+            raise ValueError(msg)
         return v.title()
 
     @validator('password2')
     def passwords_match(cls, v, values, **kwargs):
         if 'password1' in values and v != values['password1']:
-            raise ValueError('passwords do not match')
+            msg = 'passwords do not match'
+            raise ValueError(msg)
         return v
 
     @validator('username')
@@ -35,7 +37,6 @@ if __name__ == '__main__':  # pragma: no cover
     )
     print(user)
     # > name='Samuel Colvin' username='scolvin' password1='zxcvbn'
-    # password2='zxcvbn'
 
     try:
         UserModel(

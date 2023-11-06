@@ -1,6 +1,5 @@
 class Point:
-    """
-    Class Point.
+    """Class Point.
 
     >>> p1 = Point(4, 6)
     >>> p2 = Point(2, 3)
@@ -36,7 +35,7 @@ class Point:
     Point(2, 2)
     """
 
-    def __init__(self, x:int, y:int) -> None:
+    def __init__(self, x: int, y: int) -> None:
         self.x = x
         self.y = y
 

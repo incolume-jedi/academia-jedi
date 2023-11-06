@@ -1,13 +1,13 @@
 #!/usr/bin/python
 
-import click
-import os
 from pathlib import Path
+
+import click
+
 
 @click.argument('mydir', envvar='MYDIR', type=click.Path(exists=True))
 @click.command()
 def dolist(mydir):
-    # click.echo(os.listdir(mydir))
     click.echo(tuple(x.as_posix() for x in Path(mydir).resolve().iterdir()))
 
 

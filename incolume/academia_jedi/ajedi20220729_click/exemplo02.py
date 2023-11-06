@@ -9,6 +9,7 @@ def cli(ctx):
     else:
         click.echo('I am about to invoke %s' % ctx.invoked_subcommand)
 
+
 @cli.command()
 def sync():
     click.echo('The subcommand')

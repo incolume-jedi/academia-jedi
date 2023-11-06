@@ -1,0 +1,713 @@
+<LexML xsi:schemaLocation="http://www.lexml.gov.br/1.0 ../xsd/lexml-br-rigido.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.lexml.gov.br/1.0">
+      <!--       xsi:schemaLocation="http://www.lexml.gov.br/1.0 http://projeto.lexml.gov.br/esquemas/lexml-br-rigido.xsd" >
+ -->
+      <Metadado>
+      <Identificacao URN="urn:lex:br:federal:lei:2017-02-16;13415"/>
+    <DataAssinatura>
+16/02/2017</DataAssinatura>
+<PathOrigem>
+/home/basis/Repositories/PR/arquivos/normas_legais/teste_legado/L13415.htm</PathOrigem>
+</Metadado>
+      <ProjetoNorma>
+<Norma>
+          <ParteInicial>
+      <Epigrafe id="epigrafe">
+ LEI Nº 13.415, DE 16 DE FEVEREIRO DE 2017. </Epigrafe>
+		  <Ementa id="ementa">
+Conversão da Medida Provisória nº 746, de 2016. Altera as Leis n º 9.394, de 20 de dezembro de 1996, que estabelece as diretrizes e bases da educação nacional, e 11.494, de 20 de junho 2007, que regulamenta o Fundo de Manutenção e Desenvolvimento da Educação Básica e de Valorização dos Profissionais da Educação, a Consolidação das Leis do Trabalho - CLT, aprovada pelo Decreto-Lei nº 5.452, de 1º de maio de 1943, e o Decreto-Lei nº 236, de 28 de fevereiro de 1967; revoga a Lei nº 11.161, de 5 de agosto de 2005; e institui a Política de Fomento à Implementação de Escolas de Ensino Médio em Tempo Integral.</Ementa>
+      <Preambulo id="preambulo">
+<p>
+    O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte Lei:  </p>
+</Preambulo>
+    </ParteInicial>
+          <Articulacao>
+<Artigo id="art1">
+                                    <Rotulo>
+Art. 1º</Rotulo>
+                        <Caput id="art1_cpt">
+                                                <p>
+    O art. 24 da Lei nº 9.394, de 20 de dezembro de 1996 , passa a vigorar com as seguintes alterações :  </p>
+            <Alteracao id="art1_cpt_alt1">
+                            <Artigo xlink:href="art24" id="art1_cpt_alt1_art24" abreAspas="s">
+                                    <Rotulo>
+Art. 24.</Rotulo>
+                        <Caput xlink:href="art24_cpt" id="art1_cpt_alt1_art24_cpt" textoOmitido="s">
+                                                            <Inciso xlink:href="art24_cpt_inc1" id="art1_cpt_alt1_art24_cpt_inc1">
+                                    <Rotulo>
+I –</Rotulo>
+            <p>
+    a carga horária mínima anual será de oitocentas horas para o ensino fundamental e para o ensino médio, distribuídas por um mínimo de duzentos dias de efetivo trabalho escolar, excluído o tempo reservado aos exames finais, quando houver;  </p>
+                      </Inciso>
+          </Caput>
+<Omissis id="art1_cpt_alt1_art24_omi1"/>
+<Paragrafo xlink:href="art24_par1" id="art1_cpt_alt1_art24_par1">
+                                    <Rotulo>
+§ 1º</Rotulo>
+            <p>
+    A carga horária mínima anual de que trata o inciso I do caput deverá ser ampliada de forma progressiva, no ensino médio, para mil e quatrocentas horas, devendo os sistemas de ensino oferecer, no prazo máximo de cinco anos, pelo menos mil horas anuais de carga horária, a partir de 2 de março de 2017.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art24_par2" id="art1_cpt_alt1_art24_par2" fechaAspas="s" notaAlteracao="NR">
+                                    <Rotulo>
+§ 2º</Rotulo>
+            <p>
+    Os sistemas de ensino disporão sobre a oferta de educação de jovens e adultos e de ensino noturno regular, adequado às condições do educando, conforme o inciso VI do art. 4º .  </p>
+                      </Paragrafo>
+          </Artigo>
+            </Alteracao>
+          </Caput>
+          </Artigo>
+<Artigo id="art2">
+                                    <Rotulo>
+Art. 2º</Rotulo>
+                        <Caput id="art2_cpt">
+                                                <p>
+    O art. 26 da Lei nº 9.394, de 20 de dezembro de 1996 , passa a vigorar com as seguintes alterações:  </p>
+            <Alteracao id="art2_cpt_alt1">
+                            <Artigo xlink:href="art26" id="art2_cpt_alt1_art26" abreAspas="s">
+                                    <Rotulo>
+Art. 26.</Rotulo>
+                        <Caput xlink:href="art26_cpt" id="art2_cpt_alt1_art26_cpt" textoOmitido="s">
+                                                                      </Caput>
+<Omissis id="art2_cpt_alt1_art26_omi1"/>
+<Paragrafo xlink:href="art26_par2" id="art2_cpt_alt1_art26_par2">
+                                    <Rotulo>
+§ 2º</Rotulo>
+            <p>
+    O ensino da arte, especialmente em suas expressões regionais, constituirá componente curricular obrigatório da educação básica.  </p>
+                      </Paragrafo>
+<Omissis id="art2_cpt_alt1_art26_omi2"/>
+<Paragrafo xlink:href="art26_par5" id="art2_cpt_alt1_art26_par5">
+                                    <Rotulo>
+§ 5º</Rotulo>
+            <p>
+    No currículo do ensino fundamental, a partir do sexto ano, será ofertada a língua inglesa.  </p>
+                      </Paragrafo>
+<Omissis id="art2_cpt_alt1_art26_omi3"/>
+<Paragrafo xlink:href="art26_par7" id="art2_cpt_alt1_art26_par7">
+                                    <Rotulo>
+§ 7º</Rotulo>
+            <p>
+    A integralização curricular poderá incluir, a critério dos sistemas de ensino, projetos e pesquisas envolvendo os temas transversais de que trata o caput .  </p>
+                      </Paragrafo>
+<Omissis id="art2_cpt_alt1_art26_omi4"/>
+<Paragrafo xlink:href="art26_par10" id="art2_cpt_alt1_art26_par10" fechaAspas="s" notaAlteracao="NR">
+                                    <Rotulo>
+§ 10.</Rotulo>
+            <p>
+    A inclusão de novos componentes curriculares de caráter obrigatório na Base Nacional Comum Curricular dependerá de aprovação do Conselho Nacional de Educação e de homologação pelo Ministro de Estado da Educação.  </p>
+                      </Paragrafo>
+          </Artigo>
+            </Alteracao>
+          </Caput>
+          </Artigo>
+<Artigo id="art3">
+                                    <Rotulo>
+Art. 3º</Rotulo>
+                        <Caput id="art3_cpt">
+                                                <p>
+    A Lei nº 9.394, de 20 de dezembro de 1996 , passa a vigorar acrescida do seguinte art. 35-A:  </p>
+            <Alteracao id="art3_cpt_alt1">
+                            <Artigo xlink:href="art35-1" id="art3_cpt_alt1_art35-1" abreAspas="s">
+                                    <Rotulo>
+Art. 35-A.</Rotulo>
+                        <Caput xlink:href="art35-1_cpt" id="art3_cpt_alt1_art35-1_cpt">
+                                                <p>
+    A Base Nacional Comum Curricular definirá direitos e objetivos de aprendizagem do ensino médio, conforme diretrizes do Conselho Nacional de Educação, nas seguintes áreas do conhecimento:  </p>
+            <Inciso xlink:href="art35-1_cpt_inc1" id="art3_cpt_alt1_art35-1_cpt_inc1">
+                                    <Rotulo>
+I –</Rotulo>
+            <p>
+    linguagens e suas tecnologias;  </p>
+                      </Inciso>
+<Inciso xlink:href="art35-1_cpt_inc2" id="art3_cpt_alt1_art35-1_cpt_inc2">
+                                    <Rotulo>
+II –</Rotulo>
+            <p>
+    matemática e suas tecnologias;  </p>
+                      </Inciso>
+<Inciso xlink:href="art35-1_cpt_inc3" id="art3_cpt_alt1_art35-1_cpt_inc3">
+                                    <Rotulo>
+III –</Rotulo>
+            <p>
+    ciências da natureza e suas tecnologias;  </p>
+                      </Inciso>
+<Inciso xlink:href="art35-1_cpt_inc4" id="art3_cpt_alt1_art35-1_cpt_inc4">
+                                    <Rotulo>
+IV –</Rotulo>
+            <p>
+    ciências humanas e sociais aplicadas.  </p>
+                      </Inciso>
+          </Caput>
+<Paragrafo xlink:href="art35-1_par1" id="art3_cpt_alt1_art35-1_par1">
+                                    <Rotulo>
+§ 1º</Rotulo>
+            <p>
+    A parte diversificada dos currículos de que trata o caput do art. 26, definida em cada sistema de ensino, deverá estar harmonizada à Base Nacional Comum Curricular e ser articulada a partir do contexto histórico, econômico, social, ambiental e cultural.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art35-1_par2" id="art3_cpt_alt1_art35-1_par2">
+                                    <Rotulo>
+§ 2º</Rotulo>
+            <p>
+    A Base Nacional Comum Curricular referente ao ensino médio incluirá obrigatoriamente estudos e práticas de educação física, arte, sociologia e filosofia.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art35-1_par3" id="art3_cpt_alt1_art35-1_par3">
+                                    <Rotulo>
+§ 3º</Rotulo>
+            <p>
+    O ensino da língua portuguesa e da matemática será obrigatório nos três anos do ensino médio, assegurada às comunidades indígenas, também, a utilização das respectivas línguas maternas.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art35-1_par4" id="art3_cpt_alt1_art35-1_par4">
+                                    <Rotulo>
+§ 4º</Rotulo>
+            <p>
+    Os currículos do ensino médio incluirão, obrigatoriamente, o estudo da língua inglesa e poderão ofertar outras línguas estrangeiras, em caráter optativo, preferencialmente o espanhol, de acordo com a disponibilidade de oferta, locais e horários definidos pelos sistemas de ensino.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art35-1_par5" id="art3_cpt_alt1_art35-1_par5">
+                                    <Rotulo>
+§ 5º</Rotulo>
+            <p>
+    A carga horária destinada ao cumprimento da Base Nacional Comum Curricular não poderá ser superior a mil e oitocentas horas do total da carga horária do ensino médio, de acordo com a definição dos sistemas de ensino.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art35-1_par6" id="art3_cpt_alt1_art35-1_par6">
+                                    <Rotulo>
+§ 6º</Rotulo>
+            <p>
+    A União estabelecerá os padrões de desempenho esperados para o ensino médio, que serão referência nos processos nacionais de avaliação, a partir da Base Nacional Comum Curricular.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art35-1_par7" id="art3_cpt_alt1_art35-1_par7">
+                                    <Rotulo>
+§ 7º</Rotulo>
+            <p>
+    Os currículos do ensino médio deverão considerar a formação integral do aluno, de maneira a adotar um trabalho voltado para a construção de seu projeto de vida e para sua formação nos aspectos físicos, cognitivos e socioemocionais.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art35-1_par8" id="art3_cpt_alt1_art35-1_par8">
+                                    <Rotulo>
+§ 8º</Rotulo>
+            <p>
+    Os conteúdos, as metodologias e as formas de avaliação processual e formativa serão organizados nas redes de ensino por meio de atividades teóricas e práticas, provas orais e escritas, seminários, projetos e atividades on-line , de tal forma que ao final do ensino médio o educando demonstre:  </p>
+            <Inciso xlink:href="art35-1_par8_inc1" id="art3_cpt_alt1_art35-1_par8_inc1">
+                                    <Rotulo>
+I –</Rotulo>
+            <p>
+    domínio dos princípios científicos e tecnológicos que presidem a produção moderna;  </p>
+                      </Inciso>
+<Inciso xlink:href="art35-1_par8_inc2" id="art3_cpt_alt1_art35-1_par8_inc2" fechaAspas="s">
+                                    <Rotulo>
+II –</Rotulo>
+            <p>
+    conhecimento das formas contemporâneas de linguagem.  </p>
+                      </Inciso>
+          </Paragrafo>
+          </Artigo>
+            </Alteracao>
+          </Caput>
+          </Artigo>
+<Artigo id="art4">
+                                    <Rotulo>
+Art. 4º</Rotulo>
+                        <Caput id="art4_cpt">
+                                                <p>
+    O art. 36 da Lei nº 9.394, de 20 de dezembro de 1996 , passa a vigorar com as seguintes alterações:  </p>
+            <Alteracao id="art4_cpt_alt1">
+                            <Artigo xlink:href="art36" id="art4_cpt_alt1_art36" abreAspas="s">
+                                    <Rotulo>
+Art. 36.</Rotulo>
+                        <Caput xlink:href="art36_cpt" id="art4_cpt_alt1_art36_cpt">
+                                                <p>
+     O currículo do ensino médio será composto pela Base Nacional Comum Curricular e por itinerários formativos, que deverão ser organizados por meio da oferta de diferentes arranjos curriculares, conforme a relevância para o contexto local e a possibilidade dos sistemas de ensino, a saber:  </p>
+            <Inciso xlink:href="art36_cpt_inc1" id="art4_cpt_alt1_art36_cpt_inc1">
+                                    <Rotulo>
+I –</Rotulo>
+            <p>
+    linguagens e suas tecnologias;  </p>
+                      </Inciso>
+<Inciso xlink:href="art36_cpt_inc2" id="art4_cpt_alt1_art36_cpt_inc2">
+                                    <Rotulo>
+II –</Rotulo>
+            <p>
+    matemática e suas tecnologias;  </p>
+                      </Inciso>
+<Inciso xlink:href="art36_cpt_inc3" id="art4_cpt_alt1_art36_cpt_inc3">
+                                    <Rotulo>
+III –</Rotulo>
+            <p>
+    ciências da natureza e suas tecnologias;  </p>
+                      </Inciso>
+<Inciso xlink:href="art36_cpt_inc4" id="art4_cpt_alt1_art36_cpt_inc4">
+                                    <Rotulo>
+IV –</Rotulo>
+            <p>
+    ciências humanas e sociais aplicadas;  </p>
+                      </Inciso>
+<Inciso xlink:href="art36_cpt_inc5" id="art4_cpt_alt1_art36_cpt_inc5">
+                                    <Rotulo>
+V –</Rotulo>
+            <p>
+    formação técnica e profissional.  </p>
+                      </Inciso>
+          </Caput>
+<Paragrafo xlink:href="art36_par1" id="art4_cpt_alt1_art36_par1">
+                                    <Rotulo>
+§ 1º</Rotulo>
+            <p>
+    A organização das áreas de que trata o caput e das respectivas competências e habilidades será feita de acordo com critérios estabelecidos em cada sistema de ensino.  </p>
+            <Inciso xlink:href="art36_par1_inc1" id="art4_cpt_alt1_art36_par1_inc1">
+                                    <Rotulo>
+I –</Rotulo>
+            <p>
+    (revogado);  </p>
+                      </Inciso>
+<Inciso xlink:href="art36_par1_inc2" id="art4_cpt_alt1_art36_par1_inc2">
+                                    <Rotulo>
+II –</Rotulo>
+            <p>
+    (revogado);  </p>
+                      </Inciso>
+          </Paragrafo>
+<Omissis id="art4_cpt_alt1_art36_omi1"/>
+<Paragrafo xlink:href="art36_par3" id="art4_cpt_alt1_art36_par3">
+                                    <Rotulo>
+§ 3º</Rotulo>
+            <p>
+    A critério dos sistemas de ensino, poderá ser composto itinerário formativo integrado, que se traduz na composição de componentes curriculares da Base Nacional Comum Curricular - BNCC e dos itinerários formativos, considerando os incisos I a V do caput .  </p>
+                      </Paragrafo>
+<Omissis id="art4_cpt_alt1_art36_omi2"/>
+<Paragrafo xlink:href="art36_par5" id="art4_cpt_alt1_art36_par5">
+                                    <Rotulo>
+§ 5º</Rotulo>
+            <p>
+    Os sistemas de ensino, mediante disponibilidade de vagas na rede, possibilitarão ao aluno concluinte do ensino médio cursar mais um itinerário formativo de que trata o caput .  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art36_par6" id="art4_cpt_alt1_art36_par6">
+                                    <Rotulo>
+§ 6º</Rotulo>
+            <p>
+    A critério dos sistemas de ensino, a oferta de formação com ênfase técnica e profissional considerará:  </p>
+            <Inciso xlink:href="art36_par6_inc1" id="art4_cpt_alt1_art36_par6_inc1">
+                                    <Rotulo>
+I –</Rotulo>
+            <p>
+    a inclusão de vivências práticas de trabalho no setor produtivo ou em ambientes de simulação, estabelecendo parcerias e fazendo uso, quando aplicável, de instrumentos estabelecidos pela legislação sobre aprendizagem profissional;  </p>
+                      </Inciso>
+<Inciso xlink:href="art36_par6_inc2" id="art4_cpt_alt1_art36_par6_inc2">
+                                    <Rotulo>
+II –</Rotulo>
+            <p>
+    a possibilidade de concessão de certificados intermediários de qualificação para o trabalho, quando a formação for estruturada e organizada em etapas com terminalidade.  </p>
+                      </Inciso>
+          </Paragrafo>
+<Paragrafo xlink:href="art36_par7" id="art4_cpt_alt1_art36_par7">
+                                    <Rotulo>
+§ 7º</Rotulo>
+            <p>
+    A oferta de formações experimentais relacionadas ao inciso V do caput , em áreas que não constem do Catálogo Nacional dos Cursos Técnicos, dependerá, para sua continuidade, do reconhecimento pelo respectivo Conselho Estadual de Educação, no prazo de três anos, e da inserção no Catálogo Nacional dos Cursos Técnicos, no prazo de cinco anos, contados da data de oferta inicial da formação.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art36_par8" id="art4_cpt_alt1_art36_par8">
+                                    <Rotulo>
+§ 8º</Rotulo>
+            <p>
+    A oferta de formação técnica e profissional a que se refere o inciso V do caput , realizada na própria instituição ou em parceria com outras instituições, deverá ser aprovada previamente pelo Conselho Estadual de Educação, homologada pelo Secretário Estadual de Educação e certificada pelos sistemas de ensino.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art36_par9" id="art4_cpt_alt1_art36_par9">
+                                    <Rotulo>
+§ 9º</Rotulo>
+            <p>
+    As instituições de ensino emitirão certificado com validade nacional, que habilitará o concluinte do ensino médio ao prosseguimento dos estudos em nível superior ou em outros cursos ou formações para os quais a conclusão do ensino médio seja etapa obrigatória.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art36_par10" id="art4_cpt_alt1_art36_par10">
+                                    <Rotulo>
+§ 10.</Rotulo>
+            <p>
+    Além das formas de organização previstas no art. 23, o ensino médio poderá ser organizado em módulos e adotar o sistema de créditos com terminalidade específica.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art36_par11" id="art4_cpt_alt1_art36_par11">
+                                    <Rotulo>
+§ 11.</Rotulo>
+            <p>
+    Para efeito de cumprimento das exigências curriculares do ensino médio, os sistemas de ensino poderão reconhecer competências e firmar convênios com instituições de educação a distância com notório reconhecimento, mediante as seguintes formas de comprovação:  </p>
+            <Inciso xlink:href="art36_par11_inc1" id="art4_cpt_alt1_art36_par11_inc1">
+                                    <Rotulo>
+I –</Rotulo>
+            <p>
+    demonstração prática;  </p>
+                      </Inciso>
+<Inciso xlink:href="art36_par11_inc2" id="art4_cpt_alt1_art36_par11_inc2">
+                                    <Rotulo>
+II –</Rotulo>
+            <p>
+    experiência de trabalho supervisionado ou outra experiência adquirida fora do ambiente escolar;  </p>
+                      </Inciso>
+<Inciso xlink:href="art36_par11_inc3" id="art4_cpt_alt1_art36_par11_inc3">
+                                    <Rotulo>
+III –</Rotulo>
+            <p>
+    atividades de educação técnica oferecidas em outras instituições de ensino credenciadas;  </p>
+                      </Inciso>
+<Inciso xlink:href="art36_par11_inc4" id="art4_cpt_alt1_art36_par11_inc4">
+                                    <Rotulo>
+IV –</Rotulo>
+            <p>
+    cursos oferecidos por centros ou programas ocupacionais;  </p>
+                      </Inciso>
+<Inciso xlink:href="art36_par11_inc5" id="art4_cpt_alt1_art36_par11_inc5">
+                                    <Rotulo>
+V –</Rotulo>
+            <p>
+    estudos realizados em instituições de ensino nacionais ou estrangeiras;  </p>
+                      </Inciso>
+<Inciso xlink:href="art36_par11_inc6" id="art4_cpt_alt1_art36_par11_inc6">
+                                    <Rotulo>
+VI –</Rotulo>
+            <p>
+    cursos realizados por meio de educação a distância ou educação presencial mediada por tecnologias.  </p>
+                      </Inciso>
+          </Paragrafo>
+<Paragrafo xlink:href="art36_par12" id="art4_cpt_alt1_art36_par12" fechaAspas="s" notaAlteracao="NR">
+                                    <Rotulo>
+§ 12.</Rotulo>
+            <p>
+    As escolas deverão orientar os alunos no processo de escolha das áreas de conhecimento ou de atuação profissional previstas no caput .  </p>
+                      </Paragrafo>
+          </Artigo>
+            </Alteracao>
+          </Caput>
+          </Artigo>
+<Artigo id="art5">
+                                    <Rotulo>
+Art. 5º</Rotulo>
+                        <Caput id="art5_cpt">
+                                                <p>
+    O art. 44 da Lei nº 9.394, de 20 de dezembro de 1996 , passa a vigorar acrescido do seguinte § 3º :  </p>
+            <Alteracao id="art5_cpt_alt1">
+                            <Artigo xlink:href="art44" id="art5_cpt_alt1_art44" abreAspas="s">
+                                    <Rotulo>
+Art. 44.</Rotulo>
+                        <Caput xlink:href="art44_cpt" id="art5_cpt_alt1_art44_cpt" textoOmitido="s">
+                                                                      </Caput>
+<Omissis id="art5_cpt_alt1_art44_omi1"/>
+<Paragrafo xlink:href="art44_par3" id="art5_cpt_alt1_art44_par3" fechaAspas="s" notaAlteracao="NR">
+                                    <Rotulo>
+§ 3º</Rotulo>
+            <p>
+    O processo seletivo referido no inciso II considerará as competências e as habilidades definidas na Base Nacional Comum Curricular.  </p>
+                      </Paragrafo>
+          </Artigo>
+            </Alteracao>
+          </Caput>
+          </Artigo>
+<Artigo id="art6">
+                                    <Rotulo>
+Art. 6º</Rotulo>
+                        <Caput id="art6_cpt">
+                                                <p>
+    O art. 61 da Lei nº 9.394, de 20 de dezembro de 1996 , passa a vigorar com as seguintes alterações:  </p>
+            <Alteracao id="art6_cpt_alt1">
+                            <Artigo xlink:href="art61" id="art6_cpt_alt1_art61" abreAspas="s">
+                                    <Rotulo>
+Art. 61.</Rotulo>
+                        <Caput xlink:href="art61_cpt" id="art6_cpt_alt1_art61_cpt" textoOmitido="s">
+                                                            <Omissis id="art6_cpt_alt1_art61_cpt_omi1"/>
+<Inciso xlink:href="art61_cpt_inc4" id="art6_cpt_alt1_art61_cpt_inc4">
+                                    <Rotulo>
+IV –</Rotulo>
+            <p>
+    profissionais com notório saber reconhecido pelos respectivos sistemas de ensino, para ministrar conteúdos de áreas afins à sua formação ou experiência profissional, atestados por titulação específica ou prática de ensino em unidades educacionais da rede pública ou privada ou das corporações privadas em que tenham atuado, exclusivamente para atender ao inciso V do caput do art. 36;  </p>
+                      </Inciso>
+<Inciso xlink:href="art61_cpt_inc5" id="art6_cpt_alt1_art61_cpt_inc5">
+                                    <Rotulo>
+V –</Rotulo>
+            <p>
+    profissionais graduados que tenham feito complementação pedagógica, conforme disposto pelo Conselho Nacional de Educação.  </p>
+                      </Inciso>
+          </Caput>
+<Omissis id="art6_cpt_alt1_art61_omi1" fechaAspas="s" notaAlteracao="NR"/>
+          </Artigo>
+            </Alteracao>
+          </Caput>
+          </Artigo>
+<Artigo id="art7">
+                                    <Rotulo>
+Art. 7º</Rotulo>
+                        <Caput id="art7_cpt">
+                                                <p>
+    O art. 62 da Lei nº 9.394, de 20 de dezembro de 1996 , passa a vigorar com as seguintes alterações:  </p>
+            <Alteracao id="art7_cpt_alt1">
+                            <Artigo xlink:href="art62" id="art7_cpt_alt1_art62" abreAspas="s">
+                                    <Rotulo>
+Art. 62.</Rotulo>
+                        <Caput xlink:href="art62_cpt" id="art7_cpt_alt1_art62_cpt">
+                                                <p>
+     A formação de docentes para atuar na educação básica far-se-á em nível superior, em curso de licenciatura plena, admitida, como formação mínima para o exercício do magistério na educação infantil e nos cinco primeiros anos do ensino fundamental, a oferecida em nível médio, na modalidade normal.  </p>
+                      </Caput>
+<Omissis id="art7_cpt_alt1_art62_omi1"/>
+<Paragrafo xlink:href="art62_par8" id="art7_cpt_alt1_art62_par8" fechaAspas="s" notaAlteracao="NR">
+                                    <Rotulo>
+§ 8º</Rotulo>
+            <p>
+    Os currículos dos cursos de formação de docentes terão por referência a Base Nacional Comum Curricular.  </p>
+                      </Paragrafo>
+          </Artigo>
+            </Alteracao>
+          </Caput>
+          </Artigo>
+<Artigo id="art8">
+                                    <Rotulo>
+Art. 8º</Rotulo>
+                        <Caput id="art8_cpt">
+                                                <p>
+    O art. 318 da Consolidação das Leis do Trabalho - CLT, aprovada pelo Decreto-Lei nº 5.452, de 1º de maio de 1943 , passa a vigorar com a seguinte redação:  </p>
+            <Alteracao id="art8_cpt_alt1">
+                            <Artigo xlink:href="art318" id="art8_cpt_alt1_art318" abreAspas="s">
+                                    <Rotulo>
+Art. 318.</Rotulo>
+                        <Caput xlink:href="art318_cpt" id="art8_cpt_alt1_art318_cpt" fechaAspas="s" notaAlteracao="NR">
+                                                <p>
+     O professor poderá lecionar em um mesmo estabelecimento por mais de um turno, desde que não ultrapasse a jornada de trabalho semanal estabelecida legalmente, assegurado e não computado o intervalo para refeição.  </p>
+                      </Caput>
+          </Artigo>
+            </Alteracao>
+          </Caput>
+          </Artigo>
+<Artigo id="art9">
+                                    <Rotulo>
+Art. 9º</Rotulo>
+                        <Caput id="art9_cpt">
+                                                <p>
+    O caput do art. 10 da Lei nº 11.494, de 20 de junho de 2007 , passa a vigorar acrescido do seguinte inciso XVIII:  </p>
+            <Alteracao id="art9_cpt_alt1">
+                            <Artigo xlink:href="art10" id="art9_cpt_alt1_art10" abreAspas="s">
+                                    <Rotulo>
+Art. 10.</Rotulo>
+                        <Caput xlink:href="art10_cpt" id="art9_cpt_alt1_art10_cpt" textoOmitido="s">
+                                                            <Omissis id="art9_cpt_alt1_art10_cpt_omi1"/>
+<Inciso xlink:href="art10_cpt_inc18" id="art9_cpt_alt1_art10_cpt_inc18">
+                                    <Rotulo>
+XVIII –</Rotulo>
+            <p>
+    formação técnica e profissional prevista no inciso V do caput do art. 36 da Lei nº 9.394, de 20 de dezembro de 1996 .  </p>
+                      </Inciso>
+          </Caput>
+<Omissis id="art9_cpt_alt1_art10_omi1" fechaAspas="s" notaAlteracao="NR"/>
+          </Artigo>
+            </Alteracao>
+          </Caput>
+          </Artigo>
+<Artigo id="art10">
+                                    <Rotulo>
+Art. 10.</Rotulo>
+                        <Caput id="art10_cpt">
+                                                <p>
+    O art. 16 do Decreto-Lei nº 236, de 28 de fevereiro de 1967 , passa a vigorar com as seguintes alterações:  </p>
+            <Alteracao id="art10_cpt_alt1">
+                            <Artigo xlink:href="art16" id="art10_cpt_alt1_art16" abreAspas="s">
+                                    <Rotulo>
+Art. 16.</Rotulo>
+                        <Caput xlink:href="art16_cpt" id="art10_cpt_alt1_art16_cpt" textoOmitido="s">
+                                                                      </Caput>
+<Omissis id="art10_cpt_alt1_art16_omi1"/>
+<Paragrafo xlink:href="art16_par2" id="art10_cpt_alt1_art16_par2">
+                                    <Rotulo>
+§ 2º</Rotulo>
+            <p>
+    Os programas educacionais obrigatórios deverão ser transmitidos em horários compreendidos entre as sete e as vinte e uma horas.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art16_par3" id="art10_cpt_alt1_art16_par3">
+                                    <Rotulo>
+§ 3º</Rotulo>
+            <p>
+    O Ministério da Educação poderá celebrar convênios com entidades representativas do setor de radiodifusão, que visem ao cumprimento do disposto no caput , para a divulgação gratuita dos programas e ações educacionais do Ministério da Educação, bem como à definição da forma de distribuição dos programas relativos à educação básica, profissional, tecnológica e superior e a outras matérias de interesse da educação.  </p>
+                      </Paragrafo>
+<Paragrafo xlink:href="art16_par4" id="art10_cpt_alt1_art16_par4" fechaAspas="s" notaAlteracao="NR">
+                                    <Rotulo>
+§ 4º</Rotulo>
+            <p>
+    As inserções previstas no caput destinam-se exclusivamente à veiculação de mensagens do Ministério da Educação, com caráter de utilidade pública ou de divulgação de programas e ações educacionais.  </p>
+                      </Paragrafo>
+          </Artigo>
+            </Alteracao>
+          </Caput>
+          </Artigo>
+<Artigo id="art11">
+                                    <Rotulo>
+Art. 11.</Rotulo>
+                        <Caput id="art11_cpt">
+                                                <p>
+    O disposto no § 8º do art. 62 da Lei nº 9.394, de 20 de dezembro de 1996 , deverá ser implementado no prazo de dois anos, contado da publicação da Base Nacional Comum Curricular.  </p>
+                      </Caput>
+          </Artigo>
+<Artigo id="art12">
+                                    <Rotulo>
+Art. 12.</Rotulo>
+                        <Caput id="art12_cpt">
+                                                <p>
+    Os sistemas de ensino deverão estabelecer cronograma de implementação das alterações na Lei no 9.394, de 20 de dezembro de 1996 , conforme os arts. 2º, 3º e 4º desta Lei, no primeiro ano letivo subsequente à data de publicação da Base Nacional Comum Curricular, e iniciar o processo de implementação, conforme o referido cronograma, a partir do segundo ano letivo subsequente à data de homologação da Base Nacional Comum Curricular.  </p>
+                      </Caput>
+          </Artigo>
+<Artigo id="art13">
+                                    <Rotulo>
+Art. 13.</Rotulo>
+                        <Caput id="art13_cpt">
+                                                <p>
+    Fica instituída, no âmbito do Ministério da Educação, a Política de Fomento à Implementação de Escolas de Ensino Médio em Tempo Integral.  </p>
+                      </Caput>
+<Paragrafo id="art13_par1u">
+                                    <Rotulo>
+Parágrafo único.</Rotulo>
+            <p>
+    A Política de Fomento de que trata o caput prevê o repasse de recursos do Ministério da Educação para os Estados e para o Distrito Federal pelo prazo de dez anos por escola, contado da data de início da implementação do ensino médio integral na respectiva escola, de acordo com termo de compromisso a ser formalizado entre as partes, que deverá conter, no mínimo:  </p>
+            <Inciso id="art13_par1u_inc1">
+                                    <Rotulo>
+I –</Rotulo>
+            <p>
+    identificação e delimitação das ações a serem financiadas;  </p>
+                      </Inciso>
+<Inciso id="art13_par1u_inc2">
+                                    <Rotulo>
+II –</Rotulo>
+            <p>
+    metas quantitativas;  </p>
+                      </Inciso>
+<Inciso id="art13_par1u_inc3">
+                                    <Rotulo>
+III –</Rotulo>
+            <p>
+    cronograma de execução físico-financeira;  </p>
+                      </Inciso>
+<Inciso id="art13_par1u_inc4">
+                                    <Rotulo>
+IV –</Rotulo>
+            <p>
+    previsão de início e fim de execução das ações e da conclusão das etapas ou fases programadas.  </p>
+                      </Inciso>
+          </Paragrafo>
+          </Artigo>
+<Artigo id="art14">
+                                    <Rotulo>
+Art. 14.</Rotulo>
+                        <Caput id="art14_cpt">
+                                                <p>
+    São obrigatórias as transferências de recursos da União aos Estados e ao Distrito Federal, desde que cumpridos os critérios de elegibilidade estabelecidos nesta Lei e no regulamento, com a finalidade de prestar apoio financeiro para o atendimento de escolas públicas de ensino médio em tempo integral cadastradas no Censo Escolar da Educação Básica, e que:  </p>
+            <Inciso id="art14_cpt_inc1">
+                                    <Rotulo>
+I –</Rotulo>
+            <p>
+    tenham iniciado a oferta de atendimento em tempo integral a partir da vigência desta Lei de acordo com os critérios de elegibilidade no âmbito da Política de Fomento, devendo ser dada prioridade às regiões com menores índices de desenvolvimento humano e com resultados mais baixos nos processos nacionais de avaliação do ensino médio; e  </p>
+                      </Inciso>
+<Inciso id="art14_cpt_inc2">
+                                    <Rotulo>
+II –</Rotulo>
+            <p>
+    tenham projeto político-pedagógico que obedeça ao disposto no art. 36 da Lei no 9.394, de 20 dezembro de 1996 .  </p>
+                      </Inciso>
+          </Caput>
+<Paragrafo id="art14_par1">
+                                    <Rotulo>
+§ 1º</Rotulo>
+            <p>
+    A transferência de recursos de que trata o caput será realizada com base no número de matrículas cadastradas pelos Estados e pelo Distrito Federal no Censo Escolar da Educação Básica, desde que tenham sido atendidos, de forma cumulativa, os requisitos dos incisos I e II do caput .  </p>
+                      </Paragrafo>
+<Paragrafo id="art14_par2">
+                                    <Rotulo>
+§ 2º</Rotulo>
+            <p>
+    A transferência de recursos será realizada anualmente, a partir de valor único por aluno, respeitada a disponibilidade orçamentária para atendimento, a ser definida por ato do Ministro de Estado da Educação.  </p>
+                      </Paragrafo>
+<Paragrafo id="art14_par3">
+                                    <Rotulo>
+§ 3º</Rotulo>
+            <p>
+    Os recursos transferidos nos termos do caput poderão ser aplicados nas despesas de manutenção e desenvolvimento previstas nos incisos I, II, III , V e VIII do caput do art. 70 da Lei nº 9.394, de 20 de dezembro de 1996 , das escolas públicas participantes da Política de Fomento.  </p>
+                      </Paragrafo>
+<Paragrafo id="art14_par4">
+                                    <Rotulo>
+§ 4º</Rotulo>
+            <p>
+    Na hipótese de o Distrito Federal ou de o Estado ter, no momento do repasse do apoio financeiro suplementar de que trata o caput , saldo em conta de recursos repassados anteriormente, esse montante, a ser verificado no último dia do mês anterior ao do repasse, será subtraído do valor a ser repassado como apoio financeiro suplementar do exercício corrente.  </p>
+                      </Paragrafo>
+<Paragrafo id="art14_par5">
+                                    <Rotulo>
+§ 5º</Rotulo>
+            <p>
+    Serão desconsiderados do desconto previsto no § 4º os recursos referentes ao apoio financeiro suplementar, de que trata o caput , transferidos nos últimos doze meses.  </p>
+                      </Paragrafo>
+          </Artigo>
+<Artigo id="art15">
+                                    <Rotulo>
+Art. 15.</Rotulo>
+                        <Caput id="art15_cpt">
+                                                <p>
+    Os recursos de que trata o parágrafo único do art. 13 serão transferidos pelo Ministério da Educação ao Fundo Nacional do Desenvolvimento da Educação - FNDE, independentemente da celebração de termo específico.  </p>
+                      </Caput>
+          </Artigo>
+<Artigo id="art16">
+                                    <Rotulo>
+Art. 16.</Rotulo>
+                        <Caput id="art16_cpt">
+                                                <p>
+    Ato do Ministro de Estado da Educação disporá sobre o acompanhamento da implementação do apoio financeiro suplementar de que trata o parágrafo único do art. 13.  </p>
+                      </Caput>
+          </Artigo>
+<Artigo id="art17">
+                                    <Rotulo>
+Art. 17.</Rotulo>
+                        <Caput id="art17_cpt">
+                                                <p>
+    A transferência de recursos financeiros prevista no parágrafo único do art. 13 será efetivada automaticamente pelo FNDE, dispensada a celebração de convênio, acordo, contrato ou instrumento congênere, mediante depósitos em conta-corrente específica.  </p>
+                      </Caput>
+<Paragrafo id="art17_par1u">
+                                    <Rotulo>
+Parágrafo único.</Rotulo>
+            <p>
+    O Conselho Deliberativo do FNDE disporá, em ato próprio, sobre condições, critérios operacionais de distribuição, repasse, execução e prestação de contas simplificada do apoio financeiro.  </p>
+                      </Paragrafo>
+          </Artigo>
+<Artigo id="art18">
+                                    <Rotulo>
+Art. 18.</Rotulo>
+                        <Caput id="art18_cpt">
+                                                <p>
+    Os Estados e o Distrito Federal deverão fornecer, sempre que solicitados, a documentação relativa à execução dos recursos recebidos com base no parágrafo único do art. 13 ao Tribunal de Contas da União, ao FNDE, aos órgãos de controle interno do Poder Executivo federal e aos conselhos de acompanhamento e controle social.  </p>
+                      </Caput>
+          </Artigo>
+<Artigo id="art19">
+                                    <Rotulo>
+Art. 19.</Rotulo>
+                        <Caput id="art19_cpt">
+                                                <p>
+    O acompanhamento e o controle social sobre a transferência e a aplicação dos recursos repassados com base no parágrafo único do art. 13 serão exercidos no âmbito dos Estados e do Distrito Federal pelos respectivos conselhos previstos no art. 24 da Lei nº 11.494, de 20 de junho de 2007 .  </p>
+                      </Caput>
+<Paragrafo id="art19_par1u">
+                                    <Rotulo>
+Parágrafo único.</Rotulo>
+            <p>
+    Os conselhos a que se refere o caput analisarão as prestações de contas dos recursos repassados no âmbito desta Lei, formularão parecer conclusivo acerca da aplicação desses recursos e o encaminharão ao FNDE.  </p>
+                      </Paragrafo>
+          </Artigo>
+<Artigo id="art20">
+                                    <Rotulo>
+Art. 20.</Rotulo>
+                        <Caput id="art20_cpt">
+                                                <p>
+    Os recursos financeiros correspondentes ao apoio financeiro de que trata o parágrafo único do art. 13 correrão à conta de dotação consignada nos orçamentos do FNDE e do Ministério da Educação, observados os limites de movimentação, de empenho e de pagamento da programação orçamentária e financeira anual.  </p>
+                      </Caput>
+          </Artigo>
+<Artigo id="art21">
+                                    <Rotulo>
+Art. 21.</Rotulo>
+                        <Caput id="art21_cpt">
+                                                <p>
+    Esta Lei entra em vigor na data de sua publicação.  </p>
+                      </Caput>
+          </Artigo>
+<Artigo id="art22">
+                                    <Rotulo>
+Art. 22.</Rotulo>
+                        <Caput id="art22_cpt">
+                                                <p>
+    Fica revogada a Lei nº 11.161, de 5 de agosto de 2005 .  </p>
+                      </Caput>
+          </Artigo>
+</Articulacao>
+        </Norma>
+</ProjetoNorma>
+          </LexML>

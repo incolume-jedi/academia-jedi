@@ -5,7 +5,7 @@ import click
 
 @click.group()
 def messages():
-  pass
+    pass
 
 
 @click.command()

@@ -1,0 +1,5 @@
+# Development settings
+HANDLER_DOCX_DOMAIN=example.org
+HANDLER_DOCX_ADMIN_EMAIL=admin@${DOMAIN}
+HANDLER_DOCX_ROOT_URL=${DOMAIN}/app
+HANDLER_DOCX_FILENAME=demo.docx

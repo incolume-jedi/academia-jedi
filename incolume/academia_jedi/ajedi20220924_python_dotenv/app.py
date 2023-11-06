@@ -1,11 +1,9 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
-from dotenv import load_dotenv
 from os import environ, getenv
-from pprint import pprint
 
+from dotenv import load_dotenv
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 load_dotenv()
 

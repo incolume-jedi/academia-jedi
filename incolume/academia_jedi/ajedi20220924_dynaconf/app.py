@@ -1,9 +1,7 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
-from config import settings
+from incolume.academia_jedi.ajedi20220924_dynaconf.config import settings
 
-__author__ = "@britodfbr"  # pragma: no cover
-# MSG = "Hello World"   # changed to settings.toml do dynaconf
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 def run():
@@ -18,20 +16,26 @@ def run():
         f"App: {settings.get('application', 'examples_dynaconf')}",
         f"App: {settings.get('name', 'examples_dynaconf')}",
         f"{type(settings.get('FLOAT'))}: {settings.get('FLOAT')}",
-        "{}: {}".format(settings.get('DICT'), type(settings.get('dict'))),
-        "{}: {}".format(settings.get('BOOL'), type(settings.get('bool'))),
-        "{}: {}".format(settings.get('DICT')['fuz'], type(settings.get('dict')['fuz'])),
-        "{}: {}".format(settings.get('DICT').foo, type(settings.get('dict').foo)),
-        "{}: {}".format(settings.get('NUM'), type(settings.get('num'))),
-        "{}: {}".format(settings.get('NUMB'), type(settings.get('numb'))),
-        "{}: {}".format(settings.get('NUMBER'), type(settings.get('number'))),
+        '{}: {}'.format(settings.get('DICT'), type(settings.get('dict'))),
+        '{}: {}'.format(settings.get('BOOL'), type(settings.get('bool'))),
+        '{}: {}'.format(
+            settings.get('DICT')['fuz'],
+            type(settings.get('dict')['fuz']),
+        ),
+        '{}: {}'.format(
+            settings.get('DICT').foo,
+            type(settings.get('dict').foo),
+        ),
+        '{}: {}'.format(settings.get('NUM'), type(settings.get('num'))),
+        '{}: {}'.format(settings.get('NUMB'), type(settings.get('numb'))),
+        '{}: {}'.format(settings.get('NUMBER'), type(settings.get('number'))),
         settings.path,
         settings.data,
         settings.data.key,
         settings.data.newkey,
-        sep='\n'
+        sep='\n',
     )
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

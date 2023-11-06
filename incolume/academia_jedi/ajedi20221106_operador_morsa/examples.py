@@ -1,7 +1,5 @@
 # !/usr/bin/env python
-# -*- coding: utf-8 -*-
-"""
-Exemplos adaptados do site oficial.
+"""Exemplos adaptados do site oficial.
 
 https://docs.python.org/pt-br/dev/whatsnew/3.8.html
 """
@@ -12,14 +10,14 @@ from unicodedata import normalize
 
 from faker import Faker
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 a = [random.randint(1, 10) for _ in range(random.randint(1, 30))]
 
 
 def example1():
     if (n := len(a)) > 10:
-        print(f"List is too long ({n} elements, expected <= 10)")
+        print(f'List is too long ({n} elements, expected <= 10)')
 
 
 def example2():
@@ -32,7 +30,6 @@ def example2():
 
 def example3():
     files = Path(__file__).parents[3].joinpath('data_files').glob('*.csv')
-    # print(list(files))
     file = random.choice(list(files))
     print(file)
 
@@ -47,8 +44,7 @@ def example3():
 
 
 def example4(encode=False):
-    """allowed_named not contains kwy"""
-
+    """allowed_named not contains kwy."""
     fake = Faker('pt_Br' if encode else None)
     fake.seed_instance(13)
     names = [

@@ -1,6 +1,7 @@
-"""https://zetcode.com/python/click/"""
+"""https://zetcode.com/python/click/."""
 
 import click
+
 
 @click.command()
 def hello():
