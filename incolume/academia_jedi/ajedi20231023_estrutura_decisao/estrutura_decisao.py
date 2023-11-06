@@ -130,6 +130,7 @@ def exercicio11(salario: float) -> str:
     - o valor do aumento;
     - o novo salário, após o aumento.
     """
+
     # salarios = [280, 700, 1500, 1500.01]
     # ajustes = [.2, .15, .1, .05]
 
@@ -253,13 +254,13 @@ def exercicio14(*args) -> str:
             return 'D'
         return 'E'
 
-
     def mostrar_resultado(media: float) -> str:
         """Apresentação do resultado."""
         conceito = calc_conceito(media)
         return f'Notas: {args}, Média: {media}, Conceito: {conceito} "{mensagens[conceito]}"'
 
     return mostrar_resultado(media)
+
 
 def exercicio15():
     """Faça um Programa que peça os 3 lados de um triângulo.
@@ -310,7 +311,7 @@ def exercicio18():
     """
 
 
-def exercicio19():
+def exercicio19(num: int) -> str:
     """Faça um Programa que leia um número inteiro menor que 1000
     e imprima a quantidade de centenas, dezenas e unidades do mesmo.
 
@@ -324,6 +325,18 @@ def exercicio19():
     326, 300, 100, 320, 310,305, 301, 101, 311,
     111, 25, 20, 10, 21, 11, 1, 7 e 16
     """
+    classes = ['unidade', 'dezena', 'centena']
+    algarismos = []
+    result = ''
+    while num > 0:
+        algarismos.append(num % 10)
+        num //= 10
+    if len(algarismos) > 3:
+        raise ValueError('0 < num < 1000')
+
+    for n, c in zip(algarismos, classes):
+        result = (f'{n} {c}s ' if n > 1 else f'{n} {c} ') + result
+    return result.strip()
 
 
 def exercicio20():
