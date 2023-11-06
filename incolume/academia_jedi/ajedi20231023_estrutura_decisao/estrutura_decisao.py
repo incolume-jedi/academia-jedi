@@ -1,4 +1,5 @@
 """Solução dos exercícios estrutura de decisão."""
+import datetime
 import operator
 
 
@@ -310,10 +311,14 @@ def exercicio17():
     """
 
 
-def exercicio18():
+def exercicio18(data: str):
     """Faça um Programa que peça uma data no formato
     dd/mm/aaaa e determine se a mesma é uma data válida.
     """
+    try:
+        return bool(datetime.datetime.strptime(data, '%d/%m/%Y'))
+    except ValueError:
+        return False
 
 
 def exercicio19(num: int) -> str:

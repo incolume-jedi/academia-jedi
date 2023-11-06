@@ -328,6 +328,24 @@ def test_exercicio14_exceptions(entrance, xcpt):
 @pytest.mark.parametrize(
     'entrance expected'.split(),
     [
+        ('1/1/2001', True),
+        ('5/11/2023', True),
+        ('35/11/2000', False),
+        ('29/2/2000', True),
+        ('29/2/2020', True),
+        ('29/2/2021', False),
+        ('29/2/2022', False),
+        ('29/2/2023', False),
+    ]
+)
+def test_exercicio18(entrance, expected) -> None:
+    """Testar exercicio 18."""
+    assert pkg.exercicio18(entrance) == expected
+
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
         (326, '3 centenas 2 dezenas 6 unidades'),
         (12, '1 dezena 2 unidades'),
         (300, '3 centenas 0 dezena 0 unidade'),
