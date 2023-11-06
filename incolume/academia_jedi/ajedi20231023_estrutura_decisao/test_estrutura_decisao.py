@@ -328,13 +328,27 @@ def test_exercicio14_exceptions(entrance, xcpt):
 @pytest.mark.parametrize(
     'entrance expected'.split(),
     [
+        ((2, 3, 5), 'Triângulo escaleno'),
+        ((1, 1, 1), 'Triângulo isósceles'),
+        ((1, 9, 8), 'Triângulo isósceles'),
+        ((1, 1, 1), 'Triângulo isósceles'),
+    ],
+)
+def test_exercicio15(entrance, expected) -> None:
+    """Testar exercicio15."""
+    assert pkg.exercicio15(*entrance) == expected
+
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
         (2000, True),
         (2020, True),
         (2021, False),
         (2022, False),
         (2023, False),
         (2024, True),
-    ]
+    ],
 )
 def test_exercicio17(entrance, expected) -> None:
     """Testar exercicio 17."""
@@ -352,7 +366,7 @@ def test_exercicio17(entrance, expected) -> None:
         ('29/2/2021', False),
         ('29/2/2022', False),
         ('29/2/2023', False),
-    ]
+    ],
 )
 def test_exercicio18(entrance, expected) -> None:
     """Testar exercicio 18."""

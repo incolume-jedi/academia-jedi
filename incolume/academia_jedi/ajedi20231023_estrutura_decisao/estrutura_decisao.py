@@ -268,7 +268,7 @@ def exercicio14(*args) -> str:
     return mostrar_resultado(media)
 
 
-def exercicio15():
+def exercicio15(a: int, b: int, c: int) -> str:
     """Faça um Programa que peça os 3 lados de um triângulo.
     O programa deverá informar se os valores podem ser um triângulo.
     Indique, caso os lados formem um triângulo, se o mesmo é:
@@ -282,6 +282,15 @@ def exercicio15():
     Triângulo Isósceles: quaisquer dois lados iguais;
     Triângulo Escaleno: três lados diferentes;
     """
+    if (a + b) < c:
+        result = 'Não forma triângulo.'
+    if a == b == c:
+        result = 'Triângulo equilatero'
+    if not a == b == c:
+        result = 'Triângulo escaleno'
+    if (a == b) or (b == c) or (a == c):
+        result = 'Triângulo isósceles'
+    return result
 
 
 def exercicio16():
