@@ -1,7 +1,7 @@
 """Testes unitários para estrutura de decisão."""
-import \
-    incolume.academia_jedi.ajedi20231023_estrutura_decisao.estrutura_decisao as pkg
 import pytest
+
+import incolume.academia_jedi.ajedi20231023_estrutura_decisao.estrutura_decisao as pkg
 
 
 @pytest.mark.parametrize(
@@ -325,6 +325,20 @@ def test_exercicio14_exceptions(entrance, xcpt):
 def test_exercicio19(entrance, expected):
     """Testar exercicio19."""
     assert pkg.exercicio19(entrance) == expected
+
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
+        (1, 'impar'),
+        (10, 'par'),
+        (13, 'impar'),
+        (100, 'par'),
+    ],
+)
+def test_exercicio22(entrance, expected):
+    """Testar exercicio22."""
+    assert pkg.exercicio22(entrance) == expected
 
 
 @pytest.mark.parametrize(

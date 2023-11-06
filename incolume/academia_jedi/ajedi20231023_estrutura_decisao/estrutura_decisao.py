@@ -1,4 +1,5 @@
 """Solução dos exercícios estrutura de decisão."""
+import operator
 
 
 def exercicio01(num1: float, num2: float) -> float:
@@ -366,12 +367,13 @@ def exercicio21():
     """
 
 
-def exercicio22():
+def exercicio22(num: int) -> str:
     """Faça um Programa que peça um número inteiro e determine
     se ele é par ou impar.
 
     Dica: utilize o operador módulo (resto da divisão).
     """
+    return 'impar' if operator.mod(num, 2) else 'par'
 
 
 def exercicio23(num: float) -> str:
