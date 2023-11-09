@@ -6,21 +6,23 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 __author__ = "@britodfbr"  # pragma: no cover
 
+
 def set_credentials(file_credencial: Path = None) -> Path:
     """Autenticação API Google."""
     logging.info('setting: %s', file_credencial)
+    if file_credencial is None or not file_credencial.is_file():
+        logging.debug('not file: %s', file_credencial)
+        file_credencial = Path(__file__).parents[0].joinpath(
+            'credentials', 'incolumepy-dev-6ae65605985c.json'
+        )
+        logging.info('setting: %s', file_credencial)
     if not file_credencial.is_file():
         logging.debug('not file: %s', file_credencial)
         file_credencial = Path('~').expanduser().joinpath(
             "projetos",
+            'private',
             "authkeys",
             'incolumepy-dev-6ae65605985c.json')
-        logging.info('setting: %s', file_credencial)
-    if not file_credencial.is_file():
-        logging.debug('not file: %s', file_credencial)
-        file_credencial = Path(__file__).parents[0].joinpath(
-            'credentials', 'incolumepy-dev-6ae65605985c.json'
-            )
         logging.info('setting: %s', file_credencial)
     logging.debug('return: %s', file_credencial)
     return file_credencial
@@ -79,9 +81,9 @@ def permission_sheet(spreadsheet):
     """
 
     users = [
-        'brito@incolume.com.br', 
+        'brito@incolume.com.br',
         'britodfbr@gmail.com',
-        'dev@incolume.com.br', 
+        'dev@incolume.com.br',
         'dataaccess@incolumepy-dev.iam.gserviceaccount.com',
     ]
     for user in users:
