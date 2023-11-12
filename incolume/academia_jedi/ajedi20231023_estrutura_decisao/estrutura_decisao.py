@@ -396,7 +396,10 @@ def exercicio22(num: int) -> str:
 
     Dica: utilize o operador módulo (resto da divisão).
     """
-    return 'impar' if operator.mod(num, 2) else 'par'
+    # Com operador ternário
+    # return 'impar' if operator.mod(num, 2) else 'par'
+
+    return ['par', 'impar'][operator.mod(num, 2)]
 
 
 def exercicio23(num: float) -> str:
@@ -406,7 +409,8 @@ def exercicio23(num: float) -> str:
     Dica: utilize uma função de arredondamento.
 
     """
-    return 'inteiro' if int(num) == num else 'decimal'
+    # return 'inteiro' if int(num) == num else 'decimal'
+    return ['decimal', 'inteiro'][int(num) == num]
 
 
 def exercicio24():
