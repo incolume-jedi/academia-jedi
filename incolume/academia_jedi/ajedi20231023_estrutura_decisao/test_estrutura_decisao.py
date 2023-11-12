@@ -405,6 +405,20 @@ def test_exercicio19(entrance, expected):
 @pytest.mark.parametrize(
     'entrance expected'.split(),
     [
+        ((0, 0, 0), '0.0 - Reprovado'),
+        ((5, 6, 8), '6.3 - Reprovado'),
+        ((7, 7, 7), '7.0 - Aprovado'),
+        ((10, 10, 10), '10.0 - Aprovado com Distinção'),
+    ],
+)
+def test_exercicio20(entrance, expected):
+    """Teste do exercício20."""
+    assert pkg.exercicio20(*entrance) == expected
+
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
         (1, 'impar'),
         (10, 'par'),
         (13, 'impar'),
