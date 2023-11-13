@@ -57,8 +57,9 @@ class GSheet:
         return self.__escopo
 
     @escopo.setter
-    def escopo(self, value: list[str]) -> None:
+    def escopo(self, value: list[str] = None) -> None:
         """Escope to gsheet."""
+        value = value or []
         self.__escopo = chain(
             [
                 'https://spreadsheets.google.com/feeds',

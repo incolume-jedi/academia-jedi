@@ -2,6 +2,7 @@ import pytest
 import logging
 from incolume.academia_jedi.ajedi20231103_gen_dict.tratativa01 import d
 from incolume.academia_jedi.ajedi20231103_gen_dict.tratativa02 import drop_sheet, load_create_sheet, get_client_google, get_url_sheet, set_credentials
+from incolume.academia_jedi.ajedi20231103_gen_dict.tratativa03 import GSheet
 from tempfile import NamedTemporaryFile
 from pathlib import Path
 import re
@@ -67,3 +68,16 @@ class TestCaseTratativa02:
     def test_drop_sheet(self) -> None:
         """Test this."""
         assert drop_sheet('')
+
+
+
+class TestCaseTratativa03:
+    @pytest.fixture()
+    def obj_gsheet():
+        """Objeto GSheet."""
+        return GSheet()
+    
+    def test_0(self, obj_gsheet):
+        """Test 1."""
+        obj_gsheet.escopo == ''
+
