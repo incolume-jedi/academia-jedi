@@ -15,11 +15,12 @@ from dataclasses import dataclass
 __author__ = "@britodfbr"  # pragma: no cover
 
 
-@dataclass
 class GSheet:
     """GSheet access."""
-    __credential: Path = None
-    __escopo: Iterator = None
+    def __init__(self, credentials: Path | None = None, escopo: Iterator | None = None):
+        """"""
+        self.credentials: Path = credentials
+        self.escopo: Iterator = escopo
 
     @property
     def credentials(self) -> Path:
@@ -30,7 +31,7 @@ class GSheet:
     def credentials(self, file_credential: Path = None) -> None:
         """Autenticação API Google."""
         logging.info('setting: %s', file_credential)
-        if not file_credential.is_file():
+        if not file_credential:
             logging.debug('not file: %s', file_credential)
             file_credential = Path('~').expanduser().joinpath(
                 "projetos",
@@ -45,10 +46,7 @@ class GSheet:
             )
             logging.info('setting: %s', file_credential)
         logging.debug('return: %s', file_credential)
-        if not file_credential.is_file():
-            msg = 'Credential file not found.'
-            logging.error(msg)
-            raise FileNotFoundError(msg)
+        file_credential.read_bytes()
         self.__credential = file_credential
 
     @property
