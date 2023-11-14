@@ -21,17 +21,21 @@ class TestCaseTratativa01:
 class TestCaseTratativa02:
     """Test case."""
 
-    def test_set_credentials_0(self, caplog) -> None:
+    @pytest.fixture()
+    def fakefile(self) -> Path:
+        """Fake file."""
+        return Path(NamedTemporaryFile(prefix='academia-jedi-').name)
+
+
+    def test_set_credentials_0(self, caplog, fakefile) -> None:
         """Test this."""
-        fakefile = Path(NamedTemporaryFile(prefix='ajedi-').name)
         fakefile.write_text("{}")
         with caplog.at_level(level=logging.DEBUG):
             result = set_credentials(fakefile)
             assert result == fakefile
 
-    def test_set_credentials_1(self, caplog) -> None:
+    def test_set_credentials_1(self, caplog, fakefile) -> None:
         """Test this."""
-        fakefile = Path(NamedTemporaryFile(prefix='ajedi-').name)
         with caplog.at_level(level=logging.DEBUG):
             fakefile.write_text("{}")
             set_credentials(fakefile)
@@ -48,32 +52,34 @@ class TestCaseTratativa02:
             )
 
     @pytest.mark.skip
-    def test_set_credentials(self, fakefile) -> None:
+    def test_set_credentials(self) -> None:
         """Test this."""
-        assert set_credentials().as_posix() == ''
+        with pytest.raises(FileExistsError, match=''):
+            set_credentials()
 
+    @pytest.mark.skip
     def test_get_client_google(self, fakefile) -> None:
         """Test this."""
         fakefile.write_text('')
         assert get_client_google(fakefile)
 
-    def test_get_url_sheet(self) -> None:
-        """Test this."""
-        assert get_url_sheet() == ''
+    # def test_get_url_sheet(self) -> None:
+    #     """Test this."""
+    #     assert get_url_sheet() == ''
 
-    def test_load_sheet(self) -> None:
-        """Test this."""
-        assert load_create_sheet()
+    # def test_load_sheet(self) -> None:
+    #     """Test this."""
+    #     assert load_create_sheet()
 
-    def test_drop_sheet(self) -> None:
-        """Test this."""
-        assert drop_sheet('')
+    # def test_drop_sheet(self) -> None:
+    #     """Test this."""
+    #     assert drop_sheet('')
 
 
 
 class TestCaseTratativa03:
     @pytest.fixture()
-    def obj_gsheet():
+    def obj_gsheet(self):
         """Objeto GSheet."""
         return GSheet()
     

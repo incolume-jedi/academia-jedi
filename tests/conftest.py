@@ -5,12 +5,12 @@ from pathlib import Path
 
 
 @pytest.fixture
-def verdade():
+def verdade() -> bool:
     """True."""
     return True
 
 
-@pytest.fixture
+@pytest.fixture()
 def fakefile() -> Path:
     """Fake file."""
     return Path(NamedTemporaryFile(prefix='academia-jedi-').name)
