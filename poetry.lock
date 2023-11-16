@@ -583,7 +583,7 @@ pycparser = "*"
 name = "chardet"
 version = "3.0.4"
 description = "Universal encoding detector for Python 2 and 3"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -1550,7 +1550,7 @@ google-auth-oauthlib = ">=0.4.1"
 name = "h11"
 version = "0.9.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -1562,7 +1562,7 @@ files = [
 name = "h2"
 version = "3.2.0"
 description = "HTTP/2 State-Machine based protocol implementation"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -1578,7 +1578,7 @@ hyperframe = ">=5.2.0,<6"
 name = "hpack"
 version = "3.0.0"
 description = "Pure-Python HPACK header compression"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -1590,7 +1590,7 @@ files = [
 name = "hstspreload"
 version = "2023.1.1"
 description = "Chromium HSTS Preload list as a Python package"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -1624,7 +1624,7 @@ lxml = ["lxml"]
 name = "httpcore"
 version = "0.9.1"
 description = "A minimal low-level HTTP client."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -1656,7 +1656,7 @@ pyparsing = {version = ">=2.4.2,<3.0.0 || >3.0.0,<3.0.1 || >3.0.1,<3.0.2 || >3.0
 name = "httpx"
 version = "0.13.3"
 description = "The next generation HTTP client."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -1711,7 +1711,7 @@ typing = ["pydantic (<2.0)", "types-PyYAML", "types-requests", "types-simplejson
 name = "hyperframe"
 version = "5.2.0"
 description = "HTTP/2 framing layer for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -4442,7 +4442,7 @@ six = "*"
 name = "rfc3986"
 version = "1.5.0"
 description = "Validating URI References per RFC 3986"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -5845,4 +5845,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.9.7 || >3.9.7,<4.0"
-content-hash = "281d8408eaea72b043f3e69246eeab0cc370d65bdf7d794f451c975cb746e879"
+content-hash = "860689343deed74fd9a59b723347edf4b43b9b22ae77e9033de4f7db4e7be311"
