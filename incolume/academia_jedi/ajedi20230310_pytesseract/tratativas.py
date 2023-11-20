@@ -6,13 +6,13 @@ from pdf2image import convert_from_path
 from pytesseract import image_to_string
 
 PDFDIR: typing.Final = Path(__file__).parents[3] / 'data_files' / 'pdf'
-PDFFILES: Path = list(PDFDIR.glob('*.pdf'))
+PDFFILES: list[Path] = list(PDFDIR.glob('*.pdf'))
 
 
 def convert_pdf_to_image(pdf_file):
     """"""
     img = convert_from_path(pdf_file)
-    logging.debug(img.__name__)
+    logging.debug(img)
     return img
 
 

@@ -2,7 +2,8 @@ volumes/
 coverage_report/
 
 # Arquivos diversos
-geckodriver
+*.Identifier
+geckodriver*
 *.[Cc][Ss][Vv]
 *.[dD][Bb]
 *.[Dd][oO][cCtT]
