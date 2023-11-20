@@ -83,7 +83,13 @@ class TestCaseTratativa03:
         """Objeto GSheet."""
         return GSheet()
     
+    def test_1(self) -> None:
+        """Test credential file."""
+        # cred = Path('//castelo/saj').joinpath(,'EQUIPE CEJ','BRITO','projetos','private','authkeys','incolumepy-dev-6ae65605985c.json')
+        cred = Path('H:\CENTRO DE ESTUDOS\EQUIPE CEJ\BRITO')
+        assert cred.is_dir()
+
     def test_0(self, obj_gsheet):
         """Test 1."""
         obj_gsheet.escopo == ''
-
+    
