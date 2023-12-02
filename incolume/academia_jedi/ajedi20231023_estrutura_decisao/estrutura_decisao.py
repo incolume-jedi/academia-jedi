@@ -493,7 +493,10 @@ def exercicio24() -> str:
         float(input('número: ')),
         float(input('número: ')),
     )
-    return f'{result:.2f} {pi[operator.mod(int(result), 2)]} {pn[result > 0]} {di[int(result) == result]}'
+    return (
+        f'{result:.2f} {pi[operator.mod(int(result), 2)]}'
+        f' {pn[result > 0]} {di[int(result) == result]}'
+    )
 
 
 def exercicio25():
@@ -512,6 +515,27 @@ def exercicio25():
      5 como "Assassino".
      Caso contrário, ele será classificado como "Inocente".
     """
+    status = ['Inocente', 'Suspeito', 'Cúmplice', 'Cúmplice', 'Assassino']
+    perguntas = [
+        'Telefonou para a vítima? ',
+        'Esteve no local do crime? ',
+        'Mora perto da vítima? ',
+        'Devia para a vítima? ',
+        'Já trabalhou com a vítima? ',
+    ]
+    respostas = []
+
+    def validar_resposta(entrada: str):
+        """Normalização de resposta."""
+        positivas = ['sim', 'yes', 's', 'y', 'true', 'ok', '1']
+        if entrada.casefold() in positivas:
+            return True
+        return False
+
+    for pergunta in perguntas:
+        respostas.append(validar_resposta(input(pergunta)))
+
+    return status[max(0, sum(respostas) - 1)]
 
 
 def exercicio26():

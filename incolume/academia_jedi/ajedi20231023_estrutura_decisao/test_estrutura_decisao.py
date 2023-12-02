@@ -547,3 +547,31 @@ def test_exercicio24(entrance, expected):
     """Testar exercicio24."""
     with mock.patch('builtins.input', side_effect=entrance):
         assert pkg.exercicio24() == expected
+
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
+        (('Sim', 'SIM', 'sim', 'Yes', 'y'), 'Assassino'),
+        (('YES', 'sim', 'sim', 'sim', 'n'), 'Cúmplice'),
+        (('YES', 'n', 'sim', 'sim', 'sim'), 'Cúmplice'),
+        (('n', 'sim', 'sim', 'sim', 'sim'), 'Cúmplice'),
+        (('sim', 'sim', 'sim', 'n', 'n'), 'Cúmplice'),
+        (('sim', 'sim', 'n', 'n', 'sim'), 'Cúmplice'),
+        (('sim', 'n', 'sim', 'n', 'sim'), 'Cúmplice'),
+        (('sim', 'sim', 'n', 'n', 'n'), 'Suspeito'),
+        (('sim', 'n', 's', 'n', 'n'), 'Suspeito'),
+        (('n', 'n', 's', 'n', 's'), 'Suspeito'),
+        (('s', 'n', 'n', 'n', 's'), 'Suspeito'),
+        (('yes', 'n', 'n', 'n', 'n'), 'Inocente'),
+        (('n', 'y', 'n', 'n', 'n'), 'Inocente'),
+        (('n', 'n', 'y', 'n', 'n'), 'Inocente'),
+        (('n', 'n', 'n', 'y', 'n'), 'Inocente'),
+        (('n', 'n', 'n', 'n', 'y'), 'Inocente'),
+        (('n', 'n', 'n', 'n', 'n'), 'Inocente'),
+    ],
+)
+def test_exercicio25(entrance, expected) -> None:
+    """Testar exercicio25."""
+    with mock.patch('builtins.input', side_effect=entrance):
+        assert pkg.exercicio25() == expected
