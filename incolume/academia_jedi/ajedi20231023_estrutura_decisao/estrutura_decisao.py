@@ -420,6 +420,26 @@ def exercicio21():
     notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5
     e quatro notas de 1.
     """
+    notas = [100, 50, 10, 5, 1]
+
+    valor = float(input('Valor do saque: '))
+    if 10 > valor or 600 < valor:
+        raise ValueError('limite por saque entre R$10 e R$600')
+
+    def change(value) -> list:
+        result = [0 for _ in range(len(notas))]
+        idx = 0
+        while value > 0:
+            result[idx] = value // notas[idx]
+            value %= notas[idx]
+            idx += 1
+        return result
+
+    return ''.join(
+        f'{x:.0f} nota(s) de R$ {notas[i]}, '
+        for i, x in enumerate(change(valor))
+        if x
+    )
 
 
 def exercicio22(num: int) -> str:

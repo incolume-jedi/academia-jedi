@@ -1,5 +1,6 @@
 """Testes unitários para estrutura de decisão."""
 import io
+from re import escape
 
 import mock
 import pytest
@@ -449,6 +450,60 @@ def test_exercicio19(entrance, expected):
 def test_exercicio20(entrance, expected):
     """Teste do exercício20."""
     assert pkg.exercicio20(*entrance) == expected
+
+
+@pytest.mark.parametrize(
+    'xcpt entrance expected'.split(),
+    [
+        (
+            {
+                'expected_exception': ValueError,
+                'match': escape('limite por saque entre R$10 e R$600'),
+            },
+            '1',
+            '',
+        ),
+        (
+            {
+                'expected_exception': ValueError,
+                'match': escape('limite por saque entre R$10 e R$600'),
+            },
+            '601',
+            '',
+        ),
+        pytest.param(
+            {},
+            10,
+            '1 nota(s) de R$ 10, ',
+        ),
+        pytest.param({}, 100, '1 nota(s) de R$ 100, '),
+        pytest.param({}, 50, '1 nota(s) de R$ 50, '),
+        pytest.param(
+            {},
+            256,
+            '2 nota(s) de R$ 100, 1 nota(s) de R$ 50,'
+            ' 1 nota(s) de R$ 5, 1 nota(s) de R$ 1, ',
+        ),
+        pytest.param(
+            {},
+            399,
+            '3 nota(s) de R$ 100, 1 nota(s) de R$ 50,'
+            ' 4 nota(s) de R$ 10, 1 nota(s) de R$ 5, 4 nota(s) de R$ 1, ',
+        ),
+        pytest.param({}, 500, '5 nota(s) de R$ 100, '),
+    ],
+)
+def test_exercicio21(xcpt, entrance, expected) -> None:
+    """Test do exercício21."""
+    if xcpt:
+        with (
+            mock.patch('builtins.input', return_value=entrance),
+            pytest.raises(**xcpt),
+        ):
+            pkg.exercicio21()
+    else:
+        with mock.patch('builtins.input', return_value=entrance):
+            assert pkg.exercicio21() == expected
 
 
 @pytest.mark.parametrize(
