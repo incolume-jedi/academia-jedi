@@ -1,4 +1,7 @@
 """Testes unitários para estrutura de decisão."""
+import io
+
+import mock
 import pytest
 
 import incolume.academia_jedi.ajedi20231023_estrutura_decisao.estrutura_decisao as pkg
@@ -160,8 +163,8 @@ def test_exercicio08(entrance, expected):
     ],
 )
 def test_exercicio9(entrance, expected):
-    """Testar exercicio9."""
-    assert pkg.exercicio9(*entrance) == expected
+    """Testar exercicio09."""
+    assert pkg.exercicio09(*entrance) == expected
 
 
 @pytest.mark.parametrize(
@@ -219,19 +222,23 @@ def test_exercicio10_exceptions(entrance, excpt):
     [
         (
             1500.01,
-            'Salário atual: R$  1500.01\n aumento: 5.0 %\n aumento: R$  75.00\n Salário novo: R$ 1575.01',
+            'Salário atual: R$  1500.01\n aumento: 5.0 %\n'
+            ' aumento: R$  75.00\n Salário novo: R$ 1575.01',
         ),
         (
             280,
-            'Salário atual: R$  280.00\n aumento: 20.0 %\n aumento: R$  56.00\n Salário novo: R$ 336.00',
+            'Salário atual: R$  280.00\n aumento: 20.0 %\n'
+            ' aumento: R$  56.00\n Salário novo: R$ 336.00',
         ),
         (
             700,
-            'Salário atual: R$  700.00\n aumento: 15.0 %\n aumento: R$  105.00\n Salário novo: R$ 805.00',
+            'Salário atual: R$  700.00\n aumento: 15.0 %\n'
+            ' aumento: R$  105.00\n Salário novo: R$ 805.00',
         ),
         (
             1500,
-            'Salário atual: R$  1500.00\n aumento: 10.0 %\n aumento: R$  150.00\n Salário novo: R$ 1650.00',
+            'Salário atual: R$  1500.00\n aumento: 10.0 %\n'
+            ' aumento: R$  150.00\n Salário novo: R$ 1650.00',
         ),
     ],
 )
@@ -242,8 +249,17 @@ def test_exercicio11(entrance, expected):
 
 def test_exercicio12(capsys):
     """Testar exercicio 12."""
-    stream, out = capsys.readouterr()
-    assert pkg.exercicio12(5, 220) == stream
+    pkg.exercicio12(5, 220)
+    out, err = capsys.readouterr()
+    assert out == (
+        '\n            Salário Bruto: (5 * 220): R$ 1100'
+        '\n            (-) IR (5%)                     : R$   0'
+        '\n            (-) INSS ( 10%)                 : R$  110.0'
+        '\n            FGTS (11%)                      : R$  121.0'
+        '\n            Total de descontos              : R$  121.0'
+        '\n            Salário Liquido                 : R$  979.0'
+        '\n'
+    )
 
 
 @pytest.mark.parametrize(
@@ -329,9 +345,9 @@ def test_exercicio14_exceptions(entrance, xcpt):
     'entrance expected'.split(),
     [
         ((2, 3, 5), 'Triângulo escaleno'),
-        ((1, 1, 1), 'Triângulo isósceles'),
-        ((1, 9, 8), 'Triângulo isósceles'),
-        ((1, 1, 1), 'Triângulo isósceles'),
+        ((1, 1, 1), 'Triângulo equilátero'),
+        ((8, 9, 8), 'Triângulo isósceles'),
+        ((4, 4, 4), 'Triângulo equilátero'),
     ],
 )
 def test_exercicio15(entrance, expected) -> None:
@@ -442,3 +458,18 @@ def test_exercicio22(entrance, expected):
 def test_exercicio23(entrance, expected):
     """Testar exercicio23."""
     assert pkg.exercicio23(entrance) == expected
+
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
+        (('+', 1, 2), '3.00 impar positivo inteiro'),
+        (('/', 7, 3), '2.33 par positivo decimal'),
+        (('*', 1, 3.1415), '3.14 impar positivo decimal'),
+        (('-', 1, 2), '-1.00 impar negativo inteiro'),
+    ],
+)
+def test_exercicio24(entrance, expected):
+    """Testar exercicio24."""
+    with mock.patch('builtins.input', side_effect=entrance):
+        assert pkg.exercicio24() == expected

@@ -84,7 +84,7 @@ def exercicio08(*args) -> float:
     return exercicio07(*args)[-1]
 
 
-def exercicio9(*args):
+def exercicio09(*args):
     """Faça um Programa que leia três números
     e mostre-os em ordem decrescente.
     """
@@ -198,8 +198,7 @@ def exercicio12(valor_hora: float, quantia_hora: float) -> str:
             (-) INSS ( 10%)                 : R$  {inss}
             FGTS (11%)                      : R$  {fgts}
             Total de descontos              : R$  {descontos}
-            Salário Liquido                 : R$  {sal_bruto - descontos}
-    """
+            Salário Liquido                 : R$  {sal_bruto - descontos}"""
     )
 
 
@@ -282,14 +281,15 @@ def exercicio15(a: int, b: int, c: int) -> str:
     Triângulo Isósceles: quaisquer dois lados iguais;
     Triângulo Escaleno: três lados diferentes;
     """
+    result: str = ''
     if (a + b) < c:
         result = 'Não forma triângulo.'
-    if a == b == c:
-        result = 'Triângulo equilatero'
-    if not a == b == c:
-        result = 'Triângulo escaleno'
-    if (a == b) or (b == c) or (a == c):
+    elif a == b == c:
+        result = 'Triângulo equilátero'
+    elif (a == b) or (b == c) or (a == c):
         result = 'Triângulo isósceles'
+    elif not (a == b == c):
+        result = 'Triângulo escaleno'
     return result
 
 
@@ -369,7 +369,7 @@ def exercicio20(n1, n2, n3):
     """
     mensao = ['Reprovado', 'Aprovado', 'Aprovado com Distinção']
     m = sum((n1, n2, n3)) / 3
-    return f'{m:.1f} - {mensao[(m>=7) + (m == 10)]}'
+    return f'{m:.1f} - {mensao[(m >= 7) + (m == 10)]}'
 
 
 def exercicio21():
@@ -413,14 +413,35 @@ def exercicio23(num: float) -> str:
     return ['decimal', 'inteiro'][int(num) == num]
 
 
-def exercicio24():
+def exercicio24() -> str:
     """Faça um Programa que leia 2 números e em seguida pergunte ao
-    usuário qual operação ele deseja realizar. O resultado da operação
+    usuário qual operação ele deseja realizar.
+    O resultado da operação
     deve ser acompanhado de uma frase que diga se o número é:
     par ou ímpar;
     positivo ou negativo;
     inteiro ou decimal.
     """
+    pi = ['par', 'impar']
+    pn = ['negativo', 'positivo']
+    di = ['decimal', 'inteiro']
+
+    def calculate(op: str, num1: float, num2: float) -> float:
+        """Calculate."""
+        options = {
+            '+': operator.add,
+            '-': operator.sub,
+            '*': operator.mul,
+            '/': operator.truediv,
+        }
+        return options.get(op)(num1, num2)
+
+    result = calculate(
+        input('operação (+-/*): '),
+        float(input('número: ')),
+        float(input('número: ')),
+    )
+    return f'{result:.2f} {pi[operator.mod(int(result), 2)]} {pn[result > 0]} {di[int(result) == result]}'
 
 
 def exercicio25():
@@ -448,7 +469,8 @@ def exercicio26():
     acima de 20 litros, desconto de 5% por litro
     Gasolina:
     até 20 litros, desconto de 4% por litro
-    acima de 20 litros, desconto de 6% por litro Escreva um algoritmo que
+    acima de 20 litros, desconto de 6% por litro
+    Escreva um algoritmo que
     leia o número de litros vendidos, o tipo de combustível (codificado da
     seguinte forma: A-álcool, G-gasolina), calcule e imprima o valor a ser
     pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 2,50
