@@ -358,6 +358,25 @@ def test_exercicio15(entrance, expected) -> None:
 @pytest.mark.parametrize(
     'entrance expected'.split(),
     [
+        ((0, 2, 3), 'a=0. Não é uma equação de segundo grau.'),
+        ((1, 2, 3), 'delta=-8. Não possui raízes reais.'),
+        ((4, 0, -16), 'x = 2.0 ou -2.0'),
+        ((2, -3, -5), 'x = 2.5 ou -1.0'),
+        ((2, 7, 5), 'x = -1.0 ou -2.5'),
+        ((5, -1, 0), 'x = 0.2 ou 0.0'),
+        ((5, 0, 0), 'delta=0. Possui apenas uma raiz real: 0.0'),
+        ((2, 0, -2), 'x = 1.0 ou -1.0'),
+    ],
+)
+def test_exercicio16(entrance, expected) -> None:
+    """Testar exercicio 16."""
+    with mock.patch('builtins.input', side_effect=entrance):
+        assert pkg.exercicio16() == expected
+
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
         (2000, True),
         (2020, True),
         (2021, False),

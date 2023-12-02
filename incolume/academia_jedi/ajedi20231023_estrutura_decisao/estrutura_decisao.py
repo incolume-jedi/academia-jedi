@@ -1,6 +1,7 @@
 """Solução dos exercícios estrutura de decisão."""
 import datetime
 import operator
+from collections import namedtuple
 
 
 def exercicio01(num1: float, num2: float) -> float:
@@ -307,6 +308,37 @@ def exercicio16():
     - Se o delta for positivo, a equação possui duas raiz reais;
     informe-as ao usuário;
     """
+    values = []
+
+    temp = int(input('digite o valor para "a": '))
+    if temp == 0:
+        return f'a={temp}. Não é uma equação de segundo grau.'
+    values.append(temp)
+    values.append(int(input('digite o valor para "b": ')))
+    values.append(int(input('digite o valor para "c": ')))
+    a, b, c = values
+
+    def delta(*values):
+        a, b, c = values
+        return b**2 - 4 * a * c
+
+    def x(*values):
+        a, b, c = values
+        d = delta(a, b, c)
+        if d < 0:
+            return f'delta={d}. Não possui raízes reais.'
+        if d == 0:
+            return (
+                f'delta={d}. Possui apenas uma raiz real: '
+                f'{(-b + d ** (1 / 2)) / (2 * a)}'
+            )
+        if d > 0:
+            return (
+                f'x = {(-b + d ** (1 / 2)) / (2 * a)} '
+                f'ou {(-b - d ** (1 / 2)) / (2 * a)}'
+            )
+
+    return x(*values)
 
 
 def exercicio17(ano: int) -> bool:
