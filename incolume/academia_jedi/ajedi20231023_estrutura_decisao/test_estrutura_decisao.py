@@ -611,3 +611,91 @@ def test_exercicio27(entrance, expected) -> None:
     """Testar exercicio27."""
     with mock.patch('builtins.input', side_effect=entrance):
         assert isclose(pkg.exercicio27(), expected)
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
+        (
+            ('pix', 'file duplo', 4),
+            '         Hipermercado Tabajara          \n'
+            '----------------------------------------\n'
+            'Produtos:\n'
+            '4.0  Kg file duplo .........   R$ 23.20\n'
+            '----------------------------------------\n'
+            'Tipo de pagamento:                  pix\n'
+            'Valor do desconto:              R$ 0.00\n'
+            'Valor Final:                   R$ 23.20\n'
+        ),
+        (
+            ('dinheiro', 'alcatra', 4),
+            '         Hipermercado Tabajara          \n'
+            '----------------------------------------\n'
+            'Produtos:\n'
+            '4.0  Kg alcatra    .........   R$ 27.20\n'
+            '----------------------------------------\n'
+            'Tipo de pagamento:             dinheiro\n'
+            'Valor do desconto:              R$ 0.00\n'
+            'Valor Final:                   R$ 27.20\n'
+        ),
+        (
+            ('débito', 'picanha', 4),
+            '         Hipermercado Tabajara          \n'
+            '----------------------------------------\n'
+            'Produtos:\n'
+            '4.0  Kg picanha    .........   R$ 31.20\n'
+            '----------------------------------------\n'
+            'Tipo de pagamento:               débito\n'
+            'Valor do desconto:              R$ 0.00\n'
+            'Valor Final:                   R$ 31.20\n'
+            ''
+        ),
+        (
+            ('crédito', 'file duplo', 4),
+            '         Hipermercado Tabajara          \n'
+            '----------------------------------------\n'
+            'Produtos:\n'
+            '4.0  Kg file duplo .........   R$ 23.20\n'
+            '----------------------------------------\n'
+            'Tipo de pagamento:              crédito\n'
+            'Valor do desconto:              R$ 0.00\n'
+            'Valor Final:                   R$ 23.20\n'
+        ),
+        (
+            ('tabajara', 'file duplo', 4),
+            '         Hipermercado Tabajara          \n'
+            '----------------------------------------\n'
+            'Produtos:\n'
+            '4.0  Kg file duplo .........   R$ 23.20\n'
+            '----------------------------------------\n'
+            'Tipo de pagamento:      Cartão Tabajara\n'
+            'Valor do desconto:              R$ 2.32\n'
+            'Valor Final:                   R$ 20.88\n'
+        ),
+        (
+            ('tabajara', 'picanha', 10),
+            '         Hipermercado Tabajara          \n'
+            '----------------------------------------\n'
+            'Produtos:\n'
+            '10.0 Kg picanha    .........   R$ 78.00\n'
+            '----------------------------------------\n'
+            'Tipo de pagamento:      Cartão Tabajara\n'
+            'Valor do desconto:             R$ 16.80\n'
+            'Valor Final:                   R$ 61.20\n'
+        ),
+        (
+            ('crédito', 'picanha', 10),
+            '         Hipermercado Tabajara          \n'
+            '----------------------------------------\n'
+            'Produtos:\n'
+            '10.0 Kg picanha    .........   R$ 78.00\n'
+            '----------------------------------------\n'
+            'Tipo de pagamento:              crédito\n'
+            'Valor do desconto:              R$ 9.00\n'
+            'Valor Final:                   R$ 69.00\n'
+        ),
+    ],
+)
+def test_exercicio28(entrance, expected) -> None:
+    """Testar exercicio28."""
+    with mock.patch('builtins.input', side_effect=entrance):
+        assert pkg.exercicio28() == expected

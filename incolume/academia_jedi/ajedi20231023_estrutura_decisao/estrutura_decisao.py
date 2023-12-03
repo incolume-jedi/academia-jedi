@@ -1,6 +1,8 @@
 """Solução dos exercícios estrutura de decisão."""
 import datetime
 import operator
+from collections import namedtuple
+
 from unidecode import unidecode
 
 
@@ -613,7 +615,8 @@ def exercicio27():
                 print('Produto inválido, escolha novamente.')
             else:
                 car[produto] = float(input('Informe a quantidade (kg):'))
-            comprar = input('Acrescentar mais itens? ')[0].casefold() in ['s', 'y']
+            comprar = input('Acrescentar mais itens? ')[0].casefold() in ['s',
+                                                                          'y']
         return car
 
     def calculo(car: dict[str, float]) -> float:
@@ -639,7 +642,7 @@ def exercicio28():
 
     Até 5 Kg
     Acima de 5 Kg
-    File Duplo
+    File duplo
     R$ 5,80 por Kg
     R$ 4,90 por Kg
     Alcatra
@@ -652,7 +655,7 @@ def exercicio28():
 
     Para atender a todos os clientes, cada cliente poderá levar apenas um
     dos tipos de carne da promoção, porém não há limites para a quantidade
-    de carne por cliente. Se compra for feita no cartão Tabajara o cliente
+    de carne por cliente. Se a compra for feita no cartão Tabajara o cliente
     receberá ainda um desconto de 5% sobre o total da compra.
 
     Escreva um programa que peça o tipo e a quantidade de carne comprada pelo
@@ -660,3 +663,68 @@ def exercicio28():
     e quantidade de carne, preço total, tipo de pagamento,
     valor do desconto e valor a pagar.
     """
+    tipo_pag = namedtuple('Pagamento', 'tipo peso')
+    pagamentos = {
+        'pix': tipo_pag('pix', 1),
+        'dinheiro': tipo_pag('dinheiro', 1),
+        'credito': tipo_pag('crédito', 1),
+        'debito': tipo_pag('débito', 1),
+        'tabajara': tipo_pag('Cartão Tabajara', .95),
+    }
+    carnes = {
+        'file duplo': [5.8, 4.9],
+        'alcatra': [6.8, 5.9],
+        'picanha': [7.8, 6.9],
+    }
+
+    def checking(msg: str, op: list):
+        """..."""
+        entrada = None
+        while True:
+            entrada = unidecode(e := input(f'{msg} {op}: ')).casefold()
+            if entrada in op:
+                break
+            print(f'Opção "{e}" indisponível! Selecione novamente.')
+        return entrada
+
+    def compra():
+        """Compra."""
+        itens = []
+        continuar = True
+        forma_pagamento = ''
+        forma_pagamento = checking(
+            'Informe a forma de pagamento', list(pagamentos.keys()))
+        carne_sel = checking('Qual carne selecionada', list(carnes.keys()))
+        quantia = float(input('Quantos quilos? '))
+        return forma_pagamento, carne_sel, quantia
+
+    def ticket(*args) -> str:
+        """Gera o ticket."""
+        forma_pagamento, carne_sel, quantia = args
+        subtotal = quantia * carnes[carne_sel][0]
+        desconto = 0
+        if quantia > 5:
+            desconto += subtotal - quantia * carnes[carne_sel][1]
+        if forma_pagamento == 'tabajara':
+            desconto += subtotal * .1
+        total = subtotal - desconto
+        msg = (
+            f'{"Hipermercado Tabajara":^40}\n'
+            f'{"--"*20:^40}\n'
+            'Produtos:\n'
+            f'{"{:<5}Kg {:<10} ......... {:>10}"}\n'
+            f'{"--"*20:^40}\n'
+            f'{"Tipo de pagamento: {:>20}"}\n'
+            f'{"Valor do desconto: {:>20}"}\n'
+            f'{"Valor Final: {:>26}"}\n'
+        )
+        return msg.format(
+            quantia,
+            carne_sel,
+            f'R$ {subtotal:.2f}',
+            pagamentos[forma_pagamento].tipo,
+            f'R$ {desconto:.2f}',
+            f'R$ {total:.2f}',
+        )
+
+    return ticket(*compra())
