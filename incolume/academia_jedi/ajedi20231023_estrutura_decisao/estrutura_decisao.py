@@ -1,7 +1,9 @@
 """Solução dos exercícios estrutura de decisão."""
 import datetime
 import operator
-from collections import namedtuple
+from enum import Enum
+
+from unidecode import unidecode
 
 
 def exercicio01(num1: float, num2: float) -> float:
@@ -127,7 +129,8 @@ def exercicio11(salario: float) -> str:
     salários até R$ 280,00 (incluindo) : aumento de 20%
     salários entre R$ 280,00 e R$ 700,00 : aumento de 15%
     salários entre R$ 700,00 e R$ 1500,00 : aumento de 10%
-    salários de R$ 1500,00 em diante : aumento de 5% Após o aumento ser realizado, informe na tela:
+    salários de R$ 1500,00 em diante : aumento de 5% Após o aumento
+    ser realizado, informe na tela:
     - o salário antes do reajuste;
     - o percentual de aumento aplicado;
     - o valor do aumento;
@@ -263,7 +266,8 @@ def exercicio14(*args) -> str:
     def mostrar_resultado(media: float) -> str:
         """Apresentação do resultado."""
         conceito = calc_conceito(media)
-        return f'Notas: {args}, Média: {media}, Conceito: {conceito} "{mensagens[conceito]}"'
+        return (f'Notas: {args}, Média: {media}, '
+                f'Conceito: {conceito} "{mensagens[conceito]}"')
 
     return mostrar_resultado(media)
 
@@ -320,7 +324,7 @@ def exercicio16():
 
     def delta(*values):
         a, b, c = values
-        return b**2 - 4 * a * c
+        return b ** 2 - 4 * a * c
 
     def x(*values):
         a, b, c = values
@@ -395,8 +399,10 @@ def exercicio19(num: int) -> str:
 def exercicio20(n1, n2, n3):
     """Faça um Programa para leitura de três notas parciais de um aluno.
     O programa deve calcular a média alcançada por aluno e presentar:
-    - A mensagem "Aprovado", se a média for maior ou igual a 7, com a respectiva média alcançada;
-    - A mensagem "Reprovado", se a média for menor do que 7, com a respectiva média alcançada;
+    - A mensagem "Aprovado", se a média for maior ou igual a 7,
+      com a respectiva média alcançada;
+    - A mensagem "Reprovado", se a média for menor do que 7,
+      com a respectiva média alcançada;
     - A mensagem "Aprovado com Distinção", se a média for igual a 10.
     """
     mensao = ['Reprovado', 'Aprovado', 'Aprovado com Distinção']
@@ -541,17 +547,39 @@ def exercicio25():
 def exercicio26():
     """Um posto está vendendo combustíveis com a seguinte tabela de descontos:
     Álcool:
-    até 20 litros, desconto de 3% por litro
-    acima de 20 litros, desconto de 5% por litro
+       - até 20 litros, desconto de 3% por litro
+       - acima de 20 litros, desconto de 5% por litro
     Gasolina:
-    até 20 litros, desconto de 4% por litro
-    acima de 20 litros, desconto de 6% por litro
-    Escreva um algoritmo que
-    leia o número de litros vendidos, o tipo de combustível (codificado da
-    seguinte forma: A-álcool, G-gasolina), calcule e imprima o valor a ser
-    pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 2,50
-    o preço do litro do álcool é R$ 1,90.
+       - até 20 litros, desconto de 4% por litro
+       - acima de 20 litros, desconto de 6% por litro
+
+    Escreva um algoritmo que leia o número de litros vendidos,
+    o tipo de combustível (codificado da seguinte forma: A-álcool, G-gasolina),
+     calcule e imprima o valor a ser pago pelo cliente sabendo-se que o preço
+      do litro da gasolina é R$ 2,50 o preço do litro do álcool é R$ 1,90.
     """
+    fuels = ['A', 'AL', 'ALCOOL', 'G', 'GAZ', 'GASOLINA']
+
+    def calculo(litragem: float = 0, combustivel: str = '') -> float:
+        """Calcular valor combustivel."""
+        combustivel = unidecode(combustivel.upper())
+        if combustivel not in fuels:
+            raise ValueError('Combustivel informado inválido.')
+        if combustivel == 'A' and litragem > 20:
+            return litragem * 1.9 * 95/100
+        if combustivel == 'G' and litragem > 20:
+            return litragem * 2.5 * 94 / 100
+        if combustivel == 'A':
+            return litragem * 1.9 * 97 / 100
+        if combustivel == 'G':
+            return litragem * 2.5 * 96 / 100
+
+    #
+    result = calculo(
+        float(input('Quantidade de litros: ')),
+        input('Qual combustível (A/G)? '))
+    return f'R${result:2.2f}'
+    # return list(Fuel)
 
 
 def exercicio27():
@@ -576,7 +604,8 @@ def exercicio27():
 
 
 def exercicio28():
-    """O Hipermercado Tabajara está com uma promoção de carnes que é imperdível. Confira:
+    """O Hipermercado Tabajara está com uma promoção de carnes que é
+    imperdível. Confira:
 
     Até 5 Kg
     Acima de 5 Kg

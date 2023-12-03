@@ -575,3 +575,18 @@ def test_exercicio25(entrance, expected) -> None:
     """Testar exercicio25."""
     with mock.patch('builtins.input', side_effect=entrance):
         assert pkg.exercicio25() == expected
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
+        ((5, 'A'), 'R$9.21'),
+        ((2, 'G'), 'R$4.80'),
+        ((35, 'A'), 'R$63.17'),
+        ((25, 'G'), 'R$58.75'),
+    ],
+)
+def test_exercicio26(entrance, expected) -> None:
+    """Testar exercicio26."""
+
+    with mock.patch('builtins.input', side_effect=entrance):
+        assert pkg.exercicio26() == expected
