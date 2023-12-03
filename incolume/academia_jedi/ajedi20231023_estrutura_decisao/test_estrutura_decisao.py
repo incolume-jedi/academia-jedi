@@ -2,10 +2,12 @@
 import io
 from re import escape
 
+from math import isclose
 import mock
 import pytest
 
-import incolume.academia_jedi.ajedi20231023_estrutura_decisao.estrutura_decisao as pkg
+import \
+    incolume.academia_jedi.ajedi20231023_estrutura_decisao.estrutura_decisao as pkg
 
 
 @pytest.mark.parametrize(
@@ -576,6 +578,7 @@ def test_exercicio25(entrance, expected) -> None:
     with mock.patch('builtins.input', side_effect=entrance):
         assert pkg.exercicio25() == expected
 
+
 @pytest.mark.parametrize(
     'entrance expected'.split(),
     [
@@ -590,3 +593,21 @@ def test_exercicio26(entrance, expected) -> None:
 
     with mock.patch('builtins.input', side_effect=entrance):
         assert pkg.exercicio26() == expected
+
+
+@pytest.mark.parametrize(
+    'entrance expected'.split(),
+    [
+        (('Morango', 5, 'não'), 12.5),
+        (('Maçã', 5, 'não'), 9.0),
+        (('MORANGO', 10, 'não'), 19.8),
+        (('MAÇÃ', 10, 'não'), 13.5),
+        (('maçã', 5, 'sim', 'morango', '5', 'n'), 19.35),
+        (('maçã', 4, 'sim', 'morango', 4, 'n'), 17.2),
+        (('maçã', 10, 'sim', 'morango', 10, 'n'), 33.30),
+    ],
+)
+def test_exercicio27(entrance, expected) -> None:
+    """Testar exercicio27."""
+    with mock.patch('builtins.input', side_effect=entrance):
+        assert isclose(pkg.exercicio27(), expected)

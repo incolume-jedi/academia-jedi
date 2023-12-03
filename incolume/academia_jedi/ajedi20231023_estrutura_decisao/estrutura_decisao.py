@@ -1,8 +1,6 @@
 """Solução dos exercícios estrutura de decisão."""
 import datetime
 import operator
-from enum import Enum
-
 from unidecode import unidecode
 
 
@@ -566,7 +564,7 @@ def exercicio26():
         if combustivel not in fuels:
             raise ValueError('Combustivel informado inválido.')
         if combustivel == 'A' and litragem > 20:
-            return litragem * 1.9 * 95/100
+            return litragem * 1.9 * 95 / 100
         if combustivel == 'G' and litragem > 20:
             return litragem * 2.5 * 94 / 100
         if combustivel == 'A':
@@ -601,6 +599,38 @@ def exercicio27():
     quantidade (em Kg) de maças adquiridas e escreva o valor a ser
     pago pelo cliente.
     """
+    fruteira = {'morango': [2.5, 2.2], 'maçã': [1.8, 1.5]}
+    plus_desconto = 1 - .1
+
+    def carrinho(produtos: dict = fruteira):
+        """Carrinho da frutaria."""
+        car: dict[str, float] = dict()
+        comprar = True
+        while comprar:
+            produto = input(
+                f'Escolha o produto {list(produtos.keys())}: ').casefold()
+            if produto not in produtos.keys():
+                print('Produto inválido, escolha novamente.')
+            else:
+                car[produto] = float(input('Informe a quantidade (kg):'))
+            comprar = input('Acrescentar mais itens? ')[0].casefold() in ['s', 'y']
+        return car
+
+    def calculo(car: dict[str, float]) -> float:
+        """Calcular preço."""
+        total = 0
+        peso_total = 0
+        for produto, quantia in car.items():
+            peso_total += quantia
+            if quantia > 5:
+                total += quantia * fruteira[produto][1]
+            else:
+                total += quantia * fruteira[produto][0]
+        if peso_total > 8 or total > 25:
+            total *= plus_desconto
+        return total
+
+    return calculo(carrinho())
 
 
 def exercicio28():
