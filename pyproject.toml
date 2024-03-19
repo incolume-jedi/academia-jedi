@@ -246,13 +246,60 @@ max_line_length = 79
 ignore = ['E203']
 
 [tool.ruff]
-# Always generate Python compatible code.
+# required-version = "0.1.6"
+
+# Assume Python Version
 target-version = "py310"
-# Decrease the maximum line length to 79 characters.
+
+# Decrease the maximum line length to 79 character.
 line-length = 79
-tab-size = 4
-src = ["incolume/", "tests/"]
-respect-gitignore = true
+
+namespace-packages = ["incolume/py/planalto_legis"]
+
+# Allow imports relative to directories
+src = ["incolume/", "tests/", "examples/"]
+
+fix = false
+force-exclude = true
+
+# Enumerate all fixed violations.
+show-fixes = true
+
+# By default, always show source code snippets.
+#show-source = true
+
+# warning: The `show-source` option has been deprecated in favor
+# of `output-format`'s "full" and "concise" variants.
+# Please update your configuration
+# to use `output-format = <full|concise>` instead.
+#output-format = "concise"
+# Group violations by containing file.
+# can be: "text" | "json" | "junit" | "github" | "gitlab" | "pylint" | "azure" "grouped"|full|concise
+output-format = "full"
+
+
+# Enable preview features.
+preview = true
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style="single"
+
+[tool.ruff.lint]
+task-tags = ["TODO", "FIXME"]
+
+# Require explicit selection of preview rules.
+explicit-preview-rules = true
+
+# Allow applying all unsafe fixes in the `E` rules and `F401` without the `--unsafe-fixes` flag
+extend-safe-fixes = ["E", "F401"]
+
+# Avoid trying to fix flake8-bugbear (`B`) violations.
+unfixable = ["B"]
+
+# Enable fix for flake8-bugbear (`B`), on top of any rules specified by `fixable`.
+extend-fixable = ["B"]
+
 select = [
   "A",    #flake8-builtins
   "AIR",    #Airflow
@@ -314,44 +361,68 @@ select = [
 ]
 
 # Never enforce `E501` (line length violations).
-ignore = ["INP001", "CPY001"]
+ignore = [
+  "INP001",
+  "CPY001",
+  "FA100",  # Conflit with mypy
+  "UP006",  # Conflit with mypy
+  "UP007",  # Conflit with mypy
+  "I001",   # conflit with isort
+  "ISC001",  # single-line-implicit-string-concatenation
+  #  "COM812",  # missing-trailing-comma
+]
 
-# Avoid trying to fix flake8-bugbear (`B`) violations.
-unfixable = ["B"]
-
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 # Ignore `E402` (import violations) in all `__init__.py` files, and in `path/to/file.py`.
 #"__init__.py" = ["E402"]
 #"path/to/file.py" = ["E402"]
+"**/{tutorial}/*" = ["N999"]
 "**/{tests,docs,tools,utils}/*" = ["EXE002"]
-"**/test_*.py" = [
-  "I001",
-  "EXE002",
+"**/{*_tests,test_*}.py" = [
   "ANN001",
   "ANN101",
+  "EXE002",
+  "I001",
   "PLR6301",
   "S101",
-#  TODO remover ANN001 ANN201 ANN202 D100 D103 D202 PT007 após estabilizar teste piloto
-#  TODO remover temporários no futuro
-#  "ANN201",
-#  "ANN202",
-#  "D100",
-#  "D103",
-#  "D202",
-#  "PT007",
+  "ANN401",  # suppress due conflit with mypy
 ]
 
-[tool.ruff.mccabe]
+[tool.ruff.lint.mccabe]
 # Unlike Flake8, default to a complexity level of 10.
 max-complexity = 5
 
-[tool.ruff.pydocstyle]
+[tool.ruff.lint.pydocstyle]
 convention = "google"
 
-[tool.ruff.flake8-quotes]
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+ignore-fully-untyped = true
+suppress-dummy-args = true
+mypy-init-return = true
+
+[tool.ruff.lint.flake8-comprehensions]
+allow-dict-calls-with-keyword-arguments = true
+
+[tool.ruff.lint.flake8-copyright]
+author = "Ruff"
+# Avoid enforcing a header on files smaller than 1024 bytes.
+min-file-size = 2
+
+[tool.ruff.lint.flake8-quotes]
+# Don't bother trying to avoid escapes.
+avoid-escape = false
 docstring-quotes = "double"
 inline-quotes = "single"
 multiline-quotes = "double"
+
+[tool.ruff.lint.flake8-pytest-style]
+parametrize-names-type = "list"
+parametrize-values-row-type = "tuple"
+
+[tool.ruff.lint.pylint]
+max-args = 5
+
 
 [tool.taskipy.variables]
 path = "incolume/ tests/"
