@@ -12,9 +12,6 @@ assert assets.exists(), f'Ops: {assets=}'  # noqa: S101
 logging.debug(assets)
 
 
-
-
-
 def settings_page(page: ft.Page, *, title: str = '') -> ft.Page:
     """Setting page."""
     page.window_always_on_top = True
@@ -36,13 +33,13 @@ def set_bg(page: ft.Page) -> ft.Stack:
     """Define background."""
     return ft.Stack(
         scale=1,
-        aspect_ratio=9/16,
+        aspect_ratio=9 / 16,
         # width=page.window_width,
         height=page.window_height - page.appbar.toolbar_height,
         controls=[
             ft.Image(
                 src=IMAGES[1].as_posix(),
-                aspect_ratio=9/16,
+                aspect_ratio=9 / 16,
                 # width=page.window_width,
                 # height=page.window_height,
                 fit=ft.ImageFit.COVER,
@@ -126,7 +123,7 @@ def set_navbar(page: ft.Page) -> ft.NavigationBar:
         visible=True,
         bgcolor=BLUE,
         surface_tint_color=ft.colors.WHITE,
-        shadow_color=ft.colors.PURPLE_100,
+        shadow_color=ft.colors.BLACK87,
         indicator_color=ft.colors.BLUE,
         selected_index=1,
         destinations=[
@@ -153,24 +150,31 @@ def set_navbar(page: ft.Page) -> ft.NavigationBar:
     )
 
 
+text_styles = {
+    'size': 20,
+    'color': 'green',
+    'text_align': ft.TextAlign.JUSTIFY,
+    'weight': ft.FontWeight.W_900,
+}
+
+
 def page_about(page: ft.Page) -> ft.Container:
     """Page about."""
     page.appbar = set_appbar(page, title='Sobre')
     return ft.Container(
         margin=10,
         padding=10,
+        aspect_ratio=9 / 16,
         content=ft.Column(
             controls=[
                 ft.Text(
-                    color='black',
-                    text_align=ft.TextAlign.JUSTIFY,
-                    size=20,
                     value='Aplicativo desenvolvido para facilitar o acesso'
                     ' à Legislação Federal brasileira. Apresenta toda'
                     ' a base da legislação disponível no Portal da'
                     ' Legislação do Planalto, gerido pelo Centro de'
                     ' Estudos da Subchefia para Assuntos Jurídicos da'
                     ' Secretaria-Geral da Presidência da República.',
+                    **text_styles,
                 ),
                 ft.Text(
                     color='black',
@@ -224,7 +228,7 @@ def main(page: ft.Page) -> None:
     page.add(
         ft.Image(
             src=IMAGES[0].as_posix(),
-            aspect_ratio=9/16,
+            aspect_ratio=9 / 16,
             fit=ft.ImageFit.COVER,
             opacity=1,
         ),
