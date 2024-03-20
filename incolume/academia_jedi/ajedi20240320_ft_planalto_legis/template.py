@@ -191,4 +191,4 @@ def main(page: ft.Page) -> None:
 
 
 if __name__ == '__main__':  # pragma: no cover
-    pass
+    ft.app(target=TemplatePage)

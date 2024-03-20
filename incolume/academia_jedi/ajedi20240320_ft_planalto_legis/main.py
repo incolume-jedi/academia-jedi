@@ -6,7 +6,6 @@ from time import sleep
 from template import BLUE, IMAGES
 import logging
 
-
 assets = Path(__file__).parent / 'assets'
 assert assets.exists(), f'Ops: {assets=}'  # noqa: S101
 logging.debug(assets)
@@ -34,14 +33,14 @@ def set_bg(page: ft.Page) -> ft.Stack:
     return ft.Stack(
         scale=1,
         aspect_ratio=9 / 16,
-        # width=page.window_width,
+        width=page.window_width,
         height=page.window_height - page.appbar.toolbar_height,
         controls=[
             ft.Image(
                 src=IMAGES[1].as_posix(),
                 aspect_ratio=9 / 16,
-                # width=page.window_width,
-                # height=page.window_height,
+                width=page.window_width,
+                height=page.window_height,
                 fit=ft.ImageFit.COVER,
                 opacity=1,
             ),
@@ -152,10 +151,58 @@ def set_navbar(page: ft.Page) -> ft.NavigationBar:
 
 text_styles = {
     'size': 20,
-    'color': 'green',
+    'color': 'black',
     'text_align': ft.TextAlign.JUSTIFY,
-    'weight': ft.FontWeight.W_900,
+    # 'weight': ft.FontWeight.W_900,
 }
+
+
+def page_form(page: ft.Page) -> ft.Container:
+    """Page form."""
+    return ft.Container(
+        padding=10,
+        content=ft.Column(
+            [
+                ft.TextField(label='Termo'),
+                ft.ResponsiveRow(
+                    columns=4,
+                    controls=[
+                        ft.TextField(label='Ano', col=2),
+                        ft.TextField(label='Número', col=2),
+                    ],
+                ),
+                ft.Dropdown(
+                    width='max',
+                    label='Tipo',
+                    options=[
+                        ft.dropdown.Option('CONSTITUIÇÃO'),
+                        ft.dropdown.Option('DECRETO'),
+                        ft.dropdown.Option('DECRETO EXECUTIVO'),
+                        ft.dropdown.Option('DECRETO NÃO NUMERADO'),
+                        ft.dropdown.Option('DECRETO-LEI'),
+                        ft.dropdown.Option('EMENDA CONSTITUCIONAL'),
+                        ft.dropdown.Option('LEI'),
+                        ft.dropdown.Option('LEI COMPLEMENTAR'),
+                        ft.dropdown.Option('LEI ORDINÁRIA'),
+                        ft.dropdown.Option('MEDIDA PROVISÓRIA'),
+                        ft.dropdown.Option('RESOLUÇÃO'),
+                    ],
+                ),
+                ft.Dropdown(
+                    width='max',
+                    label='Situação',
+                    options=[
+                        ft.dropdown.Option('NÃO CONSTA REVOGAÇÃO EXPRESSA'),
+                        ft.dropdown.Option('REVOGADO'),
+                    ],
+                ),
+                ft.ElevatedButton(
+                    text='BUSCAR',
+                    icon=ft.icons.SEARCH,
+                ),
+            ],
+        ),
+    )
 
 
 def page_about(page: ft.Page) -> ft.Container:
@@ -240,13 +287,20 @@ def main(page: ft.Page) -> None:
     page.navigation_bar = set_navbar(page)
     background = set_bg(page)
     page.add(background)
+
     sleep(2)
     background.controls[1].controls[0].value = 'Ops!!'
     logging.debug(background.controls[1].controls[0])
     page.update()
+
     sleep(2)
     background.controls.pop(-1)
     background.controls.append(page_about(page))
+    page.update()
+
+    sleep(2)
+    background.controls.pop(-1)
+    background.controls.append(page_form(page))
     page.update()
 
 
