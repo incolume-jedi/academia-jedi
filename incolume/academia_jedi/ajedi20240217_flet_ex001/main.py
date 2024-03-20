@@ -26,7 +26,6 @@ def main(page: ft.Page) -> None:
             colors=[ft.colors.BROWN, ft.colors.SURFACE],
         ),
         content=ft.Image(
-            # src='http://www.pngall.com/wp-content/uploads/11/Clash-Royale-PNG-Pic.png',
             src='Clash-Royale-PNG-Pic.png',
             scale=ft.Scale(scale=1.5),
             width=400,
