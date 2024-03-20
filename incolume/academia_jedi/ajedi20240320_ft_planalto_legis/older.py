@@ -1,5 +1,7 @@
 """Example"""
 
+import logging
+
 import flet as ft
 from template import BLUE, IMAGES
 from pathlib import Path
