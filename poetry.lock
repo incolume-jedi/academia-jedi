@@ -1886,7 +1886,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "packaging"
-version = "24.0"
+version = "23.2"
 description = "Core utilities for Python packages"
 category = "dev"
 optional = false
@@ -3348,13 +3348,8 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 
 [metadata]
 lock-version = "1.1"
-<<<<<<< HEAD
 python-versions = ">=3.8,<3.12"
-content-hash = "5f972b43b1554d275ab89545d5bb29c7c2c2d9843c80dc2eec0e1f302ffb445c"
-=======
-python-versions = ">=3.8,<3.9.7 || >3.9.7,<4.0"
-content-hash = "aa955ee110a9b6e03c53cd479c165e0d3fd34d419dc47333be7df63857ed77ed"
->>>>>>> ec6b5b8 (chore: Instalado pacote flet e respectivas dependências)
+content-hash = "e2cca469e979eb3ac119d96c4fe3719280fe75cdac3e90893573b18ecef519f9"
 
 [metadata.files]
 aiohttp = [
@@ -4809,8 +4804,8 @@ overrides = [
     {file = "overrides-7.7.0.tar.gz", hash = "sha256:55158fa3d93b98cc75299b1e67078ad9003ca27945c76162c1c0766d6f91820a"},
 ]
 packaging = [
-    {file = "packaging-24.0-py3-none-any.whl", hash = "sha256:2ddfb553fdf02fb784c234c7ba6ccc288296ceabec964ad2eae3777778130bc5"},
-    {file = "packaging-24.0.tar.gz", hash = "sha256:eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"},
+    {file = "packaging-23.2-py3-none-any.whl", hash = "sha256:8c491190033a9af7e1d931d0b5dacc2ef47509b34dd0de67ed209b5203fc88c7"},
+    {file = "packaging-23.2.tar.gz", hash = "sha256:048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"},
 ]
 pandas = [
     {file = "pandas-1.5.3-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:3749077d86e3a2f0ed51367f30bf5b82e131cc0f14260c4d3e499186fccc4406"},
