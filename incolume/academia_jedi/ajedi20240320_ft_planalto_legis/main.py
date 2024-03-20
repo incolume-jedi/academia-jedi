@@ -36,13 +36,15 @@ def set_bg(page: ft.Page) -> ft.Stack:
     """Define background."""
     return ft.Stack(
         scale=1,
-        width=page.window_width,
+        aspect_ratio=9/16,
+        # width=page.window_width,
         height=page.window_height - page.appbar.toolbar_height,
         controls=[
             ft.Image(
                 src=IMAGES[1].as_posix(),
-                width=page.window_width,
-                height=page.window_height,
+                aspect_ratio=9/16,
+                # width=page.window_width,
+                # height=page.window_height,
                 fit=ft.ImageFit.COVER,
                 opacity=1,
             ),
@@ -222,8 +224,7 @@ def main(page: ft.Page) -> None:
     page.add(
         ft.Image(
             src=IMAGES[0].as_posix(),
-            width=page.window_width,
-            height=page.window_height,
+            aspect_ratio=9/16,
             fit=ft.ImageFit.COVER,
             opacity=1,
         ),
