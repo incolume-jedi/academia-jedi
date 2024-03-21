@@ -207,7 +207,7 @@ def page_form(page: ft.Page) -> ft.Container:
 
 def page_about(page: ft.Page) -> ft.Container:
     """Page about."""
-    page.appbar = set_appbar(page, title='Sobre')
+    page.appbar.title = ft.Text('Sobre')
     return ft.Container(
         margin=10,
         padding=10,
@@ -289,6 +289,7 @@ def main(page: ft.Page) -> None:
     page.add(background)
 
     sleep(2)
+    page.appbar.title = ft.Text('Ops')
     background.controls[1].controls[0].value = 'Ops!!'
     logging.debug(background.controls[1].controls[0])
     page.update()
@@ -299,6 +300,7 @@ def main(page: ft.Page) -> None:
     page.update()
 
     sleep(2)
+    page.appbar.title = ft.Text('Busca Avançada')
     background.controls.pop(-1)
     background.controls.append(page_form(page))
     page.update()
