@@ -107,4 +107,5 @@ def main(page: ft.Page) -> NoReturn:
 
 
 if __name__ == '__main__':  # pragma: no cover
-    ft.app(target=main, view=ft.AppView.WEB_BROWSER)
+    # ft.app(target=main, view=ft.AppView.WEB_BROWSER)
+    ft.app(target=main, view=ft.AppView.FLET_APP_WEB)
