@@ -7,6 +7,42 @@ import flet as ft
 __author__ = '@britodfbr'  # pragma: no cover
 
 
+class MyAppBar(ft.UserControl):
+    """"""
+
+    def __init__(self, page: ft.Page, title: str = '', *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.page = page
+        self.title = title or 'Home'
+
+    def build(self):
+        return ft.AppBar(
+            title=ft.Text(self.title),
+            bgcolor=ft.colors.SURFACE_VARIANT,
+            actions=[
+                ft.PopupMenuButton(
+                    items=[
+                        ft.PopupMenuItem(
+                            text='Home',
+                            on_click=lambda _: self.page.go('/'),
+                        ),
+                        ft.PopupMenuItem(
+                            text='loja',
+                            on_click=lambda _: self.page.go('/loja'),
+                        ),
+                        ft.PopupMenuItem(
+                            text='settings',
+                            on_click=lambda _: self.page.go('/settings'),
+                        ),
+                    ]
+                ),
+            ],
+        )
+
+    def __call__(self, *args, **kwargs):
+        return self.build()
+
+
 def main(page: ft.Page) -> NoReturn:
     """Run it."""
     page.title = 'sistemas de roteamento'
@@ -21,32 +57,7 @@ def main(page: ft.Page) -> NoReturn:
                 ft.View(
                     route='/',
                     controls=[
-                        ft.AppBar(
-                            title=ft.Text('Home'),
-                            bgcolor=ft.colors.SURFACE_VARIANT,
-                            actions=[
-                                ft.PopupMenuButton(
-                                    items=[
-                                        ft.PopupMenuItem(
-                                            text='Home',
-                                            on_click=lambda _: page.go('/'),
-                                        ),
-                                        ft.PopupMenuItem(
-                                            text='loja',
-                                            on_click=lambda _: page.go(
-                                                '/loja'
-                                            ),
-                                        ),
-                                        ft.PopupMenuItem(
-                                            text='settings',
-                                            on_click=lambda _: page.go(
-                                                '/settings'
-                                            ),
-                                        ),
-                                    ]
-                                ),
-                            ],
-                        ),
+                        MyAppBar(page).build(),
                     ],
                 ),
             )
@@ -55,10 +66,7 @@ def main(page: ft.Page) -> NoReturn:
                 ft.View(
                     route='/',
                     controls=[
-                        ft.AppBar(
-                            title=ft.Text('Loja'),
-                            bgcolor=ft.colors.SURFACE_VARIANT,
-                        ),
+                        MyAppBar(page, title='Loja').build(),
                         ft.ElevatedButton(
                             text='HOME',
                             on_click=lambda _: page.go('/'),
@@ -71,10 +79,7 @@ def main(page: ft.Page) -> NoReturn:
                 ft.View(
                     route='/settings',
                     controls=[
-                        ft.AppBar(
-                            title=ft.Text('Settings'),
-                            bgcolor=ft.colors.SURFACE_VARIANT,
-                        ),
+                        MyAppBar(page, title='Settings').build(),
                         ft.ElevatedButton(
                             text='HOME',
                             on_click=lambda _: page.go('/'),
