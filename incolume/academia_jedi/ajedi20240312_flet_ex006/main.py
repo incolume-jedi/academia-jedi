@@ -15,5 +15,5 @@ def main(page: ft.Page) -> None:
     page.go('/')
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     ft.app(target=main, assets_dir='assets')

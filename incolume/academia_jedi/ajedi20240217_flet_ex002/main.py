@@ -42,7 +42,6 @@ def main(page: ft.Page) -> None:
                         color=ft.colors.BLACK,
                     ),
                     leading=ft.Image(
-                        # src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/110px-NASA_logo.svg.png',
                         src='NASA_logo.svg.png',
                         fit=ft.ImageFit.CONTAIN,
                     ),
@@ -52,7 +51,6 @@ def main(page: ft.Page) -> None:
                     ),
                 ),
                 ft.Image(
-                    # src='https://upload.wikimedia.org/wikipedia/commons/a/ad/Apollo_15_flag%2C_rover%2C_LM%2C_Irwin_cropped.jpg',
                     src='Apollo_15_flag_rover_LM_Irwin_cropped.jpg',
                     fit=ft.ImageFit.CONTAIN,
                 ),

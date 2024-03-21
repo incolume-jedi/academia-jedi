@@ -1,4 +1,4 @@
-"""State."""  # noqa: N999
+"""State."""
 
 
 class GlobalState:

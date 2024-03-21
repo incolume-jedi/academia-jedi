@@ -65,7 +65,9 @@ class Expense(ft.UserControl):
         )
 
         self.notification = self.icon(
-            ft.icons.NOTIFICATIONS, 'white54', selected=True,
+            ft.icons.NOTIFICATIONS,
+            'white54',
+            selected=True,
         )
         self.hide = self.icon(ft.icons.HIDE_SOURCE, 'white54', selected=False)
         self.chat = self.icon(ft.icons.CHAT_ROUNDED, 'white54', selected=False)
