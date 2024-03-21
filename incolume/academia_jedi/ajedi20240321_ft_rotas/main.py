@@ -24,9 +24,28 @@ def main(page: ft.Page) -> NoReturn:
                         ft.AppBar(
                             title=ft.Text('Home'),
                             bgcolor=ft.colors.SURFACE_VARIANT,
-                        ),
-                        ft.ElevatedButton(
-                            text='Loja', on_click=lambda _: page.go('/loja'),
+                            actions=[
+                                ft.PopupMenuButton(
+                                    items=[
+                                        ft.PopupMenuItem(
+                                            text='Home',
+                                            on_click=lambda _: page.go('/'),
+                                        ),
+                                        ft.PopupMenuItem(
+                                            text='loja',
+                                            on_click=lambda _: page.go(
+                                                '/loja'
+                                            ),
+                                        ),
+                                        ft.PopupMenuItem(
+                                            text='settings',
+                                            on_click=lambda _: page.go(
+                                                '/settings'
+                                            ),
+                                        ),
+                                    ]
+                                ),
+                            ],
                         ),
                     ],
                 ),
@@ -41,27 +60,29 @@ def main(page: ft.Page) -> NoReturn:
                             bgcolor=ft.colors.SURFACE_VARIANT,
                         ),
                         ft.ElevatedButton(
-                            text='HOME', on_click=lambda _: page.go('/'),
+                            text='HOME',
+                            on_click=lambda _: page.go('/'),
+                        ),
+                    ],
+                ),
+            )
+        if page.route == '/settings':
+            page.views.append(
+                ft.View(
+                    route='/settings',
+                    controls=[
+                        ft.AppBar(
+                            title=ft.Text('Settings'),
+                            bgcolor=ft.colors.SURFACE_VARIANT,
+                        ),
+                        ft.ElevatedButton(
+                            text='HOME',
+                            on_click=lambda _: page.go('/'),
                         ),
                     ],
                 ),
             )
         page.update()
-        if page.route == '/compras':
-            page.views.append(
-                ft.View(
-                    route='/compras',
-                    controls=[
-                        ft.AppBar(
-                            title=ft.Text('Compras'),
-                            bgcolor=ft.colors.SURFACE_VARIANT,
-                        ),
-                        ft.ElevatedButton(
-                            text='HOME', on_click=lambda _: page.go('/'),
-                        ),
-                    ],
-                ),
-            )
 
     def route_compras(e: ft.ControlEvent):
         """Route compras."""
