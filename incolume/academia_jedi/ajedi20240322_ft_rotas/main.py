@@ -101,8 +101,23 @@ def main(page: ft.Page) -> NoReturn:
                         ],
                     ),
                 )
+            case '/exit':
+                page.window_destroy()
+
             case _:
-                page.update()
+                page.views.append(
+                    ft.View(
+                        route='/404',
+                        vertical_alignment=ft.MainAxisAlignment.CENTER,
+                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                        controls=[
+                            MyAppBar(page, title='Not Found').build(),
+                            ft.Text('Recurso não encontrado!', color='red', weight='bold', text_align=ft.TextAlign.CENTER, size=40),
+
+                        ]
+                    )
+
+                )
         page.update()
 
     def view_pop(e: ft.ControlEvent) -> NoReturn:
