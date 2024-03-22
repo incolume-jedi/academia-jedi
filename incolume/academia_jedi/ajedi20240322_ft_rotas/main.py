@@ -36,12 +36,41 @@ class MyAppBar(ft.UserControl):
                             on_click=lambda _: self.page.go('/'),
                         ),
                         ft.PopupMenuItem(
-                            text='loja',
-                            on_click=lambda _: self.page.go('/loja'),
+                            text='Busca Avançada',
+                            on_click=lambda _: self.page.go('/busca-avancada'),
                         ),
                         ft.PopupMenuItem(
-                            text='settings',
+                            text='Constituição',
+                            on_click=lambda _: self.page.go('/constituicao'),
+                        ),
+                        ft.PopupMenuItem(
+                            text='Códigos',
+                            on_click=lambda _: self.page.go('/codigos'),
+                        ),
+                        ft.PopupMenuItem(
+                            text='Estatutos',
+                            on_click=lambda _: self.page.go('/estatutos'),
+                        ),
+                        ft.PopupMenuItem(
+                            text='Favoritos',
+                            on_click=lambda _: self.page.go('/favoritos'),
+                        ),
+                        ft.PopupMenuItem(
+                            text='Resenha',
+                            on_click=lambda _: self.page.go('/resenha'),
+                        ),
+                        ft.PopupMenuItem(
+                            text='Ajuda',
+                            on_click=lambda _: self.page.go('/ajuda'),
+                        ),
+                        ft.PopupMenuItem(
+                            text='Settings',
                             on_click=lambda _: self.page.go('/settings'),
+                        ),
+                        ft.PopupMenuItem(
+                            text='Fechar',
+                            icon=ft.icons.CLOSE_ROUNDED,
+                            on_click=lambda _: self.page.go('/exit'),
                         ),
                     ],
                 ),
@@ -75,12 +104,12 @@ def main(page: ft.Page) -> NoReturn:
                         ],
                     ),
                 )
-            case '/loja':
+            case '/ajuda':
                 page.views.append(
                     ft.View(
-                        route='/',
+                        route='/ajuda',
                         controls=[
-                            MyAppBar(page, title='Loja').build(),
+                            MyAppBar(page, title='Ajuda').build(),
                             ft.ElevatedButton(
                                 text='HOME',
                                 on_click=lambda _: page.go('/'),
