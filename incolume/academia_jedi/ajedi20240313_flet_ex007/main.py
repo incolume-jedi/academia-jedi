@@ -165,5 +165,6 @@ def main(page: ft.Page) -> None:
 
 if __name__ == '__main__':
     imagesdir = Path(__file__).resolve().parent.joinpath('assets')
-    assert imagesdir.is_dir(), f'Ops: {imagesdir=}'
+    if not imagesdir.is_dir():
+        raise FileNotFoundError(f'Ops: {imagesdir=}')
     ft.app(target=main, assets_dir=imagesdir)

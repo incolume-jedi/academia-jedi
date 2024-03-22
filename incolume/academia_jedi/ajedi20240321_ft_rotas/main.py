@@ -34,7 +34,7 @@ class MyAppBar(ft.UserControl):
                             text='settings',
                             on_click=lambda _: self.page.go('/settings'),
                         ),
-                    ]
+                    ],
                 ),
             ],
         )
@@ -48,7 +48,7 @@ def main(page: ft.Page) -> NoReturn:
     page.title = 'sistemas de roteamento'
     page.add(ft.Text(f'Initial route: {page.route}'))
 
-    def route_change(e: ft.RouteChangeEvent):
+    def route_change(e: ft.RouteChangeEvent) -> NoReturn:
         """Route change."""
         page.add(ft.Text(f'New route: {e.route}'))
         page.views.clear()
@@ -58,6 +58,7 @@ def main(page: ft.Page) -> NoReturn:
                     route='/',
                     controls=[
                         MyAppBar(page).build(),
+                        ft.Text('Homepage'),
                     ],
                 ),
             )
@@ -89,7 +90,7 @@ def main(page: ft.Page) -> NoReturn:
             )
         page.update()
 
-    def route_compras(e: ft.ControlEvent):
+    def route_compras(e: ft.ControlEvent) -> NoReturn:
         """Route compras."""
         page.route = '/compras'
         page.update()
