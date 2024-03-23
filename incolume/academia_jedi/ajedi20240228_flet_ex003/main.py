@@ -88,11 +88,11 @@ def main(page: ft.Page) -> None:
             actions=[
                 ft.ElevatedButton(
                     text='Close',
-                    on_click=lambda e: debug('close'),
+                    on_click=lambda _: debug('close'),
                 ),
                 ft.ElevatedButton(
                     text='test',
-                    on_click=lambda e: debug('test'),
+                    on_click=lambda _: debug('test'),
                 ),
             ],
         )

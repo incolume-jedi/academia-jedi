@@ -9,6 +9,10 @@ class CustomCheckBox(ft.UserControl):
 
     def __init__(
         self,
+        *args, **kwargs,
+    ):
+        """Init.
+
         color,
         label='',
         selection_fill='#183588',
@@ -18,18 +22,17 @@ class CustomCheckBox(ft.UserControl):
         checked=bool,
         font_size=17,
         pressed=None,
-    ):
-        """Init."""
-        super().__init__()
-        self.selection_fill = selection_fill
-        self.color = color
-        self.label = label
-        self.size = size
-        self.stroke_width = stroke_width
-        self.animation = animation
-        self.checked = checked
-        self.font_size = font_size
-        self.pressed = pressed
+        """
+        super().__init__(*args, **kwargs)
+        # self.selection_fill = selection_fill
+        # self.color = color
+        # self.label = label
+        # self.size = size
+        # self.stroke_width = stroke_width
+        # self.animation = animation
+        # self.checked = checked
+        # self.font_size = font_size
+        # self.pressed = pressed
 
     def _checked(self):
         self.check_box = ft.Container(

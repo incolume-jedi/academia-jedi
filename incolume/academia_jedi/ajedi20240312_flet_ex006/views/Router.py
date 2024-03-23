@@ -34,8 +34,10 @@ class Router:
 
     def route_change(self, route):
         """Route Change."""
+        print(route)
         _page = route.route.split('?')[0]
         queries = route.route.split('?')[1:]
+        print(_page, queries)
 
         for item in queries:
             key = item.split('=')[0]
