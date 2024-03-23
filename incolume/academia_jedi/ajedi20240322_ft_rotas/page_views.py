@@ -61,7 +61,7 @@ def constituicao(page: ft.Page) -> ft.Control:
     return ft.View(
         route='/constituicao',
         controls=[
-            MyAppBar(page, title='Constituição').build(),
+            MyAppBar(page, title='Constituição', bgcolor='red').build(),
         ],
     )
 

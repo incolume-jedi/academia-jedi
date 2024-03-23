@@ -15,6 +15,7 @@ class MyAppBar(ft.UserControl):
         self,
         page: ft.Page,
         title: str = '',
+        bgcolor: str = '',
         *args: Any,
         **kwargs: Any,
     ):
@@ -22,12 +23,13 @@ class MyAppBar(ft.UserControl):
         super().__init__(*args, **kwargs)
         self.page = page
         self.title = title or 'Home'
+        self.bgcolor = bgcolor or ft.colors.SURFACE_VARIANT
 
     def build(self):
         """Build it."""
         return ft.AppBar(
             title=ft.Text(self.title),
-            bgcolor=ft.colors.SURFACE_VARIANT,
+            bgcolor=self.bgcolor,
             actions=[
                 ft.PopupMenuButton(
                     items=[
