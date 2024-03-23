@@ -6,14 +6,12 @@ from templates import MyAppBar
 __author__ = '@britodfbr'  # pragma: no cover
 
 
-def home(page: ft.Page):
+def home(page: ft.Page) -> ft.View:
     """Home page."""
-    return (
-        ft.View(
-            route='/',
-            controls=[
-                MyAppBar(page).build(),
-                ft.Text('Homepage'),
-            ],
-        ),
+    return ft.View(
+        route='/',
+        controls=[
+            MyAppBar(page).build(),
+            ft.Text('Homepage'.upper()),
+        ],
     )
