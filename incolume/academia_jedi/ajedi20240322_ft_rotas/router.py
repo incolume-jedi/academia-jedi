@@ -3,7 +3,7 @@
 from typing import NoReturn
 
 import flet as ft
-from page_views import home
+import page_views
 from templates import MyAppBar
 
 
@@ -17,7 +17,7 @@ def route_change(e: ft.RouteChangeEvent) -> NoReturn:
     page.views.clear()
     match page.route:
         case '/':
-            page.views.append(home(page))
+            page.views.append(page_views.home(page))
         case '/ajuda':
             page.views.append(
                 ft.View(
@@ -48,21 +48,5 @@ def route_change(e: ft.RouteChangeEvent) -> NoReturn:
             page.window_destroy()
 
         case _:
-            page.views.append(
-                ft.View(
-                    route='/404',
-                    vertical_alignment=ft.MainAxisAlignment.CENTER,
-                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                    controls=[
-                        MyAppBar(page, title='Not Found').build(),
-                        ft.Text(
-                            'Recurso não encontrado!',
-                            color='red',
-                            weight='bold',
-                            text_align=ft.TextAlign.CENTER,
-                            size=40,
-                        ),
-                    ],
-                ),
-            )
+            page.views.append(page_views.not_found(page))
     page.update()
