@@ -8,14 +8,16 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 
 class MyAppBar(ft.UserControl):
-    """"""
+    """Class appbar."""
 
     def __init__(self, page: ft.Page, title: str = '', *args, **kwargs):
+        """Init it."""
         super().__init__(*args, **kwargs)
         self.page = page
         self.title = title or 'Home'
 
     def build(self):
+        """Build it."""
         return ft.AppBar(
             title=ft.Text(self.title),
             bgcolor=ft.colors.SURFACE_VARIANT,
@@ -90,12 +92,12 @@ def main(page: ft.Page) -> NoReturn:
             )
         page.update()
 
-    def route_compras(e: ft.ControlEvent) -> NoReturn:
+    def route_compras(_: ft.ControlEvent) -> NoReturn:
         """Route compras."""
         page.route = '/compras'
         page.update()
 
-    def view_pop(e: ft.ControlEvent) -> NoReturn:
+    def view_pop(_: ft.ControlEvent) -> NoReturn:
         """View pop."""
         page.views.pop()
         page.go(page.views[-1])
@@ -103,10 +105,7 @@ def main(page: ft.Page) -> NoReturn:
     page.on_route_change = route_change
     page.on_view_pop = view_pop
     page.go(page.route)
-    # page.update()
-    # page.add(ft.ElevatedButton('/compras', on_click=route_compras))
 
 
 if __name__ == '__main__':  # pragma: no cover
-    # ft.app(target=main, view=ft.AppView.WEB_BROWSER)
     ft.app(target=main, view=ft.AppView.FLET_APP_WEB)

@@ -157,7 +157,7 @@ text_styles = {
 }
 
 
-def page_form(page: ft.Page) -> ft.Container:
+def page_form() -> ft.Container:
     """Page form."""
     return ft.Container(
         padding=10,
