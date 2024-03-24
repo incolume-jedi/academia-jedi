@@ -2,6 +2,7 @@ volumes/
 coverage_report/
 
 # Arquivos diversos
+.DS_Store
 *.Identifier
 geckodriver*
 *.[Cc][Ss][Vv]
