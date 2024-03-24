@@ -6,15 +6,27 @@ from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.template impor
     IMAGES,
 )
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.styles import (
-    text_styles,
+    text_style1,
 )
 
 __author__ = '@britodfbr'  # pragma: no cover
 
 
+def not_found_vw(e: ft.ControlEvent) -> ft.Control:
+    """Splash page."""
+    return ft.View(
+        route='/notfound',
+        auto_scroll=True,
+        vertical_alignment=ft.MainAxisAlignment.CENTER,
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        controls=[
+            ft.Text(aspect_ratio=9 / 16, opacity=1, value='Não encontrado...'),
+        ],
+    )
+
+
 def splash_vw(e: ft.ControlEvent) -> ft.Control:
-    """Splash page.
-    """
+    """Splash page."""
     return ft.View(
         route='/',
         controls=[
@@ -50,7 +62,17 @@ def busca_vw(e: ft.ControlEvent) -> ft.Control:
 
 def ajuda_vw(e: ft.ControlEvent) -> ft.Control:
     """Ajuda view."""
-    return ft.View()
+    page = e.page
+    return ft.View(
+        route='/ajuda',
+        controls=[
+            ft.Text('Help page...'),
+            ft.ElevatedButton(
+                text='HOME',
+                on_click=lambda _: page.go('/'),
+            ),
+        ],
+    )
 
 
 def estatutos_vw(e: ft.ControlEvent) -> ft.Control:
@@ -150,65 +172,71 @@ def page_form(page: ft.Page) -> ft.Container:
     )
 
 
-def page_about(page: ft.Page) -> ft.Container:
+def sobre_vw(e: ft.RouteChangeEvent) -> ft.Control:
     """Page about."""
-    page.appbar.title = ft.Text('Sobre')
-    return ft.Container(
-        margin=10,
-        padding=10,
-        aspect_ratio=9 / 16,
-        content=ft.Column(
-            controls=[
-                ft.Text(
-                    value='Aplicativo desenvolvido para facilitar o acesso'
-                    ' à Legislação Federal brasileira. Apresenta toda'
-                    ' a base da legislação disponível no Portal da'
-                    ' Legislação do Planalto, gerido pelo Centro de'
-                    ' Estudos da Subchefia para Assuntos Jurídicos da'
-                    ' Secretaria-Geral da Presidência da República.',
-                    **text_styles,
+    page = e.page
+    # page.appbar.title = ft.Text('Sobre')
+    return ft.View(
+        route='/sobre',
+        controls=[
+            ft.Container(
+                margin=10,
+                padding=10,
+                aspect_ratio=9 / 16,
+                content=ft.Column(
+                    controls=[
+                        ft.Text(
+                            value='Aplicativo desenvolvido para facilitar o acesso'
+                            ' à Legislação Federal brasileira. Apresenta toda'
+                            ' a base da legislação disponível no Portal da'
+                            ' Legislação do Planalto, gerido pelo Centro de'
+                            ' Estudos da Subchefia para Assuntos Jurídicos da'
+                            ' Secretaria-Geral da Presidência da República.',
+                            **text_style1,
+                        ),
+                        ft.Text(
+                            color='black',
+                            text_align=ft.TextAlign.JUSTIFY,
+                            size=20,
+                            value='Apresenta a pesquisa por Termo (palavra-chave),'
+                            ' por ano, por número, por tipo e por situação dos'
+                            ' atos. Permite também acesso rápido pelo menu'
+                            ' lateral aos principais Códigos, Estatutos e à'
+                            ' Constituição.',
+                        ),
+                        ft.Text(
+                            color='black',
+                            text_align=ft.TextAlign.JUSTIFY,
+                            size=20,
+                            value='Possibilita que o usuário salve os atos de seu'
+                            ' interesse na pasta de Favoritos para visualização'
+                            ' desse conteúdo também em modo off-line. Essa'
+                            ' funcionalidade apresenta um lembrete de '
+                            'atualização toda vez que os atos sofrem algum tipo'
+                            ' de alteração no seu conteúdo.',
+                        ),
+                        ft.Text(
+                            color='black',
+                            text_align=ft.TextAlign.JUSTIFY,
+                            size=20,
+                            value='Outra funcionalidade disponibilizada no aplicativo'
+                            ' é a Resenha, que traz uma lista com todos os atos'
+                            ' publicados naquela data, sempre que houver. É'
+                            ' possível também pesquisar por datas específicas'
+                            ' para ter acesso às publicações dos atos normativos'
+                            ' das datas selecionadas.',
+                        ),
+                        ft.Text(
+                            color='black',
+                            text_align=ft.TextAlign.JUSTIFY,
+                            size=20,
+                            value='São disponibilizados no aplicativo os atos'
+                            ' assinados por Presidentes da República - Leis'
+                            ' Ordinárias, Leis Complementares, Leis Delegadas,'
+                            ' Medidas Provisórias e Decretos.',
+                        ),
+                    ],
                 ),
-                ft.Text(
-                    color='black',
-                    text_align=ft.TextAlign.JUSTIFY,
-                    size=20,
-                    value='Apresenta a pesquisa por Termo (palavra-chave),'
-                    ' por ano, por número, por tipo e por situação dos'
-                    ' atos. Permite também acesso rápido pelo menu'
-                    ' lateral aos principais Códigos, Estatutos e à'
-                    ' Constituição.',
-                ),
-                ft.Text(
-                    color='black',
-                    text_align=ft.TextAlign.JUSTIFY,
-                    size=20,
-                    value='Possibilita que o usuário salve os atos de seu'
-                    ' interesse na pasta de Favoritos para visualização'
-                    ' desse conteúdo também em modo off-line. Essa'
-                    ' funcionalidade apresenta um lembrete de '
-                    'atualização toda vez que os atos sofrem algum tipo'
-                    ' de alteração no seu conteúdo.',
-                ),
-                ft.Text(
-                    color='black',
-                    text_align=ft.TextAlign.JUSTIFY,
-                    size=20,
-                    value='Outra funcionalidade disponibilizada no aplicativo'
-                    ' é a Resenha, que traz uma lista com todos os atos'
-                    ' publicados naquela data, sempre que houver. É'
-                    ' possível também pesquisar por datas específicas'
-                    ' para ter acesso às publicações dos atos normativos'
-                    ' das datas selecionadas.',
-                ),
-                ft.Text(
-                    color='black',
-                    text_align=ft.TextAlign.JUSTIFY,
-                    size=20,
-                    value='São disponibilizados no aplicativo os atos'
-                    ' assinados por Presidentes da República - Leis'
-                    ' Ordinárias, Leis Complementares, Leis Delegadas,'
-                    ' Medidas Provisórias e Decretos.',
-                ),
-            ],
-        ),
+            ),
+        ],
     )

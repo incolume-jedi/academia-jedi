@@ -15,7 +15,6 @@ from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.components imp
 )
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.pages import (
     set_navbar,
-    page_about,
     page_form,
 )
 
@@ -60,10 +59,10 @@ def main0(page: ft.Page) -> None:
     logging.debug(background.controls[1].controls[0])
     page.update()
 
-    sleep(2)
-    background.controls.pop(-1)
-    background.controls.append(page_about(page))
-    page.update()
+    # sleep(2)
+    # background.controls.pop(-1)
+    # background.controls.append(page_about(page))
+    # page.update()
 
     sleep(2)
     page.appbar.title = ft.Text('Busca Avançada')
@@ -88,4 +87,5 @@ def main(page: ft.Page) -> None:
 
 
 if __name__ == '__main__':
+    # ft.app(target=main, assets_dir=assets.as_posix(), view=ft.AppView.WEB_BROWSER)
     ft.app(target=main, assets_dir=assets.as_posix())
