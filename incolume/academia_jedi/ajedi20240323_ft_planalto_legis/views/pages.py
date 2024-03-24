@@ -1,118 +1,72 @@
-"""Main module."""
+"""Package for pages."""
 
 import flet as ft
-from pathlib import Path
-from time import sleep
-from template import BLUE, IMAGES
-import logging
 
-assets = Path(__file__).parent / 'assets'
-assert assets.exists(), f'Ops: {assets=}'  # noqa: S101
-logging.debug(assets)
+from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.template import (
+    IMAGES,
+)
+from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.styles import (
+    text_styles,
+)
 
-
-def settings_page(page: ft.Page, *, title: str = '') -> ft.Page:
-    """Setting page."""
-    page.window_always_on_top = True
-    page.theme_mode = ft.ThemeMode.SYSTEM
-    page.title = title or 'Planalto Legis'
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    page.window_min_width = 450
-    page.window_min_height = 720
-    page.padding = 0
-    page.window_width = page.window_min_width
-    page.window_height = page.window_min_height
-    page.scroll = ft.ScrollMode.ALWAYS
-    page.window_bgcolor = ft.colors.BLACK
-    return page
+__author__ = '@britodfbr'  # pragma: no cover
 
 
-def set_bg(page: ft.Page) -> ft.Stack:
-    """Define background."""
-    return ft.Stack(
-        scale=1,
-        aspect_ratio=9 / 16,
-        width=page.window_width,
-        height=page.window_height - page.appbar.toolbar_height,
+def splash_vw(e: ft.ControlEvent) -> ft.Control:
+    """
+    Splash page.
+    """
+    return ft.View(
+        route='/',
         controls=[
             ft.Image(
-                src=IMAGES[1].as_posix(),
+                src=IMAGES[0].as_posix(),
                 aspect_ratio=9 / 16,
-                width=page.window_width,
-                height=page.window_height,
                 fit=ft.ImageFit.COVER,
                 opacity=1,
-            ),
-            ft.Row(
-                controls=[
-                    ft.Text(
-                        'Image title',
-                        color=ft.colors.AMBER,
-                        size=40,
-                        weight='bold',
-                        opacity=0.5,
-                    ),
-                ],
-                alignment=ft.MainAxisAlignment.CENTER,
-            ),
+            )
         ],
     )
 
 
-def set_appbar(page: ft.Page, logo: str = '', title: str = '') -> ft.AppBar:
-    """Define AppBar."""
-    logo = logo or Path('images', 'icons', 'icon-nobg-1024.png').as_posix()
-    title = title or 'Planalto Legis'
-    return ft.AppBar(
-        bgcolor=BLUE,
-        color=ft.colors.WHITE,
-        leading=ft.Image(
-            src=logo,
-        ),
-        leading_width=40,
-        toolbar_height=page.window_height * 0.1,
-        title=ft.Text(title, weight=ft.FontWeight.W_500),
-        center_title=True,
-        actions=[
-            ft.PopupMenuButton(
-                visible=True,
-                icon=ft.icons.MENU,
-                items=[
-                    ft.PopupMenuItem(),
-                    ft.Divider(),
-                    ft.PopupMenuItem(
-                        text='Busca Avançada',
-                        on_click=lambda _: logging.debug('busca avançada'),
-                    ),
-                    ft.PopupMenuItem(
-                        text='Constituição',
-                        on_click=lambda _: logging.debug('constituição'),
-                    ),
-                    ft.PopupMenuItem(
-                        text='Códigos',
-                        on_click=lambda _: logging.debug('códigos'),
-                    ),
-                    ft.PopupMenuItem(
-                        text='Estatutos',
-                        on_click=lambda _: logging.debug('estatutos'),
-                    ),
-                    ft.PopupMenuItem(
-                        text='Favoritos',
-                        on_click=lambda _: logging.debug('favoritos'),
-                    ),
-                    ft.PopupMenuItem(
-                        text='Resenha',
-                        on_click=lambda _: logging.debug('resenha'),
-                    ),
-                    ft.PopupMenuItem(
-                        text='Ajuda',
-                        on_click=lambda _: logging.debug('ajuda'),
-                    ),
-                ],
-            ),
-        ],
-    )
+def home_vw(e: ft.ControlEvent) -> ft.Control:
+    """Home view."""
+    return ft.View()
+
+
+def resenha_vw(e: ft.ControlEvent) -> ft.Control:
+    """Resenha view."""
+    return ft.View()
+
+
+def favoritos_vw(e: ft.ControlEvent) -> ft.Control:
+    """Favoritos view."""
+    return ft.View()
+
+
+def busca_vw(e: ft.ControlEvent) -> ft.Control:
+    """Busca view."""
+    return ft.View()
+
+
+def ajuda_vw(e: ft.ControlEvent) -> ft.Control:
+    """Ajuda view."""
+    return ft.View()
+
+
+def estatutos_vw(e: ft.ControlEvent) -> ft.Control:
+    """Estatutos view."""
+    return ft.View()
+
+
+def constituicao_vw(e: ft.ControlEvent) -> ft.Control:
+    """Constituição view."""
+    return ft.View()
+
+
+def codigos_vw(e: ft.ControlEvent) -> ft.Control:
+    """Codigos view."""
+    return ft.View()
 
 
 def set_navbar(page: ft.Page) -> ft.NavigationBar:
@@ -120,7 +74,7 @@ def set_navbar(page: ft.Page) -> ft.NavigationBar:
     page.update()
     return ft.NavigationBar(
         visible=True,
-        bgcolor=BLUE,
+        # bgcolor=BLUE,
         surface_tint_color=ft.colors.WHITE,
         shadow_color=ft.colors.BLACK87,
         indicator_color=ft.colors.BLUE,
@@ -149,15 +103,7 @@ def set_navbar(page: ft.Page) -> ft.NavigationBar:
     )
 
 
-text_styles = {
-    'size': 20,
-    'color': 'black',
-    'text_align': ft.TextAlign.JUSTIFY,
-    # 'weight': ft.FontWeight.W_900,
-}
-
-
-def page_form() -> ft.Container:
+def page_form(page: ft.Page) -> ft.Container:
     """Page form."""
     return ft.Container(
         padding=10,
@@ -267,44 +213,3 @@ def page_about(page: ft.Page) -> ft.Container:
             ],
         ),
     )
-
-
-def main(page: ft.Page) -> None:
-    """Main proccess."""
-    page = settings_page(page)
-    page.add(
-        ft.Image(
-            src=IMAGES[0].as_posix(),
-            aspect_ratio=9 / 16,
-            fit=ft.ImageFit.COVER,
-            opacity=1,
-        ),
-    )
-    logging.debug(page.controls)
-    sleep(3.5)
-    page.controls.clear()
-    page.appbar = set_appbar(page)
-    page.navigation_bar = set_navbar(page)
-    background = set_bg(page)
-    page.add(background)
-
-    sleep(2)
-    page.appbar.title = ft.Text('Ops')
-    background.controls[1].controls[0].value = 'Ops!!'
-    logging.debug(background.controls[1].controls[0])
-    page.update()
-
-    sleep(2)
-    background.controls.pop(-1)
-    background.controls.append(page_about(page))
-    page.update()
-
-    sleep(2)
-    page.appbar.title = ft.Text('Busca Avançada')
-    background.controls.pop(-1)
-    background.controls.append(page_form(page))
-    page.update()
-
-
-if __name__ == '__main__':
-    ft.app(target=main, assets_dir=assets.as_posix())
