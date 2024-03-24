@@ -14,5 +14,9 @@ def view_pop(e: ft.ControlEvent) -> NoReturn:
     e.page.go(e.page.views[-1])
 
 
-def route_change(route: str):
-    """"""
+def route_change(e: ft.RouteChangeEvent) -> NoReturn:
+    """Route change."""
+    page = e.page
+    page.views.clear()
+
+    page.update()

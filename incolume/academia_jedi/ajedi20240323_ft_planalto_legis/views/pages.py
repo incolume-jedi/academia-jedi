@@ -13,8 +13,7 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 
 def splash_vw(e: ft.ControlEvent) -> ft.Control:
-    """
-    Splash page.
+    """Splash page.
     """
     return ft.View(
         route='/',
@@ -24,7 +23,7 @@ def splash_vw(e: ft.ControlEvent) -> ft.Control:
                 aspect_ratio=9 / 16,
                 fit=ft.ImageFit.COVER,
                 opacity=1,
-            )
+            ),
         ],
     )
 
