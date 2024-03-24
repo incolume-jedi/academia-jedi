@@ -9,7 +9,8 @@ class CustomCheckBox(ft.UserControl):
 
     def __init__(
         self,
-        *args, **kwargs,
+        *args,
+        **kwargs,
     ):
         """Init.
 
