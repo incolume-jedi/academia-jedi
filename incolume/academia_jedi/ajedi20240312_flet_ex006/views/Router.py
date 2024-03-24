@@ -17,9 +17,9 @@ class DataStrategyEnum(Enum):
 class Router:
     """Router."""
 
-    def __init__(self, data_strategy=DataStrategyEnum.QUERY):
+    def __init__(self, data_strategy: DataStrategyEnum = None):
         """Init."""
-        self.data_strategy = data_strategy
+        self.data_strategy = data_strategy or DataStrategyEnum.QUERY
         self.data = {}
         self.routes = {}
         self.body = ft.Container()

@@ -3,7 +3,10 @@
 import logging
 
 import flet as ft
-from template import BLUE, IMAGES
+from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.template import (
+    BLUE,
+    IMAGES,
+)
 from pathlib import Path
 
 
