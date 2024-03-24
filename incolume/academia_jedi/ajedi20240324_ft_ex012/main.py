@@ -3,6 +3,7 @@
 [Forwarded from Programador Aventureiro (Admin)]
 Segue o código desse exemplo para referência
 """
+
 from typing import NoReturn
 
 import flet as ft
@@ -21,7 +22,7 @@ def main(page: ft.Page) -> NoReturn:
             bgcolor=ft.colors.BLUE_GREY_900,
             leading=ft.Image(
                 src='https://programadoraventureiro.com/wp-content/uploads/'
-                    '2023/08/Logo-Programador-Aventureiro-100x72.png',
+                '2023/08/Logo-Programador-Aventureiro-100x72.png',
             ),
             destinations=[
                 ft.NavigationRailDestination(
