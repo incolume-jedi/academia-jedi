@@ -126,12 +126,12 @@ class MyNavbar(ft.UserControl):
 # page
 
 
-class Layout(ft.UserControl):
+class Layout(ft.View):
     """Layout Class."""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Init class."""
-        super().__init__()
+        super().__init__(*args, **kwargs)
         self.container = ft.Container()
 
     def web_view(self):

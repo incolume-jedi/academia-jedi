@@ -1,7 +1,12 @@
+"""Card clash of clans."""
+
+from typing import NoReturn
+
 import flet as ft
 
 
-def main(page: ft.Page):
+def main(page: ft.Page) -> NoReturn:
+    """Run it."""
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.window_min_width = 500
@@ -17,7 +22,8 @@ def main(page: ft.Page):
             colors=[ft.colors.BROWN, ft.colors.SURFACE],
         ),
         content=ft.Image(
-            # src = 'https://static.wiki a.nocookie.net/clashofclans/images/9/9b/Barbarian-xx.png/revision/latest?cb=20170703143506',
+            # src = 'https://static.wiki a.nocookie.net/clashofclans/images/
+            # 9/9b/Barbarian-xx.png/revision/latest?cb=20170703143506',
             src='images/barbarian.png',
             scale=ft.Scale(scale=1.6),
         ),
@@ -38,7 +44,10 @@ def main(page: ft.Page):
                     color=ft.colors.BLACK,
                 ),
                 ft.Text(
-                    value='O Bárbaro é um guerreiro escocês vestido de kilt com uma expressão raivosa e pronta para a batalha, faminto por destruição. Ele tem bigode de ferradura amarelo assassino.',
+                    value='O Bárbaro é um guerreiro escocês vestido de kilt '
+                    'com uma expressão raivosa e pronta para a batalha,'
+                    ' faminto por destruição. Ele tem bigode de '
+                    'ferradura amarelo assassino.',
                     color=ft.colors.GREY,
                     text_align=ft.TextAlign.CENTER,
                 ),
@@ -106,7 +115,7 @@ def main(page: ft.Page):
                         ),
                     ],
                 ),
-            ]
+            ],
         ),
     )
 

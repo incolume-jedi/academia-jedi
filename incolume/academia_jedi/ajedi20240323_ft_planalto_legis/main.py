@@ -5,19 +5,22 @@ from pathlib import Path
 from time import sleep
 import logging
 
+from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.router import (
+    route_change,
+    view_pop,
+)
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.components import (
     set_appbar,
     set_bg,
 )
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.pages import (
     set_navbar,
-    page_about,
     page_form,
 )
 
 assets = Path(__file__).parent / 'assets'
 if not assets.is_dir():
-    raise FileNotFoundError(f'Ops: {assets=}')  # noqa: S101
+    raise FileNotFoundError(f'Ops: {assets=}')
 logging.debug(assets)
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views import pages
 
@@ -56,10 +59,10 @@ def main0(page: ft.Page) -> None:
     logging.debug(background.controls[1].controls[0])
     page.update()
 
-    sleep(2)
-    background.controls.pop(-1)
-    background.controls.append(page_about(page))
-    page.update()
+    # sleep(2)
+    # background.controls.pop(-1)
+    # background.controls.append(page_about(page))
+    # page.update()
 
     sleep(2)
     page.appbar.title = ft.Text('Busca Avançada')
@@ -77,6 +80,7 @@ def main1(page: ft.Page) -> None:
 
 def main(page: ft.Page) -> None:
     """Main proccess."""
+    page = settings_page(page)
     page.on_route_change = route_change
     page.on_view_pop = view_pop
     page.go(page.route)
