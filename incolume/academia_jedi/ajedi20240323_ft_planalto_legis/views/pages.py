@@ -4,7 +4,8 @@ import flet as ft
 
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.components import (
     set_appbar,
-    set_navbar, set_bg,
+    set_navbar,
+    set_bg,
 )
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.template import (
     IMAGES,
@@ -54,9 +55,7 @@ def home_vw(e: ft.ControlEvent) -> ft.Control:
         navigation_bar=set_navbar(page),
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
-        controls=[
-            set_bg(page)
-        ],
+        controls=[set_bg(page)],
     )
 
 
@@ -142,40 +141,6 @@ def codigos_vw(e: ft.ControlEvent) -> ft.Control:
         navigation_bar=set_navbar(e.page),
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
-    )
-
-
-def set_navbar(page: ft.Page) -> ft.NavigationBar:
-    """Define Navigation Bar."""
-    page.update()
-    return ft.NavigationBar(
-        visible=True,
-        # bgcolor=BLUE,
-        surface_tint_color=ft.colors.WHITE,
-        shadow_color=ft.colors.BLACK87,
-        indicator_color=ft.colors.BLUE,
-        selected_index=1,
-        destinations=[
-            ft.NavigationDestination(
-                icon=ft.icons.CALENDAR_MONTH_ROUNDED,
-                tooltip='Resenha diária',
-                label='RESENHA',
-            ),
-            ft.NavigationDestination(
-                icon=ft.icons.SEARCH,
-                tooltip='Busca avançada',
-                label='BUSCA',
-            ),
-            ft.NavigationDestination(
-                icon=ft.icons.STAR_PURPLE500_OUTLINED,
-                tooltip='Atos Favoritos',
-                label='FAVORITOS',
-            ),
-            ft.NavigationDestination(
-                icon=ft.icons.HELP,
-                label='AJUDA',
-            ),
-        ],
     )
 
 

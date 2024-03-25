@@ -43,6 +43,7 @@ def set_navbar(page: ft.Page) -> ft.NavigationBar:
             ),
             ft.NavigationDestination(
                 icon=ft.icons.HELP,
+                tooltip='Ajuda',
                 label='AJUDA',
             ),
         ],
@@ -102,40 +103,6 @@ def set_appbar(page: ft.Page, logo: str = '', title: str = '') -> ft.AppBar:
     )
 
 
-def set_navbar(page: ft.Page) -> ft.NavigationBar:
-    """Define Navigation Bar."""
-    page.update()
-    return ft.NavigationBar(
-        visible=True,
-        bgcolor=BLUE,
-        surface_tint_color=ft.colors.WHITE,
-        shadow_color=ft.colors.BLACK87,
-        indicator_color=ft.colors.BLUE,
-        selected_index=1,
-        destinations=[
-            ft.NavigationDestination(
-                icon=ft.icons.CALENDAR_MONTH_ROUNDED,
-                tooltip='Resenha diária',
-                label='RESENHA',
-            ),
-            ft.NavigationDestination(
-                icon=ft.icons.SEARCH,
-                tooltip='Busca avançada',
-                label='BUSCA',
-            ),
-            ft.NavigationDestination(
-                icon=ft.icons.STAR_PURPLE500_OUTLINED,
-                tooltip='Atos Favoritos',
-                label='FAVORITOS',
-            ),
-            ft.NavigationDestination(
-                icon=ft.icons.HELP,
-                label='AJUDA',
-            ),
-        ],
-    )
-
-
 def set_bg(page: ft.Page) -> ft.Stack:
     """Define background."""
     return ft.Stack(
@@ -151,18 +118,6 @@ def set_bg(page: ft.Page) -> ft.Stack:
                 height=page.window_height,
                 fit=ft.ImageFit.COVER,
                 opacity=1,
-            ),
-            ft.Row(
-                controls=[
-                    ft.Text(
-                        'Image title',
-                        color=ft.colors.AMBER,
-                        size=40,
-                        weight='bold',
-                        opacity=0.5,
-                    ),
-                ],
-                alignment=ft.MainAxisAlignment.CENTER,
             ),
         ],
     )
