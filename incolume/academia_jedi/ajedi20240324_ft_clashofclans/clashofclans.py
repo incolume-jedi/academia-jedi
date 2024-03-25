@@ -1,4 +1,5 @@
 """Card clash of clans."""
+
 from typing import NoReturn
 
 import flet as ft
@@ -44,9 +45,9 @@ def main(page: ft.Page) -> NoReturn:
                 ),
                 ft.Text(
                     value='O Bárbaro é um guerreiro escocês vestido de kilt '
-                          'com uma expressão raivosa e pronta para a batalha,'
-                          ' faminto por destruição. Ele tem bigode de '
-                          'ferradura amarelo assassino.',
+                    'com uma expressão raivosa e pronta para a batalha,'
+                    ' faminto por destruição. Ele tem bigode de '
+                    'ferradura amarelo assassino.',
                     color=ft.colors.GREY,
                     text_align=ft.TextAlign.CENTER,
                 ),

@@ -52,7 +52,7 @@ def set_navbar(page: ft.Page) -> ft.NavigationBar:
 def set_appbar(page: ft.Page, logo: str = '', title: str = '') -> ft.AppBar:
     """Define AppBar."""
     logo = logo or Path('images', 'icons', 'icon-nobg-1024.png').as_posix()
-    title = title or 'Planalto Legis'
+    title = title.title() or 'Planalto Legis'
     return ft.AppBar(
         bgcolor=BLUE,
         color=ft.colors.WHITE,
@@ -72,31 +72,31 @@ def set_appbar(page: ft.Page, logo: str = '', title: str = '') -> ft.AppBar:
                     ft.Divider(),
                     ft.PopupMenuItem(
                         text='Busca Avançada',
-                        on_click=lambda _: logging.debug('busca avançada'),
+                        on_click=lambda _: page.go('/busca'),
                     ),
                     ft.PopupMenuItem(
                         text='Constituição',
-                        on_click=lambda _: logging.debug('constituição'),
+                        on_click=lambda _: page.go('/constituicao'),
                     ),
                     ft.PopupMenuItem(
                         text='Códigos',
-                        on_click=lambda _: logging.debug('códigos'),
+                        on_click=lambda _: page.go('/codigos'),
                     ),
                     ft.PopupMenuItem(
                         text='Estatutos',
-                        on_click=lambda _: logging.debug('estatutos'),
+                        on_click=lambda _: page.go('/estatutos'),
                     ),
                     ft.PopupMenuItem(
                         text='Favoritos',
-                        on_click=lambda _: logging.debug('favoritos'),
+                        on_click=lambda _: page.go('/favoritos'),
                     ),
                     ft.PopupMenuItem(
                         text='Resenha',
-                        on_click=lambda _: logging.debug('resenha'),
+                        on_click=lambda _: page.go('/resenha'),
                     ),
                     ft.PopupMenuItem(
                         text='Ajuda',
-                        on_click=lambda _: logging.debug('ajuda'),
+                        on_click=lambda _: page.go('/ajuda'),
                     ),
                 ],
             ),

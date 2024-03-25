@@ -17,21 +17,13 @@ def view_pop(e: ft.ControlEvent) -> NoReturn:
     e.page.go(e.page.views[-1])
 
 
-# def route_change(e: ft.RouteChangeEvent) -> NoReturn:
-#     """Route change."""
-#     page = e.page
-#     page.views.clear()
-#     ...
-#     logging.debug(f'{page.route=}')
-#     page.views.append(routes.get('/'))
-#     page.update()
 def route_change(e: ft.RouteChangeEvent) -> NoReturn:
     """Route change."""
     page = e.page
     page.views.clear()
     match page.route:
         case '/':
-            page.views.append(pages.splash_vw(e))
+            page.views.append(pages.home_vw(e))
         case '/ajuda':
             page.views.append(pages.ajuda_vw(e))
         case '/busca':
@@ -40,6 +32,8 @@ def route_change(e: ft.RouteChangeEvent) -> NoReturn:
             page.views.append(pages.constituicao_vw(e))
         case '/codigos':
             page.views.append(pages.codigos_vw(e))
+        case '/cover':
+            page.views.append(pages.splash_vw(e))
         case '/estatutos':
             page.views.append(pages.estatutos_vw(e))
         case '/favoritos':

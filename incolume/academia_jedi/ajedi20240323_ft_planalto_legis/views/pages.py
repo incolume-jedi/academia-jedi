@@ -2,6 +2,10 @@
 
 import flet as ft
 
+from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.components import (
+    set_appbar,
+    set_navbar,
+)
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.template import (
     IMAGES,
 )
@@ -42,22 +46,47 @@ def splash_vw(e: ft.ControlEvent) -> ft.Control:
 
 def home_vw(e: ft.ControlEvent) -> ft.Control:
     """Home view."""
-    return ft.View()
+    return ft.View(
+        route='/',
+        appbar=set_appbar(e.page),
+        navigation_bar=set_navbar(e.page),
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        vertical_alignment=ft.MainAxisAlignment.CENTER,
+        controls=[],
+    )
 
 
 def resenha_vw(e: ft.ControlEvent) -> ft.Control:
     """Resenha view."""
-    return ft.View()
+    return ft.View(
+        route='/resenha',
+        appbar=set_appbar(e.page, title='resenha'),
+        navigation_bar=set_navbar(e.page),
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        vertical_alignment=ft.MainAxisAlignment.CENTER,
+    )
 
 
 def favoritos_vw(e: ft.ControlEvent) -> ft.Control:
     """Favoritos view."""
-    return ft.View()
+    return ft.View(
+        route='/favoritos',
+        appbar=set_appbar(e.page, title='favoritos'),
+        navigation_bar=set_navbar(e.page),
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        vertical_alignment=ft.MainAxisAlignment.CENTER,
+    )
 
 
 def busca_vw(e: ft.ControlEvent) -> ft.Control:
     """Busca view."""
-    return ft.View()
+    return ft.View(
+        route='/busca',
+        appbar=set_appbar(e.page, title='Busca Avançada'),
+        navigation_bar=set_navbar(e.page),
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        vertical_alignment=ft.MainAxisAlignment.CENTER,
+    )
 
 
 def ajuda_vw(e: ft.ControlEvent) -> ft.Control:
@@ -65,6 +94,10 @@ def ajuda_vw(e: ft.ControlEvent) -> ft.Control:
     page = e.page
     return ft.View(
         route='/ajuda',
+        appbar=set_appbar(e.page, title='ajuda'),
+        navigation_bar=set_navbar(e.page),
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        vertical_alignment=ft.MainAxisAlignment.CENTER,
         controls=[
             ft.Text('Help page...'),
             ft.ElevatedButton(
@@ -77,17 +110,35 @@ def ajuda_vw(e: ft.ControlEvent) -> ft.Control:
 
 def estatutos_vw(e: ft.ControlEvent) -> ft.Control:
     """Estatutos view."""
-    return ft.View()
+    return ft.View(
+        route='/estatutos',
+        appbar=set_appbar(e.page, title='estatutos'),
+        navigation_bar=set_navbar(e.page),
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        vertical_alignment=ft.MainAxisAlignment.CENTER,
+    )
 
 
 def constituicao_vw(e: ft.ControlEvent) -> ft.Control:
     """Constituição view."""
-    return ft.View()
+    return ft.View(
+        route='/constituicao',
+        appbar=set_appbar(e.page, title='constituição'),
+        navigation_bar=set_navbar(e.page),
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        vertical_alignment=ft.MainAxisAlignment.CENTER,
+    )
 
 
 def codigos_vw(e: ft.ControlEvent) -> ft.Control:
     """Codigos view."""
-    return ft.View()
+    return ft.View(
+        route='/codigos',
+        appbar=set_appbar(e.page, title='códigos'),
+        navigation_bar=set_navbar(e.page),
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        vertical_alignment=ft.MainAxisAlignment.CENTER,
+    )
 
 
 def set_navbar(page: ft.Page) -> ft.NavigationBar:
@@ -174,8 +225,6 @@ def page_form(page: ft.Page) -> ft.Container:
 
 def sobre_vw(e: ft.RouteChangeEvent) -> ft.Control:
     """Page about."""
-    page = e.page
-    # page.appbar.title = ft.Text('Sobre')
     return ft.View(
         route='/sobre',
         controls=[
