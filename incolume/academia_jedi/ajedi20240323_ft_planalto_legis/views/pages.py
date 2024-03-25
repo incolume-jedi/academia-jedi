@@ -50,39 +50,12 @@ def home_vw(e: ft.ControlEvent) -> ft.Control:
     return ft.View(
         route='/',
         padding=0,
-        appbar=set_appbar(e.page),
-        navigation_bar=set_navbar(e.page),
+        appbar=set_appbar(page),
+        navigation_bar=set_navbar(page),
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
         controls=[
-            ft.Stack(
-                scale=1,
-                aspect_ratio=9 / 16,
-                width=page.window_width,
-                # height=page.window_height - page.appbar.toolbar_height,
-                controls=[
-                    ft.Image(
-                        src=IMAGES[1].as_posix(),
-                        aspect_ratio=9 / 16,
-                        width=page.window_width,
-                        height=page.window_height,
-                        fit=ft.ImageFit.COVER,
-                        opacity=1,
-                    ),
-                    ft.Row(
-                        controls=[
-                            ft.Text(
-                                'Image title',
-                                color=ft.colors.AMBER,
-                                size=40,
-                                weight=ft.FontWeight.BOLD,
-                                opacity=0.5,
-                            ),
-                        ],
-                        alignment=ft.MainAxisAlignment.CENTER,
-                    ),
-                ]
-            )
+            set_bg(page)
         ],
     )
 

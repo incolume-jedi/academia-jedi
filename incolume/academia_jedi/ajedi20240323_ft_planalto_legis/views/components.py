@@ -68,8 +68,6 @@ def set_appbar(page: ft.Page, logo: str = '', title: str = '') -> ft.AppBar:
                 visible=True,
                 icon=ft.icons.MENU,
                 items=[
-                    ft.PopupMenuItem(),
-                    ft.Divider(),
                     ft.PopupMenuItem(
                         text='Busca Avançada',
                         on_click=lambda _: page.go('/busca'),
@@ -144,7 +142,7 @@ def set_bg(page: ft.Page) -> ft.Stack:
         scale=1,
         aspect_ratio=9 / 16,
         width=page.window_width,
-        height=page.window_height - page.appbar.toolbar_height,
+        # height=page.window_height - page.appbar.toolbar_height,
         controls=[
             ft.Image(
                 src=IMAGES[1].as_posix(),
