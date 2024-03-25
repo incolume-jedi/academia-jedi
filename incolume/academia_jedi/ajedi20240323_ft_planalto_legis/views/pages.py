@@ -61,10 +61,13 @@ def home_vw(e: ft.ControlEvent) -> ft.Control:
 
 def resenha_vw(e: ft.ControlEvent) -> ft.Control:
     """Resenha view."""
+    page = e.page
+    navbar = set_navbar(page)
+    navbar.selected_index = 0
     return ft.View(
         route='/resenha',
-        appbar=set_appbar(e.page, title='resenha'),
-        navigation_bar=set_navbar(e.page),
+        appbar=set_appbar(page, title='resenha'),
+        navigation_bar=navbar,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
     )
@@ -72,10 +75,13 @@ def resenha_vw(e: ft.ControlEvent) -> ft.Control:
 
 def favoritos_vw(e: ft.ControlEvent) -> ft.Control:
     """Favoritos view."""
+    page = e.page
+    navbar = set_navbar(page)
+    navbar.selected_index = 2
     return ft.View(
         route='/favoritos',
-        appbar=set_appbar(e.page, title='favoritos'),
-        navigation_bar=set_navbar(e.page),
+        appbar=set_appbar(page, title='favoritos'),
+        navigation_bar=navbar,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
     )
@@ -83,10 +89,13 @@ def favoritos_vw(e: ft.ControlEvent) -> ft.Control:
 
 def busca_vw(e: ft.ControlEvent) -> ft.Control:
     """Busca view."""
+    page = e.page
+    navbar = set_navbar(page)
+    navbar.selected_index = 1
     return ft.View(
         route='/busca',
-        appbar=set_appbar(e.page, title='Busca Avançada'),
-        navigation_bar=set_navbar(e.page),
+        appbar=set_appbar(page, title='Busca Avançada'),
+        navigation_bar=navbar,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
     )
@@ -95,10 +104,12 @@ def busca_vw(e: ft.ControlEvent) -> ft.Control:
 def ajuda_vw(e: ft.ControlEvent) -> ft.Control:
     """Ajuda view."""
     page = e.page
+    navbar = set_navbar(page)
+    navbar.selected_index = 3
     return ft.View(
         route='/ajuda',
         appbar=set_appbar(e.page, title='ajuda'),
-        navigation_bar=set_navbar(e.page),
+        navigation_bar=navbar,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
         controls=[
