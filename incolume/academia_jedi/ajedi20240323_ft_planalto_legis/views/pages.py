@@ -4,7 +4,8 @@ import flet as ft
 
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.components import (
     set_appbar,
-    set_navbar, set_bg,
+    set_navbar,
+    set_bg,
 )
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.template import (
     IMAGES,
@@ -50,49 +51,23 @@ def home_vw(e: ft.ControlEvent) -> ft.Control:
     return ft.View(
         route='/',
         padding=0,
-        appbar=set_appbar(e.page),
-        navigation_bar=set_navbar(e.page),
+        appbar=set_appbar(page),
+        navigation_bar=set_navbar(page),
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
-        controls=[
-            ft.Stack(
-                scale=1,
-                aspect_ratio=9 / 16,
-                width=page.window_width,
-                # height=page.window_height - page.appbar.toolbar_height,
-                controls=[
-                    ft.Image(
-                        src=IMAGES[1].as_posix(),
-                        aspect_ratio=9 / 16,
-                        width=page.window_width,
-                        height=page.window_height,
-                        fit=ft.ImageFit.COVER,
-                        opacity=1,
-                    ),
-                    ft.Row(
-                        controls=[
-                            ft.Text(
-                                'Image title',
-                                color=ft.colors.AMBER,
-                                size=40,
-                                weight=ft.FontWeight.BOLD,
-                                opacity=0.5,
-                            ),
-                        ],
-                        alignment=ft.MainAxisAlignment.CENTER,
-                    ),
-                ]
-            )
-        ],
+        controls=[set_bg(page)],
     )
 
 
 def resenha_vw(e: ft.ControlEvent) -> ft.Control:
     """Resenha view."""
+    page = e.page
+    navbar = set_navbar(page)
+    navbar.selected_index = 0
     return ft.View(
         route='/resenha',
-        appbar=set_appbar(e.page, title='resenha'),
-        navigation_bar=set_navbar(e.page),
+        appbar=set_appbar(page, title='resenha'),
+        navigation_bar=navbar,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
     )
@@ -100,10 +75,13 @@ def resenha_vw(e: ft.ControlEvent) -> ft.Control:
 
 def favoritos_vw(e: ft.ControlEvent) -> ft.Control:
     """Favoritos view."""
+    page = e.page
+    navbar = set_navbar(page)
+    navbar.selected_index = 2
     return ft.View(
         route='/favoritos',
-        appbar=set_appbar(e.page, title='favoritos'),
-        navigation_bar=set_navbar(e.page),
+        appbar=set_appbar(page, title='favoritos'),
+        navigation_bar=navbar,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
     )
@@ -111,10 +89,13 @@ def favoritos_vw(e: ft.ControlEvent) -> ft.Control:
 
 def busca_vw(e: ft.ControlEvent) -> ft.Control:
     """Busca view."""
+    page = e.page
+    navbar = set_navbar(page)
+    navbar.selected_index = 1
     return ft.View(
         route='/busca',
-        appbar=set_appbar(e.page, title='Busca Avançada'),
-        navigation_bar=set_navbar(e.page),
+        appbar=set_appbar(page, title='Busca Avançada'),
+        navigation_bar=navbar,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
     )
@@ -123,10 +104,12 @@ def busca_vw(e: ft.ControlEvent) -> ft.Control:
 def ajuda_vw(e: ft.ControlEvent) -> ft.Control:
     """Ajuda view."""
     page = e.page
+    navbar = set_navbar(page)
+    navbar.selected_index = 3
     return ft.View(
         route='/ajuda',
         appbar=set_appbar(e.page, title='ajuda'),
-        navigation_bar=set_navbar(e.page),
+        navigation_bar=navbar,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
         controls=[
@@ -169,40 +152,6 @@ def codigos_vw(e: ft.ControlEvent) -> ft.Control:
         navigation_bar=set_navbar(e.page),
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
-    )
-
-
-def set_navbar(page: ft.Page) -> ft.NavigationBar:
-    """Define Navigation Bar."""
-    page.update()
-    return ft.NavigationBar(
-        visible=True,
-        # bgcolor=BLUE,
-        surface_tint_color=ft.colors.WHITE,
-        shadow_color=ft.colors.BLACK87,
-        indicator_color=ft.colors.BLUE,
-        selected_index=1,
-        destinations=[
-            ft.NavigationDestination(
-                icon=ft.icons.CALENDAR_MONTH_ROUNDED,
-                tooltip='Resenha diária',
-                label='RESENHA',
-            ),
-            ft.NavigationDestination(
-                icon=ft.icons.SEARCH,
-                tooltip='Busca avançada',
-                label='BUSCA',
-            ),
-            ft.NavigationDestination(
-                icon=ft.icons.STAR_PURPLE500_OUTLINED,
-                tooltip='Atos Favoritos',
-                label='FAVORITOS',
-            ),
-            ft.NavigationDestination(
-                icon=ft.icons.HELP,
-                label='AJUDA',
-            ),
-        ],
     )
 
 
