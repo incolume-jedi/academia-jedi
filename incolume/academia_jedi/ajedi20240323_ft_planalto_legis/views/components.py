@@ -59,7 +59,7 @@ def set_appbar(page: ft.Page, logo: str = '', title: str = '') -> ft.AppBar:
         leading=ft.Image(
             src=logo,
         ),
-        leading_width=40,
+        leading_width=50,
         toolbar_height=page.window_height * 0.1,
         title=ft.Text(title, weight=ft.FontWeight.W_500),
         center_title=True,
