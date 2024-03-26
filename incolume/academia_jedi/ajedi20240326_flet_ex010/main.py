@@ -208,11 +208,14 @@ class Expense(ft.UserControl):
                                 ),
                             ),
                             ft.Container(
-                                content=ft.Text(
-                                    'View All',
-                                    size=10,
-                                    weight='w400',
-                                    color='white54',
+                                content=ft.TextButton(
+                                    content=ft.Text(
+                                        'View All',
+                                        size=10,
+                                        weight='w400',
+                                        color='white54',
+                                    ),
+                                    on_click=lambda _: ic('#1 view all..'),
                                 ),
                             ),
                         ],
@@ -233,11 +236,14 @@ class Expense(ft.UserControl):
                                 ),
                             ),
                             ft.Container(
-                                content=ft.Text(
-                                    'View All',
-                                    size=10,
-                                    weight='w400',
-                                    color='white54',
+                                content=ft.TextButton(
+                                    content=ft.Text(
+                                        'View All',
+                                        size=10,
+                                        weight='w400',
+                                        color='white54',
+                                    ),
+                                    on_click=lambda _: ic('#2 view all..'),
                                 ),
                             ),
                         ],
@@ -255,7 +261,11 @@ class Expense(ft.UserControl):
                 bgcolor='white10',
                 border_radius=15,
                 alignment=ft.alignment.center,
-                content=ft.Text(f'{i}', weight='bold'),
+                content=ft.TextButton(
+                    data=f'{i}',
+                    content=ft.Text(f'{i}', weight='bold'),
+                    on_click=lambda e: ic(e.control.data)
+                ),
             )
 
             self.grid_transfers.controls.append(__)
