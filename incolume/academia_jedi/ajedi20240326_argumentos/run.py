@@ -23,6 +23,10 @@ def j(a: int, /, *args, **kwargs):
     """Funct."""
     return {'args': args, **kwargs}
 
+def k(a: int, /, *args, **kwargs):
+    """Funct."""
+    return {'args': (a, *args), **kwargs}
+
 
 def run():
     """Run it."""
@@ -42,6 +46,8 @@ def run():
         i(2,1,4,3),
         i(b=2,a=1,d=4,c=3),
         j(1, b=2,d=4,c=3),
+        k(1, b=2,d=4,c=3),
+        k(1, 2,d=4,c=3),
         sep='\n'
     )
 
