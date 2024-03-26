@@ -1,8 +1,11 @@
 """Exemplo de layout."""
 
 from typing import NoReturn
+from icecream import ic
 
 import flet as ft
+
+ic.disable()
 
 
 class Expense(ft.UserControl):
@@ -336,4 +339,5 @@ def start(page: ft.Page) -> NoReturn:
 
 
 if __name__ == '__main__':
+    ic.enable()
     ft.app(target=start)
