@@ -12,7 +12,7 @@ last_name = ft.Ref[ft.TextField]()
 greetings = ft.Ref[ft.Column]()
 
 
-def popup_menu_item(**kwargs) -> ft.PopupMenuItem:
+def popup_menu_item(**kwargs: str) -> ft.PopupMenuItem:
     """PopMenuItem for project."""
     text = kwargs.get('text', '')
     on_click = kwargs.get('on_click') or (

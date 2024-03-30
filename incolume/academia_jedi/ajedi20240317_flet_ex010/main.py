@@ -41,7 +41,7 @@ class Expense(ft.UserControl):
             on_click=lambda e: self.change_icon(e),
         )
 
-    def main_container(self):
+    def main_container(self):  # noqa: C901
         """Main container."""
         self.main = ft.Container(
             width=290,

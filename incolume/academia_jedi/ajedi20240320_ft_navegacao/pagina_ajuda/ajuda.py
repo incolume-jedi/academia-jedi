@@ -4,7 +4,7 @@ import flet as ft
 from logging import info
 
 
-def main(page: ft.Page) -> None:
+def main(page: ft.Page) -> None:  # noqa: C901
     """Run this app."""
     page.title = 'Ajuda'
 
