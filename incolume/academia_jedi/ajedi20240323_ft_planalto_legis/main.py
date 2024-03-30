@@ -17,12 +17,12 @@ from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.pages import (
     set_navbar,
     page_form,
 )
+from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views import pages
 
 assets = Path(__file__).parent / 'assets'
 if not assets.is_dir():
     raise FileNotFoundError(f'Ops: {assets=}')
 logging.debug(assets)
-from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views import pages
 
 
 def settings_page(page: ft.Page, *, title: str = '') -> ft.Page:

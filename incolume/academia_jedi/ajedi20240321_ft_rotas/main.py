@@ -1,6 +1,6 @@
 """Roteamento entre páginas."""
 
-from typing import NoReturn
+from typing import NoReturn, Self
 
 import flet as ft
 
@@ -10,7 +10,13 @@ __author__ = '@britodfbr'  # pragma: no cover
 class MyAppBar(ft.UserControl):
     """Class appbar."""
 
-    def __init__(self, page: ft.Page, title: str = '', *args, **kwargs):
+    def __init__(
+        self,
+        page: ft.Page,
+        title: str = '',
+        *args: str,
+        **kwargs: str,
+    ):
         """Init it."""
         super().__init__(*args, **kwargs)
         self.page = page
@@ -41,11 +47,12 @@ class MyAppBar(ft.UserControl):
             ],
         )
 
-    def __call__(self, *args, **kwargs):
+    def __call__(self) -> Self:
+        """On call this."""
         return self.build()
 
 
-def main(page: ft.Page) -> NoReturn:
+def main(page: ft.Page) -> NoReturn:  # noqa: C901
     """Run it."""
     page.title = 'sistemas de roteamento'
     page.add(ft.Text(f'Initial route: {page.route}'))

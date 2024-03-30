@@ -1,14 +1,13 @@
 """Index View."""
 
-from typing import Union
 import flet as ft
 from views.Router import Router, DataStrategyEnum
 
 
-def indexview(router_data: Union[Router, str, None] = None) -> None:
+def indexview(router_data: Router | str | None = None) -> None:  # noqa: C901
     """Index View."""
 
-    def send_data(e: ft.ControlEvent) -> None:
+    def send_data(e: ft.ControlEvent) -> None:  # noqa: C901
         if text_field.value == '':
             return
         if router_data and router_data.data_strategy == DataStrategyEnum.QUERY:

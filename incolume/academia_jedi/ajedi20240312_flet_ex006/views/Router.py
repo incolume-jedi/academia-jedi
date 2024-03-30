@@ -4,6 +4,8 @@ from collections.abc import Callable
 import flet as ft
 from enum import Enum
 
+from icecream import ic
+
 
 class DataStrategyEnum(Enum):
     """Data Strategy Enum."""
@@ -34,10 +36,10 @@ class Router:
 
     def route_change(self, route):
         """Route Change."""
-        print(route)
+        ic(route)
         _page = route.route.split('?')[0]
         queries = route.route.split('?')[1:]
-        print(_page, queries)
+        ic(_page, queries)
 
         for item in queries:
             key = item.split('=')[0]

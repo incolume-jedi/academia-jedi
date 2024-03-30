@@ -17,7 +17,7 @@ from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.styles import 
 __author__ = '@britodfbr'  # pragma: no cover
 
 
-def not_found_vw(e: ft.ControlEvent) -> ft.Control:
+def not_found_vw(_: ft.ControlEvent) -> ft.Control:
     """Splash page."""
     return ft.View(
         route='/notfound',
@@ -30,7 +30,7 @@ def not_found_vw(e: ft.ControlEvent) -> ft.Control:
     )
 
 
-def splash_vw(e: ft.ControlEvent) -> ft.Control:
+def splash_vw(_: ft.ControlEvent) -> ft.Control:
     """Splash page."""
     return ft.View(
         route='/',
@@ -155,7 +155,7 @@ def codigos_vw(e: ft.ControlEvent) -> ft.Control:
     )
 
 
-def page_form(page: ft.Page) -> ft.Container:
+def page_form(_: ft.Page) -> ft.Container:
     """Page form."""
     return ft.Container(
         padding=10,
@@ -203,7 +203,7 @@ def page_form(page: ft.Page) -> ft.Container:
     )
 
 
-def sobre_vw(e: ft.RouteChangeEvent) -> ft.Control:
+def sobre_vw(_: ft.RouteChangeEvent) -> ft.Control:
     """Page about."""
     return ft.View(
         route='/sobre',
@@ -215,7 +215,8 @@ def sobre_vw(e: ft.RouteChangeEvent) -> ft.Control:
                 content=ft.Column(
                     controls=[
                         ft.Text(
-                            value='Aplicativo desenvolvido para facilitar o acesso'
+                            value='Aplicativo desenvolvido para '
+                            'facilitar o acesso'
                             ' à Legislação Federal brasileira. Apresenta toda'
                             ' a base da legislação disponível no Portal da'
                             ' Legislação do Planalto, gerido pelo Centro de'
@@ -227,7 +228,8 @@ def sobre_vw(e: ft.RouteChangeEvent) -> ft.Control:
                             color='black',
                             text_align=ft.TextAlign.JUSTIFY,
                             size=20,
-                            value='Apresenta a pesquisa por Termo (palavra-chave),'
+                            value='Apresenta a pesquisa por '
+                            'Termo (palavra-chave),'
                             ' por ano, por número, por tipo e por situação dos'
                             ' atos. Permite também acesso rápido pelo menu'
                             ' lateral aos principais Códigos, Estatutos e à'
@@ -237,23 +239,29 @@ def sobre_vw(e: ft.RouteChangeEvent) -> ft.Control:
                             color='black',
                             text_align=ft.TextAlign.JUSTIFY,
                             size=20,
-                            value='Possibilita que o usuário salve os atos de seu'
-                            ' interesse na pasta de Favoritos para visualização'
+                            value='Possibilita que o usuário '
+                            'salve os atos de seu'
+                            ' interesse na pasta de Favoritos'
+                            ' para visualização'
                             ' desse conteúdo também em modo off-line. Essa'
                             ' funcionalidade apresenta um lembrete de '
-                            'atualização toda vez que os atos sofrem algum tipo'
+                            'atualização toda vez que os atos'
+                            ' sofrem algum tipo'
                             ' de alteração no seu conteúdo.',
                         ),
                         ft.Text(
                             color='black',
                             text_align=ft.TextAlign.JUSTIFY,
                             size=20,
-                            value='Outra funcionalidade disponibilizada no aplicativo'
-                            ' é a Resenha, que traz uma lista com todos os atos'
-                            ' publicados naquela data, sempre que houver. É'
-                            ' possível também pesquisar por datas específicas'
-                            ' para ter acesso às publicações dos atos normativos'
-                            ' das datas selecionadas.',
+                            value=(
+                                'Outra funcionalidade disponibilizada'
+                                ' no aplicativo é a Resenha, que traz uma'
+                                ' lista com todos os atos publicados naquela'
+                                ' data, sempre que houver. É possível também'
+                                ' pesquisar por datas específicas para ter'
+                                ' acesso às publicações dos atos normativos'
+                                ' das datas selecionadas.'
+                            ),
                         ),
                         ft.Text(
                             color='black',

@@ -5,7 +5,7 @@ from custom_checkbox import CustomCheckBox
 from logging import info
 
 
-def main(page: ft.Page) -> None:
+def main(page: ft.Page) -> None:  # noqa: C901
     """Main."""
     bg = '#041955'
     fg = '#3450a1'

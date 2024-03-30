@@ -1,39 +1,45 @@
+"""Module."""
+
+from typing import NoReturn
 
 import flet as ft
+from icecream import ic
 
 
-def main(page: ft.page):
-    def criar_db(e):
+def main(page: ft.page) -> NoReturn:
+    """Run it."""
+
+    def criar_db(_: ft.ControlEvent) -> str:
         servidor = entry_servidor.value
         nome_banco = entry_nome_banco.value
-        print(f'O servidor digitado é {servidor} e o banco é {nome_banco}')
+        msg = f'O servidor digitado é {servidor} e o banco é {nome_banco}'
+        ic(msg)
+        return msg
 
     # Estilo dos Buttons
-    style = ft.ButtonStyle(
-        shape=ft.RoundedRectangleBorder(radius=10)
-    )
+    style = ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=10))
 
     entry_servidor = ft.TextField(
-        label='Servidor', 
-        border="underline", 
-        hint_text="Qual IP ou nome do Server"
+        label='Servidor',
+        border='underline',
+        hint_text='Qual IP ou nome do Server',
     )
-    
+
     entry_nome_banco = ft.TextField(
-        label='Nome do banco', 
-        border="underline", 
-        hint_text="Qual o nome do DB ?"
+        label='Nome do banco',
+        border='underline',
+        hint_text='Qual o nome do DB ?',
     )
 
     t4 = ft.Column([
         ft.Row([
             entry_servidor,
             ft.ElevatedButton(
-                text="Execute",
+                text='Execute',
                 width=140,
                 height=35,
                 style=style,
-                on_click=criar_db
+                on_click=criar_db,
             ),
         ]),
     ])
@@ -42,10 +48,10 @@ def main(page: ft.page):
         ft.Row([
             entry_nome_banco,
             ft.ElevatedButton(
-                text="Arquivo .bak",
+                text='Arquivo .bak',
                 width=140,
                 height=35,
-                style=style
+                style=style,
             ),
         ]),
     ])
