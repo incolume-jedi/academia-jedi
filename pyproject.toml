@@ -380,7 +380,7 @@ ignore = [
 #"path/to/file.py" = ["E402"]
 "**/{tutorial}/*" = ["N999"]
 "**/{tests,docs,tools,utils}/*" = ["EXE002"]
-"**/{*_tests,test_*}.py" = [
+"**/{*_tests,test_*,*_test}.py" = [
   "ANN001",
   "ANN101",
   "EXE002",
