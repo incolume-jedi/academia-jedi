@@ -50,17 +50,15 @@ def main(page: ft.Page) -> None:
                     color=ft.colors.BLACK,
                 ),
                 ft.Text(
-                    value=(
-                        'Bárbaros são uma excelente opção para as tropas do',
-                        'castelo do clã,',
-                        ' pois têm relativamente saúde alta',
-                        ' e os danos para o espaço de tropas',
-                        ' para habitação individual.',
-                        ' Eles são capazes de absorver uma',
-                        ' quantidade significativa de dano,',
-                        ' atrasando os atacantes e permitindo que',
-                        'suas defesas fixas cuidem do resto.',
-                    ),
+                    value='Bárbaros são uma excelente opção para as tropas do'
+                    'castelo do clã,'
+                    ' pois têm relativamente saúde alta'
+                    ' e os danos para o espaço de tropas'
+                    ' para habitação individual.'
+                    ' Eles são capazes de absorver uma'
+                    ' quantidade significativa de dano,'
+                    ' atrasando os atacantes e permitindo que'
+                    'suas defesas fixas cuidem do resto.',
                     color=ft.colors.GREY,
                     text_align=ft.TextAlign.JUSTIFY,
                 ),

@@ -1,4 +1,4 @@
-from typing import Protocol
+from typing import Protocol, NoReturn
 
 
 class Writable(Protocol):
@@ -13,10 +13,12 @@ class Readable(Protocol):
 
 class ReadWritable(Readable, Writable):
     def __str__(self):
+        """Method dunder str."""
         return f'{self.__class__.__name__}()'
 
 
-def main():
+def main() -> NoReturn:
+    """Run it."""
     data = {'name': 'John Doe', 'age': 30}
     handlers = ReadWritable()
     handlers.write(data)

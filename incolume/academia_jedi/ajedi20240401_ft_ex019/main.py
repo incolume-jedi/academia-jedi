@@ -6,6 +6,7 @@ import flet as ft
 
 class Filtro(ft.Container):
     """Filtro class."""
+
     def __init__(self, on_click=None, *args, **kwargs):
         """Init from filtro."""
         super().__init__(*args, **kwargs)
@@ -21,6 +22,7 @@ class Filtro(ft.Container):
 
 class Layout(ft.ResponsiveRow):
     """Layout class."""
+
     def __init__(self, *args, **kwargs):
         """Init from layout."""
         super().__init__(*args, **kwargs)
@@ -38,6 +40,7 @@ class Layout(ft.ResponsiveRow):
 
 class App:
     """Principal class for app."""
+
     def __init__(self, page: ft.Page):
         """Init app."""
         self.page = page
