@@ -42,7 +42,8 @@ class ToDo:
 
         if name:
             self.db_execute(
-                query='INSERT INTO tasks VALUES(?, ?)', params=[name, status],
+                query='INSERT INTO tasks VALUES(?, ?)',
+                params=[name, status],
             )
             input_task.value = ''
             self.results = self.db_execute('SELECT * FROM tasks')
@@ -68,7 +69,8 @@ class ToDo:
             self.results = self.db_execute('SELECT * FROM tasks')
         else:
             self.results = self.db_execute(
-                'SELECT * FROM tasks WHERE status = ?', params=[self.view],
+                'SELECT * FROM tasks WHERE status = ?',
+                params=[self.view],
             )
 
         self.update_task_list()
