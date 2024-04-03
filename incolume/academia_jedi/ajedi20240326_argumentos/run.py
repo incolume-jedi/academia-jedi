@@ -35,7 +35,7 @@ def k(a: int, /, *args: int, **kwargs: int) -> dict:
 
 def run() -> NoReturn:
     """Run it."""
-    print(  # noqa: T201
+    print(
         f(1),
         f(1, 2, 3, 4),
         f(a=1, d=2, b=3, c=4),

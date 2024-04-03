@@ -1,11 +1,8 @@
 from flet import *
 
 # IMPORT YOU CREATE TABLE
-from myaction import create_table
+from myaction import create_table, conn
 from datatable import mytable, tb, calldb
-import sqlite3
-
-conn = sqlite3.connect('db/dbone.db', check_same_thread=False)
 
 
 def main(page: Page):
@@ -69,7 +66,7 @@ def main(page: Page):
         content=Column([
             Radio(value='man', label='man'),
             Radio(value='woman', label='woman'),
-        ])
+        ]),
     )
 
     # CREATE MODAL INPUT FOR ADD NEW DATA
@@ -91,7 +88,7 @@ def main(page: Page):
                 gender,
                 address,
                 FilledButton('save data', on_click=savedata),
-            ])
+            ]),
         ),
     )
 
@@ -104,8 +101,9 @@ def main(page: Page):
             inputcon,
             # NOTICE IF YOU ERROR
             # DISABLE import Datatable like this
-        ])
+        ]),
     )
 
 
-flet.app(target=main)
+if __name__ == '__main__':  # pragma: no cover
+    app(target=main)

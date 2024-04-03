@@ -46,7 +46,7 @@ def main(page: ft.Page) -> NoReturn:
             selected_index=0,
             extended=False,
             label_type=ft.NavigationRailLabelType.NONE,
-            on_change=lambda e: print(e.control.selected_index),  # noqa: T201
+            on_change=lambda e: print(e.control.selected_index),
         ),
         on_hover=toggle_sidebar,
     )
