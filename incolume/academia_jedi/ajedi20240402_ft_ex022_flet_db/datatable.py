@@ -1,7 +1,5 @@
 from flet import *
-import sqlite3
-
-conn = sqlite3.connect('db/dbone.db', check_same_thread=False)
+from myaction import conn
 
 tb = DataTable(
     columns=[
@@ -40,7 +38,7 @@ gender_edit = RadioGroup(
     content=Column([
         Radio(value='man', label='man'),
         Radio(value='woman', label='woman'),
-    ])
+    ]),
 )
 email_edit = TextField(label='email')
 address_edit = TextField(label='address')
@@ -56,7 +54,8 @@ def updateandsave(e):
         myid = id_edit.value
         c = conn.cursor()
         c.execute(
-            'UPDATE users SET name=?, contact=?, age=?, gender=?, email=?, address=? WHERE id=?',
+            'UPDATE users SET name=?, contact=?, age=?,'
+            ' gender=?, email=?, address=? WHERE id=?',
             (
                 name_edit.value,
                 contact_edit.value,
@@ -79,7 +78,7 @@ def updateandsave(e):
 
 
 dlg = Container(
-    bgcolor='blue200',
+    # bgcolor='blue200',
     padding=10,
     content=Column([
         Row(
@@ -120,7 +119,7 @@ def calldb():
     c.execute('SELECT * FROM users')
     users = c.fetchall()
     print(users)
-    if not users == '':
+    if users != '':
         keys = ['id', 'name', 'contact', 'age', 'gender', 'email', 'address']
         result = [dict(zip(keys, values)) for values in users]
         for x in result:
@@ -141,7 +140,7 @@ def calldb():
                                     data=x['id'],
                                     on_click=showdelete,
                                 ),
-                            ])
+                            ]),
                         ),
                         DataCell(Text(x['name'])),
                         DataCell(Text(x['age'])),
