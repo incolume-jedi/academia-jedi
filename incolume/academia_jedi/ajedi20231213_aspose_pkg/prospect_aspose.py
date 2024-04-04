@@ -3,6 +3,16 @@
 import aspose.words as aw
 from tempfile import NamedTemporaryFile
 from pathlib import Path
+import platform
+import sys
+import logging
+
+
+if platform.python_version() >= '3.12.0':
+    msg = f'This module ({Path.cwd()}) not run on Python 3.12+!'
+    print(msg)  # noqa: T201
+    logging.info(msg)
+    sys.exit(0)
 
 
 def new_filename(**kwargs: str) -> Path:
@@ -20,7 +30,7 @@ def new_filename(**kwargs: str) -> Path:
     return Path(NamedTemporaryFile(**kwargs).name)
 
 
-def example1(output_file: Path | str = 'output0.docx') -> bool:
+def example1(output_file: Path | str = 'output.docx') -> bool:
     """Exemple oficial.
 
     aspose-words em https://pypi.org/project/aspose-words/
