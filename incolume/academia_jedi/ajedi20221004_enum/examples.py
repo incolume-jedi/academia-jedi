@@ -7,13 +7,13 @@ from enum import Enum, auto
 class Day(Enum):
     """Creating Enumerations With the Functional API."""
 
-    MONDAY = 1
-    TUESDAY = 2
-    WEDNESDAY = 3
-    THURSDAY = 4
-    FRIDAY = 5
-    SATURDAY = 6
-    SUNDAY = 7
+    SUNDAY = 1
+    MONDAY = 2
+    TUESDAY = 3
+    WEDNESDAY = 4
+    THURSDAY = 5
+    FRIDAY = 6
+    SATURDAY = 7
 
 
 class Season(Enum):
@@ -278,7 +278,6 @@ def run():
     print(Sort.ASCENDING(numbers), Sort.DESCENDING(numbers), sep='\n')
     print('---')
 
-    ...
 
 
 if __name__ == '__main__':

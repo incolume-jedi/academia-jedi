@@ -24,7 +24,6 @@ class Vehicle:
     @property
     def acelerar(self) -> None:
         """Acelerar"""
-        pass
 
     @acelerar.setter
     def acelerar(self, value: float = 0) -> None:
@@ -53,4 +52,3 @@ if __name__ == '__main__':
     print(a.velocidade, a.acelerar)
 
 
-    

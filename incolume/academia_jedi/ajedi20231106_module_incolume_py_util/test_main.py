@@ -2,18 +2,16 @@
 import pytest
 from incolumepy.utils.files import realfilename
 from incolumepy.utils.numerical import milhar
-from pathlib import Path
-import re
 
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 @pytest.mark.parametrize(
     'entrada',
     [
         'texto.txt',
-    ]
+    ],
 )
 def test_files(entrada):
     """Criação de arquivos."""
@@ -34,7 +32,7 @@ def test_files(entrada):
          '100.000.000.000.000.000.000.000.000.000.000.000.000.'
          '000.000.000.000.000.000.000.000.000'),
         # (re.sub(r'[ \.]+', '', '1.954 891'), '1.954.891'),
-    ]
+    ],
 )
 def test_milhar(entrance, expected):
     """Exemplo milhar."""

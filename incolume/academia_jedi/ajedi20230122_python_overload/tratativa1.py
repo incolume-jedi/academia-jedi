@@ -9,7 +9,6 @@ __author__ = '@britodfbr'  # pragma: no cover
 @singledispatch
 def inverse(arg):
     logging.debug('..')
-    ...
 
 
 @inverse.register

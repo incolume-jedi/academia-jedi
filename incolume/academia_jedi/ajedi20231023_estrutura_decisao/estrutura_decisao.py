@@ -37,7 +37,8 @@ def exercicio03(sexo: str) -> str:
 def exercicio04(letra: str) -> str:
     """Vogal ou consoante.
     Faça um Programa que verifique se uma letra digitada
-    é vogal ou consoante."""
+    é vogal ou consoante.
+    """
     vogais = 'AEIOU'
 
     def isVogal(letra: str) -> bool:
@@ -67,7 +68,8 @@ def exercicio06(*args) -> float:
 def exercicio07(*args) -> tuple:
     """Maior e menor.
     Faça um Programa que leia três números e mostre
-    o maior e o menor deles."""
+    o maior e o menor deles.
+    """
     maior = -999999999999999999
     menor = 9999999999999999999
 
@@ -136,7 +138,6 @@ def exercicio11(salario: float) -> str:
     - o valor do aumento;
     - o novo salário, após o aumento.
     """
-
     # salarios = [280, 700, 1500, 1500.01]
     # ajustes = [.2, .15, .1, .05]
 
@@ -202,7 +203,7 @@ def exercicio12(valor_hora: float, quantia_hora: float) -> str:
             (-) INSS ( 10%)                 : R$  {inss}
             FGTS (11%)                      : R$  {fgts}
             Total de descontos              : R$  {descontos}
-            Salário Liquido                 : R$  {sal_bruto - descontos}"""
+            Salário Liquido                 : R$  {sal_bruto - descontos}""",
     )
 
 
@@ -429,7 +430,7 @@ def exercicio21():
     notas = [100, 50, 10, 5, 1]
 
     valor = float(input('Valor do saque: '))
-    if 10 > valor or 600 < valor:
+    if valor < 10 or valor > 600:
         raise ValueError('limite por saque entre R$10 e R$600')
 
     def change(value) -> list:
@@ -611,7 +612,7 @@ def exercicio27():
         while comprar:
             produto = input(
                 f'Escolha o produto {list(produtos.keys())}: ').casefold()
-            if produto not in produtos.keys():
+            if produto not in produtos:
                 print('Produto inválido, escolha novamente.')
             else:
                 car[produto] = float(input('Informe a quantidade (kg):'))

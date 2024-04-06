@@ -1,18 +1,18 @@
-""" Acesso a gsheet.
+"""Acesso a gsheet.
 
 Codificação oriunda de
-http://github.com/incolumepy-prospections/incolumepy.dataclass."""
+http://github.com/incolumepy-prospections/incolumepy.dataclass.
+"""
 
 import logging
 from itertools import chain
 from pathlib import Path
-from typing import Iterator
+from collections.abc import Iterator
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from dataclasses import dataclass
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 class GSheet:
@@ -34,15 +34,15 @@ class GSheet:
         if not file_credential:
             logging.debug('not file: %s', file_credential)
             file_credential = Path('~').expanduser().joinpath(
-                "projetos",
-                "private",
-                "authkeys",
+                'projetos',
+                'private',
+                'authkeys',
                 'incolumepy-dev-6ae65605985c.json')
             logging.info('setting: %s', file_credential)
         if not file_credential.is_file():
             logging.debug('not file: %s', file_credential)
             file_credential = Path(__file__).parents[0].joinpath(
-                'credentials', 'incolumepy-dev-6ae65605985c.json'
+                'credentials', 'incolumepy-dev-6ae65605985c.json',
             )
             logging.info('setting: %s', file_credential)
         logging.debug('return: %s', file_credential)
@@ -61,9 +61,9 @@ class GSheet:
         self.__escopo = chain(
             [
                 'https://spreadsheets.google.com/feeds',
-                'https://www.googleapis.com/auth/drive'
+                'https://www.googleapis.com/auth/drive',
             ],
-            value
+            value,
         )
 
     @property
@@ -76,8 +76,7 @@ class GSheet:
         return gc
 
     def drop_sheet(self, spreadsheet, dropthis: bool = False) -> bool:
-        """
-        Drop Planilha
+        """Drop Planilha
 
         :param spreadsheet:
         :param dropthis: bool
@@ -89,12 +88,10 @@ class GSheet:
         return False
 
     def load_create_sheet(self, spreadsheetname):
-        """
-        Carregar/Criar Planilha.
+        """Carregar/Criar Planilha.
 
         :return:
         """
-
         try:
             spreadsheet = self.client_google.open(spreadsheetname)
         except (gspread.exceptions.SpreadsheetNotFound,
@@ -104,14 +101,12 @@ class GSheet:
         return spreadsheet
 
     def permission_sheet(self, spreadsheet, users: list[str]):
-        """
-        permissões Planilha.
+        """permissões Planilha.
 
         :param spreadsheet:
         :param users: list[str] lista com email de usuários
         :return:
         """
-
         list_users = chain([
             'brito@incolume.com.br',
             'britodfbr@gmail.com',
@@ -123,8 +118,7 @@ class GSheet:
             spreadsheet.share(user, perm_type='user', role='writer')
 
     def get_url_sheet(self, spreadsheet):
-        """
-        Link acesso web
+        """Link acesso web
 
         :return:
         """

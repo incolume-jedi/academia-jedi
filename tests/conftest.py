@@ -4,7 +4,7 @@ from tempfile import NamedTemporaryFile
 from pathlib import Path
 
 
-@pytest.fixture
+@pytest.fixture()
 def verdade() -> bool:
     """True."""
     return True

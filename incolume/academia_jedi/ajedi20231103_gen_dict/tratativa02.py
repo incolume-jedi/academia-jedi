@@ -4,7 +4,7 @@ from pathlib import Path
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 def set_credentials(file_credencial: Path = None) -> Path:
@@ -13,15 +13,15 @@ def set_credentials(file_credencial: Path = None) -> Path:
     if file_credencial is None or not file_credencial.is_file():
         logging.debug('not file: %s', file_credencial)
         file_credencial = Path(__file__).parents[0].joinpath(
-            'credentials', 'incolumepy-dev-6ae65605985c.json'
+            'credentials', 'incolumepy-dev-6ae65605985c.json',
         )
         logging.info('setting: %s', file_credencial)
     if not file_credencial.is_file():
         logging.debug('not file: %s', file_credencial)
         file_credencial = Path('~').expanduser().joinpath(
-            "projetos",
+            'projetos',
             'private',
-            "authkeys",
+            'authkeys',
             'incolumepy-dev-6ae65605985c.json')
         logging.info('setting: %s', file_credencial)
     logging.debug('return: %s', file_credencial)
@@ -41,8 +41,7 @@ def get_client_google(crendential_file=''):
 
 
 def drop_sheet(spreadsheet, dropthis: bool = False):
-    """
-    Drop Planilha
+    """Drop Planilha
 
     :param spreadsheet:
     :param dropthis:
@@ -56,12 +55,10 @@ def drop_sheet(spreadsheet, dropthis: bool = False):
 
 
 def load_create_sheet(spreadsheetname):
-    """
-    Carregar/Criar Planilha.
+    """Carregar/Criar Planilha.
 
     :return:
     """
-
     gc = get_client_google()
     try:
         spreadsheet = gc.open(spreadsheetname)
@@ -73,13 +70,11 @@ def load_create_sheet(spreadsheetname):
 
 
 def permission_sheet(spreadsheet):
-    """
-    permissões Planilha.
+    """permissões Planilha.
 
     :param spreadsheet:
     :return:
     """
-
     users = [
         'brito@incolume.com.br',
         'britodfbr@gmail.com',
@@ -91,8 +86,7 @@ def permission_sheet(spreadsheet):
 
 
 def get_url_sheet(spreadsheet):
-    """
-    Link acesso web
+    """Link acesso web
 
     :return:
     """

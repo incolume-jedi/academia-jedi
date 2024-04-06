@@ -19,7 +19,7 @@ def run():
         try:
             print(item.run())
         except AttributeError as e:
-            logging.error(f'{e.__class__.__name__}:{e}')
+            logging.exception(f'{e.__class__.__name__}:{e}')
         print()
 
 

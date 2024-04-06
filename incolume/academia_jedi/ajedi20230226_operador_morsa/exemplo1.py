@@ -1,10 +1,9 @@
-"""
-Unificado a partir do arquivo:
-   incolume/academia_jedi/ajedi20220928_morsa_op/main.py
+"""Unificado a partir do arquivo:
+incolume/academia_jedi/ajedi20220928_morsa_op/main.py
 """
 
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 def menu():

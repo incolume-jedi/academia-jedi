@@ -87,7 +87,7 @@ def run():
             if result := func():
                 print(result)
         except ValueError as e:
-            logging.error(f'{e.__class__.__name__}: {e}')
+            logging.exception(f'{e.__class__.__name__}: {e}')
         finally:
             logging.debug(f'{func.__name__} finished.')
         print('------\n')

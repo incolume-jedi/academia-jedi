@@ -29,7 +29,7 @@ def run():
         print(some_func(Color.BLUE))
     except AssertionError as e:
         e.add_note('Ops..')
-        logging.error(e)
+        logging.exception(e)
 
 
 if __name__ == '__main__':  # pragma: no cover

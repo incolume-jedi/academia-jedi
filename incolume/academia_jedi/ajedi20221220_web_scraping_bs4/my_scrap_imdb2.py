@@ -45,16 +45,14 @@ class ScrapingIMDB:
         self.req = None
         self.soup = None
         self.movies = []
-        ...
 
     def connect(self, url: str = ''):
         url = url or self.url
         try:
             self.req = requests.get(url)
             self.req.raise_for_status()
-            ...
         except requests.exceptions.HTTPError as e:
-            logging.error(e)
+            logging.exception(e)
         return self
 
     def get_soup(self):

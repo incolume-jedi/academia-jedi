@@ -33,7 +33,7 @@ def run():
             for line in archive.read('sample/wzxnlQNFSlVoPJe.md').split(b'\n'):
                 print(line)
     except RuntimeError as e:
-        logging.error(e)
+        logging.exception(e)
 
 
 if __name__ == '__main__':

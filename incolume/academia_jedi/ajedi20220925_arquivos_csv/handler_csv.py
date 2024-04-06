@@ -84,7 +84,6 @@ def run():
     csv_3()
     csv_4_write_pessoas()
     csv_5_read_pessoas()
-    ...
 
 
 if __name__ == '__main__':  # pragma: no cover

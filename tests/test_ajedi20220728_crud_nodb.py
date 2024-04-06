@@ -28,7 +28,7 @@ fake = Faker('pt_Br')
     ],
 )
 def test_gen_id(entrance, expected):
-    """test gen id."""
+    """Test gen id."""
     obj = gen_id(entrance)
     assert next(obj) == expected
 
@@ -44,13 +44,13 @@ def test_gen_id(entrance, expected):
     ],
 )
 def test_get_id(expected: int) -> None:
-    """test get id"""
+    """Test get id"""
     assert get_id() == expected
 
 
-@pytest.fixture
+@pytest.fixture()
 def pessoa():
-    """fixture pessoa."""
+    """Fixture pessoa."""
     fname = fake.first_name()
     lname = fake.last_name()
     return Pessoa(
@@ -61,14 +61,14 @@ def pessoa():
 
 
 def test_create(pessoa):
-    """test create pessoa."""
+    """Test create pessoa."""
     create_person(pessoa)
     assert db.get(pessoa.id) == pessoa
     db.clear()
 
 
 def test_update(pessoa):
-    """test update pessoa."""
+    """Test update pessoa."""
     create_person(pessoa)
     telefone = ['555-5555']
     pessoa.telefone = telefone
@@ -78,7 +78,7 @@ def test_update(pessoa):
 
 
 def test_delete(pessoa):
-    """test delete pessoa."""
+    """Test delete pessoa."""
     create_person(pessoa)
     delete_person(pessoa.id)
     assert db.get(pessoa.id) is None
@@ -86,14 +86,14 @@ def test_delete(pessoa):
 
 
 def test_select(pessoa):
-    """test select pessoa."""
+    """Test select pessoa."""
     create_person(pessoa)
     assert select_person(pessoa.id) == pessoa
     db.clear()
 
 
 def test_select_all(pessoa):
-    """test select all."""
+    """Test select all."""
     create_person(pessoa)
     assert select_all_person() == [pessoa]
     db.clear()

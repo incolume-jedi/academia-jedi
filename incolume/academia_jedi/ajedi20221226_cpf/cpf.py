@@ -45,7 +45,7 @@ def run():
     try:
         logging.debug(cpf_vericator('794344791'))
     except ValueError as e:
-        logging.error(e)
+        logging.exception(e)
     print(lcpf1)
     print([cpf_vericator(cpf, True) for cpf in lcpf1])
     print(validator('12345678909'))
@@ -54,4 +54,3 @@ def run():
 
 if __name__ == '__main__':  # pragma: no cover
     run()
-    ...

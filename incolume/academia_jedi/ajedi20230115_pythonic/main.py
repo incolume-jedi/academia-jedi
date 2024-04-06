@@ -1,6 +1,7 @@
 import logging
 import timeit
-from typing import Callable, Optional
+from typing import Optional
+from collections.abc import Callable
 
 from truncus import brazilian_name_list
 

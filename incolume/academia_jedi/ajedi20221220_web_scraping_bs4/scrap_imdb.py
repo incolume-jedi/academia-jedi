@@ -51,6 +51,6 @@ try:
         )
         sheet.append([rank, name, year, rating, poster])
 except requests.exceptions.HTTPError as e:
-    logging.error(e)
+    logging.exception(e)
 
 excel.save('IMDB_Movies_Ratings.xlsx')

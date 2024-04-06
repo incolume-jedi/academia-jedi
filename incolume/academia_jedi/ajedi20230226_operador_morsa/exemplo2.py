@@ -1,5 +1,4 @@
-"""
-Exemplos adaptados do site oficial.
+"""Exemplos adaptados do site oficial.
 
 https://docs.python.org/pt-br/dev/whatsnew/3.8.html
 
@@ -73,7 +72,6 @@ def run():
     example3()
     example4()
     example4(True)
-    ...
 
 
 if __name__ == '__main__':

@@ -1,6 +1,5 @@
 import re
 
-import pytest
 import incolume.academia_jedi.ajedi20221003_datetime_milliseconds.handler_datetime as pkg
 
 __author__ = '@britodfbr'  # pragma: no cover

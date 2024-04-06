@@ -34,7 +34,7 @@ def parse(results):
         try:
             print(soup.find('form', {'class': 'form-horizontal'}).text.strip())
         except AttributeError as e:
-            logging.error(e)
+            logging.exception(e)
 
 
 if __name__ == '__main__':

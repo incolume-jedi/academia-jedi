@@ -1,9 +1,8 @@
 """Testes unitários para estrutura de decisão."""
-import io
 from re import escape
 
 from math import isclose
-import mock
+from unittest import mock
 import pytest
 
 import \
@@ -590,7 +589,6 @@ def test_exercicio25(entrance, expected) -> None:
 )
 def test_exercicio26(entrance, expected) -> None:
     """Testar exercicio26."""
-
     with mock.patch('builtins.input', side_effect=entrance):
         assert pkg.exercicio26() == expected
 
@@ -624,7 +622,7 @@ def test_exercicio27(entrance, expected) -> None:
             '----------------------------------------\n'
             'Tipo de pagamento:                  pix\n'
             'Valor do desconto:              R$ 0.00\n'
-            'Valor Final:                   R$ 23.20\n'
+            'Valor Final:                   R$ 23.20\n',
         ),
         (
             ('dinheiro', 'alcatra', 4),
@@ -635,7 +633,7 @@ def test_exercicio27(entrance, expected) -> None:
             '----------------------------------------\n'
             'Tipo de pagamento:             dinheiro\n'
             'Valor do desconto:              R$ 0.00\n'
-            'Valor Final:                   R$ 27.20\n'
+            'Valor Final:                   R$ 27.20\n',
         ),
         (
             ('débito', 'picanha', 4),
@@ -647,7 +645,7 @@ def test_exercicio27(entrance, expected) -> None:
             'Tipo de pagamento:               débito\n'
             'Valor do desconto:              R$ 0.00\n'
             'Valor Final:                   R$ 31.20\n'
-            ''
+            '',
         ),
         (
             ('crédito', 'file duplo', 4),
@@ -658,7 +656,7 @@ def test_exercicio27(entrance, expected) -> None:
             '----------------------------------------\n'
             'Tipo de pagamento:              crédito\n'
             'Valor do desconto:              R$ 0.00\n'
-            'Valor Final:                   R$ 23.20\n'
+            'Valor Final:                   R$ 23.20\n',
         ),
         (
             ('tabajara', 'file duplo', 4),
@@ -669,7 +667,7 @@ def test_exercicio27(entrance, expected) -> None:
             '----------------------------------------\n'
             'Tipo de pagamento:      Cartão Tabajara\n'
             'Valor do desconto:              R$ 2.32\n'
-            'Valor Final:                   R$ 20.88\n'
+            'Valor Final:                   R$ 20.88\n',
         ),
         (
             ('tabajara', 'picanha', 10),
@@ -680,7 +678,7 @@ def test_exercicio27(entrance, expected) -> None:
             '----------------------------------------\n'
             'Tipo de pagamento:      Cartão Tabajara\n'
             'Valor do desconto:             R$ 16.80\n'
-            'Valor Final:                   R$ 61.20\n'
+            'Valor Final:                   R$ 61.20\n',
         ),
         (
             ('crédito', 'picanha', 10),
@@ -691,7 +689,7 @@ def test_exercicio27(entrance, expected) -> None:
             '----------------------------------------\n'
             'Tipo de pagamento:              crédito\n'
             'Valor do desconto:              R$ 9.00\n'
-            'Valor Final:                   R$ 69.00\n'
+            'Valor Final:                   R$ 69.00\n',
         ),
     ],
 )

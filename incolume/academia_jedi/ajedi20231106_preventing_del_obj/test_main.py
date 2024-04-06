@@ -5,7 +5,7 @@ from incolume.academia_jedi.ajedi20231106_preventing_del_obj.main import (
     Bar,
 )
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 class TestCase:

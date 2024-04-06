@@ -39,7 +39,7 @@ def run():
         try:
             func()
         except (FileNotFoundError, ImportError) as e:
-            logging.error(e)
+            logging.exception(e)
     clean_workdir()
 
 

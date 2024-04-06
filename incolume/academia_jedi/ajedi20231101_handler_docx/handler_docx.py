@@ -1,7 +1,7 @@
 from docx import Document
 from docx.shared import Inches
 from pathlib import Path
-from os import environ, getenv
+from os import getenv
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -25,10 +25,10 @@ def example_default(fout: Path = None, fimg: Path = None):
     document.add_paragraph('Intense quote', style='Intense Quote')
 
     document.add_paragraph(
-        'first item in unordered list', style='List Bullet'
+        'first item in unordered list', style='List Bullet',
     )
     document.add_paragraph(
-        'first item in ordered list', style='List Number'
+        'first item in ordered list', style='List Number',
     )
 
     document.add_picture(fimg.as_posix(), width=Inches(1.25))
@@ -36,7 +36,7 @@ def example_default(fout: Path = None, fimg: Path = None):
     records = (
         (3, '101', 'Spam'),
         (7, '422', 'Eggs'),
-        (4, '631', 'Spam, spam, eggs, and spam')
+        (4, '631', 'Spam, spam, eggs, and spam'),
     )
 
     table = document.add_table(rows=1, cols=3)
@@ -62,27 +62,27 @@ def docx_basic(fout: Path = None, content: list = None) -> bool:
     document = Document()
 
     document.add_heading(content.pop(0))
-    
+
     p = document.add_paragraph('')
     p.add_run(content.pop(0)).italic = True
 
     for conteudo in content:
         document.add_paragraph(conteudo)
-        
+
     document.save(fout.as_posix())
 
-     
+
     return fout.is_file()
 
 
 def run():
     """Run it."""
     # example_default()
-    
+
     file = Path(__file__).parent.joinpath('texto.docx')
     with Path(__file__).parent.joinpath('texto.txt').open() as f:
         docx_basic(file, [x.strip() for x in f.readlines()])
 
-                
+
 if __name__ == '__main__':
     run()

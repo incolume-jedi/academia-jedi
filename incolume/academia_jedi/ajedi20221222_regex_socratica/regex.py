@@ -1,6 +1,6 @@
 import re
 from functools import wraps
-from typing import Callable
+from collections.abc import Callable
 
 names = (
     'Francois',

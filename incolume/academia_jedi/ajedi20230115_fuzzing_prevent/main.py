@@ -31,7 +31,7 @@ def sample_func(input_str: str) -> int:
             raise BadFormationError(msg)
         return 0
     except Exception as e:
-        logging.error('%s: %s', e.__class__.__name__, e)
+        logging.exception('%s: %s', e.__class__.__name__, e)
         return 1
 
 
