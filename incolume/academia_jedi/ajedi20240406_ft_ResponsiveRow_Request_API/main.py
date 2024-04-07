@@ -51,32 +51,32 @@ class Home(ft.UserControl):
             logging.info(response)
 
             data = response.json()
-            self.body.controls.append(
-                ft.Column(
-                    col={'sm': 6, 'md': 3, 'xl': 3},
-                    controls=[
-                        ft.Card(
-                            elevation=10,
-                            content=ft.Container(
-                                bgcolor=ft.colors.BLUE_200,
-                                content=ft.Column([
-                                    ft.Image(
-                                        src=user.get('avatar'),
-                                        width=100,
-                                        height=100,
-                                    ),
-                                    ft.Text(f'UID: {user.get("uid")}'),
-                                    ft.Text(
-                                        f'Username: {user.get("username")}',
-                                    ),
-                                    ft.Text(f'Email: {user.get("email")}'),
-                                ]),
-                            ),
-                        )
-                        for user in data
-                    ],
-                ),
-            )
+            for user in data:
+                self.body.controls.append(
+                    ft.Column(
+                        col={'sm': 6, 'md': 3, 'xl': 3},
+                        controls=[
+                            ft.Card(
+                                elevation=10,
+                                content=ft.Container(
+                                    bgcolor=ft.colors.BLUE_200,
+                                    content=ft.Column([
+                                        ft.Image(
+                                            src=user.get('avatar'),
+                                            width=100,
+                                            height=100,
+                                        ),
+                                        ft.Text(f'UID: {user.get("uid")}'),
+                                        ft.Text(
+                                            f'Username: {user.get("username")}',
+                                        ),
+                                        ft.Text(f'Email: {user.get("email")}'),
+                                    ]),
+                                ),
+                            )
+                        ],
+                    ),
+                )
             self.loader.visible = False
 
         except AssertionError:
