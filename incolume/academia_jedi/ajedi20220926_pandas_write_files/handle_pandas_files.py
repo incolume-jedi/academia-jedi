@@ -27,7 +27,6 @@ def pd_0_write_csv():
     logging.debug('ran..')
     df = get_df()
     df.to_csv('pessoas.csv', index=False)
-    ...
 
 
 def pd_1_write_json():

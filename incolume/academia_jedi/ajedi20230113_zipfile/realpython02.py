@@ -9,7 +9,7 @@ def tratativa1(zipname):
         with zipfile.ZipFile(zipname) as archive:
             archive.printdir()
     except zipfile.BadZipFile as error:
-        logging.error(error)
+        logging.exception(error)
 
 
 def run():

@@ -7,7 +7,7 @@ from incolume.academia_jedi.ajedi20231002_python_string import (
 
 
 def test_python_string():
-    """verificar se retorna 'Python' ao contrário"""
+    """Verificar se retorna 'Python' ao contrário"""
     assert python_string('Python') == 'nohtyP'
 
 
@@ -23,7 +23,7 @@ def test_python_string():
     ],
 )
 def test_python_string0(entrance, expected):
-    """verificar se retorna string ao contrário"""
+    """Verificar se retorna string ao contrário"""
     assert python_string0(entrance) == expected
 
 
@@ -39,5 +39,5 @@ def test_python_string0(entrance, expected):
     ],
 )
 def test_python_string_1(entrance, expected):
-    """verificar se retorna string ao contrário"""
+    """Verificar se retorna string ao contrário"""
     assert python_string(entrance) == expected

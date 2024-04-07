@@ -60,7 +60,7 @@ class Pessoa:
                 .isoformat()
             )
         except AttributeError as e:
-            logging.error(e)
+            logging.exception(e)
         return json.dumps(temp.__dict__)
 
     def to_dict(self):

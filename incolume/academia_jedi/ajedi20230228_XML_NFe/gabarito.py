@@ -1,10 +1,18 @@
+"""XML handler."""
+
+import os
+from pathlib import Path
+
 import xmltodict
+
 
 # abrir e ler o arquivo
 
 
-def ler_xml_danfe(nota):
-    with open(nota, 'rb') as arquivo:
+def ler_xml_danfe(nota: Path | str) -> dict[str, list[str]]:
+    """XML read."""
+    nota = Path(nota)
+    with nota.open('rb') as arquivo:
         documento = xmltodict.parse(arquivo)
     dic_notafiscal = documento['nfeProc']['NFe']['infNFe']
 
@@ -29,8 +37,10 @@ def ler_xml_danfe(nota):
     }
 
 
-def ler_xml_servico(nota):
-    with open(nota, 'rb') as arquivo:
+def ler_xml_servico(nota: Path | str) -> dict[str, list[str]]:
+    """XML service."""
+    nota = Path(nota)
+    with nota.open('rb') as arquivo:
         documento = xmltodict.parse(arquivo)
     dic_notafiscal = documento['ConsultarNfseResposta']['ListaNfse'][
         'CompNfse'
@@ -56,8 +66,6 @@ def ler_xml_servico(nota):
     }
 
 
-import os
-
 lista_arquivos = os.listdir(
     'NFs Finais',
 )  # lista os nomes dos arquivos de uma pasta
@@ -65,12 +73,11 @@ lista_arquivos = os.listdir(
 for arquivo in lista_arquivos:  # para cada arquivo
     if 'xml' in arquivo:  # se tem xml no nome do arquivo
         if 'DANFE' in arquivo:  # se tem DANFE no nome do arquivo
-            print(
+            print(  # noqa: T201
                 ler_xml_danfe(f'NFs Finais/{arquivo}'),
             )  # rodar o leitor de XML de DANFE para esse arquivo
         else:
-            print(ler_xml_servico(f'NFs Finais/{arquivo}'))
-
+            print(ler_xml_servico(f'NFs Finais/{arquivo}'))  # noqa: T201
 
 #
 

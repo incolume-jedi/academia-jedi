@@ -59,7 +59,7 @@ def ex02():
         with dbm.open(NamedTemporaryFile().name, 'c') as db:
             db['www.yahoo.com'] = 4
     except TypeError as e:
-        logging.error(e)
+        logging.exception(e)
 
 
 def ex03():

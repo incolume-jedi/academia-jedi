@@ -82,7 +82,7 @@ def run():
         try:
             print(some_func(color))
         except (AssertionError, ValueError) as e:
-            logging.error(f'<{type(e).__name__}: {e}>')
+            logging.exception(f'<{type(e).__name__}: {e}>')
 
 
 if __name__ == '__main__':  # pragma: no cover

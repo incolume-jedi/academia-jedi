@@ -131,7 +131,8 @@ async def get_current_active_user(
     if current_user.disabled:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail='Inactive user')
+            detail='Inactive user',
+        )
 
     return current_user
 
@@ -149,7 +150,8 @@ async def login_for_access_token(
         )
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
-        data={'sub': user.username}, expires_delta=access_token_expires
+        data={'sub': user.username},
+        expires_delta=access_token_expires,
     )
     return {'access_token': access_token, 'token_type': 'bearer'}
 
@@ -170,10 +172,10 @@ async def read_own_items(
                 {'item_id': 2, 'description': 'item 2'},
                 {'item_id': 3, 'description': 'item 3'},
             ],
-            'owner': User(**current_user.__dict__)
-        }
+            'owner': User(**current_user.__dict__),
+        },
     ]
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     print(get_password_hash('user1'))

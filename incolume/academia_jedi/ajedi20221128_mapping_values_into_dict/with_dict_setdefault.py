@@ -130,7 +130,6 @@ def tratativa07():
     for x, y in dct.items():
         dct[x] = [a for a in y if a]
     logging.debug(dct)
-    ...
 
 
 def tratativa08():

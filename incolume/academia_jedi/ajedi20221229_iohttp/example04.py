@@ -23,7 +23,7 @@ async def get_page(session, url):
         async with session.get(url, ssl=False) as r:
             return await r.text()
     except aiohttp.client_exceptions.ClientConnectorError as e:
-        logging.error(e)
+        logging.exception(e)
 
 
 async def get_pages(session, urls):

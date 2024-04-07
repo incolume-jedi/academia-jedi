@@ -7,7 +7,6 @@ from typing import Any
 def successive_execution(funcs: Any):
     for func in funcs:
         func()
-    ...
 
 
 def description(func):

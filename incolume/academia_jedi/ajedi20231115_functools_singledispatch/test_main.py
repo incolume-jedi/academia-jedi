@@ -2,7 +2,7 @@ import pytest
 from incolume.academia_jedi.ajedi20231115_functools_singledispatch.main import \
     fun
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 class TestCaseSingleDispatch:

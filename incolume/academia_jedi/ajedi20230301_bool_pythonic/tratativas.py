@@ -46,7 +46,7 @@ def run():
             if result := func():
                 print(result)
         except (TypeError, ValueError) as e:
-            logging.error(f'{e.__class__.__name__}: {e}')
+            logging.exception(f'{e.__class__.__name__}: {e}')
         print('------\n')
 
 

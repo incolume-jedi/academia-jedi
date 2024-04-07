@@ -3,7 +3,6 @@
 import io
 import os
 from unittest import mock
-import sys
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -30,9 +29,8 @@ def ask(idade_min: int = 12):
     while (idade := int(input('informe a tua idade: '))) < idade_min:
         if idade < idade_min:
             print(f'You are too young({idade})')
-    else:
-        nome = input('informe o teu nome: ')
-        print(f'Welcome! {nome.capitalize()}({idade})')
+    nome = input('informe o teu nome: ')
+    print(f'Welcome! {nome.capitalize()}({idade})')
 
 
 @mock.patch('builtins.input', side_effect=['11', '13', 'Bob'])

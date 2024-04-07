@@ -10,8 +10,7 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 @pytest.mark.parametrize('entrance expected'.split(), ((__version__, True),))
 def test_semver(entrance, expected):
-    """
-    Test for semantic versioning.
+    """Test for semantic versioning.
 
     :param entrance: entrance parameter
     :param expected: expected parameter
@@ -23,7 +22,7 @@ def test_semver(entrance, expected):
                 r'\d+(\.\d+){2}((-\w+\.\d+)|(\w{,2}\d+))?',
                 entrance,
                 flags=re.I,
-            )
+            ),
         )
         == expected
     )
@@ -31,6 +30,6 @@ def test_semver(entrance, expected):
 
 def test_version():
     with Path(__file__).parents[1].joinpath('pyproject.toml').open(
-        'rb'
+        'rb',
     ) as file:
         assert __version__ == load(file)['tool']['poetry']['version']

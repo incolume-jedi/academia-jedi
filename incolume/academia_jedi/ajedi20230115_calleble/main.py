@@ -1,6 +1,6 @@
 import logging
 from inspect import stack
-from typing import Callable
+from collections.abc import Callable
 
 logging.basicConfig(
     level=logging.DEBUG,

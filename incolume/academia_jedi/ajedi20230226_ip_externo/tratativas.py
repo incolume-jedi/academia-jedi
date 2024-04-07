@@ -21,7 +21,7 @@ def tratativa1():
         logging.debug(ip)
         return ip
     except Exception as e:
-        logging.error('{}:{}', e.__class__.__name__, e)
+        logging.exception('{}:{}', e.__class__.__name__, e)
         print(e)
 
 
@@ -37,7 +37,7 @@ def tratativa2():
         logging.debug(ip)
         return ip
     except Exception as e:
-        logging.error('{}:{}', e.__class__.__name__, e)
+        logging.exception('{}:{}', e.__class__.__name__, e)
         print(e)
 
 
@@ -50,7 +50,7 @@ def tratativa3():
         logging.debug(ip)
         return ip
     except Exception as e:
-        logging.error('{}:{}', e.__class__.__name__, e)
+        logging.exception('{}:{}', e.__class__.__name__, e)
         print(e)
 
 
@@ -65,7 +65,7 @@ def tratativa4():
         return ip
 
     except Exception as e:
-        logging.error('{}:{}', e.__class__.__name__, e)
+        logging.exception('{}:{}', e.__class__.__name__, e)
         print(e)
 
 
@@ -84,7 +84,7 @@ def run():
             if result := func():
                 print(result)
         except ValueError as e:
-            logging.error(f'{e.__class__.__name__}: {e}')
+            logging.exception(f'{e.__class__.__name__}: {e}')
         print('------\n')
 
 

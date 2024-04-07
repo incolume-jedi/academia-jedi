@@ -4,8 +4,8 @@ from datetime import datetime
 def example01() -> None:
     """Formatar datetime (local time).
 
-     Formatar em string com milissegundos (2022-10-03 11:41:07.916)"""
-
+    Formatar em string com milissegundos (2022-10-03 11:41:07.916)
+    """
     print(
         datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3],
         datetime.now().isoformat(sep=' ', timespec='milliseconds'),
@@ -16,10 +16,10 @@ def example01() -> None:
 
 
 def example02() -> None:
-    """ Formatar datetime (UTC).
+    """Formatar datetime (UTC).
 
-     Formatar datetime UTC em string com milissegundos
-     (2022-10-03 11:41:07.916)'
+    Formatar datetime UTC em string com milissegundos
+    (2022-10-03 11:41:07.916)'
     """
     print(
         datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3],

@@ -29,7 +29,8 @@ def read_db_item(item_id: int, session: Session) -> DBItem:
 
 
 def read_db_automations_for_item(
-    item_id: int, session: Session
+    item_id: int,
+    session: Session,
 ) -> list[DBAutomation]:
     return (
         session.query(DBAutomation)

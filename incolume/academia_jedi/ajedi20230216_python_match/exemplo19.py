@@ -29,7 +29,7 @@ def run():
         try:
             check_point(point)
         except ValueError as e:
-            logging.error(f'{e}')
+            logging.exception(f'{e}')
 
 
 if __name__ == '__main__':  # pragma: no cover

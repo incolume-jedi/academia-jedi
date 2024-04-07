@@ -1,6 +1,7 @@
-from typing import overload, Sequence
+from typing import overload
+from collections.abc import Sequence
 
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 @overload

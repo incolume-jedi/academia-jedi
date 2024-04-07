@@ -74,7 +74,7 @@ def scraping_ranking1(
             )
             sheet.append(list(obj.__dict__.values()))
     except requests.exceptions.HTTPError as e:
-        logging.error(e)
+        logging.exception(e)
 
     excel.save(excel_output.as_posix())
     return excel_output.is_file()

@@ -3,7 +3,6 @@ from os import environ, getenv
 
 import pytest
 
-from incolume.academia_jedi.ajedi20220924_dynaconf.app import run
 from incolume.academia_jedi.ajedi20220924_dynaconf.config import settings
 
 __author__ = '@britodfbr'  # pragma: no cover
@@ -40,7 +39,7 @@ class TestCaseDynaconf:
             settings.get('msg'),
             settings['MSG'],
             settings['msg'],
-        ]
+        ],
     )
     def test_msg(self, entrance) -> None:
         """Test msg default."""

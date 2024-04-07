@@ -1,7 +1,7 @@
 import pytest
 import logging
 from incolume.academia_jedi.ajedi20231103_gen_dict.tratativa01 import d
-from incolume.academia_jedi.ajedi20231103_gen_dict.tratativa02 import drop_sheet, load_create_sheet, get_client_google, get_url_sheet, set_credentials
+from incolume.academia_jedi.ajedi20231103_gen_dict.tratativa02 import get_client_google, set_credentials
 from incolume.academia_jedi.ajedi20231103_gen_dict.tratativa03 import GSheet
 from tempfile import NamedTemporaryFile
 from pathlib import Path
@@ -29,7 +29,7 @@ class TestCaseTratativa02:
 
     def test_set_credentials_0(self, caplog, fakefile) -> None:
         """Test this."""
-        fakefile.write_text("{}")
+        fakefile.write_text('{}')
         with caplog.at_level(level=logging.DEBUG):
             result = set_credentials(fakefile)
             assert result == fakefile
@@ -37,7 +37,7 @@ class TestCaseTratativa02:
     def test_set_credentials_1(self, caplog, fakefile) -> None:
         """Test this."""
         with caplog.at_level(level=logging.DEBUG):
-            fakefile.write_text("{}")
+            fakefile.write_text('{}')
             set_credentials(fakefile)
             assert (f'return: {fakefile.as_posix()}'
                     in caplog.records[-1].message)
@@ -48,16 +48,16 @@ class TestCaseTratativa02:
             set_credentials()
             assert re.fullmatch(
                 r'return: .*/private/authkeys/.*',
-                caplog.records[-1].message
+                caplog.records[-1].message,
             )
 
-    @pytest.mark.skip
+    @pytest.mark.skip()
     def test_set_credentials(self) -> None:
         """Test this."""
         with pytest.raises(FileExistsError, match=''):
             set_credentials()
 
-    @pytest.mark.skip
+    @pytest.mark.skip()
     def test_get_client_google(self, fakefile) -> None:
         """Test this."""
         fakefile.write_text('')
@@ -82,14 +82,14 @@ class TestCaseTratativa03:
     def obj_gsheet(self):
         """Objeto GSheet."""
         return GSheet()
-    
+
     def test_1(self) -> None:
         """Test credential file."""
         # cred = Path('//castelo/saj').joinpath(,'EQUIPE CEJ','BRITO','projetos','private','authkeys','incolumepy-dev-6ae65605985c.json')
-        cred = Path('H:\CENTRO DE ESTUDOS\EQUIPE CEJ\BRITO')
+        cred = Path(r'H:\CENTRO DE ESTUDOS\EQUIPE CEJ\BRITO')
         assert cred.is_dir()
 
     def test_0(self, obj_gsheet):
         """Test 1."""
         obj_gsheet.escopo == ''
-    
+
