@@ -1,4 +1,7 @@
-"""Module."""
+"""Module.
+
+baseado em https://www.youtube.com/watch?v=EUEUO8Vfomc
+"""
 
 import logging
 from typing import NoReturn
@@ -73,7 +76,7 @@ class Home(ft.UserControl):
                                         ft.Text(f'Email: {user.get("email")}'),
                                     ]),
                                 ),
-                            )
+                            ),
                         ],
                     ),
                 )
