@@ -11,36 +11,9 @@ authors = ["Britodfbr <britodfbr@gmail.com>"]
 packages = [
   {include='incolume', from=''}
 ]
-
-
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.8,<3.12"
 icecream = "^2.1.3"
-click = "^8.1.3"
-
-
-[tool.poetry.group.docs]
-optional = true
-
-[tool.poetry.group.docs.dependencies]
-incolumepy-utils = {git = "https://gitlab.com/development-incolume/incolumepy.utils.git", rev = "master"}
-
-
-[tool.poetry.group.qa]
-optional = true
-
-[tool.poetry.group.qa.dependencies]
-blue = ">=0.9.1"
-isort = "^5.12.0"
-mypy = "^1.5.1"
-mypy-extensions = "^1.0.0"
-pydocstyle = "^6.3.0"
-pylint = "^3.0.0"
-ruff = "^0.3.3"
-
-[tool.poetry.group.tests.dependencies]
-faker = "^19.6.2"
-pytest-cov = "^4.0.0"
 
 [tool.poetry.group.docs]
 optional = true
@@ -66,26 +39,32 @@ incolume-py-changelog = {version=">=0.8.0", python=">=3.8.1,<4"}
 # poetry = "^1.8.2"
 
 aiohttp = "^3.8.3"
-aspose-words = {version="^23.12.0", python=">=3.6,<=3.11"}
+aspose-words = "^23.12.0"
+blue = ">=0.9.1"
 bs4 = "^0.0.1"
+click = "^8.1.3"
 deprecated = "^1.2.13"
 pre-commit = {version="^3.7.0", python =">=3.9"}
 python-dotenv = "^0.20.0"
 dynaconf = "^3.2.3"
 easygui = "^0.98.3"
-fastapi = "^0.110.1"
+faker = "^19.6.2"
 fastparquet = "^2022.12.0"
 flask-restful = "^0.3.9"
-flet = "^0.21.2"
 getch = "^1.0"
 googletrans = "^3.0.0"
 gspread = "^5.12.0"
 html5lib = "^1.1"
 httpx = "^0.13.3"
+icecream = "^2.1.3"
+incolumepy-utils = {git = "https://gitlab.com/development-incolume/incolumepy.utils.git", rev = "master"}
+isort = "^5.12.0"
 jupyter = "^1.0.0"
 language-tool-python = "^2.7.1"
 lxml = {version="^4.9.1", python="<3.12"}
 markdown = "^3.4.1"
+mypy = "^1.5.1"
+mypy-extensions = "^1.0.0"
 nltk = "^3.8.1"
 numpy = "^1.24.0"
 oauth2client = "^4.1.3"
@@ -93,7 +72,6 @@ openai =  [{ version = ">=0.26", python = "<3.11" }]
 opencv-python = "^4.7.0.68"
 openpyxl = "^3.0.10"
 pandas = "^1.4.3"
-passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 pdf2image = "^1.16.2"
 pdfminer3 = [{version = "^2018.12.3.0", python="~3.7,<3.11"}]
 pdfplumber = "^0.7.6"
@@ -101,28 +79,36 @@ pony = "^0.7.16"
 pwinput =  { version = ">=1.0.2", python = "<3.11" }
 pyarrow = [{version="^10.0.1", python="<3.12"}]
 pydantic = "^1.10.2"
+pydocstyle = "^6.3.0"
+pylint = "^3.0.0"
 pymupdf = "^1.21.1"
 pypdf2 = "^3.0.1"
-pysimplegui = "^4.60.3"
+pysimplegui = "^4.60.4"
 pysimpleguiqt = "^0.35.0"
 pyspellchecker = "^0.7.1"
 pytesseract = "^0.3.10"
+pytest = "^7.1.2"
+pytest-cov = "^4.0.0"
 python-docx = "^0.8.11"
 python-dotenv = "^0.20.0"
-python-jose = {extras = ["cryptography"], version = "^3.3.0"}
-python-multipart = "^0.0.9"
 requests = "^2.28.1"
 rstr = "*"
 scikit-learn = "^1.2.1"
+ruff = "^0.3.3"
 selectolax = "^0.3.11"
 taskipy = "^1.10.3"
 textblob = [{version="^0.17.1", python="<3.12"}]
 transformers = [{version="^4.26.1", python="<3.12"}]
 unidecode = "^1.3.6"
-uvicorn = {extras = ["standard"], version = "^0.29.0"}
 wget = "^3.2"
 xlsxwriter = "^3.1.9"
 xmltodict = "^0.13.0"
+flet = "^0.21.2"
+fastapi = "^0.110.1"
+uvicorn = {extras = ["standard"], version = "^0.29.0"}
+python-multipart = "^0.0.9"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
