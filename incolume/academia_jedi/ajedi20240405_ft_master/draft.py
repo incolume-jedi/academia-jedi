@@ -1,4 +1,13 @@
-from flet import (UserControl, Row, Column, Container, VerticalDivider, CrossAxisAlignment, MainAxisAlignment)
+from flet import (
+    UserControl,
+    Row,
+    Column,
+    Container,
+    VerticalDivider,
+    CrossAxisAlignment,
+    MainAxisAlignment,
+)
+
 
 class ClassName(UserControl):
     def __init__(self, route):
@@ -7,7 +16,7 @@ class ClassName(UserControl):
 
     def build(self):
         page_content = Container(
-            #bgcolor='red',
+            # bgcolor='red',
             padding=0,
             border_radius=5,
             expand=True,
@@ -15,27 +24,24 @@ class ClassName(UserControl):
                 controls=[
                     # main body
                     Container(
-                        #bgcolor='white',
+                        # bgcolor='white',
                         expand=True,
                         content=Row(
                             vertical_alignment=CrossAxisAlignment.START,
                             controls=[
                                 Container(
-                                    #bgcolor='red',
+                                    # bgcolor='red',
                                     expand=5,
                                     border_radius=5,
                                     padding=15,
-                                    #content=
-
+                                    # content=
                                     #
-                                    #Insert controls here
+                                    # Insert controls here
                                     #
-
-
                                 ),
                                 VerticalDivider(width=1),
                                 Container(
-                                    #bgcolor='red',
+                                    # bgcolor='red',
                                     expand=2,
                                     border_radius=5,
                                     padding=15,
@@ -44,19 +50,17 @@ class ClassName(UserControl):
                                         horizontal_alignment=CrossAxisAlignment.CENTER,
                                         spacing=20,
                                         controls=[
-                                            
                                             #
-                                            #Insert controls here
+                                            # Insert controls here
                                             #
-
-                                        ]
-                                    )
-                                )
-                            ]
-                        )
-                    )
-                ]
-            )
+                                        ],
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ),
+                ],
+            ),
         )
 
         content = Row(
@@ -64,10 +68,10 @@ class ClassName(UserControl):
             spacing=10,
             controls=[
                 page_content,
-            ]
+            ],
         )
         return content
-    
+
     def initialize(self):
         print("Initializing 'YourClassName'")
         # Implement initializing of the page here

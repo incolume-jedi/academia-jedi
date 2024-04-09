@@ -1,7 +1,7 @@
 import locale
 
-class Validator():
 
+class Validator:
     def format_to_int(value):
         try:
             return int(value)
@@ -9,10 +9,10 @@ class Validator():
             return None
 
     def format_to_float(value):
-        value = value.replace(".", "")
-        value = value.replace(",", ".")
+        value = value.replace('.', '')
+        value = value.replace(',', '.')
         try:
-            return(float(value))
+            return float(value)
         except Exception:
             return None
 

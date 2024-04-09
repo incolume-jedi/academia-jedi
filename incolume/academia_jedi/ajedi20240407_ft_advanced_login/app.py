@@ -317,7 +317,7 @@ def main(page: ft.Page) -> NoReturn:
                             spacing=5,
                             controls=[
                                 ft.Text(
-                                    'Sign In Below', size=22, weight='bold'
+                                    'Sign In Below', size=22, weight='bold',
                                 ),
                                 ft.Text(
                                     'Advanced Python-Flet UI Concepts',
@@ -349,7 +349,7 @@ def main(page: ft.Page) -> NoReturn:
                             controls=[
                                 ft.Container(
                                     content=ft.Text(
-                                        'Forgot Passowrd?', size=9
+                                        'Forgot Passowrd?', size=9,
                                     ),
                                 ),
                             ],

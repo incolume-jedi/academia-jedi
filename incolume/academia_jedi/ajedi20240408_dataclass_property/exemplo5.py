@@ -59,7 +59,9 @@ class Vehicle:
 @dataclass
 class Garagem:
     _content: list[Vehicle] = field(
-        default_factory=list, init=False, repr=False,
+        default_factory=list,
+        init=False,
+        repr=False,
     )
 
     def __repr__(self):

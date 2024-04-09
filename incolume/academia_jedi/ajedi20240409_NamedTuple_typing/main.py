@@ -52,7 +52,7 @@ def run():
                 '99999-0000',
                 TelefoneTipo.MOVEL,
                 TelefoneReference.RESIDENCIAL,
-            )
+            ),
         ],
     )
     print(pessoa)
