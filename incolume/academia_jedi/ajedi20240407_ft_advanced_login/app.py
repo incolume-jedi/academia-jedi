@@ -1,4 +1,5 @@
 """Module."""
+
 from typing import NoReturn
 
 import flet as ft
@@ -76,7 +77,8 @@ class UserInputField(ft.UserControl):
         else:
             self.controls[0].content.controls[1].value += e.control.data
             self.controls[0].content.controls[2].offset = ft.transform.Offset(
-                0.5, 0,
+                0.5,
+                0,
             )
             self.controls[0].content.controls[2].opacity = 0
             self.update()
@@ -140,8 +142,11 @@ class UserInputField(ft.UserControl):
                     self.controls[0].content.controls[2].opacity = 1
                     self.update()
             else:
-                self.controls[0].content.controls[2].offset = ft.transform.Offset(
-                    0.5, 0,
+                self.controls[0].content.controls[
+                    2
+                ].offset = ft.transform.Offset(
+                    0.5,
+                    0,
                 )
                 self.controls[0].content.controls[2].opacity = 0
                 self.update()
@@ -246,10 +251,12 @@ def main(page: ft.Page) -> NoReturn:
         while True:
             if counter >= 0 and counter <= 4:
                 red_box.rotate = ft.transform.Rotate(
-                    counter_clock_wise_rotate, ft.alignment.center,
+                    counter_clock_wise_rotate,
+                    ft.alignment.center,
                 )
                 blue_box.rotate = ft.transform.Rotate(
-                    clock_wise_rotate, ft.alignment.center,
+                    clock_wise_rotate,
+                    ft.alignment.center,
                 )
 
                 red_box.update()
@@ -267,10 +274,12 @@ def main(page: ft.Page) -> NoReturn:
                 counter_clock_wise_rotate += pi / 2
 
                 red_box.rotate = ft.transform.Rotate(
-                    counter_clock_wise_rotate, ft.alignment.center,
+                    counter_clock_wise_rotate,
+                    ft.alignment.center,
                 )
                 blue_box.rotate = ft.transform.Rotate(
-                    clock_wise_rotate, ft.alignment.center,
+                    clock_wise_rotate,
+                    ft.alignment.center,
                 )
 
                 red_box.update()
@@ -307,7 +316,9 @@ def main(page: ft.Page) -> NoReturn:
                             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                             spacing=5,
                             controls=[
-                                ft.Text('Sign In Below', size=22, weight='bold'),
+                                ft.Text(
+                                    'Sign In Below', size=22, weight='bold'
+                                ),
                                 ft.Text(
                                     'Advanced Python-Flet UI Concepts',
                                     size=13,
@@ -337,7 +348,9 @@ def main(page: ft.Page) -> NoReturn:
                             alignment=ft.MainAxisAlignment.END,
                             controls=[
                                 ft.Container(
-                                    content=ft.Text('Forgot Passowrd?', size=9),
+                                    content=ft.Text(
+                                        'Forgot Passowrd?', size=9
+                                    ),
                                 ),
                             ],
                         ),
