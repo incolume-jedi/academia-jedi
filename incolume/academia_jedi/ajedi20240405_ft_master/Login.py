@@ -1,8 +1,26 @@
-from flet import (UserControl, Row, Column, Container, Text, TextField, icons, colors, TextThemeStyle, OutlinedButton,
-                  MainAxisAlignment, CrossAxisAlignment, alignment, padding, BoxShadow, Offset, ShadowBlurStyle)
+from flet import (
+    UserControl,
+    Row,
+    Column,
+    Container,
+    Text,
+    TextField,
+    icons,
+    colors,
+    TextThemeStyle,
+    OutlinedButton,
+    MainAxisAlignment,
+    CrossAxisAlignment,
+    alignment,
+    padding,
+    BoxShadow,
+    Offset,
+    ShadowBlurStyle,
+)
 from Database import UserDatabase
 from Notification import Notification
 from CreateFirstAdmin import CreateFirstAdmin
+
 
 class Login(UserControl):
     def __init__(self, route):
@@ -10,11 +28,30 @@ class Login(UserControl):
         self.route = route
 
     def build(self):
-        self.text_user = TextField(label="Usuário", prefix_icon=icons.PERSON_2_OUTLINED, expand=True, autofocus=True, on_change=self.analyze_to_enable_button)
-        self.text_password = TextField(label="Senha", prefix_icon=icons.LOCK_OUTLINE_ROUNDED, expand=True, password=True, can_reveal_password=True, on_change=self.analyze_to_enable_button)
-        self.btn_login = OutlinedButton(text="Login", width=240, icon=icons.LOGIN_OUTLINED, disabled=True, on_click=self.login_clicked)
+        self.text_user = TextField(
+            label='Usuário',
+            prefix_icon=icons.PERSON_2_OUTLINED,
+            expand=True,
+            autofocus=True,
+            on_change=self.analyze_to_enable_button,
+        )
+        self.text_password = TextField(
+            label='Senha',
+            prefix_icon=icons.LOCK_OUTLINE_ROUNDED,
+            expand=True,
+            password=True,
+            can_reveal_password=True,
+            on_change=self.analyze_to_enable_button,
+        )
+        self.btn_login = OutlinedButton(
+            text='Login',
+            width=240,
+            icon=icons.LOGIN_OUTLINED,
+            disabled=True,
+            on_click=self.login_clicked,
+        )
         return Container(
-            #bgcolor='black',
+            # bgcolor='black',
             expand=True,
             alignment=alignment.center,
             content=Row(
@@ -32,11 +69,11 @@ class Login(UserControl):
                             spread_radius=5,
                             blur_radius=5,
                             color=colors.GREY_300,
-                            offset=Offset(1,1),
+                            offset=Offset(1, 1),
                             blur_style=ShadowBlurStyle.NORMAL,
                         ),
                         content=Column(
-                            #expand=True,
+                            # expand=True,
                             spacing=30,
                             alignment=MainAxisAlignment.START,
                             horizontal_alignment=CrossAxisAlignment.CENTER,
@@ -45,42 +82,45 @@ class Login(UserControl):
                                 Row(
                                     alignment=MainAxisAlignment.CENTER,
                                     controls=[
-                                        Text('Login', style=TextThemeStyle.TITLE_LARGE)
-                                    ]
+                                        Text(
+                                            'Login',
+                                            style=TextThemeStyle.TITLE_LARGE,
+                                        ),
+                                    ],
                                 ),
                                 Row(
                                     controls=[
-                                        self.text_user,                                        
-                                    ]
+                                        self.text_user,
+                                    ],
                                 ),
                                 Row(
                                     controls=[
                                         self.text_password,
-                                    ]
+                                    ],
                                 ),
                                 Row(
                                     alignment=MainAxisAlignment.CENTER,
                                     controls=[
                                         self.btn_login,
-                                    ]
-                                )
-                            ]
-                        )
-                    )
-                ]
-            )
+                                    ],
+                                ),
+                            ],
+                        ),
+                    ),
+                ],
+            ),
         )
-    
+
     def initialize(self):
         if not self.route.bar.scheduler.running:
             self.route.bar.scheduler.start()
-    
+
     def verify_count_of_users(self):
         mydb = UserDatabase(self.route)
         mydb.connect()
         result = mydb.select_users_count()
         mydb.close()
-        if result == "0":
+        if result == '0':
             return False
         return True
 
@@ -92,8 +132,8 @@ class Login(UserControl):
 
     def go_to_home(self, name, permission):
         self.route.config.set_permissions(name, permission)
-        
-        self.page.go("/home")
+
+        self.page.go('/home')
         self.route.bar.enable_btn_logout()
         self.route.bar.set_username(name)
         self.route.bar.set_title('Página Inicial')
@@ -109,25 +149,26 @@ class Login(UserControl):
         mydb.close()
 
         if name is None:
-            Notification(self.page, 'Usuário ou senha incorretos!', 'red').show_message()
+            Notification(
+                self.page, 'Usuário ou senha incorretos!', 'red',
+            ).show_message()
             return
         self.go_to_home(name, permission)
 
     def login_clicked(self, e):
         self.route.config.initialize()
-        
+
         if self.route.config.host is None:
             return
-        
+
         if not self.verify_count_of_users():
             self.create_admin()
             return
 
         self.login()
-            
+
     def analyze_to_enable_button(self, e):
         self.btn_login.disabled = (
-            self.text_user.value == "" or self.text_password.value == ""
+            self.text_user.value == '' or self.text_password.value == ''
         )
         self.update()
-        
