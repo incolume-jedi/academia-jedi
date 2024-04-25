@@ -1,5 +1,6 @@
 # !/usr/bin/env python
 """Proxy with python."""
+
 import requests
 
 __author__ = '@britodfbr'  # pragma: no cover

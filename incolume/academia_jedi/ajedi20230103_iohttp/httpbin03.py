@@ -12,9 +12,7 @@ async def get_uuid(session, url):
 
 
 async def main():
-
     async with aiohttp.ClientSession() as session:
-
         tasks = []
         for number in range(1, 151):
             url = f'https://rickandmortyapi.com/api/episode/{number}'

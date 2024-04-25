@@ -261,8 +261,7 @@ def tratativa11():
     print(ChangeLog().messages)
 
 
-def translate():
-    ...
+def translate(): ...
 
 
 def run():

@@ -37,7 +37,8 @@ class RegisterCustomer(UserControl):
         self.adress_list = []
 
         self.text_new_customer = Text(
-            'Novo Cliente:', style=TextThemeStyle.TITLE_LARGE,
+            'Novo Cliente:',
+            style=TextThemeStyle.TITLE_LARGE,
         )
         self.tf_id = TextField(
             label='ID (Aut.)',
@@ -64,7 +65,9 @@ class RegisterCustomer(UserControl):
             on_change=self.analyze_register_customer,
         )
         self.tf_email = TextField(
-            label='E-mail', expand=3, on_change=self.analyze_register_customer,
+            label='E-mail',
+            expand=3,
+            on_change=self.analyze_register_customer,
         )
         self.tf_observ = TextField(
             label='Observação',
@@ -479,11 +482,15 @@ class RegisterCustomer(UserControl):
 
         if result == 'success':
             Notification(
-                self.page, 'Cliente registrado com sucesso!', 'green',
+                self.page,
+                'Cliente registrado com sucesso!',
+                'green',
             ).show_message()
         else:
             Notification(
-                self.page, f'Erro ao registrar cliente: {result}', 'red',
+                self.page,
+                f'Erro ao registrar cliente: {result}',
+                'red',
             ).show_message()
 
         self.clear_fields()

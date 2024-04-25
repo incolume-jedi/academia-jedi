@@ -5,6 +5,7 @@ https://docs.python.org/pt-br/dev/whatsnew/3.8.html
 Unificados a partir dos arquivos oriundos de
 incolume/academia_jedi/ajedi20221106_operador_morsa/
 """
+
 import random
 import re
 from pathlib import Path

@@ -81,7 +81,8 @@ class Customers(UserControl):
                         DataCell(
                             Row([
                                 IconButton(
-                                    icon=icons.EDIT_OUTLINED, icon_color='blue',
+                                    icon=icons.EDIT_OUTLINED,
+                                    icon_color='blue',
                                 ),
                                 IconButton(
                                     icon=icons.DELETE_OUTLINED,
@@ -184,7 +185,8 @@ class Customers(UserControl):
                                                 ],
                                             ),
                                             Divider(
-                                                height=3, color='transparent',
+                                                height=3,
+                                                color='transparent',
                                             ),
                                             Column(
                                                 alignment=MainAxisAlignment.START,
@@ -314,11 +316,15 @@ class Customers(UserControl):
 
         if result == 'success':
             Notification(
-                self.page, 'Cliente excluído com sucesso!', 'green',
+                self.page,
+                'Cliente excluído com sucesso!',
+                'green',
             ).show_message()
         else:
             Notification(
-                self.page, f'Erro ao excluir o cliente: {result}', 'red',
+                self.page,
+                f'Erro ao excluir o cliente: {result}',
+                'red',
             ).show_message()
         self.load_customers()
         self.route.page.update()
@@ -415,7 +421,9 @@ class Customers(UserControl):
 
         if result == 'success':
             Notification(
-                self.page, f'Arquivo "{filename}" gerado com sucesso!', 'green',
+                self.page,
+                f'Arquivo "{filename}" gerado com sucesso!',
+                'green',
             ).show_message()
         else:
             Notification(
@@ -427,7 +435,8 @@ class Customers(UserControl):
     def pdf_clicked(self, e):
         self.route.save_file_dialog.on_result = self.create_report_customer
         self.route.save_file_dialog.save_file(
-            dialog_title='Salvar como ...', allowed_extensions=['pdf'],
+            dialog_title='Salvar como ...',
+            allowed_extensions=['pdf'],
         )
         self.update()
 

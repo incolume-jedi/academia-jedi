@@ -90,7 +90,8 @@ class Products(UserControl):
             ],
         )
         self.text_total = Text(
-            value='R$0,00', style=TextThemeStyle.TITLE_MEDIUM,
+            value='R$0,00',
+            style=TextThemeStyle.TITLE_MEDIUM,
         )
 
         self.side_card_column = Column()
@@ -166,7 +167,8 @@ class Products(UserControl):
                                                 ],
                                             ),
                                             Divider(
-                                                height=3, color='transparent',
+                                                height=3,
+                                                color='transparent',
                                             ),
                                             Column(
                                                 alignment=MainAxisAlignment.START,
@@ -313,12 +315,16 @@ class Products(UserControl):
 
         if result == 'success':
             Notification(
-                self.route.page, 'Produto excluído com sucesso!', 'green',
+                self.route.page,
+                'Produto excluído com sucesso!',
+                'green',
             ).show_message()
             self.fill_in_table_products()
         else:
             Notification(
-                self.route.page, f'Erro ao excluir o produto: {result}', 'red',
+                self.route.page,
+                f'Erro ao excluir o produto: {result}',
+                'red',
             ).show_message()
 
     def find_products(self, e):
@@ -397,13 +403,17 @@ class Products(UserControl):
             data.append(text)
 
         printer = ProductsReport(
-            filename, data, 'Lista de Produtos Cadastrados',
+            filename,
+            data,
+            'Lista de Produtos Cadastrados',
         )
         result, error = printer.print_report()
 
         if result == 'success':
             Notification(
-                self.page, f'Arquivo "{filename}" gerado com sucesso!', 'green',
+                self.page,
+                f'Arquivo "{filename}" gerado com sucesso!',
+                'green',
             ).show_message()
         else:
             Notification(
@@ -415,7 +425,8 @@ class Products(UserControl):
     def pdf_clicked(self, e):
         self.route.save_file_dialog.on_result = self.create_report_products
         self.route.save_file_dialog.save_file(
-            dialog_title='Salvar como ...', allowed_extensions=['pdf'],
+            dialog_title='Salvar como ...',
+            allowed_extensions=['pdf'],
         )
         self.update()
 

@@ -1,4 +1,5 @@
 """Solução dos exercícios estrutura de decisão."""
+
 import datetime
 import operator
 from collections import namedtuple
@@ -267,8 +268,10 @@ def exercicio14(*args) -> str:
     def mostrar_resultado(media: float) -> str:
         """Apresentação do resultado."""
         conceito = calc_conceito(media)
-        return (f'Notas: {args}, Média: {media}, '
-                f'Conceito: {conceito} "{mensagens[conceito]}"')
+        return (
+            f'Notas: {args}, Média: {media}, '
+            f'Conceito: {conceito} "{mensagens[conceito]}"'
+        )
 
     return mostrar_resultado(media)
 
@@ -325,7 +328,7 @@ def exercicio16():
 
     def delta(*values):
         a, b, c = values
-        return b ** 2 - 4 * a * c
+        return b**2 - 4 * a * c
 
     def x(*values):
         a, b, c = values
@@ -578,7 +581,8 @@ def exercicio26():
     #
     result = calculo(
         float(input('Quantidade de litros: ')),
-        input('Qual combustível (A/G)? '))
+        input('Qual combustível (A/G)? '),
+    )
     return f'R${result:2.2f}'
     # return list(Fuel)
 
@@ -603,7 +607,7 @@ def exercicio27():
     pago pelo cliente.
     """
     fruteira = {'morango': [2.5, 2.2], 'maçã': [1.8, 1.5]}
-    plus_desconto = 1 - .1
+    plus_desconto = 1 - 0.1
 
     def carrinho(produtos: dict = fruteira):
         """Carrinho da frutaria."""
@@ -611,13 +615,16 @@ def exercicio27():
         comprar = True
         while comprar:
             produto = input(
-                f'Escolha o produto {list(produtos.keys())}: ').casefold()
+                f'Escolha o produto {list(produtos.keys())}: '
+            ).casefold()
             if produto not in produtos:
                 print('Produto inválido, escolha novamente.')
             else:
                 car[produto] = float(input('Informe a quantidade (kg):'))
-            comprar = input('Acrescentar mais itens? ')[0].casefold() in ['s',
-                                                                          'y']
+            comprar = input('Acrescentar mais itens? ')[0].casefold() in [
+                's',
+                'y',
+            ]
         return car
 
     def calculo(car: dict[str, float]) -> float:
@@ -670,7 +677,7 @@ def exercicio28():
         'dinheiro': tipo_pag('dinheiro', 1),
         'credito': tipo_pag('crédito', 1),
         'debito': tipo_pag('débito', 1),
-        'tabajara': tipo_pag('Cartão Tabajara', .95),
+        'tabajara': tipo_pag('Cartão Tabajara', 0.95),
     }
     carnes = {
         'file duplo': [5.8, 4.9],
@@ -694,7 +701,8 @@ def exercicio28():
         continuar = True
         forma_pagamento = ''
         forma_pagamento = checking(
-            'Informe a forma de pagamento', list(pagamentos.keys()))
+            'Informe a forma de pagamento', list(pagamentos.keys())
+        )
         carne_sel = checking('Qual carne selecionada', list(carnes.keys()))
         quantia = float(input('Quantos quilos? '))
         return forma_pagamento, carne_sel, quantia
@@ -707,14 +715,14 @@ def exercicio28():
         if quantia > 5:
             desconto += subtotal - quantia * carnes[carne_sel][1]
         if forma_pagamento == 'tabajara':
-            desconto += subtotal * .1
+            desconto += subtotal * 0.1
         total = subtotal - desconto
         msg = (
             f'{"Hipermercado Tabajara":^40}\n'
-            f'{"--"*20:^40}\n'
+            f'{"--" * 20:^40}\n'
             'Produtos:\n'
             f'{"{:<5}Kg {:<10} ......... {:>10}"}\n'
-            f'{"--"*20:^40}\n'
+            f'{"--" * 20:^40}\n'
             f'{"Tipo de pagamento: {:>20}"}\n'
             f'{"Valor do desconto: {:>20}"}\n'
             f'{"Valor Final: {:>26}"}\n'

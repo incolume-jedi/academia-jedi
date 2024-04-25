@@ -23,7 +23,7 @@ def run():
 
     with subprocess.Popen(
         [
-            f"poetry run python -m zipfile -c {root/'source_dir.zip'} {root/'output_dir/'}",
+            f"poetry run python -m zipfile -c {root / 'source_dir.zip'} {root / 'output_dir/'}",
         ],
         stdout=subprocess.PIPE,
     ) as proc:

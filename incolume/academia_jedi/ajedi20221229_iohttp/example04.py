@@ -38,7 +38,6 @@ async def main(urls, headers):
 
 
 def parse(results: Iterable):
-
     leis = []
     for html in results:
         BeautifulSoup(html, 'html.parser')

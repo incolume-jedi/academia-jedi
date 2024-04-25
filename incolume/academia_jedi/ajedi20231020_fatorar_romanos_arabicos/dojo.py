@@ -1,4 +1,5 @@
 """dojo 20231016."""
+
 # !/usr/bin/env python
 __author__ = '@britodfbr'  # pragma: no cover
 

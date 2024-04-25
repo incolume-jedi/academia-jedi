@@ -34,7 +34,8 @@ class Users(UserControl):
         self.route = route
 
         self.tf_find_user = TextField(
-            label='Buscar...', on_change=self.find_user,
+            label='Buscar...',
+            on_change=self.find_user,
         )
 
         self.dt_users = DataTable(
@@ -57,7 +58,8 @@ class Users(UserControl):
                             Row([
                                 IconButton(icon=icons.EDIT, icon_color='blue'),
                                 IconButton(
-                                    icon=icons.DELETE, icon_color='red',
+                                    icon=icons.DELETE,
+                                    icon_color='red',
                                 ),
                             ]),
                         ),
@@ -67,7 +69,9 @@ class Users(UserControl):
         )
 
         self.new_user_text = Text(
-            'Novo Usuário', size=18, weight=FontWeight.W_500,
+            'Novo Usuário',
+            size=18,
+            weight=FontWeight.W_500,
         )
         self.tf_name = TextField(
             autofocus=True,
@@ -250,7 +254,9 @@ class Users(UserControl):
 
         if result == 'success':
             Notification(
-                self.route.page, 'Usuário cadastrado com sucesso!', 'green',
+                self.route.page,
+                'Usuário cadastrado com sucesso!',
+                'green',
             ).show_message()
             self.fill_in_table_users()
             self.clean_text_fields()
@@ -402,7 +408,9 @@ class Users(UserControl):
         mydb.close()
         if result == 'success':
             Notification(
-                self.page, 'Usuário atualizado com sucesso!', 'green',
+                self.page,
+                'Usuário atualizado com sucesso!',
+                'green',
             ).show_message()
             self.edit_cancelled(e)
             self.fill_in_table_users()
@@ -456,12 +464,16 @@ class Users(UserControl):
 
         if result == 'success':
             Notification(
-                self.page, 'Usuário excluído com sucesso!', 'green',
+                self.page,
+                'Usuário excluído com sucesso!',
+                'green',
             ).show_message()
             self.fill_in_table_users()
         else:
             Notification(
-                self.page, 'Erro ao excluir o usuário!', 'red',
+                self.page,
+                'Erro ao excluir o usuário!',
+                'red',
             ).show_message()
 
     def on_enter_fields(self, e):

@@ -11,6 +11,7 @@ class TestCase:
         pkg.example01()
         stream, err = capsys.readouterr()
         assert re.match(r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}', stream)
+
     def test_example02(self, capsys):
         """Test example02."""
         pkg.example02()

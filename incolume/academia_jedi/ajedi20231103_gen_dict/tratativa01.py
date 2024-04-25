@@ -1,4 +1,4 @@
-d={
+d = {
     'dim18330531-.docx': 'https://www.diariodasleis.com.br/legislacao/federal/exibe_artigo.php?ifl=203328',
     'dim18330531-.docx': 'https://www.diariodasleis.com.br/legislacao/federal/exibe_artigo.php?ifl=203331',
     'dim18330531-.docx': 'https://www.diariodasleis.com.br/legislacao/federal/exibe_artigo.php?ifl=203330',

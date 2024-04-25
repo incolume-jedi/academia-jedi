@@ -28,7 +28,6 @@ class UserModel(BaseModel):
 
 
 if __name__ == '__main__':  # pragma: no cover
-
     user = UserModel(
         name='samuel colvin',
         username='scolvin',

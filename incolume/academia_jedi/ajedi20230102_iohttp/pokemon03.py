@@ -13,9 +13,7 @@ async def get_pokemon(session, url):
 
 
 async def main():
-
     async with aiohttp.ClientSession() as session:
-
         tasks = []
         for number in range(1, 151):
             url = f'https://pokeapi.co/api/v2/pokemon/{number}'

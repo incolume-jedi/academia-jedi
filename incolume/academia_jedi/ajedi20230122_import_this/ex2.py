@@ -4,7 +4,6 @@ import io
 
 def run():
     with contextlib.redirect_stdout(zen := io.StringIO()):
-
         return zen.getvalue()
 
 

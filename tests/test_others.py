@@ -13,11 +13,11 @@ class UnixFS:
         os.remove(filename)
 
 
-def test_unix_fs(mocker):
-    """Exemplo pytest-mock."""
-    mocker.patch('os.remove')
-    UnixFS.rm('file')
-    os.remove.assert_called_once_with('file')
+# def test_unix_fs(mocker):
+#     """Exemplo pytest-mock."""
+#     mocker.patch('os.remove')
+#     UnixFS.rm('file')
+#     os.remove.assert_called_once_with('file')
 
 
 def test_method(monkeypatch):

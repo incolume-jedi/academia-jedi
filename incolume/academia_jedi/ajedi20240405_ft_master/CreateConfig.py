@@ -73,7 +73,9 @@ class CreateConfig(AlertDialog):
                 file.write(b'\n')
                 file.write(encrypted_data)
             Notification(
-                self.route.page, 'Configuração realizada com sucesso!', 'green',
+                self.route.page,
+                'Configuração realizada com sucesso!',
+                'green',
             ).show_message()
         except Exception as e:
             Notification(

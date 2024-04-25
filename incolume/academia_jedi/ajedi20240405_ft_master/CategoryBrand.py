@@ -25,11 +25,14 @@ class Category(AlertDialog):
         self.products = products
         self.modal = True
         self.title = Row(
-            expand=True, controls=[Text('Gerenciar Categorias:', width=400)],
+            expand=True,
+            controls=[Text('Gerenciar Categorias:', width=400)],
         )
 
         self.tf_new_category = TextField(
-            label='Insira a nova categoria', dense=True, expand=True,
+            label='Insira a nova categoria',
+            dense=True,
+            expand=True,
         )
         self.btn_save = IconButton(
             icon=icons.SAVE_OUTLINED,
@@ -121,13 +124,15 @@ class Category(AlertDialog):
         if result == 'success':
             self.page.snack_bar = SnackBar(
                 content=Text(
-                    'Categoria registrada com sucesso!', color='green',
+                    'Categoria registrada com sucesso!',
+                    color='green',
                 ),
             )
         else:
             self.page.snack_bar = SnackBar(
                 content=Text(
-                    f'Erro ao registrar a categoria: {result}', color='red',
+                    f'Erro ao registrar a categoria: {result}',
+                    color='red',
                 ),
             )
         self.page.snack_bar.open = True
@@ -150,7 +155,8 @@ class Category(AlertDialog):
         else:
             self.page.snack_bar = SnackBar(
                 content=Text(
-                    f'Erro ao deletar a categoria: {result}', color='red',
+                    f'Erro ao deletar a categoria: {result}',
+                    color='red',
                 ),
             )
         self.page.snack_bar.open = True
@@ -165,11 +171,14 @@ class Brand(AlertDialog):
         self.products = products
         self.modal = True
         self.title = Row(
-            expand=True, controls=[Text('Gerenciar Marcas:', width=400)],
+            expand=True,
+            controls=[Text('Gerenciar Marcas:', width=400)],
         )
 
         self.tf_new_brand = TextField(
-            label='Insira a nova marca', dense=True, expand=True,
+            label='Insira a nova marca',
+            dense=True,
+            expand=True,
         )
         self.btn_save = IconButton(
             icon=icons.SAVE_OUTLINED,
@@ -265,7 +274,8 @@ class Brand(AlertDialog):
         else:
             self.page.snack_bar = SnackBar(
                 content=Text(
-                    f'Erro ao registrar a marca: {result}', color='red',
+                    f'Erro ao registrar a marca: {result}',
+                    color='red',
                 ),
             )
         self.page.snack_bar.open = True
@@ -287,7 +297,9 @@ class Brand(AlertDialog):
             )
         else:
             self.page.snack_bar = SnackBar(
-                content=Text(f'Erro ao deletar a marca: {result}', color='red'),
+                content=Text(
+                    f'Erro ao deletar a marca: {result}', color='red'
+                ),
             )
         self.page.snack_bar.open = True
 

@@ -1,4 +1,5 @@
 """test_class_parametrization.py."""
+
 import inspect
 
 import pytest

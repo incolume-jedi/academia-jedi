@@ -13,7 +13,6 @@ logging.debug(root)
 
 
 def run():
-
     directory = Path(root / 'output_dir/')
 
     with zipfile.ZipFile(

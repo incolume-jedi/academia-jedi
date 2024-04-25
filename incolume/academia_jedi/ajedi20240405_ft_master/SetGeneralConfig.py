@@ -85,7 +85,8 @@ class SetGeneralConfig(AlertDialog):
                     content=Row(
                         controls=[
                             Icon(
-                                icons.COLOR_LENS_OUTLINED, color=colors.RED_300,
+                                icons.COLOR_LENS_OUTLINED,
+                                color=colors.RED_300,
                             ),
                             Text('Vermelho'),
                         ],
@@ -173,7 +174,9 @@ class SetGeneralConfig(AlertDialog):
         )
 
         self.tf_company_name = TextField(
-            label='Nome da Empresa', dense=True, expand=True,
+            label='Nome da Empresa',
+            dense=True,
+            expand=True,
         )
         self.tf_adress = TextField(label='Endereço', dense=True, expand=4)
         self.tf_tel = TextField(label='Telefone', dense=True, expand=1)
@@ -223,7 +226,8 @@ class SetGeneralConfig(AlertDialog):
                             spacing=0,
                             controls=[
                                 Radio(
-                                    value='today', label='Exibir vendas do dia',
+                                    value='today',
+                                    label='Exibir vendas do dia',
                                 ),
                                 Radio(
                                     value='seven',
@@ -234,7 +238,8 @@ class SetGeneralConfig(AlertDialog):
                                     label='Exibir vendas dos últimos trinta dias',
                                 ),
                                 Radio(
-                                    value='all', label='Exibir todas as vendas',
+                                    value='all',
+                                    label='Exibir todas as vendas',
                                 ),
                             ],
                         ),

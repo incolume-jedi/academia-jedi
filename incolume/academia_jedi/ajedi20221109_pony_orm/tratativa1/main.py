@@ -8,10 +8,15 @@ from pony import orm
 
 db = orm.Database()
 
-with Path(__file__).parents[4].joinpath(
-    'data_files',
-    'municipios_br.json',
-).open() as f:
+with (
+    Path(__file__)
+    .parents[4]
+    .joinpath(
+        'data_files',
+        'municipios_br.json',
+    )
+    .open() as f
+):
     municipios = json.load(f)
 
 

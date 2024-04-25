@@ -6,6 +6,7 @@ Faz-se necessário instalar o binário no OS:
 sudo apt install tesseract-ocr.
 
 """
+
 import logging
 from pathlib import Path
 

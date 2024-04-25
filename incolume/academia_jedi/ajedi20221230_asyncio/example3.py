@@ -1,6 +1,5 @@
 """tarefas comcorrentes."""
 
-
 import asyncio
 import logging
 from inspect import stack

@@ -1,4 +1,5 @@
 """Main Module."""
+
 import logging
 
 from incolume.academia_jedi.ajedi20230222_opencv import tratativa1

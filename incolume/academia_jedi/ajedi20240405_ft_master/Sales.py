@@ -87,7 +87,10 @@ class Sales(UserControl):
             on_click=self.filter_buttons_clicked,
         )
         self.row_sales = Row(
-            wrap=False, scroll='auto', expand=True, spacing=25,
+            wrap=False,
+            scroll='auto',
+            expand=True,
+            spacing=25,
         )
 
         self.tf_id_sale = TextField(
@@ -219,11 +222,13 @@ class Sales(UserControl):
                                     controls=[
                                         Container(
                                             padding=padding.only(
-                                                left=10, right=10,
+                                                left=10,
+                                                right=10,
                                             ),
                                             border=border.only(
                                                 bottom=border.BorderSide(
-                                                    1, colors.OUTLINE_VARIANT,
+                                                    1,
+                                                    colors.OUTLINE_VARIANT,
                                                 ),
                                             ),
                                             content=Row(
@@ -355,7 +360,9 @@ class Sales(UserControl):
                                     ],
                                 ),
                                 Divider(
-                                    height=1, color=colors.PRIMARY, opacity=0.5,
+                                    height=1,
+                                    color=colors.PRIMARY,
+                                    opacity=0.5,
                                 ),
                                 Row(
                                     spacing=15,
@@ -507,12 +514,16 @@ class Sales(UserControl):
 
         if final_result == 'success':
             Notification(
-                self.page, 'Venda excluída com sucesso!', 'green',
+                self.page,
+                'Venda excluída com sucesso!',
+                'green',
             ).show_message()
             self.initialize()
         else:
             Notification(
-                self.page, f'Erro ao ecluir a venda: {result}', 'red',
+                self.page,
+                f'Erro ao ecluir a venda: {result}',
+                'red',
             ).show_message()
             return
 
@@ -617,7 +628,11 @@ class Sales(UserControl):
         ])
 
         report = SaleReport(
-            filename, header_data, sale_data, customer_data, products_data,
+            filename,
+            header_data,
+            sale_data,
+            customer_data,
+            products_data,
         )
         result, error = report.create_pdf()
         if result == 'success':
@@ -636,7 +651,8 @@ class Sales(UserControl):
     def pdf_clicked(self, e):
         self.route.save_file_dialog.on_result = self.create_report_sales
         self.route.save_file_dialog.save_file(
-            dialog_title='Salvar como ...', allowed_extensions=['pdf'],
+            dialog_title='Salvar como ...',
+            allowed_extensions=['pdf'],
         )
         self.update()
 

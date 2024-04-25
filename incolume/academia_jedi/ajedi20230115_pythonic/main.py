@@ -25,7 +25,6 @@ def tratativa2(list_names: Optional[list] = None) -> list:
 
 
 def get_timeit(func: Callable, listnames: list, name: str) -> float:
-
     speed = min(
         timeit.repeat(lambda: func(listnames), repeat=10, number=500_000),
     )

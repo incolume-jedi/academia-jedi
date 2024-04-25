@@ -1,4 +1,5 @@
 """Exhaustiveness."""
+
 import logging
 from enum import Enum
 from typing import NoReturn

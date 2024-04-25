@@ -69,7 +69,8 @@ class SideMenu(UserControl):
                 # ),
             ],
             trailing=IconButton(
-                icon=icons.SETTINGS, on_click=self.show_config_page,
+                icon=icons.SETTINGS,
+                on_click=self.show_config_page,
             ),
             on_change=self.nav_clicked,
         )

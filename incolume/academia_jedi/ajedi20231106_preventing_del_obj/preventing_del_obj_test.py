@@ -1,4 +1,5 @@
 """Test preventing del obj."""
+
 import pytest
 from incolume.academia_jedi.ajedi20231106_preventing_del_obj.main import (
     Foo,

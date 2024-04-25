@@ -1,6 +1,5 @@
 """tarefas sequenciais."""
 
-
 import asyncio
 import logging
 from inspect import stack

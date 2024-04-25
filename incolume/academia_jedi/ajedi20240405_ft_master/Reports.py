@@ -58,7 +58,10 @@ class ProductsReport:
         self.table = Table(data)
         self.title = title
         self.paragraph_style = ParagraphStyle(
-            name='Centered', alignment=TA_CENTER, fontSize=14, leading=16,
+            name='Centered',
+            alignment=TA_CENTER,
+            fontSize=14,
+            leading=16,
         )
         self.table_style = TableStyle([
             ('BACKGROUND', (0, 0), (4, 0), colors.lightgrey),
@@ -117,7 +120,12 @@ class SaleReport:
     # products_data = [[], [], [], ...] list of lists
 
     def __init__(
-        self, filename, header_data, sale_data, customer_data, products_data,
+        self,
+        filename,
+        header_data,
+        sale_data,
+        customer_data,
+        products_data,
     ) -> None:
         self.filename = filename
         self.header_data = header_data
@@ -157,7 +165,9 @@ class SaleReport:
     def get_sale_data(self):
         # Número do pedido e data
         sale_table = Table([
-            [f'Pedido número: {self.sale_data[0]} - Data: {self.sale_data[1]}'],
+            [
+                f'Pedido número: {self.sale_data[0]} - Data: {self.sale_data[1]}'
+            ],
         ])
         sale_table.setStyle(
             TableStyle([
@@ -228,7 +238,9 @@ class SaleReport:
         canvas.saveState()
         canvas.setFont('Helvetica', 8)
         canvas.drawRightString(
-            A4[0] - cm, cm, 'Página %d de %d' % (doc.page, self.numb_pages),
+            A4[0] - cm,
+            cm,
+            'Página %d de %d' % (doc.page, self.numb_pages),
         )
         canvas.restoreState()
 
@@ -251,7 +263,10 @@ class SaleReport:
             )
 
             line = HRFlowable(
-                width='100%', thickness=1, lineCap='round', color=colors.black,
+                width='100%',
+                thickness=1,
+                lineCap='round',
+                color=colors.black,
             )
             dotted_line = HRFlowable(
                 width='100%',

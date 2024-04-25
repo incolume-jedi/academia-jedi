@@ -1,12 +1,12 @@
 """Testes unitários para estrutura de decisão."""
+
 from re import escape
 
 from math import isclose
 from unittest import mock
 import pytest
 
-import \
-    incolume.academia_jedi.ajedi20231023_estrutura_decisao.estrutura_decisao as pkg
+import incolume.academia_jedi.ajedi20231023_estrutura_decisao.estrutura_decisao as pkg
 
 
 @pytest.mark.parametrize(
@@ -609,6 +609,7 @@ def test_exercicio27(entrance, expected) -> None:
     """Testar exercicio27."""
     with mock.patch('builtins.input', side_effect=entrance):
         assert isclose(pkg.exercicio27(), expected)
+
 
 @pytest.mark.parametrize(
     'entrance expected'.split(),

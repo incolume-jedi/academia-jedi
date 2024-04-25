@@ -28,8 +28,7 @@ class Event:
             **self.__dict__,
         )
 
-    def jsonify(self):
-        ...
+    def jsonify(self): ...
 
     def to_json(self):
         o = copy(self.__dict__)

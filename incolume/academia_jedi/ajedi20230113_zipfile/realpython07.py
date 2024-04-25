@@ -9,7 +9,6 @@ hello.with_stem('new_hello').write_text('hello again.')
 
 
 def run():
-
     with zipfile.ZipFile(directory / 'hello.zip', mode='r') as archive:
         print(archive.infolist())
         print(archive.namelist())

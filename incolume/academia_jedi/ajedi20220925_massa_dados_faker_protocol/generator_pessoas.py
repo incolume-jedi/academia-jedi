@@ -26,8 +26,7 @@ class IPessoa(Protocol):
     data_de_nascimento: dt.datetime
     cpf: str
 
-    def jsonify(self):
-        ...
+    def jsonify(self): ...
 
 
 @deprecated(
@@ -40,7 +39,6 @@ def massa_pessoas(
     quantidade: int = 0,
     is_json: bool = False,
 ) -> list[IPessoa]:
-
     logging.debug(f'params: {objeto=}, {quantidade=}, {is_json=}')
     objeto = objeto or Pessoa
     quantidade = quantidade or 100

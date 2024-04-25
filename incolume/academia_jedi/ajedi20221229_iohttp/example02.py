@@ -1,6 +1,5 @@
 """https://youtu.be/lUwZ9rS0SeM."""
 
-
 import asyncio
 
 import aiohttp

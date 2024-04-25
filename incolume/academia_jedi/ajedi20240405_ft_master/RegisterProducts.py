@@ -35,7 +35,8 @@ class RegisterProducts(UserControl):
         self.route = route
 
         self.text_label = Text(
-            value='Novo Produto:', style=TextThemeStyle.TITLE_LARGE,
+            value='Novo Produto:',
+            style=TextThemeStyle.TITLE_LARGE,
         )
         self.tf_id = TextField(
             label='ID (Aut)',
@@ -52,7 +53,9 @@ class RegisterProducts(UserControl):
             on_change=self.analyze_fields,
         )
         self.dp_category = Dropdown(
-            label='Categoria', expand=2, on_change=self.analyze_fields,
+            label='Categoria',
+            expand=2,
+            on_change=self.analyze_fields,
         )
         self.btn_manage_categories = IconButton(
             icon=icons.ADD_CIRCLE_OUTLINE,
@@ -61,7 +64,9 @@ class RegisterProducts(UserControl):
             on_click=self.manage_categories_clicked,
         )
         self.dp_brand = Dropdown(
-            label='Marca', expand=2, on_change=self.analyze_fields,
+            label='Marca',
+            expand=2,
+            on_change=self.analyze_fields,
         )
         self.btn_manage_brands = IconButton(
             icon=icons.ADD_CIRCLE_OUTLINE,
@@ -88,7 +93,9 @@ class RegisterProducts(UserControl):
             on_change=self.analyze_fields,
         )
         self.tf_observ = TextField(
-            label='Observação', expand=3, on_change=self.analyze_fields,
+            label='Observação',
+            expand=3,
+            on_change=self.analyze_fields,
         )
         self.tf_costs = TextField(
             label='Custo',
@@ -144,7 +151,8 @@ class RegisterProducts(UserControl):
         )
 
         self.text_total = Text(
-            value='R$ 350,00', style=TextThemeStyle.TITLE_MEDIUM,
+            value='R$ 350,00',
+            style=TextThemeStyle.TITLE_MEDIUM,
         )
 
     def build(self):
@@ -513,11 +521,15 @@ class RegisterProducts(UserControl):
 
         if result == 'success':
             Notification(
-                self.page, 'Produto registrado com sucesso', 'green',
+                self.page,
+                'Produto registrado com sucesso',
+                'green',
             ).show_message()
         else:
             Notification(
-                self.page, f'Erro ao atualizar o produto: {result}', 'red',
+                self.page,
+                f'Erro ao atualizar o produto: {result}',
+                'red',
             ).show_message()
 
         self.clear_fields()
@@ -544,11 +556,15 @@ class RegisterProducts(UserControl):
 
         if result == 'success':
             Notification(
-                self.page, 'Produto atualizado com sucesso', 'green',
+                self.page,
+                'Produto atualizado com sucesso',
+                'green',
             ).show_message()
         else:
             Notification(
-                self.page, f'Erro ao atualizar o produto: {result}', 'red',
+                self.page,
+                f'Erro ao atualizar o produto: {result}',
+                'red',
             ).show_message()
 
         self.back_clicked(e)

@@ -49,13 +49,13 @@ def example3() -> Generator:
 
 
 @description
-def example4() -> (Container | Generator):
+def example4() -> Container | Generator:
     """Uso de valores sem formatação no alinhamento para strings."""
     return (f'{title}',)
 
 
 @description
-def example5() -> (Container | Generator):
+def example5() -> Container | Generator:
     """Uso de valores com formatação no alinhamento para strings.
 
     f'{title:<90}' alinhamento a esquerda com 90 colunas
@@ -64,7 +64,7 @@ def example5() -> (Container | Generator):
 
 
 @description
-def example6() -> (Container | Generator):
+def example6() -> Container | Generator:
     """Uso de valores com formatação no alinhamento para strings.
 
     f'{title:^90}' alinhamento ao centro com 90 colunas
@@ -73,7 +73,7 @@ def example6() -> (Container | Generator):
 
 
 @description
-def example7() -> (Container | Generator):
+def example7() -> Container | Generator:
     """Uso de valores com formatação no alinhamento para strings.
 
     f'{title:>90}' alinhamento a esquerda com 90 colunas
@@ -82,7 +82,7 @@ def example7() -> (Container | Generator):
 
 
 @description
-def example8() -> (Container | Generator):
+def example8() -> Container | Generator:
     """Uso de valores com formatação numérica.
     f'{n:,}' milhar.
     """
@@ -90,7 +90,7 @@ def example8() -> (Container | Generator):
 
 
 @description
-def example9() -> (Container | Generator):
+def example9() -> Container | Generator:
     """Uso de valores com formatação numérica.
     f'{n:.0f}' decimal, onde 0 é o numero de casas.
     """
@@ -98,7 +98,7 @@ def example9() -> (Container | Generator):
 
 
 @description
-def example10() -> (Container | Generator):
+def example10() -> Container | Generator:
     """Uso de valores com formatação numérica com decimal e milhar.
     f'{n:,.0f}' decimal, onde 0 é o numero de casas.
     """
@@ -106,7 +106,7 @@ def example10() -> (Container | Generator):
 
 
 @description
-def example11() -> (Container | Generator):
+def example11() -> Container | Generator:
     """Uso de valores com formatação percentual.
     f'{n:.0%}' decimal, onde 0 é o numero de casas.
     """
@@ -114,7 +114,7 @@ def example11() -> (Container | Generator):
 
 
 @description
-def example12() -> (Container | Generator):
+def example12() -> Container | Generator:
     """Uso de valores com formatação percentual e milhar.
     f'{n:.0%}' decimal, onde 0 é o numero de casas.
     """
@@ -122,7 +122,7 @@ def example12() -> (Container | Generator):
 
 
 @description
-def example13() -> (Container | Generator):
+def example13() -> Container | Generator:
     """Formatar base para Octal.
     f'{100:0o}'.
     """
@@ -130,7 +130,7 @@ def example13() -> (Container | Generator):
 
 
 @description
-def example14() -> (Container | Generator):
+def example14() -> Container | Generator:
     """Formatar base para binario.
     f'{100:0b}'.
     """
@@ -138,7 +138,7 @@ def example14() -> (Container | Generator):
 
 
 @description
-def example15() -> (Container | Generator):
+def example15() -> Container | Generator:
     """Formatar base para binario.
     f'{100:0x}'.
     """
@@ -150,7 +150,7 @@ def example15() -> (Container | Generator):
 
 
 @description
-def example16() -> (Container | Generator):
+def example16() -> Container | Generator:
     """Formatar datas."""
     hoje = datetime.now()
     return (
@@ -161,7 +161,7 @@ def example16() -> (Container | Generator):
 
 
 @description
-def example17() -> (Container | Generator):
+def example17() -> Container | Generator:
     """Formatar com notação cientifica.
     f'{100:.3e}' == 1.000e+02.
     """
@@ -170,7 +170,7 @@ def example17() -> (Container | Generator):
 
 
 @description
-def example18() -> (Container | Generator):
+def example18() -> Container | Generator:
     """Exibir __repr__ ou __str__."""
     u = User('Ana Brito', datetime.now())
     return (
@@ -180,14 +180,14 @@ def example18() -> (Container | Generator):
 
 
 @description
-def example19() -> (Container | Generator):
+def example19() -> Container | Generator:
     """Exibir __repr__ ou __str__."""
     u = User('Ada Brito', datetime.now())
     return f'{u}', f'{type(u.born)}', f'{u.born!s}', f'{u.born!r}'
 
 
 @description
-def example20() -> (Container | Generator):
+def example20() -> Container | Generator:
     """Exibir __repr__ ou __str__."""
     u = User('Ada Brito', datetime.now())
     return f'{u!s}', f'{u!r}', f'{u!a}'

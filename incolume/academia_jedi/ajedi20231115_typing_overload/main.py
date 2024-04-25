@@ -5,23 +5,19 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 
 @overload
-def process(response: None) -> None:
-    ...
+def process(response: None) -> None: ...
 
 
 @overload
-def process(response: int) -> tuple[int, str]:
-    ...
+def process(response: int) -> tuple[int, str]: ...
 
 
 @overload
-def process(response: bytes) -> str:
-    ...
+def process(response: bytes) -> str: ...
 
 
 @overload
-def process(response: float) -> float:
-    ...
+def process(response: float) -> float: ...
 
 
 def process(response):
@@ -30,13 +26,11 @@ def process(response):
 
 
 @overload
-def double(input_: int) -> int:
-    ...
+def double(input_: int) -> int: ...
 
 
 @overload
-def double(input_: Sequence[int]) -> list[int]:
-    ...
+def double(input_: Sequence[int]) -> list[int]: ...
 
 
 def double(input_: int | Sequence[int]) -> int | list[int]:

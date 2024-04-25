@@ -263,9 +263,9 @@ def run():
     print('---')
     loop1()
     print('---')
-    handle_semaphore(Semaphore.GREEN),
-    handle_semaphore(Semaphore.YELLOW),
-    handle_semaphore(Semaphore.RED),
+    (handle_semaphore(Semaphore.GREEN),)
+    (handle_semaphore(Semaphore.YELLOW),)
+    (handle_semaphore(Semaphore.RED),)
     print('---')
     print(
         Mood.HAPPY.describe_mood(),
@@ -277,7 +277,6 @@ def run():
     numbers = [5, 2, 7, 6, 3, 9, 8, 4]
     print(Sort.ASCENDING(numbers), Sort.DESCENDING(numbers), sep='\n')
     print('---')
-
 
 
 if __name__ == '__main__':

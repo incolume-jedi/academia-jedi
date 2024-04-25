@@ -3,15 +3,18 @@ from dataclasses import dataclass
 
 class Veiculo:
     """Class Veiculo."""
+
     def __init__(self, tipo: str = '') -> None:
         self.tipo = tipo
 
     def __repr__(self) -> str:
         return f'{self.__class__.__name__}({self.__dict__})'
 
+
 @dataclass
 class Vehicle:
     """Class Vehicle."""
+
     tipo: str = ''
     _chassi: str = ''
     __velocidade: float = 0.0
@@ -50,5 +53,3 @@ if __name__ == '__main__':
 
     a.acelerar = 100
     print(a.velocidade, a.acelerar)
-
-

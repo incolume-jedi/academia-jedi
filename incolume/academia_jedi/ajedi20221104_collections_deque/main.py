@@ -2,6 +2,7 @@
 
 https://docs.python.org/3/library/collections.html#collections.deque
 """
+
 import itertools
 
 # !/usr/bin/env python

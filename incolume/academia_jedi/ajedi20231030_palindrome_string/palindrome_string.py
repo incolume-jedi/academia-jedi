@@ -1,4 +1,5 @@
 """Acaedmia 20231030."""
+
 from unidecode import unidecode
 
 

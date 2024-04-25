@@ -7,6 +7,7 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 class TestCaseDoble:
     """Test doble."""
+
     def test_doble_int(self) -> None:
         """Test it."""
         assert double(1) == 2
@@ -18,11 +19,12 @@ class TestCaseDoble:
 
 class TestCaseProcess:
     """Test Process."""
+
     @pytest.mark.parametrize(
         'entrance expected'.split(),
         [
             (1, "<class 'int'>"),
-            (1., "<class 'float'>"),
+            (1.0, "<class 'float'>"),
             ('1', "<class 'str'>"),
             (None, "<class 'NoneType'>"),
             (False, "<class 'bool'>"),
