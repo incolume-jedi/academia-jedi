@@ -116,11 +116,16 @@ python_files = [
 ]
 python_classes = ["Test", "Check"]
 python_functions = ["test_*"]
+env = [
+    "INCOLUME_MODE=testing",
+]
+
 markers = [
   "slow: marks tests as slow (deselect with '-m \"not slow\"')",
   "webtest: marks tests as webtest (deselect with '-m \"not webtest\"')",
   "fast: marks tests as fast (deselect with '-m \"not fast\"')",
 ]
+
 
 [tool.coverage.html]
 directory = "coverage_report/html"
