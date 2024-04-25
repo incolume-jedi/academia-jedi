@@ -55,7 +55,7 @@ def run():
     logging.debug(f'{stack()[0][3]}')
     logging.debug(
         'logging date: '
-        f"{datetime.fromisoformat('1978-06-20T05:31:23.123456-03:00')}",
+        f"{datetime.fromisoformat('1978-06-20T01:23:45.6789-03:00')}",
     )
     e = Event('')
     print(e, write_json(get_events(), 'events.json'), get_events(), sep='\n')

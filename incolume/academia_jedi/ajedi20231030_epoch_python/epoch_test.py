@@ -24,12 +24,12 @@ def test_gerador_epoch(entrance, expected) -> None:
 @pytest.mark.parametrize(
     'entrance', 'expected',
     [
-        (1698703447, datetime(2023, 10, 30, 19, 4, 7)),
-        (1696111447, datetime(2023, 9, 30, 19, 4, 7)),
-        (1685315047, datetime(2023, 5, 28, 20, 4, 7)),
-        (1095908701, datetime(2004, 9, 23, 0, 5, 1)),
+        (1698703447, (2023, 10, 30, 19, 4, 7)),
+        (1696111447, (2023, 9, 30, 19, 4, 7)),
+        (1685315047, (2023, 5, 28, 20, 4, 7)),
+        (1095908701, (2004, 9, 23, 0, 5, 1)),
     ],
 )
 def test_reverter_epoch(entrance, expected) -> None:
     """Testa a função reverter epoch."""
-    assert pkg.reverter_epoch(entrance) == expected
+    assert pkg.reverter_epoch(entrance) == datetime(*expected)
