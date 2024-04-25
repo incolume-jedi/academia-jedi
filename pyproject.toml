@@ -274,7 +274,13 @@ max_line_length = 79
 ignore = ['E203']
 
 [tool.ruff]
-# required-version = "0.1.6"
+required-version = ">=0.3.0"
+
+respect-gitignore = true
+
+# indent
+#indent-style = "space"
+indent-width = 4
 
 # Assume Python Version
 target-version = "py310"
@@ -305,9 +311,9 @@ show-fixes = true
 # can be: "text" | "json" | "junit" | "github" | "gitlab" | "pylint" | "azure" "grouped"|full|concise
 output-format = "full"
 
-
 # Enable preview features.
 preview = true
+#docstring-code-format = true
 
 [tool.ruff.format]
 indent-style = "space"
@@ -395,7 +401,7 @@ ignore = [
   "FA100",  # Conflit with mypy
   "UP006",  # Conflit with mypy
   "UP007",  # Conflit with mypy
-  "I001",   # conflit with isort
+#  "I001",   # conflit with isort
   "ISC001",  # single-line-implicit-string-concatenation
   #  "COM812",  # missing-trailing-comma
 ]
@@ -449,8 +455,7 @@ parametrize-names-type = "list"
 parametrize-values-row-type = "tuple"
 
 [tool.ruff.lint.pylint]
-max-args = 5
-
+max-args = 4
 
 [tool.taskipy.variables]
 path = "incolume/ tests/"
