@@ -26,7 +26,7 @@ def activate_envvar(activate: bool = False) -> bool:
 if __name__ == '__main__':
     activate_envvar(True)
     run()
-    
+
     #  export INCOLUME_APPLICATION=MyApp; python main.py; unset INCOLUME_APPLICATION
     """
     $ export INCOLUME_NUM=42

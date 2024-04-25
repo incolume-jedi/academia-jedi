@@ -1,4 +1,5 @@
 """Exemplo sincrono."""
+
 from itertools import starmap
 from time import perf_counter, sleep
 

@@ -156,7 +156,11 @@ class RegisterSales(UserControl):
             read_only=True,
         )
         self.tf_CPF = TextField(
-            border='none', expand=4, label='CPF:', text_size=16, read_only=True,
+            border='none',
+            expand=4,
+            label='CPF:',
+            text_size=16,
+            read_only=True,
         )
         self.tf_date = TextField(
             border='none',
@@ -504,7 +508,8 @@ class RegisterSales(UserControl):
                 self.tf_find_product.value,
             )
         elif isinstance(
-            Validator.format_to_int(self.tf_find_product.value), int,
+            Validator.format_to_int(self.tf_find_product.value),
+            int,
         ):
             result = mydb.find_product_by_code(
                 Validator.format_to_int(self.tf_find_product.value),
@@ -524,7 +529,9 @@ class RegisterSales(UserControl):
             self.btn_include.disabled = True
             self.tf_customer.value = 'Selecione um Cliente!'
             Notification(
-                self.page, 'Selecione um Cliente!', 'blue',
+                self.page,
+                'Selecione um Cliente!',
+                'blue',
             ).show_message()
             self.update()
             return False
@@ -534,7 +541,9 @@ class RegisterSales(UserControl):
         if not isinstance(unit_price, float):
             if self.tf_find_product.value == '':
                 Notification(
-                    self.page, 'Busque por um produto!', 'blue',
+                    self.page,
+                    'Busque por um produto!',
+                    'blue',
                 ).show_message()
                 self.text_description.value = 'Busque um Produto...'
             self.btn_include.disabled = True
@@ -761,7 +770,8 @@ class RegisterSales(UserControl):
 
         if self.tf_id_sale.value == 'Automático':
             self.register_sale(
-                self.sale_list_to_register, self.products_list_to_register,
+                self.sale_list_to_register,
+                self.products_list_to_register,
             )
             self.update_stock(self.list_to_update_stock)
         else:
@@ -781,7 +791,9 @@ class RegisterSales(UserControl):
         mydb.close()
         if result is None:
             Notification(
-                self.page, f'Erro: {id_or_error}', 'red',
+                self.page,
+                f'Erro: {id_or_error}',
+                'red',
             ).show_message()
             return
 
@@ -798,7 +810,9 @@ class RegisterSales(UserControl):
 
         if len(products_data) == len(result):
             Notification(
-                self.page, 'Pedido cadastrado/atualizado com sucesso', 'green',
+                self.page,
+                'Pedido cadastrado/atualizado com sucesso',
+                'green',
             ).show_message()
             return
         Notification(
@@ -817,7 +831,9 @@ class RegisterSales(UserControl):
             mydb.close()
         else:
             Notification(
-                self.page, f'Erro ao atualizar a venda: {result}', 'red',
+                self.page,
+                f'Erro ao atualizar a venda: {result}',
+                'red',
             ).show_message()
             mydb.close()
             return
@@ -855,7 +871,9 @@ class RegisterSales(UserControl):
             ).show_message()
         else:
             Notification(
-                self.page, f'Erro ao atualizar o estoque : {result[-1]}', 'red',
+                self.page,
+                f'Erro ao atualizar o estoque : {result[-1]}',
+                'red',
             ).show_message()
 
         self.list_to_update_stock = []

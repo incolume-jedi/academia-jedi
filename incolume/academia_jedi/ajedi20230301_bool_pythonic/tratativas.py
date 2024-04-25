@@ -1,4 +1,5 @@
 """Should you use "not not x" instead of "bool(x)" in Python? (NO!)."""
+
 import logging
 import timeit
 import typing

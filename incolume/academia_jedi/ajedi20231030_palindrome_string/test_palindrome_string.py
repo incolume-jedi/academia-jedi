@@ -1,10 +1,8 @@
 """Teste academia 20231030."""
 
-
 import pytest
 
-from incolume.academia_jedi.ajedi20231030_palindrome_string.\
-palindrome_string import (
+from incolume.academia_jedi.ajedi20231030_palindrome_string.palindrome_string import (
     is_palindrome,
 )
 

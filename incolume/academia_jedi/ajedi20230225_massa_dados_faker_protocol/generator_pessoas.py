@@ -23,8 +23,7 @@ class IPessoa(Protocol):
     data_de_nascimento: dt.datetime
     cpf: str
 
-    def jsonify(self):
-        ...
+    def jsonify(self): ...
 
 
 def get_password(num: int):

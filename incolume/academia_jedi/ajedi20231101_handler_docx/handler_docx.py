@@ -10,7 +10,7 @@ load_dotenv()
 def example_default(fout: Path = None, fimg: Path = None):
     """Exemplo oficial da documentação python-docx."""
     fout = Path(getenv('HANDLER_DOCX_FILENAME'))
-    fimg = fimg or Path(__file__).parent /'img' / 'image001.png'
+    fimg = fimg or Path(__file__).parent / 'img' / 'image001.png'
 
     document = Document()
 
@@ -25,10 +25,12 @@ def example_default(fout: Path = None, fimg: Path = None):
     document.add_paragraph('Intense quote', style='Intense Quote')
 
     document.add_paragraph(
-        'first item in unordered list', style='List Bullet',
+        'first item in unordered list',
+        style='List Bullet',
     )
     document.add_paragraph(
-        'first item in ordered list', style='List Number',
+        'first item in ordered list',
+        style='List Number',
     )
 
     document.add_picture(fimg.as_posix(), width=Inches(1.25))
@@ -70,7 +72,6 @@ def docx_basic(fout: Path = None, content: list = None) -> bool:
         document.add_paragraph(conteudo)
 
     document.save(fout.as_posix())
-
 
     return fout.is_file()
 

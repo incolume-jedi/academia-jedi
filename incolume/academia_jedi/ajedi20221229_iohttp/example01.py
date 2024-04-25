@@ -1,16 +1,13 @@
 """https://docs.aiohttp.org/en/stable/."""
 
-
 import asyncio
 
 import aiohttp
 
 
 async def main():
-
     async with aiohttp.ClientSession() as session:
         async with session.get('http://python.org') as response:
-
             print('Status:', response.status)
             print('Content-type:', response.headers['content-type'])
 

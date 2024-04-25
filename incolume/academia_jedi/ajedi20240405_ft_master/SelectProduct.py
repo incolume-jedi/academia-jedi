@@ -29,7 +29,9 @@ class SelectProduct(AlertDialog):
         )
 
         self.tf_find_product = TextField(
-            label='Buscar', width=840, on_change=self.find_product,
+            label='Buscar',
+            width=840,
+            on_change=self.find_product,
         )
         self.dt_products = DataTable(
             expand=True,

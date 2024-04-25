@@ -32,5 +32,4 @@ def example1():
     )
 
 
-def translate(tags: str):
-    ...
+def translate(tags: str): ...

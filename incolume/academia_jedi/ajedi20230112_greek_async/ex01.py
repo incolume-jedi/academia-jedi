@@ -24,7 +24,6 @@ async def main():
 
 
 if __name__ == '__main__':  # pragma: no cover
-
     # to run the above function we'll
     # use Event Loops these are low level
     # functions to run async functions

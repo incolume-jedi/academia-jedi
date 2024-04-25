@@ -1,4 +1,5 @@
 """Main Module."""
+
 import logging
 
 import ex1

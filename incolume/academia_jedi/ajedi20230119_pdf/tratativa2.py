@@ -44,7 +44,6 @@ def ex03():
     page_interpreter = PDFPageInterpreter(resource_manager, converter)
 
     with open(file, 'rb') as fh:
-
         for page in PDFPage.get_pages(
             fh,
             caching=True,

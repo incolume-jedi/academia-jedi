@@ -52,15 +52,15 @@ def example4():
         myfunc2(1, 2),
     )
     try:
-        myfunc2(1, b=2),
+        (myfunc2(1, b=2),)
     except TypeError as e:
         print(e)
     try:
-        myfunc2(a=1, b=2),
+        (myfunc2(a=1, b=2),)
     except TypeError as e:
         print(e)
     try:
-        myfunc2(b=2, a=1),
+        (myfunc2(b=2, a=1),)
     except TypeError as e:
         print(e)
 
@@ -107,7 +107,7 @@ def example7():
     )
     try:
         myfunc1(None, a=1)
-        myfunc1(1, 2, a=1, b=2),
+        (myfunc1(1, 2, a=1, b=2),)
     except TypeError as e:
         print(e)
 

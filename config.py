@@ -1,9 +1,29 @@
-
 from dynaconf import Dynaconf
+from pathlib import Path
+
+from dynaconf import Validator
 
 settings = Dynaconf(
     envvar_prefix='ACADEMIA_JEDI',
-    settings_files=['settings.toml', '.secrets.toml'],
+    load_dotenv=True,
+    settings_files=[
+        Path(__file__).parent.joinpath('settings.toml'),
+        Path(__file__).parent.joinpath('.secrets.toml'),
+    ],
+    environments=[
+        'default',
+        'development',
+        'production',
+        'testing',
+    ],
+    env_switcher='INCOLUME_MODE',
+    validators=[
+        Validator(
+            'NAME',
+            must_exist=True,
+            ne='App',
+        ),  # NAME deve existir != App
+    ],
 )
 
 # `envvar_prefix` = export envvars with `export DYNACONF_FOO=bar`.

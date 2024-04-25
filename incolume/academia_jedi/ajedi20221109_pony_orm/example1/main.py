@@ -65,7 +65,6 @@ db.generate_mapping(create_tables=True)
 
 
 if __name__ == '__main__':  # pragma: no cover
-
     with orm.db_session:
         try:
             populate_database()

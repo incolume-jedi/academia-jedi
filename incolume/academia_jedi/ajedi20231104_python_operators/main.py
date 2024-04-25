@@ -1,4 +1,5 @@
 """Operador examples."""
+
 from functools import reduce
 from operator import add, floordiv, itemgetter, mod, mul, sub
 from pprint import pprint

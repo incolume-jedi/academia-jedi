@@ -9,8 +9,11 @@ logging.basicConfig(format=logFormat, level=logging.DEBUG)
 
 
 def auth0():
-    user, pwd = input('Enter with your Username: '), input(
-        'Enter with your Password: ',
+    user, pwd = (
+        input('Enter with your Username: '),
+        input(
+            'Enter with your Password: ',
+        ),
     )
     logging.debug(f'{user=}, {pwd=}')
     return (
@@ -20,8 +23,11 @@ def auth0():
 
 
 def auth1():
-    user, pwd = input('Enter with your Username: '), getpass(
-        'Enter with your Password: ',
+    user, pwd = (
+        input('Enter with your Username: '),
+        getpass(
+            'Enter with your Password: ',
+        ),
     )
     logging.debug(f'{user=}, {pwd=}')
     return (
@@ -44,8 +50,11 @@ def encoded_input(message: str) -> str:
 
 
 def auth2():
-    user, pwd = input('Enter with your Username: '), encoded_input(
-        'Enter with your Password: ',
+    user, pwd = (
+        input('Enter with your Username: '),
+        encoded_input(
+            'Enter with your Password: ',
+        ),
     )
     logging.debug(f'{user=}, {pwd=}')
     return (

@@ -17,7 +17,10 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 class GSheet:
     """GSheet access."""
-    def __init__(self, credentials: Path | None = None, escopo: Iterator | None = None):
+
+    def __init__(
+        self, credentials: Path | None = None, escopo: Iterator | None = None
+    ):
         """"""
         self.credentials: Path = credentials
         self.escopo: Iterator = escopo
@@ -33,16 +36,26 @@ class GSheet:
         logging.info('setting: %s', file_credential)
         if not file_credential:
             logging.debug('not file: %s', file_credential)
-            file_credential = Path('~').expanduser().joinpath(
-                'projetos',
-                'private',
-                'authkeys',
-                'incolumepy-dev-6ae65605985c.json')
+            file_credential = (
+                Path('~')
+                .expanduser()
+                .joinpath(
+                    'projetos',
+                    'private',
+                    'authkeys',
+                    'incolumepy-dev-6ae65605985c.json',
+                )
+            )
             logging.info('setting: %s', file_credential)
         if not file_credential.is_file():
             logging.debug('not file: %s', file_credential)
-            file_credential = Path(__file__).parents[0].joinpath(
-                'credentials', 'incolumepy-dev-6ae65605985c.json',
+            file_credential = (
+                Path(__file__)
+                .parents[0]
+                .joinpath(
+                    'credentials',
+                    'incolumepy-dev-6ae65605985c.json',
+                )
             )
             logging.info('setting: %s', file_credential)
         logging.debug('return: %s', file_credential)
@@ -69,7 +82,8 @@ class GSheet:
     @property
     def client_google(self):
         credenciais = ServiceAccountCredentials.from_json_keyfile_name(
-            self.credentials, self.escopo)
+            self.credentials, self.escopo
+        )
 
         # client_google
         gc = gspread.authorize(credenciais)
@@ -94,8 +108,10 @@ class GSheet:
         """
         try:
             spreadsheet = self.client_google.open(spreadsheetname)
-        except (gspread.exceptions.SpreadsheetNotFound,
-                gspread.exceptions.APIError):
+        except (
+            gspread.exceptions.SpreadsheetNotFound,
+            gspread.exceptions.APIError,
+        ):
             spreadsheet = self.client_google.create(spreadsheetname)
 
         return spreadsheet
@@ -107,12 +123,15 @@ class GSheet:
         :param users: list[str] lista com email de usuários
         :return:
         """
-        list_users = chain([
-            'brito@incolume.com.br',
-            'britodfbr@gmail.com',
-            'dev@incolume.com.br',
-            'dataaccess@incolumepy-dev.iam.gserviceaccount.com',
-        ], users)
+        list_users = chain(
+            [
+                'brito@incolume.com.br',
+                'britodfbr@gmail.com',
+                'dev@incolume.com.br',
+                'dataaccess@incolumepy-dev.iam.gserviceaccount.com',
+            ],
+            users,
+        )
         for user in list_users:
             logging.info(user)
             spreadsheet.share(user, perm_type='user', role='writer')

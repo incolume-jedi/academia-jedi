@@ -1,4 +1,5 @@
 """Pydantic python 3.9+."""
+
 from datetime import datetime
 from typing import Optional
 
@@ -13,7 +14,6 @@ class User(BaseModel):
 
 
 if __name__ == '__main__':  # pragma: no cover
-
     external_data = {
         'id': '123',
         'signup_ts': '2019-06-01 12:22',

@@ -13,13 +13,10 @@ class Fruit3:
     name: str
     grams: float = field(default=0)
     date: dt.datetime = None
-    __date: dt.datetime = field(
-        default_factory=dt.datetime.now, repr=False, init=False
-        )
 
     def __post_init__(self):
         """Post init."""
-        self.date = self.date or dt.datetime.now()
+        self.__date: dt.datetime = dt.datetime.now()
 
     @property
     def date(self):

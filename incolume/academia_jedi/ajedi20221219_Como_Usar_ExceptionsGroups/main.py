@@ -8,7 +8,6 @@ if python_version() < '3.11.0':
     sys.exit(1)
 
 if __name__ == '__main__':  # pragma: no cover
-
     try:
         create_eg()
     except* ValueError as e:

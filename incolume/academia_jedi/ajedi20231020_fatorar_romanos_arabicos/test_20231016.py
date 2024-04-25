@@ -1,4 +1,5 @@
 """Testes dojo20231016."""
+
 # !/usr/bin/env python
 import pytest
 

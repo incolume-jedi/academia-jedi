@@ -219,7 +219,7 @@ def run():
         print('----')
         try:
             func()
-        except (ValueError) as e:
+        except ValueError as e:
             logging.exception(f'"{e.__class__.__name__}: {e}"')
         print()
         logging.info(f'finishing {func.__name__}')

@@ -15,7 +15,9 @@ class Notification(UserControl):
         self.message = message
         self.color = color
         self.content = Text(
-            value=message, color=color, style=TextThemeStyle.BODY_LARGE,
+            value=message,
+            color=color,
+            style=TextThemeStyle.BODY_LARGE,
         )
         self.snack_bar = SnackBar(
             content=self.content,

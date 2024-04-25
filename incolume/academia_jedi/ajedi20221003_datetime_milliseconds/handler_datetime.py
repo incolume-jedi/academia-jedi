@@ -39,6 +39,7 @@ def example03() -> None:
         sep='\n',
     )
 
+
 def run():
     example01()
     example02()

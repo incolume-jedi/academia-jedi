@@ -1,4 +1,5 @@
 """Main Module."""
+
 import logging
 
 from tratativa1 import ex1

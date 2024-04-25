@@ -1,4 +1,5 @@
 """Submodule."""
+
 import re
 import logging
 

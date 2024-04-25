@@ -1,4 +1,5 @@
 """Codificação oriunda de http://github.com/incolumepy-prospections/incolumepy.dataclass."""
+
 import logging
 from pathlib import Path
 import gspread
@@ -12,17 +13,27 @@ def set_credentials(file_credencial: Path = None) -> Path:
     logging.info('setting: %s', file_credencial)
     if file_credencial is None or not file_credencial.is_file():
         logging.debug('not file: %s', file_credencial)
-        file_credencial = Path(__file__).parents[0].joinpath(
-            'credentials', 'incolumepy-dev-6ae65605985c.json',
+        file_credencial = (
+            Path(__file__)
+            .parents[0]
+            .joinpath(
+                'credentials',
+                'incolumepy-dev-6ae65605985c.json',
+            )
         )
         logging.info('setting: %s', file_credencial)
     if not file_credencial.is_file():
         logging.debug('not file: %s', file_credencial)
-        file_credencial = Path('~').expanduser().joinpath(
-            'projetos',
-            'private',
-            'authkeys',
-            'incolumepy-dev-6ae65605985c.json')
+        file_credencial = (
+            Path('~')
+            .expanduser()
+            .joinpath(
+                'projetos',
+                'private',
+                'authkeys',
+                'incolumepy-dev-6ae65605985c.json',
+            )
+        )
         logging.info('setting: %s', file_credencial)
     logging.debug('return: %s', file_credencial)
     return file_credencial
@@ -30,10 +41,13 @@ def set_credentials(file_credencial: Path = None) -> Path:
 
 def get_client_google(crendential_file=''):
     crendential_file = crendential_file or set_credentials().as_posix()
-    escopo = ['https://spreadsheets.google.com/feeds',
-              'https://www.googleapis.com/auth/drive']
+    escopo = [
+        'https://spreadsheets.google.com/feeds',
+        'https://www.googleapis.com/auth/drive',
+    ]
     credenciais = ServiceAccountCredentials.from_json_keyfile_name(
-        crendential_file, escopo)
+        crendential_file, escopo
+    )
 
     # client_google
     gc = gspread.authorize(credenciais)
@@ -62,8 +76,10 @@ def load_create_sheet(spreadsheetname):
     gc = get_client_google()
     try:
         spreadsheet = gc.open(spreadsheetname)
-    except (gspread.exceptions.SpreadsheetNotFound,
-            gspread.exceptions.APIError):
+    except (
+        gspread.exceptions.SpreadsheetNotFound,
+        gspread.exceptions.APIError,
+    ):
         spreadsheet = gc.create(spreadsheetname)
 
     return spreadsheet

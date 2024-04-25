@@ -1,4 +1,5 @@
 """Example not pythonic."""
+
 from pprint import pprint
 
 from incolume.academia_jedi.ajedi20221110_mapping_values.database import (

@@ -25,7 +25,8 @@ class SelectCustomer(AlertDialog):
         self.route = route
         self.modal = True
         self.title = Row(
-            expand=True, controls=[Text('Selecione o Cliente:', width=600)],
+            expand=True,
+            controls=[Text('Selecione o Cliente:', width=600)],
         )
 
         self.tf_find_customer = TextField(

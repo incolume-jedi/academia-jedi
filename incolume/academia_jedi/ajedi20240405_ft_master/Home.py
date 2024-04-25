@@ -85,7 +85,8 @@ class Home(UserControl):
             ),
             border=Border(
                 bottom=BorderSide(
-                    2, colors.with_opacity(0.5, colors.ON_SURFACE),
+                    2,
+                    colors.with_opacity(0.5, colors.ON_SURFACE),
                 ),
             ),
             top_axis=ChartAxis(
@@ -168,7 +169,8 @@ class Home(UserControl):
                             color=colors.PRIMARY,
                             tooltip='',
                             border_radius=border_radius.vertical(
-                                top=5, bottom=0,
+                                top=5,
+                                bottom=0,
                             ),
                         ),
                     ],
@@ -183,7 +185,8 @@ class Home(UserControl):
                             color=colors.SECONDARY,
                             tooltip='',
                             border_radius=border_radius.vertical(
-                                top=5, bottom=0,
+                                top=5,
+                                bottom=0,
                             ),
                         ),
                     ],
@@ -198,7 +201,8 @@ class Home(UserControl):
                             color=colors.ON_PRIMARY_CONTAINER,
                             tooltip='',
                             border_radius=border_radius.vertical(
-                                top=5, bottom=0,
+                                top=5,
+                                bottom=0,
                             ),
                         ),
                     ],
@@ -213,7 +217,8 @@ class Home(UserControl):
                             color=colors.TERTIARY,
                             tooltip='',
                             border_radius=border_radius.vertical(
-                                top=5, bottom=0,
+                                top=5,
+                                bottom=0,
                             ),
                         ),
                     ],
@@ -228,7 +233,8 @@ class Home(UserControl):
                             color=colors.INVERSE_PRIMARY,
                             tooltip='',
                             border_radius=border_radius.vertical(
-                                top=5, bottom=0,
+                                top=5,
+                                bottom=0,
                             ),
                         ),
                     ],
@@ -236,7 +242,8 @@ class Home(UserControl):
             ],
             border=border.only(
                 bottom=BorderSide(
-                    2, colors.with_opacity(0.5, colors.ON_SURFACE),
+                    2,
+                    colors.with_opacity(0.5, colors.ON_SURFACE),
                 ),
             ),
             left_axis=ChartAxis(labels_size=40, title_size=40),
@@ -298,7 +305,8 @@ class Home(UserControl):
                     color=colors.with_opacity(0.8, colors.PRIMARY),
                     radius=42,
                     border_side=border.BorderSide(
-                        0, color=colors.ON_PRIMARY_CONTAINER,
+                        0,
+                        color=colors.ON_PRIMARY_CONTAINER,
                     ),
                     badge=Container(
                         alignment=alignment.center,
@@ -314,7 +322,9 @@ class Home(UserControl):
                 PieChartSection(
                     value=60,
                     title_style=TextStyle(
-                        size=16, color=colors.WHITE, weight=FontWeight.BOLD,
+                        size=16,
+                        color=colors.WHITE,
+                        weight=FontWeight.BOLD,
                     ),
                     color=colors.with_opacity(0.5, colors.SECONDARY_CONTAINER),
                     # radius=30,
@@ -445,7 +455,9 @@ class Home(UserControl):
             weight=FontWeight.BOLD,
         )
         self.text_today_billing = Text(
-            value='R$0,00', color=colors.GREEN, size=22,
+            value='R$0,00',
+            color=colors.GREEN,
+            size=22,
         )
         self.btn_add_sale = OutlinedButton(
             text='Nova Venda',
@@ -653,7 +665,8 @@ class Home(UserControl):
             self.pie_stock.sections[0].radius = 40
         else:
             self.pie_stock.sections[0].color = colors.with_opacity(
-                0.8, colors.PRIMARY,
+                0.8,
+                colors.PRIMARY,
             )
             self.pie_stock.sections[0].radius = 42
 
@@ -751,7 +764,8 @@ class Home(UserControl):
                             color=self.COLOR[rod],
                             tooltip=data_descr[rod],
                             border_radius=border_radius.vertical(
-                                top=5, bottom=0,
+                                top=5,
+                                bottom=0,
                             ),
                         ),
                     ],
@@ -762,7 +776,8 @@ class Home(UserControl):
                 ChartAxisLabel(
                     value=rod,
                     label=Container(
-                        Text(value=data_id[rod], size=14), padding=10,
+                        Text(value=data_id[rod], size=14),
+                        padding=10,
                     ),
                 ),
             )
@@ -811,7 +826,9 @@ class Home(UserControl):
         dates = [
             (
                 date(
-                    date.today().year, date.today().month, 1,
+                    date.today().year,
+                    date.today().month,
+                    1,
                 ),  # first day of the current month
                 date.today(),  # today
             ),
@@ -823,7 +840,9 @@ class Home(UserControl):
                 days=1,
             )  # get the last day of the previous month
             first_day = date(
-                last_day.year, last_day.month, 1,
+                last_day.year,
+                last_day.month,
+                1,
             )  # get the first day of the previous month
             tup = (first_day, last_day)
             dates.append(tup)

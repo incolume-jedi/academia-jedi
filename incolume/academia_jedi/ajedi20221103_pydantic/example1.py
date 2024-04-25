@@ -1,4 +1,5 @@
 """Pydantic python 3.10+."""
+
 from datetime import datetime
 
 from pydantic import BaseModel
@@ -12,7 +13,6 @@ class User(BaseModel):
 
 
 if __name__ == '__main__':  # pragma: no cover
-
     external_data = {
         'id': '123',
         'signup_ts': '2019-06-01T12:22:12.3456+03.30',

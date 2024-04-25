@@ -1,5 +1,6 @@
 class Foo:
     """Class Foo."""
+
     __all_foos = []
 
     def __init__(self, name: str = 'Foo') -> None:

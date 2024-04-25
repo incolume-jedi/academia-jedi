@@ -150,7 +150,9 @@ class Login(UserControl):
 
         if name is None:
             Notification(
-                self.page, 'Usuário ou senha incorretos!', 'red',
+                self.page,
+                'Usuário ou senha incorretos!',
+                'red',
             ).show_message()
             return
         self.go_to_home(name, permission)

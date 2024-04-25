@@ -79,7 +79,8 @@ class UserDatabase:
 
     def verify_pass(self, password, saved_hash):
         return bcrypt.checkpw(
-            password.encode('utf-8'), saved_hash.encode('utf-8'),
+            password.encode('utf-8'),
+            saved_hash.encode('utf-8'),
         )
 
     def login_verify(self, data):
@@ -214,7 +215,8 @@ class CustomerDatabase:
             WHERE idcustomers = %s;
             """
             mycursor.execute(
-                query_upd_Cust, data_customer[1:] + data_customer[:1],
+                query_upd_Cust,
+                data_customer[1:] + data_customer[:1],
             )
             self.connection.commit()
             return 'success'

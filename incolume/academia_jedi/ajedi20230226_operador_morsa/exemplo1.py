@@ -2,7 +2,6 @@
 incolume/academia_jedi/ajedi20220928_morsa_op/main.py
 """
 
-
 __author__ = '@britodfbr'  # pragma: no cover
 
 
@@ -16,5 +15,5 @@ def run():
     menu()
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()
