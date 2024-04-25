@@ -1,5 +1,5 @@
 """Module."""
-
+from copy import copy
 from dataclasses import dataclass, field
 import datetime as dt
 
@@ -12,11 +12,11 @@ class Fruit3:
 
     name: str
     grams: float = field(default=0)
-    date: dt.datetime = None
+    date: dt.datetime = field(default_factory=dt.datetime.now)
 
     def __post_init__(self):
         """Post init."""
-        self.__date: dt.datetime = dt.datetime.now()
+        self.__date: self.date
 
     @property
     def date(self):
@@ -39,11 +39,10 @@ class Fruit3:
                     f' {self.name} em {self.date}'
                 )
 
-    # def __repr__(self):
-    #     """Dundler repr."""
-    #     o = copy(self)
-    #
-    #     return
+    def __repr__(self):
+        """Dundler repr."""
+        o = copy(self)
+        return f'{o:desc}'
 
 
 @dataclass
