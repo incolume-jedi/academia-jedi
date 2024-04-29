@@ -185,14 +185,14 @@ def test_formatly_fruit2_desc(entrance, expected):
             ),
             '2.35Kg (2350g) de Apple em 1978-06-20T00:00:00-03:06',
             marks=pytest.mark.skip(
-                reason="AttributeError: 'str'"
-                " object has no attribute 'isoformat'",
+                reason="AttributeError: 'str' object "
+                "has no attribute 'isoformat'",
             ),
         ),
     ],
 )
 def test_agregate_fruit3_desc(entrance, expected):
-    """Unit test."""
+    """Test desc."""
     assert f'{entrance:desc}' == expected
 
 
