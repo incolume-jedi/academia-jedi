@@ -313,7 +313,7 @@ respect-gitignore = true
 indent-width = 4
 
 # Assume Python Version
-target-version = "py310"
+target-version = "py39"
 
 # Decrease the maximum line length to 79 character.
 line-length = 79

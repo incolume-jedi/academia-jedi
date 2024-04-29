@@ -6,7 +6,7 @@ import csv
 import json
 from pathlib import Path
 from pprint import pprint
-from typing import Final
+from typing import Final, Optional
 
 import xlsxwriter
 
@@ -20,7 +20,7 @@ CONTENT: Final = [
 ]
 
 
-def exemplo01(fl: Path | None = None) -> None:
+def exemplo01(fl: Optional[Path] = None) -> None:
     """Modo de criação 1.
 
     write.
@@ -31,7 +31,7 @@ def exemplo01(fl: Path | None = None) -> None:
     file.close()
 
 
-def exemplo02(fl: Path | None = None) -> None:
+def exemplo02(fl: Optional[Path] = None) -> None:
     """Exemplo 2.
 
     write
@@ -43,7 +43,7 @@ def exemplo02(fl: Path | None = None) -> None:
     file.close()
 
 
-def exemplo03(fl: Path | None = None) -> None:
+def exemplo03(fl: Optional[Path] = None) -> None:
     """Exemplo3.
 
     Write com builtin open
@@ -53,7 +53,7 @@ def exemplo03(fl: Path | None = None) -> None:
         file.write('alguma coisa.')
 
 
-def exemplo04(file: Path | None = None) -> None:
+def exemplo04(file: Optional[Path] = None) -> None:
     """Exemplo4.
 
     Write com pathlib.
@@ -62,7 +62,7 @@ def exemplo04(file: Path | None = None) -> None:
     file.write_text('alguma coisa')
 
 
-def exemplo05(fl: Path | None = None) -> None:
+def exemplo05(fl: Optional[Path] = None) -> None:
     """Exemplo write contexto + pathlib + TXT."""
     fl = fl or Path('exemplo05.txt')
     with fl.open('w') as file:
@@ -70,7 +70,7 @@ def exemplo05(fl: Path | None = None) -> None:
         file.write('outra coisa')
 
 
-def exemplo06(file: Path | None = None) -> None:
+def exemplo06(file: Optional[Path] = None) -> None:
     """CSV write.
 
     Criação de CSV a partir de dict.
@@ -87,8 +87,8 @@ def exemplo06(file: Path | None = None) -> None:
 
 
 def exemplo07(
-    file: Path | None = None,
-    data: list[dict] | None = None,
+    file: Optional[Path] = None,
+    data: Optional[list] = None,
 ) -> None:
     """CSV write."""
     file = file or Path('xpto.csv')
@@ -99,7 +99,7 @@ def exemplo07(
         _ = [writer.writerow(record) for record in data]
 
 
-def exemplo08(file: Path | None = None) -> None:
+def exemplo08(file: Optional[Path] = None) -> None:
     """CSV read."""
     file = file or Path('xpto.csv')
     with file.open(newline='') as csvfile:
@@ -108,7 +108,7 @@ def exemplo08(file: Path | None = None) -> None:
             print(linha)
 
 
-def exemplo09(file: Path | None = None) -> None:
+def exemplo09(file: Optional[Path] = None) -> None:
     """CSV."""
     file = file or Path('xpto.csv')
     with file.open(newline='') as csvfile:
@@ -120,7 +120,7 @@ def exemplo09(file: Path | None = None) -> None:
             print(linha)
 
 
-def exemplo10(file: Path | None = None) -> None:
+def exemplo10(file: Optional[Path] = None) -> None:
     """CSV."""
     file = file or Path('xpto.csv')
     with file.open(newline='') as csvfile:
@@ -133,7 +133,7 @@ def exemplo10(file: Path | None = None) -> None:
             print(list(zip(title, linha, strict=True)))
 
 
-def exemplo11(file: Path | None = None) -> None:
+def exemplo11(file: Optional[Path] = None) -> None:
     """CSV."""
     file = file or Path('xpto.csv')
     with file.open(newline='') as csvfile:
@@ -144,7 +144,7 @@ def exemplo11(file: Path | None = None) -> None:
         pprint(d)
 
 
-def exemplo12(file: Path | None = None) -> None:
+def exemplo12(file: Optional[Path] = None) -> None:
     """CSV."""
     file = file or Path('xpto.csv')
     with file.open(newline='') as csvfile:
@@ -153,7 +153,7 @@ def exemplo12(file: Path | None = None) -> None:
             print(linha)
 
 
-def exemplo13(file: Path | None = None) -> list:
+def exemplo13(file: Optional[Path] = None) -> list:
     """CSV."""
     file = file or Path('xpto.csv')
     with file.open(newline='') as csvfile:
@@ -162,8 +162,8 @@ def exemplo13(file: Path | None = None) -> list:
 
 
 def exemplo14(
-    file: Path | None = None,
-    content: dict[str] | None = None,
+    file: Optional[Path] = None,
+    content: Optional[dict[str]] = None,
 ) -> None:
     """Example write JSON."""
     file = file or Path('exemplo14.json')
@@ -172,7 +172,7 @@ def exemplo14(
         json.dump(content, jsonfile, indent=4)
 
 
-def exemplo15(file: Path | None = None) -> None:
+def exemplo15(file: Optional[Path] = None) -> None:
     """Exemplo lê JSON."""
     file = file or Path('exemplo14.json')
     with file.open() as jsonfile:
@@ -181,14 +181,14 @@ def exemplo15(file: Path | None = None) -> None:
         print(record)
 
 
-def exemplo16(file: Path | None = None) -> None:
+def exemplo16(file: Optional[Path] = None) -> None:
     """Exemplo lê JSON."""
     file = file or Path('exemplo14.json')
     with file.open() as jsonfile:
         return json.load(jsonfile)
 
 
-def exemplo17(file: Path | None = None) -> None:
+def exemplo17(file: Optional[Path] = None) -> None:
     """Exemplo XLSX com modulo xlsxwriter."""
     file = file or Path('exemplo17.xlsx')
     # Create a workbook and add a worksheet.
@@ -206,7 +206,7 @@ def exemplo17(file: Path | None = None) -> None:
     workbook.close()
 
 
-def exemplo18(file: Path | None = None) -> None:
+def exemplo18(file: Optional[Path] = None) -> None:
     """Exemplo XLSX com modulo xlsxwriter."""
     file = file or Path('exemplo18.xlsx')
     # Create a workbook and add a worksheet.
