@@ -2,6 +2,7 @@
 
 from pathlib import Path
 from typing import NoReturn
+
 import flet as ft
 import httpx
 
@@ -11,7 +12,10 @@ __author__ = '@britodfbr'  # pragma: no cover
 def get_content(url_api: str = '') -> dict:
     """Get content from API."""
     url_api = url_api or 'https://httpbin.org/anything'
-    result = httpx.post(url_api, data=Path('content.md').read_text())
+    result = httpx.post(
+        url_api,
+        data=Path(__file__).parent.joinpath('content.md').read_text(),
+    )
     return result.json()
 
 
