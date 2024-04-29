@@ -2,12 +2,12 @@
 
 __author__ = '@britodfbr'  # pragma: no cover
 
+from pathlib import Path
 from typing import NoReturn
 
 import flet as ft
-from pathlib import Path
 
-md1 = Path('example.md')
+md1 = Path(__file__).parent.joinpath('example.md')
 
 
 def main(page: ft.Page) -> NoReturn:
