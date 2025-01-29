@@ -1,9 +1,9 @@
 """Router."""
 
 from collections.abc import Callable
-import flet as ft
 from enum import Enum
 
+import flet as ft
 from icecream import ic
 
 

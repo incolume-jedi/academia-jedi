@@ -1,7 +1,8 @@
 """Profile View."""
 
-import flet as ft
 from logging import info
+
+import flet as ft
 
 
 def profileview(router):

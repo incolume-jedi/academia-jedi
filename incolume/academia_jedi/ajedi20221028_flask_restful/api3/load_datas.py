@@ -1,5 +1,9 @@
+import logging
+import sys
+
 import pandas as pd
 import requests
+from icecream import ic
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -11,6 +15,7 @@ df = pd.read_csv(
 
 
 def post_data(item):
+    """Post data."""
     headers = {
         'Content-type': 'application/json',
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) '
@@ -18,13 +23,20 @@ def post_data(item):
         'Chrome/104.0.5112.102 Safari/537.36',
     }
     payload = item.to_dict()
-    resp = requests.post(
-        'http://localhost:5555',
-        headers=headers,
-        json=payload,
-    )
-    return resp.json()
+    try:
+        resp = requests.post(
+            'http://localhost:5555',
+            headers=headers,
+            json=payload,
+        )
+        return resp.json()
+    except requests.exceptions.ConnectionError:
+        logging.exception(ic(sys.exc_info()))
+        sys.exit(1)
 
 
-for i, values in df.iterrows():
-    print(post_data(values))
+for _, values in df.iterrows():
+    try:
+        print(post_data(values))  # noqa: T201
+    except SystemExit:  # noqa: PERF203
+        break

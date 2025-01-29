@@ -1,22 +1,22 @@
+import asyncio
+
+from Database import CustomerDatabase
 from flet import (
-    DataTable,
-    TextButton,
-    TextField,
-    IconButton,
-    Text,
-    Row,
-    Column,
-    ListView,
-    MainAxisAlignment,
     AlertDialog,
+    Column,
+    DataCell,
     DataColumn,
     DataRow,
-    DataCell,
+    DataTable,
+    IconButton,
+    ListView,
+    MainAxisAlignment,
+    Row,
+    Text,
+    TextButton,
+    TextField,
     icons,
 )
-from Database import CustomerDatabase
-
-import asyncio
 
 
 class SelectCustomer(AlertDialog):

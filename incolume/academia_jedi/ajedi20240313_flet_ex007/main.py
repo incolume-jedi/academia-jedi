@@ -5,9 +5,10 @@ baseado em https://youtu.be/ANN0JsiGs40?si=Ntcqe7hqRkoYzGhONvaigator bar.
 baseado em https://youtu.be/ANN0JsiGs40?si=Ntcqe7hqRkoYzGhO
 """
 
-import flet as ft
-from pathlib import Path
 from logging import info
+from pathlib import Path
+
+import flet as ft
 
 width: float = 720 * 1.6
 height: float = 405 * 1.6

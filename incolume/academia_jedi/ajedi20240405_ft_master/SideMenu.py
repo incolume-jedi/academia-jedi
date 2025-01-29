@@ -1,16 +1,15 @@
 from flet import (
-    UserControl,
     Container,
-    IconButton,
-    icons,
-    NavigationRail,
-    NavigationRailLabelType,
-    NavigationRailDestination,
     Icon,
-    padding,
+    IconButton,
+    NavigationRail,
+    NavigationRailDestination,
+    NavigationRailLabelType,
+    UserControl,
     border_radius,
+    icons,
+    padding,
 )
-
 from SetGeneralConfig import SetGeneralConfig
 
 

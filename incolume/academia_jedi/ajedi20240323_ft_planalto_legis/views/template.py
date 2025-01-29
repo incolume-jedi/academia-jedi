@@ -1,9 +1,10 @@
 """module template elements."""
 
-import flet as ft
 from logging import debug
 from pathlib import Path
 from typing import Final
+
+import flet as ft
 
 BLUE: Final = '#0060B5'
 IMAGES: Final[list[Path]] = [

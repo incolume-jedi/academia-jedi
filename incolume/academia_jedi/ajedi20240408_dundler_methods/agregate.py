@@ -1,7 +1,8 @@
 """Module."""
+
+import datetime as dt
 from copy import copy
 from dataclasses import dataclass, field
-import datetime as dt
 
 __author__ = '@britodfbr'  # pragma: no cover
 

@@ -1,7 +1,8 @@
+from os import getenv
+from pathlib import Path
+
 from docx import Document
 from docx.shared import Inches
-from pathlib import Path
-from os import getenv
 from dotenv import load_dotenv
 
 load_dotenv()

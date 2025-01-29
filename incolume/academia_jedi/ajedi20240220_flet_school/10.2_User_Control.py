@@ -1,7 +1,8 @@
 """User Control."""
 
-import flet as ft
 from logging import info
+
+import flet as ft
 
 """
 Theory:

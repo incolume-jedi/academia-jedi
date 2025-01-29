@@ -5,9 +5,10 @@ baseado em https://www.youtube.com/watch?v=EUEUO8Vfomc
 
 import logging
 from typing import NoReturn
-from config import settings
+
 import flet as ft
 import httpx
+from config import settings
 
 __author__ = '@britodfbr'  # pragma: no cover
 

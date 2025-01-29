@@ -1,9 +1,9 @@
 """Exemplo de layout."""
 
 from typing import NoReturn
-from icecream import ic
 
 import flet as ft
+from icecream import ic
 
 ic.disable()
 

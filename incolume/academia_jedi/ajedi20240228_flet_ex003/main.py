@@ -3,8 +3,9 @@
 baseado em https://www.youtube.com/watch?v=hAWQ5HbDVwA
 """
 
+from logging import debug, info
+
 import flet as ft
-from logging import info, debug
 
 __author__ = '@britodfbr'  # pragma: no cover
 

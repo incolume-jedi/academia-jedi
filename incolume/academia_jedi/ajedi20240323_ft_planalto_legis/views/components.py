@@ -1,17 +1,16 @@
 """Components."""
 
 import logging
+from pathlib import Path
 from typing import Any
 
 import flet as ft
-from pathlib import Path
-
 
 __author__ = '@britodfbr'  # pragma: no cover
 
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.template import (
-    IMAGES,
     BLUE,
+    IMAGES,
 )
 
 

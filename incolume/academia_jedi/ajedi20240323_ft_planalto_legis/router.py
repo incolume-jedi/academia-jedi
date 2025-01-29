@@ -4,6 +4,7 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 import logging
 from typing import NoReturn
+
 import flet as ft
 from views import pages
 

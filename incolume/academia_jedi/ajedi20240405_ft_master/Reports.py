@@ -1,19 +1,20 @@
+from datetime import datetime
+
+from reportlab.lib import colors
+from reportlab.lib.enums import TA_CENTER
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.styles import ParagraphStyle
+from reportlab.lib.units import cm, inch
 from reportlab.platypus import (
-    SimpleDocTemplate,
-    Table,
-    TableStyle,
-    Paragraph,
-    Spacer,
+    HRFlowable,
     Image,
     PageBreak,
-    HRFlowable,
+    Paragraph,
+    SimpleDocTemplate,
+    Spacer,
+    Table,
+    TableStyle,
 )
-from reportlab.lib.pagesizes import A4
-from reportlab.lib import colors
-from reportlab.lib.styles import ParagraphStyle
-from reportlab.lib.enums import TA_CENTER
-from reportlab.lib.units import inch, cm
-from datetime import datetime
 
 
 class CustomerReport:
@@ -166,7 +167,7 @@ class SaleReport:
         # Número do pedido e data
         sale_table = Table([
             [
-                f'Pedido número: {self.sale_data[0]} - Data: {self.sale_data[1]}'
+                f'Pedido número: {self.sale_data[0]} - Data: {self.sale_data[1]}',
             ],
         ])
         sale_table.setStyle(

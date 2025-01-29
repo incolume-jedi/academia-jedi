@@ -1,5 +1,5 @@
-from typing import Protocol
 import abc
+from typing import Protocol
 
 
 class Writable(Protocol):

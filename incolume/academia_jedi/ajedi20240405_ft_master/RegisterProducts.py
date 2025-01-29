@@ -1,31 +1,30 @@
+from CategoryBrand import Brand, Category
+from Database import ProductsDatabase, SalesDatabase
 from flet import (
-    UserControl,
-    Row,
     Column,
     Container,
-    Text,
-    TextField,
-    IconButton,
+    CrossAxisAlignment,
+    DataCell,
+    DataColumn,
+    DataRow,
     DataTable,
     Dropdown,
-    OutlinedButton,
-    DataRow,
-    DataColumn,
-    DataCell,
-    icons,
-    colors,
-    TextThemeStyle,
-    TextAlign,
-    CrossAxisAlignment,
-    VerticalDivider,
+    IconButton,
     ListView,
     MainAxisAlignment,
+    OutlinedButton,
+    Row,
+    Text,
+    TextAlign,
+    TextField,
+    TextThemeStyle,
+    UserControl,
+    VerticalDivider,
+    colors,
     dropdown,
+    icons,
 )
-
 from Notification import Notification
-from CategoryBrand import Category, Brand
-from Database import ProductsDatabase, SalesDatabase
 from Validator import Validator
 
 

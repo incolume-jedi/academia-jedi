@@ -1,17 +1,18 @@
 import pytest
 
 
-@pytest.fixture
+@pytest.fixture()
 def fixture_name(request):
     return request.param
 
+
 @pytest.mark.parametrize(
-    'fixture_name', 
+    'fixture_name',
     [
-        'foo', 
+        'foo',
         'bar',
-    ], 
-    indirect=True
+    ],
+    indirect=True,
 )
 def test_indirect(fixture_name):
     assert fixture_name == 'baz'

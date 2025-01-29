@@ -1,7 +1,6 @@
-from dynaconf import Dynaconf
 from pathlib import Path
 
-from dynaconf import Validator
+from dynaconf import Dynaconf, Validator
 
 settings = Dynaconf(
     envvar_prefix='ACADEMIA_JEDI',

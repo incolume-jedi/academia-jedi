@@ -2,6 +2,7 @@
 
 import logging
 from pathlib import Path
+
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -46,7 +47,8 @@ def get_client_google(crendential_file=''):
         'https://www.googleapis.com/auth/drive',
     ]
     credenciais = ServiceAccountCredentials.from_json_keyfile_name(
-        crendential_file, escopo
+        crendential_file,
+        escopo,
     )
 
     # client_google

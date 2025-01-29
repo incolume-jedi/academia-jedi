@@ -1,23 +1,24 @@
 """Main module."""
 
-import flet as ft
+import logging
 from pathlib import Path
 from time import sleep
-import logging
+
+import flet as ft
 
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.router import (
     route_change,
     view_pop,
 )
+from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views import pages
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.components import (
     set_appbar,
     set_bg,
 )
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.pages import (
-    set_navbar,
     page_form,
+    set_navbar,
 )
-from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views import pages
 
 assets = Path(__file__).parent / 'assets'
 if not assets.is_dir():

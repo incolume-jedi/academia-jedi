@@ -1,30 +1,31 @@
-from flet import (
-    UserControl,
-    Row,
-    Column,
-    Container,
-    Text,
-    TextField,
-    IconButton,
-    DataTable,
-    DataRow,
-    DataColumn,
-    DataCell,
-    icons,
-    VerticalDivider,
-    ListView,
-    Dropdown,
-    dropdown,
-    OutlinedButton,
-    FontWeight,
-    CrossAxisAlignment,
-    MainAxisAlignment,
-    KeyboardEvent,
-)
-from Database import UserDatabase
 from datetime import date
+
 import bcrypt
 from ConfirmDialog import ConfirmDialog
+from Database import UserDatabase
+from flet import (
+    Column,
+    Container,
+    CrossAxisAlignment,
+    DataCell,
+    DataColumn,
+    DataRow,
+    DataTable,
+    Dropdown,
+    FontWeight,
+    IconButton,
+    KeyboardEvent,
+    ListView,
+    MainAxisAlignment,
+    OutlinedButton,
+    Row,
+    Text,
+    TextField,
+    UserControl,
+    VerticalDivider,
+    dropdown,
+    icons,
+)
 from Notification import Notification
 
 

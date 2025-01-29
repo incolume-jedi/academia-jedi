@@ -1,8 +1,8 @@
+from datatable import calldb, mytable, tb
 from flet import *
 
 # IMPORT YOU CREATE TABLE
-from myaction import create_table, conn
-from datatable import mytable, tb, calldb
+from myaction import conn, create_table
 
 
 def main(page: Page):

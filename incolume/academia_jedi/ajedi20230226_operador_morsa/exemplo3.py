@@ -2,10 +2,10 @@
 incolume/academia_jedi/ajedi20221106_operador_morsa/
 """
 
-import easygui as eg
-from enum import Enum, auto
 import logging
+from enum import Enum, auto
 
+import easygui as eg
 
 __author__ = '@britodfbr'  # pragma: no cover
 

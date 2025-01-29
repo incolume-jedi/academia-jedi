@@ -1,5 +1,5 @@
-from typing import overload
 from collections.abc import Sequence
+from typing import overload
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -21,7 +21,7 @@ def process(response: float) -> float: ...
 
 
 def process(response):
-    """process."""
+    """Process."""
     return f'{type(response)}'
 
 

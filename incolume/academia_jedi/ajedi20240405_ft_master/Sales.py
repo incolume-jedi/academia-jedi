@@ -1,37 +1,37 @@
+import contextlib
+
+from ConfirmDialog import ConfirmDialog
+from Database import CustomerDatabase, ProductsDatabase, SalesDatabase
 from flet import (
-    UserControl,
-    Row,
+    Card,
     Column,
     Container,
-    Text,
-    TextField,
-    IconButton,
-    DataTable,
-    MainAxisAlignment,
-    DataRow,
-    DataColumn,
-    DataCell,
-    icons,
-    colors,
-    TextStyle,
-    Card,
-    FontWeight,
-    TextAlign,
-    Divider,
-    ListView,
-    border_radius,
-    padding,
-    border,
-    FilePickerResultEvent,
     CrossAxisAlignment,
+    DataCell,
+    DataColumn,
+    DataRow,
+    DataTable,
+    Divider,
+    FilePickerResultEvent,
+    FontWeight,
+    IconButton,
+    ListView,
+    MainAxisAlignment,
+    Row,
+    Text,
+    TextAlign,
+    TextField,
+    TextStyle,
+    UserControl,
+    border,
+    border_radius,
+    colors,
+    icons,
+    padding,
 )
-
-from Validator import Validator
-from Database import SalesDatabase, ProductsDatabase, CustomerDatabase
 from Notification import Notification
-from ConfirmDialog import ConfirmDialog
 from Reports import SaleReport
-import contextlib
+from Validator import Validator
 
 
 class Sales(UserControl):

@@ -1,7 +1,8 @@
 """Module."""
 
-from typing import NoReturn
 import json
+from typing import NoReturn
+
 import flet as ft
 
 __author__ = '@britodfbr'  # pragma: no cover

@@ -1,16 +1,16 @@
+import json
+
+import mysql.connector
+from cryptography.fernet import Fernet
 from flet import (
-    TextButton,
-    TextField,
-    Text,
-    Row,
+    AlertDialog,
     Column,
     MainAxisAlignment,
-    AlertDialog,
+    Row,
+    Text,
+    TextButton,
+    TextField,
 )
-import json
-from cryptography.fernet import Fernet
-import mysql.connector
-
 from Notification import Notification
 
 

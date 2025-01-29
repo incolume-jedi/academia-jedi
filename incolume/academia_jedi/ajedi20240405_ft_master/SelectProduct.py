@@ -1,21 +1,21 @@
+from Database import ProductsDatabase
 from flet import (
-    Row,
-    MainAxisAlignment,
-    TextField,
-    TextButton,
-    Column,
-    Text,
-    DataColumn,
-    DataTable,
-    DataCell,
-    ListView,
     AlertDialog,
+    Column,
+    DataCell,
+    DataColumn,
     DataRow,
+    DataTable,
     IconButton,
+    ListView,
+    MainAxisAlignment,
+    Row,
+    Text,
+    TextButton,
+    TextField,
     colors,
     icons,
 )
-from Database import ProductsDatabase
 
 
 class SelectProduct(AlertDialog):

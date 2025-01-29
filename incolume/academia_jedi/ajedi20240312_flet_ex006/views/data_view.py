@@ -1,9 +1,10 @@
 """Data View."""
 
 from typing import Union
+
 import flet as ft
-from views.Router import Router, DataStrategyEnum
 from State import global_state
+from views.Router import DataStrategyEnum, Router
 
 
 def dataview(router: Union[Router, str, None] = None) -> None:

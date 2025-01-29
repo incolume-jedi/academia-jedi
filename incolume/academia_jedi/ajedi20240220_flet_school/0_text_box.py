@@ -5,8 +5,9 @@ access in:
 https://github.com/kmranrg/FletSchool/blob/main/03_GettingUserInput/Part_01/2_TextBox.py.
 """
 
-import flet as ft
 from logging import info
+
+import flet as ft
 
 
 def main(page: ft.Page) -> None:

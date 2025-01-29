@@ -1,7 +1,8 @@
 """Custom CheckBox."""
 
-import flet as ft
 from logging import debug, info
+
+import flet as ft
 
 
 class CustomCheckBox(ft.UserControl):

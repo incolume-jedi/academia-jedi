@@ -1,17 +1,16 @@
 """Package for pages."""
 
 import flet as ft
-
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.components import (
     set_appbar,
-    set_navbar,
     set_bg,
-)
-from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.template import (
-    IMAGES,
+    set_navbar,
 )
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.styles import (
     text_style1,
+)
+from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.template import (
+    IMAGES,
 )
 
 __author__ = '@britodfbr'  # pragma: no cover

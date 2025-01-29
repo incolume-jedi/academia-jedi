@@ -1,7 +1,7 @@
 """Submodule."""
 
-import re
 import logging
+import re
 
 
 def convert_case(match_obj) -> str | None:

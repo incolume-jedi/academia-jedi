@@ -1,8 +1,8 @@
-from typing import Optional
-from sqlalchemy import create_engine, ForeignKey
-from sqlalchemy.orm import sessionmaker, DeclarativeBase, Mapped, mapped_column
 import os
+from typing import Optional
 
+from sqlalchemy import ForeignKey, create_engine
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
 
 DATABASE_URL = os.getenv('DATABASE_URL') or 'sqlite:////test.db'
 

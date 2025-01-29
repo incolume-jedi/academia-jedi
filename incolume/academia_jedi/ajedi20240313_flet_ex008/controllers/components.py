@@ -1,8 +1,9 @@
 """Components modules."""
 
-import flet as ft
 import logging
 from pathlib import Path
+
+import flet as ft
 from config import settings
 
 __author__ = '@britodfbr'  # pragma: no cover

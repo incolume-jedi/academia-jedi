@@ -2,11 +2,13 @@
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-from abc import ABC, abstractmethod
-from pathlib import Path
-from pickle import dumps as pickle_dumps, loads as pickle_loads
-from json import dumps as json_dumps, loads as json_loads
 import logging
+from abc import ABC, abstractmethod
+from json import dumps as json_dumps
+from json import loads as json_loads
+from pathlib import Path
+from pickle import dumps as pickle_dumps
+from pickle import loads as pickle_loads
 from tempfile import gettempdir
 
 logging.basicConfig(

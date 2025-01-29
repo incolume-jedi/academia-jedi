@@ -7,7 +7,6 @@ __author__ = '@britodfbr'  # pragma: no cover
 from typing import Self
 
 import pytz
-
 from config import settings
 
 

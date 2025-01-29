@@ -1,22 +1,22 @@
+from Database import ProductsDatabase
 from flet import (
-    DataTable,
-    TextButton,
-    TextField,
-    IconButton,
-    Text,
-    Row,
-    Column,
-    ListView,
-    MainAxisAlignment,
     AlertDialog,
+    Column,
+    DataCell,
     DataColumn,
     DataRow,
-    DataCell,
+    DataTable,
+    IconButton,
+    ListView,
+    MainAxisAlignment,
+    Row,
     SnackBar,
-    icons,
+    Text,
+    TextButton,
+    TextField,
     colors,
+    icons,
 )
-from Database import ProductsDatabase
 
 
 class Category(AlertDialog):
@@ -298,7 +298,8 @@ class Brand(AlertDialog):
         else:
             self.page.snack_bar = SnackBar(
                 content=Text(
-                    f'Erro ao deletar a marca: {result}', color='red'
+                    f'Erro ao deletar a marca: {result}',
+                    color='red',
                 ),
             )
         self.page.snack_bar.open = True

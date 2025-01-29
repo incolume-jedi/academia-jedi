@@ -1,11 +1,11 @@
 from flet import (
-    UserControl,
-    Row,
     Column,
     Container,
-    VerticalDivider,
     CrossAxisAlignment,
     MainAxisAlignment,
+    Row,
+    UserControl,
+    VerticalDivider,
 )
 
 

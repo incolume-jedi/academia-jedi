@@ -1,25 +1,25 @@
+from CreateFirstAdmin import CreateFirstAdmin
+from Database import UserDatabase
 from flet import (
-    UserControl,
-    Row,
+    BoxShadow,
     Column,
     Container,
+    CrossAxisAlignment,
+    MainAxisAlignment,
+    Offset,
+    OutlinedButton,
+    Row,
+    ShadowBlurStyle,
     Text,
     TextField,
-    icons,
-    colors,
     TextThemeStyle,
-    OutlinedButton,
-    MainAxisAlignment,
-    CrossAxisAlignment,
+    UserControl,
     alignment,
+    colors,
+    icons,
     padding,
-    BoxShadow,
-    Offset,
-    ShadowBlurStyle,
 )
-from Database import UserDatabase
 from Notification import Notification
-from CreateFirstAdmin import CreateFirstAdmin
 
 
 class Login(UserControl):

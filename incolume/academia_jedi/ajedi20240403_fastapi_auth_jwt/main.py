@@ -2,16 +2,16 @@
 
 __author__ = '@britodfbr'  # pragma: no cover
 
+import os
+from datetime import datetime, timedelta
 from pathlib import Path
 
+from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from pydantic import BaseModel
-from datetime import datetime, timedelta
 from jose import JWTError, jwt
 from passlib.context import CryptContext
-import os
-from dotenv import load_dotenv
+from pydantic import BaseModel
 
 load_dotenv(Path(__file__).parent.joinpath('.env'))
 
