@@ -1,11 +1,11 @@
 [project]
 name = "academia-jedi"
-version = "0.103.0a27"
+version = "0.103.0a28"
 authors = [{name="Britodfbr", email="<britodfbr@gmail.com>"}]
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.103.0a27"
+version = "0.103.0a28"
 description = ""
 authors = ["Britodfbr <britodfbr@gmail.com>"]
 packages = [
@@ -58,7 +58,6 @@ incolume-py-changelog = {version=">=0.8.0", python=">=3.8.1,<4"}
 # blue = ">=0.9.1"
 # poetry = "^1.8.2"
 
-# SQLAlchemy = "^1.4.39"
 aiohttp = "^3.8.3"
 aspose-words = {version="^23.12.0", python=">=3.9,<3.12"}
 # pillow = {version="^9.4.0", python=">=3.9,<3.12"}
@@ -114,6 +113,7 @@ requests = "^2.28.1"
 rstr = "*"
 # scikit-learn = [{version="^1.2.1", python='>=3.9'}]
 selectolax = [{version="^0.3.11", extras=["cython"]}]
+SQLAlchemy = "^1.4.39"
 taskipy = "^1.10.3"
 textblob = [{version="^0.17.1", python="<3.12"}]
 transformers = [{version="^4.26.1", python="<3.12"}]
