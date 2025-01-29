@@ -2,10 +2,10 @@
 
 __author__ = '@britodfbr'  # pragma: no cover
 
+import sqlite3
 from typing import NoReturn
 
 import flet as ft
-import sqlite3
 
 
 def main(page: ft.Page) -> NoReturn:

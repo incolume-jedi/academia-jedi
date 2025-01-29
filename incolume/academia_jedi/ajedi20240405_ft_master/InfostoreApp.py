@@ -1,17 +1,16 @@
-from flet import Page, Container, Row, VerticalDivider, FilePicker
-
 from Appbar import Appbar
-from SideMenu import SideMenu
-from Login import Login
-from Home import Home
-from Users import Users
-from Customers import Customers
-from RegisterCustomer import RegisterCustomer
-from Products import Products
-from RegisterProducts import RegisterProducts
-from Sales import Sales
-from RegisterSales import RegisterSales
 from Config import Config
+from Customers import Customers
+from flet import Container, FilePicker, Page, Row, VerticalDivider
+from Home import Home
+from Login import Login
+from Products import Products
+from RegisterCustomer import RegisterCustomer
+from RegisterProducts import RegisterProducts
+from RegisterSales import RegisterSales
+from Sales import Sales
+from SideMenu import SideMenu
+from Users import Users
 
 
 class InfostoreApp:

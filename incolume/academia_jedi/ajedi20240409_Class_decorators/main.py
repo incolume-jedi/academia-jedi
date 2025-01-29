@@ -1,5 +1,5 @@
 from decorator import Accolade
-from propertly import Pencil, Pen
+from propertly import Pencil
 
 
 @Accolade

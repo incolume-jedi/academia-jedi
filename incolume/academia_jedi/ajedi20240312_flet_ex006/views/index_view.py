@@ -1,7 +1,7 @@
 """Index View."""
 
 import flet as ft
-from views.Router import Router, DataStrategyEnum
+from views.Router import DataStrategyEnum, Router
 
 
 def indexview(router_data: Router | str | None = None) -> None:  # noqa: C901

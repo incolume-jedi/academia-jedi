@@ -8,8 +8,9 @@ TextField, Checkbox, Dropdown, ElevatedButton, etc.
 """
 
 # let's build a simple to-do app
-import flet as ft
 from logging import info
+
+import flet as ft
 
 
 def main(page: ft.Page) -> None:

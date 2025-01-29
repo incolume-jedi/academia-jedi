@@ -1,8 +1,8 @@
-from cryptography.fernet import Fernet
-import os
 import json
+import os
 
 from CreateConfig import CreateConfig
+from cryptography.fernet import Fernet
 
 
 class Config:

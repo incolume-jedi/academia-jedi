@@ -5,9 +5,9 @@ http://github.com/incolumepy-prospections/incolumepy.dataclass.
 """
 
 import logging
+from collections.abc import Iterator
 from itertools import chain
 from pathlib import Path
-from collections.abc import Iterator
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -19,7 +19,9 @@ class GSheet:
     """GSheet access."""
 
     def __init__(
-        self, credentials: Path | None = None, escopo: Iterator | None = None
+        self,
+        credentials: Path | None = None,
+        escopo: Iterator | None = None,
     ):
         """"""
         self.credentials: Path = credentials
@@ -82,7 +84,8 @@ class GSheet:
     @property
     def client_google(self):
         credenciais = ServiceAccountCredentials.from_json_keyfile_name(
-            self.credentials, self.escopo
+            self.credentials,
+            self.escopo,
         )
 
         # client_google

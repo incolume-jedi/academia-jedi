@@ -1,5 +1,4 @@
-from flet import Page, app, Theme, ThemeMode, colors
-
+from flet import Page, Theme, ThemeMode, app, colors
 from InfostoreApp import InfostoreApp
 
 

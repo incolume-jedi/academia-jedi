@@ -2,12 +2,11 @@
 
 __author__ = '@britodfbr'  # pragma: no cover
 
+import datetime as dt
 from typing import Self
 
 import pytz
-
 from config import settings
-import datetime as dt
 
 
 class Fruit2:

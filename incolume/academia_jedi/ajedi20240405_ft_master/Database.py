@@ -1,7 +1,8 @@
 import contextlib
-import mysql.connector
 from datetime import date, timedelta
+
 import bcrypt
+import mysql.connector
 
 
 class UserDatabase:
@@ -354,10 +355,10 @@ class ProductsDatabase:
         try:
             mycursor = self.connection.cursor()
             sql = """
-                SELECT CAST(products.idproducts AS CHAR) AS id_str, products.descr, category.category, brand.brand, FORMAT(products.sellprice, 2, 'de_DE') as sell, products.stock, products.minstock 
+                SELECT CAST(products.idproducts AS CHAR) AS id_str, products.descr, category.category, brand.brand, FORMAT(products.sellprice, 2, 'de_DE') as sell, products.stock, products.minstock
                 FROM products
                 JOIN category ON category.idcategory = products.idcategory
-                JOIN brand ON brand.idbrand = products.idbrand                
+                JOIN brand ON brand.idbrand = products.idbrand
                 ORDER BY descr
             """
             mycursor.execute(sql)
@@ -496,7 +497,7 @@ class ProductsDatabase:
         with contextlib.suppress(Exception):
             mycursor = self.connection.cursor()
             sql = """
-                SELECT CAST(products.idproducts AS CHAR) AS id_str, products.descr, category.category, brand.brand, FORMAT(products.sellprice, 2, 'de_DE') as sell, products.stock, products.minstock 
+                SELECT CAST(products.idproducts AS CHAR) AS id_str, products.descr, category.category, brand.brand, FORMAT(products.sellprice, 2, 'de_DE') as sell, products.stock, products.minstock
                 FROM products
                 JOIN category ON category.idcategory = products.idcategory
                 JOIN brand ON brand.idbrand = products.idbrand
@@ -603,7 +604,7 @@ class SalesDatabase:
                 date = %s,
                 total = %s
 
-                WHERE idsale = %s;    
+                WHERE idsale = %s;
             """
             mycursor.execute(sql, fulldataset)
             self.connection.commit()

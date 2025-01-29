@@ -1,7 +1,9 @@
-from typing import Protocol
 from abc import ABC, abstractmethod
-from pickle import dumps as pickle_dumps, loads as pickle_loads
-from json import dumps as json_dumps, loads as json_loads
+from json import dumps as json_dumps
+from json import loads as json_loads
+from pickle import dumps as pickle_dumps
+from pickle import loads as pickle_loads
+from typing import Protocol
 
 
 class SerializedFileHandler(ABC):

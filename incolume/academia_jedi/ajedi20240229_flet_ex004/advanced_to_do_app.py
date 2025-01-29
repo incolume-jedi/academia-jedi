@@ -1,8 +1,9 @@
 """Advanced To Do App."""
 
+from logging import info
+
 import flet as ft
 from custom_checkbox import CustomCheckBox
-from logging import info
 
 
 def main(page: ft.Page) -> None:  # noqa: C901

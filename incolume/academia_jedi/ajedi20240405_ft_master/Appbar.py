@@ -1,27 +1,28 @@
-from flet import (
-    UserControl,
-    Row,
-    Column,
-    Container,
-    Text,
-    IconButton,
-    icons,
-    colors,
-    padding,
-    FontWeight,
-    alignment,
-    MainAxisAlignment,
-    CrossAxisAlignment,
-    AppBar,
-    Icon,
-    PopupMenuButton,
-    PopupMenuItem,
-    Theme,
-    ThemeMode,
-)
 import datetime
 import locale
+
 from apscheduler.schedulers.blocking import BlockingScheduler
+from flet import (
+    AppBar,
+    Column,
+    Container,
+    CrossAxisAlignment,
+    FontWeight,
+    Icon,
+    IconButton,
+    MainAxisAlignment,
+    PopupMenuButton,
+    PopupMenuItem,
+    Row,
+    Text,
+    Theme,
+    ThemeMode,
+    UserControl,
+    alignment,
+    colors,
+    icons,
+    padding,
+)
 
 
 class Appbar(UserControl):

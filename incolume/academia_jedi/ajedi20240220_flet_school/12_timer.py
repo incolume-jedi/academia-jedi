@@ -1,9 +1,10 @@
 """Timer."""
 
-import flet as ft
-from time import sleep
-from logging import info
 import ast
+from logging import info
+from time import sleep
+
+import flet as ft
 
 
 def main(page: ft.Page) -> None:

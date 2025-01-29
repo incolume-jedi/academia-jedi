@@ -1,31 +1,31 @@
-from flet import (
-    UserControl,
-    Row,
-    Column,
-    Container,
-    Text,
-    TextField,
-    IconButton,
-    DataTable,
-    OutlinedButton,
-    DataRow,
-    DataColumn,
-    DataCell,
-    icons,
-    AlertDialog,
-    TextThemeStyle,
-    TextAlign,
-    VerticalDivider,
-    ListView,
-    TextButton,
-    MainAxisAlignment,
-    CrossAxisAlignment,
-)
-from PYBRDOC import CPF, Cnpj
 from datetime import date
 
 from Database import CustomerDatabase, SalesDatabase
+from flet import (
+    AlertDialog,
+    Column,
+    Container,
+    CrossAxisAlignment,
+    DataCell,
+    DataColumn,
+    DataRow,
+    DataTable,
+    IconButton,
+    ListView,
+    MainAxisAlignment,
+    OutlinedButton,
+    Row,
+    Text,
+    TextAlign,
+    TextButton,
+    TextField,
+    TextThemeStyle,
+    UserControl,
+    VerticalDivider,
+    icons,
+)
 from Notification import Notification
+from PYBRDOC import CPF, Cnpj
 from Validator import Validator
 
 

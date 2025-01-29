@@ -1,5 +1,6 @@
-import flet as ft
 import sqlite3
+
+import flet as ft
 
 
 # Classe principal do aplicativo To-Do.

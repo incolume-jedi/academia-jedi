@@ -1,10 +1,10 @@
 """Module."""
 
+import time
+from math import pi
 from typing import NoReturn
 
 import flet as ft
-from math import pi
-import time
 
 
 class AnimatedBox(ft.UserControl):

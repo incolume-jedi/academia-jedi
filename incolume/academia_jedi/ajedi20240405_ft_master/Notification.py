@@ -1,10 +1,10 @@
 from flet import (
-    UserControl,
+    DismissDirection,
     SnackBar,
+    SnackBarBehavior,
     Text,
     TextThemeStyle,
-    DismissDirection,
-    SnackBarBehavior,
+    UserControl,
 )
 
 

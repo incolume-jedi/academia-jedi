@@ -1,8 +1,8 @@
 """Main."""
 
 import flet as ft
-from views.routes import router
 from user_controls.app_bar import navbar
+from views.routes import router
 
 
 def main(page: ft.Page) -> None:

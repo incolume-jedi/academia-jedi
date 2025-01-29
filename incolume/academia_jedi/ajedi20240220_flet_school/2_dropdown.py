@@ -1,7 +1,8 @@
 """In this section, we will learn about Flet Dropdown Control."""
 
-import flet as ft
 from logging import info
+
+import flet as ft
 
 
 def main(page: ft.Page) -> None:

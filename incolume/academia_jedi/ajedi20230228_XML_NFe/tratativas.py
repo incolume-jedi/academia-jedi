@@ -1,12 +1,13 @@
 """Manipulação de NFe."""
 
+import logging
+import re
+import typing
 from collections import OrderedDict
 from dataclasses import asdict, astuple, dataclass, field
 from pathlib import Path
-import logging
+
 import pandas as pd
-import re
-import typing
 import xmltodict
 
 FILES_XML: typing.Final = list(

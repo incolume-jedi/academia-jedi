@@ -5,7 +5,6 @@ from pathlib import Path
 
 import xmltodict
 
-
 # abrir e ler o arquivo
 
 

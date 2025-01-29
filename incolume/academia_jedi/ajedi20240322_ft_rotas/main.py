@@ -2,8 +2,9 @@
 
 import logging
 from typing import NoReturn
-from router import route_change
+
 import flet as ft
+from router import route_change
 
 __author__ = '@britodfbr'  # pragma: no cover
 

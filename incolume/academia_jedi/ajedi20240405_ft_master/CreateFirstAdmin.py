@@ -1,18 +1,18 @@
+from datetime import date
+
+import bcrypt
+from Database import UserDatabase
 from flet import (
+    AlertDialog,
+    Column,
+    OutlinedButton,
+    Row,
+    Text,
+    TextAlign,
     TextField,
     icons,
-    Text,
-    OutlinedButton,
-    Column,
-    Row,
-    AlertDialog,
-    TextAlign,
 )
-
-from Database import UserDatabase
 from Notification import Notification
-from datetime import date
-import bcrypt
 
 
 class CreateFirstAdmin(AlertDialog):

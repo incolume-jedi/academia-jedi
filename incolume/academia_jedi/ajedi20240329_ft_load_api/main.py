@@ -2,15 +2,15 @@
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-from time import sleep
-from typing import NoReturn, Any
-import httpx
-from dataclasses import dataclass, field
-import flet as ft
 import datetime as dt
-
-from icecream import ic
 import logging
+from dataclasses import dataclass, field
+from time import sleep
+from typing import Any, NoReturn
+
+import flet as ft
+import httpx
+from icecream import ic
 
 logging.basicConfig(
     format='%(asctime)s;%(levelname)-8s;%(name)s;%(module)s;%(funcName)s;%(message)s',

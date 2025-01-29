@@ -1,7 +1,8 @@
 """In this section, we will build a simple announcement app."""
 
-import flet as ft
 from logging import info
+
+import flet as ft
 
 
 def main(page: ft.Page) -> None:

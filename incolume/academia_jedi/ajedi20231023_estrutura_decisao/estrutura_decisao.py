@@ -615,7 +615,7 @@ def exercicio27():
         comprar = True
         while comprar:
             produto = input(
-                f'Escolha o produto {list(produtos.keys())}: '
+                f'Escolha o produto {list(produtos.keys())}: ',
             ).casefold()
             if produto not in produtos:
                 print('Produto inválido, escolha novamente.')
@@ -701,7 +701,8 @@ def exercicio28():
         continuar = True
         forma_pagamento = ''
         forma_pagamento = checking(
-            'Informe a forma de pagamento', list(pagamentos.keys())
+            'Informe a forma de pagamento',
+            list(pagamentos.keys()),
         )
         carne_sel = checking('Qual carne selecionada', list(carnes.keys()))
         quantia = float(input('Quantos quilos? '))

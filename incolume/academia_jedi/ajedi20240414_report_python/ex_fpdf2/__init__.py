@@ -1,9 +1,10 @@
 """Module."""
 
+from inspect import stack
 from pathlib import Path
 from typing import NoReturn
+
 from fpdf import FPDF
-from inspect import stack
 
 __author__ = '@britodfbr'  # pragma: no cover
 

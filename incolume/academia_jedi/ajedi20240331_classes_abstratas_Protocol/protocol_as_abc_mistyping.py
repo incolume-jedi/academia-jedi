@@ -1,5 +1,5 @@
-from typing import Protocol, runtime_checkable
 import io
+from typing import Protocol, runtime_checkable
 
 
 @runtime_checkable

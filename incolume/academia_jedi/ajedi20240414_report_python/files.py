@@ -7,6 +7,7 @@ __author__ = '@britodfbr'  # pragma: no cover
 import logging
 from pathlib import Path
 from tempfile import gettempdir
+
 from icecream import ic
 
 

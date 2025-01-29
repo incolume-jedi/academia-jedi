@@ -5,8 +5,9 @@ baseado em https://youtu.be/phEWouTA6JU?si=swBsOtJ1--pmVcuz
 to run: flet run examples/ex002
 """
 
-import flet as ft
 from logging import info
+
+import flet as ft
 
 __author__ = '@britodfbr'  # pragma: no cover
 

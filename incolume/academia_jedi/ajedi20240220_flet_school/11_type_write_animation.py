@@ -1,8 +1,9 @@
 """Type Write Animation."""
 
-import flet as ft
 import time
 from logging import info
+
+import flet as ft
 
 
 class TypeWriterControl(ft.UserControl):

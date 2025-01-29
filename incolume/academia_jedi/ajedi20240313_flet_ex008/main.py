@@ -1,14 +1,14 @@
 """Módulo protótipo."""
 
+import logging
 from pathlib import Path
 
 import flet as ft
-import logging
 from config import settings
 from controllers.components import (
     first_name,
-    last_name,
     greetings,
+    last_name,
     popup_menu_item,
 )
 

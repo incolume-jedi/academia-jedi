@@ -1,5 +1,6 @@
-import flet as ft
 import sqlite3
+
+import flet as ft
 
 
 class LogApp:
@@ -19,7 +20,7 @@ class LogApp:
         self.new_day_2 = ft.Ref[ft.Dropdown]()
         self.observation = ft.Ref[ft.TextField]()
         self.db_execute(
-            'CREATE TABLE IF NOT EXISTS register(cidade, dia1, dia2, obs)'
+            'CREATE TABLE IF NOT EXISTS register(cidade, dia1, dia2, obs)',
         )
         self.page.title = 'Roteirização Logística'
         self.main_page()
@@ -56,7 +57,11 @@ class LogApp:
         self.add_bd(c='', d1='', d2='', o1='')
 
     def add_bd(
-        self, c, d1, d2, o1
+        self,
+        c,
+        d1,
+        d2,
+        o1,
     ):  # funcao que grava os dados coletados no banco
         c = self.city.capitalize()
         d1 = self.day
@@ -78,10 +83,9 @@ class LogApp:
     def result(self, e):
         self.e = e.control.value
         self.result = self.db_execute(
-            f"select * from register where cidade like '{self.e}%'"
+            f"select * from register where cidade like '{self.e}%'",
         )
         self.page.update()
-        return  # print(self.result)
 
     def new_city(self):
         return ft.Container(
@@ -91,7 +95,8 @@ class LogApp:
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                 controls=[
                     new_city_ := ft.TextField(
-                        ref=self.new_city_, hint_text='Nova cidade'
+                        ref=self.new_city_,
+                        hint_text='Nova cidade',
                     ),
                     new_day_ := ft.Dropdown(
                         ref=self.new_day_,
@@ -126,7 +131,8 @@ class LogApp:
                         max_lines=5,
                     ),
                     ft.ElevatedButton(
-                        text='Cadastrar', on_click=self.set_value
+                        text='Cadastrar',
+                        on_click=self.set_value,
                     ),
                 ],
             ),
@@ -139,10 +145,12 @@ class LogApp:
             alignment=ft.MainAxisAlignment.CENTER,
             controls=[
                 ft.TextField(
-                    hint_text='Digite a cidade', on_change=self.result
+                    hint_text='Digite a cidade',
+                    on_change=self.result,
                 ),
                 ft.FloatingActionButton(
-                    icon=ft.icons.NAVIGATE_NEXT_OUTLINED, on_click=self.result
+                    icon=ft.icons.NAVIGATE_NEXT_OUTLINED,
+                    on_click=self.result,
                 ),
             ],
         )

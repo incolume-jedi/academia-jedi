@@ -1,12 +1,12 @@
 """Prospecção do pacote aspose.words."""
 
-import aspose.words as aw
-from tempfile import NamedTemporaryFile
-from pathlib import Path
+import logging
 import platform
 import sys
-import logging
+from pathlib import Path
+from tempfile import NamedTemporaryFile
 
+import aspose.words as aw
 
 if platform.python_version() >= '3.12.0':
     msg = f'This module ({Path.cwd()}) not run on Python 3.12+!'

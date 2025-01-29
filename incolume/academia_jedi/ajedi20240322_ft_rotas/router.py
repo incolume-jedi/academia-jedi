@@ -5,7 +5,6 @@ from typing import NoReturn
 import flet as ft
 import page_views
 
-
 __author__ = '@britodfbr'  # pragma: no cover
 
 

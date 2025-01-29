@@ -8,11 +8,12 @@ import itertools
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 from collections import deque
+from collections.abc import Iterator
 from pathlib import Path
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-from collections.abc import Iterator
+# ruff: noqa: 201
 
 
 def example1():

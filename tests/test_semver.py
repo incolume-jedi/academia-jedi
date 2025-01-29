@@ -1,3 +1,5 @@
+"""Test for Module."""
+
 import re
 from pathlib import Path
 
@@ -29,7 +31,12 @@ def test_semver(entrance, expected):
 
 
 def test_version():
-    with Path(__file__).parents[1].joinpath('pyproject.toml').open(
-        'rb',
-    ) as file:
+    with (
+        Path(__file__)
+        .parents[1]
+        .joinpath('pyproject.toml')
+        .open(
+            'rb',
+        ) as file
+    ):
         assert __version__ == load(file)['tool']['poetry']['version']

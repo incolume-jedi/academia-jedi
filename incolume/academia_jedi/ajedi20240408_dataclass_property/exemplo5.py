@@ -17,7 +17,7 @@ class Color(Enum):
     BLUE: str = '#0000FF'
 
     def __repr__(self):
-        """repr."""
+        """Repr."""
         return f'{self.name}'
 
 
@@ -28,7 +28,7 @@ class VehicleCategory(Enum):
     CARGA = auto()
 
     def __repr__(self):
-        """repr."""
+        """Repr."""
         return f'{self.name}'
 
 
@@ -43,7 +43,7 @@ class VehicleType(Enum):
     SUV = auto()
 
     def __repr__(self):
-        """repr."""
+        """Repr."""
         return f'{self.name}'
 
 

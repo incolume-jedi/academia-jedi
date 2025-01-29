@@ -1,5 +1,4 @@
-from fastapi import FastAPI, APIRouter
-
+from fastapi import APIRouter, FastAPI
 
 # @asynccontextmanager
 # async def lifespan(_: FastAPI):

@@ -1,7 +1,8 @@
 """Página de ajuda."""
 
-import flet as ft
 from logging import info
+
+import flet as ft
 
 
 def main(page: ft.Page) -> None:  # noqa: C901

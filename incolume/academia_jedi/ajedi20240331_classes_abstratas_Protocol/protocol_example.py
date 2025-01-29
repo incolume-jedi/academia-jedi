@@ -1,4 +1,4 @@
-from typing import Protocol, NoReturn
+from typing import NoReturn, Protocol
 
 
 class Writable(Protocol):

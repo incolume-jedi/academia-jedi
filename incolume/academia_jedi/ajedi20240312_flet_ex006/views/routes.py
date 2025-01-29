@@ -1,10 +1,10 @@
 """Rotas."""
 
-from views.Router import Router, DataStrategyEnum
+from views.data_view import dataview
 from views.index_view import indexview
 from views.profile_view import profileview
+from views.Router import DataStrategyEnum, Router
 from views.settings_view import settingsview
-from views.data_view import dataview
 
 router = Router(DataStrategyEnum.QUERY)
 

@@ -1,31 +1,31 @@
+from ConfirmDialog import ConfirmDialog
+from Database import ProductsDatabase, SalesDatabase
 from flet import (
-    UserControl,
-    Row,
+    Card,
     Column,
     Container,
-    Text,
-    TextField,
-    IconButton,
-    DataTable,
-    DataRow,
-    DataColumn,
-    DataCell,
-    icons,
-    TextThemeStyle,
-    TextAlign,
-    VerticalDivider,
-    ListView,
-    colors,
     CrossAxisAlignment,
-    MainAxisAlignment,
-    FilePickerResultEvent,
-    Card,
+    DataCell,
+    DataColumn,
+    DataRow,
+    DataTable,
     Divider,
+    FilePickerResultEvent,
+    IconButton,
+    ListView,
+    MainAxisAlignment,
+    Row,
+    Text,
+    TextAlign,
+    TextField,
+    TextThemeStyle,
+    UserControl,
+    VerticalDivider,
+    colors,
+    icons,
 )
-from Database import ProductsDatabase, SalesDatabase
-from ConfirmDialog import ConfirmDialog
-from Reports import ProductsReport
 from Notification import Notification
+from Reports import ProductsReport
 from Validator import Validator
 
 

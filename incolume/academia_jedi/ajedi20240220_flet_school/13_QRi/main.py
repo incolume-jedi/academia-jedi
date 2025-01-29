@@ -1,11 +1,12 @@
 """Main."""
 
+import datetime
+from logging import info
+
+import cv2
 import flet as ft
 import qrcode
-import cv2
-import datetime
 from clear_qrs import clear_qr_codes
-from logging import info
 
 
 def main(page: ft.Page) -> None:

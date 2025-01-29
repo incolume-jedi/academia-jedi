@@ -1,33 +1,32 @@
+import asyncio
+from datetime import datetime
+
+from Database import ProductsDatabase, SalesDatabase
 from flet import (
-    UserControl,
-    Row,
+    Card,
     Column,
     Container,
-    Text,
-    TextField,
-    IconButton,
-    DataTable,
-    DataRow,
-    DataColumn,
     DataCell,
-    Switch,
-    icons,
-    colors,
-    TextThemeStyle,
-    TextAlign,
-    Card,
+    DataColumn,
+    DataRow,
+    DataTable,
     Divider,
+    IconButton,
     ListView,
+    Row,
+    Switch,
+    Text,
+    TextAlign,
+    TextField,
+    TextThemeStyle,
+    UserControl,
+    colors,
+    icons,
 )
-from datetime import datetime
-import asyncio
-
 from Notification import Notification
-from Validator import Validator
-from Database import ProductsDatabase
-from Database import SalesDatabase
 from SelectCustomer import SelectCustomer
 from SelectProduct import SelectProduct
+from Validator import Validator
 
 
 class RegisterSales(UserControl):

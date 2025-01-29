@@ -4,12 +4,12 @@ disponivel em https://github.com/ArjanCodes/examples/
 blob/main/2024/protocol/protocol_as_abc.py
 """
 
+import abc
+import json
 import logging
 from pathlib import Path
 from tempfile import gettempdir
 from typing import Protocol
-import abc
-import json
 
 
 class Writable(Protocol):
