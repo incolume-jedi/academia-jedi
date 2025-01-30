@@ -2,15 +2,13 @@
 
 import pytest
 import pytz
-
 import equality
 import formatly
 import agregate
 import datetime as dt
+from config import settings
 
 __author__ = '@britodfbr'  # pragma: no cover
-
-from config import settings
 
 
 @pytest.mark.parametrize(
@@ -183,20 +181,21 @@ def test_formatly_fruit2_desc(entrance, expected):
             ),
             '2.35Kg (2350g) de Apple em 1978-06-20T00:00:00-03:06',
             marks=pytest.mark.skip(
-                reason="AttributeError: 'str' object has no attribute 'isoformat'",
+                reason="AttributeError: 'str'"
+                " object has no attribute 'isoformat'",
             ),
         ),
     ],
 )
 def test_agregate_fruit3_desc(entrance, expected):
+    """Unit test."""
     assert f'{entrance:desc}' == expected
 
 
-@pytest.mark.skip(reason='comparação objeto e str')
 @pytest.mark.parametrize(
     'entrance fruits expected'.split(),
     [
-        (
+        pytest.param(
             'apple',
             (
                 agregate.Fruit3(
@@ -259,6 +258,9 @@ def test_agregate_fruit3_desc(entrance, expected):
             [
                 '2.35Kg (2350g) de Apple em 1978-06-20T00:01:23.456789-03:06',
                 '0.50Kg (500g) de Apple em 1978-06-20T00:01:23.456789-03:06',
+            ],
+            marks=[
+                pytest.mark.skip(reason='comparação objeto e str'),
             ],
         ),
     ],

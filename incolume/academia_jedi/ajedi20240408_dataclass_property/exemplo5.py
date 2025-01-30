@@ -6,6 +6,8 @@ from random import choice
 
 __author__ = '@britodfbr'  # pragma: no cover
 
+# ruff: noqa: S311
+
 
 class Color(Enum):
     """Color."""
@@ -33,7 +35,7 @@ class VehicleCategory(Enum):
 
 
 class VehicleType(Enum):
-    """Vehicle type"""
+    """Vehicle type."""
 
     MOTOCICLE = auto()
     VAN = auto()
@@ -49,6 +51,8 @@ class VehicleType(Enum):
 
 @dataclass
 class Vehicle:
+    """Vehicle class."""
+
     color: Color
     type: VehicleType
     category: VehicleCategory
@@ -58,6 +62,8 @@ class Vehicle:
 
 @dataclass
 class Garagem:
+    """Garagem class."""
+
     _content: list[Vehicle] = field(
         default_factory=list,
         init=False,
@@ -74,7 +80,7 @@ class Garagem:
         return self._content
 
     @content.setter
-    def content(self, value: Vehicle):
+    def content(self, value: Vehicle) -> None:
         """Content setter."""
         self._content.append(value)
 
@@ -95,7 +101,7 @@ def run():
     garage.content = next(vehicles)
     garage.content = next(vehicles)
     garage.content = next(vehicles)
-    print(garage)
+    print(garage)  # noqa: T201
 
 
 if __name__ == '__main__':  # pragma: no cover
