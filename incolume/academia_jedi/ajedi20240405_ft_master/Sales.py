@@ -1,3 +1,5 @@
+"""Module."""
+
 import contextlib
 
 from ConfirmDialog import ConfirmDialog
@@ -34,6 +36,7 @@ from Reports import SaleReport
 from Validator import Validator
 
 
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN201 ERA001 D101 D102 D107 E501 PLR2004
 class Sales(UserControl):
     def __init__(self, route):
         super().__init__()
@@ -261,14 +264,13 @@ class Sales(UserControl):
             ),
         )
 
-        content = Row(
+        return Row(
             expand=True,
             spacing=10,
             controls=[
                 page_content,
             ],
         )
-        return content
 
     def initialize(self):
         print('Initializing Sales Page')
@@ -555,7 +557,7 @@ class Sales(UserControl):
         mydb.connect()
         result = []
         for temp_data in data_to_update:
-            result.append(mydb.update_stock([temp_data[1], temp_data[4]]))
+            result.append(mydb.update_stock([temp_data[1], temp_data[4]]))  # noqa: PERF401
         mydb.close()
         if len(result) == len(data_to_update):
             Notification(

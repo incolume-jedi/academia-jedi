@@ -1,3 +1,5 @@
+"""Module."""
+
 from Appbar import Appbar
 from Config import Config
 from Customers import Customers
@@ -11,6 +13,8 @@ from RegisterSales import RegisterSales
 from Sales import Sales
 from SideMenu import SideMenu
 from Users import Users
+
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN001 ANN201 ERA001 D101 D102 D107 E501 PLR2004 BLE001 DTZ005 N802
 
 
 class InfostoreApp:

@@ -1,3 +1,5 @@
+"""Module."""
+
 from ConfirmDialog import ConfirmDialog
 from Database import ProductsDatabase, SalesDatabase
 from flet import (
@@ -27,6 +29,8 @@ from flet import (
 from Notification import Notification
 from Reports import ProductsReport
 from Validator import Validator
+
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN001 ANN201 ERA001 D101 D102 D107 E501 PLR2004 BLE001 DTZ005 N802
 
 
 class Products(UserControl):
@@ -208,14 +212,13 @@ class Products(UserControl):
             ),
         )
 
-        content = Row(
+        return Row(
             expand=True,
             spacing=10,
             controls=[
                 page_content,
             ],
         )
-        return content
 
     def initialize(self):
         print('Initializing Products Page')
@@ -442,7 +445,7 @@ class Products(UserControl):
         result = mydb.select_sold_history(id_product)
         mydb.close()
 
-        total = sum(map(lambda x: x[2], result))
+        total = sum(x[2] for x in result)
         self.text_total.value = f'R${Validator.format_to_currency(total)}'
         self.update()
         self.fill_in_history_table(result)

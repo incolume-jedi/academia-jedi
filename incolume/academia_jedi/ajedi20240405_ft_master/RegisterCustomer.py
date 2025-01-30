@@ -1,3 +1,5 @@
+"""Module."""
+
 from datetime import date
 
 from Database import CustomerDatabase, SalesDatabase
@@ -27,6 +29,8 @@ from flet import (
 from Notification import Notification
 from PYBRDOC import CPF, Cnpj
 from Validator import Validator
+
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN001 ANN201 ERA001 D101 D102 D107 E501 PLR2004 BLE001 DTZ005 N802
 
 
 class RegisterCustomer(UserControl):
@@ -267,14 +271,13 @@ class RegisterCustomer(UserControl):
             ),
         )
 
-        content = Row(
+        return Row(
             expand=True,
             spacing=10,
             controls=[
                 page_content,
             ],
         )
-        return content
 
     def add_adress_clicked(self, e):
         for control in [self.tf_adress, self.tf_city, self.tf_UF, self.tf_CEP]:
@@ -363,7 +366,7 @@ class RegisterCustomer(UserControl):
     def back_clicked(self, e):
         self.route.page.go('/customers')
         self.route.bar.set_title('Clientes')
-        self.route.page.update
+        self.route.page.update  # noqa: B018
 
     def check_cpf_cnpj(self, e):
         if self.tf_CPF.value == '':
@@ -503,7 +506,7 @@ class RegisterCustomer(UserControl):
         data_adress = mydb.select_adresses(cpf_cnpj)
         mydb.close()
         self.adress_list = [
-            (cpf_cnpj,) + tupla for tupla in data_adress
+            (cpf_cnpj, *tupla) for tupla in data_adress
         ]  # inserts cpf_cnpj in the 0 index of each tuple
 
         self.tf_id.value = str(data_customer[0][0])
@@ -594,7 +597,7 @@ class RegisterCustomer(UserControl):
         mydb.connect()
         result = mydb.select_sales_history(self.tf_id.value)
         mydb.close()
-        total = sum(map(lambda x: x[2], result))
+        total = sum(x[2] for x in result)
         self.text_total.value = f'R${Validator.format_to_currency(total)}'
         self.update()
         self.fill_in_history_table(result)

@@ -1,3 +1,5 @@
+"""Module."""
+
 from datetime import date, timedelta
 
 from Database import DashboardDatabase
@@ -41,6 +43,8 @@ from flet import (
     margin,
 )
 from Validator import Validator
+
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN001 ANN201 ERA001 D101 D102 D107 E501 PLR2004 BLE001 DTZ005 N802
 
 
 class Home(UserControl):
@@ -795,7 +799,7 @@ class Home(UserControl):
         mydb = DashboardDatabase(self.route)
         mydb.connect()
         result = mydb.select_most_profitable()
-        mydb.close
+        mydb.close()
 
         data_id = []
         data_value = []
@@ -867,7 +871,7 @@ class Home(UserControl):
         numb_of_customers, numb_of_customers_past = (
             mydb.select_numb_of_customers()
         )
-        mydb.close
+        mydb.close()
         return numb_of_customers, numb_of_customers_past
 
     def update_customer_card(self, numb_of_customers, numb_of_customers_past):

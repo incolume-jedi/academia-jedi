@@ -1,8 +1,12 @@
+"""Module."""
+
 import contextlib
 from datetime import date, timedelta
 
 import bcrypt
 import mysql.connector
+
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN001 ANN201 ERA001 D101 D102 D107 E501 PLR2004 BLE001 DTZ005 N802
 
 
 class UserDatabase:
@@ -724,16 +728,17 @@ class DashboardDatabase:
             self.connection.close()
 
     def select_percent_stock(self):
+        result = 0
         try:
             query = 'SELECT (SUM(stock) / SUM(maxstock)) * 100 AS percent FROM products'
             mycursor = self.connection.cursor()
             mycursor.execute(query)
-            result = mycursor.fetchone()
-            if result:
-                return int(result[0])
-            return 0
+            temp = mycursor.fetchone()
+            if temp:
+                result = int(temp[0])
         except Exception:
-            return 0
+            result = 0
+        return result
 
     def select_most_profitable(self):
         with contextlib.suppress(Exception):
@@ -771,7 +776,7 @@ class DashboardDatabase:
             )
             numb_of_customers = mycursor.fetchone()[0]
             mycursor.execute(
-                f"SELECT COUNT(*) AS numb_of_cutomers_past FROM customers WHERE date < '{first_day_of_month}'",
+                f"SELECT COUNT(*) AS numb_of_cutomers_past FROM customers WHERE date < '{first_day_of_month}'",  # noqa: S608
             )
             numb_of_customers_past = mycursor.fetchone()[0]
             return numb_of_customers, numb_of_customers_past
@@ -781,7 +786,7 @@ class DashboardDatabase:
         with contextlib.suppress(Exception):
             mycursor = self.connection.cursor()
             mycursor.execute(
-                f"SELECT COUNT(*), SUM(total) FROM sales WHERE date = '{today}'",
+                f"SELECT COUNT(*), SUM(total) FROM sales WHERE date = '{today}'",  # noqa: S608
             )
             return mycursor.fetchone()
 

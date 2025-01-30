@@ -1,3 +1,5 @@
+"""Module."""
+
 import asyncio
 
 from Database import CustomerDatabase
@@ -17,6 +19,8 @@ from flet import (
     TextField,
     icons,
 )
+
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN201 ERA001 D101 D102 D107 E501 PLR2004
 
 
 class SelectCustomer(AlertDialog):
