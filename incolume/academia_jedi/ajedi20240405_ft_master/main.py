@@ -4,7 +4,7 @@ from flet import Page, Theme, ThemeMode, app, colors
 from InfostoreApp import InfostoreApp
 
 
-def main(page: Page):
+def main(page: Page) -> None:
     """Main."""
     page.title = 'Infostore'
     page.window_min_height = 700
