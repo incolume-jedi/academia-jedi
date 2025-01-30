@@ -3,10 +3,14 @@
 from enum import Enum, auto
 from typing import NamedTuple
 
+from icecream import ic
+
 __author__ = '@britodfbr'  # pragma: no cover
 
 
 class TelefoneReference(Enum):
+    """Class TelefoneReference."""
+
     RESIDENCIAL = auto()
     COMERCIAL = auto()
     RECADO = auto()
@@ -17,6 +21,8 @@ class TelefoneReference(Enum):
 
 
 class TelefoneTipo(Enum):
+    """TelefoneTipo class."""
+
     FIXO: int = auto()
     MOVEL: int = auto()
 
@@ -26,6 +32,8 @@ class TelefoneTipo(Enum):
 
 
 class Telefone(NamedTuple):
+    """Telefone class."""
+
     ddd: str
     numero: str
     tipo: TelefoneTipo
@@ -42,7 +50,7 @@ class Pessoa(NamedTuple):
 
 def run():
     """Run it."""
-    # print(TelefoneTipo.MOVEL.__dict__, list(TelefoneTipo))
+    ic(TelefoneTipo.MOVEL.__dict__, list(TelefoneTipo))
     pessoa = Pessoa(
         'Bob',
         'Smith',
@@ -55,7 +63,7 @@ def run():
             ),
         ],
     )
-    print(pessoa)
+    ic(pessoa)
 
 
 if __name__ == '__main__':  # pragma: no cover

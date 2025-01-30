@@ -1,3 +1,5 @@
+"""Module."""
+
 from CreateFirstAdmin import CreateFirstAdmin
 from Database import UserDatabase
 from flet import (
@@ -20,6 +22,8 @@ from flet import (
     padding,
 )
 from Notification import Notification
+
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN001 ANN201 ERA001 D101 D102 D107 E501 PLR2004 BLE001 DTZ005 N802
 
 
 class Login(UserControl):
@@ -120,9 +124,7 @@ class Login(UserControl):
         mydb.connect()
         result = mydb.select_users_count()
         mydb.close()
-        if result == '0':
-            return False
-        return True
+        return result != '0'
 
     def create_admin(self):
         dialog = CreateFirstAdmin(self.route)

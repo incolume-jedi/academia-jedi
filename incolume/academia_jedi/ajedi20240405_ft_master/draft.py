@@ -1,3 +1,5 @@
+"""Module."""
+
 from flet import (
     Column,
     Container,
@@ -8,15 +10,20 @@ from flet import (
     VerticalDivider,
 )
 
+# ruff: noqa: T201
+
 
 class ClassName(UserControl):
+    """Class."""
+
     def __init__(self, route):
+        """Init it."""
         super().__init__()
         self.route = route
 
     def build(self):
+        """Build it."""
         page_content = Container(
-            # bgcolor='red',
             padding=0,
             border_radius=5,
             expand=True,
@@ -24,13 +31,11 @@ class ClassName(UserControl):
                 controls=[
                     # main body
                     Container(
-                        # bgcolor='white',
                         expand=True,
                         content=Row(
                             vertical_alignment=CrossAxisAlignment.START,
                             controls=[
                                 Container(
-                                    # bgcolor='red',
                                     expand=5,
                                     border_radius=5,
                                     padding=15,
@@ -41,7 +46,6 @@ class ClassName(UserControl):
                                 ),
                                 VerticalDivider(width=1),
                                 Container(
-                                    # bgcolor='red',
                                     expand=2,
                                     border_radius=5,
                                     padding=15,
@@ -63,15 +67,15 @@ class ClassName(UserControl):
             ),
         )
 
-        content = Row(
+        return Row(
             expand=True,
             spacing=10,
             controls=[
                 page_content,
             ],
         )
-        return content
 
     def initialize(self):
+        """Init it."""
         print("Initializing 'YourClassName'")
         # Implement initializing of the page here

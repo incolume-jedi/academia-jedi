@@ -1,3 +1,5 @@
+"""Module."""
+
 from CategoryBrand import Brand, Category
 from Database import ProductsDatabase, SalesDatabase
 from flet import (
@@ -26,6 +28,8 @@ from flet import (
 )
 from Notification import Notification
 from Validator import Validator
+
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN001 ANN201 ERA001 D101 D102 D107 E501 PLR2004 BLE001 DTZ005 N802
 
 
 class RegisterProducts(UserControl):
@@ -282,14 +286,13 @@ class RegisterProducts(UserControl):
             ),
         )
 
-        content = Row(
+        return Row(
             expand=True,
             spacing=10,
             controls=[
                 page_content,
             ],
         )
-        return content
 
     def initialize(self):
         print('Initializing Register Products Page')
@@ -373,10 +376,7 @@ class RegisterProducts(UserControl):
         ):
             return
 
-        if cost != 0:
-            margin = (selling_price - cost) / cost * 100
-        else:
-            margin = 100
+        margin = (selling_price - cost) / cost * 100 if cost != 0 else 100
         self.tf_costs.value = Validator.format_to_currency(cost)
         self.tf_selling_price.value = Validator.format_to_currency(
             selling_price,
@@ -574,7 +574,7 @@ class RegisterProducts(UserControl):
         result = mydb.select_sold_history(self.tf_id.value)
         mydb.close()
 
-        total = sum(map(lambda x: x[2], result))
+        total = sum(x[2] for x in result)
         self.text_total.value = f'R${Validator.format_to_currency(total)}'
         self.update()
         self.fill_in_history_table(result)

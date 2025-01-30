@@ -1,3 +1,5 @@
+"""Module."""
+
 from datetime import datetime
 
 from reportlab.lib import colors
@@ -17,6 +19,7 @@ from reportlab.platypus import (
 )
 
 
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN001 ANN201 ERA001 D101 D102 D107 E501 PLR2004 BLE001 DTZ005 N802
 class CustomerReport:
     def __init__(self, filename, data) -> None:
         self.data = data
@@ -46,9 +49,9 @@ class CustomerReport:
         try:
             elems = [self.table]
             self.pdf.build(elems)
-            return 'success', None
         except Exception as e:
             return 'error', e
+        return 'success', None
 
 
 class ProductsReport:
@@ -90,9 +93,9 @@ class ProductsReport:
             story.append(self.table)
 
             self.pdf.build(story)
-            return 'success', self.filename
         except Exception as e:
             return 'error', e
+        return 'success', self.filename
 
 
 class SaleReport:
@@ -122,17 +125,21 @@ class SaleReport:
 
     def __init__(
         self,
-        filename,
-        header_data,
-        sale_data,
-        customer_data,
-        products_data,
+        kwargs,
     ) -> None:
-        self.filename = filename
-        self.header_data = header_data
-        self.sale_data = sale_data
-        self.customer_data = customer_data
-        self.products_data = products_data
+        """Init it.
+
+        filename: Path,
+        header_data: map,
+        sale_data: map,
+        customer_data: map,
+        products_data: map,
+        """
+        self.filename = kwargs.get('filename')
+        self.header_data = kwargs.get('header_data')
+        self.sale_data = kwargs.get('sale_data')
+        self.customer_data = kwargs.get('customer_data')
+        self.products_data = kwargs.get('products_data')
         self.pdf = None
         self.numb_pages = int
 
@@ -217,7 +224,7 @@ class SaleReport:
         ])
 
         for products in products_data:
-            products_table.append(products)
+            products_table = products[:]
         table = Table(products_table)
 
         style = TableStyle([
@@ -311,6 +318,6 @@ class SaleReport:
                 onFirstPage=self.draw_footer,
                 onLaterPages=self.draw_footer,
             )
-            return 'success', None
         except Exception as e:
             return 'error', e
+        return 'success', None

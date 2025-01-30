@@ -40,7 +40,7 @@ class Home(ft.UserControl):
         return self._count
 
     @count.setter
-    def count(self, value: int):
+    def count(self, value: int) -> None:
         """Count value."""
         self._count = max(value, 10)
 
@@ -72,7 +72,8 @@ class Home(ft.UserControl):
                                         ),
                                         ft.Text(f'UID: {user.get("uid")}'),
                                         ft.Text(
-                                            f'Username: {user.get("username")}',
+                                            'Username: '
+                                            f'{user.get("username")}',
                                         ),
                                         ft.Text(f'Email: {user.get("email")}'),
                                     ]),

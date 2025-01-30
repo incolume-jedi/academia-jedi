@@ -1,3 +1,5 @@
+"""Module."""
+
 import asyncio
 from datetime import datetime
 
@@ -27,6 +29,8 @@ from Notification import Notification
 from SelectCustomer import SelectCustomer
 from SelectProduct import SelectProduct
 from Validator import Validator
+
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN001 ANN201 ERA001 D101 D102 D107 E501 PLR2004 BLE001 DTZ005 N802
 
 
 class RegisterSales(UserControl):
@@ -349,14 +353,13 @@ class RegisterSales(UserControl):
             ),
         )
 
-        content = Row(
+        return Row(
             expand=True,
             spacing=10,
             controls=[
                 page_content,
             ],
         )
-        return content
 
     def initialize(self):
         print('Initializing Register Sales Page')
@@ -400,7 +403,7 @@ class RegisterSales(UserControl):
         self.tf_id_sale.value = self.sale_list_to_register.pop(0)
         self.tf_customer.data = self.sale_list_to_register[0]
         self.tf_date.value = self.sale_list_to_register[1]
-        date_object = datetime.strptime(self.tf_date.value, '%d/%m/%Y')
+        date_object = datetime.strptime(self.tf_date.value, '%d/%m/%Y')  # noqa: DTZ007
         formatted_date = datetime.strftime(date_object, '%Y%m%d')
         self.sale_list_to_register[1] = formatted_date
         self.tf_total_sale.value = Validator.format_to_currency(
@@ -421,7 +424,7 @@ class RegisterSales(UserControl):
         self.route.page.dialog = dialog
         dialog.open = True
         self.route.page.update()
-        asyncio.create_task(dialog.verify_data())
+        asyncio.create_task(dialog.verify_data())  # noqa: RUF006
         await dialog.verify_data()
         if dialog.data == 'back':
             return
@@ -555,11 +558,11 @@ class RegisterSales(UserControl):
             self.tf_quantity2.error_text = ''
             self.clear_calcs()
             return None
-        MIN_QUANTITY = 1
+        min_quantity = 1
         final_quantity = Validator.format_to_int(quantity)
         if (
             not isinstance(final_quantity, int)
-            or final_quantity < MIN_QUANTITY
+            or final_quantity < min_quantity
         ):
             self.btn_include.disabled = True
             self.tf_quantity2.error_text = 'Valor Inválido!'
@@ -857,9 +860,7 @@ class RegisterSales(UserControl):
     def update_stock(self, data):
         mydb = ProductsDatabase(self.route)
         mydb.connect()
-        result = []
-        for temp_data in data:
-            result.append(mydb.update_stock(temp_data))
+        result = [mydb.update_stock(temp_data) for temp_data in data]
         mydb.close()
 
         if len(result) == len(data):

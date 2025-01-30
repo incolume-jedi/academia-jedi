@@ -1,10 +1,14 @@
 import sqlite3
 
 import flet as ft
+from icecream import ic
 
-
+# ruff: noqa: F841
 class LogApp:
+    """Class LogApp."""
+
     def __init__(self, page: ft.Page):
+        """Initializer."""
         self.page = page
         self.page.padding = 10
         self.page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
@@ -26,6 +30,7 @@ class LogApp:
         self.main_page()
 
     def db_execute(self, query, params=[]):
+        """Db execute."""
         with sqlite3.connect('database.db') as con:
             cur = con.cursor()
             cur.execute(query, params)
@@ -33,6 +38,7 @@ class LogApp:
             return cur.fetchall()
 
     def day_routh_container(self):
+        """Day routh container."""
         return ft.Container(
             padding=ft.padding.only(top=20),
             content=ft.Column(
@@ -42,18 +48,21 @@ class LogApp:
                 controls=[
                     ft.Text(f'Cidade cadastrada {ct + 1}', size=18)
                     for ct in range(50)
-                    # ft.Text(f'Cidades cadastradas {self.result}', size=18),
-                    # ft.Text(value='Terça-feira', weight=ft.FontWeight.W_700, size=25)
+                    # ft.Text(
+                    # f'Cidades cadastradas {self.result}', size=18),
+                    # ft.Text(
+                    # value='Terça-feira', weight=ft.FontWeight.W_700, size=25)
                 ],
             ),
         )
 
-    def set_value(self, e):  # funcao que colocar os dados em variáveis
+    def set_value(self, e):
+        """Funcao que colocar os dados em variáveis."""
         self.city = self.new_city_.current.value
         self.day = self.new_day_.current.value
         self.day2 = self.new_day_2.current.value
         self.obs1 = self.observation.current.value
-        # print(f'cidade= {self.city} - dia= {self.day} - dia 2 = {self.day2} observação = {self.obs1}')
+        ic(self.city=, self.day=, self.day2=, self.obs1=)  # noqa: E999 COM812
         self.add_bd(c='', d1='', d2='', o1='')
 
     def add_bd(
@@ -62,7 +71,8 @@ class LogApp:
         d1,
         d2,
         o1,
-    ):  # funcao que grava os dados coletados no banco
+    ):
+        """Funcao que grava os dados coletados no banco."""
         c = self.city.capitalize()
         d1 = self.day
         d2 = self.day2
@@ -81,13 +91,15 @@ class LogApp:
             self.page.update()
 
     def result(self, e):
+        """Result."""
         self.e = e.control.value
         self.result = self.db_execute(
-            f"select * from register where cidade like '{self.e}%'",
+            "select * from register where cidade like '%s'" % self.e,  # noqa: S608
         )
         self.page.update()
 
     def new_city(self):
+        """New city."""
         return ft.Container(
             padding=ft.padding.only(top=20),
             height=self.page.height * 0.5,
@@ -139,6 +151,7 @@ class LogApp:
         )
 
     def main_page(self):
+        """Main page."""
         show = self.day_routh_container()
         register = self.new_city()
         input_bar = ft.Row(

@@ -6,9 +6,13 @@ from typing import Union
 
 from dataclass_wizard import property_wizard
 
+# ruff: noqa: S101 T201 ERA001 PLR2004
+
 
 @dataclass
 class Vehicle(metaclass=property_wizard):
+    """Vehicle class."""
+
     wheels: Union[int, str] = None
     # Uncomment the field below if you want to make your IDE a bit happier.
     # Remember to set an initial value `x` as needed, via `default=x`.
@@ -16,10 +20,12 @@ class Vehicle(metaclass=property_wizard):
 
     @property
     def wheels(self) -> int:
+        """Property."""
         return self._wheels
 
     @wheels.setter
-    def wheels(self, wheels: Union[int, str]):
+    def wheels(self, wheels: Union[int, str]) -> None:
+        """Property setter."""
         self._wheels = int(wheels)
 
 

@@ -1,3 +1,5 @@
+"""Module."""
+
 from datetime import date
 
 import bcrypt
@@ -29,6 +31,7 @@ from flet import (
 from Notification import Notification
 
 
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN201 ERA001 D101 D107
 class Users(UserControl):
     def __init__(self, route):
         super().__init__()
@@ -136,6 +139,7 @@ class Users(UserControl):
         self.label = ''
 
     def build(self):
+        """Build it."""
         self.users_content = Container(
             # bgcolor='red',
             padding=0,
@@ -213,10 +217,12 @@ class Users(UserControl):
         return self.content
 
     def on_keyboard(self, e: KeyboardEvent):
+        """On keyboard."""
         if e.key == 'Tab' and self.route.page.route == '/users':
             self.next_field[self.label]()
 
     def clean_text_fields(self):
+        """Clean fields."""
         for control in [
             self.tf_name,
             self.tf_user,
@@ -232,11 +238,13 @@ class Users(UserControl):
         self.update()
 
     def create_hash(self, password):
+        """Create hash."""
         salt = bcrypt.gensalt()
         hashed_pass = bcrypt.hashpw(password.encode('utf-8'), salt)
         return hashed_pass.decode('utf-8')
 
     def register_user(self, e):
+        """Register."""
         today = date.today()
         form_date = today.strftime('%Y-%m-%d')
         hashed_pass = self.create_hash(self.tf_pass1.value)
@@ -271,6 +279,7 @@ class Users(UserControl):
         self.route.page.update()
 
     def fill_in_table_users(self):
+        """Fill."""
         self.dt_users.rows.clear()
         mydb = UserDatabase(self.route)
         mydb.connect()
@@ -309,6 +318,7 @@ class Users(UserControl):
         self.dt_users.update()
 
     def initialize(self):
+        """Init."""
         print("Initializing Users's Page")
         self.btn_register_user.disabled = True
         self.tf_find_user.value = ''
@@ -322,6 +332,7 @@ class Users(UserControl):
         self.update()
 
     def analyze_register_user(self, e):
+        """Analyze."""
         if (
             self.tf_name.value == ''
             and self.tf_user.value == ''
@@ -370,6 +381,7 @@ class Users(UserControl):
         self.update()
 
     def edit_clicked(self, e):
+        """Edit."""
         mydb = UserDatabase(self.route)
         mydb.connect()
         result = mydb.select_one_user(e.control.data[0])
@@ -386,12 +398,14 @@ class Users(UserControl):
         self.update()
 
     def btn_save_edit_clicked(self, e):
+        """Save."""
         if not self.btn_cancel_edition.visible:
             self.register_user(e)
         else:
             self.update_user(e)
 
     def update_user(self, e):
+        """Update user."""
         t = date.today()
         today = t.strftime('%Y-%m-%d')
         hashed_pass = self.create_hash(self.tf_pass1.value)
@@ -426,6 +440,7 @@ class Users(UserControl):
         self.route.page.update()
 
     def edit_cancelled(self, e):
+        """Edit cancelled."""
         self.new_user_text.value = 'Novo Usuário'
         self.btn_register_user.text = 'Cadastrar'
         self.btn_cancel_edition.visible = False
@@ -434,9 +449,11 @@ class Users(UserControl):
         self.update()
 
     def get_user_to_be_deleted(self, e):
+        """Get user."""
         return e.control.data[1]
 
     def delete_clicked(self, e):
+        """Delete clicked."""
         name = self.get_user_to_be_deleted(e).upper()
         if name == self.route.config.user_name:
             Notification(
@@ -458,6 +475,7 @@ class Users(UserControl):
         self.route.page.update()
 
     def delete_user(self, id):
+        """Delete user."""
         mydb = UserDatabase(self.route)
         mydb.connect()
         result = mydb.delete_user(id)
@@ -478,9 +496,11 @@ class Users(UserControl):
             ).show_message()
 
     def on_enter_fields(self, e):
+        """Function."""
         self.label = e.control.label
 
     def find_user(self, e):
+        """Find user."""
         if self.tf_find_user.value == '':
             self.fill_in_table_users()
             return

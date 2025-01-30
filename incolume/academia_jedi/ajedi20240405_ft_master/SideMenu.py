@@ -1,3 +1,5 @@
+"""Module."""
+
 from flet import (
     Container,
     Icon,
@@ -13,6 +15,7 @@ from flet import (
 from SetGeneralConfig import SetGeneralConfig
 
 
+# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN201 ERA001 D101 D102 D107 E501 PLR2004
 class SideMenu(UserControl):
     def __init__(self, route):
         super().__init__()

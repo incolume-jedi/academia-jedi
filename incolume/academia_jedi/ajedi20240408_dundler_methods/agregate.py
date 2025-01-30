@@ -20,12 +20,12 @@ class Fruit3:
         self.__date: self.date
 
     @property
-    def date(self):
+    def date(self) -> None:
         """Get date."""
         return self.__date.isoformat()
 
     @date.setter
-    def date(self, value: dt.datetime):
+    def date(self, value: dt.datetime) -> None:
         """Set date."""
         self.__date = value
 
@@ -40,7 +40,7 @@ class Fruit3:
                     f' {self.name} em {self.date}'
                 )
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """Dundler repr."""
         o = copy(self)
         return f'{o:desc}'
@@ -48,6 +48,8 @@ class Fruit3:
 
 @dataclass
 class Basket:
+    """Basket class."""
+
     content: list[Fruit3]
 
     def __getitem__(self, item):
