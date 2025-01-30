@@ -5,9 +5,13 @@ __author__ = '@britodfbr'  # pragma: no cover
 from dataclasses import dataclass, field
 from typing import Union
 
+# ruff: noqa: S101 T201 ERA001 PLR2004
+
 
 @dataclass
 class Vehicle:
+    """Vehicle class."""
+
     wheels: Union[int, str] = 0
     _wheels: int | str = field(default='', init=False, repr=False)
 
@@ -16,10 +20,12 @@ class Vehicle:
 
     @property
     def wheels(self) -> int:
+        """Property."""
         return self._wheels
 
     @wheels.setter
-    def wheels(self, wheels: Union[int, str]):
+    def wheels(self, wheels: Union[int, str]) -> None:
+        """Property setter."""
         self._wheels = 0 if isinstance(wheels, property) else int(wheels)
 
 

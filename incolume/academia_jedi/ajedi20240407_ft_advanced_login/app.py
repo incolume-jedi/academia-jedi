@@ -7,14 +7,19 @@ from typing import NoReturn
 import flet as ft
 
 
+# ruff: noqa: C901 FBT003 PLR2004 ARG002
 class AnimatedBox(ft.UserControl):
+    """Class."""
+
     def __init__(self, border_color, bg_color, rotate_angle):
+        """Init it."""
         self.border_color = border_color
         self.bg_color = bg_color
         self.rotate_angle = rotate_angle
         super().__init__()
 
     def build(self):
+        """Build it."""
         return ft.Container(
             width=48,
             height=48,
@@ -27,11 +32,15 @@ class AnimatedBox(ft.UserControl):
 
 
 class SignInButton(ft.UserControl):
+    """Class."""
+
     def __init__(self, btn_name):
+        """Initializer."""
         self.btn_name = btn_name
         super().__init__()
 
     def build(self):
+        """Build it."""
         return ft.Container(
             content=ft.ElevatedButton(
                 content=ft.Text(
@@ -55,22 +64,29 @@ class SignInButton(ft.UserControl):
 
 
 class UserInputField(ft.UserControl):
+    """UserInputField class."""
+
     def __init__(
         self,
-        icon_name,
-        text_hint,
-        hide: bool,
-        function_emails: bool,
-        function_check: bool,
+        kwargs: dict[str, str],
     ):
-        self.icon_name = icon_name
-        self.text_hint = text_hint
-        self.hide = hide
-        self.function_emails = function_emails
-        self.function_check = function_check
+        """Initializer.
+
+        icon_name: str
+        text_hint: str
+        hide: bool
+        function_emails: bool
+        function_check: bool
+        """
+        self.icon_name = kwargs.get('icon_name')
+        self.text_hint = kwargs.get('text_hint')
+        self.hide = kwargs.get('hide')
+        self.function_emails = kwargs.get('function_emails')
+        self.function_check = kwargs.get('function_check')
         super().__init__()
 
     def return_email_prefix(self, e):
+        """Return email."""
         email = self.controls[0].content.controls[1].value
         if e.control.data in email:
             pass
@@ -84,6 +100,7 @@ class UserInputField(ft.UserControl):
             self.update()
 
     def prefix_email_containers(self):
+        """Prefix email container."""
         email_labels = ['@gmail.com', '@hotmail.com']
         label_title = ['GMAIL', 'MAIL']
         _row = ft.Row(spacing=1, alignment=ft.MainAxisAlignment.END)
@@ -110,6 +127,7 @@ class UserInputField(ft.UserControl):
         )
 
     def off_focus_input_check(self):
+        """Off focus."""
         return ft.Container(
             opacity=0,
             offset=ft.transform.Offset(0, 0),
@@ -126,6 +144,7 @@ class UserInputField(ft.UserControl):
         )
 
     def get_prefix_emails(self, e):
+        """Get prefix email."""
         if self.function_emails:
             email = self.controls[0].content.controls[1].value
             if e.data:
@@ -154,6 +173,7 @@ class UserInputField(ft.UserControl):
             pass
 
     def get_green_check(self, e):
+        """Get check."""
         if self.function_check:
             email = self.controls[0].content.controls[1].value
             password = self.controls[0].content.controls[1].password
@@ -184,6 +204,7 @@ class UserInputField(ft.UserControl):
             pass
 
     def build(self):
+        """Build it."""
         return ft.Container(
             width=320,
             height=40,

@@ -6,6 +6,7 @@ import flet as ft
 
 __author__ = '@LineIndent'  # pragma: no cover
 
+# ruff: noqa: FBT001 FBT003
 
 # Define a final class to handle data between controls
 # Some dumy data to filll out the table
@@ -165,9 +166,7 @@ class Header(ft.Container):
             # we also handle case sensitivity by setting
             # everything to lower case, i.e, lower()
             data_rows.visible = (
-                True
-                if e.control.value.lower() in data_cell.content.value.lower()
-                else False
+                e.control.value.lower() in data_cell.content.value.lower()
             )
 
             data_rows.update()
