@@ -10,7 +10,7 @@ from incolume.academia_jedi import __version__, load
 __author__ = '@britodfbr'  # pragma: no cover
 
 
-@pytest.mark.parametrize('entrance expected'.split(), ((__version__, True),))
+@pytest.mark.parametrize('entrance expected'.split(), [(__version__, True)])
 def test_semver(entrance, expected):
     """Test for semantic versioning.
 
@@ -31,6 +31,7 @@ def test_semver(entrance, expected):
 
 
 def test_version():
+    """Test version."""
     with (
         Path(__file__)
         .parents[1]
