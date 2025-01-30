@@ -1,3 +1,5 @@
+"""Module."""
+
 import json
 
 import mysql.connector
@@ -12,6 +14,8 @@ from flet import (
     TextField,
 )
 from Notification import Notification
+
+# ruff: noqa: A002, ANN001, ANN201, ARG002, BLE001, C901, D101, D102, D107, DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
 
 
 class CreateConfig(AlertDialog):
@@ -68,7 +72,7 @@ class CreateConfig(AlertDialog):
 
     def write_file(self, key, encrypted_data):
         try:
-            with open('data.bin', 'wb') as file:
+            with open('data.bin', 'wb') as file:  # noqa: PTH123
                 file.write(key)
                 file.write(b'\n')
                 file.write(encrypted_data)
@@ -106,7 +110,15 @@ class CreateConfig(AlertDialog):
 
     def save_bd_config(self, e):
         config_dict = f"""
-            {{"host": "{self.tf_host.value}", "user": "{self.tf_user.value}", "passwd": "{self.tf_passwd.value}", "database": "{self.tf_database.value}", "port": "{self.tf_port.value}"}}
+            {
+            {
+                'host': '{self.tf_host.value}',
+                'user': '{self.tf_user.value}',
+                'passwd': '{self.tf_passwd.value}',
+                'database': '{self.tf_database.value}',
+                'port': '{self.tf_port.value}',
+            }
+        }
         """
         if self.test_connection(config_dict):
             key = self.generate_key()

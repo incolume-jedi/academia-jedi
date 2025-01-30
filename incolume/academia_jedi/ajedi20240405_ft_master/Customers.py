@@ -1,3 +1,5 @@
+"""Module."""
+
 from ConfirmDialog import ConfirmDialog
 from Database import CustomerDatabase, SalesDatabase
 from flet import (
@@ -26,6 +28,8 @@ from flet import (
 from Notification import Notification
 from Reports import CustomerReport
 from Validator import Validator
+
+# ruff: noqa: A002, ANN001, ANN201, ARG002, BLE001, C901, D101, D102, D107, DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
 
 
 class Customers(UserControl):
@@ -226,14 +230,13 @@ class Customers(UserControl):
             ),
         )
 
-        content = Row(
+        return Row(
             expand=True,
             spacing=10,
             controls=[
                 customers_content,
             ],
         )
-        return content
 
     def new_customer_clicked(self, e):
         self.route.page.go('/register_customer')
@@ -468,7 +471,7 @@ class Customers(UserControl):
         mydb.connect()
         result = mydb.select_sales_history(id_customer)
         mydb.close()
-        total = sum(map(lambda x: x[2], result))
+        total = sum(x[2] for x in result)
         self.text_total.value = f'R${Validator.format_to_currency(total)}'
         self.update()
         self.fill_in_history_table(result)

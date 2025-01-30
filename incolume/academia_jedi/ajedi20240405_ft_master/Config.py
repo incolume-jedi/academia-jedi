@@ -1,8 +1,12 @@
+"""Module."""
+
 import json
 import os
 
 from CreateConfig import CreateConfig
 from cryptography.fernet import Fernet
+
+# ruff: noqa: A002, ANN001, ANN201, ARG002, BLE001, C901, D101, D102, D107, DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
 
 
 class Config:
@@ -23,7 +27,7 @@ class Config:
         self.company_email = 'E-mail da sua Empresa aqui'
 
     def read_file(self):
-        with open('data.bin', 'rb') as file:
+        with open('data.bin', 'rb') as file:  # noqa: PTH123
             readed_key = file.readline().rstrip()
             readed_data = file.read()
         return readed_data, readed_key
@@ -55,7 +59,7 @@ class Config:
         self.route.page.update()
 
     def initialize(self):
-        if os.path.exists('data.bin'):
+        if os.path.exists('data.bin'):  # noqa: PTH110
             readed_data, readed_key = self.read_file()
             decrypted_data = self.decrypt_data(readed_data, readed_key)
             config_dict = json.loads(decrypted_data)
