@@ -29,7 +29,8 @@ class ToDo:
         self.main_page()
 
     # Função para executar consultas no banco de dados.
-    def db_execute(self, query, params=[]):
+    def db_execute(self, query, params=None):
+        params = params or []
         with sqlite3.connect('database.db') as con:
             cur = con.cursor()
             cur.execute(query, params)
@@ -89,7 +90,7 @@ class ToDo:
                     ft.Checkbox(
                         label=res[0],
                         on_change=self.checked,
-                        value=True if res[1] == 'complete' else False,
+                        value=res[1] == 'complete',
                     )
                     for res in self.results
                     if res

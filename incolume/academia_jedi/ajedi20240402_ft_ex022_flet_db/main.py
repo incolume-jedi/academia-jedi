@@ -1,3 +1,5 @@
+"""Module."""
+
 from datatable import calldb, mytable, tb
 from flet import *
 
@@ -24,7 +26,8 @@ def main(page: Page):
             # INPUT TO DATABASE
             c = conn.cursor()
             c.execute(
-                'INSERT INTO users (name,age,contact,email,address,gender) VALUES(?,?,?,?,?,?)',
+                'INSERT INTO users (name,age,contact,email,address,gender)'
+                ' VALUES(?,?,?,?,?,?)',
                 (
                     name.value,
                     age.value,

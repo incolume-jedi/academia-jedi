@@ -23,7 +23,7 @@ def i(*args: int, **kwargs: int) -> dict:
     return {'args': args, **kwargs}
 
 
-def j(a: int, /, *args: int, **kwargs: int) -> dict:  # noqa: ARG001
+def j(a: int, /, *args: int, **kwargs: int) -> dict:
     """Funct."""
     return {'args': args, **kwargs}
 

@@ -36,7 +36,7 @@ class PickleHandler(SerializedFileHandler):
         return pickle_dumps(data)
 
     def deserialize(self, data):
-        return pickle_loads(data)
+        return pickle_loads(data)  # noqa: S301
 
 
 class JSONHandler(SerializedFileHandler):

@@ -125,7 +125,7 @@ def calldb():
     print(users)
     if users != '':
         keys = ['id', 'name', 'contact', 'age', 'gender', 'email', 'address']
-        result = [dict(zip(keys, values)) for values in users]
+        result = [dict(zip(keys, values, strict=False)) for values in users]
         for x in result:
             tb.rows.append(
                 DataRow(

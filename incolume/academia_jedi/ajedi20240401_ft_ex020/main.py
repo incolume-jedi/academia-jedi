@@ -16,7 +16,7 @@ def main(page: ft.Page) -> NoReturn:
 
         with sqlite3.connect('./database.db') as db:
             dados = db.execute(
-                f'SELECT * FROM funcionarios'
+                f'SELECT * FROM funcionarios'  # noqa: S608
                 f" WHERE lower(nome) LIKE '%{nome}%' ",
             )
 

@@ -1,3 +1,5 @@
+"""Module."""
+
 import abc
 from typing import Protocol
 
