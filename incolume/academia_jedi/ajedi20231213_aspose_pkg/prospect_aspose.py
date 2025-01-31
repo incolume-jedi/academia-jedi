@@ -10,7 +10,7 @@ import aspose.words as aw
 
 if platform.python_version() >= '3.12.0':
     msg = f'This module ({Path.cwd()}) not run on Python 3.12+!'
-    print(msg)  # noqa: T201
+    print(msg)
     logging.info(msg)
     sys.exit(0)
 

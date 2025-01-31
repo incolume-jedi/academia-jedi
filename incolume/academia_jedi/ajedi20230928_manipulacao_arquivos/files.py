@@ -103,7 +103,7 @@ def exemplo08(file: Path | None = None) -> None:
     with file.open(newline='') as csvfile:
         handler = csv.reader(csvfile, delimiter=';')
         for linha in handler:
-            print(linha)  # noqa: T201
+            print(linha)
 
 
 def exemplo09(file: Path | None = None) -> None:
@@ -112,10 +112,10 @@ def exemplo09(file: Path | None = None) -> None:
     with file.open(newline='') as csvfile:
         handler = csv.reader(csvfile, delimiter=';')
         title = next(handler)
-        print(title)  # noqa: T201
+        print(title)
 
         for linha in handler:
-            print(linha)  # noqa: T201
+            print(linha)
 
 
 def exemplo10(file: Path | None = None) -> None:
@@ -125,10 +125,10 @@ def exemplo10(file: Path | None = None) -> None:
         handler = csv.reader(csvfile, delimiter=';')
 
         title = next(handler)
-        print(title)  # noqa: T201
+        print(title)
 
         for linha in handler:
-            print(list(zip(title, linha, strict=True)))  # noqa: T201
+            print(list(zip(title, linha, strict=True)))
 
 
 def exemplo11(file: Path | None = None) -> None:
@@ -148,7 +148,7 @@ def exemplo12(file: Path | None = None) -> None:
     with file.open(newline='') as csvfile:
         handler = csv.DictReader(csvfile, delimiter=';')
         for linha in handler:
-            print(linha)  # noqa: T201
+            print(linha)
 
 
 def exemplo13(file: Path | None = None) -> list:
@@ -176,7 +176,7 @@ def exemplo15(file: Path | None = None) -> None:
     with file.open() as jsonfile:
         content = json.load(jsonfile)
     for record in content:
-        print(record)  # noqa: T201
+        print(record)
 
 
 def exemplo16(file: Path | None = None) -> None:

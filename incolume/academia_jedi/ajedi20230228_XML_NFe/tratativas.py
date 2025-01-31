@@ -322,7 +322,7 @@ def tratativa16():
     xml_file = next(x for x in FILES_XML if x.name.__contains__('Brot'))
     dados = get_content_danfe_nfe(xml_file, 'dict')
     nota_df = pd.DataFrame.from_dict(dados)
-    print(nota_df)  # noqa: T201
+    print(nota_df)
 
 
 def tratativa17():
@@ -340,7 +340,7 @@ def tratativa17():
         'itens_nf',
     ]
     nota_df.columns = columns
-    print(nota_df)  # noqa: T201
+    print(nota_df)
 
 
 def tratativa18():
@@ -357,13 +357,13 @@ def tratativa18():
         'itens_nf',
     ]
     nota_df = pd.DataFrame(dados, index=columns).T
-    print(nota_df)  # noqa: T201
+    print(nota_df)
 
 
 def tratativa19():
     """Multiplas excuções danfe."""
     for xml_file in (x for x in FILES_XML if x.name.__contains__('DANFE')):
-        print(get_content_danfe_nfe(xml_file, 'dict'))  # noqa: T201
+        print(get_content_danfe_nfe(xml_file, 'dict'))
 
 
 def tratativa20():
@@ -379,22 +379,22 @@ def tratativa20():
 def tratativa21():
     """Multiplas execuções NFe danfe + carioca."""
     for xml_file in FILES_XML:
-        print(xml_file)  # noqa: T201
+        print(xml_file)
         if xml_file.as_posix().__contains__('Carioca'):
-            print(get_content_service_nfe(xml_file, 'dict'))  # noqa: T201
+            print(get_content_service_nfe(xml_file, 'dict'))
         else:
-            print(get_content_danfe_nfe(xml_file, 'dict'))  # noqa: T201
+            print(get_content_danfe_nfe(xml_file, 'dict'))
 
 
 def tratativa22():
     """Multiplas execuções NFe com match/case."""
     for xml_file in FILES_XML:
-        print(xml_file)  # noqa: T201
+        print(xml_file)
         match xml_file.as_posix().__contains__('Carioca'):
             case True:
-                print(get_content_service_nfe(xml_file, 'dict'))  # noqa: T201
+                print(get_content_service_nfe(xml_file, 'dict'))
             case _:
-                print(get_content_danfe_nfe(xml_file, 'dict'))  # noqa: T201
+                print(get_content_danfe_nfe(xml_file, 'dict'))
 
 
 def tratativa23():
@@ -404,11 +404,11 @@ def tratativa23():
 
         match MatchRegex(xml_file.as_posix()):
             case 'Carioca':
-                print(1, xml_file)  # noqa: T201
-                print(get_content_service_nfe(xml_file))  # noqa: T201
+                print(1, xml_file)
+                print(get_content_service_nfe(xml_file))
             case 'DANFE':
-                print(2, xml_file)  # noqa: T201
-                print(get_content_danfe_nfe(xml_file))  # noqa: T201
+                print(2, xml_file)
+                print(get_content_danfe_nfe(xml_file))
             case _:
                 msg = f'NFe {xml_file} do not match any case configured.'
                 raise AssertionError(
@@ -425,14 +425,14 @@ def run():
     ]
     for func in functions:
         logging.debug('%s %s', type(func), func.__name__)
-        print(f'--- {func.__name__} ---')  # noqa: T201
-        print(f'    >>> {func.__doc__}')  # noqa: T201
+        print(f'--- {func.__name__} ---')
+        print(f'    >>> {func.__doc__}')
         try:
             if result := func():
-                print(result)  # noqa: T201
+                print(result)
         except (TypeError, ValueError) as e:
             logging.exception('%s', e.__class__.__name__)
-        print('------\n')  # noqa: T201
+        print('------\n')
 
 
 if __name__ == '__main__':  # pragma: no cover

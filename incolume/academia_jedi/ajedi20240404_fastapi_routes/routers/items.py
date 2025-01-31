@@ -72,7 +72,7 @@ def update_item(
     request: Request,
     item_id: int,
     item: ItemUpdate,
-    db: Session = Depends(get_db),  # noqa: B008
+    db: Session = Depends(get_db),
 ) -> Item:
     """Update item."""
     try:
@@ -87,7 +87,7 @@ def update_item(
 def delete_item(
     request: Request,
     item_id: int,
-    db: Session = Depends(get_db),  # noqa: B008
+    db: Session = Depends(get_db),
 ) -> Item:
     """Delete item."""
     try:
