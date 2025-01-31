@@ -9,6 +9,7 @@ settings = Dynaconf(
         Path(__file__).parent / '.secrets.toml',
     ],
     environments=[
+        'default',
         'development',
         'production',
         'testing',

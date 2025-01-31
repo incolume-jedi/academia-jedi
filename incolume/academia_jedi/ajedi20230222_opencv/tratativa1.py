@@ -1,5 +1,10 @@
-"""Faz-se necessário instalar o binário no OS:
+"""Extrair texto de imagem.
+
+cv2 + pytesseract
+
+Faz-se necessário instalar o binário no OS:
 sudo apt install tesseract-ocr.
+
 """
 import logging
 from pathlib import Path
