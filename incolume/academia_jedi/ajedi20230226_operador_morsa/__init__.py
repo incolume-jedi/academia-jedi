@@ -1,2 +1,3 @@
-# !/usr/bin/env python
+"""Module."""
+
 __author__ = '@britodfbr'  # pragma: no cover

@@ -6,7 +6,7 @@ from random import choice
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-# ruff: noqa: S311
+# ruff: noqa: S311 T201
 
 
 class Color(Enum):
