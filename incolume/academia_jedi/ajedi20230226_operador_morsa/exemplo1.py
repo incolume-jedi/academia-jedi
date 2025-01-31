@@ -1,11 +1,12 @@
-"""
+"""Module.
+
 Unificado a partir do arquivo:
-   incolume/academia_jedi/ajedi20220928_morsa_op/main.py
+   incolume/academia_jedi/ajedi20220928_morsa_op/main.py.
 """
+
 from icecream import ic
 
-
-__author__ = "@britodfbr"  # pragma: no cover
+__author__ = '@britodfbr'  # pragma: no cover
 
 
 def menu():
@@ -15,8 +16,9 @@ def menu():
 
 
 def run():
+    """Run it."""
     menu()
 
 
-if __name__ == '__main__':    # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     run()

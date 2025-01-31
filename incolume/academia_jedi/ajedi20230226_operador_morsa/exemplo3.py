@@ -1,48 +1,35 @@
-<<<<<<< HEAD
-"""Unificados a partir dos arquivos oriundos de
-incolume/academia_jedi/ajedi20221106_operador_morsa/
+"""Module.
+
+Unificados a partir dos arquivos oriundos de
+incolume/academia_jedi/ajedi20221106_operador_morsa/.
 """
 
 import logging
 from enum import Enum, auto
 
 import easygui as eg
+from icecream import ic
 
 __author__ = '@britodfbr'  # pragma: no cover
 
 
 def gretting(username: str = '') -> str:
+    """Gretting."""
     if name := username or 'world':
-        return f'Hello {name.title()}.'
-    return None
-=======
-"""
-Unificados a partir dos arquivos oriundos de
-incolume/academia_jedi/ajedi20221106_operador_morsa/
-"""
-import easygui as eg
-from enum import Enum, auto, unique
-import logging
-import PySimpleGUI as psg
-
-
-__author__ = "@britodfbr"  # pragma: no cover
-
-
-def gretting(username: str = "") -> str:
-    if name := username or "world":
-        return f"Hello {name.title()}."
->>>>>>> 2393c3e (refactor: Unificação de temas por assunto - Operador Morsa (ref: 20221106))
+        return f'Hello {name.title()}!'
+    return 'Hello guest.'
 
 
 class Viewer(Enum):
+    """Viewer class."""
+
     CLI = auto()
     EASYGUI = auto()
 
     def __call__(self, **kwargs):
+        """Call it."""
         logging.debug(self.__dict__)
         logging.debug(self.name)
-<<<<<<< HEAD
         msg = kwargs.get('msg')
         title = kwargs.get('title', 'App')
         default = kwargs.get('default', '')
@@ -57,47 +44,17 @@ class Viewer(Enum):
                 raise NotImplementedError
 
 
-l
-
-
 def viewer():
+    """Viewer."""
     return Viewer.EASYGUI(name='')
 
 
 def run():
-    print(Viewer.CLI(msg='What is your name?'))
-    print(Viewer.EASYGUI(msg='What is your name?'))
-    print(Viewer.EASYGUI(msg='What is your name?', title='Get username'))
+    """Run it."""
+    ic(Viewer.CLI(msg='What is your name?'))
+    ic(Viewer.EASYGUI(msg='What is your name?'))
+    ic(Viewer.EASYGUI(msg='What is your name?', title='Get username'))
 
 
 if __name__ == '__main__':  # pragma: no cover
-=======
-        msg = kwargs.get("msg")
-        title = kwargs.get("title", "App")
-        default = kwargs.get("default", "")
-        match self.name:
-            case "CLI":
-                return gretting(input(f"{msg} "))
-            case "EASYGUI":
-                return gretting(
-                    eg.enterbox(msg=f"{msg} ", title=title, default=default)
-                )
-            case _:
-                raise NotImplemented
-
-l
-def viewer():
-    return Viewer.EASYGUI(name="")
-
-
-def run():
-    # gretting(input('What is your name? '))
-    # print(viewer())
-    print(Viewer.CLI(msg="What is your name?"))
-    print(Viewer.EASYGUI(msg="What is your name?"))
-    print(Viewer.EASYGUI(msg="What is your name?", title="Get username"))
-
-
-if __name__ == "__main__":  # pragma: no cover
->>>>>>> 2393c3e (refactor: Unificação de temas por assunto - Operador Morsa (ref: 20221106))
     run()
