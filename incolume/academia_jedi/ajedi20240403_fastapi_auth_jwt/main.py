@@ -2,6 +2,7 @@
 
 __author__ = '@britodfbr'  # pragma: no cover
 
+import logging
 import os
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -9,16 +10,21 @@ from pathlib import Path
 from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from icecream import ic
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
+
+# ruff: noqa: A002, ANN001, ANN201, ARG001, ARG002, BLE001, C901, D101, D102, D103, D107, DTZ003,DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
 
 load_dotenv(Path(__file__).parent.joinpath('.env'))
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 ALGORITHM = os.getenv('ALGORITHM')
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv('ACCESS_TOKEN_EXPIRE_MINUTES'))
-print(SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES)
+
+logging.debug(ic(SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES))
+
 
 db = {
     'admin': {
@@ -78,6 +84,7 @@ def get_user(db, username: str):
     if username in db:
         user_data = db[username]
         return UserInDB(**user_data)
+    return None
 
 
 def authenticate_user(db, username: str, password: str):
@@ -98,8 +105,7 @@ def create_access_token(data: dict, expires_delta: timedelta or None = None):
         expire = datetime.utcnow() + timedelta(minutes=15)
 
     to_encode.update({'exp': expire})
-    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-    return encoded_jwt
+    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 
 async def get_current_user(token: str = Depends(oauth2_scheme)):
@@ -116,7 +122,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
 
         token_data = TokenData(username=username)
     except JWTError:
-        raise credential_exception
+        raise credential_exception  # noqa: B904
 
     user = get_user(db, username=token_data.username)
     if not user:
