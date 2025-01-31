@@ -1,5 +1,9 @@
+"""Module."""
+
 from flet import *
 from myaction import conn
+
+# ruff: noqa: A002, ANN001, ANN201, ARG001, ARG002, BLE001, C901, D101, D102, D103, D107, DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
 
 tb = DataTable(
     columns=[
@@ -121,7 +125,7 @@ def calldb():
     print(users)
     if users != '':
         keys = ['id', 'name', 'contact', 'age', 'gender', 'email', 'address']
-        result = [dict(zip(keys, values)) for values in users]
+        result = [dict(zip(keys, values, strict=False)) for values in users]
         for x in result:
             tb.rows.append(
                 DataRow(

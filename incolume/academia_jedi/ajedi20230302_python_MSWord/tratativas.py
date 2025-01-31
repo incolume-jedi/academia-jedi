@@ -77,7 +77,7 @@ def tratativa4():
     """Exibir estilos disponiveis."""
     documento = Document()
     for estilo in documento.styles:
-        print(estilo)  # noqa: T201
+        print(estilo)
 
 
 def tratativa5():
@@ -293,7 +293,7 @@ def tratativa15():
     """Tabela: Estilos disponíveis."""
     documento = Document()
     for estilo in (x for x in documento.styles):
-        print(estilo)  # noqa: T201
+        print(estilo)
 
 
 def tratativa16():
@@ -365,7 +365,7 @@ def tratativa17():
         'AAAA': str(timestamp.year),
     }
     for paragraf in contrato.paragraphs:
-        print(paragraf)  # noqa: T201
+        print(paragraf)
         if 'XXXX' in paragraf.text:
             paragraf.text = paragraf.text.replace('XXXX', macros['XXXX'])
 
@@ -412,16 +412,16 @@ def run():
     ]
     for func in functions:
         logging.debug('%s: %s', type(func), func.__name__)
-        print(f'--- {func.__name__} ---')  # noqa: T201
-        print(f'    >>> {func.__doc__}')  # noqa: T201
+        print(f'--- {func.__name__} ---')
+        print(f'    >>> {func.__doc__}')
         try:
             if result := func():
-                print(result)  # noqa: T201
+                print(result)
         except (TypeError, ValueError) as e:
             logging.exception('%s', e.__class__.__name__)
         finally:
             logging.debug('%s finalizada.', func.__name__)
-        print('------\n')  # noqa: T201
+        print('------\n')
 
 
 if __name__ == '__main__':  # pragma: no cover

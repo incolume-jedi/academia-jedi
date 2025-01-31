@@ -85,8 +85,8 @@ def main():
     json_writer.write(data)
     logging.info(json_writer.read())
 
-    assert isinstance(pickle_writer, SerializedFileHandler)  # noqa: S101
-    assert isinstance(json_writer, SerializedFileHandler)  # noqa: S101
+    assert isinstance(pickle_writer, SerializedFileHandler)
+    assert isinstance(json_writer, SerializedFileHandler)
 
 
 if __name__ == '__main__':

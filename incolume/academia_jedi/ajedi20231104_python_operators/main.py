@@ -39,7 +39,7 @@ def exemplo02() -> tuple:
 
 def exemplo03() -> None:
     """Novo exemplo."""
-    print(  # noqa: T201
+    print(
         reduce(floordiv, sorted(nums, reverse=True)),
         end='\n',
     )
@@ -48,14 +48,14 @@ def exemplo03() -> None:
 def run() -> None:
     """Run it."""
     for func in (f for n, f in globals().items() if n.startswith('exemplo')):
-        print(  # noqa: T201
+        print(
             '====',
             f'{func.__name__} - {func.__doc__}',
             '---',
             end='\n',
         )
         pprint(func())  # noqa: T203
-        print('---')  # noqa: T201
+        print('---')
 
 
 if __name__ == '__main__':  # pragma: no cover

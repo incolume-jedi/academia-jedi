@@ -1,6 +1,10 @@
+"""Module."""
+
 import sqlite3
 
 import flet as ft
+
+# ruff: noqa: A002, ANN001, ANN201, ARG001, ARG002, BLE001, C901, D101, D102, D103, D107, DTZ003,DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
 
 
 # Classe principal do aplicativo To-Do.
@@ -25,7 +29,8 @@ class ToDo:
         self.main_page()
 
     # Função para executar consultas no banco de dados.
-    def db_execute(self, query, params=[]):
+    def db_execute(self, query, params=None):
+        params = params or []
         with sqlite3.connect('database.db') as con:
             cur = con.cursor()
             cur.execute(query, params)
@@ -85,7 +90,7 @@ class ToDo:
                     ft.Checkbox(
                         label=res[0],
                         on_change=self.checked,
-                        value=True if res[1] == 'complete' else False,
+                        value=res[1] == 'complete',
                     )
                     for res in self.results
                     if res

@@ -1,3 +1,5 @@
+"""Module."""
+
 from typing import Optional
 
 from pydantic import BaseModel
@@ -5,6 +7,8 @@ from sqlalchemy.orm import Session
 
 from .automation.run import run_automations
 from .core import DBAutomation, DBItem, NotFoundError
+
+# ruff: noqa: A002, ANN001, ANN201, ARG001, ARG002, BLE001, C901, D101, D102, D103, D107, DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
 
 
 class Item(BaseModel):
@@ -26,7 +30,8 @@ class ItemUpdate(BaseModel):
 def read_db_item(item_id: int, session: Session) -> DBItem:
     db_item = session.query(DBItem).filter(DBItem.id == item_id).first()
     if db_item is None:
-        raise NotFoundError(f'Item with id {item_id} not found.')
+        msg = f'Item with id {item_id} not found.'
+        raise NotFoundError(msg)
     return db_item
 
 

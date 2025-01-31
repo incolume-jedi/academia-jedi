@@ -29,8 +29,8 @@ def get_client_list(**kwargs: str | int) -> list[Cliente]:
 
 if __name__ == '__main__':  # pragma: no cover
     clientes = get_client_list(seed=17, lang='jp_Jp', count=15)
-    print(getsizeof(clientes), getsizeof(clientes[0]))  # noqa: T201
-    print(  # noqa: T201
+    print(getsizeof(clientes), getsizeof(clientes[0]))
+    print(
         f'{20 * 0.05}',
         clientes,
     )

@@ -72,11 +72,11 @@ lista_arquivos = os.listdir(
 for arquivo in lista_arquivos:  # para cada arquivo
     if 'xml' in arquivo:  # se tem xml no nome do arquivo
         if 'DANFE' in arquivo:  # se tem DANFE no nome do arquivo
-            print(  # noqa: T201
+            print(
                 ler_xml_danfe(f'NFs Finais/{arquivo}'),
             )  # rodar o leitor de XML de DANFE para esse arquivo
         else:
-            print(ler_xml_servico(f'NFs Finais/{arquivo}'))  # noqa: T201
+            print(ler_xml_servico(f'NFs Finais/{arquivo}'))
 
 #
 

@@ -1,3 +1,5 @@
+"""Module."""
+
 import flet as ft
 
 

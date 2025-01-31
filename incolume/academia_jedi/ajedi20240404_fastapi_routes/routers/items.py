@@ -20,7 +20,7 @@ from sqlalchemy.orm import Session
 
 from .limiter import limiter
 
-# ruff: noqa: A002, ANN001, ANN201, ARG002, BLE001, C901, D101, D102, D103, D107, DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
+# ruff: noqa: A002, ANN001, ANN201, ARG001, ARG002, BLE001, C901, D101, D102, D103, D107, DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
 
 router = APIRouter(
     prefix='/items',
@@ -69,10 +69,10 @@ def read_item_automations(
 @router.put('/{item_id}')
 @limiter.limit('1/second')
 def update_item(
-    request: Request,  # noqa: ARG001
+    request: Request,
     item_id: int,
     item: ItemUpdate,
-    db: Session = Depends(get_db),  # noqa: B008
+    db: Session = Depends(get_db),
 ) -> Item:
     """Update item."""
     try:
@@ -85,9 +85,9 @@ def update_item(
 @router.delete('/{item_id}')
 @limiter.limit('1/second')
 def delete_item(
-    request: Request,  # noqa: ARG001
+    request: Request,
     item_id: int,
-    db: Session = Depends(get_db),  # noqa: B008
+    db: Session = Depends(get_db),
 ) -> Item:
     """Delete item."""
     try:

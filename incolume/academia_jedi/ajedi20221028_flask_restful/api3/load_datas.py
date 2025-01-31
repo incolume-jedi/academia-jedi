@@ -37,6 +37,6 @@ def post_data(item):
 
 for _, values in df.iterrows():
     try:
-        print(post_data(values))  # noqa: T201
+        print(post_data(values))
     except SystemExit:  # noqa: PERF203
         break

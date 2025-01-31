@@ -101,7 +101,7 @@ def run():
     garage.content = next(vehicles)
     garage.content = next(vehicles)
     garage.content = next(vehicles)
-    print(garage)  # noqa: T201
+    print(garage)
 
 
 if __name__ == '__main__':  # pragma: no cover

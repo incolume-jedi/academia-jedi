@@ -1,9 +1,13 @@
+"""Module."""
+
 from abc import ABC, abstractmethod
 from json import dumps as json_dumps
 from json import loads as json_loads
 from pickle import dumps as pickle_dumps
 from pickle import loads as pickle_loads
 from typing import Protocol
+
+# ruff: noqa: A002, ANN001, ANN201, ARG001, ARG002, BLE001, C901, D101, D102, D103, D107, DTZ003,DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
 
 
 class SerializedFileHandler(ABC):
@@ -32,7 +36,7 @@ class PickleHandler(SerializedFileHandler):
         return pickle_dumps(data)
 
     def deserialize(self, data):
-        return pickle_loads(data)
+        return pickle_loads(data)  # noqa: S301
 
 
 class JSONHandler(SerializedFileHandler):
