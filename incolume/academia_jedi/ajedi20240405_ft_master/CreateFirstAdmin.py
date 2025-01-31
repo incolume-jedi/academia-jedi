@@ -1,3 +1,5 @@
+"""MOdule."""
+
 from datetime import date
 
 import bcrypt
@@ -13,6 +15,8 @@ from flet import (
     icons,
 )
 from Notification import Notification
+
+# ruff: noqa: A002, ANN001, ANN201, ARG002, BLE001, C901, D101, D102, D107, DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
 
 
 class CreateFirstAdmin(AlertDialog):
@@ -127,14 +131,13 @@ class CreateFirstAdmin(AlertDialog):
         today = date.today()
         form_date = today.strftime('%Y-%m-%d')
         hashed_pass = self.create_hash(self.tf_pass1.value)
-        fulldataset = [
+        return [
             self.tf_name.value,
             self.tf_user.value,
             hashed_pass,
             form_date,
             'Admin',
         ]
-        return fulldataset
 
     def register_admin(self, e):
         fulldataset = self.prepare_data()

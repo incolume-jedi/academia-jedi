@@ -6,7 +6,7 @@ from datetime import date, timedelta
 import bcrypt
 import mysql.connector
 
-# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN001 ANN201 ERA001 D101 D102 D107 E501 PLR2004 BLE001 DTZ005 N802
+# ruff: noqa: A002, ANN001, ANN201, ARG002, BLE001, C901, D101, D102, D107, DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
 
 
 class UserDatabase:
@@ -99,9 +99,8 @@ class UserDatabase:
             mycursor.execute(query, (data[0],))
             result = mycursor.fetchone()
 
-            if result:
-                if self.verify_pass(data[1], result[1]):
-                    return result[0].upper(), result[2]
+            if result and self.verify_pass(data[1], result[1]):
+                return result[0].upper(), result[2]
             return None, None
         except Exception:
             return None, None
@@ -182,16 +181,14 @@ class CustomerDatabase:
                 'SELECT * FROM customers WHERE cpf_cnpj = %s ORDER BY name;'
             )
             mycursor.execute(query, (cpf_cnpj,))
-            data_customer = mycursor.fetchall()
-            return data_customer
+            return mycursor.fetchall()
 
     def select_adresses(self, cpf_cnpj):
         with contextlib.suppress(Exception):
             mycursor = self.connection.cursor()
             query = 'SELECT ender, cidade, uf, CEP FROM adress WHERE cod_customer = %s ORDER BY cidade;'
             mycursor.execute(query, (cpf_cnpj,))
-            data_adress = mycursor.fetchall()
-            return data_adress
+            return mycursor.fetchall()
 
     def update_customer(self, data_customer):
         try:
@@ -449,8 +446,7 @@ class ProductsDatabase:
                 ORDER BY products.descr
             """
             mycursor.execute(sql, (param, param, param, param, param))
-            final_result = mycursor.fetchall()
-            return final_result
+            return mycursor.fetchall()
         except Exception as e:
             return e
 
@@ -776,7 +772,7 @@ class DashboardDatabase:
             )
             numb_of_customers = mycursor.fetchone()[0]
             mycursor.execute(
-                f"SELECT COUNT(*) AS numb_of_cutomers_past FROM customers WHERE date < '{first_day_of_month}'",  # noqa: S608
+                f"SELECT COUNT(*) AS numb_of_cutomers_past FROM customers WHERE date < '{first_day_of_month}'",
             )
             numb_of_customers_past = mycursor.fetchone()[0]
             return numb_of_customers, numb_of_customers_past
@@ -786,7 +782,7 @@ class DashboardDatabase:
         with contextlib.suppress(Exception):
             mycursor = self.connection.cursor()
             mycursor.execute(
-                f"SELECT COUNT(*), SUM(total) FROM sales WHERE date = '{today}'",  # noqa: S608
+                f"SELECT COUNT(*), SUM(total) FROM sales WHERE date = '{today}'",
             )
             return mycursor.fetchone()
 
