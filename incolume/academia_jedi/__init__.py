@@ -7,9 +7,12 @@ except (ModuleNotFoundError, ImportError):
 
 from pathlib import Path
 
-versionfile = Path(__file__).parent / 'version.txt'
+version_file = Path(__file__).parent / 'version.txt'
+project_file = Path(__file__).parents[2] /'pyproject.toml'
+try:
+    with project_file.open('rb') as file:
+        version_file.write_text(f"{load(file)['tool']['poetry']['version']}\n")
+except FileNotFoundError:
+    pass
 
-with Path(__file__).parents[2].joinpath('pyproject.toml').open('rb') as file:
-    versionfile.write_text(f"{load(file)['tool']['poetry']['version']}\n")
-
-__version__ = versionfile.read_text().strip()
+__version__ = version_file.read_text().strip()
