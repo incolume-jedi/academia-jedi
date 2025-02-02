@@ -135,8 +135,12 @@ project_path = Path(__file__).parents[1]
 python_files = project_path.rglob('**/*.py')
 
 
-def edit_noqa_for_python(file: Path) -> bool:
-    """Edit noqa into python files."""
+def edit_noqa_for_python_0(file: Path) -> bool:
+    """Edit noqa into python files.
+
+    Raises:
+      Falha e possível extravio de linhas no início do arquivo.
+    """
     logging.debug(ic(file))
     new_content = b''
     with file.open('rb') as fl:
@@ -166,10 +170,27 @@ def edit_noqa_for_python(file: Path) -> bool:
     return file.is_file()
 
 
+def edit_noqa_for_python(file: Path) -> bool:
+    """Edit noqa into python files."""
+    with file.open('rb') as fl:
+        content = fl.readlines()
+        content.insert(1, b'\n')
+        content.insert(
+            1,
+            bytes(
+                rf'# ruff: noqa: {" ".join(RULES)}',
+                encoding='utf-8',
+            ),
+        )
+        content.insert(1, b'\n')
+    file.write_bytes(b''.join(content))
+    return file.is_file()
+
+
 def run():
     """Run it."""
     for file in python_files:
-        ic(edit_noqa_for_python(file))
+        ic(edit_noqa_for_python(ic(file)))
 
 
 if __name__ == '__main__':

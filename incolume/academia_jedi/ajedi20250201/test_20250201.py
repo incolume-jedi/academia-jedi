@@ -147,6 +147,11 @@ class TestContrants:
         """Unittest."""
         assert next(pkg.python_files).exists()
 
+    def test_noqa0(self):
+        """Unittest."""
+        file = next(pkg.python_files)
+        assert pkg.edit_noqa_for_python_0(file)
+
     def test_noqa(self):
         """Unittest."""
         file = next(pkg.python_files)
