@@ -170,3 +170,7 @@ def run():
     """Run it."""
     for file in python_files:
         ic(edit_noqa_for_python(file))
+
+
+if __name__ == '__main__':
+    run()
