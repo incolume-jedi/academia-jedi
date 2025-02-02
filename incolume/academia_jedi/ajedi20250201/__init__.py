@@ -138,10 +138,10 @@ python_files = project_path.rglob('**/*.py')
 def edit_noqa_for_python(file: Path) -> bool:
     """Edit noqa into python files."""
     logging.debug(ic(file))
-    new_content = ''
-    with file.open() as fl:
+    new_content = b''
+    with file.open('rb') as fl:
         if re.match(
-            r'(?=.*\bruff\:\b)(?=.*\bnoqa\:\b).+',
+            rb'(?=.*\bruff\:\b)(?=.*\bnoqa\:\b).+',
             fl.read(),
             re.IGNORECASE,
         ):
@@ -150,16 +150,19 @@ def edit_noqa_for_python(file: Path) -> bool:
         fl.seek(0)
         line = fl.readline()
         ic(line)
-        if re.match(r'^""".*', line, re.IGNORECASE):
+        if re.match(rb'^""".*', line, re.IGNORECASE):
             new_content += line
         else:
-            new_content += '"""Module."""'
-        new_content += '\n\n'
-        new_content += rf'# ruff: noqa: {" ".join(RULES)}'
-        new_content += '\n\n'
+            new_content += b'"""Module."""'
+        new_content += b'\n\n'
+        new_content += bytes(
+            rf'# ruff: noqa: {" ".join(RULES)}',
+            encoding='utf-8',
+        )
+        new_content += b'\n\n'
         new_content += fl.read()
     ic(new_content)
-    file.write_text(new_content)
+    file.write_bytes(new_content)
     return file.is_file()
 
 
