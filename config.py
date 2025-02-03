@@ -1,3 +1,5 @@
+"""config dynaconf Module."""
+
 from pathlib import Path
 
 from dynaconf import Dynaconf, Validator
