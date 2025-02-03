@@ -4,6 +4,8 @@ import io
 from pathlib import Path
 from unittest import mock
 from icecream import ic
+from tempfile import gettempdir
+import os
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -14,15 +16,18 @@ class UnixFS:
     @staticmethod
     def rm(filename: Path) -> bool:
         """Function rm."""
-        filename.unlink()
+        filename = Path(filename)
+        os.remove(filename)  # noqa: PTH107
         return not filename.exists()
 
 
 def test_unix_fs():
     """Exemplo pytest-mock."""
+    file = Path(gettempdir()) / 'file.txt'
+    file.write_text('..')
     with mock.patch('os.remove') as mkos:
-        UnixFS.rm('file')
-        mkos.assert_called_once_with('file')
+        UnixFS.rm(file)
+        mkos.assert_called_once_with(file)
 
 
 def test_method(monkeypatch):
