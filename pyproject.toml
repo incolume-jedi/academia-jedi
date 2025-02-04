@@ -531,3 +531,6 @@ pre_changelog='poetry run pytest -m fast'
 changelog = {help='Update changelog file', cmd = "poetry run gcl {CHANGELOGFILE} -u {URLCOMPARE} && echo CHANGELOG file - {CHANGELOGFILE} - updated with success.;echo", use_vars = true }
 gcl = {help='Update changelog file', cmd='poetry run task changelog'}
 setup = { help = 'Configure environment develop', cmd='git config core.hooksPath .git-hooks/'}
+
+[tool.uv.workspace]
+members = ["incolume/academia_jedi/ajedi_20250204", "incolume/academia_jedi/ajedi20250204"]
