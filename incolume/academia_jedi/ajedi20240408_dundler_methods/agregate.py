@@ -5,6 +5,7 @@
 import datetime as dt
 from copy import copy
 from dataclasses import dataclass, field
+from typing import NoReturn
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -27,7 +28,7 @@ class Fruit3:
         return self.__date.isoformat()
 
     @date.setter
-    def date(self, value: dt.datetime) -> None:
+    def date(self, value: dt.datetime) -> NoReturn:
         """Set date."""
         self.__date = value
 

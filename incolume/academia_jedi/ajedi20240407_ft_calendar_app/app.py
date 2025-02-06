@@ -7,8 +7,8 @@ __author__ = '@britodfbr'  # pragma: no cover
 import calendar
 from datetime import datetime
 from typing import NoReturn
-
 import flet as ft
+import pytz
 from config import settings
 
 cal = calendar.Calendar()
@@ -44,7 +44,7 @@ month_class: dict[int, str] = {
 class Settings:
     """In this class we'll use datetime module to handle dates."""
 
-    timestamp = datetime.now(tz=settings.TZ)
+    timestamp = datetime.now(tz=pytz.timezone(settings.TZ))
     year: int = timestamp.year
     month: int = timestamp.month
 
