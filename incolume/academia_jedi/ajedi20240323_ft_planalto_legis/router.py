@@ -8,7 +8,8 @@ import logging
 from typing import NoReturn
 
 import flet as ft
-from views import pages
+
+from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views import pages
 
 routes = {'/': pages.splash_vw}
 

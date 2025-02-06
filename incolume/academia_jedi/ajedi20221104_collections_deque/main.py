@@ -53,7 +53,12 @@ def example1():
 
 def example2():
     """Access file."""
-    file = Path(__file__).parents[3] / 'data_files' / 'proxies_1663514130.csv'
+    file = (
+        Path(__file__).parents[3]
+        / 'data_files'
+        / 'csv'
+        / 'proxies_1663514130.csv'
+    )
 
     def tail(filename, n=10):
         """Return the last n lines of a file."""
