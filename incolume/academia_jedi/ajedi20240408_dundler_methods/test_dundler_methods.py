@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import pytest
 import pytz
-import equality
-import formatly
-import agregate
+from incolume.academia_jedi.ajedi20240408_dundler_methods import equality
+from incolume.academia_jedi.ajedi20240408_dundler_methods import formatly
+from incolume.academia_jedi.ajedi20240408_dundler_methods import agregate
 import datetime as dt
 from config import settings
 
