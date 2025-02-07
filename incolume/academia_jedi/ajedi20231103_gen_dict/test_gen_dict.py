@@ -108,7 +108,7 @@ class TestCaseTratativa03:
                 (d := Path(r'H:\CENTRO DE ESTUDOS\EQUIPE CEJ\BRITO')),
                 marks=[
                     pytest.mark.skipif(
-                        condition=d.exists(),
+                        condition=not d.exists(),
                         reason='Directory Not Found.',
                     ),
                 ],
