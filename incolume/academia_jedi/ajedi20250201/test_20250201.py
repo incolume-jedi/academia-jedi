@@ -1,7 +1,9 @@
 """Test module."""
 
+from pathlib import Path
 import pytest
 import incolume.academia_jedi.ajedi20250201 as pkg
+from tempfile import gettempdir
 
 
 class TestContrants:
@@ -150,9 +152,9 @@ class TestContrants:
     def test_noqa0(self):
         """Unittest."""
         file = next(pkg.python_files)
-        assert pkg.edit_noqa_for_python_0(file)
+        assert pkg.edit_noqa_for_python_0(file, Path(gettempdir(), file.name))
 
     def test_noqa(self):
         """Unittest."""
         file = next(pkg.python_files)
-        assert pkg.edit_noqa_for_python(file)
+        assert pkg.edit_noqa_for_python(file, Path(gettempdir(), file.name))

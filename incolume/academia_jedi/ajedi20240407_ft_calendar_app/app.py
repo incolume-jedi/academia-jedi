@@ -7,6 +7,7 @@ __author__ = '@britodfbr'  # pragma: no cover
 import calendar
 from datetime import datetime
 from typing import NoReturn
+
 import flet as ft
 import pytz
 from config import settings

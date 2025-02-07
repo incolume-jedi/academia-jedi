@@ -135,13 +135,14 @@ project_path = Path(__file__).parents[1]
 python_files = project_path.rglob('**/*.py')
 
 
-def edit_noqa_for_python_0(file: Path) -> bool:
+def edit_noqa_for_python_0(file: Path, output: Path | None = None) -> bool:
     """Edit noqa into python files.
 
     Raises:
       Falha e possível extravio de linhas no início do arquivo.
     """
-    logging.debug(ic(file))
+    output = output or file
+    logging.debug(ic(file, output))
     new_content = b''
     with file.open('rb') as fl:
         if re.match(
@@ -166,12 +167,13 @@ def edit_noqa_for_python_0(file: Path) -> bool:
         new_content += b'\n\n'
         new_content += fl.read()
     ic(new_content)
-    file.write_bytes(new_content)
-    return file.is_file()
+    output.write_bytes(new_content)
+    return output.is_file()
 
 
-def edit_noqa_for_python(file: Path) -> bool:
+def edit_noqa_for_python(file: Path, output: None | Path = None) -> bool:
     """Edit noqa into python files."""
+    output = output or file
     with file.open('rb') as fl:
         content = fl.readlines()
         content.insert(1, b'\n')
@@ -183,8 +185,8 @@ def edit_noqa_for_python(file: Path) -> bool:
             ),
         )
         content.insert(1, b'\n')
-    file.write_bytes(b''.join(content))
-    return file.is_file()
+    output.write_bytes(b''.join(content))
+    return output.is_file()
 
 
 def run():

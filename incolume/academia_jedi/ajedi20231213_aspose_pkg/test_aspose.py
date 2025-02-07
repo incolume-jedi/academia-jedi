@@ -10,7 +10,10 @@ from incolume.academia_jedi.ajedi20231213_aspose_pkg import (
 import re
 
 
-@pytest.mark.skipif(condition=platform.python_version() >= '3.12.0')
+@pytest.mark.skipif(
+    condition=platform.python_version() >= '3.12.0',
+    reason='Dont run in Python3.12+',
+)
 @pytest.mark.parametrize(
     'entrance regex'.split(),
     [
