@@ -1,3 +1,5 @@
+"""Module."""
+
 from incolume.academia_jedi.ajedi20220731_sgbd_pandas.main import massa_test
 
 
