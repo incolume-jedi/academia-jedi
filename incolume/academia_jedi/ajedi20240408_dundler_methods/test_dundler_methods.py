@@ -174,6 +174,7 @@ def test_formatly_fruit2_desc(entrance, expected):
     """Test format showed."""
     assert f'{entrance:desc}' == expected
 
+
 @pytestmark
 @pytest.mark.parametrize(
     'entrance expected'.split(),
@@ -203,6 +204,7 @@ def test_formatly_fruit2_desc(entrance, expected):
 def test_agregate_fruit3_desc(entrance, expected):
     """Test desc."""
     assert f'{entrance:desc}' == expected
+
 
 @pytestmark
 @pytest.mark.parametrize(
