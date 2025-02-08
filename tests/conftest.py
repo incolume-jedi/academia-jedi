@@ -13,7 +13,7 @@ if version_info < (3, 9, 0):  # noqa: UP036
     collect_ignore.extend(
         ('incolume/academia_jedi/ajedi20220728_crud_nodb/*.py',),
     )
-elif version_info < (3, 10, 0):
+elif version_info < (3, 10, 0):  # noqa: UP036
     collect_ignore.extend(
         ('incolume/academia_jedi/ajedi20240408_dundler_methods/*',),
     )
