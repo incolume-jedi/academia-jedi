@@ -4,10 +4,9 @@ import logging
 from pathlib import Path
 from sys import version_info
 from tempfile import NamedTemporaryFile
-from icecream import ic
-
 
 import pytest
+from icecream import ic
 
 collect_ignore = []
 
@@ -32,6 +31,7 @@ elif version_info < (4, 0, 0):
         ('incolume\academia_jedi\ajedi20231213_aspose_pkg\test_aspose.py'),
     )
 logging.debug(ic(collect_ignore))
+
 
 @pytest.fixture()
 def verdade() -> bool:
