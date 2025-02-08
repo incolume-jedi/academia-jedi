@@ -123,8 +123,8 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
             raise credential_exception
 
         token_data = TokenData(username=username)
-    except JWTError:
-        raise credential_exception
+    except JWTError as e:
+        raise credential_exception from e
 
     user = get_user(db, username=token_data.username)
     if not user:
@@ -134,8 +134,9 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
 
 
 async def get_current_active_user(
-    current_user: UserInDB = Depends(get_current_user),
+    current_user: UserInDB | None = None,
 ):
+    current_user: UserInDB = current_user or Depends(get_current_user)
     if current_user.disabled:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
@@ -147,8 +148,9 @@ async def get_current_active_user(
 
 @app.post('/token', response_model=Token)
 async def login_for_access_token(
-    form_data: OAuth2PasswordRequestForm = Depends(),
+    form_data: OAuth2PasswordRequestForm = None,
 ):
+    form_data: OAuth2PasswordRequestForm = form_data or Depends()
     user = authenticate_user(db, form_data.username, form_data.password)
     if not user:
         raise HTTPException(
@@ -165,14 +167,16 @@ async def login_for_access_token(
 
 
 @app.get('/users/me/', response_model=User)
-async def read_users_me(current_user: User = Depends(get_current_active_user)):
+async def read_users_me(current_user: User | None = None):
+    current_user: User = current_user or Depends(get_current_active_user)
     return current_user
 
 
 @app.get('/users/me/items')
 async def read_own_items(
-    current_user: User = Depends(get_current_active_user),
+    current_user: User | None = None,
 ):
+    current_user: User = current_user or Depends(get_current_active_user)
     return [
         {
             'items': [
