@@ -1,11 +1,11 @@
 [project]
 name = "academia-jedi"
-version = "0.103.1"
+version = "0.104.0a0"
 authors = [{name="Britodfbr", email="<britodfbr@gmail.com>"}]
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.103.1"
+version = "0.104.0a0"
 description = ""
 authors = ["Britodfbr <britodfbr@gmail.com>"]
 packages = [
