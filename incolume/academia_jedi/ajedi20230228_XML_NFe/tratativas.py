@@ -1,3 +1,7 @@
+"""Manipulação de NFe."""
+
+# ruff: noqa: A001 A002 ANN001 ANN002 ANN003 ANN201 ANN202 ANN204 ANN401 ARG001 ARG002 ASYNC101 B007 B008 B009 B011 B015 B904 B905 BLE001 C408 C419 C901 D100 D101 D102 D103 D104 D105 D107 D205 D402 D415 D419 DTZ001 DTZ003 DTZ005 DTZ007 E501 E741 EM101 EM102 ERA001 EXE005 F402 F403 F405 F601 F811 F821 F841 FBT001 FBT002 FBT003 FIX002 G001 G002 G004 N801 N802 N805 N806 N816 N999 NPY002 PD901 PERF203 PERF401 PERF402 PIE796 PLE1205 PLR0913 PLR1714 PLR2004 PLW0602 PLW0603 PLW2901 PT004 PT006 PT012 PT015 PTH118 PTH123 PYI024 PYI041 RET503 RET504 RUF001 RUF012 RUF013 S101 S113 S201 S301 S307 S310 S311 S602 S603 S605 S607 S608 SIM103 SIM109 SIM113 SIM115 SIM117 SLF001 SLOT000 T201 T203 TCH003 TD002 TD003 TD004 TRY002 TRY003 TRY300 TRY301 TRY401 W293
+
 import logging
 import re
 import typing
@@ -53,8 +57,11 @@ def open_files(file: Path | str, mode: str = 'rb') -> OrderedDict:
 
 
 def get_info_nfe(file: Path | str, mode: str = 'rb') -> OrderedDict:
-    """Abre arquivos XML e converte para dict
-    retornando as informações da NFe.
+    """Abre arquivos XML e converte para dict.
+
+    :file: Arquivo de NFe
+    :mode: Mode de leitura para Arquivo NFe
+    :return: retorna as informações da NFe.
     """
     return open_files(file, mode)['nfeProc']['NFe']['infNFe']
 
@@ -69,18 +76,16 @@ def get_content_service_nfe(
         'CompNfse'
     ]['Nfse']['InfNfse']
     resposta = NFe(
-        **{
-            'valor_total': documento['Servico']['Valores']['ValorServicos'],
-            'cnpj_vend': documento['PrestadorServico'][
-                'IdentificacaoPrestador'
-            ]['Cnpj'],
-            'nome_vend': documento['PrestadorServico']['RazaoSocial'],
-            'cpf_comp': documento['TomadorServico']['IdentificacaoTomador'][
-                'CpfCnpj'
-            ]['Cnpj'],
-            'nome_comp': documento['TomadorServico']['RazaoSocial'],
-            'itens_nf': ServicoNFe(documento['Servico']['Discriminacao']),
-        },
+        valor_total=documento['Servico']['Valores']['ValorServicos'],
+        cnpj_vend=documento['PrestadorServico']['IdentificacaoPrestador'][
+            'Cnpj'
+        ],
+        nome_vend=documento['PrestadorServico']['RazaoSocial'],
+        cpf_comp=documento['TomadorServico']['IdentificacaoTomador'][
+            'CpfCnpj'
+        ]['Cnpj'],
+        nome_comp=documento['TomadorServico']['RazaoSocial'],
+        itens_nf=ServicoNFe(documento['Servico']['Discriminacao']),
     )
     match tp:
         case 'dict':
@@ -91,16 +96,20 @@ def get_content_service_nfe(
             return resposta
 
 
-@dataclass
+@dataclass(slots=True)
 class MatchRegex(str):
+    """MatchRegex class."""
+
     string: str
     match: re.Match = None
 
     def __eq__(self, pattern):
+        """Equal class."""
         self.match = re.search(pattern, self.string)
         return self.match is not None
 
     def __getitem__(self, group):
+        """Gettem class."""
         return self.match[group]
 
 
@@ -112,24 +121,22 @@ def get_content_danfe_nfe(
     logging.debug(xml_file)
     documento = get_info_nfe(xml_file)
     resposta = NFe(
-        **{
-            'valor_total': documento['total']['ICMSTot']['vNF'],
-            'cnpj_vend': documento['emit']['CNPJ'],
-            'nome_vend': documento['emit']['xNome'],
-            'cpf_comp': documento['dest']['CPF'],
-            'nome_comp': documento['dest']['xNome'],
-            'itens_nf': [
-                ItensNFe(
-                    *(
-                        prod['prod']['xProd'],
-                        float(prod['prod']['qCom']),
-                        float(prod['prod']['vUnCom']),
-                        float(prod['prod']['vProd']),
-                    ),
-                )
-                for prod in documento['det']
-            ],
-        },
+        valor_total=documento['total']['ICMSTot']['vNF'],
+        cnpj_vend=documento['emit']['CNPJ'],
+        nome_vend=documento['emit']['xNome'],
+        cpf_comp=documento['dest']['CPF'],
+        nome_comp=documento['dest']['xNome'],
+        itens_nf=[
+            ItensNFe(
+                *(
+                    prod['prod']['xProd'],
+                    float(prod['prod']['qCom']),
+                    float(prod['prod']['vUnCom']),
+                    float(prod['prod']['vProd']),
+                ),
+            )
+            for prod in documento['det']
+        ],
     )
     match tp:
         case 'dict':
@@ -231,24 +238,22 @@ def tratativa8():
     logging.debug(xml_file)
     documento = open_files(xml_file)['nfeProc']['NFe']['infNFe']
     return NFe(
-        **{
-            'valor_total': documento['total']['ICMSTot']['vNF'],
-            'cnpj_vend': documento['emit']['CNPJ'],
-            'nome_vend': documento['emit']['xNome'],
-            'cpf_comp': documento['dest']['CPF'],
-            'nome_comp': documento['dest']['xNome'],
-            'itens_nf': [
-                ItensNFe(
-                    *(
-                        prod['prod']['xProd'],
-                        float(prod['prod']['qCom']),
-                        float(prod['prod']['vUnCom']),
-                        float(prod['prod']['vProd']),
-                    ),
-                )
-                for prod in documento['det']
-            ],
-        },
+        valor_total=documento['total']['ICMSTot']['vNF'],
+        cnpj_vend=documento['emit']['CNPJ'],
+        nome_vend=documento['emit']['xNome'],
+        cpf_comp=documento['dest']['CPF'],
+        nome_comp=documento['dest']['xNome'],
+        itens_nf=[
+            ItensNFe(
+                *(
+                    prod['prod']['xProd'],
+                    float(prod['prod']['qCom']),
+                    float(prod['prod']['vUnCom']),
+                    float(prod['prod']['vProd']),
+                ),
+            )
+            for prod in documento['det']
+        ],
     )
 
 
@@ -258,24 +263,22 @@ def tratativa9():
     logging.debug(xml_file)
     documento = get_info_nfe(xml_file)
     resposta = NFe(
-        **{
-            'valor_total': documento['total']['ICMSTot']['vNF'],
-            'cnpj_vend': documento['emit']['CNPJ'],
-            'nome_vend': documento['emit']['xNome'],
-            'cpf_comp': documento['dest']['CPF'],
-            'nome_comp': documento['dest']['xNome'],
-            'itens_nf': [
-                ItensNFe(
-                    *(
-                        prod['prod']['xProd'],
-                        float(prod['prod']['qCom']),
-                        float(prod['prod']['vUnCom']),
-                        float(prod['prod']['vProd']),
-                    ),
-                )
-                for prod in documento['det']
-            ],
-        },
+        valor_total=documento['total']['ICMSTot']['vNF'],
+        cnpj_vend=documento['emit']['CNPJ'],
+        nome_vend=documento['emit']['xNome'],
+        cpf_comp=documento['dest']['CPF'],
+        nome_comp=documento['dest']['xNome'],
+        itens_nf=[
+            ItensNFe(
+                *(
+                    prod['prod']['xProd'],
+                    float(prod['prod']['qCom']),
+                    float(prod['prod']['vUnCom']),
+                    float(prod['prod']['vProd']),
+                ),
+            )
+            for prod in documento['det']
+        ],
     )
     return asdict(resposta)
 
@@ -320,15 +323,15 @@ def tratativa16():
     """Converte para Dataframe."""
     xml_file = next(x for x in FILES_XML if x.name.__contains__('Brot'))
     dados = get_content_danfe_nfe(xml_file, 'dict')
-    DF = pd.DataFrame.from_dict(dados)
-    print(DF)
+    nota_df = pd.DataFrame.from_dict(dados)
+    print(nota_df)
 
 
 def tratativa17():
     """Converte para Dataframe."""
     xml_file = next(x for x in FILES_XML if x.name.__contains__('Brot'))
     dados = get_content_danfe_nfe(xml_file, 'tuple')
-    DF = pd.DataFrame(dados).T
+    nota_df = pd.DataFrame(dados).T
     columns = [
         'valor_total',
         'cnpj_vend',
@@ -338,8 +341,8 @@ def tratativa17():
         'nome_fantasia',
         'itens_nf',
     ]
-    DF.columns = columns
-    print(DF)
+    nota_df.columns = columns
+    print(nota_df)
 
 
 def tratativa18():
@@ -355,8 +358,8 @@ def tratativa18():
         'nome_fantasia',
         'itens_nf',
     ]
-    DF = pd.DataFrame(dados, index=columns).T
-    print(DF)
+    nota_df = pd.DataFrame(dados, index=columns).T
+    print(nota_df)
 
 
 def tratativa19():
@@ -423,14 +426,14 @@ def run():
         if key.__contains__('tratativa')
     ]
     for func in functions:
-        logging.debug(f'{type(func)} {func.__name__}')
+        logging.debug('%s %s', type(func), func.__name__)
         print(f'--- {func.__name__} ---')
         print(f'    >>> {func.__doc__}')
         try:
             if result := func():
                 print(result)
         except (TypeError, ValueError) as e:
-            logging.error(f'{e.__class__.__name__}: {e}')
+            logging.exception('%s', e.__class__.__name__)
         print('------\n')
 
 

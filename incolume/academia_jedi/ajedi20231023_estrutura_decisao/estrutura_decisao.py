@@ -1,4 +1,7 @@
 """Solução dos exercícios estrutura de decisão."""
+
+# ruff: noqa: A001 A002 ANN001 ANN002 ANN003 ANN201 ANN202 ANN204 ANN401 ARG001 ARG002 ASYNC101 B007 B008 B009 B011 B015 B904 B905 BLE001 C408 C419 C901 D100 D101 D102 D103 D104 D105 D107 D205 D402 D415 D419 DTZ001 DTZ003 DTZ005 DTZ007 E501 E741 EM101 EM102 ERA001 EXE005 F402 F403 F405 F601 F811 F821 F841 FBT001 FBT002 FBT003 FIX002 G001 G002 G004 N801 N802 N805 N806 N816 N999 NPY002 PD901 PERF203 PERF401 PERF402 PIE796 PLE1205 PLR0913 PLR1714 PLR2004 PLW0602 PLW0603 PLW2901 PT004 PT006 PT012 PT015 PTH118 PTH123 PYI024 PYI041 RET503 RET504 RUF001 RUF012 RUF013 S101 S113 S201 S301 S307 S310 S311 S602 S603 S605 S607 S608 SIM103 SIM109 SIM113 SIM115 SIM117 SLF001 SLOT000 T201 T203 TCH003 TD002 TD003 TD004 TRY002 TRY003 TRY300 TRY301 TRY401 W293
+
 import datetime
 import operator
 from collections import namedtuple
@@ -37,7 +40,8 @@ def exercicio03(sexo: str) -> str:
 def exercicio04(letra: str) -> str:
     """Vogal ou consoante.
     Faça um Programa que verifique se uma letra digitada
-    é vogal ou consoante."""
+    é vogal ou consoante.
+    """
     vogais = 'AEIOU'
 
     def isVogal(letra: str) -> bool:
@@ -67,7 +71,8 @@ def exercicio06(*args) -> float:
 def exercicio07(*args) -> tuple:
     """Maior e menor.
     Faça um Programa que leia três números e mostre
-    o maior e o menor deles."""
+    o maior e o menor deles.
+    """
     maior = -999999999999999999
     menor = 9999999999999999999
 
@@ -136,7 +141,6 @@ def exercicio11(salario: float) -> str:
     - o valor do aumento;
     - o novo salário, após o aumento.
     """
-
     # salarios = [280, 700, 1500, 1500.01]
     # ajustes = [.2, .15, .1, .05]
 
@@ -202,7 +206,7 @@ def exercicio12(valor_hora: float, quantia_hora: float) -> str:
             (-) INSS ( 10%)                 : R$  {inss}
             FGTS (11%)                      : R$  {fgts}
             Total de descontos              : R$  {descontos}
-            Salário Liquido                 : R$  {sal_bruto - descontos}"""
+            Salário Liquido                 : R$  {sal_bruto - descontos}""",
     )
 
 
@@ -266,8 +270,10 @@ def exercicio14(*args) -> str:
     def mostrar_resultado(media: float) -> str:
         """Apresentação do resultado."""
         conceito = calc_conceito(media)
-        return (f'Notas: {args}, Média: {media}, '
-                f'Conceito: {conceito} "{mensagens[conceito]}"')
+        return (
+            f'Notas: {args}, Média: {media}, '
+            f'Conceito: {conceito} "{mensagens[conceito]}"'
+        )
 
     return mostrar_resultado(media)
 
@@ -324,7 +330,7 @@ def exercicio16():
 
     def delta(*values):
         a, b, c = values
-        return b ** 2 - 4 * a * c
+        return b**2 - 4 * a * c
 
     def x(*values):
         a, b, c = values
@@ -429,7 +435,7 @@ def exercicio21():
     notas = [100, 50, 10, 5, 1]
 
     valor = float(input('Valor do saque: '))
-    if 10 > valor or 600 < valor:
+    if valor < 10 or valor > 600:
         raise ValueError('limite por saque entre R$10 e R$600')
 
     def change(value) -> list:
@@ -577,7 +583,8 @@ def exercicio26():
     #
     result = calculo(
         float(input('Quantidade de litros: ')),
-        input('Qual combustível (A/G)? '))
+        input('Qual combustível (A/G)? '),
+    )
     return f'R${result:2.2f}'
     # return list(Fuel)
 
@@ -602,7 +609,7 @@ def exercicio27():
     pago pelo cliente.
     """
     fruteira = {'morango': [2.5, 2.2], 'maçã': [1.8, 1.5]}
-    plus_desconto = 1 - .1
+    plus_desconto = 1 - 0.1
 
     def carrinho(produtos: dict = fruteira):
         """Carrinho da frutaria."""
@@ -610,13 +617,16 @@ def exercicio27():
         comprar = True
         while comprar:
             produto = input(
-                f'Escolha o produto {list(produtos.keys())}: ').casefold()
-            if produto not in produtos.keys():
+                f'Escolha o produto {list(produtos.keys())}: ',
+            ).casefold()
+            if produto not in produtos:
                 print('Produto inválido, escolha novamente.')
             else:
                 car[produto] = float(input('Informe a quantidade (kg):'))
-            comprar = input('Acrescentar mais itens? ')[0].casefold() in ['s',
-                                                                          'y']
+            comprar = input('Acrescentar mais itens? ')[0].casefold() in [
+                's',
+                'y',
+            ]
         return car
 
     def calculo(car: dict[str, float]) -> float:
@@ -669,7 +679,7 @@ def exercicio28():
         'dinheiro': tipo_pag('dinheiro', 1),
         'credito': tipo_pag('crédito', 1),
         'debito': tipo_pag('débito', 1),
-        'tabajara': tipo_pag('Cartão Tabajara', .95),
+        'tabajara': tipo_pag('Cartão Tabajara', 0.95),
     }
     carnes = {
         'file duplo': [5.8, 4.9],
@@ -693,7 +703,9 @@ def exercicio28():
         continuar = True
         forma_pagamento = ''
         forma_pagamento = checking(
-            'Informe a forma de pagamento', list(pagamentos.keys()))
+            'Informe a forma de pagamento',
+            list(pagamentos.keys()),
+        )
         carne_sel = checking('Qual carne selecionada', list(carnes.keys()))
         quantia = float(input('Quantos quilos? '))
         return forma_pagamento, carne_sel, quantia
@@ -706,14 +718,14 @@ def exercicio28():
         if quantia > 5:
             desconto += subtotal - quantia * carnes[carne_sel][1]
         if forma_pagamento == 'tabajara':
-            desconto += subtotal * .1
+            desconto += subtotal * 0.1
         total = subtotal - desconto
         msg = (
             f'{"Hipermercado Tabajara":^40}\n'
-            f'{"--"*20:^40}\n'
+            f'{"--" * 20:^40}\n'
             'Produtos:\n'
             f'{"{:<5}Kg {:<10} ......... {:>10}"}\n'
-            f'{"--"*20:^40}\n'
+            f'{"--" * 20:^40}\n'
             f'{"Tipo de pagamento: {:>20}"}\n'
             f'{"Valor do desconto: {:>20}"}\n'
             f'{"Valor Final: {:>26}"}\n'

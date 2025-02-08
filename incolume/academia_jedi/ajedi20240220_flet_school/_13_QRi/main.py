@@ -1,0 +1,117 @@
+"""Main."""
+
+# ruff: noqa: A001 A002 ANN001 ANN002 ANN003 ANN201 ANN202 ANN204 ANN401 ARG001 ARG002 ASYNC101 B007 B008 B009 B011 B015 B904 B905 BLE001 C408 C419 C901 D100 D101 D102 D103 D104 D105 D107 D205 D402 D415 D419 DTZ001 DTZ003 DTZ005 DTZ007 E501 E741 EM101 EM102 ERA001 EXE005 F402 F403 F405 F601 F811 F821 F841 FBT001 FBT002 FBT003 FIX002 G001 G002 G004 N801 N802 N805 N806 N816 N999 NPY002 PD901 PERF203 PERF401 PERF402 PIE796 PLE1205 PLR0913 PLR1714 PLR2004 PLW0602 PLW0603 PLW2901 PT004 PT006 PT012 PT015 PTH118 PTH123 PYI024 PYI041 RET503 RET504 RUF001 RUF012 RUF013 S101 S113 S201 S301 S307 S310 S311 S602 S603 S605 S607 S608 SIM103 SIM109 SIM113 SIM115 SIM117 SLF001 SLOT000 T201 T203 TCH003 TD002 TD003 TD004 TRY002 TRY003 TRY300 TRY301 TRY401 W293
+
+import datetime
+from logging import info
+
+import cv2
+import flet as ft
+import qrcode
+from clear_qrs import clear_qr_codes
+
+
+def main(page: ft.Page) -> None:
+    """Main."""
+    page.title = 'QR Code Scanner and Generator'
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.window_height = 550
+    page.window_width = 750
+    page.theme_mode = 'light'
+    page.scroll = 'always'
+    page.bgcolor = '#ffffff'
+    page.window_bgcolor = '#522125'
+
+    qr_to_show = ft.Image(width=200)
+
+    dlg = ft.AlertDialog(
+        title=ft.Text('Scan QR Code', text_align='center'),
+        content=qr_to_show,
+    )
+
+    def open_dlg(e: ft.ControlEvent) -> None:
+        page.dialog = dlg
+        dlg.open = True
+        info('%s', e)
+        info('%s', e)
+        page.update()
+
+    def generate_qrcode(e: ft.ControlEvent) -> None:
+        clear_qr_codes()
+        img = qrcode.make(str(user_content.value))
+        current_datetime = datetime.datetime.now(tz=datetime.timezone.utc)
+        global timestamp
+        timestamp = current_datetime.strftime('%Y-%m-%d_%H-%M-%S')
+        img.save(f'assets/qr/qrCode_{timestamp}.jpg')
+        qr_to_show.src = f'qr/qrCode_{timestamp}.jpg'
+        open_dlg(e)
+        info('%s', e)
+        page.update()
+
+    def scan_qrcode(e: ft.ControlEvent) -> None:
+        global timestamp
+        img = str(f'assets/qr/qrCode_{timestamp}.jpg')
+        detector = cv2.QRCodeDetector()
+        value, _, _ = detector.detectAndDecode(cv2.imread(img))
+        show_qr_content.value = value
+        info('%s', e)
+        page.update()
+
+    user_content = ft.TextField(
+        hint_text='please put the content to encrypt',
+        border_radius=40,
+        border_color='#522125',
+        color='#522125',
+    )
+    generate_button = ft.ElevatedButton(
+        'Generate',
+        on_click=generate_qrcode,
+        bgcolor='#522125',
+        color=ft.colors.WHITE,
+    )
+
+    show_qr_content = ft.Text(text_align='center')
+    scan_button = ft.ElevatedButton(
+        'Scan QR',
+        on_click=scan_qrcode,
+        bgcolor='#522125',
+        color=ft.colors.WHITE,
+    )
+
+    page.add(
+        ft.Row(
+            [
+                ft.Column(
+                    [ft.Image(src='qrCodeCover.png', height=500)],
+                    horizontal_alignment='center',
+                    alignment='center',
+                ),
+                ft.Container(width=30),
+                ft.Column(
+                    [
+                        ft.Image(src='logo/appLogo.png', width=150),
+                        ft.Container(height=20),
+                        user_content,
+                        generate_button,
+                        ft.Row([show_qr_content], alignment='center'),
+                        scan_button,
+                        ft.Container(height=20),
+                        ft.Text(
+                            value='Made by: Kumar Anurag',
+                            color='#522125',
+                            weight='bold',
+                        ),
+                    ],
+                    horizontal_alignment='center',
+                    alignment='center',
+                ),
+            ],
+            vertical_alignment='center',
+            alignment='center',
+        ),
+    )
+
+
+if __name__ == '__main__':  # pragma: no cover
+    ft.app(target=main, assets_dir='assets')
