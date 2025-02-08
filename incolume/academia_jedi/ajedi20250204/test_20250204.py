@@ -1,5 +1,6 @@
 """Test for this module."""
 
+from collections.abc import Generator
 import incolume.academia_jedi.ajedi20250204 as pkg
 
 
@@ -14,4 +15,4 @@ class TestCase:
 
     def test_1(self):
         """Unit test."""
-        assert isinstance(pkg.list_dir(pkg.directories), map)
+        assert isinstance(pkg.list_dir(pkg.directories), map | Generator)
