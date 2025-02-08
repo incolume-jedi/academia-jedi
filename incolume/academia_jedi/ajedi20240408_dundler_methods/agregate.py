@@ -6,9 +6,12 @@ import datetime as dt
 from copy import copy
 from dataclasses import dataclass, field
 from typing import NoReturn
+import sys
 
 __author__ = '@britodfbr'  # pragma: no cover
 
+if sys.version_info < (3,10):
+    sys.exit('This run only Python 3.10 or higher')
 
 @dataclass(kw_only=True)
 class Fruit3:
