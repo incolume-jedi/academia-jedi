@@ -38,7 +38,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
@@ -51,19 +51,20 @@ jobs:
           python -m pip install -U pip poetry
           poetry install
 
-      - name: Check lint by task configuration
-        run: |
-          poetry run task lint
+      # - name: Check lint by task configuration
+      #   run: |
+      #     poetry run task lint
 
-      - name: Check lint with flake8
-        run: |
-           # stop the build if there are Python syntax errors or undefined names
-           poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-           poetry run flake8 . --count --exit-zero --max-complexity=5 --max-line-length=79 --statistics
-        continue-on-error: true
+      # - name: Check lint with flake8
+      #   run: |
+      #      # stop the build if there are Python syntax errors or undefined names
+      #      poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+      #      # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+      #      poetry run flake8 . --count --exit-zero --max-complexity=5 --max-line-length=79 --statistics
+      #   continue-on-error: true
 
       - name: Check lint with Ruff
         run: |
           poetry run ruff --format=github
+          poetry run ruff check incolume
         continue-on-error: true
