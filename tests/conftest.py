@@ -28,7 +28,7 @@ elif version_info < (3, 11, 0) or version_info < (3, 12, 0):
     )
 elif version_info < (4, 0, 0):
     collect_ignore.extend(
-        ('incolume\academia_jedi\ajedi20231213_aspose_pkg\test_aspose.py'),
+        ('incolume\academia_jedi\ajedi20231213_aspose_pkg\test_aspose.py',),
     )
 logging.debug(ic(collect_ignore))
 
