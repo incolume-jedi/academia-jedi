@@ -17,14 +17,14 @@ if version_info < (3, 9, 0):  # noqa: UP036
     )
 elif version_info < (3, 10, 0):  # noqa: UP036
     collect_ignore.extend(
-        ('incolume/academia_jedi/ajedi20240408_dundler_methods/*',),
+        (
+            'incolume/academia_jedi/ajedi20240408_dundler_methods/*',
+            'incolume/academia_jedi/ajedi20240408_dundler_methods/*',
+        ),
     )
 elif version_info < (3, 11, 0) or version_info < (3, 12, 0):
     collect_ignore.extend(
-        (
-            'incolume/academia_jedi/ajedi20220728_crud_nodb',
-            'incolume/academia_jedi/ajedi20240408_dundler_methods/*',
-        ),
+        ('incolume/academia_jedi/ajedi20220728_crud_nodb',),
     )
 elif version_info < (4, 0, 0):
     collect_ignore.extend(
