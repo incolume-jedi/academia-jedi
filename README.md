@@ -6,7 +6,14 @@ Estes códigos, foram e/ou serão desenvolvidos para treinamento da guilda.
 
 Todo o conteúdo criado, produzido e armazenado, para fins de aprendizado, é de livre acesso aos membros da guilda JEDI Incolume.
 
+A partir desta versão há utilização em conjunto dos gerenciadores de pacotes `uv` e `poetry`.
 
-- Na raiz do projeto execute: `poetry install`;
-- Para outros gerenciadores de pacotes, utilize Python 3.8+.
+- Na raiz do projeto execute: 
+   - `uv venv -p <python-version> `;
+   - `source .venv/Script/activate` (para windows)
+   - `source .venv/bin/activate` (para unix like)
+   - `uvx poetry install`;
+
+- Para outros gerenciadores de pacotes, utilize Python conforme a versão indicada, atualmente Python 3.10+.
+
 As dependências estão contidas em pyproject.toml;
