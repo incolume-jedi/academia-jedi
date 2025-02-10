@@ -3,6 +3,11 @@ name = "academia-jedi"
 version = "0.104.0a1"
 authors = [{name="Britodfbr", email="<britodfbr@gmail.com>"}]
 
+[tool.uv]
+
+[tool.uv.workspace]
+members = []
+
 [tool.poetry]
 name = "academia-jedi"
 version = "0.104.0a1"
@@ -534,6 +539,3 @@ pre_changelog='poetry run pytest -m fast'
 changelog = {help='Update changelog file', cmd = "poetry run gcl {CHANGELOGFILE} -u {URLCOMPARE} && echo CHANGELOG file - {CHANGELOGFILE} - updated with success.;echo", use_vars = true }
 gcl = {help='Update changelog file', cmd='poetry run task changelog'}
 setup = { help = 'Configure environment develop', cmd='git config core.hooksPath .git-hooks/'}
-
-[tool.uv.workspace]
-members = []
