@@ -2811,20 +2811,23 @@ files = [
 
 [[package]]
 name = "language-tool-python"
-version = "2.8.2"
+version = "2.9.0"
 description = "Checks grammar using LanguageTool."
 optional = false
-python-versions = "*"
+python-versions = ">=3.9"
 files = [
-    {file = "language_tool_python-2.8.2-py3-none-any.whl", hash = "sha256:5e8841945d10a304b390b2c930585b1e4ad06becfe3751b447d33cbf8be6d9a8"},
-    {file = "language_tool_python-2.8.2.tar.gz", hash = "sha256:6401bb59248d1d94dbd44c720efcf6a708514f6c15f9d37d9494d984e8e290bf"},
+    {file = "language_tool_python-2.9.0-py3-none-any.whl", hash = "sha256:c142d624aa1242c9f7a8da46270561a1ca6dbaace454386c6191f1327d34a66d"},
+    {file = "language_tool_python-2.9.0.tar.gz", hash = "sha256:0067c7b583265c3b0cc21cf22a03075dae0853f6542646788f0be377d8ea0559"},
 ]
 
 [package.dependencies]
-pip = "*"
+psutil = "*"
 requests = "*"
+toml = "*"
 tqdm = "*"
-wheel = "*"
+
+[package.extras]
+dev = ["pytest", "pytest-cov", "pytest-runner", "pytest-xdist"]
 
 [[package]]
 name = "lxml"
@@ -3168,13 +3171,13 @@ pyyaml = ">=5.1"
 
 [[package]]
 name = "mkdocs-material"
-version = "9.6.3"
+version = "9.6.4"
 description = "Documentation that simply works"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mkdocs_material-9.6.3-py3-none-any.whl", hash = "sha256:1125622067e26940806701219303b27c0933e04533560725d97ec26fd16a39cf"},
-    {file = "mkdocs_material-9.6.3.tar.gz", hash = "sha256:c87f7d1c39ce6326da5e10e232aed51bae46252e646755900f4b0fc9192fa832"},
+    {file = "mkdocs_material-9.6.4-py3-none-any.whl", hash = "sha256:414e8376551def6d644b8e6f77226022868532a792eb2c9accf52199009f568f"},
+    {file = "mkdocs_material-9.6.4.tar.gz", hash = "sha256:4d1d35e1c1d3e15294cb7fa5d02e0abaee70d408f75027dc7be6e30fb32e6867"},
 ]
 
 [package.dependencies]
@@ -3710,13 +3713,13 @@ signedtoken = ["cryptography (>=3.0.0)", "pyjwt (>=2.0.0,<3)"]
 
 [[package]]
 name = "openai"
-version = "1.61.1"
+version = "1.62.0"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "openai-1.61.1-py3-none-any.whl", hash = "sha256:72b0826240ce26026ac2cd17951691f046e5be82ad122d20a8e1b30ca18bd11e"},
-    {file = "openai-1.61.1.tar.gz", hash = "sha256:ce1851507218209961f89f3520e06726c0aa7d0512386f0f977e3ac3e4f2472e"},
+    {file = "openai-1.62.0-py3-none-any.whl", hash = "sha256:dcb7f9fb4fbc3f27e3ffd2d7bf045be9211510d7fafefcef7ad2302cb27484e0"},
+    {file = "openai-1.62.0.tar.gz", hash = "sha256:ef3f6864ae2f75fa6296bc9811acf684b95557fcb611fe95734215a8b9150b43"},
 ]
 
 [package.dependencies]
@@ -4102,17 +4105,6 @@ mic = ["olefile"]
 tests = ["check-manifest", "coverage (>=7.4.2)", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout", "trove-classifiers (>=2024.10.12)"]
 typing = ["typing-extensions"]
 xmp = ["defusedxml"]
-
-[[package]]
-name = "pip"
-version = "25.0.1"
-description = "The PyPA recommended tool for installing Python packages."
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "pip-25.0.1-py3-none-any.whl", hash = "sha256:c46efd13b6aa8279f33f2864459c8ce587ea6a1a59ee20de055868d8f7688f7f"},
-    {file = "pip-25.0.1.tar.gz", hash = "sha256:88f96547ea48b940a3a385494e181e29fb8637898f88d88737c5049780f196ea"},
-]
 
 [[package]]
 name = "platformdirs"
@@ -6561,20 +6553,6 @@ MarkupSafe = ">=2.1.1"
 
 [package.extras]
 watchdog = ["watchdog (>=2.3)"]
-
-[[package]]
-name = "wheel"
-version = "0.45.1"
-description = "A built-package format for Python"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "wheel-0.45.1-py3-none-any.whl", hash = "sha256:708e7481cc80179af0e556bbf0cc00b8444c7321e2700b8d8580231d13017248"},
-    {file = "wheel-0.45.1.tar.gz", hash = "sha256:661e1abd9198507b1409a20c02106d9670b2576e916d58f520316666abca6729"},
-]
-
-[package.extras]
-test = ["pytest (>=6.0.0)", "setuptools (>=65)"]
 
 [[package]]
 name = "widgetsnbextension"
