@@ -60,6 +60,9 @@ def example2():
         / 'proxies_1663514130.csv'
     )
 
+    if not file.exists():
+        file.write_text('')
+
     def tail(filename, n=10):
         """Return the last n lines of a file."""
         with open(filename) as f:
