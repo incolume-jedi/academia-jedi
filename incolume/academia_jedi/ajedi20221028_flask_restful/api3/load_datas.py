@@ -35,11 +35,7 @@ def post_data(item):
         return resp.json()
     except requests.exceptions.ConnectionError:
         logging.exception(ic(sys.exc_info()))
-        sys.exit(1)
 
 
-for _, values in df.iterrows():
-    try:
-        print(post_data(values))
-    except SystemExit:
-        break
+for _, values in df0.iterrows():
+    ic(post_data(values))
