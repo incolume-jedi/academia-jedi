@@ -9,6 +9,8 @@ from icecream import ic
 
 __author__ = '@britodfbr'  # pragma: no cover
 
+# ruff: noqa: T201 PERF203
+
 df0 = pd.read_csv(
     'https://raw.githubusercontent.com/jhnwr/flask-restful-demo/main/data.csv',
     header=None,
@@ -38,7 +40,7 @@ def post_data(item):
         sys.exit(1)
 
 
-for _, values in df.iterrows():
+for _, values in df0.iterrows():
     try:
         print(post_data(values))
     except SystemExit:
