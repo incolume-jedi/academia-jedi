@@ -10,7 +10,7 @@ from tempfile import NamedTemporaryFile
 import pytest
 from icecream import ic
 
-collect_ignore = ['setup.py']
+collect_ignore = ['main.py', 'setup.py']
 
 
 if version_info < (3, 9, 0):  # noqa: UP036
@@ -26,12 +26,24 @@ if version_info < (3, 10, 0):
     logging.debug(ic([collect_ignore.append(file) for file in files]))
 
 if version_info < (3, 11, 0):
-    path = Path('incolume/academia_jedi/ajedi20221104_collections_deque')
-    files = path.rglob('*.py')
-    logging.debug(ic([collect_ignore.append(file) for file in files]))
+    logging.debug(
+        ic([
+            collect_ignore.append(file)
+            for file in Path(
+                'incolume/academia_jedi/ajedi20221104_collections_deque',
+            ).rglob('*.py')
+        ]),
+    )
 
 if version_info < (3, 12, 0):
-    pass
+    logging.debug(
+        ic([
+            collect_ignore.append(file)
+            for file in Path(
+                'incolume/academia_jedi/ajedi20231101_handler_docx',
+            ).rglob('*.py')
+        ]),
+    )
 
 if version_info < (3, 13, 0):
     pass
