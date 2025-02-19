@@ -16,16 +16,24 @@ collect_ignore = ['main.py', 'setup.py']
 
 
 if version_info < (3, 9, 0):
-    files = Path('incolume/academia_jedi/ajedi20220728_crud_nodb/').rglob(
-        '*.py',
+    logging.debug(
+        ic([
+            collect_ignore.append(file)
+            for file in Path(
+                'incolume/academia_jedi/ajedi20220728_crud_nodb/',
+            ).rglob('*.py')
+        ]),
     )
-    logging.debug(ic([collect_ignore.append(file) for file in files]))
 
 if version_info < (3, 10, 0):
-    files = Path(
-        'incolume/academia_jedi/ajedi20240408_dundler_methods/',
-    ).rglob('*.py')
-    logging.debug(ic([collect_ignore.append(file) for file in files]))
+    logging.debug(
+        ic([
+            collect_ignore.append(file)
+            for file in Path(
+                'incolume/academia_jedi/ajedi20240408_dundler_methods/',
+            ).rglob('*.py')
+        ]),
+    )
 
 if version_info < (3, 11, 0):
     logging.debug(
@@ -49,8 +57,6 @@ if version_info < (3, 12, 0):
         ]),
     )
 
-if version_info < (3, 13, 0):
-    pass
 
 if version_info < (4, 0, 0):
     collect_ignore.append(
