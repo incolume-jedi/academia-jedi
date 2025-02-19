@@ -2102,13 +2102,13 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "huggingface-hub"
-version = "0.28.1"
+version = "0.29.0"
 description = "Client library to download and publish models, datasets and other repos on the huggingface.co hub"
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "huggingface_hub-0.28.1-py3-none-any.whl", hash = "sha256:aa6b9a3ffdae939b72c464dbb0d7f99f56e649b55c3d52406f49e0a5a620c0a7"},
-    {file = "huggingface_hub-0.28.1.tar.gz", hash = "sha256:893471090c98e3b6efbdfdacafe4052b20b84d59866fb6f54c33d9af18c303ae"},
+    {file = "huggingface_hub-0.29.0-py3-none-any.whl", hash = "sha256:c02daa0b6bafbdacb1320fdfd1dc7151d0940825c88c4ef89837fdb1f6ea0afe"},
+    {file = "huggingface_hub-0.29.0.tar.gz", hash = "sha256:64034c852be270cac16c5743fe1f659b14515a9de6342d6f42cbb2ede191fc80"},
 ]
 
 [package.dependencies]
@@ -3095,13 +3095,13 @@ files = [
 
 [[package]]
 name = "mistune"
-version = "3.1.1"
+version = "3.1.2"
 description = "A sane and fast Markdown parser with useful plugins and renderers"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mistune-3.1.1-py3-none-any.whl", hash = "sha256:02106ac2aa4f66e769debbfa028509a275069dcffce0dfa578edd7b991ee700a"},
-    {file = "mistune-3.1.1.tar.gz", hash = "sha256:e0740d635f515119f7d1feb6f9b192ee60f0cc649f80a8f944f905706a21654c"},
+    {file = "mistune-3.1.2-py3-none-any.whl", hash = "sha256:4b47731332315cdca99e0ded46fc0004001c1299ff773dfb48fbe1fd226de319"},
+    {file = "mistune-3.1.2.tar.gz", hash = "sha256:733bf018ba007e8b5f2d3a9eb624034f6ee26c4ea769a98ec533ee111d504dff"},
 ]
 
 [package.dependencies]
@@ -3253,13 +3253,13 @@ python-legacy = ["mkdocstrings-python-legacy (>=0.2.1)"]
 
 [[package]]
 name = "mkdocstrings-python"
-version = "1.16.0"
+version = "1.16.1"
 description = "A Python handler for mkdocstrings."
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "mkdocstrings_python-1.16.0-py3-none-any.whl", hash = "sha256:80ecbcca67fe29eb5a853ab7be0457231f6eefb5d079bcdf7dbae16962fc3f51"},
-    {file = "mkdocstrings_python-1.16.0.tar.gz", hash = "sha256:546d53c7d559941abc726b2f78a41c0183480a95ba0a87ccc63b9b08740126f9"},
+    {file = "mkdocstrings_python-1.16.1-py3-none-any.whl", hash = "sha256:b88ff6fc6a293cee9cb42313f1cba37a2c5cdf37bcc60b241ec7ab66b5d41b58"},
+    {file = "mkdocstrings_python-1.16.1.tar.gz", hash = "sha256:d7152d17da74d3616a0f17df5d2da771ecf7340518c158650e5a64a0a95973f4"},
 ]
 
 [package.dependencies]
@@ -6769,4 +6769,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "82b0de4cfc03fbc8648091c4e36136c24f44bffd36c2510d505b4d9ff337f78e"
+content-hash = "6bf841891a808346fa64d80f6b70299d304e2b664f622f0ca6e2b046b44df4d4"
