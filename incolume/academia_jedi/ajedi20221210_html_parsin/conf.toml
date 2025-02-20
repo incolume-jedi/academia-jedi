@@ -1,0 +1,5 @@
+[url]
+toscrape = "https://books.toscrape.com/"
+
+[server]
+url = "https://tictactoe.example.com"

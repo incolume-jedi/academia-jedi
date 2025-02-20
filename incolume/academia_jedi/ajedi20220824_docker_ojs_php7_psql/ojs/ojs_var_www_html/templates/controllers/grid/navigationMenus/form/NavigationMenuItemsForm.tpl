@@ -1,0 +1,1 @@
+ {url|replace:"REPLACEME":"%PATH%"|assign:"exampleUrl" router=$smarty.const.ROUTE_PAGE page="navigationMenu" op="view" path="REPLACEME"}
