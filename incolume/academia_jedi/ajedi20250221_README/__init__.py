@@ -40,6 +40,7 @@ def create_readme(
     logging.debug(ic(directory, directory.exists()))
     file = directory / filename
     if file.exists():
+        logging.debug(ic(f'{file} existente!'))
         return False
     file.write_bytes(model.read_bytes())
     result = file.is_file()

@@ -276,6 +276,7 @@ class TestREADME:
             inspect.currentframe().f_code.co_name,
         )
         ic(test_dir)
+        rmtree(test_dir)
         assert pkg.create_readme(test_dir)
 
     def test_4(self):
