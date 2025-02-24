@@ -265,7 +265,7 @@ class TestREADME:
     )
     def test_2(self, entrance):
         """Test 2."""
-        assert {entrance}.issubset(pkg.subprojects)
+        assert {entrance}.issubset(pkg.subprojects_names)
 
     def test_3(self):
         """TEst 3."""

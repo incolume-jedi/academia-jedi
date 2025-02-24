@@ -19,10 +19,12 @@ logging.debug(ic(paths))
 condition = re.compile(r'ajedi')
 
 subprojects = [
-    p.name
+    p
     for p in paths.parents[0].iterdir()
     if p.is_dir() and re.match(condition, p.stem)
 ]
+
+subprojects_names = [p.name for p in subprojects]
 
 
 def create_readme(
@@ -55,4 +57,4 @@ def apply_issue(
 
 
 if __name__ == '__main__':
-    apply_issue(func=create_readme, list_dir=[Path(p) for p in subprojects])
+    apply_issue(func=create_readme, list_dir=subprojects)
