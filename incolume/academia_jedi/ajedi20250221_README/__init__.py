@@ -2,6 +2,7 @@
 
 import logging
 import re
+from collections.abc import Callable
 from pathlib import Path
 
 from icecream import ic
@@ -21,10 +22,11 @@ subprojects = [
 
 def create_readme(
     directory: Path,
-    filename: str = 'README.md',
+    filename: str = '',
     model: Path | None = None,
 ) -> bool:
     """Create README file."""
+    filename = filename or 'README.md'
     model = model or Path(__file__).parent / 'model.md'
     result = False
     directory.mkdir(parents=True, exist_ok=True)
@@ -34,3 +36,18 @@ def create_readme(
     result = file.is_file()
     logging.debug(ic(result))
     return result
+
+
+def apply_issue(
+    func: Callable,
+    list_dir: list[Path],
+    filename: str = '',
+    model: Path | None = None,
+) -> None:
+    """Apply this issue."""
+    for path_dir in list_dir:
+        func(directory=path_dir, filename=filename, model=model)
+
+
+# if __name__ == '__main__':
+#     apply_issue()

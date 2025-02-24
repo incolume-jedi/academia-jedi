@@ -8,6 +8,7 @@ import incolume.academia_jedi.ajedi20250221_README as pkg
 import re
 from icecream import ic
 from tempfile import gettempdir
+from shutil import rmtree
 
 
 class TestREADME:
@@ -276,3 +277,22 @@ class TestREADME:
         )
         ic(test_dir)
         assert pkg.create_readme(test_dir)
+
+    def test_4(self):
+        """Test 4."""
+        length = 5
+        filename = 'TESTCASE.md'
+        base_dir = Path(gettempdir()).joinpath(
+            self.__class__.__name__,
+            inspect.stack()[0][3],
+        )
+        list_dir = [base_dir / f'project{x}' for x in range(length)]
+
+        rmtree(base_dir)
+        [p.mkdir(parents=True, exist_ok=True) for p in list_dir]
+
+        assert len(list(base_dir.rglob(filename))) == 0
+
+        pkg.apply_issue(pkg.create_readme, list_dir, filename)
+
+        assert len(list(base_dir.rglob(filename))) == length
