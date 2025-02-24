@@ -6,7 +6,7 @@ from typing import ClassVar
 import pytest
 import incolume.academia_jedi.ajedi20250221_README as pkg
 import re
-
+from icecream import ic
 from tempfile import gettempdir
 
 
@@ -268,9 +268,11 @@ class TestREADME:
 
     def test_3(self):
         """TEst 3."""
-        directory = (
-            Path(gettempdir())
-            / self.__class__.__name__
-            / inspect.stack()[0][1]
+        assert inspect.stack()[0][3] == 'test_3'
+        assert inspect.currentframe().f_code.co_name == 'test_3'
+        test_dir = Path(gettempdir()).joinpath(
+            self.__class__.__name__,
+            inspect.currentframe().f_code.co_name,
         )
-        # assert pkg.create_readme(directory)
+        ic(test_dir)
+        assert pkg.create_readme(test_dir)

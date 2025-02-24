@@ -19,13 +19,18 @@ subprojects = [
 ]
 
 
-def create_readme(directory: Path, filename: str = 'REAME.md') -> bool:
+def create_readme(
+    directory: Path,
+    filename: str = 'README.md',
+    model: Path | None = None,
+) -> bool:
     """Create README file."""
+    model = model or Path(__file__).parent / 'model.md'
     result = False
     directory.mkdir(parents=True, exist_ok=True)
-    logging.debug(ic(directory))
-    # file = directory / filename
-    # file.write_bytes(Path('model.md').read_bytes())
-    # result = file.is_file()
-    # logging.debug(ic(result))
+    logging.debug(ic(directory, directory.exists()))
+    file = directory / filename
+    file.write_bytes(model.read_bytes())
+    result = file.is_file()
+    logging.debug(ic(result))
     return result
