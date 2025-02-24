@@ -39,6 +39,8 @@ def create_readme(
     directory.mkdir(parents=True, exist_ok=True)
     logging.debug(ic(directory, directory.exists()))
     file = directory / filename
+    if file.exists():
+        return False
     file.write_bytes(model.read_bytes())
     result = file.is_file()
     logging.debug(ic(result))
