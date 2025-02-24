@@ -55,4 +55,4 @@ def apply_issue(
 
 
 if __name__ == '__main__':
-    apply_issue(func=create_readme, list_dir=subprojects)
+    apply_issue(func=create_readme, list_dir=[Path(p) for p in subprojects])
