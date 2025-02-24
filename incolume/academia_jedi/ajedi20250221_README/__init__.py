@@ -1,11 +1,16 @@
 """Module."""
 
+from __future__ import annotations
+
 import logging
 import re
-from collections.abc import Callable
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from icecream import ic
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
 
 paths = Path(__file__).parent
 
@@ -49,5 +54,5 @@ def apply_issue(
         func(directory=path_dir, filename=filename, model=model)
 
 
-# if __name__ == '__main__':
-#     apply_issue()
+if __name__ == '__main__':
+    apply_issue(func=create_readme, list_dir=subprojects)
