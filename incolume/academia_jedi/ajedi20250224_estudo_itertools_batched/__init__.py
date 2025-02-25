@@ -1,7 +1,7 @@
 """Module for studing itertools.batched."""
 
+import itertools
 from collections.abc import Iterable
-from itertools import batched
 
 length = 10
 data = list(range(length))
@@ -9,7 +9,7 @@ data = list(range(length))
 
 def running(array: Iterable, length: int = 0) -> list:
     """Applied study."""
-    return list(batched(array, length))
+    return list(itertools.batched(array, length))
 
 
 def run():
