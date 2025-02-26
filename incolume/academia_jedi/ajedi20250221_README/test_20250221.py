@@ -276,7 +276,7 @@ class TestREADME:
             inspect.currentframe().f_code.co_name,
         )
         ic(test_dir)
-        rmtree(test_dir)
+        rmtree(test_dir, ignore_errors=True)
         assert pkg.create_readme(test_dir)
 
     def test_4(self):
@@ -289,7 +289,7 @@ class TestREADME:
         )
         list_dir = [base_dir / f'project{x}' for x in range(length)]
 
-        rmtree(base_dir)
+        rmtree(base_dir, ignore_errors=True)
         [p.mkdir(parents=True, exist_ok=True) for p in list_dir]
 
         assert len(list(base_dir.rglob(filename))) == 0
