@@ -1,0 +1,299 @@
+"""Tests for this module."""
+
+import inspect
+from pathlib import Path
+from typing import ClassVar
+import pytest
+import incolume.academia_jedi.ajedi20250221_README as pkg
+import re
+from icecream import ic
+from tempfile import gettempdir
+from shutil import rmtree
+
+
+class TestREADME:
+    """Test case."""
+
+    TEST0: ClassVar[list[pytest.param]] = [
+        pytest.param('ajedi20220728_crud_nodb', marks=[]),
+        pytest.param('ajedi20220729_click', marks=[]),
+        pytest.param('ajedi20220731_sgbd_pandas', marks=[]),
+        pytest.param('ajedi20220801_crud_sqlite', marks=[]),
+        pytest.param('ajedi20220801_Dockerfile_apache', marks=[]),
+        pytest.param('ajedi20220801_ojs', marks=[]),
+        pytest.param('ajedi20220806_docker_nginx', marks=[]),
+        pytest.param('ajedi20220806_docker_stack', marks=[]),
+        pytest.param('ajedi20220807_docker_mariadb', marks=[]),
+        pytest.param('ajedi20220807_docker_mssql', marks=[]),
+        pytest.param('ajedi20220807_docker_mysql', marks=[]),
+        pytest.param('ajedi20220807_docker_pgsql', marks=[]),
+        pytest.param('ajedi20220815_pytest_doctest', marks=[]),
+        pytest.param('ajedi20220816_docker_python_pgsql', marks=[]),
+        pytest.param('ajedi20220817_docker_ojs_pgsql', marks=[]),
+        pytest.param('ajedi20220818_docker_ojs_local_vol', marks=[]),
+        pytest.param('ajedi20220819_docker_ojs_rjp_hom_recover', marks=[]),
+        pytest.param('ajedi20220822_docker_ojs_update_php8', marks=[]),
+        pytest.param('ajedi20220824_docker_ojs_php7_psql', marks=[]),
+        pytest.param('ajedi20220829_docker_ojs_php7_psql', marks=[]),
+        pytest.param('ajedi20220830_docker_ojs_php7_psql', marks=[]),
+        pytest.param('ajedi20220831_docker_ojs', marks=[]),
+        pytest.param('ajedi20220918_proxy_2_python', marks=[]),
+        pytest.param('ajedi20220918_raspagem_lista_proxies', marks=[]),
+        pytest.param('ajedi20220924_dynaconf', marks=[]),
+        pytest.param('ajedi20220924_massa_dados', marks=[]),
+        pytest.param('ajedi20220924_python_dotenv', marks=[]),
+        pytest.param('ajedi20220925_arquivos_csv', marks=[]),
+        pytest.param('ajedi20220925_massa_dados_faker_protocol', marks=[]),
+        pytest.param('ajedi20220926_arquivos_json', marks=[]),
+        pytest.param('ajedi20220926_arquivos_pickle', marks=[]),
+        pytest.param('ajedi20220926_pandas_write_files', marks=[]),
+        pytest.param('ajedi20220928_morsa_op', marks=[]),
+        pytest.param('ajedi20220928_regex', marks=[]),
+        pytest.param('ajedi20221002_date_json_files', marks=[]),
+        pytest.param('ajedi20221003_datetime_milliseconds', marks=[]),
+        pytest.param('ajedi20221004_enum', marks=[]),
+        pytest.param('ajedi20221004_hidden_password', marks=[]),
+        pytest.param('ajedi20221005_python311_docker', marks=[]),
+        pytest.param('ajedi20221006_fpdf', marks=[]),
+        pytest.param('ajedi20221006_redis', marks=[]),
+        pytest.param('ajedi20221008_codigo_paralelo', marks=[]),
+        pytest.param('ajedi20221009_verificar_proxies_ativos', marks=[]),
+        pytest.param('ajedi20221028_flask_restful', marks=[]),
+        pytest.param(
+            'ajedi20221030_bandeiras_estados_brasileiros',
+            marks=[],
+        ),
+        pytest.param(
+            'ajedi20221101_firebase_estados_municipios',
+            marks=[],
+        ),
+        pytest.param('ajedi20221103_pydantic', marks=[]),
+        pytest.param('ajedi20221104_collections_deque', marks=[]),
+        pytest.param('ajedi20221104_decorators', marks=[]),
+        pytest.param('ajedi20221104_mapping_letters', marks=[]),
+        pytest.param('ajedi20221104_moda_em_lista', marks=[]),
+        pytest.param('ajedi20221107_parametros_posicionais', marks=[]),
+        pytest.param('ajedi20221108_pytest_classes', marks=[]),
+        pytest.param('ajedi20221109_pony_orm', marks=[]),
+        pytest.param('ajedi20221110_mapping_values', marks=[]),
+        pytest.param('ajedi20221112_postgresql_pandas', marks=[]),
+        pytest.param('ajedi20221113_csv2zip', marks=[]),
+        pytest.param('ajedi20221116_fstring_use', marks=[]),
+        pytest.param('ajedi20221119_tic_tac_toe', marks=[]),
+        pytest.param('ajedi20221121_performance_list_tuple', marks=[]),
+        pytest.param('ajedi20221128_mapping_values_into_dict', marks=[]),
+        pytest.param('ajedi20221207_docker_ojs', marks=[]),
+        pytest.param('ajedi20221207_itertools_islice', marks=[]),
+        pytest.param('ajedi20221207_itertools_pairwise', marks=[]),
+        pytest.param('ajedi20221207_itertools_takewhile', marks=[]),
+        pytest.param('ajedi20221210_html_parsin', marks=[]),
+        pytest.param(
+            'ajedi20221212_python_regex_search_replace',
+            marks=[],
+        ),
+        pytest.param('ajedi20221219_api_pagination', marks=[]),
+        pytest.param('ajedi20221219_Como_Usar_ExceptionsGroups', marks=[]),
+        pytest.param('ajedi20221220_web_scraping_bs4', marks=[]),
+        pytest.param('ajedi20221222_regex_socratica', marks=[]),
+        pytest.param('ajedi20221223_streamlit_prophet', marks=[]),
+        pytest.param('ajedi20221226_cpf', marks=[]),
+        pytest.param('ajedi20221227_datetime_iso8601', marks=[]),
+        pytest.param('ajedi20221229_iohttp', marks=[]),
+        pytest.param('ajedi20221230_asyncio', marks=[]),
+        pytest.param('ajedi20221230_fibonacci_generator', marks=[]),
+        pytest.param('ajedi20230101_fluentpython_asyncio', marks=[]),
+        pytest.param('ajedi20230102_iohttp', marks=[]),
+        pytest.param('ajedi20230103_iohttp', marks=[]),
+        pytest.param('ajedi20230105_desempacotamento', marks=[]),
+        pytest.param('ajedi20230105_oop', marks=[]),
+        pytest.param('ajedi20230107_magic_mathods', marks=[]),
+        pytest.param('ajedi20230111_pytz', marks=[]),
+        pytest.param('ajedi20230112_async', marks=[]),
+        pytest.param('ajedi20230112_async_aiohttp', marks=[]),
+        pytest.param('ajedi20230112_greek_async', marks=[]),
+        pytest.param('ajedi20230113_zipfile', marks=[]),
+        pytest.param('ajedi20230114_cli_password', marks=[]),
+        pytest.param('ajedi20230115_calleble', marks=[]),
+        pytest.param('ajedi20230115_fuzzing_prevent', marks=[]),
+        pytest.param('ajedi20230115_pythonic', marks=[]),
+        pytest.param('ajedi20230116_iter_group', marks=[]),
+        pytest.param('ajedi20230117_speed_data_process', marks=[]),
+        pytest.param('ajedi20230118_constaints', marks=[]),
+        pytest.param('ajedi20230119_pdf', marks=[]),
+        pytest.param('ajedi20230121_python_translate', marks=[]),
+        pytest.param('ajedi20230122_import_this', marks=[]),
+        pytest.param('ajedi20230122_logging_config', marks=[]),
+        pytest.param('ajedi20230122_python_overload', marks=[]),
+        pytest.param('ajedi20230127_async_httpx', marks=[]),
+        pytest.param('ajedi20230127_cli_argparse', marks=[]),
+        pytest.param('ajedi20230127_str_trans', marks=[]),
+        pytest.param('ajedi20230129_files', marks=[]),
+        pytest.param('ajedi20230130_progress_bar', marks=[]),
+        pytest.param('ajedi20230203_GUI_increment_count', marks=[]),
+        pytest.param('ajedi20230211_massa_dados_faker_protocol', marks=[]),
+        pytest.param('ajedi20230216_particularizacao', marks=[]),
+        pytest.param('ajedi20230216_python_match', marks=[]),
+        pytest.param('ajedi20230222_handler_pdf', marks=[]),
+        pytest.param('ajedi20230222_language_tools', marks=[]),
+        pytest.param(
+            'ajedi20230222_Natural_language_to_OpenAI_API',
+            marks=[],
+        ),
+        pytest.param('ajedi20230222_opencv', marks=[]),
+        pytest.param('ajedi20230222_pyspellchecker', marks=[]),
+        pytest.param('ajedi20230223_handler_pdf', marks=[]),
+        pytest.param('ajedi20230223_openai_examples', marks=[]),
+        pytest.param('ajedi20230225_massa_dados_faker_protocol', marks=[]),
+        pytest.param('ajedi20230225_regex', marks=[]),
+        pytest.param('ajedi20230226_ip_externo', marks=[]),
+        pytest.param('ajedi20230226_operador_morsa', marks=[]),
+        pytest.param('ajedi20230228_XML_NFe', marks=[]),
+        pytest.param('ajedi20230301_bool_pythonic', marks=[]),
+        pytest.param('ajedi20230302_modulo_secrets', marks=[]),
+        pytest.param('ajedi20230302_python_MSWord', marks=[]),
+        pytest.param('ajedi20230306_weather', marks=[]),
+        pytest.param('ajedi20230310_pytesseract', marks=[]),
+        pytest.param('ajedi20230928_manipulacao_arquivos', marks=[]),
+        pytest.param('ajedi20231002_python_string', marks=[]),
+        pytest.param(
+            'ajedi20231004_largest_sum_continuous_subarray_pythonico',
+            marks=[],
+        ),
+        pytest.param('ajedi20231020_complementar_fita_dna', marks=[]),
+        pytest.param('ajedi20231020_contagem_nucleotideos', marks=[]),
+        pytest.param('ajedi20231020_fatorar_romanos_arabicos', marks=[]),
+        pytest.param('ajedi20231020_massa_test_codons', marks=[]),
+        pytest.param(
+            'ajedi20231022_raspagem_municipios_brasileiros',
+            marks=[],
+        ),
+        pytest.param('ajedi20231023_estrutura_decisao', marks=[]),
+        pytest.param('ajedi20231026_raspagem_httpx', marks=[]),
+        pytest.param('ajedi20231030_epoch_python', marks=[]),
+        pytest.param('ajedi20231030_palindrome_string', marks=[]),
+        pytest.param('ajedi20231101_handler_docx', marks=[]),
+        pytest.param('ajedi20231103_gen_dict', marks=[]),
+        pytest.param('ajedi20231104_python_operators', marks=[]),
+        pytest.param('ajedi20231106_module_incolume_py_util', marks=[]),
+        pytest.param('ajedi20231106_preventing_del_obj', marks=[]),
+        pytest.param('ajedi20231107_extrair_txt_pdf', marks=[]),
+        pytest.param('ajedi20231115_functools_singledispatch', marks=[]),
+        pytest.param('ajedi20231115_typing_overload', marks=[]),
+        pytest.param('ajedi20231123_extrair_txt_img', marks=[]),
+        pytest.param('ajedi20231213_aspose_pkg', marks=[]),
+        pytest.param('ajedi20240217_flet_ex001', marks=[]),
+        pytest.param('ajedi20240217_flet_ex002', marks=[]),
+        pytest.param('ajedi20240220_flet_school', marks=[]),
+        pytest.param('ajedi20240228_flet_ex003', marks=[]),
+        pytest.param('ajedi20240229_flet_ex004', marks=[]),
+        pytest.param('ajedi20240312_flet_ex006', marks=[]),
+        pytest.param('ajedi20240313_flet_ex007', marks=[]),
+        pytest.param('ajedi20240313_flet_ex008', marks=[]),
+        pytest.param('ajedi20240315_flet_ex009', marks=[]),
+        pytest.param('ajedi20240317_flet_ex010', marks=[]),
+        pytest.param('ajedi20240318_flet_ex011', marks=[]),
+        pytest.param('ajedi20240320_ft_navegacao', marks=[]),
+        pytest.param('ajedi20240321_ft_rotas', marks=[]),
+        pytest.param('ajedi20240322_ft_rotas', marks=[]),
+        pytest.param('ajedi20240323_ft_planalto_legis', marks=[]),
+        pytest.param('ajedi20240324_ft_clashofclans', marks=[]),
+        pytest.param('ajedi20240324_ft_ex012', marks=[]),
+        pytest.param('ajedi20240326_argumentos', marks=[]),
+        pytest.param('ajedi20240326_flet_ex010', marks=[]),
+        pytest.param('ajedi20240328_ft_ex014', marks=[]),
+        pytest.param('ajedi20240328_ft_ex015', marks=[]),
+        pytest.param('ajedi20240328_ft_ex016', marks=[]),
+        pytest.param('ajedi20240328_ft_ex017', marks=[]),
+        pytest.param('ajedi20240328_ft_ex018', marks=[]),
+        pytest.param('ajedi20240329_ft_load_api', marks=[]),
+        pytest.param('ajedi20240331_classes_abstratas_ABC', marks=[]),
+        pytest.param('ajedi20240331_classes_abstratas_Protocol', marks=[]),
+        pytest.param('ajedi20240401_ft_ex019', marks=[]),
+        pytest.param('ajedi20240401_ft_ex020', marks=[]),
+        pytest.param('ajedi20240402_ft_control_refs', marks=[]),
+        pytest.param('ajedi20240402_ft_ex021_todo_bd', marks=[]),
+        pytest.param('ajedi20240402_ft_ex022_flet_db', marks=[]),
+        pytest.param('ajedi20240402_ft_webview', marks=[]),
+        pytest.param('ajedi20240403_fastapi_auth_jwt', marks=[]),
+        pytest.param('ajedi20240404_fastapi_routes', marks=[]),
+        pytest.param('ajedi20240405_ft_master', marks=[]),
+        pytest.param('ajedi20240406_ft_load_markdown_from_api', marks=[]),
+        pytest.param('ajedi20240406_ft_load_text_from_api', marks=[]),
+        pytest.param('ajedi20240406_ft_markdown_import', marks=[]),
+        pytest.param('ajedi20240406_ft_markdown_into_file', marks=[]),
+        pytest.param('ajedi20240406_ft_progress_ring', marks=[]),
+        pytest.param(
+            'ajedi20240406_ft_ResponsiveRow_Request_API',
+            marks=[],
+        ),
+        pytest.param('ajedi20240406_ft_text_show', marks=[]),
+        pytest.param('ajedi20240406_ft_text_show_from_web', marks=[]),
+        pytest.param('ajedi20240407_ft_advanced_login', marks=[]),
+        pytest.param('ajedi20240407_ft_calendar_app', marks=[]),
+        pytest.param('ajedi20240407_ft_ex023', marks=[]),
+        pytest.param('ajedi20240408_dataclass_property', marks=[]),
+        pytest.param('ajedi20240408_dundler_methods', marks=[]),
+        pytest.param('ajedi20240409_Class_decorators', marks=[]),
+        pytest.param('ajedi20240409_NamedTuple_typing', marks=[]),
+        pytest.param('ajedi20240414_report_python', marks=[]),
+        pytest.param('ajedi20240423_ft_app_trajetos', marks=[]),
+        pytest.param('ajedi20250201', marks=[]),
+        pytest.param('ajedi20250204', marks=[]),
+        pytest.param('ajedi20250221_README', marks=[]),
+    ]
+
+    def test_0(self):
+        """Test 0."""
+        assert isinstance(pkg.paths, pkg.Path)
+
+    @pytest.mark.parametrize(
+        'entrance',
+        TEST0,
+    )
+    def test_1(self, entrance):
+        """Test 1."""
+        condition = re.compile(r'ajedi')
+        assert {entrance}.issubset(
+            p.name
+            for p in pkg.paths.parents[0].iterdir()
+            if p.is_dir() and re.match(condition, p.stem)
+        )
+
+    @pytest.mark.parametrize(
+        'entrance',
+        TEST0,
+    )
+    def test_2(self, entrance):
+        """Test 2."""
+        assert {entrance}.issubset(pkg.subprojects_names)
+
+    def test_3(self):
+        """TEst 3."""
+        assert inspect.stack()[0][3] == 'test_3'
+        assert inspect.currentframe().f_code.co_name == 'test_3'
+        test_dir = Path(gettempdir()).joinpath(
+            self.__class__.__name__,
+            inspect.currentframe().f_code.co_name,
+        )
+        ic(test_dir)
+        rmtree(test_dir, ignore_errors=True)
+        assert pkg.create_readme(test_dir)
+
+    def test_4(self):
+        """Test 4."""
+        length = 5
+        filename = 'TESTCASE.md'
+        base_dir = Path(gettempdir()).joinpath(
+            self.__class__.__name__,
+            inspect.stack()[0][3],
+        )
+        list_dir = [base_dir / f'project{x}' for x in range(length)]
+
+        rmtree(base_dir, ignore_errors=True)
+        [p.mkdir(parents=True, exist_ok=True) for p in list_dir]
+
+        assert len(list(base_dir.rglob(filename))) == 0
+
+        pkg.apply_issue(pkg.create_readme, list_dir, filename)
+
+        assert len(list(base_dir.rglob(filename))) == length

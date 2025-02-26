@@ -1,6 +1,7 @@
 """Solving question."""
 
 import click
+
 from incolume.academia_jedi.ajedi20220728_crud_nodb.basedados import (
     create_person,
     select_all_person,

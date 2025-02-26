@@ -1,4 +1,5 @@
 from faker import Faker
+
 from incolume.academia_jedi.ajedi20220728_crud_nodb.model import Pessoa
 
 faker = Faker('pt_BR')
