@@ -10,10 +10,12 @@ from tempfile import NamedTemporaryFile
 import pytest
 from icecream import ic
 
+# ruff: noqa: UP036
+
 collect_ignore = ['setup.py']
 
 
-if version_info < (3, 9, 0):  # noqa: UP036
+if version_info < (3, 9, 0):
     files = Path('incolume/academia_jedi/ajedi20220728_crud_nodb/').rglob(
         '*.py',
     )
@@ -31,7 +33,9 @@ if version_info < (3, 11, 0):
     logging.debug(ic([collect_ignore.append(file) for file in files]))
 
 if version_info < (3, 12, 0):
-    pass
+    collect_ignore.append(
+        r'incolume/academia_jedi/ajedi20250224_estudo_itertools_batched/test_20250224.py',
+    )
 
 if version_info < (3, 13, 0):
     pass

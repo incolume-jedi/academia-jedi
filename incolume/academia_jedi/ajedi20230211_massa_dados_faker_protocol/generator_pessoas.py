@@ -7,7 +7,6 @@ from pprint import pprint
 from typing import Protocol
 
 from faker import Faker
-
 from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.models import (
     Pessoa,
 )
