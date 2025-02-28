@@ -14,6 +14,15 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ### Changed
   - Fixado versão minima para estudos com `itertool.bached`;
 
+## [0.107.0]	 &#8212; 	2025-02-28:
+### Added
+  - Acrescido CHANGELOG.md;
+  - Estudos sobre pacote `itertools.batched`;
+### Fixed
+  - Correção no namespace do projeto;
+  - Ajustes CI/CD;
+  - Atualização nos pacotes de dependência;
+
 ## [0.106.0]	 &#8212; 	2025-02-25:
 ### Added
   - Exemplos flet python acrescentados;
@@ -663,4 +672,5 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.104.0]: https://github.com/incolume-jedi/academia-jedi/-/compare/0.103.1...0.104.0
 [0.105.0]: https://github.com/incolume-jedi/academia-jedi/-/compare/0.104.0...0.105.0
 [0.106.0]: https://github.com/incolume-jedi/academia-jedi/-/compare/0.105.0...0.106.0
-[Unreleased]: https://github.com/incolume-jedi/academia-jedi/-/compare/0.106.0...Unreleased
+[0.107.0]: https://github.com/incolume-jedi/academia-jedi/-/compare/0.106.0...0.107.0
+[Unreleased]: https://github.com/incolume-jedi/academia-jedi/-/compare/0.107.0...Unreleased
