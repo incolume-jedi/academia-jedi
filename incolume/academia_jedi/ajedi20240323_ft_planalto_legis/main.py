@@ -6,7 +6,6 @@ from time import sleep
 
 import flet as ft
 from icecream import ic
-
 from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.router import (
     route_change,
     view_pop,

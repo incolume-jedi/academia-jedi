@@ -8,7 +8,6 @@ from typing import Protocol
 
 from deprecated import deprecated
 from faker import Faker
-
 from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.models import (
     Event,
     Pessoa,
