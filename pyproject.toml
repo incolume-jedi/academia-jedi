@@ -1,6 +1,7 @@
 [project]
 name = "academia-jedi"
-version = "0.107.0a0"
+version = "0.107.0a2"
+requires-python = ">=3.10"
 authors = [{name="Britodfbr", email="<britodfbr@gmail.com>"}]
 
 [tool.uv]
