@@ -2,11 +2,12 @@
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Self
 from secrets import choice
-
+from typing import Self
 
 __author__ = '@britodfbr'  # pragma: no cover
+
+# ruff: noqa: T201
 
 
 class Jokenpo(Enum):
@@ -144,12 +145,12 @@ def start_jokenpo(jogador1: Jogador, jogador2: Jogador) -> str:
 
 
 def jogo():
-    """run game."""
-    name ='Jogo JOKENPO'
-    line = '-=-'*10
-    sair = ['0','q','quit', 'sair', 's']
+    """Run game."""
+    name = 'Jogo JOKENPO'
+    line = '-=-' * 10
+    sair = ['0', 'q', 'quit', 'sair', 's']
     title = f'{line}\n{name}\n{line}\n'
-    Menu = f""" {title}Opções disponíveis:
+    menu = f""" {title}Opções disponíveis:
     1 - papel
     2 - tesoura
     3 - pedra
@@ -158,22 +159,27 @@ def jogo():
     """
     print(f'{title}\n\nIniciado o {name}. Contra o computador.')
     nome = input('    Qual o teu nome? ')
-    print(Menu)
+    members = Jokenpo.__members__
+    print(menu)
     jogador = Jogador(nome, lance=None)
     computador = Jogador('PC', lance=None)
-    while (op:= input('    Escolha uma opção: ')) not in Jokenpo._value2member_map_.keys():
-
+    while (op := input('    Escolha uma opção: ')) not in members:
         print(op)
-        if op not in [str(x) for x in Jokenpo._value2member_map_.keys()]+sair:
+        if op not in [str(x) for x in members] + sair:
             print('\n\nInforme apenas as opções do Menu.\n\n\n')
         if op in sair:
             break
         jogador.lance = Jokenpo(op)
-        computador.lance = Jokenpo(choice(range(1,4)))
-        print(f'''JO \nKEN \nPO\n{line}\n{jogador.nome}({jogador.lance.name})\n{computador.nome}({computador.lance.name})\n{line}\n''')
+        computador.lance = Jokenpo(choice(range(1, 4)))
+        print(
+            'JO \nKEN \nPO\n'
+            f'{line}\n{jogador.nome}({jogador.lance.name})\n'
+            f'{computador.nome}({computador.lance.name})\n'
+            f'{line}\n',
+        )
         print(start_jokenpo(jogador, computador))
 
-        print(Menu)
+        print(menu)
     print(jogador)
     print(computador)
 
