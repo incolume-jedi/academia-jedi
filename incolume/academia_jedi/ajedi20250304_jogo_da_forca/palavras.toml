@@ -11,11 +11,33 @@ frutas = [
   "uva",
 ]
 carros = [
+  "gol",
+  "hb20-S",
+  "kombi",
+  "monza",
+  "opala",
+  "palio",
+  "siena",
   "uno",
-  "HB20-S",
 ]
 cep = [
   "Brasília",
   "Brasil",
   "Distrito Federal",
+  "Foz do Iguaçú",
+  "Fotaleza",
+]
+cores = [
+  "amarelo",
+  "azul",
+  "branco",
+  "carmesim",
+  "cinza",
+  "preto",
+  "purpura",
+  "roxo",
+  "rubro",
+  "verde",
+  "vermelho",
+  "violeta",
 ]
