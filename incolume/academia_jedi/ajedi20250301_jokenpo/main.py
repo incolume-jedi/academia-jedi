@@ -1,5 +1,7 @@
 """Jokenpo module."""
 
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from enum import Enum
 from secrets import choice
@@ -144,7 +146,7 @@ def start_jokenpo(jogador1: Jogador, jogador2: Jogador) -> str:
     return result
 
 
-def jogo():
+def jogo():  # pragma: no cover
     """Run game."""
     name = 'Jogo JOKENPO'
     line = '-=-' * 10
