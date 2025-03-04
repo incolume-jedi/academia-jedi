@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
+import sys
 from dataclasses import dataclass, field
 from enum import Enum
 from secrets import choice
-import sys
 
-if sys.version_info < (3,12):
+if sys.version_info < (3, 12):
     from typing_extensions import Self
 else:
     from typing import Self
