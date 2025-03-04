@@ -5,7 +5,12 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from enum import Enum
 from secrets import choice
-from typing import Self
+import sys
+
+if sys.version_info < (3,12):
+    from typing_extensions import Self
+else:
+    from typing import Self
 
 __author__ = '@britodfbr'  # pragma: no cover
 
