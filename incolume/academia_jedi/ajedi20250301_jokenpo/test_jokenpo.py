@@ -1,5 +1,6 @@
 """Test Jokenpo."""
 
+import sys
 from faker import Faker
 import pytest
 from incolume.academia_jedi.ajedi20250301_jokenpo import main
@@ -66,22 +67,42 @@ class TestJokenpo:
     @pytest.mark.parametrize(
         'entrance',
         [
-            main.Jogador,
-            main.Jogador('John Doe', main.Jokenpo('pedra')),
-            jogador(),
+            pytest.param(
+                main.Jogador,
+                marks=[
+                    pytest.mark.skipif(
+                        sys.version_info < (3, 13),
+                        reason=r"This don't run on python below 3.13 version.",
+                    ),
+                ],
+            ),
+            pytest.param(
+                main.Jogador('John Doe', main.Jokenpo('pedra')),
+                marks=[
+                    pytest.mark.skipif(
+                        sys.version_info < (3, 13),
+                        reason=r"This don't run on python below 3.13 version.",
+                    ),
+                ],
+            ),
+            pytest.param(
+                jogador(),
+                marks=[
+                    pytest.mark.skipif(
+                        sys.version_info < (3, 13),
+                        reason=r"This don't run on python below 3.13 version.",
+                    ),
+                ],
+            ),
         ],
     )
     def test_jogador_assinatura(self, entrance) -> None:
         """Test enum."""
-        parametros = {
-            'derrotas': int,
-            'empates': int,
-            'vitorias': int,
-            'lance': main.Jokenpo,
-            'nome': str,
-        }
-
-        assert parametros == entrance.__annotations__
+        assert entrance.__annotations__['derrotas'] == 'int'
+        assert entrance.__annotations__['empates'] == 'int'
+        assert entrance.__annotations__['vitorias'] == 'int'
+        assert entrance.__annotations__['lance'] == 'Jokenpo'
+        assert entrance.__annotations__['nome'] == 'str'
 
     @pytest.mark.parametrize(
         'entrance expected'.split(),
