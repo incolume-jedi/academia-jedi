@@ -226,7 +226,7 @@ class Alura:
         print('Fim do jogo')
 
 
-def menu(arquivo_palavras: (str | Path)) -> list[str]:
+def op_arq_toml(arquivo_palavras: (str | Path)) -> list[str]:
     """Menu.
 
     Args:

@@ -283,3 +283,7 @@ class TestCase:
     def test_0(self, entrance, expected) -> NoReturn:
         """Test 0."""
         assert entrance == expected
+
+    def test_(self, capsys) -> NoReturn:
+        """Unittest."""
+        assert pkg.op_arq_toml(pkg.palavras_db) == 1
