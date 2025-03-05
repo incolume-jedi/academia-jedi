@@ -310,6 +310,26 @@ class TestCase:
         """Test 0."""
         assert entrance == expected
 
-    def test_(self, capsys) -> NoReturn:
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param(
+                'cep',
+                '* frutas\n* carros\n* cep\n* cores\n',
+                marks=[],
+            ),
+        ],
+    )
+    def test_op_arq_toml(
+        self,
+        entrance,
+        expected,
+        monkeypatch,
+        capsys,
+    ) -> NoReturn:
         """Unittest."""
-        assert pkg.op_arq_toml(pkg.palavras_db) == 1
+        with monkeypatch.context() as m:
+            m.setattr('builtins.input', lambda _: entrance)
+            pkg.op_arq_toml(pkg.palavras_db)
+            out, _ = capsys.readouterr()
+            assert out == expected
