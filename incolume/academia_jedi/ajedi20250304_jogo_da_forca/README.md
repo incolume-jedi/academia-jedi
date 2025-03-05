@@ -10,7 +10,7 @@
 
 **Jogo da Forca**
 
-Implementar o jogo da forca.
+Fatorar o jogo da forca da referência.
 
 ## Resultado esperado
 
