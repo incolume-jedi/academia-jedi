@@ -1,9 +1,11 @@
 """Jogo da forca module."""
 
+import logging
 import secrets
 from pathlib import Path
 from typing import ClassVar
 
+from icecream import ic
 from tomli import load
 
 # ruff:noqa:T201
@@ -44,10 +46,10 @@ class Alura:
         """Carrega palavra secreta do arquivo."""
         palavras = []
         with self.arq_palavra_secreta.open(encoding='utf-8') as arquivo:
-            palavras = [linha.strip() for linha in arquivo]
-
+            palavras = [linha.strip().upper() for linha in arquivo]
+        logging.debug(ic(palavras))
         numero = secrets.randbelow(len(palavras))
-        return palavras[numero].upper()
+        return palavras[numero]
 
     def inicializa_letras_acertadas(self, palavra):
         """Inicializa as letras da palavra secreta selecionada."""
