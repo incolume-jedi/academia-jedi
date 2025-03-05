@@ -245,9 +245,10 @@ def op_arq_toml(arquivo_palavras: (str | Path)) -> list[str]:
 
 def run():
     """Run it."""
-    palavras = menu(palavras_db)
+    palavras = op_arq_toml(palavras_db)
     print(palavras)
+    Alura().jogar()
 
 
 if __name__ == '__main__':  # pragma: no cover
-    Alura().jogar()
+    run()
