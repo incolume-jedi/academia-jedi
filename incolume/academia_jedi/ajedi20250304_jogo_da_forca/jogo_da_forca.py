@@ -175,57 +175,8 @@ class Alura:
         }
         result = top + medle.get(erros, medle[7]) + bottom
         print(result)
-        # print(r'  _______     ')
-        # print(r' |/      |    ')
 
-    #
-    # if erros == 1:
-    # print(r' |      (_)   ')
-    # print(r' |            ')
-    # print(r' |            ')
-    # print(r' |            ')
-    #
-    # if erros == 2:
-    # print(r' |      (_)   ')
-    # print(r' |      \     ')
-    # print(r' |            ')
-    # print(r' |            ')
-    #
-    # if erros == 3:
-    # print(r' |      (_)   ')
-    # print(r' |      \|    ')
-    # print(r' |            ')
-    # print(r' |            ')
-    #
-    # if erros == 4:
-    # print(r' |      (_)   ')
-    # print(r' |      \|/   ')
-    # print(r' |            ')
-    # print(r' |            ')
-    #
-    # if erros == 5:
-    # print(r' |      (_)   ')
-    # print(r' |      \|/   ')
-    # print(r' |       |    ')
-    # print(r' |            ')
-    #
-    # if erros == 6:
-    # print(r' |      (_)   ')
-    # print(r' |      \|/   ')
-    # print(r' |       |    ')
-    # print(r' |      /     ')
-    #
-    # if erros == 7:
-    # print(r' |      (_)   ')
-    # print(r' |      \|/   ')
-    # print(r' |       |    ')
-    # print(r' |      / \   ')
-    #
-    # print(r' |            ')
-    # print(r'_|___         ')
-    # print()
-
-    def jogar(self):
+    def jogar(self):  # pragma: no cover
         """Run forca game."""
         self.imprime_mensagem_abertura()
 
@@ -273,17 +224,6 @@ class Alura:
             self.imprime_mensagem_perdedor(palavra_secreta)
 
         print('Fim do jogo')
-
-
-def cabecalho():
-    """Header."""
-    print('=' * 90)
-    print('Jogo da Forca'.center(90))
-    print('=' * 90)
-    print('Bem vindo! Aperte "ENTER" para começar.')
-    print('-' * 90)
-    input()
-    print('Que comecem os jogos!!!!')
 
 
 def menu(arquivo_palavras: (str | Path)) -> list[str]:
