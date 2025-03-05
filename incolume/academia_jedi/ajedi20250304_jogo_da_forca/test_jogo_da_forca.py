@@ -147,8 +147,12 @@ class CheckAlura:
             pytest.param(
                 0,
                 (
-                    '  _______     \n'
+                    '\n  _______     \n'
                     ' |/      |    \n'
+                    ' |            \n'
+                    ' |            \n'
+                    ' |            \n'
+                    ' |            \n'
                     ' |            \n'
                     '_|___         \n\n'
                 ),
@@ -157,7 +161,7 @@ class CheckAlura:
             pytest.param(
                 1,
                 (
-                    '  _______     \n'
+                    '\n  _______     \n'
                     ' |/      |    \n'
                     ' |      (_)   \n'
                     ' |            \n'
@@ -171,7 +175,7 @@ class CheckAlura:
             pytest.param(
                 2,
                 (
-                    '  _______     \n'
+                    '\n  _______     \n'
                     ' |/      |    \n'
                     ' |      (_)   \n'
                     ' |      \\     \n'
@@ -185,6 +189,7 @@ class CheckAlura:
             pytest.param(
                 3,
                 (
+                    '\n'
                     '  _______     \n'
                     ' |/      |    \n'
                     ' |      (_)   \n'
@@ -199,6 +204,7 @@ class CheckAlura:
             pytest.param(
                 4,
                 (
+                    '\n'
                     '  _______     \n'
                     ' |/      |    \n'
                     ' |      (_)   \n'
@@ -213,6 +219,7 @@ class CheckAlura:
             pytest.param(
                 5,
                 (
+                    '\n'
                     '  _______     \n'
                     ' |/      |    \n'
                     ' |      (_)   \n'
@@ -227,6 +234,7 @@ class CheckAlura:
             pytest.param(
                 6,
                 (
+                    '\n'
                     '  _______     \n'
                     ' |/      |    \n'
                     ' |      (_)   \n'
@@ -241,6 +249,7 @@ class CheckAlura:
             pytest.param(
                 7,
                 (
+                    '\n'
                     '  _______     \n'
                     ' |/      |    \n'
                     ' |      (_)   \n'

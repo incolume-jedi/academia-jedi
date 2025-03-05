@@ -1,7 +1,8 @@
 """Jogo da forca module."""
 
-import random
+import secrets
 from pathlib import Path
+from typing import ClassVar
 
 from tomli import load
 
@@ -20,11 +21,14 @@ class Alura:
 
     """
 
+    ERRORS: ClassVar[int] = 7
+
     def __init__(self, arq_palavra_secreta: Path | None = None):
-        """_summary_
+        """Inicializer class.
 
         Args:
-            arq_palavra_secreta (Path | None, optional): _description_. Defaults to None.
+            arq_palavra_secreta (Path | None, optional):
+               _description_. Defaults to None.
         """
         self.arq_palavra_secreta = (
             arq_palavra_secreta or Path(__file__).parent / 'palavras.txt'
@@ -40,11 +44,9 @@ class Alura:
         """Carrega palavra secreta do arquivo."""
         palavras = []
         with self.arq_palavra_secreta.open(encoding='utf-8') as arquivo:
-            for linha in arquivo:
-                linha = linha.strip()
-                palavras.append(linha)
+            palavras = [linha.strip() for linha in arquivo]
 
-        numero = random.randrange(0, len(palavras))
+        numero = secrets.randbelow(len(palavras))
         return palavras[numero].upper()
 
     def inicializa_letras_acertadas(self, palavra):
@@ -73,11 +75,9 @@ class Alura:
             letras_acertadas (_type_): _description_
             palavra_secreta (_type_): _description_
         """
-        index = 0
-        for letra in palavra_secreta:
+        for index, letra in enumerate(palavra_secreta):
             if chute == letra:
                 letras_acertadas[index] = letra
-            index += 1
 
     def imprime_mensagem_vencedor(self) -> None:
         """Imprime mensagem vencedor."""
@@ -120,54 +120,110 @@ class Alura:
 
     def desenha_forca(self, erros: int) -> None:
         """Desenha forca."""
-        print(r'  _______     ')
-        print(r' |/      |    ')
+        top: str = '\n' '  _______     \n' ' |/      |    \n'
+        bottom: str = ' |            \n' '_|___         \n'
 
-        if erros == 1:
-            print(r' |      (_)   ')
-            print(r' |            ')
-            print(r' |            ')
-            print(r' |            ')
+        medle: dict[str] = {
+            0: (
+                ' |            \n'
+                ' |            \n'
+                ' |            \n'
+                ' |            \n'
+            ),
+            1: (
+                ' |      (_)   \n'
+                ' |            \n'
+                ' |            \n'
+                ' |            \n'
+            ),
+            2: (
+                ' |      (_)   \n'
+                ' |      \\     \n'
+                ' |            \n'
+                ' |            \n'
+            ),
+            3: (
+                ' |      (_)   \n'
+                ' |      \\|    \n'
+                ' |            \n'
+                ' |            \n'
+            ),
+            4: (
+                ' |      (_)   \n'
+                ' |      \\|/   \n'
+                ' |            \n'
+                ' |            \n'
+            ),
+            5: (
+                ' |      (_)   \n'
+                ' |      \\|/   \n'
+                ' |       |    \n'
+                ' |            \n'
+            ),
+            6: (
+                ' |      (_)   \n'
+                ' |      \\|/   \n'
+                ' |       |    \n'
+                ' |      /     \n'
+            ),
+            7: (
+                ' |      (_)   \n'
+                ' |      \\|/   \n'
+                ' |       |    \n'
+                ' |      / \\   \n'
+            ),
+        }
+        result = top + medle.get(erros, medle[7]) + bottom
+        print(result)
+        # print(r'  _______     ')
+        # print(r' |/      |    ')
 
-        if erros == 2:
-            print(r' |      (_)   ')
-            print(r' |      \     ')
-            print(r' |            ')
-            print(r' |            ')
-
-        if erros == 3:
-            print(r' |      (_)   ')
-            print(r' |      \|    ')
-            print(r' |            ')
-            print(r' |            ')
-
-        if erros == 4:
-            print(r' |      (_)   ')
-            print(r' |      \|/   ')
-            print(r' |            ')
-            print(r' |            ')
-
-        if erros == 5:
-            print(r' |      (_)   ')
-            print(r' |      \|/   ')
-            print(r' |       |    ')
-            print(r' |            ')
-
-        if erros == 6:
-            print(r' |      (_)   ')
-            print(r' |      \|/   ')
-            print(r' |       |    ')
-            print(r' |      /     ')
-
-        if erros == 7:
-            print(r' |      (_)   ')
-            print(r' |      \|/   ')
-            print(r' |       |    ')
-            print(r' |      / \   ')
-
-        print(r' |            ')
-        print(r'_|___         ')
-        print()
+    #
+    # if erros == 1:
+    # print(r' |      (_)   ')
+    # print(r' |            ')
+    # print(r' |            ')
+    # print(r' |            ')
+    #
+    # if erros == 2:
+    # print(r' |      (_)   ')
+    # print(r' |      \     ')
+    # print(r' |            ')
+    # print(r' |            ')
+    #
+    # if erros == 3:
+    # print(r' |      (_)   ')
+    # print(r' |      \|    ')
+    # print(r' |            ')
+    # print(r' |            ')
+    #
+    # if erros == 4:
+    # print(r' |      (_)   ')
+    # print(r' |      \|/   ')
+    # print(r' |            ')
+    # print(r' |            ')
+    #
+    # if erros == 5:
+    # print(r' |      (_)   ')
+    # print(r' |      \|/   ')
+    # print(r' |       |    ')
+    # print(r' |            ')
+    #
+    # if erros == 6:
+    # print(r' |      (_)   ')
+    # print(r' |      \|/   ')
+    # print(r' |       |    ')
+    # print(r' |      /     ')
+    #
+    # if erros == 7:
+    # print(r' |      (_)   ')
+    # print(r' |      \|/   ')
+    # print(r' |       |    ')
+    # print(r' |      / \   ')
+    #
+    # print(r' |            ')
+    # print(r'_|___         ')
+    # print()
 
     def jogar(self):
         """Run forca game."""
@@ -195,16 +251,18 @@ class Alura:
                 letras_faltando = str(letras_acertadas.count('_'))
                 if letras_faltando == '0':
                     print(
-                        f"PARABÉNS!! Você encontrou todas as letras formando a palavra '{palavra_secreta.upper()}'",
+                        'PARABÉNS!!'
+                        f'Você encontrou todas as letras'
+                        f"formando a palavra '{palavra_secreta.upper()}'",
                     )
             else:
                 erros += 1
                 print(letras_acertadas)
                 print(f'Ainda faltam acertar {letras_faltando} letras')
-                print(f'Você ainda tem {7 - erros} tentativas')
+                print(f'Você ainda tem {self.ERRORS - erros} tentativas')
                 self.desenha_forca(erros)
 
-            enforcou = erros == 7
+            enforcou = erros == self.ERRORS
             acertou = '_' not in letras_acertadas
 
             print(letras_acertadas)
@@ -247,20 +305,9 @@ def menu(arquivo_palavras: (str | Path)) -> list[str]:
 
 def run():
     """Run it."""
-    # cabecalho()
-    # print(alfabeto)
-    # print(chances)
-    # for letra in alfabeto:
-    #     print(letra)
-    # escolha = input('Digite uma letra do alfabeto: ').lower()
-    # print(escolha)
-    # print(escolha == "b")
-    # with Path('palavras.toml').open('rb') as file:
-    #     print(load(file))
     palavras = menu(palavras_db)
     print(palavras)
 
 
 if __name__ == '__main__':  # pragma: no cover
-    # run()
     Alura().jogar()
