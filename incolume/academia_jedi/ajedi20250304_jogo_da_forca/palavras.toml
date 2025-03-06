@@ -1,0 +1,43 @@
+frutas = [
+  "abacate",
+  "amexa",
+  "banana",
+  "jabuticaba",
+  "lichia",
+  "maça",
+  "melância",
+  "morango",
+  "pêssego",
+  "uva",
+]
+carros = [
+  "gol",
+  "hb20-S",
+  "kombi",
+  "monza",
+  "opala",
+  "palio",
+  "siena",
+  "uno",
+]
+cep = [
+  "Brasília",
+  "Brasil",
+  "Distrito Federal",
+  "Foz do Iguaçú",
+  "Fotaleza",
+]
+cores = [
+  "amarelo",
+  "azul",
+  "branco",
+  "carmesim",
+  "cinza",
+  "preto",
+  "purpura",
+  "roxo",
+  "rubro",
+  "verde",
+  "vermelho",
+  "violeta",
+]
