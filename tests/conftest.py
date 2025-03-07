@@ -46,8 +46,11 @@ if version_info < (3, 11, 0):
     )
 
 if version_info < (3, 12, 0):
-    collect_ignore.append(
-        r'incolume/academia_jedi/ajedi20250224_estudo_itertools_batched/test_20250224.py',
+    (
+        collect_ignore.append(
+            r'incolume/academia_jedi/ajedi20250224_estudo_itertools_batched/test_20250224.py',
+        ),
+    )
     logging.debug(
         ic([
             collect_ignore.append(file)
