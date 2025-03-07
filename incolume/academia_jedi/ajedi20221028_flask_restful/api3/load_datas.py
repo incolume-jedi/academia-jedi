@@ -32,10 +32,10 @@ def post_data(item):
             'http://localhost:5555',
             headers=headers,
             json=payload,
-            timeout=1,
+            timeout=13,
         )
         return resp.json()
-    except requests.exceptions.ConnectionError:
+    except (ConnectionError, requests.exceptions.ConnectionError):
         logging.exception(ic(sys.exc_info()))
         sys.exit(1)
 
