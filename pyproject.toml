@@ -93,7 +93,7 @@ httpx = '>=0.13.3'
 # httpx = [{version="^0.13.3", python="<=3.9"}, {version="^0.25.0", python=">3.9,<=3.11"}, {version="*", python=">=3.12"}]
 jupyter = {version="^1.0.0", python='>=3.9'}
 language-tool-python = "^2.7.1"
-lxml = {version=">=4.9.1", python=">=3.9"}
+lxml = {version="^4.9.1", python="<3.12"}
 markdown = "^3.4.1"
 mypy = "^1.5.1"
 mypy-extensions = "^1.0.0"
