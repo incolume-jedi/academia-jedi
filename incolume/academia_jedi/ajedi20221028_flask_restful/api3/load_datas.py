@@ -7,7 +7,6 @@ import pandas as pd
 import requests
 from icecream import ic
 
-
 __author__ = '@britodfbr'  # pragma: no cover
 
 # ruff: noqa: T201 PERF203
