@@ -10,6 +10,13 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [Unreleased]	 &#8212; 	2025-03-09:
+### Added
+  - Estudos utilizando projeto adedonha;
+### Fixed
+  - Ampliado cobertura de código para projeto;
+  - Recuperação de projetos anteriores;
+
 ## [0.108.0]	 &#8212; 	2025-03-06:
 ### Added
   - Fatoração do jogo da forca;
@@ -677,3 +684,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.106.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.105.0...0.106.0
 [0.107.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.106.0...0.107.0
 [0.108.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.107.0...0.108.0
+[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.108.0...Unreleased
