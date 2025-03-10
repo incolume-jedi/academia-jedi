@@ -1,11 +1,14 @@
 """Solution for module."""
 
+from __future__ import annotations
+
 import logging
 from pathlib import Path
 from typing import Final
 
 import httpx
 import pandas as pd
+import yaml
 from bs4 import BeautifulSoup
 from icecream import ic
 
@@ -39,8 +42,32 @@ def get_cities_sp(url: str = '') -> list[str]:
     return cities
 
 
-def get_cities(file: Path | None = None) -> pd.DataFrame:
+def _get_cities_dataframe(file: Path | None = None) -> pd.DataFrame:
     """Get cities."""
     file = file or cidades_file_txt
     logging.debug(ic(file))
-    return pd.read_csv(file, sep=';', names=['cod', 'cidade'])
+    dataframe = pd.read_csv(file, sep=';', names=['cod', 'cidade'])
+    dataframe[['municipio', 'uf']] = (
+        dataframe.cidade.str.replace(')', '')
+        .str.replace(' (', ', ')
+        .str.split(', ')
+        .tolist()
+    )
+    return dataframe
+
+
+def pandas2yaml(dataframe: pd.DataFrame, filename: Path | None = None) -> Path:
+    """Pandas to YAML file."""
+    filename = filename or Path('output.yaml')
+    filename = filename.with_suffix('.yaml')
+    data = yaml.dump(dataframe.to_dict(orient='records', sort_keys=False))
+    logging.debug(ic(data))
+    with filename.open('w') as f:
+        yaml.dump(data, f, default_flow_style=False)
+
+
+def get_cities(file: Path | None = None) -> list[str]:
+    """Get cities."""
+    dataframe = _get_cities_dataframe(file)
+    logging.debug(ic(dataframe))
+    return dataframe.municipio.tolist()
