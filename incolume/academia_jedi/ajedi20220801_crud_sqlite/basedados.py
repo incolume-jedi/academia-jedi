@@ -4,7 +4,7 @@ import logging
 import sqlite3
 from pathlib import Path
 
-from model import Pessoa
+from incolume.academia_jedi.ajedi20220801_crud_sqlite.model import Pessoa
 
 logging.basicConfig(level=logging.WARNING)
 file_sqlite = Path('pessoas.sqlite')
