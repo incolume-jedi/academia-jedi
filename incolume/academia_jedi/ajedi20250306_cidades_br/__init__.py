@@ -42,7 +42,7 @@ def get_cities_sp(url: str = '') -> list[str]:
     return cities
 
 
-def _get_cities_dataframe(file: Path | None = None) -> pd.DataFrame:
+def _get_cities_dataframe_from_csv(file: Path | None = None) -> pd.DataFrame:
     """Get cities."""
     file = file or cidades_file_txt
     logging.debug(ic(file))
@@ -60,14 +60,15 @@ def pandas2yaml(dataframe: pd.DataFrame, filename: Path | None = None) -> Path:
     """Pandas to YAML file."""
     filename = filename or Path('output.yaml')
     filename = filename.with_suffix('.yaml')
-    data = yaml.dump(dataframe.to_dict(orient='records', sort_keys=False))
-    logging.debug(ic(data))
+    data = yaml.dump(dataframe.to_dict(orient='records'))
+    logging.debug(ic(filename))
     with filename.open('w') as f:
         yaml.dump(data, f, default_flow_style=False)
+    return filename
 
 
 def get_cities(file: Path | None = None) -> list[str]:
     """Get cities."""
-    dataframe = _get_cities_dataframe(file)
+    dataframe = _get_cities_dataframe_from_csv(file)
     logging.debug(ic(dataframe))
     return dataframe.municipio.tolist()

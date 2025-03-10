@@ -5,6 +5,7 @@ from typing import ClassVar, Final, NoReturn
 
 import pytest
 import incolume.academia_jedi.ajedi20250306_cidades_br as pkg
+import tempfile
 
 
 # ruff: noqa: SLF001
@@ -65,15 +66,18 @@ class TestMunicipios:
 
     def test_get_cities_type(self) -> NoReturn:
         """Unittest."""
-        assert isinstance(pkg._get_cities_dataframe(), pkg.pd.DataFrame)
+        assert isinstance(
+            pkg._get_cities_dataframe_from_csv(),
+            pkg.pd.DataFrame,
+        )
 
     def test_get_cities_shape(self) -> NoReturn:
         """Unittest."""
-        assert pkg._get_cities_dataframe().shape == self.records
+        assert pkg._get_cities_dataframe_from_csv().shape == self.records
 
     def test_get_cities_length(self) -> NoReturn:
         """Unittest."""
-        assert len(pkg._get_cities_dataframe()) == self.records[0]
+        assert len(pkg._get_cities_dataframe_from_csv()) == self.records[0]
 
     @pytest.mark.parametrize(
         'entrance',
@@ -97,12 +101,18 @@ class TestMunicipios:
         [
             ('', 'output.yaml'),
             (None, 'output.yaml'),
+            (
+                Path(tempfile.gettempdir()) / 'municípios_br.yaml',
+                'municípios_br.yaml',
+            ),
         ],
     )
     def test_pandas2yaml(self, entrance, expected) -> NoReturn:
         """Unitest."""
         data = {
-            'dataframe': pkg._get_cities_dataframe(),
+            'dataframe': pkg._get_cities_dataframe_from_csv()[
+                ['municipio', 'uf']
+            ],
             'filename': entrance,
         }
-        assert pkg.pandas2yaml(**data) == expected
+        assert expected in pkg.pandas2yaml(**data).as_posix()
