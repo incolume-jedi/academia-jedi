@@ -3,6 +3,7 @@
 import httpx
 from bs4 import BeautifulSoup
 from icecream import ic
+from unidecode import unidecode
 
 url: str = 'https://pt.wikipedia.org/wiki/Python'
 
@@ -52,5 +53,5 @@ def count_vowels(text: str = '') -> dict:
     """Count vowels."""
     result = {}
     for vogal in 'aeiou':
-        result[vogal] = text.casefold().count(vogal)
+        result[vogal] = unidecode(text).casefold().count(vogal)
     return result

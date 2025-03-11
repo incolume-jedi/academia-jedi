@@ -1,6 +1,8 @@
 """Test module."""
 
 from typing import NoReturn
+
+import pytest
 import incolume.academia_jedi.ajedi20250311.count_vowel as pkg
 
 
@@ -15,12 +17,20 @@ class TestCountVowel:
         )
         assert pkg.get_text()
 
-    def test_1(self) -> NoReturn:
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param('a', 189),
+            pytest.param('e', 146),
+            pytest.param('i', 126),
+            pytest.param('o', 166),
+            pytest.param('u', 55),
+        ],
+    )
+    def test_1(self, entrance, expected) -> NoReturn:
         """Unittest."""
-        assert pkg.count_vowels(pkg.content) == {
-            'a': 168,
-            'e': 138,
-            'i': 118,
-            'o': 159,
-            'u': 54,
-        }
+        assert pkg.count_vowels(pkg.content).get(entrance) == expected
+
+
+class TestCesarCifer:
+    """Test case."""
