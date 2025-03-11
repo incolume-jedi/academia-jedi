@@ -1,10 +1,12 @@
 """Test module."""
 
 from typing import NoReturn
-import incolume.academia_jedi.ajedi20250311 as pkg
+import incolume.academia_jedi.ajedi20250311.count_vowel as pkg
+
 
 class TestCountVowel:
     """Test case."""
+
     def test_0(self, monkeypatch) -> NoReturn:
         """Unittest."""
         monkeypatch.setattr(
@@ -12,7 +14,6 @@ class TestCountVowel:
             lambda _: pkg.httpx.Response(200, text=pkg.content),
         )
         assert pkg.get_text()
-
 
     def test_1(self) -> NoReturn:
         """Unittest."""
