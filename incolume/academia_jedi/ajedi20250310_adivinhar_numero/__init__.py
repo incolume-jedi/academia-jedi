@@ -1,7 +1,6 @@
 """Module principal."""
 
 import secrets
-from typing import Final
 
 from icecream import ic
 

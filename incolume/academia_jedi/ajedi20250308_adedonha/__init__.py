@@ -1,11 +1,14 @@
 """Submodule."""
 
+from __future__ import annotations
+
 import logging
 from string import ascii_uppercase
 
 from icecream import ic
 
 
+# ruuf: noqa: ERA001
 def adedonha(num: int | str = 0) -> str:
     """Jogo adedonha.
 
@@ -21,7 +24,8 @@ def adedonha(num: int | str = 0) -> str:
         num = int(num)
     except (AssertionError, ValueError) as err:
         msg = 'num only numeric values'
-        logging.exception(ic(msg))
+        # logging.exception(ic(msg))  # noqa: ERA001
+        ic(msg)
         raise TypeError(msg) from err
 
     index = num % len(ascii_uppercase)
