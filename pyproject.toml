@@ -1,6 +1,8 @@
 [project]
 name = "academia-jedi"
-version = "0.107.0"
+version = "0.108.0"
+description = ""
+readme="README.md"
 requires-python = ">=3.10"
 authors = [{name="Britodfbr", email="<britodfbr@gmail.com>"}]
 
@@ -11,8 +13,9 @@ members = []
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.107.0"
+version = "0.108.0"
 description = ""
+readme="README.md"
 authors = ["Britodfbr <britodfbr@gmail.com>"]
 packages = [
   {include='incolume', from=''}
