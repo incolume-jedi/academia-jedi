@@ -1,5 +1,6 @@
 """Test Jokenpo."""
 
+from __future__ import annotations
 import sys
 from faker import Faker
 import pytest
@@ -72,7 +73,8 @@ class TestJokenpo:
                 marks=[
                     pytest.mark.skipif(
                         sys.version_info < (3, 13),
-                        reason=r"This don't run on python below 3.13 version.",
+                        reason=r"This test don't run on python"
+                        ' below 3.13 version.',
                     ),
                 ],
             ),
@@ -81,7 +83,8 @@ class TestJokenpo:
                 marks=[
                     pytest.mark.skipif(
                         sys.version_info < (3, 13),
-                        reason=r"This don't run on python below 3.13 version.",
+                        reason=r"This test don't run on python"
+                        ' below 3.13 version.',
                     ),
                 ],
             ),
@@ -90,7 +93,8 @@ class TestJokenpo:
                 marks=[
                     pytest.mark.skipif(
                         sys.version_info < (3, 13),
-                        reason=r"This don't run on python below 3.13 version.",
+                        reason=r"This test don't run on python"
+                        ' below 3.13 version.',
                     ),
                 ],
             ),

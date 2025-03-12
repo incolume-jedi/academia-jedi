@@ -5,6 +5,9 @@ import pytest
 import incolume.academia_jedi.ajedi20250304_jogo_da_forca.jogo_da_forca as pkg
 
 
+# ruff: noqa: PLR0913
+
+
 class CheckAlura:
     """Testcase."""
 
@@ -217,36 +220,6 @@ class CheckAlura:
                 marks=[],
             ),
             pytest.param(
-                5,
-                (
-                    '\n'
-                    '  _______     \n'
-                    ' |/      |    \n'
-                    ' |      (_)   \n'
-                    ' |            \n'
-                    ' |            \n'
-                    ' |            \n'
-                    ' |            \n'
-                    '_|___         \n\n'
-                ),
-                marks=[pytest.mark.skip],
-            ),
-            pytest.param(
-                6,
-                (
-                    '\n'
-                    '  _______     \n'
-                    ' |/      |    \n'
-                    ' |      (_)   \n'
-                    ' |            \n'
-                    ' |            \n'
-                    ' |            \n'
-                    ' |            \n'
-                    '_|___         \n\n'
-                ),
-                marks=[pytest.mark.skip],
-            ),
-            pytest.param(
                 7,
                 (
                     '\n'
@@ -277,7 +250,6 @@ class TestCase:
         'entrance expected'.split(),
         [
             pytest.param('', '', marks=[]),
-            pytest.param('', '', marks=[pytest.mark.skip]),
         ],
     )
     def test_0(self, entrance, expected) -> NoReturn:
