@@ -10,14 +10,16 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-03-09:
+## [Unreleased]	 &#8212; 	2025-03-11:
 ### Added
   - Estudos utilizando projeto adedonha;
+  - Implementação do jogo de adivinhar número;
+  - Implementação da tarefa contagem de vogais;
 ### Fixed
   - Ampliado cobertura de código para projeto;
   - Recuperação de projetos anteriores;
 
-## [0.108.0]	 &#8212; 	2025-03-06:
+## [0.108.0]	 &#8212; 	2025-03-11:
 ### Added
   - Fatoração do jogo da forca;
   - Jogo jokenpo - com estudos sobre Enum e enum reverso, dataclasses, com respectivos testes unitários;
