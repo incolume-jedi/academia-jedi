@@ -3908,15 +3908,15 @@ signedtoken = ["cryptography (>=3.0.0)", "pyjwt (>=2.0.0,<3)"]
 
 [[package]]
 name = "openai"
-version = "1.66.2"
+version = "1.66.3"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 markers = "python_version == \"3.10\""
 files = [
-    {file = "openai-1.66.2-py3-none-any.whl", hash = "sha256:75194057ee6bb8b732526387b6041327a05656d976fc21c064e21c8ac6b07999"},
-    {file = "openai-1.66.2.tar.gz", hash = "sha256:9b3a843c25f81ee09b6469d483d9fba779d5c6ea41861180772f043481b0598d"},
+    {file = "openai-1.66.3-py3-none-any.whl", hash = "sha256:a427c920f727711877ab17c11b95f1230b27767ba7a01e5b66102945141ceca9"},
+    {file = "openai-1.66.3.tar.gz", hash = "sha256:8dde3aebe2d081258d4159c4cb27bdc13b5bb3f7ea2201d9bd940b9a89faf0c9"},
 ]
 
 [package.dependencies]
@@ -4872,15 +4872,22 @@ files = [
 
 [[package]]
 name = "pysimplegui"
-version = "5.0.8.1"
-description = "PySimpleGUI is now located on a private PyPI server.  Please add to your pip command: -i https://PySimpleGUI.net/install"
+version = "5.0.9"
+description = "Python GUIs for Humans! PySimpleGUI is the top-rated Python application development environment. Launched in 2018 and actively developed, maintained, and supported in 2025. Transforms tkinter, Qt, WxPython, and Remi into a simple, intuitive, and fun experience for both hobbyists and expert users."
 optional = false
 python-versions = ">=3.6"
 groups = ["dev"]
 files = [
-    {file = "pysimplegui-5.0.8.1-py3-none-any.whl", hash = "sha256:5d1edec66ec52471e2db5da0c90e36ab247f5a88715c90f9aa5f6c307b61c37e"},
-    {file = "pysimplegui-5.0.8.1.tar.gz", hash = "sha256:8e8b77867b8c719b4b55f9019cfdcb2743f1144a85531d25e1b3f2fa23ab24c7"},
+    {file = "PySimpleGUI-5.0.9-py3-none-any.whl", hash = "sha256:e33b43510f05ff64d5f6af4b44a32138e3c14b6cbbd8ff96efed5a60ee46cf66"},
 ]
+
+[package.dependencies]
+rsa = "*"
+
+[package.source]
+type = "legacy"
+url = "https://PySimpleGUI.net/install"
+reference = "pysimplegui"
 
 [[package]]
 name = "pysimpleguiqt"
@@ -7094,4 +7101,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "dc74c7816e5c61bd61c8d43a16e64b6f4fb3b050217a50f1789c455bcf200add"
+content-hash = "85376fad7dd90c796ee94cf956c30b8333ae5a8cbdd34c1908140bc7f33f1839"
