@@ -263,28 +263,12 @@ test = ["dateparser (==1.*)", "pre-commit", "pytest", "pytest-cov", "pytest-mock
 
 [[package]]
 name = "aspose-words"
-version = "23.12.0"
-description = "Aspose.Words for Python is a Document Processing library that allows developers to work with documents in many popular formats without needing Office Automation."
-optional = false
-python-versions = ">=3.6,<3.12"
-groups = ["dev"]
-markers = "python_version == \"3.10\" or python_version == \"3.11\""
-files = [
-    {file = "aspose_words-23.12.0-py3-none-macosx_10_14_x86_64.whl", hash = "sha256:8c5c8033e92996d8729e970336da2ea3fa53ed3fce127fffdb2b5708a8658dfa"},
-    {file = "aspose_words-23.12.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:7b5109d248d1746719e826b776e9bcacff758578e892dab98051c04b238fe25b"},
-    {file = "aspose_words-23.12.0-py3-none-manylinux1_x86_64.whl", hash = "sha256:8b75b42b7d9d7fbdd8303893223543a6a47f93405facb85aedec54d78ecd8f89"},
-    {file = "aspose_words-23.12.0-py3-none-win32.whl", hash = "sha256:c9f7fad882c876176d782fc1734078e00aea5dbc62482f3c1e283b168604ace3"},
-    {file = "aspose_words-23.12.0-py3-none-win_amd64.whl", hash = "sha256:715c1448d6d6d4944dcc1345f0c74632162e739015f22ef8d1d4f1018d9f6676"},
-]
-
-[[package]]
-name = "aspose-words"
 version = "25.3.0"
 description = "Aspose.Words for Python is a Document Processing library that allows developers to work with documents in many popular formats without needing Office Automation."
 optional = false
 python-versions = "<3.14,>=3.6"
 groups = ["dev"]
-markers = "python_version >= \"3.12\" and python_version < \"3.14\""
+markers = "python_version < \"3.14\""
 files = [
     {file = "aspose_words-25.3.0-py3-none-macosx_10_14_x86_64.whl", hash = "sha256:6966ce515e14381c157c239a6700cb45264a24db680f5cba5cdd90b1fe941afb"},
     {file = "aspose_words-25.3.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:3c2f0d2b3e0c9ed8a43b966ddd77d8008edf4d27ba321674bbd37fa5561fab40"},
@@ -586,7 +570,6 @@ description = "Foreign Function Interface for Python calling C code."
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "<empty>"
 files = [
     {file = "cffi-1.17.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:df8b1c11f177bc2313ec4b2d46baec87a5f3e71fc8b45dab2ee7cae86d9aba14"},
     {file = "cffi-1.17.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:8f2cdc858323644ab277e9bb925ad72ae0e67f69e804f4898c070998d50b1a67"},
@@ -3925,15 +3908,15 @@ signedtoken = ["cryptography (>=3.0.0)", "pyjwt (>=2.0.0,<3)"]
 
 [[package]]
 name = "openai"
-version = "1.66.2"
+version = "1.66.3"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 markers = "python_version == \"3.10\""
 files = [
-    {file = "openai-1.66.2-py3-none-any.whl", hash = "sha256:75194057ee6bb8b732526387b6041327a05656d976fc21c064e21c8ac6b07999"},
-    {file = "openai-1.66.2.tar.gz", hash = "sha256:9b3a843c25f81ee09b6469d483d9fba779d5c6ea41861180772f043481b0598d"},
+    {file = "openai-1.66.3-py3-none-any.whl", hash = "sha256:a427c920f727711877ab17c11b95f1230b27767ba7a01e5b66102945141ceca9"},
+    {file = "openai-1.66.3.tar.gz", hash = "sha256:8dde3aebe2d081258d4159c4cb27bdc13b5bb3f7ea2201d9bd940b9a89faf0c9"},
 ]
 
 [package.dependencies]
@@ -3971,8 +3954,8 @@ files = [
 numpy = [
     {version = ">=1.21.4", markers = "python_version >= \"3.10\" and platform_system == \"Darwin\""},
     {version = ">=1.21.2", markers = "platform_system != \"Darwin\" and python_version >= \"3.10\""},
-    {version = ">=1.23.5", markers = "python_version >= \"3.11\""},
     {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
+    {version = ">=1.23.5", markers = "python_version == \"3.11\""},
 ]
 
 [[package]]
@@ -4085,8 +4068,8 @@ files = [
 [package.dependencies]
 numpy = [
     {version = ">=1.22.4", markers = "python_version < \"3.11\""},
-    {version = ">=1.23.2", markers = "python_version == \"3.11\""},
     {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
+    {version = ">=1.23.2", markers = "python_version == \"3.11\""},
 ]
 python-dateutil = ">=2.8.2"
 pytz = ">=2020.1"
@@ -4670,7 +4653,6 @@ description = "C parser in Python"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
-markers = "<empty>"
 files = [
     {file = "pycparser-2.22-py3-none-any.whl", hash = "sha256:c3702b6d3dd8c7abc1afa565d7e63d53a1d0bd86cdc24edd75470f4de499cfcc"},
     {file = "pycparser-2.22.tar.gz", hash = "sha256:491c8be9c040f5390f5bf44a5b07752bd07f56edf992381b05c701439eec10f6"},
@@ -4793,8 +4775,8 @@ astroid = ">=3.3.8,<=3.4.0-dev0"
 colorama = {version = ">=0.4.5", markers = "sys_platform == \"win32\""}
 dill = [
     {version = ">=0.2", markers = "python_version < \"3.11\""},
-    {version = ">=0.3.6", markers = "python_version >= \"3.11\""},
     {version = ">=0.3.7", markers = "python_version >= \"3.12\""},
+    {version = ">=0.3.6", markers = "python_version >= \"3.11\""},
 ]
 isort = ">=4.2.5,<5.13.0 || >5.13.0,<7"
 mccabe = ">=0.6,<0.8"
@@ -4890,15 +4872,22 @@ files = [
 
 [[package]]
 name = "pysimplegui"
-version = "5.0.8.1"
-description = "PySimpleGUI is now located on a private PyPI server.  Please add to your pip command: -i https://PySimpleGUI.net/install"
+version = "5.0.9"
+description = "Python GUIs for Humans! PySimpleGUI is the top-rated Python application development environment. Launched in 2018 and actively developed, maintained, and supported in 2025. Transforms tkinter, Qt, WxPython, and Remi into a simple, intuitive, and fun experience for both hobbyists and expert users."
 optional = false
 python-versions = ">=3.6"
 groups = ["dev"]
 files = [
-    {file = "pysimplegui-5.0.8.1-py3-none-any.whl", hash = "sha256:5d1edec66ec52471e2db5da0c90e36ab247f5a88715c90f9aa5f6c307b61c37e"},
-    {file = "pysimplegui-5.0.8.1.tar.gz", hash = "sha256:8e8b77867b8c719b4b55f9019cfdcb2743f1144a85531d25e1b3f2fa23ab24c7"},
+    {file = "PySimpleGUI-5.0.9-py3-none-any.whl", hash = "sha256:e33b43510f05ff64d5f6af4b44a32138e3c14b6cbbd8ff96efed5a60ee46cf66"},
 ]
+
+[package.dependencies]
+rsa = "*"
+
+[package.source]
+type = "legacy"
+url = "https://PySimpleGUI.net/install"
+reference = "pysimplegui"
 
 [[package]]
 name = "pysimpleguiqt"
@@ -7112,4 +7101,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "5feef632a673def932f46481710ccce67eb911b91d617951b4bd88863613c7b6"
+content-hash = "85376fad7dd90c796ee94cf956c30b8333ae5a8cbdd34c1908140bc7f33f1839"

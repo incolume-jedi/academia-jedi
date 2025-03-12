@@ -68,8 +68,7 @@ incolume-py-changelog = {version=">=0.8.0", python=">=3.8.1,<4"}
 
 aiohttp = "^3.8.3"
 aspose-words = [
-  {version="^23.12.0", python=">=3.9,<3.12"},
-  {version=">=24.1.0", python="^3.12,<3.14"},
+  {version=">=23.12.0", python=">=3.8.2,<3.14"},
 ]
 # pillow = {version="^9.4.0", python=">=3.9,<3.12"}
 bs4 = { version=">=0.0.1", python = ">3.6" }
@@ -118,7 +117,7 @@ pyarrow = [{version="^10.0.1", python="<3.12"}]
 pydantic = "^1.10.2"
 pymupdf = "^1.21.1"
 pypdf2 = "^3.0.1"
-pysimplegui = { version = ">=4.60.4" }
+pysimplegui = {version = ">=4.60.4", source = "pysimplegui"}
 pysimpleguiqt = { version = ">=0.35.0", python = "<3.11" }
 pyspellchecker = "^0.7.1"
 pytesseract = "^0.3.10"
@@ -138,6 +137,12 @@ uvicorn = [{extras = ["standard"], version = "^0.29.0"}]
 wget = [{ version = ">=3.2", python = "<3.10" }]
 xlsxwriter = "^3.1.9"
 xmltodict = "^0.13.0"
+
+
+[[tool.poetry.source]]
+name = "pysimplegui"
+url = "https://PySimpleGUI.net/install"
+priority = "explicit"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
