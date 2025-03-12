@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-03-11:
+## [0.109.0]	 &#8212; 	2025-03-12:
 ### Added
   - Estudos utilizando projeto adedonha;
   - Implementação do jogo de adivinhar número;
@@ -686,4 +686,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.106.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.105.0...0.106.0
 [0.107.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.106.0...0.107.0
 [0.108.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.107.0...0.108.0
-[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.108.0...Unreleased
+[0.109.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.108.0...0.109.0
