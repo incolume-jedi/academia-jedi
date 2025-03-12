@@ -10,6 +10,12 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [0.109.3]	 &#8212; 	2025-03-12:
+### Added
+  - Adicionado repositorio extra para pysimpleGUI;
+### Fixed
+  - Fixado instação via repositório proprio para PySimpleGUI;
+
 ## [0.109.2]	 &#8212; 	2025-03-12:
 ### Fixed
   - Retificação de dependências conflitantes do projeto;
@@ -697,3 +703,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.109.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.108.0...0.109.0
 [0.109.1]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.0...0.109.1
 [0.109.2]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.1...0.109.2
+[0.109.3]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.2...0.109.3
