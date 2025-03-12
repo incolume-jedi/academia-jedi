@@ -10,6 +10,10 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [0.109.1]	 &#8212; 	2025-03-12:
+### Fixed
+  - Atualizado dependências conflitantes do projeto;
+
 ## [0.109.0]	 &#8212; 	2025-03-12:
 ### Added
   - Estudos utilizando projeto adedonha;
@@ -687,3 +691,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.107.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.106.0...0.107.0
 [0.108.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.107.0...0.108.0
 [0.109.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.108.0...0.109.0
+[0.109.1]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.0...0.109.1
