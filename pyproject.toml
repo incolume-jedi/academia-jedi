@@ -142,7 +142,7 @@ xmltodict = "^0.13.0"
 [[tool.poetry.source]]
 name = "pysimplegui"
 url = "https://PySimpleGUI.net/install"
-priority = "supplemental"
+priority = "explicit"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
