@@ -1,5 +1,7 @@
 """Package."""
 
+from __future__ import annotations
+
 from unidecode import unidecode
 
 __author__ = '@britodfbr'  # pragma: no cover

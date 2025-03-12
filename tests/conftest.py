@@ -16,21 +16,36 @@ collect_ignore = ['setup.py']
 
 
 if version_info < (3, 9, 0):
-    files = Path('incolume/academia_jedi/ajedi20220728_crud_nodb/').rglob(
-        '*.py',
+    files = []
+    files.extend(
+        Path('incolume/academia_jedi/ajedi20220728_crud_nodb/').rglob(
+            'test_*.py',
+        ),
     )
-    logging.debug(ic([collect_ignore.append(file) for file in files]))
+    files.extend(
+        Path('incolume/academia_jedi/ajedi20220728_crud_nodb/').rglob(
+            '*test*.py',
+        ),
+    )
+    logging.debug(ic(files))
+    collect_ignore.extend(files)
 
 if version_info < (3, 10, 0):
-    files = Path(
-        'incolume/academia_jedi/ajedi20240408_dundler_methods/',
-    ).rglob('*.py')
-    logging.debug(ic([collect_ignore.append(file) for file in files]))
+    files = []
+    files.extend(
+        Path('incolume/academia_jedi/ajedi20240408_dundler_methods/').rglob(
+            '*test*.py',
+        ),
+    )
+    logging.debug(ic(files))
+    collect_ignore.extend(files)
 
 if version_info < (3, 11, 0):
     path = Path('incolume/academia_jedi/ajedi20221104_collections_deque')
-    files = path.rglob('*.py')
-    logging.debug(ic([collect_ignore.append(file) for file in files]))
+    files = []
+    files.extend(path.rglob('*tests*.py'))
+    logging.debug(ic(files))
+    collect_ignore.extend(files)
 
 if version_info < (3, 12, 0):
     collect_ignore.append(
@@ -41,9 +56,10 @@ if version_info < (3, 13, 0):
     pass
 
 if version_info < (4, 0, 0):
-    collect_ignore.append(
+    files = [
         r'incolume/academia_jedi/ajedi20231213_aspose_pkg/test_aspose.py',
-    )
+    ]
+    collect_ignore.extend(files)
 
 logging.debug(ic(collect_ignore))
 

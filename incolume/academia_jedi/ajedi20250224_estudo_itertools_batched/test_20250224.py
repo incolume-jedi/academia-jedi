@@ -71,7 +71,6 @@ class TestCase:
                     ),
                 ],
             ),
-            pytest.param('', '', marks=[pytest.mark.skip]),
         ],
     )
     def test_0(self, entrance, expected):
