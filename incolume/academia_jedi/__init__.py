@@ -1,11 +1,24 @@
 """Module academia_jedi."""
 
+import logging
+from pathlib import Path
+from platform import system
+
+from config import settings
+
 try:
     from tomli import load
 except (ModuleNotFoundError, ImportError):
     from tomllib import load
 
-from pathlib import Path
+
+logging.basicConfig(
+    level=logging.INFO,
+    format=settings.format_log_win
+    if system().casefold().startswith('win')
+    else settings.format_log,
+)
+
 
 version_file = Path(__file__).parent / 'version.txt'
 project_file = Path(__file__).parents[2] / 'pyproject.toml'
