@@ -12,7 +12,7 @@ from icecream import ic
 
 # ruff: noqa: UP036
 
-collect_ignore = ['setup.py']
+collect_ignore = ['setup.py', '__main__.py']
 
 
 if version_info < (3, 9, 0):
