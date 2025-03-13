@@ -19,6 +19,10 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Ampliado cobertura de código para projeto;
   - Recuperação de projetos anteriores;
 
+## [0.109.5]	 &#8212; 	2025-03-12:
+### Fixed
+  - NotFoundError identificado e corrigido;
+
 ## [0.109.4]	 &#8212; 	2025-03-12:
 ### Fixed
   - Corrigido ImportPathMismatchError para modulos de teste em ci/cd;
@@ -718,4 +722,5 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.109.2]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.1...0.109.2
 [0.109.3]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.2...0.109.3
 [0.109.4]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.3...0.109.4
-[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.4...Unreleased
+[0.109.5]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.4...0.109.5
+[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.5...Unreleased
