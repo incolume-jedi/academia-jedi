@@ -3,7 +3,7 @@
 from typing import NoReturn
 
 import pytest
-from incolume.academia_jedi.ajedi20221104_mapping_letters.main import (
+from incolume.academia_jedi.ajedi20221104_mapping_letters import (
     mapping_letters,
 )
 
