@@ -72,7 +72,7 @@ class TestREADME:
         pytest.param('ajedi20221104_decorators', marks=[]),
         pytest.param('ajedi20221104_mapping_letters', marks=[]),
         pytest.param('ajedi20221104_moda_em_lista', marks=[]),
-        pytest.param('ajedi20221107_parametros_posicionais', marks=[]),
+        pytest.param('ajedi20221107_params', marks=[]),
         pytest.param('ajedi20221108_pytest_classes', marks=[]),
         pytest.param('ajedi20221109_pony_orm', marks=[]),
         pytest.param('ajedi20221110_mapping_values', marks=[]),
