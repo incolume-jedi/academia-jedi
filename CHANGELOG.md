@@ -10,6 +10,19 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [Unreleased]	 &#8212; 	2025-03-11:
+### Added
+  - Estudos utilizando projeto adedonha;
+  - Implementação do jogo de adivinhar número;
+  - Implementação da tarefa contagem de vogais;
+### Fixed
+  - Ampliado cobertura de código para projeto;
+  - Recuperação de projetos anteriores;
+
+## [0.109.4]	 &#8212; 	2025-03-12:
+### Fixed
+  - Corrigido ImportPathMismatchError para modulos de teste em ci/cd;
+
 ## [0.109.3]	 &#8212; 	2025-03-12:
 ### Added
   - Adicionado repositorio extra para pysimpleGUI;
@@ -704,3 +717,5 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.109.1]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.0...0.109.1
 [0.109.2]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.1...0.109.2
 [0.109.3]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.2...0.109.3
+[0.109.4]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.3...0.109.4
+[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.4...Unreleased
