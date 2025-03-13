@@ -4,7 +4,7 @@ from __future__ import annotations
 import sys
 from faker import Faker
 import pytest
-from incolume.academia_jedi.ajedi20250301_jokenpo import main
+from incolume.academia_jedi import ajedi20250301_jokenpo
 from secrets import choice
 
 
@@ -14,7 +14,10 @@ Faker.seed(13)
 fake = Faker('pt-BR')
 
 
-def jogador(nome: str = '', lance: main.Jokenpo | None = None) -> main.Jogador:
+def jogador(
+    nome: str = '',
+    lance: ajedi20250301_jokenpo.Jokenpo | None = None,
+) -> ajedi20250301_jokenpo.Jogador:
     """Definir jogador.
 
     Args:
@@ -25,15 +28,15 @@ def jogador(nome: str = '', lance: main.Jokenpo | None = None) -> main.Jogador:
         None: Nonetype
     """
     nome = nome or fake.name()
-    lance = lance or main.Jokenpo(choice(range(1, 4)))
-    return main.Jogador(nome=nome, lance=lance)
+    lance = lance or ajedi20250301_jokenpo.Jokenpo(choice(range(1, 4)))
+    return ajedi20250301_jokenpo.Jogador(nome=nome, lance=lance)
 
 
 class TestJokenpo:
     """Test Case."""
 
-    j1 = jogador(lance=main.Jokenpo('papel'))
-    j2 = jogador(lance=main.Jokenpo('papel'))
+    j1 = jogador(lance=ajedi20250301_jokenpo.Jokenpo('papel'))
+    j2 = jogador(lance=ajedi20250301_jokenpo.Jokenpo('papel'))
 
     @pytest.mark.parametrize(
         'entrance expected'.split(),
@@ -48,7 +51,10 @@ class TestJokenpo:
     )
     def test_enum(self, entrance, expected) -> None:
         """Test enum."""
-        assert main.Jokenpo(entrance) == getattr(main.Jokenpo, expected)
+        assert ajedi20250301_jokenpo.Jokenpo(entrance) == getattr(
+            ajedi20250301_jokenpo.Jokenpo,
+            expected,
+        )
 
     @pytest.mark.parametrize(
         'entrance expected'.split(),
@@ -63,13 +69,15 @@ class TestJokenpo:
     )
     def test_enum_rev(self, entrance, expected) -> None:
         """Test enum."""
-        assert main.Jokenpo(entrance) == main.Jokenpo(expected)
+        assert ajedi20250301_jokenpo.Jokenpo(
+            entrance,
+        ) == ajedi20250301_jokenpo.Jokenpo(expected)
 
     @pytest.mark.parametrize(
         'entrance',
         [
             pytest.param(
-                main.Jogador,
+                ajedi20250301_jokenpo.Jogador,
                 marks=[
                     pytest.mark.skipif(
                         sys.version_info < (3, 13),
@@ -79,7 +87,10 @@ class TestJokenpo:
                 ],
             ),
             pytest.param(
-                main.Jogador('John Doe', main.Jokenpo('pedra')),
+                ajedi20250301_jokenpo.Jogador(
+                    'John Doe',
+                    ajedi20250301_jokenpo.Jokenpo('pedra'),
+                ),
                 marks=[
                     pytest.mark.skipif(
                         sys.version_info < (3, 13),
@@ -128,7 +139,9 @@ class TestJokenpo:
     def test_jokenpo_equals(self, entrance, expected):
         """Unittest."""
         value1, value2 = entrance
-        result = main.Jokenpo(value1) == main.Jokenpo(value2)
+        result = ajedi20250301_jokenpo.Jokenpo(
+            value1,
+        ) == ajedi20250301_jokenpo.Jokenpo(value2)
         assert result == expected
 
     @pytest.mark.parametrize(
@@ -166,7 +179,9 @@ class TestJokenpo:
     def test_jokenpo_less_than(self, entrance, expected):
         """Unittest."""
         value1, value2 = entrance
-        result = main.Jokenpo(value1) < main.Jokenpo(value2)
+        result = ajedi20250301_jokenpo.Jokenpo(
+            value1,
+        ) < ajedi20250301_jokenpo.Jokenpo(value2)
         assert result == expected
 
     @pytest.mark.parametrize(
@@ -204,65 +219,67 @@ class TestJokenpo:
     def test_jokenpo_greater_than(self, entrance, expected):
         """Unittest."""
         value1, value2 = entrance
-        result = main.Jokenpo(value1) > main.Jokenpo(value2)
+        result = ajedi20250301_jokenpo.Jokenpo(
+            value1,
+        ) > ajedi20250301_jokenpo.Jokenpo(value2)
         assert result == expected
 
     @pytest.mark.parametrize(
         'entrance1 entrance2 expected'.split(),
         [
             pytest.param(
-                jogador(lance=main.Jokenpo(1)),
-                jogador(lance=main.Jokenpo(1)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(1)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(1)),
                 'Breno Teixeira X Vinicius Gonçalves: Empate.',
                 marks=[],
             ),
             pytest.param(
-                jogador(lance=main.Jokenpo(1)),
-                jogador(lance=main.Jokenpo(2)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(1)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(2)),
                 'Leandro Costela X Maria Alves: Maria Alves Ganhou!!!',
                 marks=[],
             ),
             pytest.param(
-                jogador(lance=main.Jokenpo(1)),
-                jogador(lance=main.Jokenpo(3)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(1)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(3)),
                 'Danilo Cardoso X Levi Pinto: Danilo Cardoso Ganhou!!!',
                 marks=[],
             ),
             pytest.param(
-                jogador(lance=main.Jokenpo(2)),
-                jogador(lance=main.Jokenpo(1)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(2)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(1)),
                 'Fernando Moraes X Luigi Vieira: Fernando Moraes Ganhou!!!',
                 marks=[],
             ),
             pytest.param(
-                jogador(lance=main.Jokenpo(2)),
-                jogador(lance=main.Jokenpo(2)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(2)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(2)),
                 'Lara Moreira X Maysa Lopes: Empate.',
                 marks=[],
             ),
             pytest.param(
-                jogador(lance=main.Jokenpo(2)),
-                jogador(lance=main.Jokenpo(3)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(2)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(3)),
                 'Ana Vitória Monteiro X Yasmin Ferreira:'
                 ' Yasmin Ferreira Ganhou!!!',
                 marks=[],
             ),
             pytest.param(
-                jogador(lance=main.Jokenpo('pedra')),
-                jogador(lance=main.Jokenpo('papel')),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo('pedra')),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo('papel')),
                 'Sra. Maria Clara Cunha X Nicole Pires:'
                 ' Nicole Pires Ganhou!!!',
                 marks=[],
             ),
             pytest.param(
-                jogador(lance=main.Jokenpo(3)),
-                jogador(lance=main.Jokenpo(2)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(3)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(2)),
                 'Camila Gonçalves X Davi Silveira: Camila Gonçalves Ganhou!!!',
                 marks=[],
             ),
             pytest.param(
-                jogador(lance=main.Jokenpo(3)),
-                jogador(lance=main.Jokenpo(3)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(3)),
+                jogador(lance=ajedi20250301_jokenpo.Jokenpo(3)),
                 'Dr. João Lucas Ramos X Otávio Freitas: Empate.',
                 marks=[],
             ),
@@ -275,7 +292,10 @@ class TestJokenpo:
         expected,
     ) -> None:
         """Test enum."""
-        assert main.start_jokenpo(entrance1, entrance2) == expected
+        assert (
+            ajedi20250301_jokenpo.start_jokenpo(entrance1, entrance2)
+            == expected
+        )
 
     @pytest.mark.parametrize(
         'entrance expected'.split(),
@@ -308,6 +328,6 @@ class TestJokenpo:
     )
     def test_placar(self, entrance, expected):
         """Test resultados."""
-        self.j1.lance = main.Jokenpo(entrance)
-        main.start_jokenpo(self.j1, self.j2)
+        self.j1.lance = ajedi20250301_jokenpo.Jokenpo(entrance)
+        ajedi20250301_jokenpo.start_jokenpo(self.j1, self.j2)
         assert str(self.j1) == expected
