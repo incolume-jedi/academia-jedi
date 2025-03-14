@@ -57,7 +57,7 @@ class TestCompactShutil:
         output_dir = self.PATH / self.PATH.stem
         path = self.PATH.joinpath(inspect.stack()[0][3])
         result = shutil.make_archive(output_dir, ext, path)
-        assert output_dir.with_suffix(f'.{ext}').as_posix() == result
+        assert output_dir.with_suffix(f'.{ext}') == Path(result)
         assert Path(result).is_file()
 
     def test_compact_tar(self):
@@ -66,5 +66,5 @@ class TestCompactShutil:
         output_dir = self.PATH / self.PATH.stem
         path = self.PATH.joinpath(inspect.stack()[0][3])
         result = shutil.make_archive(output_dir, ext, path)
-        assert output_dir.with_suffix(f'.{ext}').as_posix() == result
+        assert output_dir.with_suffix(f'.{ext}') == Path(result)
         assert Path(result).is_file()
