@@ -3,18 +3,8 @@
 
 import logging
 
-import requests
 from bs4 import BeautifulSoup
-from incolume.academia_jedi.ajedi20221210_html_parsin import config, timeout
-from tomli import load
-
-with config.open('rb') as file:
-    url = load(file)['url']['toscrape']
-
-logging.debug(url)
-
-resp = requests.get(url=url, timeout=timeout)
-logging.debug(resp)
+from incolume.academia_jedi.ajedi20221210_html_parsin import resp
 
 soup = BeautifulSoup(resp.text, 'html5lib')
 logging.info(soup.find('h1').text)

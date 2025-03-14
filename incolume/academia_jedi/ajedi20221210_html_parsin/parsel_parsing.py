@@ -3,18 +3,8 @@
 
 import logging
 
-import requests
-from incolume.academia_jedi.ajedi20221210_html_parsin import config, timeout
+from incolume.academia_jedi.ajedi20221210_html_parsin import resp
 from parsel import Selector
-from tomli import load
-
-with config.open('rb') as file:
-    url = load(file)['url']['toscrape']
-
-logging.debug(url)
-
-resp = requests.get(url=url, timeout=timeout)
-logging.debug(resp)
 
 html = Selector(text=resp.text)
 logging.info(html.css('h1::text').get())
