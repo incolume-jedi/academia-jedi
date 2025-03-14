@@ -1,21 +1,19 @@
 """Module."""
+# ruff: noqa: T201
 
 import logging
-from pathlib import Path
 
 import requests
+from incolume.academia_jedi.ajedi20221210_html_parsin import config, timeout
 from parsel import Selector
 from tomli import load
-
-config = Path(__file__).parent / 'conf.toml'
-assert config.exists(), f'Error: {config}'
 
 with config.open('rb') as file:
     url = load(file)['url']['toscrape']
 
 logging.debug(url)
 
-resp = requests.get(url=url)
+resp = requests.get(url=url, timeout=timeout)
 logging.debug(resp)
 
 html = Selector(text=resp.text)
