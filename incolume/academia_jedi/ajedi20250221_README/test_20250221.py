@@ -81,7 +81,7 @@ class TestREADME:
         pytest.param('ajedi20221116_fstring_use', marks=[]),
         pytest.param('ajedi20221119_tic_tac_toe', marks=[]),
         pytest.param('ajedi20221121_performance_list_tuple', marks=[]),
-        pytest.param('ajedi20221128_mapping_values_into_dict', marks=[]),
+        pytest.param('ajedi20221128_mapping_values', marks=[]),
         pytest.param('ajedi20221207_docker_ojs', marks=[]),
         pytest.param('ajedi20221207_itertools_islice', marks=[]),
         pytest.param('ajedi20221207_itertools_pairwise', marks=[]),

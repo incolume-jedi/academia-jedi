@@ -8,9 +8,14 @@ import subprocess
 from copy import copy
 from typing import Any
 
-from constantes import MSG, labels
+from incolume.academia_jedi.ajedi20221128_mapping_values.constantes import (
+    MSG,
+    labels,
+)
 
 __author__ = '@britodfbr'  # pragma: no cover
+
+
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s;%(levelname)-8s;%(name)s;'
