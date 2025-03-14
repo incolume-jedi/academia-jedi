@@ -22,10 +22,10 @@ class TestCase:
     @pytest.mark.parametrize(
         'entrance expected'.split(),
         [
-            pytest.param(bp.resp, True, marks=[]),
-            pytest.param(pp.resp, True, marks=[]),
-            pytest.param(sp.resp, True, marks=[]),
-            pytest.param(resp, True, marks=[]),
+            pytest.param(bp.resp, True, marks=[pytest.mark.xfail(requests.HTTPError)]),
+            pytest.param(pp.resp, True, marks=[pytest.mark.xfail(requests.HTTPError)]),
+            pytest.param(sp.resp, True, marks=[pytest.mark.xfail(requests.HTTPError)]),
+            pytest.param(resp, True, marks=[pytest.mark.xfail(requests.HTTPError)]),
         ],
     )
     def test_resp_response(self, entrance, expected) -> NoReturn:
@@ -35,10 +35,10 @@ class TestCase:
     @pytest.mark.parametrize(
         'entrance expected'.split(),
         [
-            pytest.param(bp.resp, 200, marks=[]),
-            pytest.param(pp.resp, 200, marks=[]),
-            pytest.param(sp.resp, 200, marks=[]),
-            pytest.param(resp, 200, marks=[]),
+            pytest.param(bp.resp, 200, marks=[pytest.mark.xfail(requests.HTTPError)]),
+            pytest.param(pp.resp, 200, marks=[pytest.mark.xfail(requests.HTTPError)]),
+            pytest.param(sp.resp, 200, marks=[pytest.mark.xfail(requests.HTTPError)]),
+            pytest.param(resp, 200, marks=[pytest.mark.xfail(requests.HTTPError)]),
         ],
     )
     def test_resp_status(self, entrance, expected) -> NoReturn:
