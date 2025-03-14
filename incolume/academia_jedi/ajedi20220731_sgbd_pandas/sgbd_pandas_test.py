@@ -1,6 +1,6 @@
 """Module."""
 
-from incolume.academia_jedi.ajedi20220731_sgbd_pandas.main import massa_test
+from incolume.academia_jedi.ajedi20220731_sgbd_pandas import massa_test
 
 
 class CheckSGBDPandas:
