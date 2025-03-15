@@ -1,4 +1,4 @@
-[
+{"estados": [
   {
     "SIGLA":"AC",
     "ESTADO":"Acre",
@@ -161,4 +161,4 @@
     "CAPITAL":"Palmas",
     "REGIAO":"NORTE"
   }
-]
+]}
