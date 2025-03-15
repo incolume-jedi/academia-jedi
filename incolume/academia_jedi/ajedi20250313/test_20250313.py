@@ -7,6 +7,10 @@ import tempfile
 from inspect import stack
 from typing import ClassVar
 from icecream import ic
+import pytest
+
+
+# ruff: noqa: PLR0913
 
 
 class TestCompactShutil:
@@ -68,3 +72,70 @@ class TestCompactShutil:
         result = shutil.make_archive(output_dir, ext, path)
         assert output_dir.with_suffix(f'.{ext}') == Path(result)
         assert Path(result).is_file()
+
+    @pytest.mark.parametrize(
+        'filename type_format quantia expected'.split(),
+        [
+            pytest.param(
+                PATH / f'{PATH.stem}.zip',
+                'zip',
+                15,
+                [
+                    'a00.txt',
+                    'a01.txt',
+                    'a02.txt',
+                    'a03.txt',
+                    'a04.txt',
+                    'a05.txt',
+                    'a06.txt',
+                    'a07.txt',
+                    'a08.txt',
+                    'a09.txt',
+                    'a10.txt',
+                    'a11.txt',
+                    'a12.txt',
+                    'a13.txt',
+                    'a14.txt',
+                ],
+                marks=[],
+            ),
+            pytest.param(
+                PATH / f'{PATH.stem}.tar',
+                'tar',
+                15,
+                [
+                    'a00.txt',
+                    'a01.txt',
+                    'a02.txt',
+                    'a03.txt',
+                    'a04.txt',
+                    'a05.txt',
+                    'a06.txt',
+                    'a07.txt',
+                    'a08.txt',
+                    'a09.txt',
+                    'a10.txt',
+                    'a11.txt',
+                    'a12.txt',
+                    'a13.txt',
+                    'a14.txt',
+                ],
+                marks=[],
+            ),
+        ],
+    )
+    def test_extrair(self, filename, type_format, quantia, expected):
+        """Unit test."""
+        extract_dir = self.PATH / inspect.stack()[0][3]
+
+        assert filename.is_file()
+
+        shutil.unpack_archive(
+            filename=filename,
+            extract_dir=extract_dir,
+            format=type_format,
+        )
+        result = list(extract_dir.rglob('**/a*.txt'))
+        assert all(file.is_file() for file in result)
+        assert len(result) == quantia
+        assert sorted([file.name for file in result]) == expected
