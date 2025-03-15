@@ -138,4 +138,4 @@ class TestCompactShutil:
         result = list(extract_dir.rglob('**/a*.txt'))
         assert all(file.is_file() for file in result)
         assert len(result) == quantia
-        assert [file.name for file in result] == expected
+        assert sorted([file.name for file in result]) == expected
