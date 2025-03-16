@@ -4,22 +4,30 @@
 
 import os
 from collections.abc import Container
-from enum import Enum, unique, IntEnum
+from enum import Enum, auto, unique
 
-Options: Enum = unique(
-    IntEnum(
-        value='Options',
-        names=[
-            'Sair',
-            'Soma',
-            'Subtração',
-            'Multiplicação',
-            'Divisão',
-            'Exponenciação',
-        ],
-        start=0,
-    ),
-)
+
+@unique
+class Options(Enum):
+    """Option enum."""
+
+    Sair = 0
+    Soma = auto()
+    Subtração = auto()
+    Multiplicação = auto()
+    Divisão = auto()
+    Exponenciação = auto()
+
+    @classmethod
+    def _missing_(cls, value):
+        if isinstance(value, str) and value.isdigit():
+            value = int(value)
+        else:
+            value = value.capitalize()
+        for member in cls:
+            if value in (member.name, member.value):
+                return member
+        return None
 
 
 def finalizar(

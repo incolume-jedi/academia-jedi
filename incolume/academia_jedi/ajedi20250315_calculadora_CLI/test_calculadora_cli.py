@@ -13,12 +13,16 @@ class TestCase:
     @pytest.mark.parametrize(
         'entrance expected'.split(),
         [
-            pytest.param('0', '', marks=[]),
+            pytest.param(0, 'Sair', marks=[]),
+            pytest.param('0', 'Sair', marks=[]),
+            pytest.param('sair', 'Sair', marks=[]),
+            pytest.param('SAIR', 'Sair', marks=[]),
+            pytest.param('SAiR', 'Sair', marks=[]),
         ],
     )
     def test_options(self, entrance, expected) -> NoReturn:
         """Unittest."""
-        assert Options(entrance) is expected
+        assert Options(entrance).name == expected
 
     @pytest.mark.parametrize(
         'op msg deny_op expected'.split(),
