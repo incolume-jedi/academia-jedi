@@ -1,0 +1,55 @@
+"""Test module."""
+
+import inspect
+from pathlib import Path
+import shutil
+from tempfile import gettempdir
+from typing import NoReturn
+from incolume.academia_jedi.ajedi20221220_web_scraping_bs4 import (
+    my_scrap_imdb,
+    my_scrap_imdb1,
+    my_scrap_imdb2,
+)
+
+
+class TestCase:
+    """TestCase."""
+
+    output_dir: Path = Path(gettempdir()) / f'{inspect.stack()[0][3]}'
+
+    @classmethod
+    def setup_class(cls):
+        """Setup class."""
+        cls.output_dir.mkdir(exist_ok=True, parents=True)
+
+    @classmethod
+    def teardown_class(cls):
+        """Teardown class."""
+        shutil.rmtree(cls.output_dir, ignore_errors=True)
+
+    def test_0(self) -> NoReturn:
+        """Unittest."""
+        fileoutput = self.output_dir / f'{inspect.stack()[0][3]}.xlsx'
+        my_scrap_imdb.scraping_ranking(excel_output=fileoutput)
+        assert fileoutput.is_file()
+
+    def test_1(self) -> NoReturn:
+        """Unittest."""
+        fileoutput = self.output_dir / f'{inspect.stack()[0][3]}.xlsx'
+        my_scrap_imdb1.scraping_ranking1(excel_output=fileoutput)
+        assert fileoutput.is_file()
+
+    def test_2(self) -> NoReturn:
+        """Unittest."""
+        fileoutput = self.output_dir / f'{inspect.stack()[0][3]}.xlsx'
+        scrap_imdb = my_scrap_imdb2.ScrapingIMDB()
+        scrap_imdb.connect().get_soup().get_movies().save_excel(
+            excel_output=fileoutput,
+        )
+        assert fileoutput.is_file()
+
+    def test_3(self) -> NoReturn:
+        """Unittest."""
+        fileoutput = self.output_dir / f'{inspect.stack()[0][3]}.xlsx'
+        my_scrap_imdb2.ScrapingIMDB().scraping(excel_output=fileoutput)
+        assert fileoutput.is_file()

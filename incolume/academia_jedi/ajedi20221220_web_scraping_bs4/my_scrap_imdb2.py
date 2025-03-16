@@ -62,7 +62,12 @@ class ScrapingIMDB:
         return self
 
     def get_movies(self):
-        movies = self.soup.find('tbody', class_='lister-list').find_all('tr')
+        try:
+            movies = self.soup.find('tbody', class_='lister-list').find_all(
+                'tr',
+            )
+        except AttributeError:
+            return self
 
         for movie in movies:
             obj = Movie(
@@ -94,20 +99,26 @@ class ScrapingIMDB:
         columns_name: Optional[list] = None,
         **kwargs,
     ):
-        if columns_name is None:
-            columns_name = []
-        excel_output = Path(excel_output or self.excel_output)
-        excel = openpyxl.Workbook()
-        logging.debug(excel.sheetnames)
+        try:
+            if columns_name is None:
+                columns_name = []
+            excel_output = Path(excel_output or self.excel_output)
+            excel = openpyxl.Workbook()
+            logging.debug(excel.sheetnames)
 
-        sheet = excel.active
-        sheet.title = kwargs.get('sheet_title') or self.sheet_title
-        logging.debug(excel.sheetnames)
+            sheet = excel.active
+            sheet.title = kwargs.get('sheet_title') or self.sheet_title
+            logging.debug(excel.sheetnames)
 
-        sheet.append(columns_name or self.columns_name)
-        [sheet.append(list(movie.__dict__.values())) for movie in self.movies]
-        excel.save(excel_output.as_posix())
-        return True
+            sheet.append(columns_name or self.columns_name)
+            [
+                sheet.append(list(movie.__dict__.values()))
+                for movie in self.movies
+            ]
+            excel.save(excel_output.as_posix())
+            return True
+        except AttributeError:
+            return False
 
     def scraping(self, **kwargs):
         url = kwargs.get('url') or self.url
