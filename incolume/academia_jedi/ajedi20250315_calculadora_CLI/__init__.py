@@ -5,6 +5,7 @@
 import os
 from collections.abc import Container
 from enum import Enum, auto, unique
+from operator import add, mul, pow, sub, truediv
 
 
 @unique
@@ -48,6 +49,38 @@ def limpar_tela() -> None:
     os.system('cls' if os.name == 'nt' else 'clear')  # noqa: S605
 
 
+def calc(
+    x: float | None = None,
+    y: float | None = None,
+    op: Options | None = None,
+    *,
+    return_result: bool = False,
+) -> float | None:
+    """Realiza as operações da calculadora."""
+    operador = {
+        1: ('+', add),
+        2: ('-', sub),
+        3: ('*', mul),
+        4: ('/', truediv),
+        5: ('**', pow),
+    }
+    op = op or Options(1)
+
+    msg = 'Opção inválida!'
+    if op not in Options:
+        if return_result:
+            raise ValueError(msg)
+        else:
+            print(f'\n\t{msg}\n')
+    x = x or float(input('Valor para x: '))
+    y = y or float(input('Valor para y: '))
+    result = operador.get(op.value)[1](x, y)
+    if return_result:
+        return result
+    print(f'\n\n{x} {operador.get(op.value)[0]} {y} = {result}')
+    return None
+
+
 def menu():
     """Menu."""
     while True:
@@ -59,12 +92,11 @@ def menu():
             print(f'   {item.value}: {item.name}')
 
         op = input('\nEscolha a opção que deseja realizar: ')
-        match op:
-            case '0':
-                break
-            case _:
-                print('\n\tOpção inválida!\n')
+
+        calc(op=Options(op))
+
         print('-' * 30)
+
         if finalizar(
             'deseja realizar outra operação (Y/n)? ',
             ['f', 'finalize', 't', 'terminar'],
