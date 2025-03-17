@@ -23,6 +23,10 @@ class TestCompactShutil:
     def setup_class(cls):
         """Setup class."""
         ic(f'starting class {cls.__name__} execution')
+        cls.PATH.joinpath(cls.__name__).mkdir(
+            parents=True,
+            exist_ok=True,
+        )
 
     @classmethod
     def teardown_class(cls):
