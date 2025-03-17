@@ -6,7 +6,7 @@ import os
 from collections.abc import Container
 from enum import Enum, auto, unique
 from operator import add, mul, pow, sub, truediv
-
+from icecream import ic
 
 @unique
 class Options(Enum):
@@ -52,7 +52,7 @@ def limpar_tela() -> None:
 def calc(
     x: float | None = None,
     y: float | None = None,
-    op: Options | None = None,
+    option: str = '',
     *,
     return_result: bool = False,
 ) -> float | None:
@@ -64,14 +64,20 @@ def calc(
         4: ('/', truediv),
         5: ('**', pow),
     }
-    op = op or Options(1)
-
+    ic(option)
     msg = 'Opção inválida!'
-    if op not in Options:
+    if not bool(ic(Options(option))):
         if return_result:
             raise ValueError(msg)
         else:
             print(f'\n\t{msg}\n')
+        return
+    op = Options(option)
+    # try:
+    #     op: Enum = Options(option)
+    # except ValueError:
+    #     op = Options(1)
+
     x = x or float(input('Valor para x: '))
     y = y or float(input('Valor para y: '))
     result = operador.get(op.value)[1](x, y)
@@ -93,7 +99,7 @@ def menu():
 
         op = input('\nEscolha a opção que deseja realizar: ')
 
-        calc(op=Options(op))
+        calc(option=op)
 
         print('-' * 30)
 
