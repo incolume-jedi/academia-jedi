@@ -1,6 +1,6 @@
 """Calculadora CLI."""
 
-# ruff: noqa: T201
+# ruff: noqa: C901 T201
 
 import os
 from collections.abc import Container
