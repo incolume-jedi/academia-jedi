@@ -66,6 +66,7 @@ def calc(
         4: ('/', truediv),
         5: ('**', pow),
     }
+    ic()
     op = option or Options(1)
     x = x or float(input('Valor para x: '))
     y = y or float(input('Valor para y: '))
@@ -95,7 +96,6 @@ def menu():
         except (ValueError, TypeError):
             msg = 'Opção inválida!'
             print(f'\n\t{msg}\n')
-            pass
 
         print('-' * 30)
 
@@ -108,4 +108,3 @@ def menu():
 
 if __name__ == '__main__':
     menu()
-
