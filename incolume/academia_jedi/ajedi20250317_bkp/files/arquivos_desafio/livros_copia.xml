@@ -1,0 +1,119 @@
+<?xml version="1.0" ?><catalogo>
+   <livro id="bk101">
+      <autor>Soares, Adriano</autor>
+      <titulo>XML Developer's Guide</titulo>
+      <genero>Computer</genero>
+      <preco>44.95</preco>
+      <data_publicacao>2000-10-01</data_publicacao>
+      <descricao>An in-depth look at creating applications
+      with XML.</descricao>
+   </livro>
+   <livro id="bk102">
+      <autor>Ralls, Kim</autor>
+      <titulo>Midnight Rain</titulo>
+      <genero>Fantasy</genero>
+      <preco>5.95</preco>
+      <data_publicacao>2000-12-16</data_publicacao>
+      <descricao>A former architect battles corporate zombies,
+      an evil sorceress, and her own childhood to become queen
+      of the world.</descricao>
+   </livro>
+   <livro id="bk103">
+      <autor>Corets, Eva</autor>
+      <titulo>Maeve Ascendant</titulo>
+      <genero>Fantasy</genero>
+      <preco>5.95</preco>
+      <data_publicacao>2000-11-17</data_publicacao>
+      <descricao>After the collapse of a nanotechnology
+      society in England, the young survivors lay the
+      foundation for a new society.</descricao>
+   </livro>
+   <livro id="bk104">
+      <autor>Corets, Eva</autor>
+      <titulo>Oberon's Legacy</titulo>
+      <genero>Fantasy</genero>
+      <preco>5.95</preco>
+      <data_publicacao>2001-03-10</data_publicacao>
+      <descricao>In post-apocalypse England, the mysterious
+      agent known only as Oberon helps to create a new life
+      for the inhabitants of London. Sequel to Maeve
+      Ascendant.</descricao>
+   </livro>
+   <livro id="bk105">
+      <autor>Corets, Eva</autor>
+      <titulo>The Sundered Grail</titulo>
+      <genero>Fantasy</genero>
+      <preco>5.95</preco>
+      <data_publicacao>2001-09-10</data_publicacao>
+      <descricao>The two daughters of Maeve, half-sisters,
+      battle one another for control of England. Sequel to
+      Oberon's Legacy.</descricao>
+   </livro>
+   <livro id="bk106">
+      <autor>Randall, Cynthia</autor>
+      <titulo>Lover Birds</titulo>
+      <genero>Romance</genero>
+      <preco>4.95</preco>
+      <data_publicacao>2000-09-02</data_publicacao>
+      <descricao>When Carla meets Paul at an ornithology
+      conference, tempers fly as feathers get ruffled.</descricao>
+   </livro>
+   <livro id="bk107">
+      <autor>Thurman, Paula</autor>
+      <titulo>Splish Splash</titulo>
+      <genero>Romance</genero>
+      <preco>4.95</preco>
+      <data_publicacao>2000-11-02</data_publicacao>
+      <descricao>A deep sea diver finds true love twenty
+      thousand leagues beneath the sea.</descricao>
+   </livro>
+   <livro id="bk108">
+      <autor>Knorr, Stefan</autor>
+      <titulo>Creepy Crawlies</titulo>
+      <genero>Horror</genero>
+      <preco>4.95</preco>
+      <data_publicacao>2000-12-06</data_publicacao>
+      <descricao>An anthology of horror stories about roaches,
+      centipedes, scorpions  and other insects.</descricao>
+   </livro>
+   <livro id="bk109">
+      <autor>Kress, Peter</autor>
+      <titulo>Paradox Lost</titulo>
+      <genero>Science Fiction</genero>
+      <preco>6.95</preco>
+      <data_publicacao>2000-11-02</data_publicacao>
+      <descricao>After an inadvertant trip through a Heisenberg
+      Uncertainty Device, James Salway discovers the problems
+      of being quantum.</descricao>
+   </livro>
+   <livro id="bk110">
+      <autor>O'Brien, Tim</autor>
+      <titulo>Microsoft .NET: The Programming Bible</titulo>
+      <genero>Computer</genero>
+      <preco>36.95</preco>
+      <data_publicacao>2000-12-09</data_publicacao>
+      <descricao>Microsoft's .NET initiative is explored in
+      detail in this deep programmer's reference.</descricao>
+   </livro>
+   <livro id="bk111">
+      <autor>O'Brien, Tim</autor>
+      <titulo>MSXML3: A Comprehensive Guide</titulo>
+      <genero>Computer</genero>
+      <preco>36.95</preco>
+      <data_publicacao>2000-12-01</data_publicacao>
+      <descricao>The Microsoft MSXML3 parser is covered in
+      detail, with attention to XML DOM interfaces, XSLT processing,
+      SAX and more.</descricao>
+   </livro>
+   <livro id="bk112">
+      <autor>Galos, Mike</autor>
+      <titulo>Visual Studio 7: A Comprehensive Guide</titulo>
+      <genero>Computer</genero>
+      <preco>49.95</preco>
+      <data_publicacao>2001-04-16</data_publicacao>
+      <descricao>Microsoft Visual Studio 7 is explored in depth,
+      looking at how Visual Basic, Visual C++, C#, and ASP+ are
+      integrated into a comprehensive development
+      environment.</descricao>
+   </livro>
+</catalogo>
