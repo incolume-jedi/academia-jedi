@@ -15,6 +15,8 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Estudo sobre setup/teardown de classes e metodos em testes com pytest;
   - Estudos para criação de arquivos compactados no formato zip/tar com a biblioteca shutil;
   - Implentado modulo de backup com organização de arquivos;
+  - Implementado cifra de cesar;
+  - Implementado contador de vogais;
 ### Changed
   - Aplicação parcial de QA;
   - Ativado testes inativos do pacote;
