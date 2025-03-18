@@ -46,8 +46,8 @@ if version_info < (3, 11, 0):
     files.extend(path.rglob('*tests*.py'))
     files.extend(
         Path(
-            'incolume/academia_jedi/ajedi20221219_Como_Usar_ExceptionsGroups'
-        ).rglob('*test*.py')
+            'incolume/academia_jedi/ajedi20221219_Como_Usar_ExceptionsGroups',
+        ).rglob('*test*.py'),
     )
     logging.debug(ic(files))
     collect_ignore.extend(files)
