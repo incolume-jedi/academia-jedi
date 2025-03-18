@@ -24,6 +24,10 @@ class TestOrganizer:
         """Setup class."""
         # shutil.rmtree(cls.base_dir)
 
+    def teardown_method(self, method):
+        """Setup method."""
+        shutil.rmtree(self.base_dir.joinpath(method.__name__))
+
     def test_setup_class_created(self):
         """Unittest."""
         assert self.base_dir.is_dir()
