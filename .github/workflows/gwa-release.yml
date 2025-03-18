@@ -11,6 +11,8 @@ on:
     inputs:
       tags:
           description: 'manual execution routine'
+env:
+  INCOLUME_MODE: testing
 
 jobs:
   test:
