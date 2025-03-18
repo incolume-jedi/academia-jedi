@@ -22,11 +22,13 @@ class TestOrganizer:
     @classmethod
     def teardown_class(cls):
         """Setup class."""
-        # shutil.rmtree(cls.base_dir)
+        shutil.rmtree(cls.base_dir)
 
     def teardown_method(self, method):
         """Setup method."""
-        shutil.rmtree(self.base_dir.joinpath(method.__name__))
+        directory = self.base_dir.joinpath(method.__name__)
+        if directory.exists():
+            shutil.rmtree(directory)
 
     def test_setup_class_created(self):
         """Unittest."""
@@ -136,47 +138,184 @@ class TestOrganizer:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'entrance type_format expected'.split(),
+        'param1 param2 expected'.split(),
         [
             pytest.param(
                 {
                     'output_base': base_dir.joinpath(
-                        'test_gen',
+                        'test_gen_content',
+                        'content0',
                     ),
-                    'path_files_out': None,
                     'path_files_in': path_files,
                 },
-                'zip',
-                [],
+                {
+                    'type_format': 'zip',
+                    'file_output': base_dir.joinpath(
+                        'test_gen_content',
+                        'content0',
+                    ),
+                },
+                [
+                    'blbgzv.csv',
+                    'bpod.csv',
+                    'hxxz.csv',
+                    'ismczn.csv',
+                    'ldmymido.csv',
+                    'nkjcc.csv',
+                    'oiguvoc.csv',
+                    'vfajycsc.csv',
+                    'kxcbqhmt.html',
+                    'ubbvz.html',
+                    'view_lista.html',
+                    'view_lista_atualizada.html',
+                    'zvbl.html',
+                    'assinantes.json',
+                    'assinantes_copia.json',
+                    'dvljfa.json',
+                    'gymo.json',
+                    'mggeox.json',
+                    'mhpys.json',
+                    'qtvjhleg.json',
+                    'slzydn.json',
+                    'ufaaokuy.json',
+                    'azdx.pdf',
+                    'dqarpnv.pdf',
+                    'eephtr.pdf',
+                    'krssr.pdf',
+                    'Lendo e Escrevendo Arquivos'
+                    ' - Apostila Asimov Academy.pdf',
+                    'lhcdkwji.pdf',
+                    'ouzcw.pdf',
+                    'rjzfcvly.pdf',
+                    'rmmfpgfp.pdf',
+                    'vheeu.pdf',
+                    'viawbe.pdf',
+                    'inst_joao.pickle',
+                    'meu_dict.pickle',
+                    'minha_lista.pickle',
+                    'cayv.txt',
+                    'eluch.txt',
+                    'fmfet.txt',
+                    'mbrr.txt',
+                    'mnxq.txt',
+                    'ozvdvbjv.txt',
+                    'quygdhc.txt',
+                    'texto.txt',
+                    'vktcz.txt',
+                    'zilnvj.txt',
+                    'bqeb.xlsx',
+                    'clientes.xlsx',
+                    'cxvq.xlsx',
+                    'hmohnmc.xlsx',
+                    'hrbabmu.xlsx',
+                    'jytyvst.xlsx',
+                    'mejysm.xlsx',
+                    'mhmcelq.xlsx',
+                    'PR.xlsx',
+                    'RS.xlsx',
+                    'SC.xlsx',
+                    'SP.xlsx',
+                    'livros.xml',
+                    'livros_copia.xml',
+                    'backup.zip',
+                ],
+                marks=[],
             ),
             pytest.param(
                 {
                     'output_base': base_dir.joinpath(
-                        'test_gen',
+                        'test_gen_content',
+                        'content1',
                     ),
-                    'path_files_out': base_dir,
                     'path_files_in': path_files,
                 },
-                'zip',
-                base_dir / 'backup.zip',
-            ),
-            pytest.param(
                 {
-                    'output_base': base_dir.joinpath(
-                        'test_organizer',
+                    'type_format': 'tar',
+                    'file_output': base_dir.joinpath(
+                        'test_gen_content',
+                        'backup',
                     ),
-                    'path_files_out': None,
-                    'path_files_in': path_files,
                 },
-                'tar',
-                base_dir / 'test_organizer/backup/backup.tar',
+                [
+                    'blbgzv.csv',
+                    'bpod.csv',
+                    'hxxz.csv',
+                    'ismczn.csv',
+                    'ldmymido.csv',
+                    'nkjcc.csv',
+                    'oiguvoc.csv',
+                    'vfajycsc.csv',
+                    'kxcbqhmt.html',
+                    'ubbvz.html',
+                    'view_lista.html',
+                    'view_lista_atualizada.html',
+                    'zvbl.html',
+                    'assinantes.json',
+                    'assinantes_copia.json',
+                    'dvljfa.json',
+                    'gymo.json',
+                    'mggeox.json',
+                    'mhpys.json',
+                    'qtvjhleg.json',
+                    'slzydn.json',
+                    'ufaaokuy.json',
+                    'azdx.pdf',
+                    'dqarpnv.pdf',
+                    'eephtr.pdf',
+                    'krssr.pdf',
+                    'Lendo e Escrevendo Arquivos'
+                    ' - Apostila Asimov Academy.pdf',
+                    'lhcdkwji.pdf',
+                    'ouzcw.pdf',
+                    'rjzfcvly.pdf',
+                    'rmmfpgfp.pdf',
+                    'vheeu.pdf',
+                    'viawbe.pdf',
+                    'inst_joao.pickle',
+                    'meu_dict.pickle',
+                    'minha_lista.pickle',
+                    'cayv.txt',
+                    'eluch.txt',
+                    'fmfet.txt',
+                    'mbrr.txt',
+                    'mnxq.txt',
+                    'ozvdvbjv.txt',
+                    'quygdhc.txt',
+                    'texto.txt',
+                    'vktcz.txt',
+                    'zilnvj.txt',
+                    'bqeb.xlsx',
+                    'clientes.xlsx',
+                    'cxvq.xlsx',
+                    'hmohnmc.xlsx',
+                    'hrbabmu.xlsx',
+                    'jytyvst.xlsx',
+                    'mejysm.xlsx',
+                    'mhmcelq.xlsx',
+                    'PR.xlsx',
+                    'RS.xlsx',
+                    'SC.xlsx',
+                    'SP.xlsx',
+                    'livros.xml',
+                    'livros_copia.xml',
+                    'backup.zip',
+                ],
             ),
         ],
     )
-    def test_gen_content(self, entrance, type_format, expected):
+    def test_gen_content(self, param1, param2, expected):
         """Unittest."""
-        path_test = organizer_dir(**entrance)
-        result = gen_bkp(path_test, type_format=type_format)
-        dirout = self.base_dir / stack()[0][3]
-        shutil.unpack_archive(result, dirout)
-        assert list(dirout.iterdir()) == expected
+        path_test = organizer_dir(**param1)
+        assert path_test.name == 'backup'
+        filecompress = gen_bkp(path_test, **param2)
+        assert filecompress == param2['file_output'].with_suffix(
+            f'.{param2["type_format"]}',
+        )
+        dirout = self.base_dir.joinpath(stack()[0][3], 'restore')
+        shutil.unpack_archive(
+            filename=filecompress,
+            extract_dir=dirout,
+            format=param2['type_format'],
+        )
+        result = list(dirout.rglob('**/*.*'))
+        assert [x.name for x in result] == expected

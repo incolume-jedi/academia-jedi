@@ -1,9 +1,16 @@
 """Module."""
 
+from __future__ import annotations
+
 import shutil
 from pathlib import Path
 
+from config import settings
 from icecream import ic
+
+ic.disable()
+if settings.debug_mode:
+    ic.enable()
 
 path_files: Path = Path(__file__).parent.joinpath('files/arquivos_desafio')
 
@@ -37,9 +44,30 @@ def gen_bkp(
 ) -> Path:
     """Generate a backup."""
     file_output = file_output or path_files / 'backup'
-    file_output.mkdir(parents=True, exist_ok=True)
-    return Path(shutil.make_archive(file_output, type_format, path_files))
+    return Path(
+        shutil.make_archive(
+            base_name=file_output,
+            format=type_format,
+            root_dir=path_files,
+        ),
+    )
 
 
 if __name__ == '__main__':
-    organizer_dir(path_files)
+    path = Path(
+        r'C:\Users\ricardobn\AppData\Local\Temp\TestOrganizer\test_gen',
+    )
+    type_format = 'tar'
+    ic(bkp := organizer_dir(path_files, output_base=path))
+    ic(
+        filecompress := gen_bkp(
+            path_files=bkp,
+            file_output=path,
+            type_format=type_format,
+        ),
+    )
+    shutil.unpack_archive(
+        filecompress,
+        extract_dir=path / 'restore',
+        format=type_format,
+    )
