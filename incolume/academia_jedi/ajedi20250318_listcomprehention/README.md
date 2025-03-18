@@ -12,6 +12,7 @@
 **Estudo de List comprehention**
 
 Converta o trecho de código para list comprehention.
+
 ```bash
 valores = [30, 50, 100, 120]
 
