@@ -33,9 +33,12 @@ def example02() -> None:
     (2022-10-03 11:41:07.916)'
     """
     print(
-        datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3],
-        datetime.utcnow().isoformat(sep=' ', timespec='milliseconds'),
-        datetime.utcnow().strftime('%F %T.%f')[:-3],
+        datetime.now(timezone('UTC')).strftime('%Y-%m-%d %H:%M:%S.%f')[:-3],
+        datetime.now(timezone('UTC')).isoformat(
+            sep=' ',
+            timespec='milliseconds',
+        ),
+        datetime.now(timezone('UTC')).strftime('%F %T.%f')[:-3],
         sep='\n',
         end='\n\n',
     )
