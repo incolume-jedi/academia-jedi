@@ -10,14 +10,17 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-03-11:
+## [Unreleased]	 &#8212; 	2025-03-18:
 ### Added
-  - Estudos utilizando projeto adedonha;
-  - Implementação do jogo de adivinhar número;
-  - Implementação da tarefa contagem de vogais;
+  - Estudo sobre setup/teardown de classes e metodos em testes com pytest;
+  - Estudos para criação de arquivos compactados no formato zip/tar com a biblioteca shutil;
+### Changed
+  - Aplicação parcial de QA;
+  - Ativado testes inativos do pacote;
+  - Aplicado principio DRY nos testes do pacote;
 ### Fixed
-  - Ampliado cobertura de código para projeto;
-  - Recuperação de projetos anteriores;
+  - Correções na execução CI/CD;
+  - Implementação de calculadora com interface em linha de comando;
 
 ## [0.109.5]	 &#8212; 	2025-03-12:
 ### Fixed
