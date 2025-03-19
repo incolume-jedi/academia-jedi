@@ -1,5 +1,6 @@
-"""Module."""
+"""Module main for this solution."""
 
-# !/usr/bin/env python
-# -*- coding: utf-8 -*-
-__author__ = '@britodfbr'  # pragma: no cover
+from incolume.academia_jedi.ajedi20220728_crud_nodb.cli import run
+
+if __name__ == '__main__':  # pragma: no cover
+    run()

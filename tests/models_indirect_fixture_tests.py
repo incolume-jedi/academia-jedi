@@ -19,4 +19,4 @@ def fixture_name(request):
 )
 def test_indirect(fixture_name):
     """Unitest."""
-    assert fixture_name == 'baz'
+    assert fixture_name == 'foo'
