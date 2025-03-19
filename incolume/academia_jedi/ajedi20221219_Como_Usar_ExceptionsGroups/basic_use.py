@@ -1,6 +1,7 @@
 """Estudo para Exception group."""
 
 # ruff:noqa: T201
+
 import sys
 from platform import python_version
 
