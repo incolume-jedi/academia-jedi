@@ -46,12 +46,12 @@ class TestLocadora:
     @pytest.mark.parametrize(
         'fenum entrance expected'.split(),
         [
-            pytest.param(Categoria, 1, Categoria.passeio, marks=[]),
-            pytest.param(Categoria, 2, Categoria.carga, marks=[]),
+            pytest.param(Categoria, 1, Categoria.carga, marks=[]),
+            pytest.param(Categoria, 2, Categoria.passeio, marks=[]),
             pytest.param(Categoria, 3, Categoria.transporte, marks=[]),
-            pytest.param(Montadora, 1, Montadora.indefinida, marks=[]),
+            pytest.param(Montadora, 0, Montadora.indefinida, marks=[]),
             pytest.param(Montadora, 2, Montadora.byd, marks=[]),
-            pytest.param(Montadora, 3, Montadora.gm, marks=[]),
+            pytest.param(Montadora, 8, Montadora.gm, marks=[]),
         ],
     )
     def test_enum_values(self, fenum, entrance, expected) -> NoReturn:

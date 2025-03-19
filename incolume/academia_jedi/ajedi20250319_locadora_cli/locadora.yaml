@@ -1,18 +1,18 @@
 categoria:
-  - passeio
-  - carga
-  - transporte
+  carga: 1
+  passeio: 2
+  transporte: 3
 montadora:
-  - indefinida
-  - byd
-  - gm
-  - audi
-  - chevrolet
-  - crysler
-  - ferrari
-  - fiat
-  - ford
-  - gurgel
-  - toyota
-  - volkswagen
-  - volvo
+  audi: 1
+  byd: 2
+  chevrolet: 3
+  crysler: 4
+  ferrari: 5
+  fiat: 6
+  ford: 7
+  gm: 8
+  gurgel: 9
+  indefinida: 0
+  toyota: 10
+  volkswagen: 11
+  volvo: 12

@@ -8,6 +8,7 @@ import yaml
 from icecream import ic
 
 fileconf = Path(__file__).parent / 'locadora.yaml'
+
 config = ic(yaml.safe_load(fileconf.open()))
 
 
@@ -26,4 +27,11 @@ class Veiculo:
 
 if __name__ == '__main__':
     """..."""
-    ic(yaml.safe_load(fileconf.open()))
+    ic(list(Categoria))
+    ic(v := yaml.safe_load(fileconf.open()))
+    Animals0 = IntEnum('Animals', v['categoria'])
+    Animals1 = IntEnum(
+        'Animals',
+        {'CHARTREUSE': 7, 'SEA_GREEN': 11, 'ROSEMARY': 42},
+    )
+    ic(list(Animals1))
