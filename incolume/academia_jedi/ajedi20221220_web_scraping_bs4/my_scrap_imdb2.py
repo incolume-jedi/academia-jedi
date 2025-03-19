@@ -8,12 +8,7 @@ from typing import Optional
 import openpyxl
 import requests
 from bs4 import BeautifulSoup
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s;%(levelname)-8s;%(name)s;'
-    '%(module)s;%(funcName)s;%(message)s',
-)
+from config import settings
 
 
 @dataclass

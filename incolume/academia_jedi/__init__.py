@@ -14,9 +14,8 @@ except (ModuleNotFoundError, ImportError):
 
 logging.basicConfig(
     level=logging.INFO,
-    format=settings.format_log_win
-    if system().casefold().startswith('win')
-    else settings.format_log,
+    format=settings.format_log,
+    datefmt=settings.datefmt,
 )
 
 
