@@ -3,14 +3,20 @@
 from __future__ import annotations
 
 import logging
+import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, Self
+from typing import Optional
 
 import openpyxl
 import requests
 from bs4 import BeautifulSoup
 from config import settings
+
+if sys.version_info < (3, 11):
+    from typing_extensions import Self
+else:
+    from typing import Self
 
 
 @dataclass
