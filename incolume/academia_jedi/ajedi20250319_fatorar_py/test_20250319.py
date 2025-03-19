@@ -71,23 +71,66 @@ class TestProductPytest:
         assert getattr(self.product, entrance) == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        'entrance expected raise_exception'.split(),
         [
-            (10, 20),
+            (10, 20, None),
+            (
+                0,
+                20,
+                {
+                    'expected_exception': ValueError,
+                    'match': 'Number must be positive',
+                },
+            ),
+            (
+                -1,
+                20,
+                {
+                    'expected_exception': ValueError,
+                    'match': 'Number must be positive',
+                },
+            ),
         ],
     )
-    def test_increse_stock(self, entrance, expected):
+    def test_increse_stock(self, entrance, expected, raise_exception):
         """Unittest."""
-        self.product.increase_stock(entrance)
-        assert self.product.stock == expected
+        if raise_exception:
+            with pytest.raises(**raise_exception):
+                self.product.increase_stock(entrance)
+        else:
+            self.product.increase_stock(entrance)
+            assert self.product.stock == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        'entrance expected stock raise_expected'.split(),
         [
-            (10, 0),
+            (10, 0, 10, None),
+            (
+                -1,
+                0,
+                0,
+                {
+                    'expected_exception': ValueError,
+                    'match': 'Number must be positive',
+                },
+            ),
+            (
+                10,
+                0,
+                0,
+                {
+                    'expected_exception': ValueError,
+                    'match': 'Stock must be greater than or equal to 0',
+                },
+            ),
         ],
     )
-    def test_decrease_stock(self, entrance, expected):
+    def test_decrease_stock(self, entrance, expected, stock, raise_expected):
         """Unittest."""
-        self.product.decrease_stock(entrance)
-        assert self.product.stock == expected
+        self.product.stock = stock
+        if raise_expected:
+            with pytest.raises(**raise_expected):
+                self.product.decrease_stock(entrance)
+        else:
+            self.product.decrease_stock(entrance)
+            assert self.product.stock == expected
