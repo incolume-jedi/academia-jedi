@@ -5,8 +5,7 @@ import sys
 from platform import python_version
 
 if python_version() < '3.11.0':
-    print('This application need Python 3.11+')
-    sys.exit(0)
+    sys.exit('This application need Python 3.11+')
 
 
 def create_eg():
