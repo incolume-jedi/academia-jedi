@@ -1,0 +1,1 @@
+"""Tests Locadora CLI."""
