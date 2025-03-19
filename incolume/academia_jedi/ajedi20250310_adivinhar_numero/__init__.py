@@ -1,6 +1,7 @@
 """Module principal."""
 
 import secrets
+
 from config import settings
 from icecream import ic
 
@@ -9,6 +10,7 @@ from icecream import ic
 ic.disable()
 if settings.debug_mode:
     ic.enable()
+
 
 def jogo(tries: int = 3) -> None:
     """Jogo.
