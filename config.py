@@ -5,7 +5,7 @@ from pathlib import Path
 from dynaconf import Dynaconf, Validator
 
 settings = Dynaconf(
-    envvar_prefix='ACADEMIA_JEDI',
+    envvar_prefix='AJEDII',
     load_dotenv=True,
     settings_files=[
         Path(__file__).parent.joinpath('settings.toml'),
