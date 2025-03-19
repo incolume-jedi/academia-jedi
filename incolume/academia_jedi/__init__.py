@@ -2,7 +2,6 @@
 
 import logging
 from pathlib import Path
-from platform import system
 
 from config import settings
 
