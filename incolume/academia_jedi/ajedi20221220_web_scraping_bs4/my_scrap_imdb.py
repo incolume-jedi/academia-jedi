@@ -1,4 +1,4 @@
-"""Module."""
+"""Module scrap imdb."""
 
 from __future__ import annotations
 
@@ -10,12 +10,6 @@ import openpyxl
 import requests
 from bs4 import BeautifulSoup
 from config import settings
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s;%(levelname)-8s;%(name)s;'
-    '%(module)s;%(funcName)s;%(message)s',
-)
 
 
 def scraping_ranking(
