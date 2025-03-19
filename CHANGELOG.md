@@ -14,16 +14,20 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ### Added
   - Estudo sobre setup/teardown de classes e metodos em testes com pytest;
   - Estudos para criação de arquivos compactados no formato zip/tar com a biblioteca shutil;
+  - Implementação de calculadora com interface em linha de comando;
   - Implentado modulo de backup com organização de arquivos;
   - Implementado cifra de cesar;
   - Implementado contador de vogais;
+  - Implementado exemplos de listcomprehention;
+  - Implementados exemplos de dictcomprehention;
+  - Implementados exemplos sobre operações com conjuntos;
+  - Implementados estudos sobre quicksort;
 ### Changed
   - Aplicação parcial de QA;
   - Ativado testes inativos do pacote;
   - Aplicado principio DRY nos testes do pacote;
 ### Fixed
   - Correções na execução CI/CD;
-  - Implementação de calculadora com interface em linha de comando;
 
 ## [0.109.5]	 &#8212; 	2025-03-12:
 ### Fixed
