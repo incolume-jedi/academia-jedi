@@ -4,12 +4,20 @@ from enum import IntEnum
 from typing import NoReturn
 
 import pytest
-from . import Categoria, Montadora, Veiculo
+from . import Categoria, Montadora, Veiculo, fileconf, config
 from dataclasses import is_dataclass
 
 
 class TestLocadora:
     """Test case."""
+
+    def test_fileconfig(self):
+        """Unittest."""
+        assert fileconf.is_file()
+
+    def test_variables(self):
+        """Unittest."""
+        assert isinstance(config, dict)
 
     @pytest.mark.parametrize(
         'entrance expected'.split(),
