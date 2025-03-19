@@ -1,4 +1,4 @@
-"""Baseado em [Web Scraping in Python using Beautiful Soup |
+"""Baseado em [Web Scraping in Python using Beautiful Soup.
 
 Writing a Python program to Scrape IMDB website]
 (https://www.youtube.com/watch?v=LCVSmkyB4v8).
@@ -22,7 +22,7 @@ sheet.append(
 
 url = 'https://www.imdb.com/chart/top'
 try:
-    req = requests.get(url)
+    req = requests.get(url, timeout=settings.timeout)
     req.raise_for_status()
 
     soup = BeautifulSoup(req.content, 'html.parser')
@@ -47,7 +47,8 @@ try:
             poster,
         )
         sheet.append([rank, name, year, rating, poster])
-except requests.exceptions.HTTPError as e:
-    logging.exception(e)
+except requests.exceptions.HTTPError:
+    msg = 'Erro HTTP.'
+    logging.exception(msg)
 
 excel.save('IMDB_Movies_Ratings.xlsx')

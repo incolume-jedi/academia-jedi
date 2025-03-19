@@ -1,4 +1,4 @@
-"""Module."""
+"""Module scrap imdb."""
 
 from __future__ import annotations
 
