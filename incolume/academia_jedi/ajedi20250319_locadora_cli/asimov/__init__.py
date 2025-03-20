@@ -2,12 +2,14 @@
 
 # ruff:noqa: T201
 import os
+from dataclasses import dataclass
 from typing import NamedTuple
 
 from icecream import ic
 
 
-class Carro(NamedTuple):
+@dataclass
+class Carro:
     """Carro class."""
 
     montadora: str
@@ -21,6 +23,7 @@ carros: list[Carro] = [
     Carro('Chevrolet', 'Onix', 2024, 90),
     Carro('Chevrolet', 'Spin', 2024, 150),
     Carro('Hyundai', 'HB20', 2024, 85),
+    Carro('Hyundai', 'HB20S', 2024, 110),
     Carro('Hyundai', 'Tucson', 2024, 120),
     Carro('Fiat', 'Uno', 2024, 60),
     Carro('Fiat', 'Mobi', 2024, 70),

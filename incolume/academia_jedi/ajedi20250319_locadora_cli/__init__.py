@@ -1,5 +1,7 @@
 """Locadora CLI."""
 
+# ruff:noqa: C901 T201
+import os
 from collections.abc import Container
 from dataclasses import dataclass
 from enum import IntEnum
@@ -7,8 +9,6 @@ from pathlib import Path
 
 import yaml
 from icecream import ic
-import os
-
 
 fileconf = Path(__file__).parent / 'locadora.yaml'
 
@@ -39,18 +39,21 @@ class Veiculo:
 
 class Locadora:
     """Locadora class."""
+
     title: str = 'Locadora Incolume'
-    barra1: str = '='*80
-    barra2: str = '-'*80
+    barra1: str = '=' * 80
+    barra2: str = '-' * 80
+
     def tela1(self) -> None:
         """Tela1."""
-        return f'''
+        return f"""
             {self.barra1}
-            {f".. {self.title} ..":^80}
+            {f'.. {self.title} ..':^80}
             {self.barra1}
             {self.barra2}
-            {"(C)Todos os direitos reservados":>80}
-            {self.barra2}'''
+            {'(C)Todos os direitos reservados':>80}
+            {self.barra2}"""
+
     @staticmethod
     def clear():
         """Clear screen."""
@@ -69,7 +72,7 @@ class Locadora:
         op = input(msg)
         return op.casefold() in deny
 
-    def menu(self, tela: str, options: Container[str]):
+    def menu(self, tela: str, options: Container[str]) -> None:
         """Menu."""
         while True:
             self.clear()
@@ -102,9 +105,6 @@ class Locadora:
         # self.menu([1,2])
         self.clear()
         print(self.tela1())
-
-
-
 
 
 if __name__ == '__main__':
