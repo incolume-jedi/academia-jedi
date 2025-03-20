@@ -61,19 +61,19 @@ class TestLocadora:
     @pytest.mark.parametrize(
         'entrance expected'.split(),
         [
-            pytest.param(
-                Categoria,
-                Categoria.passeio,
-                marks=[],
-            ),
-            pytest.param(Montadora, Montadora.indefinida, marks=[]),
+            pytest.param(Categoria, 'passeio', marks=[]),
+            pytest.param(Categoria, 'carga', marks=[]),
+            pytest.param(Categoria, 'transporte', marks=[]),
+            pytest.param(Montadora, 'indefinida', marks=[]),
+            pytest.param(Montadora, 'fiat', marks=[]),
+            pytest.param(Montadora, 'toyota', marks=[]),
+            pytest.param(Montadora, 'hyundai', marks=[]),
         ],
     )
     def test_enum_names(self, entrance, expected) -> NoReturn:
         """Unittest."""
-        assert expected in list(entrance.__members__.values)
+        assert expected in list(entrance.__members__)
 
     def test_0(self):
         """Unittest."""
-        assert Montadora.__members__ == {}
-        # assert Montadora.__members__.items() == []
+        # assert Montadora.__members__ == {}
