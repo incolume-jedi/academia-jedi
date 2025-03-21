@@ -9,10 +9,12 @@ from . import Categoria, Montadora, Veiculo, fileconf, config
 from .asimov import (
     alugados,
     carros,
+    devolver_carro,
     place_holder_carros,
     Carro,
     mostrar_lista_carros,
     alugar_carro,
+    clear,
 )
 
 from dataclasses import is_dataclass
@@ -84,7 +86,7 @@ class TestLocadoraAsimov:
                     'ls_carros': [Carro('Gurgel', 'Xavante XT', 1972, 30.5)],
                     'ls_alugados': [],
                 },
-                ['0', '10'],
+                ['0', '10', 's'],
                 '[0] Xavante XT (Gurgel) - R$ 30.5 /dia.\n\n'
                 '==========\n'
                 'Você escolheu Gurgel/Xavante XT por 10 dias.\n'
@@ -94,14 +96,32 @@ class TestLocadoraAsimov:
             ),
             pytest.param(
                 {
+                    'ls_carros': [Carro('Gurgel', 'Xavante XT', 1972, 30.5)],
+                    'ls_alugados': [],
+                },
+                ['0', '10', 'n'],
+                '[0] Xavante XT (Gurgel) - R$ 30.5 /dia.\n\n'
+                '==========\n'
+                'Você escolheu Gurgel/Xavante XT por 10 dias.\n'
+                'Valor total da reserva R$ 305.00\n\n'
+                'Reserva cancelada!\n',
+            ),
+            pytest.param(
+                {
                     'ls_carros': [
                         Carro('Gurgel', 'Xavante XT', 1972, 30.5),
                         Carro('Gurgel', 'BR-800', 1995, 17.5),
                     ],
                     'ls_alugados': [],
                 },
-                [2, 2, 1, 1],
-                '',
+                [2, 2, '1', '1', 's'],
+                '[0] Xavante XT (Gurgel) - R$ 30.5 /dia.\n'
+                '[1] BR-800 (Gurgel) - R$ 17.5 /dia.\n\n'
+                '==========\n'
+                'Você escolheu Gurgel/BR-800 por 1 dias.\n'
+                'Valor total da reserva R$ 17.50\n\n'
+                'Parabéns você alugou o Gurgel/BR-800(1995)'
+                ' por 1 dias, no valor de R$ 17.50.\n',
             ),
         ],
     )
@@ -120,6 +140,62 @@ class TestLocadoraAsimov:
             alugar_carro(**entrance)
             capture = capsys.readouterr()
             assert capture.out == expected
+
+    @pytest.mark.parametrize(
+        'entrance side_effect expected'.split(),
+        [
+            (
+                {
+                    'ls_carros': [
+                        Carro('Gurgel', 'BR-800', 1995, 17.5),
+                    ],
+                    'ls_alugados': [],
+                },
+                [],
+                'Não constam veiculos para devolução.\n',
+            ),
+            (
+                {
+                    'ls_carros': [],
+                    'ls_alugados': [
+                        Carro('Gurgel', 'BR-800', 1995, 17.5),
+                    ],
+                },
+                ['9', '0', 's'],
+                'Segue a listagem dos veiculos para devolução.\n'
+                '[0] BR-800 (Gurgel) - R$ 17.5 /dia.\n\n'
+                'Gurgel/BR-800(1995) Devolvido com sucesso!\n',
+            ),
+        ],
+    )
+    def test_devolver_carro(
+        self,
+        capsys,
+        entrance,
+        side_effect,
+        expected,
+    ) -> NoReturn:
+        """Unittest."""
+        with mock.patch(
+            'builtins.input',
+            side_effect=side_effect,
+        ):
+            devolver_carro(**entrance)
+            capture = capsys.readouterr()
+            assert capture.out == expected
+            assert len(entrance['ls_carros'])
+
+    @pytest.mark.parametrize(
+        'entrance',
+        [
+            'os.system',
+        ],
+    )
+    def test_clear(self, entrance) -> NoReturn:
+        """Unittest."""
+        with mock.patch(entrance) as m:
+            clear()
+            assert m.called
 
 
 class TestLocadoraIncolume:

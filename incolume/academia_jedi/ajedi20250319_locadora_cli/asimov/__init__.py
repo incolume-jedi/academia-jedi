@@ -3,7 +3,6 @@
 # ruff:noqa: T201
 import os
 from dataclasses import dataclass
-from typing import NamedTuple
 
 from icecream import ic
 
@@ -71,18 +70,15 @@ def alugar_carro(ls_carros: list[Carro], ls_alugados: list[Carro]) -> None:
         sep='\n',
         end='\n\n',
     )
-    while (
-        op := input('Deseja alugar (*s|n)? ').casefold()
-    ) not in 'n s'.split():
-        if op == 'n':
-            break
-        print(
-            'Parabéns você alugou o'
-            f' {carro.montadora}/{carro.modelo}({carro.ano})'
-            f' por {dias} dias, no valor de R$ {valor:.02f}.',
-        )
-        ls_alugados.append(ls_carros.pop(cod_car))
-        break
+    if input('Deseja alugar (*s|n)? ').casefold() in 'n no não'.split():
+        print('Reserva cancelada!')
+        return
+    print(
+        'Parabéns você alugou o'
+        f' {carro.montadora}/{carro.modelo}({carro.ano})'
+        f' por {dias} dias, no valor de R$ {valor:.02f}.',
+    )
+    ls_alugados.append(ls_carros.pop(cod_car))
 
 
 def devolver_carro(ls_carros: list[Carro], ls_alugados: list[Carro]) -> None:
