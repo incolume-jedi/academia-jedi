@@ -1,9 +1,9 @@
 """Locadora CLI."""
 
-# ruff:noqa: C901 T201
+# ruff:noqa: T201 SLF001
 import os
 from collections.abc import Container
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from enum import IntEnum
 from pathlib import Path
 
@@ -15,16 +15,43 @@ fileconf = Path(__file__).parent / 'locadora.yaml'
 config = ic(yaml.safe_load(fileconf.open()))
 
 
+def clear():
+    """Clear screen."""
+    os.system('cls' if os.name == 'nt' else 'clear')  # noqa: S605
+
+
+@classmethod
+def _missing_(cls, value):
+    """Method missing.
+
+    Método chamado quando um valor não é encontrado no enumerador.
+    Tenta encontrar o membro correspondente com base no nome ou valor.
+    """
+    if isinstance(value, str) and value.isdigit():
+        value = int(value)
+    else:
+        value = value.capitalize()
+
+    for member in cls:
+        if value in (member.name, member.value):
+            return member
+
+    return None
+
+
 Montadora: IntEnum = IntEnum(
     'Montadora',
-    config['montadoras'],
+    {key.capitalize(): value for key, value in config['montadoras'].items()},
     module=__name__,
 )
 Categoria: IntEnum = IntEnum(
     'Categoria',
-    config['categorias'],
+    {key.capitalize(): value for key, value in config['categorias'].items()},
     module=__name__,
 )
+
+Montadora._missing_ = _missing_
+Categoria._missing_ = _missing_
 
 
 @dataclass
@@ -35,6 +62,23 @@ class Veiculo:
     ano: int
     montadora: Montadora
     categoria: Categoria
+    diaria: float
+    chassi: str
+
+    def __post_init__(self):
+        """Post init."""
+        self.montadora = Montadora(str(self.montadora))
+        self.categoria = Categoria(str(self.categoria))
+
+    def to_dict(self):
+        """To dict."""
+        result = asdict(self)
+        result['montadora'] = self.montadora.value
+        result['categoria'] = self.categoria.value
+        return result
+
+
+veiculos: list[Veiculo] = [Veiculo(**x) for x in config['veiculos']]
 
 
 class Locadora:
@@ -43,21 +87,6 @@ class Locadora:
     title: str = 'Locadora Incolume'
     barra1: str = '=' * 80
     barra2: str = '-' * 80
-
-    def tela1(self) -> None:
-        """Tela1."""
-        return f"""
-            {self.barra1}
-            {f'.. {self.title} ..':^80}
-            {self.barra1}
-            {self.barra2}
-            {'(C)Todos os direitos reservados':>80}
-            {self.barra2}"""
-
-    @staticmethod
-    def clear():
-        """Clear screen."""
-        os.system('cls' if os.name == 'nt' else 'clear')  # noqa: S605
 
     @staticmethod
     def finalizar(
@@ -72,27 +101,34 @@ class Locadora:
         op = input(msg)
         return op.casefold() in deny
 
-    def menu(self, tela: str, options: Container[str]) -> None:
+    def menu(self) -> None:
         """Menu."""
         while True:
             self.clear()
-            print('=' * 30)
-            print(f'{"Calculadora CLI":^30}')
-            print('-' * 30)
+            print(f"""
+            {self.barra1}
+            {f'.. {self.title} ..':^80}
+            {self.barra1}""")
+
             for idx, item in enumerate(options):
                 print(f'   {idx}: {item}')
+
+            print(f"""
+            {self.barra2}
+            {'(C)Todos os direitos reservados':>80}
+            {self.barra2}""")
 
             op = input('\nEscolha a opção: ')
             if op == '0':
                 break
 
-            try:
-                print()
-            except (ValueError, TypeError):
-                msg = 'Opção inválida!'
-                print(f'\n\t{msg}\n')
+            # try:
+            #     print()
+            # except (ValueError, TypeError):
+            #     msg = 'Opção inválida!'
+            #     print(f'\n\t{msg}\n')
 
-            print('-' * 30)
+            # print('-' * 30)
 
             if self.finalizar(
                 'deseja realizar outra operação (Y/n)? ',
@@ -102,19 +138,27 @@ class Locadora:
 
     def run(self):
         """Run it."""
-        # self.menu([1,2])
         self.clear()
-        print(self.tela1())
+
+
+def others_exec() -> None:
+    """Outras execuções."""
+    ic(list(Categoria))
+    ic(v := yaml.safe_load(fileconf.open()))
+    animals0 = IntEnum('Animals', v['categorias'])
+    animals1 = IntEnum(
+        'Animals',
+        {'CHARTREUSE': 7, 'SEA_GREEN': 11, 'ROSEMARY': 42},
+    )
+    ic(list(animals0), list(animals1))
+    ic(
+        Categoria('carga'),
+        Categoria('CARGA'),
+        Categoria(1),
+        Categoria('Carga'),
+    )
 
 
 if __name__ == '__main__':
     """..."""
-    ic(list(Categoria))
-    ic(v := yaml.safe_load(fileconf.open()))
-    Animals0 = IntEnum('Animals', v['categorias'])
-    Animals1 = IntEnum(
-        'Animals',
-        {'CHARTREUSE': 7, 'SEA_GREEN': 11, 'ROSEMARY': 42},
-    )
-    ic(list(Animals0), list(Animals1))
-    Locadora().run()
+    Locadora().menu()

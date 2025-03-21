@@ -1,6 +1,8 @@
+"""Estudo enum."""
+
 from enum import IntEnum
 
-# ruff: noqa: PLR2004 T201
+# ruff: noqa: PLR2004 T201 SLF001
 config = {
     'categorias': {
         'CARRO': 1,
@@ -13,6 +15,7 @@ config = {
 @classmethod
 def _missing_(cls, value):
     """Método chamado quando um valor não é encontrado no enumerador.
+
     Tenta encontrar o membro correspondente com base no nome ou valor.
     """
     if isinstance(value, str) and value.isdigit():

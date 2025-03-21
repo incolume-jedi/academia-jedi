@@ -1,11 +1,10 @@
 """Tests Locadora CLI."""
 
-from enum import IntEnum
 from typing import NoReturn
 from unittest import mock
 
 import pytest
-from . import Categoria, Montadora, Veiculo, fileconf, config
+from . import Categoria, Montadora, Veiculo, fileconf, config, veiculos
 from .asimov import (
     alugados,
     carros,
@@ -222,48 +221,111 @@ class TestLocadoraIncolume:
         assert is_dataclass(entrance) is expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        'entrance fx expected'.split(),
         [
-            pytest.param(Categoria, True, marks=[pytest.mark.skip]),
-            pytest.param(Montadora, True, marks=[pytest.mark.skip]),
-            pytest.param(Veiculo, False, marks=[pytest.mark.skip]),
+            pytest.param(1, Categoria, 'Carga', marks=[]),
+            pytest.param('carga', Categoria, 'Carga', marks=[]),
+            pytest.param('Carga', Categoria, 'Carga', marks=[]),
+            pytest.param('CARGA', Categoria, 'Carga', marks=[]),
+            pytest.param(0, Montadora, 'Indefinida', marks=[]),
+            pytest.param('indefinida', Montadora, 'Indefinida', marks=[]),
+            pytest.param('Indefinida', Montadora, 'Indefinida', marks=[]),
+            pytest.param('INDEFINIDA', Montadora, 'Indefinida', marks=[]),
         ],
     )
-    def test_is_enum(self, entrance, expected) -> NoReturn:
+    def test_is_enum(self, entrance, fx, expected) -> NoReturn:
         """Unittest."""
-        assert isinstance(entrance, IntEnum) is expected
+        assert fx(entrance).name == expected
 
     @pytest.mark.parametrize(
         'fenum entrance expected'.split(),
         [
-            pytest.param(Categoria, 1, Categoria.carga, marks=[]),
-            pytest.param(Categoria, 2, Categoria.passeio, marks=[]),
-            pytest.param(Categoria, 3, Categoria.transporte, marks=[]),
-            pytest.param(Montadora, 0, Montadora.indefinida, marks=[]),
-            pytest.param(Montadora, 2, Montadora.byd, marks=[]),
-            pytest.param(Montadora, 8, Montadora.gm, marks=[]),
+            pytest.param(Categoria, 1, Categoria.Carga, marks=[]),
+            pytest.param(Categoria, 2, Categoria.Passeio, marks=[]),
+            pytest.param(Categoria, 3, Categoria.Transporte, marks=[]),
+            pytest.param(Montadora, 0, Montadora.Indefinida, marks=[]),
+            pytest.param(Montadora, 2, Montadora.Byd, marks=[]),
+            pytest.param(Montadora, 8, Montadora.Gm, marks=[]),
+            pytest.param(
+                Montadora,
+                'Lada',
+                {
+                    'expected_exception': ValueError,
+                    'match': "'Lada' is not a valid Montadora",
+                },
+                marks=[],
+            ),
         ],
     )
     def test_enum_values(self, fenum, entrance, expected) -> NoReturn:
         """Unittest."""
-        assert fenum(entrance) == expected
+        if isinstance(expected, dict):
+            with pytest.raises(**expected):
+                fenum(entrance)
+        else:
+            assert fenum(entrance) == expected
 
     @pytest.mark.parametrize(
         'entrance expected'.split(),
         [
-            pytest.param(Categoria, 'passeio', marks=[]),
-            pytest.param(Categoria, 'carga', marks=[]),
-            pytest.param(Categoria, 'transporte', marks=[]),
-            pytest.param(Montadora, 'indefinida', marks=[]),
-            pytest.param(Montadora, 'fiat', marks=[]),
-            pytest.param(Montadora, 'toyota', marks=[]),
-            pytest.param(Montadora, 'hyundai', marks=[]),
+            pytest.param(Categoria, 'Passeio', marks=[]),
+            pytest.param(Categoria, 'Carga', marks=[]),
+            pytest.param(Categoria, 'Transporte', marks=[]),
+            pytest.param(Montadora, 'Indefinida', marks=[]),
+            pytest.param(Montadora, 'Fiat', marks=[]),
+            pytest.param(Montadora, 'Toyota', marks=[]),
+            pytest.param(Montadora, 'Hyundai', marks=[]),
         ],
     )
     def test_enum_names(self, entrance, expected) -> NoReturn:
         """Unittest."""
         assert expected in list(entrance.__members__)
 
-    def test_0(self):
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            (
+                {
+                    'montadora': 'Gurgel',
+                    'modelo': 'BR-800',
+                    'ano': 1995,
+                    'diaria': 17.5,
+                    'categoria': 'carga',
+                    'chassi': 'XPTO123',
+                },
+                {
+                    'modelo': 'BR-800',
+                    'ano': 1995,
+                    'montadora': 9,
+                    'categoria': 1,
+                    'diaria': 17.5,
+                    'chassi': 'XPTO123',
+                },
+            ),
+            (
+                {
+                    'montadora': 'Gurgel',
+                    'modelo': 'Xavante XT',
+                    'ano': 1972,
+                    'diaria': 22.5,
+                    'categoria': 'transporte',
+                    'chassi': 'XPTO1234',
+                },
+                {
+                    'modelo': 'Xavante XT',
+                    'ano': 1972,
+                    'montadora': 9,
+                    'categoria': 3,
+                    'diaria': 22.5,
+                    'chassi': 'XPTO1234',
+                },
+            ),
+        ],
+    )
+    def test_veiculo_class(self, entrance, expected):
         """Unittest."""
-        # assert Montadora.__members__ == {}
+        assert Veiculo(**entrance).to_dict() == expected
+
+    def test_loaded_veiculos(self):
+        """Unittest."""
+        assert all(isinstance(v, Veiculo) for v in veiculos)

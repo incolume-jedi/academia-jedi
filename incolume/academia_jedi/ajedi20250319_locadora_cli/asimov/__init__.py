@@ -1,10 +1,10 @@
 """Exemplo Asimov adaptado."""
 
 # ruff:noqa: T201
-import os
 from dataclasses import dataclass
 
 from icecream import ic
+from incolume.academia_jedi.ajedi20250319_locadora_cli import clear
 
 
 @dataclass
@@ -31,11 +31,6 @@ carros: list[Carro] = [
 alugados: list[Carro] = []
 
 place_holder_carros: str = '[{}] {} ({}) - R$ {} /dia.'
-
-
-def clear():
-    """Clear screen."""
-    os.system('cls' if os.name == 'nt' else 'clear')  # noqa: S605
 
 
 def mostrar_lista_carros(ls_carros: list[Carro]) -> None:

@@ -24,7 +24,7 @@ veiculos:
     ano: 2015
     chassi: 9BH12345678901234
     montadora: 10
-    categoria: 2
+    categoria: passeio
     diaria: 110.50
   - modelo: Corolla
     ano: 2025
