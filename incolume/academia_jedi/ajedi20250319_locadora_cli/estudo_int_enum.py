@@ -1,6 +1,6 @@
 from enum import IntEnum
 
-# Configuração de exemplo
+# ruff: noqa: PLR2004 T201
 config = {
     'categorias': {
         'CARRO': 1,
@@ -10,52 +10,31 @@ config = {
 }
 
 
-class Categoria(IntEnum):
-    """Enumerador personalizado com suporte a busca por nome ou valor."""
+@classmethod
+def _missing_(cls, value):
+    """Método chamado quando um valor não é encontrado no enumerador.
+    Tenta encontrar o membro correspondente com base no nome ou valor.
+    """
+    if isinstance(value, str) and value.isdigit():
+        value = int(value)
+    else:
+        value = value.upper()
 
-    @classmethod
-    def _missing_(cls, value):
-        """Método chamado quando um valor não é encontrado no enumerador.
-        Tenta encontrar o membro correspondente com base no nome ou valor.
-        """
-        if isinstance(value, str) and value.isdigit():
-            # Se o valor for uma string numérica, converte para inteiro
-            value = int(value)
-        else:
-            # Se o valor for uma string não numérica, capitaliza o texto
-            value = (
-                value.upper()
-            )  # Usando `upper` para garantir compatibilidade
+    for member in cls:
+        if value in (member.name, member.value):
+            return member
 
-        # Procura o membro correspondente pelo nome ou valor
-        for member in cls:
-            if value in (member.name, member.value):
-                return member
-
-        # Retorna None se nenhum membro for encontrado
-        return None
-
-    @classmethod
-    def _create_pseudo_member_(cls, value):
-        pseudo_member = cls._value2member_map_.get(value, None)
-        if pseudo_member is None:
-            new_member = int.__new__(cls, value)
-            # I expect a name attribute to hold a string, hence str(value)
-            # However, new_member._name_ = value works, too
-            new_member._name_ = str(value)
-            new_member._value_ = value
-            pseudo_member = cls._value2member_map_.setdefault(
-                value, new_member
-            )
-        return pseudo_member
+    return None
 
 
-# Criando dinamicamente os membros do enumerador a partir da configuração
-for name, value in config['categorias'].items():
-    Categoria._value2member_map_[value] = Categoria(
-        value,
-    )  # Mapeamento interno do Enum
-    setattr(Categoria, name, Categoria(value))
+Categoria: IntEnum = IntEnum(
+    'Categoria',
+    config['categorias'],
+    module=__name__,
+)
+
+Categoria._missing_ = _missing_
+
 
 if __name__ == '__main__':
     # Testando a classe Categoria
@@ -66,4 +45,3 @@ if __name__ == '__main__':
     print(Categoria.MOTO == 2)  # Saída: True
     print(Categoria('moto') == 2)  # Saída: True
     print(Categoria('CAMINHAO'))  # Saída: Categoria.CAMINHAO
-    print(Categoria('invalido'))  # Saída: None
