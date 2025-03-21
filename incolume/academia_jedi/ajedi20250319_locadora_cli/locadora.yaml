@@ -2,7 +2,7 @@ categorias:
   carga: 1
   passeio: 2
   transporte: 3
-  
+
 montadoras:
   audi: 1
   byd: 2
@@ -20,22 +20,75 @@ montadoras:
   volvo: 13
 
 veiculos:
-  - 0:
-      modelo: HB20S
-      ano: 2015
-      montadora: 10
-      categoria: 2
-      valor: 110.50
-  - 1:
-      modelo: Corolla
-      ano: 2025
-      montadora: 11
-      categoria: 2
-      valor: 180.00
-  - 2:
-      modelo: mobi
-      ano: 2023
-      montadora: 6
-      categoria: 2
-      valor: 80.40
-
+  - modelo: HB20S
+    ano: 2015
+    chassi: 9BH12345678901234
+    montadora: 10
+    categoria: 2
+    diaria: 110.50
+  - modelo: Corolla
+    ano: 2025
+    chassi: 9BR12345678901234
+    montadora: 11
+    categoria: 2
+    diaria: 180.00
+  - modelo: mobi
+    ano: 2023
+    chassi: ZFAB2345678901234
+    montadora: 6
+    categoria: 2
+    diaria: 80.40
+  - montadora: Chevrolet
+    modelo: Tracker
+    ano: 2024
+    categoria: 2
+    chassi: 3GKB2345678901234
+    diaria: 120.0
+  - montadora: Chevrolet
+    modelo: Onix
+    ano: 2024
+    categoria: 2
+    chassi: KL1A1234567890123
+    diaria: 90.0
+  - montadora: Chevrolet
+    modelo: Spin
+    ano: 2024
+    categoria: 2
+    chassi: 9BG12345678901234
+    diaria: 150.0
+  - montadora: Hyundai
+    modelo: HB20
+    ano: 2024
+    categoria: 2
+    chassi: MALA1234567890123
+    diaria: 85.0
+  - montadora: Hyundai
+    modelo: HB20S
+    ano: 2024
+    categoria: 2
+    chassi: 9BH23456789012345
+    diaria: 110.0
+  - montadora: Hyundai
+    modelo: Tucson
+    ano: 2024
+    categoria: 2
+    chassi: MALB2345678901234
+    diaria: 120.0
+  - montadora: Fiat
+    modelo: Uno
+    categoria: 2
+    ano: 2024
+    chassi: 3FAB2345678901234
+    diaria: 60.0
+  - montadora: Fiat
+    modelo: Mobi
+    ano: 2024
+    categoria: 2
+    chassi: ZFAA1234567890123
+    diaria: 70.0
+  - montadora: Fiat
+    modelo: Pulse
+    ano: 2025
+    categoria: 2
+    chassi: 9BD12345678901234
+    diaria: 130.0
