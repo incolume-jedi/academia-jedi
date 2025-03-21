@@ -4,7 +4,7 @@ from typing import NoReturn
 from unittest import mock
 
 import pytest
-from . import Categoria, Montadora, Veiculo, fileconf, config, veiculos
+from . import Categoria, Montadora, Veiculo, fileconf, config, acervo_veiculos
 from .asimov import (
     alugados,
     carros,
@@ -312,6 +312,7 @@ class TestLocadoraIncolume:
                     'diaria': 22.5,
                     'categoria': 'transporte',
                     'chassi': 'XPTO1234',
+                    'placa': 'gbr0001',
                 },
                 {
                     'modelo': 'Xavante XT',
@@ -320,6 +321,7 @@ class TestLocadoraIncolume:
                     'categoria': 3,
                     'diaria': 22.5,
                     'chassi': 'XPTO1234',
+                    'placa': 'GBR0001',
                 },
             ),
         ],
@@ -332,4 +334,4 @@ class TestLocadoraIncolume:
 
     def test_loaded_veiculos(self):
         """Unittest."""
-        assert all(isinstance(v, Veiculo) for v in veiculos)
+        assert all(isinstance(v, Veiculo) for v in acervo_veiculos)

@@ -69,6 +69,8 @@ class Veiculo:
         """Post init."""
         self.montadora = Montadora(str(self.montadora))
         self.categoria = Categoria(str(self.categoria))
+        self.placa = self.placa.upper()
+        self.chassi = self.chassi.upper()
 
     def to_dict(self):
         """To dict."""
@@ -78,7 +80,7 @@ class Veiculo:
         return result
 
 
-veiculos: list[Veiculo] = [Veiculo(**x) for x in config['veiculos']]
+acervo_veiculos: list[Veiculo] = [Veiculo(**x) for x in config['veiculos']]
 
 
 class Locadora:
@@ -87,6 +89,15 @@ class Locadora:
     title: str = 'Locadora Incolume'
     barra1: str = '=' * 80
     barra2: str = '-' * 80
+
+    def __init__(
+        self,
+        veiculos: list[Veiculo] | None = None,
+        alugados: list[Veiculo] | None = None,
+    ) -> None:
+        """Init class."""
+        self.veiculos = veiculos or acervo_veiculos
+        self.alugados = alugados or []
 
     @staticmethod
     def finalizar(
@@ -103,11 +114,57 @@ class Locadora:
 
     def locar_veiculo(self):
         """Locar veículo."""
-        print('locar')
+        self.mostrar_lista_carros(self.veiculos)
+        while (
+            cod_car := int(input('Escolha o código do carro: '))
+        ) not in range(
+            len(self.veiculos),
+        ):
+            pass
+        dias = int(input('Quantas diarias? '))
+        carro = self.veiculos[cod_car]
+        valor = carro.diaria * dias
+        print(
+            f'Você escolheu {carro.montadora}/{carro.modelo} por {dias} dias.',
+            f'Valor total da reserva R$ {valor:.02f}',
+            sep='\n',
+            end='\n\n',
+        )
+        if input('Deseja alugar (*s|n)? ').casefold() in 'n no não'.split():
+            print('Reserva cancelada!')
+            return
+        print(
+            'Parabéns você alugou o'
+            f' {carro.montadora}/{carro.modelo}({carro.ano})'
+            f' por {dias} dias, no valor de R$ {valor:.02f}.',
+        )
+        self.alugados.append(self.veiculos.pop(cod_car))
 
     def devolver_veiculo(self):
         """Devolver veículo."""
-        print('devolver')
+        if not self.alugados:
+            print('Não constam veiculos para devolução.')
+            return
+        print('Segue a listagem dos veiculos para devolução.')
+        self.mostrar_lista_carros(self.alugados)
+        while (cod_car := int(input('Qual deseja devolver? '))) not in range(
+            len(self.alugados),
+        ):
+            pass
+        carro = self.alugados[cod_car]
+        if (
+            input(
+                'Confirma a devolução do '
+                f'{carro.montadora}/{carro.modelo}({carro.ano})? (s)im | *(n)ão ',
+            ).casefold()
+            == 's'
+        ):
+            self.veiculos.append(self.alugados.pop(cod_car))
+            print(
+                f'{carro.montadora}/{carro.modelo}({carro.ano})'
+                ' Devolvido com sucesso!',
+            )
+        return
 
     def options(self, array: Container) -> None:
         """Options."""
@@ -123,7 +180,11 @@ class Locadora:
             {'(C)Todos os direitos reservados':>80}
             {self.barra2}""")
 
-    def mostrar_lista_carros(self, ls_carros: list[Veiculo], place_holder: str = '') -> None:
+    def mostrar_lista_carros(
+        self,
+        ls_carros: list[Veiculo],
+        place_holder: str = '',
+    ) -> None:
         """Show cars."""
         place_holder = place_holder or '[{}] {} ({}) - R$ {} /dia.'
         result = ''
@@ -154,7 +215,7 @@ class Locadora:
                 case '0':
                     break
                 case '1':
-                    self.options(veiculos)
+                    self.options(acervo_veiculos)
                 case '2':
                     self.locar_veiculo()
                 case '3':
@@ -190,9 +251,9 @@ def others_exec() -> None:
         Categoria(1),
         Categoria('Carga'),
     )
+    Locadora().mostrar_lista_carros(acervo_veiculos)
 
 
 if __name__ == '__main__':
     """..."""
-    # Locadora().menu()
-    Locadora().mostrar_lista_carros(veiculos)
+    Locadora().menu()
