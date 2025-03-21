@@ -324,7 +324,9 @@ class TestLocadoraIncolume:
     )
     def test_veiculo_class(self, entrance, expected):
         """Unittest."""
-        assert Veiculo(**entrance).to_dict() == expected
+        veiculo = Veiculo(**entrance)
+        assert isinstance(veiculo, Veiculo)
+        assert veiculo.to_dict() == expected
 
     def test_loaded_veiculos(self):
         """Unittest."""

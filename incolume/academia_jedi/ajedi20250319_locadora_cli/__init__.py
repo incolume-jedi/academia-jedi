@@ -101,34 +101,52 @@ class Locadora:
         op = input(msg)
         return op.casefold() in deny
 
-    def menu(self) -> None:
-        """Menu."""
-        while True:
-            self.clear()
-            print(f"""
+    def locar_veiculo(self):
+        """Locar veículo."""
+        print('locar')
+
+    def devolver_veiculo(self):
+        """Devolver veículo."""
+        print('devolver')
+
+    def options(self, array: Container) -> None:
+        """Options."""
+        clear()
+        print(f"""
             {self.barra1}
             {f'.. {self.title} ..':^80}
             {self.barra1}""")
-
-            for idx, item in enumerate(options):
-                print(f'   {idx}: {item}')
-
-            print(f"""
+        for idx, item in enumerate(array):
+            print(f'\t\t\t\t[ {idx} ] {item}')
+        print(f"""
             {self.barra2}
             {'(C)Todos os direitos reservados':>80}
             {self.barra2}""")
 
-            op = input('\nEscolha a opção: ')
-            if op == '0':
-                break
+    def menu(self) -> None:
+        """Menu."""
+        while True:
+            self.options([
+                'Sair',
+                'Veiculos disponível',
+                'Alugar veículo',
+                'devolver veículo',
+            ])
 
-            # try:
-            #     print()
-            # except (ValueError, TypeError):
-            #     msg = 'Opção inválida!'
-            #     print(f'\n\t{msg}\n')
+            op = input('\nEscolha a opção desejada: ')
 
-            # print('-' * 30)
+            match op:
+                case '0':
+                    break
+                case '1':
+                    self.options(veiculos)
+                case '2':
+                    self.locar_veiculo()
+                case '3':
+                    self.devolver_veiculo()
+                case _:
+                    msg = 'Opção inválida!'
+                    print(f'\n\t{msg}\n')
 
             if self.finalizar(
                 'deseja realizar outra operação (Y/n)? ',
