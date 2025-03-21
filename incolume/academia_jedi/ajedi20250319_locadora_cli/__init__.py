@@ -155,7 +155,8 @@ class Locadora:
         if (
             input(
                 'Confirma a devolução do '
-                f'{carro.montadora}/{carro.modelo}({carro.ano})? (s)im | *(n)ão ',
+                f'{carro.montadora}/{carro.modelo}({carro.ano})?'
+                ' (s)im | *(n)ão ',
             ).casefold()
             == 's'
         ):

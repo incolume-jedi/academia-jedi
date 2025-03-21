@@ -4,7 +4,16 @@ from typing import NoReturn
 from unittest import mock
 
 import pytest
-from . import Categoria, Montadora, Veiculo, fileconf, config, acervo_veiculos
+from . import (
+    Categoria,
+    Montadora,
+    Veiculo,
+    fileconf,
+    config,
+    acervo_veiculos,
+    Locadora,
+)
+
 from .asimov import (
     alugados,
     carros,
@@ -335,3 +344,32 @@ class TestLocadoraIncolume:
     def test_loaded_veiculos(self):
         """Unittest."""
         assert all(isinstance(v, Veiculo) for v in acervo_veiculos)
+
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param(
+                '__annotations__',
+                {'barra1': str, 'barra2': str, 'title': str},
+            ),
+        ],
+    )
+    def test_locadora(self, entrance, expected):
+        """Unittest."""
+        instance = Locadora()
+        assert getattr(instance, entrance) == expected
+
+    @pytest.mark.parametrize(
+        'entrance side_effect expected'.split(),
+        [
+            ({'msg': '', 'deny_options': None}, [''], False),
+            ({'msg': '', 'deny_options': []}, ['s'], True),
+            ({'msg': '', 'deny_options': []}, ['n'], True),
+            ({'msg': '', 'deny_options': ['t']}, ['t'], True),
+        ],
+    )
+    def test_locadora_finalizar(self, entrance, side_effect, expected):
+        """Unittest."""
+        instance = Locadora()
+        with mock.patch('builtins.input', side_effect=side_effect):
+            assert instance.finalizar(**entrance) is expected
