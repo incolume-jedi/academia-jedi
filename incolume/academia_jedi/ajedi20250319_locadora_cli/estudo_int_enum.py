@@ -11,8 +11,7 @@ config = {
 
 
 class Categoria(IntEnum):
-    """Enumerador personalizado com suporte a busca por nome ou valor.
-    """
+    """Enumerador personalizado com suporte a busca por nome ou valor."""
 
     @classmethod
     def _missing_(cls, value):
@@ -35,6 +34,20 @@ class Categoria(IntEnum):
 
         # Retorna None se nenhum membro for encontrado
         return None
+
+    @classmethod
+    def _create_pseudo_member_(cls, value):
+        pseudo_member = cls._value2member_map_.get(value, None)
+        if pseudo_member is None:
+            new_member = int.__new__(cls, value)
+            # I expect a name attribute to hold a string, hence str(value)
+            # However, new_member._name_ = value works, too
+            new_member._name_ = str(value)
+            new_member._value_ = value
+            pseudo_member = cls._value2member_map_.setdefault(
+                value, new_member
+            )
+        return pseudo_member
 
 
 # Criando dinamicamente os membros do enumerador a partir da configuração
