@@ -3,7 +3,7 @@
 # ruff:noqa: T201
 import os
 from collections.abc import Container
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from enum import IntEnum
 from pathlib import Path
 
@@ -62,7 +62,8 @@ class Veiculo:
     montadora: Montadora
     categoria: Categoria
     diaria: float
-    chassi: str
+    chassi: str = field(repr=False)
+    placa: str = field(default='')
 
     def __post_init__(self):
         """Post init."""

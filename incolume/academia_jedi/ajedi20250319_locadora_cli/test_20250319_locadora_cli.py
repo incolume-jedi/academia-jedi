@@ -292,6 +292,7 @@ class TestLocadoraIncolume:
                     'diaria': 17.5,
                     'categoria': 'carga',
                     'chassi': 'XPTO123',
+                    'placa': 'gbr-1234',
                 },
                 {
                     'modelo': 'BR-800',
@@ -300,6 +301,7 @@ class TestLocadoraIncolume:
                     'categoria': 1,
                     'diaria': 17.5,
                     'chassi': 'XPTO123',
+                    'placa': 'GBR-1234',
                 },
             ),
             (
