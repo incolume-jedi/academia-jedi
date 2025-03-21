@@ -122,6 +122,21 @@ class Locadora:
             {'(C)Todos os direitos reservados':>80}
             {self.barra2}""")
 
+    def mostrar_lista_carros(self, ls_carros: list[Veiculo], place_holder: str = '') -> None:
+        """Show cars."""
+        place_holder = place_holder or '[{}] {} ({}) - R$ {} /dia.'
+        result = ''
+        for idx, car in enumerate(ls_carros):
+            result += f'{
+                place_holder.format(
+                    idx,
+                    car.modelo,
+                    car.montadora.name,
+                    car.diaria,
+                )
+            }\n'
+        print(result)
+
     def menu(self) -> None:
         """Menu."""
         while True:
@@ -178,4 +193,5 @@ def others_exec() -> None:
 
 if __name__ == '__main__':
     """..."""
-    Locadora().menu()
+    # Locadora().menu()
+    Locadora().mostrar_lista_carros(veiculos)
