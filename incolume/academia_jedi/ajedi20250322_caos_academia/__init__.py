@@ -1,15 +1,19 @@
 """Teoria do caos - academia."""
 
 import random
+import secrets
 from enum import Enum
+
 import seaborn as sns
+from icecream import ic
 
 
 class Academia:
     """Academia class."""
 
     def __init__(self):
-        self.halteres = list(range(10, 51, 2))
+        """Init."""
+        self.halteres = list(range(10, 37, 2))
         self.porta_halteres = {}
         self.reiniciar_dia()
 
@@ -32,7 +36,7 @@ class Academia:
         self.porta_halteres[key_halt] = 0
         return peso
 
-    def devolver_haltere(self, pos, peso) -> None:
+    def devolver_haltere(self, pos: int, peso: float) -> None:
         """Devolver haltere."""
         self.porta_halteres[pos] = peso
 
@@ -54,6 +58,7 @@ class Usuario:
         academia: Academia = None,
         peso: int = 0,
     ):
+        """Init."""
         self.tipo = tipo
         self.academia = academia
         self.peso = peso
@@ -61,7 +66,7 @@ class Usuario:
     def iniciar_treino(self):
         """Iniciar treino."""
         ls_pesos = self.academia.listar_halteres()
-        self.peso = random.choice(ls_pesos)
+        self.peso = secrets.choice(ls_pesos)
         self.academia.pegar_haltere(self.peso)
 
     def finalizar_treino(self):
@@ -71,11 +76,11 @@ class Usuario:
             if self.peso in espaços:
                 self.academia.devolver_haltere(self.peso, self.peso)
             else:
-                pos = random.choice(espaços)
+                pos = secrets.choice(espaços)
                 self.academia.devolver_haltere(pos, self.peso)
 
         if self.tipo == Tipo.desorganizado:
-            pos = random.choice(espaços)
+            pos = secrets.choice(espaços)
             self.academia.devolver_haltere(pos, self.peso)
         self.peso = 0
 
@@ -85,7 +90,7 @@ if __name__ == '__main__':
     usuarios = [Usuario(Tipo.desorganizado, academia)]
     usuarios.extend([Usuario(Tipo.organizado, academia) for _ in range(19)])
     random.shuffle(usuarios)
-    print(usuarios)
+    ic(usuarios)
     list_chaos: list[float] = []
 
     for _ in range(50):
@@ -96,4 +101,3 @@ if __name__ == '__main__':
         list_chaos.append(academia.calcular_caos())
 
     sns.displot(list_chaos)
-

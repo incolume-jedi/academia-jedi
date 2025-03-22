@@ -1,6 +1,6 @@
 """Testes."""
 
-from collections.abc import Callable
+from collections.abc import Callable, Generator
 import incolume.academia_jedi.ajedi20250322_caos_academia as pkg
 import pytest
 from icecream import ic
@@ -13,14 +13,14 @@ if settings.debug_mode:
 
 
 @pytest.fixture()
-def inst_academia():
+def inst_academia() -> Generator:
     """TestClass.
 
     Fixture de metodo com setup e teardown.
     """
-    # ic('setup')
-    return pkg.Academia()
-    # ic('teardown')
+    ic('setup')
+    yield pkg.Academia()
+    ic('teardown')
 
 
 def test_academia(inst_academia):
@@ -70,7 +70,7 @@ def test_academia(inst_academia):
         ('devolver_haltere', {'peso': 10, 'pos': 10}, None),
     ],
 )
-def test_academia(inst_academia, func, entrance, expected):
+def test_academia_results(inst_academia, func, entrance, expected):
     """Unittest."""
     func = getattr(inst_academia, func)
     if isinstance(func, Callable):
