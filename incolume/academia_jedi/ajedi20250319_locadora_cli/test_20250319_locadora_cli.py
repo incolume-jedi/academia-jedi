@@ -455,11 +455,17 @@ class TestLocadoraIncolume:
         [
             (
                 ['1', 's'],
-                'Segue a listagem dos veiculos para devolução.\n[0] BR-800 (Gurgel) - R$ 17.5 /dia.\n[1] Xavante XT (Gurgel) - R$ 22.5 /dia.\n\n9/Xavante XT(1972) Devolvido com sucesso!\n',
+                'Segue a listagem dos veiculos para devolução.\n'
+                '[0] BR-800 (Gurgel) - R$ 17.5 /dia.\n'
+                '[1] Xavante XT (Gurgel) - R$ 22.5 /dia.\n\n'
+                '9/Xavante XT(1972) Devolvido com sucesso!\n',
             ),
             (
                 ['5', '5', '2', '1', 's'],
-                'Segue a listagem dos veiculos para devolução.\n[0] BR-800 (Gurgel) - R$ 17.5 /dia.\n[1] Xavante XT (Gurgel) - R$ 22.5 /dia.\n\n9/Xavante XT(1972) Devolvido com sucesso!\n',
+                'Segue a listagem dos veiculos para devolução.\n'
+                '[0] BR-800 (Gurgel) - R$ 17.5 /dia.\n'
+                '[1] Xavante XT (Gurgel) - R$ 22.5 /dia.\n\n'
+                '9/Xavante XT(1972) Devolvido com sucesso!\n',
             ),
         ],
     )
