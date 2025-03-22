@@ -206,6 +206,40 @@ class TestLocadoraAsimov:
             assert m.called
 
 
+@pytest.fixture()
+def list_veic() -> list[Veiculo]:
+    """Fixture lista de veículo."""
+    return [
+        Veiculo(**veic)
+        for veic in [
+            {
+                'modelo': 'BR-800',
+                'ano': 1995,
+                'montadora': 9,
+                'categoria': 1,
+                'diaria': 17.5,
+                'chassi': 'XPTO123',
+                'placa': 'GBR-1234',
+            },
+            {
+                'modelo': 'Xavante XT',
+                'ano': 1972,
+                'montadora': 9,
+                'categoria': 3,
+                'diaria': 22.5,
+                'chassi': 'XPTO1234',
+                'placa': 'GBR0001',
+            },
+        ]
+    ]
+
+
+@pytest.fixture()
+def locadora(list_veic) -> Locadora:
+    """Fixture instance Locadora."""
+    return Locadora(veiculos=list_veic)
+
+
 class TestLocadoraIncolume:
     """Test case."""
 
@@ -354,10 +388,9 @@ class TestLocadoraIncolume:
             ),
         ],
     )
-    def test_locadora(self, entrance, expected):
+    def test_locadora(self, entrance, expected, locadora):
         """Unittest."""
-        instance = Locadora()
-        assert getattr(instance, entrance) == expected
+        assert getattr(locadora, entrance) == expected
 
     @pytest.mark.parametrize(
         'entrance side_effect expected'.split(),
@@ -368,8 +401,76 @@ class TestLocadoraIncolume:
             ({'msg': '', 'deny_options': ['t']}, ['t'], True),
         ],
     )
-    def test_locadora_finalizar(self, entrance, side_effect, expected):
+    def test_locadora_finalizar(
+        self,
+        entrance,
+        side_effect,
+        expected,
+        locadora,
+    ):
         """Unittest."""
-        instance = Locadora()
         with mock.patch('builtins.input', side_effect=side_effect):
-            assert instance.finalizar(**entrance) is expected
+            assert locadora.finalizar(**entrance) is expected
+
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            (
+                ['0', '10', 's'],
+                '[0] BR-800 (Gurgel) - R$ 17.5 /dia.\n'
+                '[1] Xavante XT (Gurgel) - R$ 22.5 /dia.\n\n'
+                'Você escolheu 9/BR-800 por 10 dias.\n'
+                'Valor total da reserva R$ 175.00\n\n'
+                'Parabéns você alugou o 9/BR-800(1995) por'
+                ' 10 dias, no valor de R$ 175.00.\n',
+            ),
+            (
+                ['1', '5', 'sim'],
+                '[0] BR-800 (Gurgel) - R$ 17.5 /dia.\n'
+                '[1] Xavante XT (Gurgel) - R$ 22.5 /dia.\n\n'
+                'Você escolheu 9/Xavante XT por 5 dias.\n'
+                'Valor total da reserva R$ 112.50\n\n'
+                'Parabéns você alugou o 9/Xavante XT(1972)'
+                ' por 5 dias, no valor de R$ 112.50.\n',
+            ),
+            (
+                ['5', '1', '1', 'no'],
+                '[0] BR-800 (Gurgel) - R$ 17.5 /dia.\n'
+                '[1] Xavante XT (Gurgel) - R$ 22.5 /dia.\n\n'
+                'Você escolheu 9/Xavante XT por 1 dias.\n'
+                'Valor total da reserva R$ 22.50\n\n'
+                'Reserva cancelada!\n',
+            ),
+        ],
+    )
+    def test_locadora_locar(self, locadora, capsys, entrance, expected):
+        """Unittest."""
+        with mock.patch('builtins.input', side_effect=entrance):
+            locadora.locar_veiculo()
+            capture = capsys.readouterr()
+            assert capture.out == expected
+
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            (
+                ['1', 's'],
+                'Segue a listagem dos veiculos para devolução.\n[0] BR-800 (Gurgel) - R$ 17.5 /dia.\n[1] Xavante XT (Gurgel) - R$ 22.5 /dia.\n\n9/Xavante XT(1972) Devolvido com sucesso!\n',
+            ),
+            (
+                ['5', '5', '2', '1', 's'],
+                'Segue a listagem dos veiculos para devolução.\n[0] BR-800 (Gurgel) - R$ 17.5 /dia.\n[1] Xavante XT (Gurgel) - R$ 22.5 /dia.\n\n9/Xavante XT(1972) Devolvido com sucesso!\n',
+            ),
+        ],
+    )
+    def test_locadora_devolver(self, locadora, capsys, entrance, expected):
+        """Unittest."""
+        locadora.alugados, locadora.veiculos = (
+            locadora.veiculos,
+            locadora.alugados,
+        )
+
+        with mock.patch('builtins.input', side_effect=entrance):
+            locadora.devolver_veiculo()
+            capture = capsys.readouterr()
+            assert capture.out == expected
