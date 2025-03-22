@@ -10,9 +10,15 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-03-19:
+## [Unreleased]	 &#8212; 	2025-03-22:
 ### Fixed
   - Correções na execução CI/CD;
+### Added
+  - Estudos sobre Enum;
+  - Implementação de locadora CLI;
+  - Testes com captura de terminal;
+  - Testes com injeção de valores através do mock;
+  - Aplicação do match/case em caso real;
 
 ## [0.110.0]	 &#8212; 	2025-03-19:
 ### Added
