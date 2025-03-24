@@ -11,10 +11,23 @@ def game_loop(window):
         window.timeout(1000)
         char = window.getch()
         window.clear()
-        if char == -1:
-            window.addstr('Nenhuma tecla precionada!!')
-        else:
-            window.addstr(f'tecla selecionada "{char}"\n')
+        match char:
+            case -1:
+                window.addstr('Nenhuma tecla precionada!!')
+            case curses.KEY_UP:
+                window.addstr('MOVE UP')
+            case curses.KEY_DOWN:
+                window.addstr('MOVE DOWN')
+            case curses.KEY_LEFT:
+                window.addstr('MOVE LEFT')
+            case curses.KEY_RIGHT:
+                window.addstr('MOVE RIGHT')
+            case 27:
+                window.terminate()
+            case _:
+                window.addstr('Não mover')
+
+
 
 
 def run():
