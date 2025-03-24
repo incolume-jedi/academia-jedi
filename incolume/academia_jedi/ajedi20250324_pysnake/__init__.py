@@ -1,15 +1,19 @@
 """Pysnake module."""
 
 import curses
-from dataclasses import dataclass, asdict
-import time
-from typing import NamedTuple
-from collections import namedtuple
 import logging
+import time
+from collections import namedtuple
+from dataclasses import asdict, dataclass
+from typing import Any, NamedTuple
+
 from icecream import ic
+
+
 @dataclass
 class Personagem:
     """Personagem class"""
+
     lin: int
     col: int
     simbol: int
@@ -18,44 +22,60 @@ class Personagem:
         """As dict."""
         return asdict(self)
 
+def draw_screen(window: Any) -> None:
+    """Desenhar tela."""
+    window.clear()
+    window.border(0)
+
+def draw_actor(actor: Personagem, window: Any) -> None:
+    """Desenha ator."""
+    window.addch(actor.lin, actor.col, actor.simbol)
+
+def get_new_direction(window: Any, timeout:int = 1000) -> int|None:
+    """Checa nova direção."""
+    window.timeout(timeout)
+    direction = window.getch()
+    if direction in [curses.KEY_UP, curses.KEY_DOWN, curses.KEY_LEFT, curses.KEY_RIGHT]:
+        return direction
+    return
+
+def move_actor(actor: Personagem, direction: int) -> None:
+    """Move ator."""
+    match direction:
+        case curses.KEY_UP:
+            logging.debug(ic('MOVE UP'))
+            actor.lin -= 1
+        case curses.KEY_DOWN:
+            logging.debug(ic('MOVE DOWN'))
+            actor.lin += 1
+        case curses.KEY_LEFT:
+            logging.debug(ic('MOVE LEFT'))
+            actor.col -= 1
+
+        case curses.KEY_RIGHT:
+            logging.debug(ic('MOVE RIGHT'))
+            actor.col += 1
+
+def check_actor_hit_border(actor: Personagem, window: Any) -> bool:
+    """Checa limite tela."""
+    heigth, width = window.getmaxyx()
+    return ((actor.lin <= 0) or (actor.lin >= heigth - 1)) or ((actor.col <= 0) or (actor.col >= width - 1))
+
+
 
 def game_loop(window):
     """Loop."""
     curses.curs_set(0)
-    heigth, width = window.getmaxyx()
     personagem = Personagem(10, 15, curses.ACS_DIAMOND)
 
-    window.border(0)
-    window.addch(personagem.lin, personagem.col, personagem.simbol)
+
     while True:
-        window.timeout(1000)
-        char = window.getch()
-        window.clear()
-        match char:
-            case curses.KEY_UP:
-                logging.debug(ic('MOVE UP'))
-                personagem.lin -= 1
-            case curses.KEY_DOWN:
-                logging.debug(ic('MOVE DOWN'))
-                personagem.lin += 1
-            case curses.KEY_LEFT:
-                logging.debug(ic('MOVE LEFT'))
-                personagem.col -= 1
-
-            case curses.KEY_RIGHT:
-                logging.debug(ic('MOVE RIGHT'))
-                personagem.col += 1
-            case _:
-                pass
-        window.border(0)
-        if (personagem.lin <= 0) or (personagem.lin >= heigth -1):
+        draw_screen(window)
+        draw_actor(actor=personagem, window=window)
+        if (direction:=get_new_direction(window=window)):
+            move_actor(actor=personagem, direction=direction)
+        if check_actor_hit_border(actor=personagem, window=window):
             return
-        if (personagem.col <=0) or(personagem.col >= width -1):
-            return
-
-        window.addch(personagem.lin, personagem.col, personagem.simbol)
-
-
 
 
 def run():
