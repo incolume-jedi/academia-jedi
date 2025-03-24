@@ -6,10 +6,15 @@ import time
 
 def game_loop(window):
     """Loop."""
-    for idx in range(10):
-        window.addstr(f'i = {idx}\n')
-        window.refresh()
-        time.sleep(1)
+    window.addstr('Aperte alguma tecla: \n')
+    while True:
+        window.timeout(1000)
+        char = window.getch()
+        window.clear()
+        if char == -1:
+            window.addstr('Nenhuma tecla precionada!!')
+        else:
+            window.addstr(f'tecla selecionada "{char}"\n')
 
 
 def run():
