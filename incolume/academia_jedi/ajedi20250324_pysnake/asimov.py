@@ -5,11 +5,14 @@ import logging
 import random
 import time
 
+from config import settings
 from icecream import ic
 
 # ruff: noqa: T201
 
 ic.disable()
+if settings.debug_mode:
+    ic.enable()
 
 
 def draw_screen(window: curses.window) -> None:
@@ -106,7 +109,7 @@ def draw_snake(snake, window):
 def get_new_fruit(window):
     """Get new fruit."""
     heigth, width = window.getmaxyx()
-    return [random.randint(1, heigth - 2), random.randint(1, width - 2)]
+    return [random.randint(1, heigth - 2), random.randint(1, width - 2)]  # noqa: S311
 
 
 def snake_hit_fruit(snake, fruit):
@@ -141,11 +144,12 @@ def is_direction_opposite(direction: int, current_direction: int) -> bool:
             return current_direction == curses.KEY_LEFT
 
 
-def game_loop(window):
-    """Run game.
+def game_loop(window: curses.window, speed_game: int) -> None:
+    """Run this game.
 
     Args:
-        window (_type_): _description_
+        window (curses.window): _description_
+        speed_game (int): _description_
     """
     curses.curs_set(0)
     snake: list = [
@@ -164,7 +168,7 @@ def game_loop(window):
         draw_snake(snake=snake, window=window)
         draw_actor(actor=fruit, window=window, char=curses.ACS_DIAMOND)
         if (
-            direction := get_new_direction(window=window)
+            direction := get_new_direction(window=window, timeout=speed_game)
         ) is None or is_direction_opposite(direction, current_direction):
             direction = current_direction
 
@@ -192,14 +196,31 @@ def finish_game(score: int, window: curses.window, msg: str = '') -> None:
     """Finish game."""
     heigth, width = window.getmaxyx()
     msg = msg or f'Fim de Jogo: Você perdeu! Coletou {score} frutas!!'
+    window.clear()
     window.addstr(heigth // 2, (width - len(msg)) // 2, msg)
     window.refresh()
     time.sleep(2)
 
 
+def select_difficulty():
+    """Difficulty game."""
+    speeds = {
+        '1': 1000,
+        '2': 500,
+        '3': 150,
+        '4': 90,
+        '5': 35,
+    }
+    while 1:
+        op = input('Selecione a dificuldade entre 1 e 5: ')
+        if op in speeds:
+            break
+    return speeds.get(op)
+
+
 def run():
     """Run it."""
-    curses.wrapper(game_loop)
+    curses.wrapper(game_loop, speed_game=select_difficulty())
 
 
 if __name__ == '__main__':
