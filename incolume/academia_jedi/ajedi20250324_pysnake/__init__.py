@@ -2,39 +2,73 @@
 
 import curses
 import logging
-import time
-from collections import namedtuple
-from dataclasses import asdict, dataclass
-from typing import Any, NamedTuple
+from copy import copy
+from dataclasses import dataclass, field
 
 from icecream import ic
+
+# ruff: noqa: T201
 
 
 @dataclass
 class Personagem:
-    """Personagem class"""
+    """Personagem class."""
 
-    lin: int
-    col: int
-    simbol: int
+    lin: int = field(default=10)
+    col: int = field(default=15)
+    simbol: int = field(default='@')
 
-    def asdict(self):
-        """As dict."""
-        return asdict(self)
+    def __post_init__(self):
+        """Post init."""
+        logging.debug(ic(self))
 
 
-def draw_screen(window: Any) -> None:
+@dataclass
+class Snake:
+    """Snake class."""
+
+    segments: list[Personagem] = field(default_factory=[])
+
+    def __post_init__(self):
+        """Post init."""
+        self.segments = self.segments or [
+            Personagem(),
+            *[Personagem(lin=ln, simbol='§') for ln in range(9, 7, -1)],
+        ]
+
+    def move(self, direction: int) -> None:
+        """Move snake."""
+        head = copy(self.segments[0])
+        move_actor(head, direction)
+        head.lin -= 1
+        self.segments.insert(0, head)
+        self.segments.pop()
+
+    def draw(self, window: curses.window) -> None:
+        """Draw snake."""
+        for segment in self.segments:
+            window.addch(segment.lin, segment.col, segment.simbol)
+
+    def check_hit_border(self, window: curses.window) -> bool:
+        """Check if hit border."""
+        return check_actor_hit_border(actor=self.segments[0], window=window)
+
+
+def draw_screen(window: curses.window) -> None:
     """Desenhar tela."""
     window.clear()
     window.border(0)
 
 
-def draw_actor(actor: Personagem, window: Any) -> None:
+def draw_actor(actor: Personagem, window: curses.window) -> None:
     """Desenha ator."""
     window.addch(actor.lin, actor.col, actor.simbol)
 
 
-def get_new_direction(window: Any, timeout: int = 1000) -> int | None:
+def get_new_direction(
+    window: curses.window,
+    timeout: int = 1000,
+) -> int | None:
     """Checa nova direção."""
     window.timeout(timeout)
     direction = window.getch()
@@ -66,7 +100,7 @@ def move_actor(actor: Personagem, direction: int) -> None:
             actor.col += 1
 
 
-def check_actor_hit_border(actor: Personagem, window: Any) -> bool:
+def check_actor_hit_border(actor: Personagem, window: curses.window) -> bool:
     """Checa limite tela."""
     heigth, width = window.getmaxyx()
     return ((actor.lin <= 0) or (actor.lin >= heigth - 1)) or (
@@ -91,9 +125,31 @@ def game_loop(window):
         current_direction = direction
 
 
+def game_run(window):
+    """Game loop."""
+    curses.curs_set(0)
+    snake = Snake(
+        segments=[Personagem()].extend([
+            Personagem(lin=ln, simbol=curses.ACS_DIAMOND)
+            for ln in range(12, 11, -1)
+        ]),
+    )
+    current_direction = curses.KEY_DOWN
+
+    while True:
+        draw_screen(window)
+        snake.draw(window=window)
+        if not (direction := get_new_direction(window=window)):
+            direction = current_direction
+        snake.move(direction=direction)
+        if snake.check_hit_border(window=window):
+            return
+        current_direction = direction
+
+
 def run():
     """Run it."""
-    curses.wrapper(game_loop)
+    curses.wrapper(game_run)
     print('Fim de jogo!!!!')
 
 
