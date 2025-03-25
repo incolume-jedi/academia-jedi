@@ -73,12 +73,18 @@ def move_actor(actor: list, direction: int) -> None:
             actor[1] += 1
 
 
-def move_snake(snake: list, direction: int) -> None:
+def move_snake(
+    snake: list,
+    direction: int,
+    *,
+    snake_ate_fruit: bool = False,
+) -> None:
     """Move snake."""
     head = snake[0].copy()
     move_actor(actor=head, direction=direction)
     snake.insert(0, head)
-    snake.pop()
+    if not snake_ate_fruit:
+        snake.pop()
 
 
 def draw_snake(snake, window):
@@ -109,6 +115,9 @@ def snake_hit_fruit(snake, fruit):
     """
     return fruit in snake
 
+def snake_hit_itself(snake: list) -> bool:
+    """Snake hit itself."""
+    return snake[0] in snake[1:]
 
 def game_loop(window):
     """Run game.
@@ -125,17 +134,28 @@ def game_loop(window):
     ]
     current_direction: int = curses.KEY_DOWN
     fruit = get_new_fruit(window=window)
+    snake_ate_fruit = False
+
     while True:
         draw_screen(window=window)
         draw_snake(snake=snake, window=window)
         draw_actor(actor=fruit, window=window, char=curses.ACS_DIAMOND)
         if (direction := get_new_direction(window=window)) is None:
             direction = current_direction
-        move_snake(snake=snake, direction=direction)
+        move_snake(
+            snake=snake,
+            direction=direction,
+            snake_ate_fruit=snake_ate_fruit,
+        )
         if check_snake_hit_border(snake=snake, window=window):
             return
+        if snake_hit_itself(snake=snake):
+            return
         if snake_hit_fruit(snake=snake, fruit=fruit):
+            snake_ate_fruit = True
             fruit = get_new_fruit(window=window)
+        else:
+            snake_ate_fruit = False
         current_direction = direction
 
 
