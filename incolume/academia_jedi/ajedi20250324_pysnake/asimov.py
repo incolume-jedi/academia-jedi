@@ -115,9 +115,28 @@ def snake_hit_fruit(snake, fruit):
     """
     return fruit in snake
 
+
 def snake_hit_itself(snake: list) -> bool:
     """Snake hit itself."""
     return snake[0] in snake[1:]
+
+
+def is_direction_opposite(direction: int, current_direction: int) -> bool:
+    """Check direction."""
+    match direction:
+        case curses.KEY_UP:
+            logging.debug(ic('MOVE UP'))
+            return current_direction == curses.KEY_DOWN
+        case curses.KEY_DOWN:
+            logging.debug(ic('MOVE DOWN'))
+            return current_direction == curses.KEY_UP
+        case curses.KEY_LEFT:
+            logging.debug(ic('MOVE LEFT'))
+            return current_direction == curses.KEY_RIGHT
+        case curses.KEY_RIGHT:
+            logging.debug(ic('MOVE RIGHT'))
+            return current_direction == curses.KEY_LEFT
+
 
 def game_loop(window):
     """Run game.
@@ -140,8 +159,11 @@ def game_loop(window):
         draw_screen(window=window)
         draw_snake(snake=snake, window=window)
         draw_actor(actor=fruit, window=window, char=curses.ACS_DIAMOND)
-        if (direction := get_new_direction(window=window)) is None:
+        if (
+            direction := get_new_direction(window=window)
+        ) is None or is_direction_opposite(direction, current_direction):
             direction = current_direction
+
         move_snake(
             snake=snake,
             direction=direction,
