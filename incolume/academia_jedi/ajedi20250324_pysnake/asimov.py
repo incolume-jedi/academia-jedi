@@ -3,10 +3,13 @@
 import curses
 import logging
 import random
+import time
 
 from icecream import ic
 
 # ruff: noqa: T201
+
+ic.disable()
 
 
 def draw_screen(window: curses.window) -> None:
@@ -154,6 +157,7 @@ def game_loop(window):
     current_direction: int = curses.KEY_DOWN
     fruit = get_new_fruit(window=window)
     snake_ate_fruit = False
+    score = 0
 
     while True:
         draw_screen(window=window)
@@ -169,22 +173,33 @@ def game_loop(window):
             direction=direction,
             snake_ate_fruit=snake_ate_fruit,
         )
-        if check_snake_hit_border(snake=snake, window=window):
-            return
-        if snake_hit_itself(snake=snake):
-            return
+        if check_snake_hit_border(
+            snake=snake,
+            window=window,
+        ) or snake_hit_itself(snake=snake):
+            break
         if snake_hit_fruit(snake=snake, fruit=fruit):
             snake_ate_fruit = True
             fruit = get_new_fruit(window=window)
+            score += 1
         else:
             snake_ate_fruit = False
         current_direction = direction
+    finish_game(score=score, window=window)
+
+
+def finish_game(score: int, window: curses.window, msg: str = '') -> None:
+    """Finish game."""
+    heigth, width = window.getmaxyx()
+    msg = msg or f'Fim de Jogo: Você perdeu! Coletou {score} frutas!!'
+    window.addstr(heigth // 2, (width - len(msg)) // 2, msg)
+    window.refresh()
+    time.sleep(2)
 
 
 def run():
     """Run it."""
     curses.wrapper(game_loop)
-    print('Fim do jogo.')
 
 
 if __name__ == '__main__':
