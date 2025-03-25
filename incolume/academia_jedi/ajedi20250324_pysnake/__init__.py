@@ -132,23 +132,6 @@ def check_actor_hit_border(actor: Personagem, window: curses.window) -> bool:
     )
 
 
-def game_loop(window):
-    """Loop."""
-    curses.curs_set(0)
-    personagem = Personagem(10, 15, curses.ACS_DIAMOND)
-    current_direction = curses.KEY_DOWN
-
-    while True:
-        draw_screen(window)
-        draw_actor(actor=personagem, window=window)
-        if not (direction := get_new_direction(window=window)):
-            direction = current_direction
-        move_actor(actor=personagem, direction=direction)
-        if check_actor_hit_border(actor=personagem, window=window):
-            return
-        current_direction = direction
-
-
 def game_run(window):
     """Game loop."""
     curses.curs_set(0)
