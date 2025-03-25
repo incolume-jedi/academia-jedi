@@ -4,7 +4,7 @@ import curses
 import logging
 from copy import copy
 from dataclasses import dataclass, field
-
+import secrets
 from icecream import ic
 
 # ruff: noqa: T201
@@ -16,41 +16,65 @@ class Personagem:
 
     lin: int = field(default=10)
     col: int = field(default=15)
-    simbol: int = field(default='@')
 
     def __post_init__(self):
         """Post init."""
         logging.debug(ic(self))
+@dataclass
+class Fruit(Personagem):
+    """Fruit class."""
+    simbol: str = ''
+
+    def __post_init__(self):
+        """Post init."""
+        logging.debug(ic(self))
+
+    def draw(self, window: curses.window):
+        """Draw it."""
+        logging.debug(ic())
+        heigth, width = window.getmaxyx()
+        self.lin = min(max(secrets.randbelow(heigth), 1), heigth -1)
+        self.col = min(max(secrets.randbelow(width), 1), width -1)
+        window.addch(self.lin, self.col, self.simbol)
+
 
 
 @dataclass
 class Snake:
     """Snake class."""
 
-    segments: list[Personagem] = field(default_factory=[])
+    segments: list[Personagem] = field(default_factory=list)
+    symbol_head: str = '@'
+    symbol_body: str = '§'
 
     def __post_init__(self):
         """Post init."""
+        logging.debug(ic(self))
         self.segments = self.segments or [
             Personagem(),
-            *[Personagem(lin=ln, simbol='§') for ln in range(9, 7, -1)],
+            *[Personagem(lin=ln) for ln in range(9, 7, -1)],
         ]
 
     def move(self, direction: int) -> None:
         """Move snake."""
+        logging.debug(ic())
         head = copy(self.segments[0])
         move_actor(head, direction)
-        head.lin -= 1
         self.segments.insert(0, head)
         self.segments.pop()
 
     def draw(self, window: curses.window) -> None:
         """Draw snake."""
-        for segment in self.segments:
-            window.addch(segment.lin, segment.col, segment.simbol)
+        logging.debug(ic())
+        head = self.segments[0]
+        window.addch(head.lin, head.col,self.symbol_head)
+        for body in self.segments[1:]:
+            window.addch(body.lin, body.col,self.symbol_body)
+
 
     def check_hit_border(self, window: curses.window) -> bool:
         """Check if hit border."""
+        logging.debug(ic())
         return check_actor_hit_border(actor=self.segments[0], window=window)
 
 
@@ -128,17 +152,13 @@ def game_loop(window):
 def game_run(window):
     """Game loop."""
     curses.curs_set(0)
-    snake = Snake(
-        segments=[Personagem()].extend([
-            Personagem(lin=ln, simbol=curses.ACS_DIAMOND)
-            for ln in range(12, 11, -1)
-        ]),
-    )
+    snake = Snake()
     current_direction = curses.KEY_DOWN
-
+    fruit = Fruit(simbol=curses.ACS_DIAMOND)
     while True:
         draw_screen(window)
         snake.draw(window=window)
+        fruit.draw(window=window)
         if not (direction := get_new_direction(window=window)):
             direction = current_direction
         snake.move(direction=direction)
