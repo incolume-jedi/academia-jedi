@@ -20,6 +20,7 @@ DEBUG_MODE=true
 MSG="Hello tester"
 NAME="Application"
 DEBUG_MODE=false
+TIMEOUT=1.2
 
 [production]
 MSG="Hello User"
