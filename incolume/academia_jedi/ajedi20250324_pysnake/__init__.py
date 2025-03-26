@@ -185,7 +185,7 @@ def finish_game(score: int, window: curses.window, msg: str = '') -> None:
     time.sleep(2)
 
 
-def game_run(window: curses.window, speed: int = 1000):
+def game_run(window: curses.window, speed: int = 1000) -> None:
     """Game loop."""
     curses.curs_set(0)
     snake = Snake(window=window)
