@@ -5,6 +5,7 @@ import logging
 import secrets
 from copy import copy
 from dataclasses import dataclass, field
+import time
 
 from icecream import ic
 
@@ -26,6 +27,7 @@ class Personagem:
 @dataclass
 class Fruit(Personagem):
     """Fruit class."""
+
     window: curses.window = field(init=True, default=None)
     simbol: str = ''
     lin: int = field(default=15)
@@ -51,6 +53,7 @@ class Fruit(Personagem):
 @dataclass
 class Snake:
     """Snake class."""
+
     window: curses.window
     segments: list[Personagem] = field(default_factory=list)
     symbol_head: str = '@'
@@ -66,12 +69,10 @@ class Snake:
 
     def __iter__(self):
         """Iteration."""
-        # for field in self.fields(self):
-            # yield getattr(self, field.name)
-        for field in self.segments:
-            yield field
+        for value in self.segments:
+            yield from value
 
-    def move(self, direction: int, ate_fruit: bool = False) -> None:
+    def move(self, direction: int, *, ate_fruit: bool = False) -> None:
         """Move snake."""
         logging.debug(ic())
         head = copy(self.segments[0])
@@ -91,7 +92,17 @@ class Snake:
     def check_hit_border(self) -> bool:
         """Check if hit border."""
         logging.debug(ic())
-        return check_actor_hit_border(actor=self.segments[0], window=self.window)
+        return check_actor_hit_border(
+            actor=self.segments[0],
+            window=self.window,
+        )
+
+    def check_hit_itself(self) -> bool:
+        """Check if hit itself."""
+        logging.debug(ic())
+        head = self.segments[0]
+        ic(head)
+        return
 
 
 def draw_screen(window: curses.window) -> None:
@@ -120,14 +131,15 @@ def get_new_direction(
 
     window.timeout(timeout)
     direction = window.getch()
-    if (direction in opposites) and (current_direction != opposites.get(direction)):
+    if (direction in opposites) and (
+        current_direction != opposites.get(direction)
+    ):
         return direction
     return None
 
 
 def move_actor(actor: Personagem, direction: int) -> None:
     """Move ator."""
-
     match direction:
         case curses.KEY_UP:
             logging.debug(ic('MOVE UP'))
@@ -151,14 +163,25 @@ def check_actor_hit_border(actor: Personagem, window: curses.window) -> bool:
         (actor.col <= 0) or (actor.col >= width - 1)
     )
 
-def snake_hit_fruit(snake: Snake, fruit: Fruit):
+
+def snake_hit_fruit(snake: Snake, fruit: Fruit) -> bool:
     """Snake hit fruit.
 
     Args:
         snake (_type_): _description_
         fruit (_type_): _description_
     """
-    return [fruit.lin,fruit.col] in [[s.lin, s.col] for s in snake.segments]
+    return [fruit.lin, fruit.col] in [[s.lin, s.col] for s in snake.segments]
+
+def finish_game(score: int, window: curses.window, msg: str = '') -> None:
+    """Finish game."""
+    heigth, width = window.getmaxyx()
+    msg = msg or f'Fim de Jogo: Você perdeu! Coletou {score} frutas!!'
+    window.clear()
+    window.addstr(heigth // 2, (width - len(msg)) // 2, msg)
+    window.refresh()
+    time.sleep(2)
+
 
 def game_run(window):
     """Game loop."""
@@ -173,11 +196,16 @@ def game_run(window):
         draw_screen(window)
         snake.draw()
         fruit.draw()
-        if not (direction := get_new_direction(window=window, current_direction=current_direction)):
+        if not (
+            direction := get_new_direction(
+                window=window,
+                current_direction=current_direction,
+            )
+        ):
             direction = current_direction
         snake.move(direction=direction, ate_fruit=snake_ate_fruit)
         if snake.check_hit_border():
-            return
+            break
         if snake_hit_fruit(snake=snake, fruit=fruit):
             snake_ate_fruit = True
             fruit.new_position().draw()
@@ -186,12 +214,12 @@ def game_run(window):
             snake_ate_fruit = False
 
         current_direction = direction
+    finish_game(score=score, window=window)
 
 
 def run():
     """Run it."""
     curses.wrapper(game_run)
-    print('Fim de jogo!!!!')
 
 
 if __name__ == '__main__':
