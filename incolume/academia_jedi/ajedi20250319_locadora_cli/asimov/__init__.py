@@ -30,21 +30,19 @@ carros: list[Carro] = [
 ]
 alugados: list[Carro] = []
 
-place_holder_carros: str = '[{}] {} ({}) - R$ {} /dia.'
+place_holder_carros: str = '[{}] {} ({}) - R$ {} /dia. \n'
 
 
 def mostrar_lista_carros(ls_carros: list[Carro]) -> None:
     """Show cars."""
     result = ''
     for idx, car in enumerate(ls_carros):
-        result += f'{
-            place_holder_carros.format(
-                idx,
-                car.modelo,
-                car.montadora,
-                car.diaria,
-            )
-        }\n'
+        result += place_holder_carros.format(
+            idx,
+            car.modelo,
+            car.montadora,
+            car.diaria,
+        )
     print(result)
 
 
