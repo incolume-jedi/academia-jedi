@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-03-22:
+## [Unreleased]	 &#8212; 	2025-03-26:
 ### Fixed
   - Correções na execução CI/CD;
 ### Added
@@ -19,6 +19,8 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Testes com captura de terminal;
   - Testes com injeção de valores através do mock;
   - Aplicação do match/case em caso real;
+  - Estudo da teoria do caos - academia;
+  - Implementação do jogo da cobrinha - PySnake;
 
 ## [0.110.0]	 &#8212; 	2025-03-19:
 ### Added
