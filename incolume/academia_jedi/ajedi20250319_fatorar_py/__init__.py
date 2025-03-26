@@ -3,7 +3,11 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Self
+import sys
+if sys.version_info < (3, 12):
+    from typing_extensions import Self
+else:
+    from typing import Self
 
 msgs: dict = {
     'number_positive': 'Number must be positive',
