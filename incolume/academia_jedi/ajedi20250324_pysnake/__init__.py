@@ -51,7 +51,7 @@ class Fruit(Personagem):
 @dataclass
 class Snake:
     """Snake class."""
-
+    window: curses.window
     segments: list[Personagem] = field(default_factory=list)
     symbol_head: str = '@'
     symbol_body: str = '§'
@@ -80,18 +80,18 @@ class Snake:
         if not ate_fruit:
             self.segments.pop()
 
-    def draw(self, window: curses.window) -> None:
+    def draw(self) -> None:
         """Draw snake."""
         logging.debug(ic())
         head = self.segments[0]
-        window.addch(head.lin, head.col, self.symbol_head)
+        self.window.addch(head.lin, head.col, self.symbol_head)
         for body in self.segments[1:]:
-            window.addch(body.lin, body.col, self.symbol_body)
+            self.window.addch(body.lin, body.col, self.symbol_body)
 
-    def check_hit_border(self, window: curses.window) -> bool:
+    def check_hit_border(self) -> bool:
         """Check if hit border."""
         logging.debug(ic())
-        return check_actor_hit_border(actor=self.segments[0], window=window)
+        return check_actor_hit_border(actor=self.segments[0], window=self.window)
 
 
 def draw_screen(window: curses.window) -> None:
@@ -120,12 +120,7 @@ def get_new_direction(
 
     window.timeout(timeout)
     direction = window.getch()
-    if (direction in [
-        curses.KEY_UP,
-        curses.KEY_DOWN,
-        curses.KEY_LEFT,
-        curses.KEY_RIGHT,
-    ]) and (current_direction != opposites.get(direction)):
+    if (direction in opposites) and (current_direction != opposites.get(direction)):
         return direction
     return None
 
@@ -168,7 +163,7 @@ def snake_hit_fruit(snake: Snake, fruit: Fruit):
 def game_run(window):
     """Game loop."""
     curses.curs_set(0)
-    snake = Snake()
+    snake = Snake(window=window)
     current_direction = curses.KEY_DOWN
     fruit = Fruit(window=window, simbol=curses.ACS_DIAMOND)
     snake_ate_fruit = False
@@ -176,12 +171,12 @@ def game_run(window):
 
     while True:
         draw_screen(window)
-        snake.draw(window=window)
+        snake.draw()
         fruit.draw()
         if not (direction := get_new_direction(window=window, current_direction=current_direction)):
             direction = current_direction
         snake.move(direction=direction, ate_fruit=snake_ate_fruit)
-        if snake.check_hit_border(window=window):
+        if snake.check_hit_border():
             return
         if snake_hit_fruit(snake=snake, fruit=fruit):
             snake_ate_fruit = True
