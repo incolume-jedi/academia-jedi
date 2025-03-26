@@ -2,9 +2,10 @@
 
 import curses
 import logging
+import secrets
 from copy import copy
 from dataclasses import dataclass, field
-import secrets
+
 from icecream import ic
 
 # ruff: noqa: T201
@@ -20,23 +21,31 @@ class Personagem:
     def __post_init__(self):
         """Post init."""
         logging.debug(ic(self))
+
+
 @dataclass
 class Fruit(Personagem):
     """Fruit class."""
+    window: curses.window = field(init=True, default=None)
     simbol: str = ''
+    lin: int = field(default=15)
+    col: int = field(default=10)
 
     def __post_init__(self):
         """Post init."""
         logging.debug(ic(self))
 
-    def draw(self, window: curses.window):
+    def new_position(self):
+        """New position."""
+        heigth, width = self.window.getmaxyx()
+        self.lin = min(max(secrets.randbelow(heigth), 1), heigth - 2)
+        self.col = min(max(secrets.randbelow(width), 1), width - 2)
+        return self
+
+    def draw(self) -> None:
         """Draw it."""
         logging.debug(ic())
-        heigth, width = window.getmaxyx()
-        self.lin = min(max(secrets.randbelow(heigth), 1), heigth -1)
-        self.col = min(max(secrets.randbelow(width), 1), width -1)
-        window.addch(self.lin, self.col, self.simbol)
-
+        self.window.addch(self.lin, self.col, self.simbol)
 
 
 @dataclass
@@ -55,22 +64,29 @@ class Snake:
             *[Personagem(lin=ln) for ln in range(9, 7, -1)],
         ]
 
-    def move(self, direction: int) -> None:
+    def __iter__(self):
+        """Iteration."""
+        # for field in self.fields(self):
+            # yield getattr(self, field.name)
+        for field in self.segments:
+            yield field
+
+    def move(self, direction: int, ate_fruit: bool = False) -> None:
         """Move snake."""
         logging.debug(ic())
         head = copy(self.segments[0])
         move_actor(head, direction)
         self.segments.insert(0, head)
-        self.segments.pop()
+        if not ate_fruit:
+            self.segments.pop()
 
     def draw(self, window: curses.window) -> None:
         """Draw snake."""
         logging.debug(ic())
         head = self.segments[0]
-        window.addch(head.lin, head.col,self.symbol_head)
+        window.addch(head.lin, head.col, self.symbol_head)
         for body in self.segments[1:]:
-            window.addch(body.lin, body.col,self.symbol_body)
-
+            window.addch(body.lin, body.col, self.symbol_body)
 
     def check_hit_border(self, window: curses.window) -> bool:
         """Check if hit border."""
@@ -91,23 +107,32 @@ def draw_actor(actor: Personagem, window: curses.window) -> None:
 
 def get_new_direction(
     window: curses.window,
+    current_direction: int,
     timeout: int = 1000,
 ) -> int | None:
     """Checa nova direção."""
+    opposites = {
+        curses.KEY_UP: curses.KEY_DOWN,
+        curses.KEY_DOWN: curses.KEY_UP,
+        curses.KEY_LEFT: curses.KEY_RIGHT,
+        curses.KEY_RIGHT: curses.KEY_LEFT,
+    }
+
     window.timeout(timeout)
     direction = window.getch()
-    if direction in [
+    if (direction in [
         curses.KEY_UP,
         curses.KEY_DOWN,
         curses.KEY_LEFT,
         curses.KEY_RIGHT,
-    ]:
+    ]) and (current_direction != opposites.get(direction)):
         return direction
     return None
 
 
 def move_actor(actor: Personagem, direction: int) -> None:
     """Move ator."""
+
     match direction:
         case curses.KEY_UP:
             logging.debug(ic('MOVE UP'))
@@ -131,22 +156,40 @@ def check_actor_hit_border(actor: Personagem, window: curses.window) -> bool:
         (actor.col <= 0) or (actor.col >= width - 1)
     )
 
+def snake_hit_fruit(snake: Snake, fruit: Fruit):
+    """Snake hit fruit.
+
+    Args:
+        snake (_type_): _description_
+        fruit (_type_): _description_
+    """
+    return [fruit.lin,fruit.col] in [[s.lin, s.col] for s in snake.segments]
 
 def game_run(window):
     """Game loop."""
     curses.curs_set(0)
     snake = Snake()
     current_direction = curses.KEY_DOWN
-    fruit = Fruit(simbol=curses.ACS_DIAMOND)
+    fruit = Fruit(window=window, simbol=curses.ACS_DIAMOND)
+    snake_ate_fruit = False
+    score = 0
+
     while True:
         draw_screen(window)
         snake.draw(window=window)
-        fruit.draw(window=window)
-        if not (direction := get_new_direction(window=window)):
+        fruit.draw()
+        if not (direction := get_new_direction(window=window, current_direction=current_direction)):
             direction = current_direction
-        snake.move(direction=direction)
+        snake.move(direction=direction, ate_fruit=snake_ate_fruit)
         if snake.check_hit_border(window=window):
             return
+        if snake_hit_fruit(snake=snake, fruit=fruit):
+            snake_ate_fruit = True
+            fruit.new_position().draw()
+            score += 1
+        else:
+            snake_ate_fruit = False
+
         current_direction = direction
 
 
