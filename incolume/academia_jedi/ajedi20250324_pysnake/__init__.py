@@ -2,6 +2,7 @@
 
 import curses
 import logging
+import os
 import secrets
 from copy import copy
 from dataclasses import dataclass, field
@@ -215,6 +216,10 @@ def game_run(window):
 
         current_direction = direction
     finish_game(score=score, window=window)
+
+def clear():
+    """Clear screen."""
+    os.system('cls' if os.name == 'nt' else 'clear')  # noqa: S605
 
 
 def run():
