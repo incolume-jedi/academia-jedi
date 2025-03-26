@@ -187,17 +187,15 @@ class Locadora:
         place_holder: str = '',
     ) -> None:
         """Show cars."""
-        place_holder = place_holder or '[{}] {} ({}) - R$ {} /dia.'
+        place_holder = place_holder or '[{}] {} ({}) - R$ {} /dia.\n'
         result = ''
         for idx, car in enumerate(ls_carros):
-            result += f'{
-                place_holder.format(
-                    idx,
-                    car.modelo,
-                    car.montadora.name,
-                    car.diaria,
-                )
-            }\n'
+            result += place_holder.format(
+                idx,
+                car.modelo,
+                car.montadora.name,
+                car.diaria,
+            )
         print(result)
 
     def menu(self) -> None:
