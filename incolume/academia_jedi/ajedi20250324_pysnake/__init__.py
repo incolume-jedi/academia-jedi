@@ -4,9 +4,9 @@ import curses
 import logging
 import os
 import secrets
+import time
 from copy import copy
 from dataclasses import dataclass, field
-import time
 
 from icecream import ic
 
@@ -174,6 +174,7 @@ def snake_hit_fruit(snake: Snake, fruit: Fruit) -> bool:
     """
     return [fruit.lin, fruit.col] in [[s.lin, s.col] for s in snake.segments]
 
+
 def finish_game(score: int, window: curses.window, msg: str = '') -> None:
     """Finish game."""
     heigth, width = window.getmaxyx()
@@ -201,7 +202,7 @@ def game_run(window: curses.window, speed: int = 1000):
             direction := get_new_direction(
                 window=window,
                 current_direction=current_direction,
-                timeout=speed
+                timeout=speed,
             )
         ):
             direction = current_direction
@@ -218,9 +219,11 @@ def game_run(window: curses.window, speed: int = 1000):
         current_direction = direction
     finish_game(score=score, window=window)
 
+
 def clear():
     """Clear screen."""
     os.system('cls' if os.name == 'nt' else 'clear')  # noqa: S605
+
 
 def select_difficulty():
     """Difficulty game."""
@@ -237,6 +240,7 @@ def select_difficulty():
         if op in speeds:
             break
     return speeds.get(op)
+
 
 def run():
     """Run it."""
