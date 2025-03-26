@@ -184,7 +184,7 @@ def finish_game(score: int, window: curses.window, msg: str = '') -> None:
     time.sleep(2)
 
 
-def game_run(window):
+def game_run(window: curses.window, speed: int = 1000):
     """Game loop."""
     curses.curs_set(0)
     snake = Snake(window=window)
@@ -201,6 +201,7 @@ def game_run(window):
             direction := get_new_direction(
                 window=window,
                 current_direction=current_direction,
+                timeout=speed
             )
         ):
             direction = current_direction
@@ -221,10 +222,25 @@ def clear():
     """Clear screen."""
     os.system('cls' if os.name == 'nt' else 'clear')  # noqa: S605
 
+def select_difficulty():
+    """Difficulty game."""
+    speeds = {
+        '1': 1000,
+        '2': 500,
+        '3': 150,
+        '4': 90,
+        '5': 35,
+    }
+    clear()
+    while 1:
+        op = input('Selecione a dificuldade entre 1 e 5: ')
+        if op in speeds:
+            break
+    return speeds.get(op)
 
 def run():
     """Run it."""
-    curses.wrapper(game_run)
+    curses.wrapper(game_run, speed=select_difficulty())
 
 
 if __name__ == '__main__':
