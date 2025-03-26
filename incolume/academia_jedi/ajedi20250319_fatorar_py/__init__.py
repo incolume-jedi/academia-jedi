@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 import sys
+from dataclasses import dataclass
+
 if sys.version_info < (3, 12):
     from typing_extensions import Self
 else:
