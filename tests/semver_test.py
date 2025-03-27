@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 
 from incolume.academia_jedi import __version__, load
+from config import settings
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -21,7 +22,7 @@ def test_semver(entrance, expected):
     assert (
         bool(
             re.fullmatch(
-                r'\d+(\.\d+){2}((-\w+\.\d+)|(\w{,2}\d+))?',
+                settings.semver,
                 entrance,
                 flags=re.I,
             ),
