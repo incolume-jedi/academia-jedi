@@ -12,6 +12,7 @@ on:
   workflow_dispatch:
 env:
   AJEDII_MODE: testing
+  INCOLUME_MODE: testing
 
 jobs:
   envvar-conf:
