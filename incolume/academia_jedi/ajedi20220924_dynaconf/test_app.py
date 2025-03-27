@@ -52,17 +52,28 @@ class TestCaseDynaconf:
     @pytest.mark.parametrize(
         'entrance',
         [
-            settings.MSG,
-            settings.msg,
-            settings.get('MSG'),
-            settings.get('msg'),
-            settings['MSG'],
-            settings['msg'],
+            'MSG',
+            'msg',
         ],
     )
     def test_development_msg(self, entrance) -> None:
         """Test msg default."""
-        assert entrance == 'Hello Dev'
+        env = os.environ.get('INCOLUME_MODE')
+        expected = 'Hello Dev'
+        assert getattr(settings.from_env(env), entrance) == expected
+
+    @pytest.mark.parametrize(
+        'entrance',
+        [
+            'MSG',
+            'msg',
+        ],
+    )
+    def test_development_msg_1(self, entrance) -> None:
+        """Test msg default."""
+        env = os.environ.get('INCOLUME_MODE')
+        expected = 'Hello Dev'
+        assert settings.from_env(env).get(entrance) == expected
 
     @pytest.mark.parametrize(
         'entrance expected'.split(),
