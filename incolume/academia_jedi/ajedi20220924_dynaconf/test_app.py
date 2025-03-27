@@ -93,7 +93,7 @@ class TestCaseDynaconf:
             pytest.param('NUMB', '42'),
             pytest.param(
                 'temp',
-                Path(gettempdir(),'TestCaseDynaconf').as_posix(),
+                Path(gettempdir(), 'TestCaseDynaconf').as_posix(),
                 marks=[
                     pytest.mark.skipif(
                         platform().startswith('win'),
