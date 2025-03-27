@@ -4,20 +4,61 @@ from pathlib import Path
 import shutil
 
 import pytest
-from . import gen_bkp, path_files, organizer_dir
+from . import gen_bkp, organizer_dir, path_files
 from tempfile import gettempdir
 from inspect import stack
+from faker import Faker
+from icecream import ic
+from config import settings
+
+
+ic.disable()
+if settings.debug_mode:
+    ic.enable()
+
+Faker.seed(13)
+fake = Faker('pt_Br')
+
+
+def massa_teste(dout: Path) -> Path:
+    """Gera arquivos."""
+    dout.mkdir(parents=True, exist_ok=True)
+    extensions = [
+        'htm',
+        'html',
+        'docx',
+        'xlsx',
+        'pdf',
+        'xml',
+        'json',
+        'pickle',
+        'txt',
+        'csv',
+    ]
+    file_names = []
+    if not ic(len(list(dout.iterdir()))):
+        file_names.extend(fake.file_name(category='audio') for _ in range(20))
+        file_names.extend(
+            fake.file_name(extension=ext)
+            for _ in range(5)
+            for ext in extensions
+        )
+        [dout.joinpath(file).touch() for file in file_names]
+    ic(list(dout.iterdir()))
+    return dout
 
 
 class TestOrganizer:
     """Test case."""
 
-    base_dir: Path = Path(gettempdir()) / stack()[0][3]
+    base_dir: Path = Path(gettempdir(), stack()[0][3])
+    path_test: Path = base_dir.joinpath('files', 'desafio')
 
     @classmethod
     def setup(cls):
         """Setup class."""
         cls.base_dir.mkdir(exist_ok=True)
+        massa_teste(cls.path_test)
 
     @classmethod
     def teardown_class(cls):
@@ -38,7 +79,7 @@ class TestOrganizer:
         """Unittest."""
         output = self.base_dir / stack()[0][3]
         assert not output.is_dir()
-        assert output == organizer_dir(path_files, output)
+        assert output == organizer_dir(self.path_test, output)
 
     @pytest.mark.parametrize(
         'entrance expected'.split(),
@@ -49,7 +90,7 @@ class TestOrganizer:
                         'test_organizer',
                     ),
                     'path_files_out': None,
-                    'path_files_in': path_files,
+                    'path_files_in': path_test,
                 },
                 'TestOrganizer test_organizer'.split(),
             ),
@@ -62,13 +103,13 @@ class TestOrganizer:
     @pytest.mark.parametrize(
         'entrance expected'.split(),
         [
-            (
+            pytest.param(
                 {
                     'output_base': base_dir.joinpath(
                         'test_organizer',
                     ),
                     'path_files_out': None,
-                    'path_files_in': path_files,
+                    'path_files_in': path_test,
                 },
                 ['csv', 'html', 'json', 'pdf', 'pickle', 'txt', 'xlsx', 'xml'],
             ),
@@ -102,7 +143,7 @@ class TestOrganizer:
                         'test_gen',
                     ),
                     'path_files_out': None,
-                    'path_files_in': path_files,
+                    'path_files_in': path_test,
                 },
                 'zip',
                 base_dir / 'test_gen/backup/backup.zip',
@@ -113,7 +154,7 @@ class TestOrganizer:
                         'test_gen',
                     ),
                     'path_files_out': base_dir,
-                    'path_files_in': path_files,
+                    'path_files_in': path_test,
                 },
                 'zip',
                 base_dir / 'backup.zip',
@@ -124,7 +165,7 @@ class TestOrganizer:
                         'test_organizer',
                     ),
                     'path_files_out': None,
-                    'path_files_in': path_files,
+                    'path_files_in': path_test,
                 },
                 'tar',
                 base_dir / 'test_organizer/backup/backup.tar',
@@ -146,7 +187,7 @@ class TestOrganizer:
                         'test_gen_content',
                         'content0',
                     ),
-                    'path_files_in': path_files,
+                    'path_files_in': path_test,
                 },
                 {
                     'type_format': 'zip',
@@ -156,68 +197,75 @@ class TestOrganizer:
                     ),
                 },
                 [
-                    'blbgzv.csv',
-                    'bpod.csv',
-                    'hxxz.csv',
-                    'ismczn.csv',
-                    'ldmymido.csv',
-                    'nkjcc.csv',
-                    'oiguvoc.csv',
-                    'vfajycsc.csv',
-                    'kxcbqhmt.html',
-                    'ubbvz.html',
-                    'view_lista.html',
-                    'view_lista_atualizada.html',
-                    'zvbl.html',
-                    'assinantes.json',
-                    'assinantes_copia.json',
-                    'dvljfa.json',
-                    'gymo.json',
-                    'mggeox.json',
-                    'mhpys.json',
-                    'qtvjhleg.json',
-                    'slzydn.json',
-                    'ufaaokuy.json',
-                    'azdx.pdf',
-                    'dqarpnv.pdf',
-                    'eephtr.pdf',
-                    'krssr.pdf',
-                    'Lendo e Escrevendo Arquivos'
-                    ' - Apostila Asimov Academy.pdf',
-                    'lhcdkwji.pdf',
-                    'ouzcw.pdf',
-                    'rjzfcvly.pdf',
-                    'rmmfpgfp.pdf',
-                    'vheeu.pdf',
-                    'viawbe.pdf',
-                    'inst_joao.pickle',
-                    'meu_dict.pickle',
-                    'minha_lista.pickle',
-                    'cayv.txt',
-                    'eluch.txt',
-                    'fmfet.txt',
-                    'mbrr.txt',
-                    'mnxq.txt',
-                    'ozvdvbjv.txt',
-                    'quygdhc.txt',
-                    'texto.txt',
-                    'vktcz.txt',
-                    'zilnvj.txt',
-                    'bqeb.xlsx',
-                    'clientes.xlsx',
-                    'cxvq.xlsx',
-                    'hmohnmc.xlsx',
-                    'hrbabmu.xlsx',
-                    'jytyvst.xlsx',
-                    'mejysm.xlsx',
-                    'mhmcelq.xlsx',
-                    'PR.xlsx',
-                    'RS.xlsx',
-                    'SC.xlsx',
-                    'SP.xlsx',
-                    'livros.xml',
-                    'livros_copia.xml',
-                    'backup.zip',
+                    'similique.docx',
+                    'aut.docx',
+                    'repellat.docx',
+                    'ipsam.docx',
+                    'quasi.docx',
+                    'minima.xml',
+                    'suscipit.xml',
+                    'laborum.xml',
+                    'veritatis.xml',
+                    'ex.xml',
+                    'facere.flac',
+                    'aut.flac',
+                    'fuga.flac',
+                    'et.flac',
+                    'non.flac',
+                    'vel.flac',
+                    'vitae.flac',
+                    'totam.flac',
+                    'error.wav',
+                    'maiores.wav',
+                    'nobis.wav',
+                    'impedit.wav',
+                    'ea.wav',
+                    'vitae.wav',
+                    'accusantium.wav',
+                    'quidem.pickle',
+                    'tempora.pickle',
+                    'fuga.pickle',
+                    'molestias.pickle',
+                    'ex.pickle',
+                    'deleniti.xlsx',
+                    'magnam.xlsx',
+                    'non.xlsx',
+                    'porro.xlsx',
+                    'ullam.xlsx',
+                    'nam.htm',
+                    'non.htm',
+                    'eligendi.htm',
+                    'occaecati.htm',
+                    'maiores.htm',
+                    'quod.html',
+                    'delectus.html',
+                    'tempore.html',
+                    'dolorum.html',
+                    'dolorum.txt',
+                    'sequi.txt',
+                    'fuga.txt',
+                    'a.txt',
+                    'earum.txt',
+                    'voluptas.csv',
+                    'impedit.csv',
+                    'hic.csv',
+                    'voluptates.csv',
+                    'nisi.csv',
+                    'illum.mp3',
+                    'nostrum.mp3',
+                    'eveniet.mp3',
+                    'quo.mp3',
+                    'dignissimos.mp3',
+                    'saepe.json',
+                    'officia.json',
+                    'officiis.json',
+                    'numquam.json',
+                    'recusandae.json',
+                    'nulla.pdf',
+                    'cumque.pdf',
+                    'totam.pdf',
+                    'explicabo.pdf',
+                    'quo.pdf',
                 ],
                 marks=[],
             ),
@@ -227,7 +275,7 @@ class TestOrganizer:
                         'test_gen_content',
                         'content1',
                     ),
-                    'path_files_in': path_files,
+                    'path_files_in': path_test,
                 },
                 {
                     'type_format': 'tar',
@@ -237,68 +285,75 @@ class TestOrganizer:
                     ),
                 },
                 [
-                    'blbgzv.csv',
-                    'bpod.csv',
-                    'hxxz.csv',
-                    'ismczn.csv',
-                    'ldmymido.csv',
-                    'nkjcc.csv',
-                    'oiguvoc.csv',
-                    'vfajycsc.csv',
-                    'kxcbqhmt.html',
-                    'ubbvz.html',
-                    'view_lista.html',
-                    'view_lista_atualizada.html',
-                    'zvbl.html',
-                    'assinantes.json',
-                    'assinantes_copia.json',
-                    'dvljfa.json',
-                    'gymo.json',
-                    'mggeox.json',
-                    'mhpys.json',
-                    'qtvjhleg.json',
-                    'slzydn.json',
-                    'ufaaokuy.json',
-                    'azdx.pdf',
-                    'dqarpnv.pdf',
-                    'eephtr.pdf',
-                    'krssr.pdf',
-                    'Lendo e Escrevendo Arquivos'
-                    ' - Apostila Asimov Academy.pdf',
-                    'lhcdkwji.pdf',
-                    'ouzcw.pdf',
-                    'rjzfcvly.pdf',
-                    'rmmfpgfp.pdf',
-                    'vheeu.pdf',
-                    'viawbe.pdf',
-                    'inst_joao.pickle',
-                    'meu_dict.pickle',
-                    'minha_lista.pickle',
-                    'cayv.txt',
-                    'eluch.txt',
-                    'fmfet.txt',
-                    'mbrr.txt',
-                    'mnxq.txt',
-                    'ozvdvbjv.txt',
-                    'quygdhc.txt',
-                    'texto.txt',
-                    'vktcz.txt',
-                    'zilnvj.txt',
-                    'bqeb.xlsx',
-                    'clientes.xlsx',
-                    'cxvq.xlsx',
-                    'hmohnmc.xlsx',
-                    'hrbabmu.xlsx',
-                    'jytyvst.xlsx',
-                    'mejysm.xlsx',
-                    'mhmcelq.xlsx',
-                    'PR.xlsx',
-                    'RS.xlsx',
-                    'SC.xlsx',
-                    'SP.xlsx',
-                    'livros.xml',
-                    'livros_copia.xml',
-                    'backup.zip',
+                    'similique.docx',
+                    'aut.docx',
+                    'repellat.docx',
+                    'ipsam.docx',
+                    'quasi.docx',
+                    'minima.xml',
+                    'suscipit.xml',
+                    'laborum.xml',
+                    'veritatis.xml',
+                    'ex.xml',
+                    'facere.flac',
+                    'aut.flac',
+                    'fuga.flac',
+                    'et.flac',
+                    'non.flac',
+                    'vel.flac',
+                    'vitae.flac',
+                    'totam.flac',
+                    'error.wav',
+                    'maiores.wav',
+                    'nobis.wav',
+                    'impedit.wav',
+                    'ea.wav',
+                    'vitae.wav',
+                    'accusantium.wav',
+                    'quidem.pickle',
+                    'tempora.pickle',
+                    'fuga.pickle',
+                    'molestias.pickle',
+                    'ex.pickle',
+                    'deleniti.xlsx',
+                    'magnam.xlsx',
+                    'non.xlsx',
+                    'porro.xlsx',
+                    'ullam.xlsx',
+                    'nam.htm',
+                    'non.htm',
+                    'eligendi.htm',
+                    'occaecati.htm',
+                    'maiores.htm',
+                    'quod.html',
+                    'delectus.html',
+                    'tempore.html',
+                    'dolorum.html',
+                    'dolorum.txt',
+                    'sequi.txt',
+                    'fuga.txt',
+                    'a.txt',
+                    'earum.txt',
+                    'voluptas.csv',
+                    'impedit.csv',
+                    'hic.csv',
+                    'voluptates.csv',
+                    'nisi.csv',
+                    'illum.mp3',
+                    'nostrum.mp3',
+                    'eveniet.mp3',
+                    'quo.mp3',
+                    'dignissimos.mp3',
+                    'saepe.json',
+                    'officia.json',
+                    'officiis.json',
+                    'numquam.json',
+                    'recusandae.json',
+                    'nulla.pdf',
+                    'cumque.pdf',
+                    'totam.pdf',
+                    'explicabo.pdf',
+                    'quo.pdf',
                 ],
             ),
         ],
