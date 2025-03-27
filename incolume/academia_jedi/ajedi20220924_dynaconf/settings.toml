@@ -6,7 +6,7 @@ MSG="Hello Dev"
 NAME="Application"
 
 [testing]
-MSG="Hello tester"
+MSG="Hello Tester"
 
 [production]
 MSG="Hello User"
