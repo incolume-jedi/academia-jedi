@@ -95,6 +95,17 @@ file_names: list[str] = [
 def massa_teste(dout: Path, filenames: None | list[str | Path] = None) -> Path:
     """Gera arquivos."""
     dout.mkdir(parents=True, exist_ok=True)
+    filenames = filenames or file_names
+    [dout.joinpath(str(file)).touch() for file in filenames]
+    ic(list(dout.iterdir()))
+    return dout
+
+
+def massa_teste_random(
+    dout: Path,
+    filenames: None | list[str | Path] = None,
+) -> Path:
+    """Gera arquivos."""
     extensions = [
         'htm',
         'html',
@@ -107,17 +118,15 @@ def massa_teste(dout: Path, filenames: None | list[str | Path] = None) -> Path:
         'txt',
         'csv',
     ]
-    file_names = filenames or []
+    filenames = filenames or []
     if not filenames and not ic(len(list(dout.iterdir()))):
-        file_names.extend(fake.file_name(category='audio') for _ in range(20))
-        file_names.extend(
+        filenames.extend(fake.file_name(category='audio') for _ in range(20))
+        filenames.extend(
             fake.file_name(extension=ext)
             for _ in range(5)
             for ext in extensions
         )
-    [dout.joinpath(str(file)).touch() for file in file_names]
-    ic(list(dout.iterdir()))
-    return dout
+    return massa_teste(dout=dout, filenames=filenames)
 
 
 class TestOrganizer:
