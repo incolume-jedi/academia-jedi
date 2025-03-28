@@ -56,3 +56,27 @@ class TestCase:
         fileoutput = self.output_dir / f'{inspect.stack()[0][3]}.xlsx'
         my_scrap_imdb2.ScrapingIMDB().scraping(excel_output=fileoutput)
         assert fileoutput.is_file()
+
+    def test_4(self) -> NoReturn:
+        """Unittest."""
+        assert my_scrap_imdb.scraping_ranking(
+            excel_output=Path(gettempdir()) / 'abc.xlsx',
+        )
+
+    def test_5(self) -> NoReturn:
+        """Unittest."""
+        assert my_scrap_imdb1.scraping_ranking1(
+            excel_output=Path(gettempdir()) / 'bcd.xlsx',
+        )
+
+    def test_6(self) -> NoReturn:
+        """Unittest."""
+        assert my_scrap_imdb2.ScrapingIMDB().scraping(excel_output='a1b2.xlsx')
+
+    def test_7(self) -> NoReturn:
+        """Unittest."""
+
+    scrap_imdb = my_scrap_imdb2.ScrapingIMDB()
+    scrap_imdb.connect().get_soup().get_movies().save_excel(
+        excel_output=Path(gettempdir()) / 'xpto.xlsx',
+    )
