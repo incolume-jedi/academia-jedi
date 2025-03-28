@@ -12,6 +12,7 @@ on:
       tags:
           description: 'manual execution routine'
 env:
+  AJEDII_MODE: testing
   INCOLUME_MODE: testing
 
 jobs:

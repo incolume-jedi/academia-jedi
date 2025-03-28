@@ -14,6 +14,7 @@ async def hello(url):
             print(response)
 
 
-loop = asyncio.get_event_loop()
+if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
 
-loop.run_until_complete(hello('http://httpbin.org/headers'))
+    loop.run_until_complete(hello('http://httpbin.org/headers'))

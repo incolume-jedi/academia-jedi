@@ -5,6 +5,8 @@ from pathlib import Path
 import shutil
 from tempfile import gettempdir
 from typing import NoReturn
+import requests
+import pytest
 from incolume.academia_jedi.ajedi20221220_web_scraping_bs4 import (
     my_scrap_imdb,
     my_scrap_imdb1,
@@ -27,6 +29,7 @@ class TestCase:
         """Teardown class."""
         shutil.rmtree(cls.output_dir, ignore_errors=True)
 
+    @pytest.mark.xfail(raises=requests.exceptions.ReadTimeout)
     def test_0(self) -> NoReturn:
         """Unittest."""
         fileoutput = self.output_dir / f'{inspect.stack()[0][3]}.xlsx'

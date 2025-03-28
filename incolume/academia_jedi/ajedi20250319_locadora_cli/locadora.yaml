@@ -1,0 +1,107 @@
+categorias:
+  carga: 1
+  passeio: 2
+  transporte: 3
+
+montadoras:
+  audi: 1
+  byd: 2
+  chevrolet: 3
+  crysler: 4
+  ferrari: 5
+  fiat: 6
+  ford: 7
+  gm: 8
+  gurgel: 9
+  hyundai: 10
+  indefinida: 0
+  toyota: 11
+  volkswagen: 12
+  volvo: 13
+
+veiculos:
+  - modelo: HB20S
+    ano: 2015
+    chassi: 9BH12345678901234
+    montadora: 10
+    categoria: passeio
+    diaria: 110.50
+    placa: ABC1D15
+  - modelo: Corolla
+    ano: 2025
+    chassi: 9BR12345678901234
+    montadora: 11
+    categoria: 2
+    diaria: 180.00
+    placa: DEF2G25
+  - modelo: mobi
+    ano: 2023
+    chassi: ZFAB2345678901234
+    montadora: 6
+    categoria: 2
+    diaria: 80.40
+    placa: GHI3J23
+  - modelo: Tracker
+    ano: 2024
+    chassi: 3GKB2345678901234
+    montadora: Chevrolet
+    categoria: 2
+    diaria: 120.0
+    placa: JKL4M24
+  - modelo: Onix
+    ano: 2024
+    chassi: KL1A1234567890123
+    montadora: Chevrolet
+    categoria: 2
+    diaria: 90.0
+    placa: MNO5P24
+  - modelo: Spin
+    ano: 2024
+    chassi: 9BG12345678901234
+    montadora: Chevrolet
+    categoria: 2
+    diaria: 150.0
+    placa: PQR6S24
+  - modelo: HB20
+    ano: 2024
+    chassi: MALA1234567890123
+    montadora: Hyundai
+    categoria: 2
+    diaria: 85.0
+    placa: STU7V24
+  - modelo: HB20S
+    ano: 2024
+    chassi: 9BH23456789012345
+    montadora: Hyundai
+    categoria: 2
+    diaria: 110.0
+    placa: VWX8Y24
+  - modelo: Tucson
+    ano: 2024
+    chassi: MALB2345678901234
+    montadora: Hyundai
+    categoria: 2
+    diaria: 120.0
+    placa: XYZ9A24
+  - modelo: Uno
+    ano: 2024
+    chassi: 3FAB2345678901234
+    montadora: Fiat
+    categoria: 2
+    diaria: 60.0
+    placa: ABC0B24
+  - modelo: Mobi
+    ano: 2024
+    chassi: ZFAA1234567890123
+    montadora: Fiat
+    categoria: 2
+    diaria: 70.0
+    placa: DEF1C24
+  - modelo: Pulse
+    ano: 2025
+    chassi: 9BD12345678901234
+    montadora: Fiat
+    categoria: 2
+    diaria: 130.0
+    placa: GHI2D25
+   
