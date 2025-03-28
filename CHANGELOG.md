@@ -10,6 +10,11 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [Unreleased]	 &#8212; 	2025-03-28:
+### Added
+  - Implementação mescla de planilhas;
+  - Estudo sobre pandas.concat;
+
 ## [0.111.0]	 &#8212; 	2025-03-28:
 ### Fixed
   - Correções na execução CI/CD;
@@ -747,3 +752,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.109.5]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.4...0.109.5
 [0.110.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.5...0.110.0
 [0.111.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.110.0...0.111.0
+[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.111.0...Unreleased
