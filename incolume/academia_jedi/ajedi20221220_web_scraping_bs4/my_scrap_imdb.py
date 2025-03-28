@@ -9,7 +9,7 @@ import openpyxl
 import requests
 from bs4 import BeautifulSoup
 from config import settings
-from incolume.academia_jedi.ajedi20221220_web_scraping_bs4 import logger
+from incolume.academia_jedi import logger
 
 
 def scraping_ranking(

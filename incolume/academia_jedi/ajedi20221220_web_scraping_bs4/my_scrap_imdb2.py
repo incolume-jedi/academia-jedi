@@ -11,7 +11,7 @@ import openpyxl
 import requests
 from bs4 import BeautifulSoup
 from config import settings
-from incolume.academia_jedi.ajedi20221220_web_scraping_bs4 import logger
+from incolume.academia_jedi import logger
 
 if sys.version_info < (3, 11):
     from typing_extensions import Self
