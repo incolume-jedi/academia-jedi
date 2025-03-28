@@ -1,12 +1,13 @@
-# !/usr/bin/env python
+"""Estudos sobre dynaconf."""
 
-# ruff: noqa: A001 A002 ANN001 ANN002 ANN003 ANN201 ANN202 ANN204 ANN401 ARG001 ARG002 ASYNC101 B007 B008 B009 B011 B015 B904 B905 BLE001 C408 C419 C901 D100 D101 D102 D103 D104 D105 D107 D205 D402 D415 D419 DTZ001 DTZ003 DTZ005 DTZ007 E501 E741 EM101 EM102 ERA001 EXE005 F402 F403 F405 F601 F811 F821 F841 FBT001 FBT002 FBT003 FIX002 G001 G002 G004 N801 N802 N805 N806 N816 N999 NPY002 PD901 PERF203 PERF401 PERF402 PIE796 PLE1205 PLR0913 PLR1714 PLR2004 PLW0602 PLW0603 PLW2901 PT004 PT006 PT012 PT015 PTH118 PTH123 PYI024 PYI041 RET503 RET504 RUF001 RUF012 RUF013 S101 S113 S201 S301 S307 S310 S311 S602 S603 S605 S607 S608 SIM103 SIM109 SIM113 SIM115 SIM117 SLF001 SLOT000 T201 T203 TCH003 TD002 TD003 TD004 TRY002 TRY003 TRY300 TRY301 TRY401 W293
-from os import environ, getenv
+# ruff: noqa: S108 SIM112
+import os
 from typing import NoReturn
-from unittest import mock
 import pytest
-
 from incolume.academia_jedi.ajedi20220924_dynaconf.config import settings
+from tempfile import gettempdir
+from platform import platform
+from pathlib import Path
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -15,65 +16,125 @@ class TestCaseDynaconf:
     """Test case dynaconf."""
 
     @pytest.fixture(autouse=True)
-    def activate_envvar(self) -> None:
+    def _activate_envvar(self) -> None:
         """Configura variáveis de ambiente através do python."""
-        environ['INCOLUME_MODE'] = 'development'
-        environ['INCOLUME_AUTHOR'] = 'Ricardo Brito do Nascimento'
-        environ['INCOLUME_NAME'] = 'MyApp'
-        environ['INCOLUME_NUM'] = '42'
-        environ['INCOLUME_FLOAT'] = '4.2'
-        environ['INCOLUME_BOOL'] = 'true'
-        environ['INCOLUME_DICT'] = '{foo="bar", fuz="foo"}'
-        environ['INCOLUME_NUMBER'] = '@float 42'
-        environ['INCOLUME_NUMB'] = '@str 42'
-        environ['INCOLUME_PATH'] = '@format /tmp/xpto/{this.NAME}'
-        environ['INCOLUME_DATA'] = '@json {"key": "value"}'
-        environ['INCOLUME_DATA__newkey'] = 'new value'
+        os.environ['INCOLUME_MODE'] = 'development'
+        os.environ['INCOLUME_AUTHOR'] = 'Ricardo Brito do Nascimento'
+        os.environ['INCOLUME_NAME'] = 'MyApp'
+        os.environ['INCOLUME_NUM'] = '42'
+        os.environ['INCOLUME_FLOAT'] = '4.2'
+        os.environ['INCOLUME_BOOL'] = 'true'
+        os.environ['INCOLUME_DICT'] = '{foo="bar"}'
+        os.environ['INCOLUME_DICT__fuz'] = 'foo'
+        os.environ['INCOLUME_NUMBER'] = '@float 42'
+        os.environ['INCOLUME_NUMB'] = '@str 42'
+        os.environ['INCOLUME_TEMP'] = Path(
+            gettempdir(),
+            self.__class__.__name__,
+        ).as_posix()
+        os.environ['INCOLUME_PATH'] = '@format {this.temp}/xpto/{this.NAME}'
+        os.environ['INCOLUME_DATA'] = '@json {"key": "value"}'
+        os.environ['INCOLUME_DATA__newkey'] = 'new value'
+
+    def test_environ(self):
+        """Unittest."""
+        assert 'INCOLUME_MODE' in os.environ
+        assert os.environ['INCOLUME_MODE'] == 'development'
 
     def test_envvar(self) -> None:
         """Test envvar."""
-        assert getenv('INCOLUME_AUTHOR') == 'Ricardo Brito do Nascimento'
+        assert os.getenv('INCOLUME_AUTHOR') == 'Ricardo Brito do Nascimento'
 
     def test_check_mode(self) -> NoReturn:
         """Check dynaconf mode."""
-        assert environ.get('INCOLUME_MODE')
+        assert os.environ.get('INCOLUME_MODE')
 
     @pytest.mark.parametrize(
         'entrance',
         [
-            settings.MSG,
-            settings.msg,
-            settings.get('MSG'),
-            settings.get('msg'),
-            settings['MSG'],
-            settings['msg'],
+            'MSG',
+            'msg',
         ],
     )
     def test_development_msg(self, entrance) -> None:
         """Test msg default."""
-        assert entrance == 'Hello Dev'
+        env = os.environ.get('INCOLUME_MODE')
+        expected = 'Hello Dev'
+        assert getattr(settings.from_env(env), entrance) == expected
 
-    @pytest.mark.skip(reason='Need mock environment variable mode.')
-    def test_default_msg(self) -> None:
+    @pytest.mark.parametrize(
+        'entrance',
+        [
+            'MSG',
+            'msg',
+        ],
+    )
+    def test_development_msg_1(self, entrance) -> None:
+        """Test msg default."""
+        env = os.environ.get('INCOLUME_MODE')
+        expected = 'Hello Dev'
+        assert settings.from_env(env).get(entrance) == expected
+
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param(
+                'msg',
+                'Hello World',
+                marks=[],
+            ),
+            pytest.param('name', 'MyApp'),
+            pytest.param('num', 42),
+            pytest.param('float', 4.2),
+            pytest.param('dict', {'foo': 'bar', 'fuz': 'foo'}),
+            pytest.param('bool', True),
+            pytest.param('author', 'Ricardo Brito do Nascimento'),
+            pytest.param('NUMBER', 42.0),
+            pytest.param('NUMB', '42'),
+            pytest.param(
+                'temp',
+                Path(gettempdir(), 'TestCaseDynaconf').as_posix(),
+                marks=[
+                    pytest.mark.skipif(
+                        platform().startswith('win'),
+                        reason='This is test only for Unix-like.',
+                    ),
+                ],
+            ),
+            pytest.param(
+                'temp',
+                Path(
+                    gettempdir(),
+                    'TestCaseDynaconf',
+                ).as_posix(),
+            ),
+            pytest.param(
+                'PATH',
+                Path(
+                    gettempdir(),
+                    'TestCaseDynaconf',
+                    'xpto',
+                    'MyApp',
+                ).as_posix(),
+            ),
+            pytest.param('DATA', {'newkey': 'new value', 'key': 'value'}),
+            pytest.param('DATA__newkey', 'new value'),
+        ],
+    )
+    def test_env_default(self, entrance, expected) -> None:
         """Test this."""
-        with mock.patch.dict(environ, {'INCOLUME_MODE': 'default'}):
-            # environ['INCOLUME_MODE'] = 'default'
-            assert settings.msg == 'Hello World'
+        assert getattr(settings.from_env('default'), entrance) == expected
 
-    @pytest.mark.skip(reason='Need mock environment variable mode.')
-    def test_production_msg(self) -> None:
+    def test_env_production(self) -> None:
         """Test this."""
-        environ['INCOLUME_MODE'] = 'production'
-        assert settings.msg == 'Hello User'
+        assert settings.from_env('production').msg == 'Hello User'
 
-    @pytest.mark.skip(reason='Need mock environment variable mode.')
-    def test_testing_msg(self) -> None:
+    def test_env_testing(self) -> None:
         """Test this."""
-        environ['INCOLUME_MODE'] = 'testing'
-        assert settings.msg == 'Hello Tester'
+        assert settings.from_env('testing').msg == 'Hello Tester'
 
 
-#  export INCOLUME_APPLICATION=MyApp; python main.py; unset INCOLUME_APPLICATION
+# export INCOLUME_APPLICATION=MyApp; python main.py; unset INCOLUME_APPLICATION
 """
 $ export INCOLUME_NUM=42
 $ export INCOLUME_FLOAT=4.2

@@ -12,8 +12,33 @@ on:
   workflow_dispatch:
 env:
   AJEDII_MODE: testing
+  INCOLUME_MODE: testing
 
 jobs:
+  envvar-conf:
+    needs: []
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade poetry
+          poetry install
+
+      - name: show envvar config
+        run: |
+          echo $INCOLUME_MODE
+          echo $AJEDII_MODE
+          echo $AJEDII_DATEFMT
+
   test:
     needs: [linters]
     runs-on: ${{ matrix.os }}
