@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import logging
 from pathlib import Path
 from typing import Optional
 
@@ -10,6 +9,7 @@ import openpyxl
 import requests
 from bs4 import BeautifulSoup
 from config import settings
+from incolume.academia_jedi.ajedi20221220_web_scraping_bs4 import logger
 
 
 def scraping_ranking(
@@ -30,10 +30,10 @@ def scraping_ranking(
     """
     excel_output = Path(excel_output or 'my_IMDB_Movies_Ratings.xlsx')
     excel = openpyxl.Workbook()
-    logging.debug(excel.sheetnames)
+    logger.debug(excel.sheetnames)
     sheet = excel.active
     sheet.title = 'Top rate movies'
-    logging.debug(excel.sheetnames)
+    logger.debug(excel.sheetnames)
     sheet.append(
         columns_name
         or [
@@ -52,7 +52,7 @@ def scraping_ranking(
 
         soup = BeautifulSoup(req.content, 'html.parser')
         movies = soup.find('tbody', class_='lister-list').find_all('tr')
-        logging.debug('%s; %s', len(movies), movies)
+        logger.debug('%s; %s', len(movies), movies)
         for movie in movies:
             name = movie.find('td', class_='titleColumn').a.text
             rank = (
@@ -66,7 +66,7 @@ def scraping_ranking(
                 class_='ratingColumn imdbRating',
             ).strong.text
             poster = movie.find('td', class_='posterColumn').img['src']
-            logging.debug(
+            logger.debug(
                 '{ rank: %s, name: %s,year: %s, rating: %s, poster: %s}',
                 rank,
                 name,
@@ -76,7 +76,7 @@ def scraping_ranking(
             )
             sheet.append([rank, name, year, rating, poster])
     except requests.exceptions.HTTPError as e:
-        logging.exception(e.strerror)
+        logger.exception(e.strerror)
 
     excel.save(excel_output.as_posix())
     return excel_output.is_file()

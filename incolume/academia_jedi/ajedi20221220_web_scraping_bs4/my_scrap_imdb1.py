@@ -1,6 +1,5 @@
 """Module scrap imdb1."""
 
-import logging
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
@@ -9,6 +8,7 @@ import openpyxl
 import requests
 from bs4 import BeautifulSoup
 from config import settings
+from incolume.academia_jedi.ajedi20221220_web_scraping_bs4 import logger
 
 
 @dataclass
@@ -24,16 +24,16 @@ class Movie:
 
 def scraping_ranking1(
     url: str = '',
-    excel_output: (str, Path) = '',
+    excel_output: str | Path = '',
     columns_name: Optional[list] = None,
 ) -> bool:
     """Scraping ranking."""
     excel_output = Path(excel_output or 'my_IMDB_Movies_Ratings.xlsx')
     excel = openpyxl.Workbook()
-    logging.debug(excel.sheetnames)
+    logger.debug(excel.sheetnames)
     sheet = excel.active
     sheet.title = 'Top rate movies'
-    logging.debug(excel.sheetnames)
+    logger.debug(excel.sheetnames)
     sheet.append(
         columns_name
         or [
@@ -52,7 +52,7 @@ def scraping_ranking1(
 
         soup = BeautifulSoup(req.content, 'html.parser')
         movies = soup.find('tbody', class_='lister-list').find_all('tr')
-        logging.debug('%s; %s', len(movies), movies)
+        logger.debug('%s; %s', len(movies), movies)
         for movie in movies:
             obj = Movie(
                 rank=movie.find('td', class_='titleColumn')
@@ -68,14 +68,13 @@ def scraping_ranking1(
                 ).strong.text,
                 poster=movie.find('td', class_='posterColumn').img['src'],
             )
-            logging.debug(
+            logger.debug(
                 '{ rank: %s, name: %s,year: %s, rating: %s, poster: %s}',
                 *obj.__dict__.values(),
             )
             sheet.append(list(obj.__dict__.values()))
-    except requests.exceptions.HTTPError:
-        msg = 'Error HTTP.'
-        logging.exception(msg)
+    except requests.exceptions.HTTPError as e:
+        logger.exception(e.strerror)
 
     excel.save(excel_output.as_posix())
     return excel_output.is_file()

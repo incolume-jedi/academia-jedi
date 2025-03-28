@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import logging
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -12,6 +11,7 @@ import openpyxl
 import requests
 from bs4 import BeautifulSoup
 from config import settings
+from incolume.academia_jedi.ajedi20221220_web_scraping_bs4 import logger
 
 if sys.version_info < (3, 11):
     from typing_extensions import Self
@@ -64,7 +64,7 @@ class ScrapingIMDB:
             self.req.raise_for_status()
         except requests.exceptions.HTTPError:
             msg = 'Erro HTTP.'
-            logging.exception(msg)
+            logger.exception(msg)
         return self
 
     def get_soup(self):
@@ -96,12 +96,12 @@ class ScrapingIMDB:
                 ).strong.text,
                 poster=movie.find('td', class_='posterColumn').img['src'],
             )
-            logging.debug(
+            logger.debug(
                 '{ rank: %s, name: %s,year: %s, rating: %s, poster: %s}',
                 *obj.__dict__.values(),
             )
             self.movies.append(obj)
-        logging.debug('Quantidade encontrada: %s', len(self.movies))
+        logger.debug('Quantidade encontrada: %s', len(self.movies))
         return self
 
     def save_excel(
@@ -117,11 +117,11 @@ class ScrapingIMDB:
                 columns_name = []
             excel_output = Path(excel_output or self.excel_output)
             excel = openpyxl.Workbook()
-            logging.debug(excel.sheetnames)
+            logger.debug(excel.sheetnames)
 
             sheet = excel.active
             sheet.title = kwargs.get('sheet_title') or self.sheet_title
-            logging.debug(excel.sheetnames)
+            logger.debug(excel.sheetnames)
 
             sheet.append(columns_name or self.columns_name)
             [
