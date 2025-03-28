@@ -115,7 +115,7 @@ def massa_teste(dout: Path, filenames: None | list[str | Path] = None) -> Path:
             for _ in range(5)
             for ext in extensions
         )
-        [dout.joinpath(str(file)).touch() for file in file_names]
+    [dout.joinpath(str(file)).touch() for file in file_names]
     ic(list(dout.iterdir()))
     return dout
 
@@ -130,7 +130,7 @@ class TestOrganizer:
     def setup(cls):
         """Setup class."""
         cls.base_dir.mkdir(exist_ok=True)
-        massa_teste(cls.path_test)
+        massa_teste(dout=cls.path_test, filenames=file_names)
 
     @classmethod
     def teardown_class(cls):
