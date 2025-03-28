@@ -63,15 +63,15 @@ class TestLocadoraAsimov:
         [
             (
                 carros,
-                '[0] Tracker (Chevrolet) - R$ 120 /dia.\n'
-                '[1] Onix (Chevrolet) - R$ 90 /dia.\n'
-                '[2] Spin (Chevrolet) - R$ 150 /dia.\n'
-                '[3] HB20 (Hyundai) - R$ 85 /dia.\n'
-                '[4] HB20S (Hyundai) - R$ 110 /dia.\n'
-                '[5] Tucson (Hyundai) - R$ 120 /dia.\n'
-                '[6] Uno (Fiat) - R$ 60 /dia.\n'
-                '[7] Mobi (Fiat) - R$ 70 /dia.\n'
-                '[8] Pulse (Fiat) - R$ 130 /dia.\n\n',
+                '[0] Tracker (Chevrolet) - R$ 120 /dia. \n'
+                '[1] Onix (Chevrolet) - R$ 90 /dia. \n'
+                '[2] Spin (Chevrolet) - R$ 150 /dia. \n'
+                '[3] HB20 (Hyundai) - R$ 85 /dia. \n'
+                '[4] HB20S (Hyundai) - R$ 110 /dia. \n'
+                '[5] Tucson (Hyundai) - R$ 120 /dia. \n'
+                '[6] Uno (Fiat) - R$ 60 /dia. \n'
+                '[7] Mobi (Fiat) - R$ 70 /dia. \n'
+                '[8] Pulse (Fiat) - R$ 130 /dia. \n\n',
             ),
         ],
     )
@@ -95,7 +95,7 @@ class TestLocadoraAsimov:
                     'ls_alugados': [],
                 },
                 ['0', '10', 's'],
-                '[0] Xavante XT (Gurgel) - R$ 30.5 /dia.\n\n'
+                '[0] Xavante XT (Gurgel) - R$ 30.5 /dia. \n\n'
                 '==========\n'
                 'Você escolheu Gurgel/Xavante XT por 10 dias.\n'
                 'Valor total da reserva R$ 305.00\n\n'
@@ -108,7 +108,7 @@ class TestLocadoraAsimov:
                     'ls_alugados': [],
                 },
                 ['0', '10', 'n'],
-                '[0] Xavante XT (Gurgel) - R$ 30.5 /dia.\n\n'
+                '[0] Xavante XT (Gurgel) - R$ 30.5 /dia. \n\n'
                 '==========\n'
                 'Você escolheu Gurgel/Xavante XT por 10 dias.\n'
                 'Valor total da reserva R$ 305.00\n\n'
@@ -123,8 +123,8 @@ class TestLocadoraAsimov:
                     'ls_alugados': [],
                 },
                 [2, 2, '1', '1', 's'],
-                '[0] Xavante XT (Gurgel) - R$ 30.5 /dia.\n'
-                '[1] BR-800 (Gurgel) - R$ 17.5 /dia.\n\n'
+                '[0] Xavante XT (Gurgel) - R$ 30.5 /dia. \n'
+                '[1] BR-800 (Gurgel) - R$ 17.5 /dia. \n\n'
                 '==========\n'
                 'Você escolheu Gurgel/BR-800 por 1 dias.\n'
                 'Valor total da reserva R$ 17.50\n\n'
@@ -171,7 +171,7 @@ class TestLocadoraAsimov:
                 },
                 ['9', '0', 's'],
                 'Segue a listagem dos veiculos para devolução.\n'
-                '[0] BR-800 (Gurgel) - R$ 17.5 /dia.\n\n'
+                '[0] BR-800 (Gurgel) - R$ 17.5 /dia. \n\n'
                 'Gurgel/BR-800(1995) Devolvido com sucesso!\n',
             ),
         ],
