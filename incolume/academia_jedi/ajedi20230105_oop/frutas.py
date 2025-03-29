@@ -1,6 +1,6 @@
 """Modulo de heraça."""
 
-import interface
+from incolume.academia_jedi.ajedi20230105_oop import interface
 
 
 class Manga(interface.Fruta):

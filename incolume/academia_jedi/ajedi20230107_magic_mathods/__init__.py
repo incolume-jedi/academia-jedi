@@ -3,8 +3,11 @@
 # ruff: noqa: S311 T201
 from random import random, seed
 
-from currency import NC, Currency
-from real import Real
+from incolume.academia_jedi.ajedi20230107_magic_mathods.currency import (
+    NC,
+    Currency,
+)
+from incolume.academia_jedi.ajedi20230107_magic_mathods.real import Real
 
 __author__ = '@britodfbr'  # pragma: no cover
 
