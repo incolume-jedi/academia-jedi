@@ -30,7 +30,10 @@ class TestCase:
         """Teardown class."""
         shutil.rmtree(cls.output_dir, ignore_errors=True)
 
-    @pytest.mark.skipif(condition=platform().casefold()[:3]=='win',reason='Does not run on MS-Windows.')
+    @pytest.mark.skipif(
+        condition=platform().casefold()[:3] == 'win',
+        reason='Does not run on MS-Windows.',
+    )
     @pytest.mark.xfail(raises=requests.exceptions.ReadTimeout)
     def test_0(self) -> NoReturn:
         """Unittest."""
@@ -38,7 +41,10 @@ class TestCase:
         my_scrap_imdb.scraping_ranking(excel_output=fileoutput)
         assert fileoutput.is_file()
 
-    @pytest.mark.skipif(condition=platform().casefold()[:3]=='win',reason='Does not run on MS-Windows.')
+    @pytest.mark.skipif(
+        condition=platform().casefold()[:3] == 'win',
+        reason='Does not run on MS-Windows.',
+    )
     @pytest.mark.xfail(
         raises=requests.exceptions.ReadTimeout,
         reason='Timeout connection',
@@ -49,7 +55,10 @@ class TestCase:
         my_scrap_imdb1.scraping_ranking1(excel_output=fileoutput)
         assert fileoutput.is_file()
 
-    @pytest.mark.skipif(condition=platform().casefold()[:3]=='win',reason='Does not run on MS-Windows.')
+    @pytest.mark.skipif(
+        condition=platform().casefold()[:3] == 'win',
+        reason='Does not run on MS-Windows.',
+    )
     @pytest.mark.xfail(
         raises=requests.exceptions.ReadTimeout,
         reason='Timeout connection',
@@ -63,7 +72,10 @@ class TestCase:
         )
         assert fileoutput.is_file()
 
-    @pytest.mark.skipif(condition=platform().casefold()[:3]=='win',reason='Does not run on MS-Windows.')
+    @pytest.mark.skipif(
+        condition=platform().casefold()[:3] == 'win',
+        reason='Does not run on MS-Windows.',
+    )
     @pytest.mark.xfail(
         raises=requests.exceptions.ReadTimeout,
         reason='Timeout connection',
@@ -74,7 +86,10 @@ class TestCase:
         my_scrap_imdb2.ScrapingIMDB().scraping(excel_output=fileoutput)
         assert fileoutput.is_file()
 
-    @pytest.mark.skipif(condition=platform().casefold()[:3]=='win',reason='Does not run on MS-Windows.')
+    @pytest.mark.skipif(
+        condition=platform().casefold()[:3] == 'win',
+        reason='Does not run on MS-Windows.',
+    )
     @pytest.mark.xfail(
         raises=requests.exceptions.ReadTimeout,
         reason='Timeout connection',
@@ -85,7 +100,10 @@ class TestCase:
             excel_output=Path(gettempdir()) / 'abc.xlsx',
         )
 
-    @pytest.mark.skipif(condition=platform().casefold()[:3]=='win',reason='Does not run on MS-Windows.')
+    @pytest.mark.skipif(
+        condition=platform().casefold()[:3] == 'win',
+        reason='Does not run on MS-Windows.',
+    )
     @pytest.mark.xfail(
         raises=requests.exceptions.ReadTimeout,
         reason='Timeout connection',
@@ -96,7 +114,10 @@ class TestCase:
             excel_output=Path(gettempdir()) / 'bcd.xlsx',
         )
 
-    @pytest.mark.skipif(condition=platform().casefold()[:3]=='win',reason='Does not run on MS-Windows.')
+    @pytest.mark.skipif(
+        condition=platform().casefold()[:3] == 'win',
+        reason='Does not run on MS-Windows.',
+    )
     @pytest.mark.xfail(
         raises=requests.exceptions.ReadTimeout,
         reason='Timeout connection',
@@ -105,7 +126,10 @@ class TestCase:
         """Unittest."""
         assert my_scrap_imdb2.ScrapingIMDB().scraping(excel_output='a1b2.xlsx')
 
-    @pytest.mark.skipif(condition=platform().casefold()[:3]=='win',reason='Does not run on MS-Windows.')
+    @pytest.mark.skipif(
+        condition=platform().casefold()[:3] == 'win',
+        reason='Does not run on MS-Windows.',
+    )
     @pytest.mark.xfail(
         raises=requests.exceptions.ReadTimeout,
         reason='Timeout connection',
