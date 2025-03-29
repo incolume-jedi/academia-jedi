@@ -17,6 +17,7 @@ logging.basicConfig(
     datefmt=settings.datefmt,
 )
 
+logger = logging.getLogger(__name__)
 
 version_file = Path(__file__).parent / 'version.txt'
 project_file = Path(__file__).parents[2] / 'pyproject.toml'
