@@ -4,20 +4,33 @@ import ast
 import logging
 import shutil
 from pathlib import Path
+from tempfile import gettempdir
+
+from icecream import ic
 
 filezip_sample = (
     Path(__file__).parents[3].joinpath('data_files', 'zip', 'sample.zip')
 )
+ic(filezip_sample)
 filezip_sample_pwd = (
+    Path(__file__).parents[3].joinpath('data_files', 'zip', 'sample_pwd.zip')
+)
+ic(filezip_sample_pwd)
+filezip_sample_pwd1 = (
     Path(__file__)
     .parents[3]
     .joinpath('data_files', 'zip', 'sample_file_pwd.zip')
 )
-filezip_sample_pwd1 = (
+ic(filezip_sample_pwd1)
+filezip_sample_pwd2 = (
     Path(__file__)
     .parents[3]
     .joinpath('data_files', 'zip', 'sample_file_pwd1.zip')
 )
+ic(filezip_sample_pwd2)
+base_dir = Path(gettempdir(), Path(__file__).parts[-2])
+base_dir.mkdir(exist_ok=True, parents=True)
+ic(base_dir)
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -49,17 +62,17 @@ def clean_workdir():
 
 def run():
     """Run it."""
-    functions = [
-        getattr(ast.literal_eval(f'realpython{x:02}'), 'run')
-        for x in range(1, 34)
-    ]
-    for func in functions:
-        logging.debug(func.__name__)
-        try:
-            func()
-        except (FileNotFoundError, ImportError) as e:
-            logging.exception(e.strerror)
-    clean_workdir()
+    # functions = [
+    #     getattr(ast.literal_eval(f'realpython{x:02}'), 'run')
+    #     for x in range(1, 34)
+    # ]
+    # for func in functions:
+    #     logging.debug(func.__name__)
+    #     try:
+    #         func()
+    #     except (FileNotFoundError, ImportError) as e:
+    #         logging.exception(e.strerror)
+    # clean_workdir()
 
 
 if __name__ == '__main__':

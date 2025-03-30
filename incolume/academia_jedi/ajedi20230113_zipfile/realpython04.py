@@ -2,9 +2,10 @@
 
 import zipfile
 from pathlib import Path
-from tempfile import gettempdir
 
-hello = Path(gettempdir(), 'hello.txt')
+from incolume.academia_jedi.ajedi20230113_zipfile import base_dir
+
+hello = Path(base_dir, 'hello.txt')
 hello.write_text('hello')
 
 

@@ -1,15 +1,17 @@
 """Module."""
 
 import zipfile
-from pathlib import Path
 
-from incolume.academia_jedi.ajedi20230113_zipfile import filezip_sample
+from incolume.academia_jedi.ajedi20230113_zipfile import (
+    base_dir,
+    filezip_sample,
+)
 
 # ruff:noqa: T201
 
 zipnames = (
     filezip_sample,
-    Path(__file__).resolve().parent / 'bad_sample.zip',
+    base_dir / 'bad_sample.zip',
 )
 
 
