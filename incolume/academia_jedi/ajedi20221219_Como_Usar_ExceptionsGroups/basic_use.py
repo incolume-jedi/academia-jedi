@@ -2,11 +2,12 @@
 
 # ruff:noqa: T201
 
+import contextlib
 import sys
-from platform import python_version
 
-if python_version() < '3.11.0':
-    sys.exit('This application need Python 3.11+')
+if sys.version_info < (3, 11):
+    with contextlib.suppress(SystemExit):
+        sys.exit('This application need Python 3.11+')
 
 
 def create_eg():

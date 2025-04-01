@@ -9,7 +9,7 @@ if sys.version_info < (3, 10):
     import pwinput
 else:
     with contextlib.suppress(SystemExit):
-        sys.exit()
+        sys.exit('This application need Python 3.10+')
 
 
 def get_pwd(msg: str = '') -> str:

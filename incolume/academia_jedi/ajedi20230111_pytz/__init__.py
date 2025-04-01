@@ -3,11 +3,14 @@
 import datetime as dt
 
 import pytz
+from config import settings
+
+# ruff: noqa: T201
 
 
 def ex01():
     """Exemplo 1."""
-    data = dt.datetime.now()
+    data = dt.datetime.now(tz=pytz.timezone(settings.timezone))
     print(pytz.timezone('America/Sao_Paulo').localize(data))
 
 
