@@ -10,13 +10,16 @@ from config import settings
 
 def ex01():
     """Exemplo 1."""
-    data = dt.datetime.now(tz=pytz.timezone(settings.timezone))
+    data = dt.datetime.now()
     print(pytz.timezone('America/Sao_Paulo').localize(data))
 
 
 def ex02():
     """Exemplo 2."""
-    data = dt.datetime.strptime('15/6/2021 23:42:21', '%d/%m/%Y %H:%M:%S')
+    data = dt.datetime.strptime(
+        '15/6/2021 23:42:21',
+        '%d/%m/%Y %H:%M:%S',
+    )
     print(pytz.timezone('America/Sao_Paulo').localize(data))
 
 
@@ -42,13 +45,16 @@ def ex04():
 
 def ex05():
     """Exemplo 5."""
-    data = dt.datetime.strptime('15/6/2021 23:42:21', '%d/%m/%Y %H:%M:%S')
+    data = dt.datetime.strptime(
+        '15/6/2021 23:42:21',
+        '%d/%m/%Y %H:%M:%S',
+    )
     print(pytz.timezone('America/Sao_Paulo').localize(data).isoformat())
 
 
 def ex06():
     """Exemplo 5."""
-    utc_now = pytz.utc.localize(dt.datetime.utcnow())
+    utc_now = pytz.utc.localize(dt.datetime.now())
     pst_now = utc_now.astimezone(pytz.timezone('America/Los_Angeles'))
 
     print(
@@ -60,7 +66,10 @@ def ex06():
         pst_now.isoformat(),
         '>',
     )
-
+def ex07():
+    """Exemplo 5."""
+    now = pytz.utc.localize(dt.datetime.now()).astimezone()
+    print(now)
 
 def run():
     """Run it."""
@@ -70,6 +79,7 @@ def run():
     ex04()
     ex05()
     ex06()
+    ex07()
 
 
 if __name__ == '__main__':

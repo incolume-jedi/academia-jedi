@@ -4,15 +4,16 @@
 import asyncio
 import contextlib
 import sys
+from pathlib import Path
 
 if sys.version_info < (3, 11):
     with contextlib.suppress(SystemExit):
         sys.exit('This application need Python 3.11+')
 
 
-async def read_file(filename: str):
+async def read_file(filename: str | Path) -> str:
     """Async read file."""
-    with open(filename) as f:
+    with Path(filename).open() as f:
         data: str = f.read()
     return data
 
@@ -25,7 +26,7 @@ async def fetch_data(data: int) -> dict:
     return {'data': data}
 
 
-async def main():
+async def main() -> None:
     """Main async."""
     try:
         async with asyncio.TaskGroup() as tg:
