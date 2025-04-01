@@ -1,23 +1,16 @@
 """Module."""
 
 import io
-import logging
 import zipfile
 
-from incolume.academia_jedi.ajedi20230113_zipfile import filezip_sample
+from incolume.academia_jedi.ajedi20230113_zipfile import filezip_sample, logger
 
 # ruff: noqa: T201
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s;%(levelname)-8s;%(name)s;'
-    '%(module)s;%(funcName)s;%(message)s',
-)
 
 
 def run():
     """Run it."""
-    logging.debug(filezip_sample.parts)
+    logger.debug(filezip_sample.parts)
 
     with (
         zipfile.ZipFile(filezip_sample, mode='r') as archive,

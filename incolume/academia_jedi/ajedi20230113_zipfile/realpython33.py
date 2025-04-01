@@ -1,18 +1,13 @@
 """Module."""
 
 # ruff:noqa: T201
-import logging
 import subprocess
 from pathlib import Path
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s;%(levelname)-8s;%(name)s;'
-    '%(module)s;%(funcName)s;%(message)s',
-)
+from incolume.academia_jedi.ajedi20230113_zipfile import logger
 
 root = Path(__file__).parent
-logging.debug(root)
+logger.debug(root)
 
 
 def run():

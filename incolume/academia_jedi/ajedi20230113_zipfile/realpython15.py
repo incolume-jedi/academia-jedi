@@ -1,7 +1,6 @@
 """Module."""
 
 import datetime as dt
-import logging
 import re
 import zipfile
 from pathlib import Path
@@ -11,25 +10,21 @@ from icecream import ic
 from incolume.academia_jedi.ajedi20230113_zipfile import (
     base_dir,
     filezip_sample,
+    logger,
 )
 from pytz import timezone
 
 # ruff: noqa: T201
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s;%(levelname)-8s;%(name)s;'
-    '%(module)s;%(funcName)s;%(message)s',
-)
 file_test: Path = Path(base_dir, Path(__file__).stem).with_suffix('.zip')
 file_test.write_bytes(filezip_sample.read_bytes())
 ic(file_test)
 
-filename = f'new_hello_{
-    re.sub(
-        r'[:\.]', '-', dt.datetime.now(tz=timezone(settings.tz)).isoformat()
-    )
-}.txt'
+timestamp: dt.datetime = dt.datetime.now(tz=timezone(settings.tz))
+
+filename = 'new_hello_{}.txt'.format(
+    re.sub(r'[:\.]', '-', timestamp.isoformat()),
+)
 ic(filename)
 
 
@@ -38,7 +33,7 @@ def run():
 
     Acrescenado  arquivos os container zip.
     """
-    logging.debug(file_test.parts)
+    logger.debug(file_test.parts)
 
     with (
         zipfile.ZipFile(file_test, mode='a') as archive,
@@ -46,9 +41,7 @@ def run():
     ):
         new_hello.write(
             bytes(
-                f'Hello, World! (in {
-                    dt.datetime.now(tz=timezone(settings.tz))
-                })',
+                f'Hello, World! (in {timestamp})',
                 encoding='utf-8',
             ),
         )

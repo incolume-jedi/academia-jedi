@@ -3,7 +3,7 @@
 import zipfile
 from pathlib import Path
 
-from incolume.academia_jedi.ajedi20230113_zipfile import base_dir
+from incolume.academia_jedi.ajedi20230113_zipfile import base_dir, outputdir
 
 hello = Path(base_dir, 'hello.txt')
 hello.write_text('hello')
@@ -11,7 +11,7 @@ hello.write_text('hello')
 
 def tratativa(filename: Path) -> Path:
     """Estudo com zipfile."""
-    fout: Path = filename.with_suffix('.zip')
+    fout: Path = outputdir / filename.with_suffix('.zip').name
     with zipfile.ZipFile(fout, mode='w') as archive:
         archive.write(filename)
     return fout

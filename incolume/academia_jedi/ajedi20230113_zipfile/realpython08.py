@@ -15,13 +15,11 @@ def run():
     with zipfile.ZipFile(filezip_sample, mode='r') as archive:
         for info in archive.infolist():
             print(f'Filename: {info.filename}')
-            print(
-                f'Modified: {
-                    datetime.datetime(
-                        *info.date_time, tzinfo=timezone(settings.tz)
-                    )
-                }',
+            timestamp = datetime.datetime(
+                *info.date_time,
+                tzinfo=timezone(settings.tz),
             )
+            print(f'Modified: {timestamp}')
             print(f'Normal size: {info.file_size} bytes')
             print(f'Compressed size: {info.compress_size} bytes')
             print('-' * 20)

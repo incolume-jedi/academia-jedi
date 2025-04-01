@@ -1,25 +1,19 @@
 """Module."""
 
-import logging
 import zipfile
 from pprint import pprint
 
-from incolume.academia_jedi.ajedi20230113_zipfile import (
-    filezip_sample,
-)
+from incolume.academia_jedi.ajedi20230113_zipfile import filezip_sample, logger
 
 # ruff:noqa:T203
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s;%(levelname)-8s;%(name)s;'
-    '%(module)s;%(funcName)s;%(message)s',
-)
 
 
 def run():
     """Run it."""
     files = zipfile.Path(filezip_sample)
-    pprint(list(files.iterdir()))
+    result = list(files.iterdir())
+    logger.info(result)
+    pprint(result)
 
 
 if __name__ == '__main__':

@@ -3,7 +3,7 @@
 import zipfile
 from pathlib import Path
 
-from incolume.academia_jedi.ajedi20230113_zipfile import base_dir
+from incolume.academia_jedi.ajedi20230113_zipfile import base_dir, outputdir
 
 # ruff: noqa: T201
 
@@ -14,7 +14,7 @@ hello.with_stem('new_hello').write_text('hello again.')
 
 def run():
     """Run it."""
-    with zipfile.ZipFile(hello.parent / 'hello.zip', mode='r') as archive:
+    with zipfile.ZipFile(outputdir / 'hello.zip', mode='r') as archive:
         print(archive.infolist())
         print(archive.namelist())
         print(hello.parent)
