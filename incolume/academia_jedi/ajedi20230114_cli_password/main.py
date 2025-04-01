@@ -1,8 +1,15 @@
 """Estudos com pwinput e ofuscação de senhas."""
 
-import pwinput
+# ruff: noqa: UP036 T201
 
-# ruff: noqa: T201
+import contextlib
+import sys
+
+if sys.version_info < (3, 10):
+    import pwinput
+else:
+    with contextlib.suppress(SystemExit):
+        sys.exit()
 
 
 def get_pwd(msg: str = '') -> str:
