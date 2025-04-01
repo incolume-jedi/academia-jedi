@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff:noqa: T201
+# ruff:noqa: T201 S603
 import subprocess
 from pathlib import Path
 
@@ -13,17 +13,17 @@ logger.debug(root)
 def run():
     """Run it."""
     p = subprocess.Popen(
-        'poetry run python -m zipfile --list sample.zip',
+        'poetry run python -m zipfile --list sample.zip'.split(),
         stdout=subprocess.PIPE,
-        shell=True,
     )
 
     print(p.communicate())
 
+    fzip: Path = root / 'source_dir.zip'
+    dout: Path = root / 'output_dir/'
+
     with subprocess.Popen(
-        [
-            f"poetry run python -m zipfile -c {root / 'source_dir.zip'} {root / 'output_dir/'}",
-        ],
+        f'poetry run python -m zipfile -c {fzip} {dout}'.split(),
         stdout=subprocess.PIPE,
     ) as proc:
         print(proc.stdout.read())
