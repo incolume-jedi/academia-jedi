@@ -66,10 +66,13 @@ def ex06():
         pst_now.isoformat(),
         '>',
     )
+
+
 def ex07():
     """Exemplo 5."""
     now = pytz.utc.localize(dt.datetime.now()).astimezone()
     print(now)
+
 
 def run():
     """Run it."""
