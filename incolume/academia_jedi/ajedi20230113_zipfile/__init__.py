@@ -6,39 +6,52 @@ import shutil
 from pathlib import Path
 from tempfile import gettempdir
 
+from config import settings
 from icecream import ic
 
-filezip_sample = (
-    Path(__file__).parents[3].joinpath('data_files', 'zip', 'sample.zip')
-)
-ic(filezip_sample)
-filezip_sample_pwd = (
-    Path(__file__).parents[3].joinpath('data_files', 'zip', 'sample_pwd.zip')
-)
-ic(filezip_sample_pwd)
-filezip_sample_pwd1 = (
-    Path(__file__)
-    .parents[3]
-    .joinpath('data_files', 'zip', 'sample_file_pwd.zip')
-)
-ic(filezip_sample_pwd1)
-filezip_sample_pwd2 = (
-    Path(__file__)
-    .parents[3]
-    .joinpath('data_files', 'zip', 'sample_file_pwd1.zip')
-)
-ic(filezip_sample_pwd2)
-base_dir = Path(gettempdir(), Path(__file__).parts[-2])
-base_dir.mkdir(exist_ok=True, parents=True)
-ic(base_dir)
+logger = logging.getLogger(__name__)
 
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s;%(levelname)-8s;%(name)s;'
     '%(module)s;%(funcName)s;%(message)s',
+    datefmt=settings.datefmt,
 )
+
+
+filezip_sample = (
+    Path(__file__).parents[3].joinpath('data_files', 'zip', 'sample.zip')
+)
+logger.info(ic(filezip_sample))
+
+filezip_sample_pwd = (
+    Path(__file__).parents[3].joinpath('data_files', 'zip', 'sample_pwd.zip')
+)
+logger.info(ic(filezip_sample_pwd))
+
+filezip_sample_pwd1 = (
+    Path(__file__)
+    .parents[3]
+    .joinpath('data_files', 'zip', 'sample_file_pwd.zip')
+)
+logger.info(ic(filezip_sample_pwd1))
+
+filezip_sample_pwd2 = (
+    Path(__file__)
+    .parents[3]
+    .joinpath('data_files', 'zip', 'sample_file_pwd1.zip')
+)
+logger.info(ic(filezip_sample_pwd2))
+
+base_dir = Path(gettempdir(), Path(__file__).parts[-2])
+base_dir.mkdir(exist_ok=True, parents=True)
+logger.info(ic(base_dir))
+
 root = Path(__file__).parent
-logging.debug(root)
+logger.info(ic(root))
+
+outputdir = Path(__file__).parent / 'python-zipfile'
+logger.info(ic('%s %s', outputdir, outputdir.exists()))
 
 
 def clean_workdir():

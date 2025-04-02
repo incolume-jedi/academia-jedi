@@ -1,20 +1,14 @@
 """Module."""
 
-import logging
 import zipfile
 from pathlib import Path
 
 from icecream import ic
-from incolume.academia_jedi.ajedi20230113_zipfile import base_dir
+from incolume.academia_jedi.ajedi20230113_zipfile import base_dir, logger
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s;%(levelname)-8s;%(name)s;'
-    '%(module)s;%(funcName)s;%(message)s',
-)
 root = base_dir / 'root_dir'
 root.mkdir(exist_ok=True, parents=True)
-logging.debug(ic('%s %s', root, root.exists()))
+logger.debug(ic('%s %s', root, root.exists()))
 
 hello = base_dir.joinpath(
     'root_dir',
@@ -22,7 +16,7 @@ hello = base_dir.joinpath(
     f'{Path(__file__).stem}.zip',
 )
 hello.parent.mkdir(parents=True, exist_ok=True)
-logging.debug(ic(hello))
+logger.debug(ic(hello))
 
 
 def run():

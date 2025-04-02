@@ -1,34 +1,29 @@
 """Module."""
 
-# ruff:noqa: T201
-import logging
+# ruff:noqa: T201 S603
 import subprocess
 from pathlib import Path
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s;%(levelname)-8s;%(name)s;'
-    '%(module)s;%(funcName)s;%(message)s',
-)
+from incolume.academia_jedi.ajedi20230113_zipfile import logger
 
 root = Path(__file__).parent
-logging.debug(root)
+logger.debug(root)
 
 
 def run():
     """Run it."""
     p = subprocess.Popen(
-        'poetry run python -m zipfile --list sample.zip',
+        'poetry run python -m zipfile --list sample.zip'.split(),
         stdout=subprocess.PIPE,
-        shell=True,
     )
 
     print(p.communicate())
 
+    fzip: Path = root / 'source_dir.zip'
+    dout: Path = root / 'output_dir/'
+
     with subprocess.Popen(
-        [
-            f"poetry run python -m zipfile -c {root / 'source_dir.zip'} {root / 'output_dir/'}",
-        ],
+        f'poetry run python -m zipfile -c {fzip} {dout}'.split(),
         stdout=subprocess.PIPE,
     ) as proc:
         print(proc.stdout.read())

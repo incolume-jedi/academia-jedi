@@ -1,16 +1,15 @@
 """Exemplo realpython."""
 
-import logging
 import zipfile
 from pathlib import Path
 
-from incolume.academia_jedi.ajedi20230113_zipfile import filezip_sample
+from incolume.academia_jedi.ajedi20230113_zipfile import filezip_sample, logger
 
 # ruff:noqa: T201
 
 zipnames = (
     filezip_sample,
-    Path(__file__).resolve().parent / 'realpython02.py',
+    Path(__file__).parent / 'realpython02.py',
 )
 
 
@@ -21,10 +20,10 @@ def tratativa1(zipname):
         with zipfile.ZipFile(zipname) as archive:
             archive.printdir()
     except zipfile.BadZipFile:
-        logging.exception('Falha no arquivo zip')
+        logger.exception('Falha no arquivo zip')
         raise
     except FileNotFoundError as e:
-        logging.exception(e.strerror)
+        logger.exception(e.strerror)
         raise
 
 

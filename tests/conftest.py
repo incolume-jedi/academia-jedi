@@ -33,7 +33,9 @@ if version_info < (3, 9, 0):
 
 if version_info < (3, 10, 0):
     logging.info(ic('Does not run on python below 3.10'))
-    files = []
+    files = [
+        'incolume\academia_jedi\ajedi20230114_cli_password\\main.py',
+    ]
     files.extend(
         Path('incolume/academia_jedi/ajedi20240408_dundler_methods/').rglob(
             '*test*.py',

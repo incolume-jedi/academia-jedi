@@ -3,6 +3,9 @@
 import datetime as dt
 
 import pytz
+from config import settings
+
+# ruff: noqa: T201
 
 
 def ex01():
@@ -13,7 +16,10 @@ def ex01():
 
 def ex02():
     """Exemplo 2."""
-    data = dt.datetime.strptime('15/6/2021 23:42:21', '%d/%m/%Y %H:%M:%S')
+    data = dt.datetime.strptime(
+        '15/6/2021 23:42:21',
+        '%d/%m/%Y %H:%M:%S',
+    )
     print(pytz.timezone('America/Sao_Paulo').localize(data))
 
 
@@ -39,13 +45,16 @@ def ex04():
 
 def ex05():
     """Exemplo 5."""
-    data = dt.datetime.strptime('15/6/2021 23:42:21', '%d/%m/%Y %H:%M:%S')
+    data = dt.datetime.strptime(
+        '15/6/2021 23:42:21',
+        '%d/%m/%Y %H:%M:%S',
+    )
     print(pytz.timezone('America/Sao_Paulo').localize(data).isoformat())
 
 
 def ex06():
     """Exemplo 5."""
-    utc_now = pytz.utc.localize(dt.datetime.utcnow())
+    utc_now = pytz.utc.localize(dt.datetime.now())
     pst_now = utc_now.astimezone(pytz.timezone('America/Los_Angeles'))
 
     print(
@@ -59,6 +68,12 @@ def ex06():
     )
 
 
+def ex07():
+    """Exemplo 5."""
+    now = pytz.utc.localize(dt.datetime.now()).astimezone()
+    print(now)
+
+
 def run():
     """Run it."""
     ex01()
@@ -67,6 +82,7 @@ def run():
     ex04()
     ex05()
     ex06()
+    ex07()
 
 
 if __name__ == '__main__':
