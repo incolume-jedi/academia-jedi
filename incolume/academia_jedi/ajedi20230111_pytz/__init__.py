@@ -69,8 +69,14 @@ def ex06():
 
 
 def ex07():
-    """Exemplo 5."""
+    """Exemplo 7."""
     now = pytz.utc.localize(dt.datetime.now()).astimezone()
+    print(now)
+
+
+def ex08():
+    """Exemplo 8."""
+    now = dt.datetime.now(tz=pytz.timezone(settings.tz))
     print(now)
 
 
@@ -83,6 +89,7 @@ def run():
     ex05()
     ex06()
     ex07()
+    ex08()
 
 
 if __name__ == '__main__':

@@ -6,7 +6,7 @@ import logging
 
 import fitz  # pyMuPDF
 import PyPDF2
-from variaveis import file
+from incolume.academia_jedi.ajedi20230119_pdf.variaveis import file
 
 
 def ex01():
