@@ -2,6 +2,7 @@
 
 import logging
 from pathlib import Path
+from platform import platform
 from typing import NoReturn
 
 import pytest
@@ -9,8 +10,7 @@ from incolume.academia_jedi.ajedi20230113_zipfile import (
     filezip_sample,
     filezip_sample_pwd1,
     filezip_sample_pwd2,
-)
-from incolume.academia_jedi.ajedi20230113_zipfile import (
+    logger,
     realpython01,
     realpython02,
     realpython03,
@@ -23,6 +23,10 @@ from tempfile import NamedTemporaryFile, gettempdir
 # ruff: noqa: PLR0913
 class TestCase:
     """Test case."""
+
+    def test_logger_name(self) -> None:
+        """Test logger."""
+        assert logger.name == 'incolume.academia_jedi.ajedi20230113_zipfile'
 
     @pytest.mark.parametrize(
         'entrance expected'.split(),
@@ -93,6 +97,13 @@ class TestCase:
                     'hello.txt                                      '
                     '2023-01-13 09:52:10            5\n'
                 ),
+                marks=[
+                    pytest.mark.skipif(
+                        platform().casefold()[:3] == 'win',
+                        reason='ValueError: Invalid format'
+                        ' string into datefmt=%FT%T%N%z',
+                    ),
+                ],
             ),
             pytest.param(
                 {

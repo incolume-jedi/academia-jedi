@@ -1,6 +1,5 @@
 """Module."""
 
-import ast
 import logging
 import shutil
 from pathlib import Path
@@ -57,7 +56,7 @@ logger.info(ic('%s %s', outputdir, outputdir.exists()))
 def clean_workdir():
     """Remover arquivos gerados após execução."""
     all_files = set(root.rglob('*'))
-    logging.debug(all_files)
+    logger.debug(all_files)
 
     truth_files = (
         list(root.rglob('*.py'))
@@ -68,25 +67,6 @@ def clean_workdir():
     logging.debug('truth_files=%s', truth_files)
 
     wanted_files = all_files.difference(truth_files)
-    logging.debug('wanted_files=%s', wanted_files)
+    logger.debug('wanted_files=%s', wanted_files)
     [file.unlink(missing_ok=True) for file in wanted_files if file.is_file()]
     [shutil.rmtree(file) for file in wanted_files if file.is_dir()]
-
-
-def run():
-    """Run it."""
-    # functions = [
-    #     getattr(ast.literal_eval(f'realpython{x:02}'), 'run')
-    #     for x in range(1, 34)
-    # ]
-    # for func in functions:
-    #     logging.debug(func.__name__)
-    #     try:
-    #         func()
-    #     except (FileNotFoundError, ImportError) as e:
-    #         logging.exception(e.strerror)
-    # clean_workdir()
-
-
-if __name__ == '__main__':
-    run()
