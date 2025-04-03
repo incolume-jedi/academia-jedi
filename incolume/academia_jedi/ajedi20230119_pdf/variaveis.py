@@ -14,4 +14,4 @@ file = pdffiles[0]
 
 if __name__ == '__main__':
     # PDF files
-    assert pdfdir.is_dir(), f'Ops: {pdfdir} ..'
+    assert pdfdir.is_dir(), f'Ops: {pdfdir} ..'  # noqa: S101

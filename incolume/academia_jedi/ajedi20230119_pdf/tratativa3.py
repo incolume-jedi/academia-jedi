@@ -1,4 +1,4 @@
-"""Converter PDF para Imagem
+"""Converter PDF para Imagem.
 
 https://www.geeksforgeeks.org/convert-pdf-to-image-using-python/.
 
