@@ -9,7 +9,7 @@ from incolume.academia_jedi.ajedi20230129_files import (
     dados_dict,
     fileoutput,
 )
-from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.models import (
+from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.models import (  # noqa: E501
     Pessoa,
 )
 

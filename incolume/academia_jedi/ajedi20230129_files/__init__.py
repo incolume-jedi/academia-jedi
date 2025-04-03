@@ -6,7 +6,7 @@ from pathlib import Path
 
 import dotenv
 from icecream import ic
-from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.generator_pessoas import (
+from incolume.academia_jedi.ajedi20230211_massa_dados_faker_protocol.generator_pessoas import (  # noqa: E501
     massa_pessoas,
 )
 

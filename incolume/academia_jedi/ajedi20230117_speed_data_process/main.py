@@ -86,7 +86,7 @@ def run():
     df0.to_pickle(f := file.with_suffix('.pkl'))
     it = perf_counter() - it
     ft = perf_counter()
-    df0 = pd.read_pickle(f)
+    df0 = pd.read_pickle(f)  # noqa: S301
     ft = perf_counter() - ft
     logger.debug(
         f'{f.as_posix():15}: {f.stat().st_size:15}; time w:{it}; time r: {ft}',

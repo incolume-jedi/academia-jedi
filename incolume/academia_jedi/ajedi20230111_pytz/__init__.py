@@ -1,11 +1,10 @@
 """Estudos com Pytz."""
+# ruff: noqa: DTZ005 T201
 
 import datetime as dt
 
 import pytz
 from config import settings
-
-# ruff: noqa: T201
 
 
 def ex01():
@@ -16,7 +15,7 @@ def ex01():
 
 def ex02():
     """Exemplo 2."""
-    data = dt.datetime.strptime(
+    data = dt.datetime.strptime(  # noqa: DTZ007
         '15/6/2021 23:42:21',
         '%d/%m/%Y %H:%M:%S',
     )
@@ -45,10 +44,7 @@ def ex04():
 
 def ex05():
     """Exemplo 5."""
-    data = dt.datetime.strptime(
-        '15/6/2021 23:42:21',
-        '%d/%m/%Y %H:%M:%S',
-    )
+    data = dt.datetime.strptime('15/6/2021 23:42:21', '%d/%m/%Y %H:%M:%S')  # noqa: DTZ007
     print(pytz.timezone('America/Sao_Paulo').localize(data).isoformat())
 
 
@@ -70,7 +66,9 @@ def ex06():
 
 def ex07():
     """Exemplo 7."""
-    now = pytz.utc.localize(dt.datetime.now()).astimezone()
+    now = pytz.utc.localize(
+        dt.datetime.now(),
+    ).astimezone()
     print(now)
 
 
@@ -78,6 +76,15 @@ def ex08():
     """Exemplo 8."""
     now = dt.datetime.now(tz=pytz.timezone(settings.tz))
     print(now)
+
+
+def ex09():
+    """Exemplo 9."""
+    data = dt.datetime.strptime(
+        '15/6/2021 23:42:21',
+        '%d/%m/%Y %H:%M:%S',
+    ).replace(tzinfo=pytz.timezone(settings.tz))
+    print(data)
 
 
 def run():
@@ -90,6 +97,7 @@ def run():
     ex06()
     ex07()
     ex08()
+    ex09()
 
 
 if __name__ == '__main__':

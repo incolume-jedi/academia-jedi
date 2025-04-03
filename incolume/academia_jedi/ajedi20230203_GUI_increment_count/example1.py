@@ -1,4 +1,5 @@
 """Module."""
+# ruff: noqa: FBT003
 
 import customtkinter as ctk
 
