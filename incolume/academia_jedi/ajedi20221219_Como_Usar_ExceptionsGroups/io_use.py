@@ -11,7 +11,7 @@ if sys.version_info < (3, 11):
         sys.exit('This application need Python 3.11+')
 
 
-class AnothersExceptions(Exception):
+class AnotherError(Exception):
     """Another one Exception."""
 
 
@@ -25,8 +25,8 @@ async def read_file(filename: str | Path) -> str:
 async def fetch_data(data: int) -> dict:
     """Async fetch data."""
     if data == 0:
-        msg = 'No data found..'
-        raise Exception(msg)
+        msg = 'No data found.'
+        raise AnotherError(msg)
     return {'data': data}
 
 
@@ -43,7 +43,7 @@ async def main() -> None:
     except* FileNotFoundError as eg:
         for error in eg.exceptions:
             print(error)
-    except* AnothersExceptions as e:
+    except* AnotherError as e:
         print(e.exceptions)
 
 

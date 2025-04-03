@@ -1,5 +1,5 @@
 """Module."""
-# ruff: noqa: T201
+# ruff: noqa: ANN002 ANN003 T201
 
 from collections.abc import Callable
 from inspect import stack

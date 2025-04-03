@@ -1,6 +1,6 @@
 """Module."""
 
-import random
+import secrets
 import string
 from collections.abc import Generator
 
@@ -15,13 +15,13 @@ def generate_random_str(length: int = 8) -> str:
     """Generate random str."""
     length = max(length, 8)
     chars: str = string.ascii_letters + string.digits + string.punctuation
-    return ''.join(random.choice(chars) for _ in range(length))
+    return ''.join(secrets.choice(chars) for _ in range(length))
 
 
 def fuzzer() -> Generator:
     """Fuzzer."""
     while True:
-        yield generate_random_str(random.randint(1, 100))
+        yield generate_random_str(max(1, secrets.randbelow(100)))
 
 
 def sample_func(input_str: str) -> int:
