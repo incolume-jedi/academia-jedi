@@ -10,7 +10,6 @@ try:
 except (ModuleNotFoundError, ImportError):
     from tomllib import load
 
-
 logging.basicConfig(
     level=logging.INFO,
     format=settings.format_log,

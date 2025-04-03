@@ -11,6 +11,10 @@ if sys.version_info < (3, 11):
         sys.exit('This application need Python 3.11+')
 
 
+class AnothersExceptions(Exception):
+    """Another one Exception."""
+
+
 async def read_file(filename: str | Path) -> str:
     """Async read file."""
     with Path(filename).open() as f:
@@ -39,7 +43,7 @@ async def main() -> None:
     except* FileNotFoundError as eg:
         for error in eg.exceptions:
             print(error)
-    except* Exception as e:
+    except* AnothersExceptions as e:
         print(e.exceptions)
 
 
