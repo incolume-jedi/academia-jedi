@@ -17,7 +17,7 @@ class AnotherError(Exception):
 
 async def read_file(filename: str | Path) -> str:
     """Async read file."""
-    with Path(filename).open() as f:
+    with Path(filename).open() as f:  # noqa: ASYNC101
         data: str = f.read()
     return data
 

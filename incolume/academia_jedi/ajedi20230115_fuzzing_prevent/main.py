@@ -1,5 +1,6 @@
 """Module."""
 
+# ruff: noqa: TRY301
 import secrets
 import string
 from collections.abc import Generator
@@ -30,7 +31,7 @@ def sample_func(input_str: str) -> int:
         if '!!!' in input_str:
             msg = 'Bad formation'
             raise BadFormationError(msg)
-    except Exception as e:
+    except BadFormationError as e:
         logger.exception('%s: %s', e.__class__.__name__, e)
         return 1
     return 0

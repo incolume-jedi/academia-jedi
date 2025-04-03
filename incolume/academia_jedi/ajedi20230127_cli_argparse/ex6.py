@@ -2,7 +2,7 @@
 
 import logging
 
-# ruff: noqa: T201
+# ruff: noqa: T201 PLR2004
 from argparse import ArgumentParser, Namespace
 
 parser = ArgumentParser()
