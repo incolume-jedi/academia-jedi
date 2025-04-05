@@ -32,7 +32,7 @@ def data_frame_fake(
         periods=limit_max,
     )
     df0['SITUACAO'] = [secrets.choice([1, 2]) for _ in range(limit_max)]
-    df0['RATIO'] = [random.uniform(1, 2) for _ in range(limit_max)]
+    df0['RATIO'] = [random.uniform(1, 2) for _ in range(limit_max)]  # noqa: S311
     return df0
 
 
