@@ -4,14 +4,13 @@ import contextlib
 import os
 import sys
 
-if sys.version_info < (3, 8) or sys.version_info > (3, 12):
+if not ((3, 8) < sys.version_info < (3, 13)):
     with contextlib.suppress(SystemExit):
         sys.exit(
-            'This implementation requires python equal'
-            ' or greater than 3.8 and less than 3.12',
+            'This implementation requires `openai module` with python equal'
+            ' or greater than 3.8 and less than 3.13',
         )
-else:
-    import openai
+import openai
 
 openai.api_key = os.getenv('ACADEMIA_JEDI_OPENAI_API_KEY')
 
