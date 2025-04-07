@@ -14,8 +14,14 @@ from icecream import ic
 
 collect_ignore = ['setup.py', '__main__.py']
 
-
-if version_info < (3, 9, 0):
+if version_info < (3, 8):
+    logging.info(ic('Does not run on python below 3.8'))
+    files = []
+    files.extend(Path(
+        r'incolume/academia_jedi/ajedi20230222_Natural_language_to_OpenAI_API',
+    ).rglob('*.py'))
+    collect_ignore.extend(files)
+if version_info < (3, 9):
     logging.info(ic('Does not run on python below 3.9'))
     files = []
     files.extend(
@@ -76,6 +82,8 @@ if version_info < (4, 0, 0):
     logging.info(ic('Does not run on python below 4.0'))
     files = [
         r'incolume/academia_jedi/ajedi20231213_aspose_pkg/test_aspose.py',
+        r'incolume/academia_jedi/ajedi20230222_Natural_language_to_OpenAI_API/tratativa1.py',
+        r'incolume/academia_jedi/ajedi20230222_Natural_language_to_OpenAI_API/tratativa2.py',
     ]
     collect_ignore.extend(files)
 
