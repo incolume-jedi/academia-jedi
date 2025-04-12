@@ -13,10 +13,14 @@ zipnames = (
 )
 
 
-def tratativa1(zipname):
+def tratativa1(zipname: Path | str) -> None:
     """Tratativa de exceções no acesso ao zip."""
     print('===')
+
     try:
+        if zipname in [None, '']:
+            raise FileExistsError
+
         with zipfile.ZipFile(zipname) as archive:
             archive.printdir()
     except zipfile.BadZipFile:
