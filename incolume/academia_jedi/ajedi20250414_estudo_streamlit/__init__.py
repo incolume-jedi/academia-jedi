@@ -21,10 +21,14 @@ st.set_page_config(
 # st.line_chart(df0[df0.Stream > 1_000_000_000]['Stream'])
 
 df0 = df0.set_index('Track')
-st.write(df0)
+# st.write(df0)
+
 artists = df0['Artist'].value_counts().index
 artist = st.selectbox('Artista', artists)
 df_filtered = df0[df0.Artist == artist]
+
+albuns = df_filtered.Album.value_counts().index
+album = st.selectbox('Album', albuns)
 
 display = st.checkbox('display graph')
 if display:
