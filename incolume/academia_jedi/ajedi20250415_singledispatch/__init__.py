@@ -12,6 +12,9 @@ __all__ = ['cmath']
 
 ic()
 
+type ListStr = list[str]
+type ListInt = list[int]
+
 
 @singledispatch
 def fun(arg, *, verbose: bool = False) -> str | tuple:  # noqa: ANN001
@@ -34,7 +37,7 @@ def _(arg: int, *, verbose: bool = False) -> int | tuple:
 
 
 @fun.register
-def _(arg: list[str], *, verbose: bool = False) -> tuple:
+def _(arg: ListInt, *, verbose: bool = False) -> tuple:
     """Case list type."""
     result = []
     if verbose:
@@ -73,7 +76,7 @@ def _(arg: complex, *, verbose: bool = False) -> None:
 
 
 @fun.register(list)
-def _(arg: list[int], *, verbose: bool = False) -> None:
+def _(arg: ListStr, *, verbose: bool = False) -> None:
     """Case list of integer type."""
     result = []
     if verbose:
