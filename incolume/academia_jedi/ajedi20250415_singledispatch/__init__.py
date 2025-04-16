@@ -3,8 +3,7 @@
 
 import cmath
 from functools import singledispatch
-from inspect import Parameter, signature, stack
-from typing import Union, get_type_hints
+from typing import Union
 
 from icecream import ic
 
