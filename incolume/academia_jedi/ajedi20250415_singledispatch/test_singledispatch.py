@@ -17,12 +17,12 @@ class TestCase:
                 ('Let me just say,', ''),
                 marks=[],
             ),
-            pytest.param('Jesus te ama!', {}, 'a', marks=[pytest.mark.skip]),
+            pytest.param('Jesus te ama!', {}, 'a', marks=[pytest.mark.xfail]),
             pytest.param(
                 'Tudo é dificil até fácil se tornar.',
                 {},
                 'a',
-                marks=[pytest.mark.skip],
+                marks=[pytest.mark.xfail],
             ),
             pytest.param(
                 1,
@@ -40,9 +40,14 @@ class TestCase:
                 set('abc'),
                 {'verbose': True},
                 ['Enumerate this set:', (0, 'a'), (1, 'b'), (2, 'c')],
+                marks=[pytest.mark.xfail],
+            ),
+            pytest.param(
+                list('abc'),
+                {'verbose': True},
+                ['Enumerate this:', (0, 'a'), (1, 'b'), (2, 'c')],
                 marks=[],
             ),
-            pytest.param(list('abc'), {'verbose': True}, '', marks=[]),
         ],
     )
     def test_function(self, entrance, kwargs, expected, capsys):
