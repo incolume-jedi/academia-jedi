@@ -2,6 +2,9 @@
 
 import pytest
 import incolume.academia_jedi.ajedi20250415_singledispatch as pkg
+import cmath
+
+__all__ = ['cmath']
 
 
 class TestCase:
@@ -17,12 +20,18 @@ class TestCase:
                 ('Let me just say,', ''),
                 marks=[],
             ),
-            pytest.param('Jesus te ama!', {}, 'a', marks=[pytest.mark.xfail]),
+            pytest.param('Jesus te ama!', {}, 'Jesus te ama!', marks=[]),
             pytest.param(
                 'Tudo é dificil até fácil se tornar.',
                 {},
-                'a',
-                marks=[pytest.mark.xfail],
+                'Tudo é dificil até fácil se tornar.',
+                marks=[],
+            ),
+            pytest.param(
+                'Tudo é dificil até fácil se tornar.',
+                {'verbose': True},
+                ('Let me just say,', 'Tudo é dificil até fácil se tornar.'),
+                marks=[],
             ),
             pytest.param(
                 1,
@@ -37,15 +46,29 @@ class TestCase:
                 marks=[],
             ),
             pytest.param(
+                tuple('abc'),
+                {'verbose': True},
+                ('Enumerate this tuple:', (0, 'a'), (1, 'b'), (2, 'c')),
+                marks=[],
+            ),
+            pytest.param(
                 set('abc'),
                 {'verbose': True},
                 ['Enumerate this set:', (0, 'a'), (1, 'b'), (2, 'c')],
-                marks=[pytest.mark.xfail],
+                marks=[
+                    # pytest.mark.xfail
+                ],
             ),
             pytest.param(
                 list('abc'),
                 {'verbose': True},
                 ['Enumerate this:', (0, 'a'), (1, 'b'), (2, 'c')],
+                marks=[],
+            ),
+            pytest.param(
+                complex(2, 0),
+                {'verbose': True},
+                ('Better than complicated.', (2.0, 0.0)),
                 marks=[],
             ),
         ],

@@ -17,12 +17,7 @@ ic()
 @singledispatch
 def fun(arg, *, verbose: bool = False) -> str | tuple:  # noqa: ANN001
     """Main function."""
-    ic(
-        Parameter(
-            stack()[0][3],
-            Parameter.POSITIONAL_OR_KEYWORD,
-        ).name,
-    )
+    ic('base')
     result = f'{arg}'
     if verbose:
         result = 'Let me just say,', result
@@ -32,12 +27,7 @@ def fun(arg, *, verbose: bool = False) -> str | tuple:  # noqa: ANN001
 @fun.register
 def _(arg: int, *, verbose: bool = False) -> int | tuple:
     """Case int type."""
-    ic(
-        Parameter(
-            stack()[0][3],
-            Parameter.POSITIONAL_OR_KEYWORD,
-        ).name,
-    )
+    ic('int')
     result = arg
     if verbose:
         result = 'Strength in numbers, eh?', result
@@ -45,17 +35,12 @@ def _(arg: int, *, verbose: bool = False) -> int | tuple:
 
 
 @fun.register
-def _(arg: list, *, verbose: bool = False) -> tuple:
+def _(arg: tuple, *, verbose: bool = False) -> tuple:
     """Case list type."""
-    ic(
-        Parameter(
-            stack()[0][3],
-            Parameter.POSITIONAL_OR_KEYWORD,
-        ).name,
-    )
+    ic('tuple')
     result = []
     if verbose:
-        result.append('Enumerate this:')
+        result.append('Enumerate this tuple:')
     for i, elem in enumerate(arg):
         result.append((i, elem))
     return tuple(result)
@@ -64,12 +49,7 @@ def _(arg: list, *, verbose: bool = False) -> tuple:
 @fun.register
 def _(arg: float, *, verbose: bool = False) -> float | tuple:
     """Case int or float type."""
-    ic(
-        Parameter(
-            stack()[0][3],
-            Parameter.POSITIONAL_OR_KEYWORD,
-        ).name,
-    )
+    ic('float')
     result = arg
     if verbose:
         result = 'Strength in numbers, eh?', result
@@ -79,43 +59,30 @@ def _(arg: float, *, verbose: bool = False) -> float | tuple:
 @fun.register
 def _(arg: Union[list, set], *, verbose: bool = False) -> list:
     """Case set or list type."""
-    ic(
-        Parameter(
-            stack()[0][3],
-            Parameter.POSITIONAL_OR_KEYWORD,
-        ).name,
-    )
+    ic('Union[list|set]')
     result = []
     if verbose:
         result.append(f'Enumerate this {type(arg).__name__}:')
-    for i, elem in enumerate(arg):
+    for i, elem in enumerate(sorted(arg)):
         result.append((i, elem))
     return result
 
 
 @fun.register(complex)
-def _(arg: complex, *, verbose: bool = False) -> None:
+def _(arg: complex, *, verbose: bool = False) -> tuple:
     """Case set or list type."""
-    ic(
-        Parameter(
-            stack()[0][3],
-            Parameter.POSITIONAL_OR_KEYWORD,
-        ).name,
-    )
+    ic('complex')
+    result = (arg.real, arg.imag)
     if verbose:
-        print('Better than complicated.', sep=' ')
-    print(arg.real, arg.imag)
+        result = 'Better than complicated.', result
+
+    return result
 
 
 @fun.register(list)
 def _(arg: list, *, verbose: bool = False) -> list:
     """Case list of integer type."""
-    ic(
-        Parameter(
-            stack()[0][3],
-            Parameter.POSITIONAL_OR_KEYWORD,
-        ).name,
-    )
+    ic('list2')
     result = []
     if verbose:
         result.append('Enumerate this:')
