@@ -34,9 +34,9 @@ albuns = df_filtered.Album.value_counts().index
 album = st.selectbox('Album', albuns)
 df_filtered2 = df0[df0.Album == album]
 
-# show = st.checkbox('Display graph')
+# show = st.checkbox('Display graph')  # noqa: ERA001
 # if show:
-#     st.bar_chart(df_filtered2['Stream'])
+#     st.bar_chart(df_filtered2['Stream'])  # noqa: ERA001
 
 col1, col2 = st.columns(2)
 col1.bar_chart(df_filtered2['Stream'])
