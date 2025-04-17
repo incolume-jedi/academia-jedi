@@ -1,0 +1,1 @@
+"""Dashboard FIFA2023."""
