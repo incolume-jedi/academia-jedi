@@ -1,29 +1,55 @@
-import logging
+"""Module."""
 
-# ruff: noqa: A001 A002 ANN001 ANN002 ANN003 ANN201 ANN202 ANN204 ANN401 ARG001 ARG002 ASYNC101 B007 B008 B009 B011 B015 B904 B905 BLE001 C408 C419 C901 D100 D101 D102 D103 D104 D105 D107 D205 D402 D415 D419 DTZ001 DTZ003 DTZ005 DTZ007 E501 E741 EM101 EM102 ERA001 EXE005 F402 F403 F405 F601 F811 F821 F841 FBT001 FBT002 FBT003 FIX002 G001 G002 G004 N801 N802 N805 N806 N816 N999 NPY002 PD901 PERF203 PERF401 PERF402 PIE796 PLE1205 PLR0913 PLR1714 PLR2004 PLW0602 PLW0603 PLW2901 PT004 PT006 PT012 PT015 PTH118 PTH123 PYI024 PYI041 RET503 RET504 RUF001 RUF012 RUF013 S101 S113 S201 S301 S307 S310 S311 S602 S603 S605 S607 S608 SIM103 SIM109 SIM113 SIM115 SIM117 SLF001 SLOT000 T201 T203 TCH003 TD002 TD003 TD004 TRY002 TRY003 TRY300 TRY301 TRY401 W293
+import datetime as dt
+import re
 import zipfile
 from pathlib import Path
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s;%(levelname)-8s;%(name)s;'
-    '%(module)s;%(funcName)s;%(message)s',
+from config import settings
+from icecream import ic
+from incolume.academia_jedi.ajedi20230113_zipfile import (
+    base_dir,
+    filezip_sample,
+    logger,
 )
+from pytz import timezone
 
-directory = Path(__file__).parent
+# ruff: noqa: T201
+
+file_test: Path = Path(base_dir, Path(__file__).stem).with_suffix('.zip')
+file_test.write_bytes(filezip_sample.read_bytes())
+ic(file_test)
+
+timestamp: dt.datetime = dt.datetime.now(tz=timezone(settings.tz))
+
+filename = 'new_hello_{}.txt'.format(
+    re.sub(r'[:\.]', '-', timestamp.isoformat()),
+)
+ic(filename)
 
 
 def run():
-    logging.debug(directory.parts)
+    """Run it.
 
-    with zipfile.ZipFile(directory / 'sample.zip', mode='a') as archive:
-        with archive.open('new_hello.txt', 'w') as new_hello:
-            new_hello.write(b'Hello, World!')
+    Acrescenado  arquivos os container zip.
+    """
+    logger.debug(file_test.parts)
 
-    with zipfile.ZipFile(directory / 'sample.zip', mode='r') as archive:
+    with (
+        zipfile.ZipFile(file_test, mode='a') as archive,
+        archive.open(filename, 'w') as new_hello,
+    ):
+        new_hello.write(
+            bytes(
+                f'Hello, World! (in {timestamp})',
+                encoding='utf-8',
+            ),
+        )
+
+    with zipfile.ZipFile(file_test, mode='r') as archive:
         archive.printdir()
         print('------')
-        print(archive.read('new_hello.txt'))
+        print(archive.read(filename))
 
 
 if __name__ == '__main__':

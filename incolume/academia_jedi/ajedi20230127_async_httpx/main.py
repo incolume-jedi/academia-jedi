@@ -4,7 +4,7 @@
 
 import logging
 
-import ex1
+from incolume.academia_jedi.ajedi20230127_async_httpx import ex1
 
 logging.basicConfig(
     level=logging.DEBUG,

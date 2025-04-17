@@ -1,4 +1,4 @@
-"""Module."""
+"""Estudos com aiohttp."""
 # ruff:noqa: T201 SIM117 PLW2901
 
 import asyncio

@@ -10,13 +10,13 @@ try:
 except (ModuleNotFoundError, ImportError):
     from tomllib import load
 
-
 logging.basicConfig(
     level=logging.INFO,
     format=settings.format_log,
     datefmt=settings.datefmt,
 )
 
+logger = logging.getLogger(__name__)
 
 version_file = Path(__file__).parent / 'version.txt'
 project_file = Path(__file__).parents[2] / 'pyproject.toml'

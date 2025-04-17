@@ -24,8 +24,8 @@ class TestCaseDynaconf:
         os.environ['INCOLUME_NUM'] = '42'
         os.environ['INCOLUME_FLOAT'] = '4.2'
         os.environ['INCOLUME_BOOL'] = 'true'
-        os.environ['INCOLUME_DICT'] = '{foo="bar"}'
-        os.environ['INCOLUME_DICT__fuz'] = 'foo'
+        os.environ['INCOLUME_DICT'] = '{FOO="bar"}'
+        os.environ['INCOLUME_DICT__FUZ'] = 'foo'
         os.environ['INCOLUME_NUMBER'] = '@float 42'
         os.environ['INCOLUME_NUMB'] = '@str 42'
         os.environ['INCOLUME_TEMP'] = Path(
@@ -33,8 +33,8 @@ class TestCaseDynaconf:
             self.__class__.__name__,
         ).as_posix()
         os.environ['INCOLUME_PATH'] = '@format {this.temp}/xpto/{this.NAME}'
-        os.environ['INCOLUME_DATA'] = '@json {"key": "value"}'
-        os.environ['INCOLUME_DATA__newkey'] = 'new value'
+        os.environ['INCOLUME_DATA'] = '@json {"KEY": "value"}'
+        os.environ['INCOLUME_DATA__NEWKEY'] = 'new value'
 
     def test_environ(self):
         """Unittest."""
@@ -86,7 +86,7 @@ class TestCaseDynaconf:
             pytest.param('name', 'MyApp'),
             pytest.param('num', 42),
             pytest.param('float', 4.2),
-            pytest.param('dict', {'foo': 'bar', 'fuz': 'foo'}),
+            pytest.param('dict', {'FOO': 'bar', 'FUZ': 'foo'}),
             pytest.param('bool', True),
             pytest.param('author', 'Ricardo Brito do Nascimento'),
             pytest.param('NUMBER', 42.0),
@@ -117,8 +117,8 @@ class TestCaseDynaconf:
                     'MyApp',
                 ).as_posix(),
             ),
-            pytest.param('DATA', {'newkey': 'new value', 'key': 'value'}),
-            pytest.param('DATA__newkey', 'new value'),
+            pytest.param('DATA', {'NEWKEY': 'new value', 'KEY': 'value'}),
+            pytest.param('DATA__NEWKEY', 'new value'),
         ],
     )
     def test_env_default(self, entrance, expected) -> None:
