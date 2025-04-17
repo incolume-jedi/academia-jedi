@@ -18,7 +18,7 @@ members = []
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.112.0a19"
+version = "0.112.0"
 description = ""
 readme="README.md"
 authors = ["Britodfbr <britodfbr@gmail.com>"]
