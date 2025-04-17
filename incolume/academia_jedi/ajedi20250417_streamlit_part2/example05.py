@@ -13,7 +13,7 @@ df0 = pd.read_csv(datafile)
 df0.set_index('Track', inplace=True)
 
 artists = df0.Artist.value_counts().index
-artist = st.selectbox('Artista', artists)
+artist = st.sidebar.selectbox('Artista', artists)
 df_filtered = df0[df0.Artist == artist]
 
 albuns = df_filtered.Album.value_counts().index
