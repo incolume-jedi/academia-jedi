@@ -10,6 +10,9 @@ st.set_page_config(
     page_title='Spotify songs',
 )
 df0 = pd.read_csv(datafile)
+
+st.session_state['df_spotify'] = df0  # cache state
+
 df0.set_index('Track', inplace=True)
 
 artists = df0.Artist.value_counts().index
