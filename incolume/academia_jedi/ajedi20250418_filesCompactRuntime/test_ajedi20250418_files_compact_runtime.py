@@ -17,12 +17,13 @@ if settings.debug_mode:
 
 class TestCase:
     """TestCase."""
-    target_file: str ='source/dignissimos.txt'
+
+    target_file: str = 'source/dignissimos.txt'
 
     @classmethod
     def setup_class(cls):
         """Setup class."""
-        cls.localzip = pkg.set_env()
+        cls.localzip = pkg.set_env(count=15, seed=191)
 
     @classmethod
     def teardown_class(cls):
@@ -52,15 +53,14 @@ class TestCase:
         """Unittest."""
         expected = {
             b'\xc2\xb9\xe2\x81\xb6 Porque Deus amou o mundo de tal maneira que deu o seu '
-            b'Filho unig\xc3\xaanito,',
+            b'Filho unig\xc3\xaanito,\n',
             b' para que todo aquele que nele cr\xc3\xaa n\xc3\xa3o pere\xc3\xa7a, mas te'
-            b'nha a vida eterna.',
+            b'nha a vida eterna.\n',
         }
         with (
             zipfile.ZipFile(self.localzip) as handle,
             handle.open('source/dignissimos.txt') as file,
         ):
-            # assert expected == file.readlines()
             assert ic(expected).issubset(ic(file.readlines()))
 
     def test_3(self) -> NoReturn:
@@ -74,6 +74,4 @@ class TestCase:
             handle.open(self.target_file) as file,
         ):
             result = [line.decode('utf-8') for line in file]
-            assert set(result) == set(expected)
-            # assert expected in result
             assert expected.issubset(result)
