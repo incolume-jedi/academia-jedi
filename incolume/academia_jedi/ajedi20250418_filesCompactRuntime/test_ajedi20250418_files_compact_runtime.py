@@ -1,4 +1,5 @@
 """Estudo sobre compactação em runtime."""
+# ruff: noqa: E501
 
 import io
 from typing import NoReturn
@@ -18,10 +19,16 @@ if settings.debug_mode:
     ic.enable()
 
 
+@pytest.mark.slow()
+@pytest.mark.webtest()
 class TestCase:
     """TestCase."""
 
     target_file: str = 'source/dignissimos.txt'
+    msg: list = [
+        'Input files may not be found..',
+        'I have no idea!!!',
+    ]
 
     @classmethod
     def setup_class(cls):
@@ -83,20 +90,168 @@ class TestCase:
             result = [line.decode('utf-8') for line in file]
             assert expected.issubset(result)
 
-    def test_4(self) -> NoReturn:
+    @pytest.mark.parametrize(
+        'entrance target_file expected'.split(),
+        [
+            pytest.param(
+                pkg.URL.fifa17,
+                'CLEAN_FIFA17_official_data.csv',
+                (
+                    b',ID,Name,Age,Photo,Nationality,Flag,Overall,Potential,'
+                    b'Club,Club Logo,Value(\xc2\xa3),Wage(\xc2\xa3),Special,'
+                    b'Preferred Foot,International Reputation,Weak Foot,'
+                    b'Skill Moves,Work Rate,Body Type,Real Face,Position,'
+                    b'Jersey Number,Joined,Loaned From,Contract Valid Until,'
+                    b'Height(cm.),Weight(lbs.),Crossing,Finishing,'
+                    b'HeadingAccuracy,ShortPassing,Volleys,Dribbling,Curve,'
+                    b'FKAccuracy,LongPassing,BallControl,Acceleration,'
+                    b'SprintSpeed,Agility,Reactions,Balance,ShotPower,Jumping,'
+                    b'Stamina,Strength,LongShots,Aggression,Interceptions,'
+                    b'Positioning,Vision,Penalties,Composure,Marking,'
+                    b'StandingTackle,SlidingTackle,GKDiving,GKHandling,'
+                    b'GKKicking,GKPositioning,GKReflexes,Best Position,'
+                    b'Best Overall Rating,Year_Joined\r\n'
+                ),
+            ),
+            pytest.param(
+                pkg.URL.fifa18,
+                'CLEAN_FIFA18_official_data.csv',
+                (
+                    b',ID,Name,Age,Photo,Nationality,Flag,Overall,Potential'
+                    b',Club,Club Logo,Value(\xc2\xa3),Wage(\xc2\xa3),Special,'
+                    b'Preferred Foot,International Reputation,Weak Foot,Skill'
+                    b' Moves,Work Rate,Body Type,Real Face,Position,Jersey'
+                    b' Number,Joined,Loaned From,Contract Valid Until,'
+                    b'Height(cm.),Weight(lbs.),Crossing,Finishing,'
+                    b'HeadingAccuracy,ShortPassing,Volleys,Dribbling,Curve,'
+                    b'FKAccuracy,LongPassing,BallControl,Acceleration,'
+                    b'SprintSpeed,Agility,Reactions,Balance,ShotPower,'
+                    b'Jumping,Stamina,Strength,LongShots,Aggression,'
+                    b'Interceptions,Positioning,Vision,Penalties,Composure,'
+                    b'Marking,StandingTackle,SlidingTackle,GKDiving,'
+                    b'GKHandling,GKKicking,GKPositioning,GKReflexes,Best'
+                    b' Position,Best Overall Rating,Release'
+                    b' Clause(\xc2\xa3),Year_Joined\r\n'
+                ),
+            ),
+            pytest.param(
+                pkg.URL.fifa19,
+                'CLEAN_FIFA19_official_data.csv',
+                (
+                    b',ID,Name,Age,Photo,Nationality,Flag,Overall,Potential,Club,Club Logo,Value(\xc2\xa3),Wage(\xc2\xa3),Special,Preferred Foot,International Reputation,Weak Foot,Skill Moves,Work Rate,Body Type,Real Face,Position,Jersey Number,Joined,Loaned From,Contract Valid Until,Height(cm.),Weight(lbs.),Crossing,Finishing,HeadingAccuracy,ShortPassing,Volleys,Dribbling,Curve,FKAccuracy,LongPassing,BallControl,Acceleration,SprintSpeed,Agility,Reactions,Balance,ShotPower,Jumping,Stamina,Strength,LongShots,Aggression,Interceptions,Positioning,Vision,Penalties,Composure,Marking,StandingTackle,SlidingTackle,GKDiving,GKHandling,GKKicking,GKPositioning,GKReflexes,Best Position,Best Overall Rating,Release Clause(\xc2\xa3),Year_Joined\r\n'
+                ),
+            ),
+            pytest.param(
+                pkg.URL.fifa20,
+                'CLEAN_FIFA20_official_data.csv',
+                (
+                    b',ID,Name,Age,Photo,Nationality,Flag,Overall,Potential,Club,Club Logo,Val'
+                    b'ue(\xc2\xa3),Wage(\xc2\xa3),Special,Preferred Foot,International Reputation,'
+                    b'Weak Foot,Skill Moves,Work Rate,Body Type,Real Face,Position,Jersey Number,J'
+                    b'oined,Loaned From,Contract Valid Until,Height(cm.),Weight(lbs.),Crossing,Fin'
+                    b'ishing,HeadingAccuracy,ShortPassing,Volleys,Dribbling,Curve,FKAccuracy,LongP'
+                    b'assing,BallControl,Acceleration,SprintSpeed,Agility,Reactions,Balance,ShotPo'
+                    b'wer,Jumping,Stamina,Strength,LongShots,Aggression,Interceptions,Positioning,'
+                    b'Vision,Penalties,Composure,Marking,StandingTackle,SlidingTackle,GKDiving,GKH'
+                    b'andling,GKKicking,GKPositioning,GKReflexes,Best Position,Best Overall Rating'
+                    b',Release Clause(\xc2\xa3),DefensiveAwareness,Year_Joined\r\n'
+                ),
+            ),
+            pytest.param(
+                pkg.URL.fifa21,
+                'CLEAN_FIFA21_official_data.csv',
+                (
+                    b',ID,Name,Age,Photo,Nationality,Flag,Overall,Potential,Club,Club Logo,Val'
+                    b'ue(\xc2\xa3),Wage(\xc2\xa3),Special,Preferred Foot,International Reputation,'
+                    b'Weak Foot,Skill Moves,Work Rate,Body Type,Real Face,Position,Jersey Number,J'
+                    b'oined,Loaned From,Contract Valid Until,Height(cm.),Weight(lbs.),Crossing,Fin'
+                    b'ishing,HeadingAccuracy,ShortPassing,Volleys,Dribbling,Curve,FKAccuracy,LongP'
+                    b'assing,BallControl,Acceleration,SprintSpeed,Agility,Reactions,Balance,ShotPo'
+                    b'wer,Jumping,Stamina,Strength,LongShots,Aggression,Interceptions,Positioning,'
+                    b'Vision,Penalties,Composure,Marking,StandingTackle,SlidingTackle,GKDiving,GKH'
+                    b'andling,GKKicking,GKPositioning,GKReflexes,Best Position,Best Overall Rating'
+                    b',Release Clause(\xc2\xa3),DefensiveAwareness,Year_Joined\r\n'
+                ),
+            ),
+            pytest.param(
+                pkg.URL.fifa22,
+                'CLEAN_FIFA22_official_data.csv',
+                (
+                    b',ID,Name,Age,Photo,Nationality,Flag,Overall,Potential,'
+                    b'Club,Club Logo,Value(\xc2\xa3),Wage(\xc2\xa3),Special,'
+                    b'Preferred Foot,International Reputation,Weak Foot,'
+                    b'Skill Moves,Work Rate,Body Type,Real Face,Position,'
+                    b'Jersey Number,Joined,Loaned From,Contract Valid Until,'
+                    b'Height(cm.),Weight(lbs.),Crossing,Finishing,'
+                    b'HeadingAccuracy,ShortPassing,Volleys,Dribbling,Curve,'
+                    b'FKAccuracy,LongPassing,BallControl,Acceleration,'
+                    b'SprintSpeed,Agility,Reactions,Balance,ShotPower,Jumping,'
+                    b'Stamina,Strength,LongShots,Aggression,Interceptions,'
+                    b'Positioning,Vision,Penalties,Composure,Marking,'
+                    b'StandingTackle,SlidingTackle,GKDiving,GKHandling,'
+                    b'GKKicking,GKPositioning,GKReflexes,Best Position,'
+                    b'Best Overall Rating,Release Clause(\xc2\xa3),'
+                    b'DefensiveAwareness,Year_Joined\r\n'
+                ),
+            ),
+            pytest.param(
+                pkg.URL.zip,
+                'CLEAN_FIFA22_official_data.csv',
+                (
+                    b',ID,Name,Age,Photo,Nationality,Flag,Overall,Potential,'
+                    b'Club,Club Logo,Value(\xc2\xa3),Wage(\xc2\xa3),Special,'
+                    b'Preferred Foot,International Reputation,Weak Foot,'
+                    b'Skill Moves,Work Rate,Body Type,Real Face,Position,'
+                    b'Jersey Number,Joined,Loaned From,Contract Valid Until,'
+                    b'Height(cm.),Weight(lbs.),Crossing,Finishing,'
+                    b'HeadingAccuracy,ShortPassing,Volleys,Dribbling,Curve,'
+                    b'FKAccuracy,LongPassing,BallControl,Acceleration,'
+                    b'SprintSpeed,Agility,Reactions,Balance,ShotPower,Jumping,'
+                    b'Stamina,Strength,LongShots,Aggression,Interceptions,'
+                    b'Positioning,Vision,Penalties,Composure,Marking,'
+                    b'StandingTackle,SlidingTackle,GKDiving,GKHandling,'
+                    b'GKKicking,GKPositioning,GKReflexes,Best Position,'
+                    b'Best Overall Rating,Release Clause(\xc2\xa3),'
+                    b'DefensiveAwareness,Year_Joined\r\n'
+                ),
+            ),
+            pytest.param(
+                pkg.URL.fifa23,
+                'CLEAN_FIFA23_official_data.csv',
+                (
+                    b',ID,Name,Age,Photo,Nationality,Flag,Overall,Potential,'
+                    b'Club,Club Logo,Value(\xc2\xa3),Wage(\xc2\xa3),Special,'
+                    b'Preferred Foot,International Reputation,Weak Foot,Skill'
+                    b' Moves,Work Rate,Body Type,Real Face,Position,Joined,'
+                    b'Loaned From,Contract Valid Until,Height(cm.),Weight(lbs.)'
+                    b',Release Clause(\xc2\xa3),Kit Number,Best Overall Rating,'
+                    b'Year_Joined\r\n'
+                ),
+                marks=[
+                    pytest.mark.xfail(
+                        zipfile.BadZipFile,
+                        reason='i have no idea!',
+                    ),
+                ],
+            ),
+            pytest.param(
+                pkg.URL.zip,
+                'CLEAN_FIFA23_official_data.csv',
+                (
+                    b',ID,Name,Age,Photo,Nationality,Flag,Overall,Potential,'
+                    b'Club,Club Logo,Value(\xc2\xa3),Wage(\xc2\xa3),Special,'
+                    b'Preferred Foot,International Reputation,Weak Foot,Skill'
+                    b' Moves,Work Rate,Body Type,Real Face,Position,Joined,'
+                    b'Loaned From,Contract Valid Until,Height(cm.),Weight(lbs.)'
+                    b',Release Clause(\xc2\xa3),Kit Number,Best Overall Rating,'
+                    b'Year_Joined\r\n'
+                ),
+            ),
+        ],
+    )
+    def test_4(self, entrance, target_file, expected) -> NoReturn:
         """Unittest."""
-        file_zip = io.BytesIO(httpx.get(pkg.URL.zip).content)
-        target_file = 'CLEAN_FIFA23_official_data.csv'
-        expected = (
-                b',ID,Name,Age,Photo,Nationality,Flag,Overall,Potential,'
-                b'Club,Club Logo,Value(\xc2\xa3),Wage(\xc2\xa3),Special,'
-                b'Preferred Foot,International Reputation,Weak Foot,Skill'
-                b' Moves,Work Rate,Body Type,Real Face,Position,Joined,'
-                b'Loaned From,Contract Valid Until,Height(cm.),Weight(lbs.)'
-                b',Release Clause(\xc2\xa3),Kit Number,Best Overall Rating,'
-                b'Year_Joined\r\n'
-            )
-
+        file_zip = io.BytesIO(httpx.get(entrance).content)
         with (
             zipfile.ZipFile(file_zip) as handle,
             handle.open(target_file) as file,
@@ -115,7 +270,7 @@ class TestCase:
                     'ajedi20250418_filesCompactRuntime',
                     'CLEAN_FIFA17_official_data.zip',
                 ),
-                marks=[pytest.mark.xfail(reason='Dont found the input files')],
+                marks=[pytest.mark.xfail(reason=msg[0])],
             ),
             pytest.param(
                 Path.home()
@@ -126,7 +281,7 @@ class TestCase:
                     'ajedi20250418_filesCompactRuntime',
                     'CLEAN_FIFA18_official_data.zip',
                 ),
-                marks=[pytest.mark.xfail(reason='Dont found the input files')],
+                marks=[pytest.mark.xfail(reason=msg[0])],
             ),
             pytest.param(
                 Path.home()
@@ -137,7 +292,7 @@ class TestCase:
                     'ajedi20250418_filesCompactRuntime',
                     'CLEAN_FIFA19_official_data.zip',
                 ),
-                marks=[pytest.mark.xfail(reason='Dont found the input files')],
+                marks=[pytest.mark.xfail(reason=msg[0])],
             ),
             pytest.param(
                 Path.home()
@@ -148,7 +303,7 @@ class TestCase:
                     'ajedi20250418_filesCompactRuntime',
                     'CLEAN_FIFA20_official_data.zip',
                 ),
-                marks=[pytest.mark.xfail(reason='Dont found the input files')],
+                marks=[pytest.mark.xfail(reason=msg[0])],
             ),
             pytest.param(
                 Path.home()
@@ -159,7 +314,7 @@ class TestCase:
                     'ajedi20250418_filesCompactRuntime',
                     'CLEAN_FIFA21_official_data.zip',
                 ),
-                marks=[pytest.mark.xfail(reason='Dont found the input files')],
+                marks=[pytest.mark.xfail(reason=msg[0])],
             ),
             pytest.param(
                 Path.home()
@@ -170,7 +325,7 @@ class TestCase:
                     'ajedi20250418_filesCompactRuntime',
                     'CLEAN_FIFA22_official_data.zip',
                 ),
-                marks=[pytest.mark.xfail(reason='Dont found the input files')],
+                marks=[pytest.mark.xfail(reason=msg[0])],
             ),
             pytest.param(
                 Path.home()
@@ -181,7 +336,7 @@ class TestCase:
                     'ajedi20250418_filesCompactRuntime',
                     'CLEAN_FIFA23_official_data.zip',
                 ),
-                marks=[pytest.mark.xfail(reason='Dont found the input files')],
+                marks=[pytest.mark.xfail(reason=msg[0])],
             ),
         ],
     )

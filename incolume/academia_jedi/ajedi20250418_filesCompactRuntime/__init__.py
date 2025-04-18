@@ -18,8 +18,13 @@ class URL:
 
     z7: Final[str] = 'https://pastebin.com/raw/KGmnsB0j'
     zip: Final[str] = 'https://pastebin.com/raw/Zt9BHEF4'
-    fifa23: Final[str] = 'https://pastebin.com/raw/TFYRf48U'
+    fifa23: Final[str] = 'https://pastebin.com/raw/gRhw1z3i'
     fifa22: Final[str] = 'https://pastebin.com/raw/6Tp8MFxF'
+    fifa21: Final[str] = 'https://pastebin.com/raw/2TvfyBHm'
+    fifa20: Final[str] = 'https://pastebin.com/raw/PxVMWeGt'
+    fifa19: Final[str] = 'https://pastebin.com/raw/wAGxStyY'
+    fifa18: Final[str] = 'https://pastebin.com/raw/gSpzqEub'
+    fifa17: Final[str] = 'https://pastebin.com/raw/4H5493UF'
 
 
 def set_env(count: int = 10, seed: int = 191) -> Path:
