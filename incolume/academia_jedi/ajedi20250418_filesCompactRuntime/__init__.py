@@ -1,15 +1,25 @@
 """Estudo sobre compactação em runtime."""
 
+import dataclasses
 import inspect
 import shutil
 import zipfile
+from collections.abc import Container
 from pathlib import Path
 from tempfile import gettempdir
 from typing import Final
 
 from faker import Faker
 
-url_7z: Final[str] = 'https://pastebin.com/raw/KGmnsB0j'
+
+@dataclasses.dataclass
+class URL:
+    """URL file compreess."""
+
+    z7: Final[str] = 'https://pastebin.com/raw/KGmnsB0j'
+    zip: Final[str] = 'https://pastebin.com/raw/Zt9BHEF4'
+    fifa23: Final[str] = 'https://pastebin.com/raw/TFYRf48U'
+    fifa22: Final[str] = 'https://pastebin.com/raw/6Tp8MFxF'
 
 
 def set_env(count: int = 10, seed: int = 191) -> Path:
@@ -114,3 +124,21 @@ João 3:1-36"""
         ]
     shutil.rmtree(source)
     return fout
+
+
+def gen_zip(
+    members: Container[Path],
+    zipname: Path | None = None,
+    dout: Path | None = None,
+) -> Path:
+    """Generate zipfile for path."""
+    zipname = zipname or Path('archives.zip')
+    dout = dout or Path()
+    with zipfile.ZipFile(
+        file=zipname,
+        mode='w',
+        compression=zipfile.ZIP_LZMA,  # algoritm compress
+        compresslevel=9,  # compress level
+    ) as handler:
+        [handler.write(file, arcname=file.name) for file in members]
+    return zipname
