@@ -17,6 +17,17 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Estudo com pandas.merge;
   - Analise de dados sobre combustivel no brasil;
 
+## [0.112.0]	 &#8212; 	2025-04-16:
+### Added
+  - Implementação mescla de planilhas;
+  - Estudo sobre pandas.concat;
+  - Estudo com pandas.merge;
+  - Analise de dados sobre combustivel no brasil;
+  - Estudo de sobrecarga com `singledispatch`;
+  - Estudo sobre reload de modulos em runtime;
+  - Estudos com plotly;
+  - Estudos com streamlit;
+
 ## [0.111.0]	 &#8212; 	2025-03-28:
 ### Fixed
   - Correções na execução CI/CD;
@@ -754,4 +765,5 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.109.5]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.4...0.109.5
 [0.110.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.5...0.110.0
 [0.111.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.110.0...0.111.0
-[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.111.0...Unreleased
+[0.112.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.111.0...0.112.0
+[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.112.0...Unreleased

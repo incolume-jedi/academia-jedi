@@ -2,7 +2,7 @@
 # ruff: noqa: E501
 
 import io
-from typing import NoReturn
+from typing import ClassVar, NoReturn
 import zipfile
 
 import pytest
@@ -25,7 +25,7 @@ class TestCase:
     """TestCase."""
 
     target_file: str = 'source/dignissimos.txt'
-    msg: list = [
+    msg: ClassVar[list] = [
         'Input files may not be found..',
         'I have no idea!!!',
     ]
@@ -251,7 +251,7 @@ class TestCase:
     )
     def test_4(self, entrance, target_file, expected) -> NoReturn:
         """Unittest."""
-        file_zip = io.BytesIO(httpx.get(entrance).content)
+        file_zip = io.BytesIO(httpx.get(entrance).content)   # carrega bytes com arquivo
         with (
             zipfile.ZipFile(file_zip) as handle,
             handle.open(target_file) as file,
