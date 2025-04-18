@@ -79,7 +79,7 @@ class TestCase:
 
     def test_4(self) -> NoReturn:
         """Unittest."""
-        file_zip = io.TextIOWrapper(httpx.get(pkg.url_7z).content)
+        file_zip = httpx.get(pkg.url_7z).content
         target_file = 'CLEAN_FIFA23_official_data.csv'
         expected = {}
         with (
