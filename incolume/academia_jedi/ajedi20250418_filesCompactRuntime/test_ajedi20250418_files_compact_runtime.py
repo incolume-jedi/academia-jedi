@@ -8,6 +8,7 @@ from pathlib import Path
 from tempfile import gettempdir
 from icecream import ic
 from config import settings
+import httpx
 
 
 ic.disable()
@@ -75,3 +76,14 @@ class TestCase:
         ):
             result = [line.decode('utf-8') for line in file]
             assert expected.issubset(result)
+
+    def test_4(self) -> NoReturn:
+        """Unittest."""
+        file_zip = io.TextIOWrapper(httpx.get(pkg.url_7z).content)
+        target_file = 'CLEAN_FIFA23_official_data.csv'
+        expected = {}
+        with (
+            zipfile.ZipFile(file_zip) as handle,
+            handle.open(target_file) as file,
+        ):
+            assert file.readline() == ''
