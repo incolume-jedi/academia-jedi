@@ -7,16 +7,17 @@ import webbrowser
 import pandas as pd
 import streamlit as st
 from config import settings
-from incolume.academia_jedi.ajedi20250417_dashboard_fifa2023 import URLS
+from incolume.academia_jedi.ajedi20250417_dashboard_fifa2023 import (
+    URLS,
+    get_dataset,
+)
 from pytz import timezone
-
-urls = URLS()
 
 
 @st.cache_data
 def load_data() -> bool:
     """Carga de dados."""
-    df_data = pd.read_csv(urls.ds_fifa2023_7z, index_col=0)
+    df_data = pd.read_csv(get_dataset(), index_col=0)
     df_data = df_data[
         df_data['Contract Valid Until']
         >= dt.datetime.now(tz=timezone(settings.TZ)).year
@@ -41,7 +42,7 @@ st.sidebar.markdown(
 btn = st.button('Acesse os dados no Kaggle')
 
 if btn:
-    webbrowser.open_new_tab(urls.kaggle)
+    webbrowser.open_new_tab(URLS.kaggle)
 
 st.markdown(
     'O conjunto de dados de jogaores de futebol de 2017 a 2023'
