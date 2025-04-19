@@ -9,7 +9,7 @@ import io
 import zipfile
 from dataclasses import dataclass, field
 from typing import Final
-
+from functools import lru_cache
 import httpx
 
 
@@ -40,7 +40,7 @@ class URLS:
         kw_only=True,
     )
 
-
+@lru_cache
 def get_dataset(url_zipfile: str = '', target_file: str = '') -> io.BytesIO:
     """Get dataset."""
     url_zipfile = url_zipfile or URLS.zip_ds_fifa
