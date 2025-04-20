@@ -1,6 +1,6 @@
 """Module."""
 # ruff: noqa: T201
-
+from __future__ import annotations
 import cmath
 from functools import singledispatch
 from typing import Union
