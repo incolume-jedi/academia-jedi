@@ -10,12 +10,9 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-04-04:
+## [Unreleased]	 &#8212; 	2025-04-18:
 ### Added
-  - Implementação mescla de planilhas;
-  - Estudo sobre pandas.concat;
-  - Estudo com pandas.merge;
-  - Analise de dados sobre combustivel no brasil;
+  - Estudos com arquivos compactados sobre stream em runtime;
 
 ## [0.112.0]	 &#8212; 	2025-04-16:
 ### Added
