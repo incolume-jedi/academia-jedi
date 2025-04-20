@@ -37,7 +37,8 @@ st.progress(int(player_stats.Overall))
 col1, col2, col3, col4 = st.columns(4)
 col1.metric(label='Valor de mercado', value=f'£ {player_stats["Value(£)"]:,}')
 col2.metric(
-    label='Remuneração semanal', value=f'£ {player_stats["Wage(£)"]:,}',
+    label='Remuneração semanal',
+    value=f'£ {player_stats["Wage(£)"]:,}',
 )
 col3.metric(
     label='Cláusula de rescisão',
