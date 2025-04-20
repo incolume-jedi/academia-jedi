@@ -2,7 +2,6 @@
 # ruff: noqa: N999
 
 import datetime as dt
-import webbrowser
 
 import pandas as pd
 import streamlit as st
@@ -39,10 +38,7 @@ st.sidebar.markdown(
     ' **D**esenvolvimento e **I**novação',
 )
 
-btn = st.button('Acesse os dados no Kaggle')
-
-if btn:
-    webbrowser.open_new_tab(URLS.kaggle)
+btn = st.link_button('Acesse os dados no Kaggle', URLS.kaggle)
 
 st.markdown(
     'O conjunto de dados de jogaores de futebol de 2017 a 2023'
