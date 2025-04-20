@@ -33,7 +33,10 @@ st.dataframe(
     df_filtered[columns],
     column_config={
         'Overall': st.column_config.ProgressColumn(
-            'Overall', format='%d', min_value=0, max_value=100,
+            'Overall',
+            format='%d',
+            min_value=0,
+            max_value=100,
         ),
         'Wage(£)': st.column_config.ProgressColumn(
             'Weekly Wage',

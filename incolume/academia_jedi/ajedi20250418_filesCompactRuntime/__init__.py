@@ -8,14 +8,15 @@ from collections.abc import Container
 from pathlib import Path
 from tempfile import gettempdir
 from typing import Final
-from incolume.academia_jedi import logger
-from faker import Faker
 
+from faker import Faker
+from incolume.academia_jedi import logger
 
 
 @dataclasses.dataclass
 class URL:
     """URL file compreess."""
+
     logger.info(inspect.stack()[0][3])
 
     z7: Final[str] = 'https://pastebin.com/raw/KGmnsB0j'
