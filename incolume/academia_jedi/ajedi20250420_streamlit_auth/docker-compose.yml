@@ -2,6 +2,7 @@ services:
   postgres:
     image: postgres:14-alpine3.16
     restart: unless-stopped
+    shm_size: 128mb
     user: postgres:postgres
     env_file:
       - .env
@@ -21,7 +22,7 @@ services:
     restart: unless-stopped
     environment:
       - PGADMIN_DEFAULT_EMAIL=pgadmin4@incolume.com.br
-      - PGADMIN_DEFAULT_PASSWORD="${DB_DATABASE:-admin1234}"
+      - PGADMIN_DEFAULT_PASSWORD="${DB_PASSWORD:-admin1234}"
     ports:
       - '5050:80'
     volumes:
