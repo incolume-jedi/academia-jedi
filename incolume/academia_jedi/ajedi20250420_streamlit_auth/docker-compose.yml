@@ -15,14 +15,15 @@ services:
       POSTGRES_PASSWORD: "${DB_PASSWORD:-postgres}"
       POSTGRES_DB: "${DB_DATABASE:-demo}"
     volumes:
-      - ./volumes/pgdata:/var/lib/postgresql/data
+      # - ./volumes/pgdata:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
 
   pgadmin:
     image: dpage/pgadmin4
     restart: unless-stopped
     environment:
-      - PGADMIN_DEFAULT_EMAIL=pgadmin4@incolume.com.br
-      - PGADMIN_DEFAULT_PASSWORD="${DB_PASSWORD:-admin1234}"
+      - PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org
+      - PGADMIN_DEFAULT_PASSWORD=admin1234
     ports:
       - '5050:80'
     volumes:
@@ -34,8 +35,12 @@ services:
     ports:
       - 6379:6379
     volumes:
-      - ./volumes/redisdata:/bitnami/redis/data
+      # - ./volumes/redisdata:/bitnami/redis/data
+      - redisdata:/bitnami/redis/data
 
+volumes:
+  pgdata:
+  redisdata:
 
 
 
