@@ -10,9 +10,10 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-04-18:
+## [Unreleased]	 &#8212; 	2025-04-20:
 ### Added
   - Estudos com arquivos compactados sobre stream em runtime;
+  - Estudos com streamlit, ferramenta para dashboard;
 
 ## [0.112.0]	 &#8212; 	2025-04-16:
 ### Added

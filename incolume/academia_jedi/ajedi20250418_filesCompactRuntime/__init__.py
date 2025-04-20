@@ -8,13 +8,15 @@ from collections.abc import Container
 from pathlib import Path
 from tempfile import gettempdir
 from typing import Final
-
+from incolume.academia_jedi import logger
 from faker import Faker
+
 
 
 @dataclasses.dataclass
 class URL:
     """URL file compreess."""
+    logger.info(inspect.stack()[0][3])
 
     z7: Final[str] = 'https://pastebin.com/raw/KGmnsB0j'
     zip: Final[str] = 'https://pastebin.com/raw/Zt9BHEF4'
@@ -32,6 +34,7 @@ def set_env(count: int = 10, seed: int = 191) -> Path:
 
     Boilerplate for compress implementations.
     """
+    logger.info(inspect.stack()[0][3])
     Faker.seed(seed)
     fake = Faker('pt-br')
 
@@ -137,6 +140,7 @@ def gen_zip(
     dout: Path | None = None,
 ) -> Path:
     """Generate zipfile for path."""
+    logger.info(inspect.stack()[0][3])
     zipname = zipname or Path('archives.zip')
     dout = dout or Path()
     with zipfile.ZipFile(

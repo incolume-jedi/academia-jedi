@@ -251,7 +251,9 @@ class TestCase:
     )
     def test_4(self, entrance, target_file, expected) -> NoReturn:
         """Unittest."""
-        file_zip = io.BytesIO(httpx.get(entrance).content)   # carrega bytes com arquivo
+        file_zip = io.BytesIO(
+            httpx.get(entrance).content,
+        )  # carrega bytes com arquivo
         with (
             zipfile.ZipFile(file_zip) as handle,
             handle.open(target_file) as file,
