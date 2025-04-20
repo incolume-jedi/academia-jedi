@@ -159,6 +159,8 @@ unstructured = "^0.17.2"
 pypdf = "^5.4.0"
 youtube-transcript-api = "<=1.0.3"
 networkx = "^3.4.2"
+streamlit-authenticator = "^0.4.2"
+psycopg2-binary = "^2.9.10"
 
 
 [[tool.poetry.source]]
