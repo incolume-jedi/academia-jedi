@@ -15,14 +15,13 @@ COOKIE_EXPIRY_DAYS: Final[int] = 30
 def main():
     """Main function."""
 
-    authenticator = stauth.Authenticate{
+    authenticator = stauth.Authenticate(
         {'usernames': {'teste': {'name': 'testando', 'passsword': 'senha secreta'}}},
         'random_cookie_name',
         'random_signature_key',
 
         COOKIE_EXPIRY_DAYS,
-
-    }
+    )
     if 'clicou_registrar' not in st.session_state:
         st.session_state['clicou_registrar'] = False
 
@@ -30,17 +29,18 @@ def main():
         login_form(authenticator=authenticator)
 
 
-def login_form(authenticator: stauth.Authenticate):
+def login_form(authenticator: st.Authenticate) -> None:
     """Login form."""
-    name, authenticator_satatus, username = authenticator.login('Login')
-    if authenticator_satatus:
-        authenticator.logout('Logout', main)
-        st.title('Area do dashboard')
-        st.write(f'{name} está logado(a)!')
-    elif authenticator_satatus == False:
-        st.error('Usuário/Senha incorretos.')
-    elif authenticator_satatus == None:
+    name, authentication_status, username = authenticator.login('main')
+    if authentication_status:
+        authenticator.logout('Logout', 'main')
+        st.write(f'*{name} está logado!*')
+        st.title('AREA DO DASHBOARD')
+    elif authentication_status == False:
+        st.error('Usuário ou senha incorretos')
+    elif authentication_status == None:
         st.warning('Por favor informe um usuário e senha')
+        clicou_registrar = st.button("Registrar")
         if 'clicou_registrar':
             st.session_state['clicou_registrar'] = True
             st.rerun()
