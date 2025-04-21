@@ -50,29 +50,32 @@ def instance_cursor(mode: str = 'r') -> Generator:
 
 def cria_db():
     """Cria banco de dados."""
-    #establishing the connection
+    # establishing the connection
     conn = psycopg2.connect(
-       database='postgres', user=USERSERVER, password=PASSWORD, host=HOST, port=PORT
+        database='postgres',
+        user=USERSERVER,
+        password=PASSWORD,
+        host=HOST,
+        port=PORT,
     )
     conn.autocommit = True
 
-    #Creating a cursor object using the cursor() method
+    # Creating a cursor object using the cursor() method
     cursor = conn.cursor()
 
-    #Preparing query to create a database
+    # Preparing query to create a database
     sql = f"""CREATE database {DATABASE}
         WITH
         OWNER = {USERSERVER}
         ENCODING = 'utf-8'
     """
 
-    #Creating a database
+    # Creating a database
     cursor.execute(sql)
-    print(f"Database {DATABASE} created successfully..")
+    ic(f'Database {DATABASE} created successfully..')
 
-    #Closing the connection
+    # Closing the connection
     conn.close()
-
 
 
 def consulta(user):
