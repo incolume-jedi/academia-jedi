@@ -2,23 +2,26 @@
 # ruff: noqa: E501
 
 import os
+from collections.abc import Generator
 from contextlib import contextmanager
 
 import psycopg2
 from dotenv import load_dotenv
 from icecream import ic
+from incolume.academia_jedi import logger
 
 load_dotenv()
 
 DATABASE = os.getenv('DB_DATABASE')
-HOST = os.getenv('LOCALHOST')
+HOST = os.getenv('HOST')
 USERSERVER = os.getenv('DB_USER')
 PASSWORD = os.getenv('DB_PASSWORD')
 PORT = os.getenv('DB_PORT')
+logger.debug(ic(f'{DATABASE=} {HOST=} {USERSERVER=} {PASSWORD=} {PORT=}'))
 
 
 @contextmanager
-def instance_cursor():
+def instance_cursor(mode: str = 'r') -> Generator:
     """Cria instancia do cursor.
 
     O "cursor" é um objeto que permite que você execute comandos SQL no banco de dados e recupere os resultados.
@@ -38,9 +41,34 @@ def instance_cursor():
         yield cursor
     finally:
         if connection:
+            if mode == 'w':
+                connection.commit()
             cursor.close()
             connection.close()
             ic('Conexão com PostgreSQL encerrada')
+
+
+def cria_db():
+    """Cria banco de dados."""
+    #establishing the connection
+    conn = psycopg2.connect(
+       database="postgres", user='postgres', password='password', host='127.0.0.1', port= '5432'
+    )
+    conn.autocommit = True
+
+    #Creating a cursor object using the cursor() method
+    cursor = conn.cursor()
+
+    #Preparing query to create a database
+    sql = f"""CREATE database {DATABASE}"""
+
+    #Creating a database
+    cursor.execute(sql)
+    print(f"Database {DATABASE} created successfully..")
+
+    #Closing the connection
+    conn.close()
+
 
 
 def consulta(user):
