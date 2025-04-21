@@ -52,7 +52,7 @@ def cria_db():
     """Cria banco de dados."""
     #establishing the connection
     conn = psycopg2.connect(
-       database="postgres", user='postgres', password='password', host='127.0.0.1', port= '5432'
+       database='postgres', user=USERSERVER, password=PASSWORD, host=HOST, port=PORT
     )
     conn.autocommit = True
 
@@ -60,7 +60,11 @@ def cria_db():
     cursor = conn.cursor()
 
     #Preparing query to create a database
-    sql = f"""CREATE database {DATABASE}"""
+    sql = f"""CREATE database {DATABASE}
+        WITH
+        OWNER = {USERSERVER}
+        ENCODING = 'utf-8'
+    """
 
     #Creating a database
     cursor.execute(sql)
