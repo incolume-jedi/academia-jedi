@@ -19,6 +19,7 @@ from incolume.academia_jedi.ajedi20250420_streamlit_auth.dependencies import (
     cria_tabela,
 )
 from psycopg2 import OperationalError
+from psycopg2.errors import UndefinedTable
 
 COOKIE_EXPIRY_DAYS: Final[int] = 30
 
@@ -27,7 +28,7 @@ def main():
     """Main function."""
     try:
         consulta_geral()
-    except OperationalError:
+    except (UndefinedTable, OperationalError):
         cria_tabela()
 
     db_query = consulta_geral()
