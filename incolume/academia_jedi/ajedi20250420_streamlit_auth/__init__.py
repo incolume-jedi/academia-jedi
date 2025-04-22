@@ -57,7 +57,11 @@ def main():
 
 def login_form(authenticator: stauth.Authenticate) -> None:
     """Formulário de autenticação."""
-    name, authentication_status, username = authenticator.login('Login')
+    name, authentication_status, username = authenticator.login(
+        location='main',
+        fields=['user', 'pswrd'],
+    )
+
     ic(f'{name=} {authentication_status=}, {username=}')
 
     if authentication_status:
