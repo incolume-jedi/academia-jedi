@@ -57,17 +57,15 @@ def main():
 
 def login_form(authenticator):
     """Formulário de autenticação."""
-    name, authentication_status, username = authenticator.login(location='main', key='Login') or None, None, None
+    name, authentication_status, username = authenticator.login('Login')
     ic(f'{name=} {authentication_status=}, {username=}')
-
     if authentication_status:
         authenticator.logout('Logout', 'main')
         st.write(f'*{name} está logado!*')
         st.title('AREA DO DASHBOARD')
     elif authentication_status is False:
         st.error('Usuário ou senha incorretos')
-
-    if authentication_status is None:
+    elif authentication_status is None:
         st.warning('Insira um nome de usuário e uma senha')
         clicou_em_registrar = st.button('Registrar')
         if clicou_em_registrar:
