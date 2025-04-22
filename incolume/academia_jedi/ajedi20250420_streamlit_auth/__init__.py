@@ -55,10 +55,11 @@ def main():
         usuario_form()
 
 
-def login_form(authenticator):
+def login_form(authenticator: stauth.Authenticate) -> None:
     """Formulário de autenticação."""
     name, authentication_status, username = authenticator.login('Login')
     ic(f'{name=} {authentication_status=}, {username=}')
+
     if authentication_status:
         authenticator.logout('Logout', 'main')
         st.write(f'*{name} está logado!*')
