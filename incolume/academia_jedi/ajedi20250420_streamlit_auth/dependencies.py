@@ -104,7 +104,7 @@ def consulta_geral():
         return cursor.fetchall()
 
 
-def add_registro(nome: str, user: str, senha: str):
+def add_registro(nome: str, user: str, senha: str) -> None:
     """Adiciona registros na tabela."""
     connection = psycopg2.connect(
         database=DATABASE,

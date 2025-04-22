@@ -20,6 +20,7 @@ from incolume.academia_jedi.ajedi20250420_streamlit_auth.dependencies import (
 )
 from psycopg2 import OperationalError
 from psycopg2.errors import UndefinedTable
+from streamlit_authenticator.utilities.hasher import Hasher
 
 COOKIE_EXPIRY_DAYS: Final[int] = 30
 
@@ -80,7 +81,7 @@ def login_form(authenticator: stauth.Authenticate) -> None:
 
 def confirmation_msg():
     """Mensagem de confirmação."""
-    hashed_password = stauth.Hasher([st.session_state.pswrd]).generate()
+    hashed_password = Hasher([st.session_state.pswrd]).generate()[0]
     if st.session_state.pswrd != st.session_state.confirm_pswrd:
         st.warning('Senhas não conferem')
         sleep(3)
