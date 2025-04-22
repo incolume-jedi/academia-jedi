@@ -40,12 +40,13 @@ def instance_cursor(mode: str = 'r') -> Generator:
     try:
         yield cursor
     finally:
-        if connection:
+        if connection and mode in 'r w'.split():
             if mode == 'w':
                 connection.commit()
+                logger.debug(ic('Commit realizado com sucesso.'))
             cursor.close()
             connection.close()
-            ic('Conexão com PostgreSQL encerrada')
+            logger.debug(ic('Conexão com PostgreSQL encerrada'))
 
 
 def cria_db():
@@ -103,7 +104,7 @@ def consulta_geral():
         return cursor.fetchall()
 
 
-def add_registro(nome, user, senha):
+def add_registro(nome: str, user: str, senha: str):
     """Adiciona registros na tabela."""
     connection = psycopg2.connect(
         database=DATABASE,
