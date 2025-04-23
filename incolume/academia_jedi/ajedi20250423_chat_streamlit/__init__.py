@@ -7,38 +7,19 @@ from pathlib import Path
 
 import streamlit as st
 from config import settings
+from incolume.academia_jedi import logger
 from pytz import timezone
 from unidecode import unidecode
-
-MSG_FICT = [
-    {
-        'username': 'Brito',
-        'content': 'Olá juliano',
-    },
-    {
-        'username': 'Juliano',
-        'content': 'Olá Brito',
-    },
-]
 
 
 def read_msg(user1: str, user2: str) -> list:
     """Read messagens."""
     result = []
-    x = Path(__file__).parent.joinpath(
-        'mensagens',
-        '-'.join(
-            unidecode(u).replace(' ', '_') for u in sorted([user1, user2])
-        ),
-    )
-    x = x.with_stem(
-        f'{x.stem}-{dt.datetime.now(tz=timezone(settings.tz)):%Y%m%d}'.casefold()
-    ).with_suffix('.pkl')
     try:
-        with x.open('rb') as f:
+        with filename_chat(user1, user2).open('rb') as f:
             result = pickle.load(f)  # noqa: S301
-    except:
-        pass
+    except FileNotFoundError as e:
+        logger.exception(e.strerror)
     return result
 
 
@@ -54,12 +35,13 @@ def filename_chat(user1: str, user2: str) -> Path:
     x = Path(__file__).parent.joinpath(
         'mensagens',
         '-'.join(
-            unidecode(u).replace(' ', '_') for u in sorted([user1, user2])
+            unidecode(u).replace(' ', '_').casefold()
+            for u in sorted([user1, user2])
         ),
     )
     x.parent.mkdir(parents=True, exist_ok=True)
     return x.with_stem(
-        f'{x.stem}-{dt.datetime.now(tz=timezone(settings.tz)):%Y%m%d}'.casefold()
+        f'{x.stem}-{dt.datetime.now(tz=timezone(settings.tz)):%Y%m%d}',
     ).with_suffix('.pkl')
 
 
