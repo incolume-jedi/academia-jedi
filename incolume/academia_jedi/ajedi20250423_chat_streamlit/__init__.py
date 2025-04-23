@@ -47,8 +47,17 @@ def filename_chat(user1: str, user2: str) -> Path:
 
 def pg_login():
     """Login page."""
-    st.title('Bem vindo ao Streamlit Messenger de JEDI Incolume.')
+    st.header('Bem vindo ao Messenger de JEDI Incolume.', divider=True)
+    tab1, tab2 = st.tabs('Entrar Cadastrar'.split())
+    with tab1.form(key='login'):
+        nome = st.text_input('Digite teu nome de usuário')
+        senha = st.text_input('Digite tua senha')
+        st.form_submit_button('Entrar')
 
+    with tab2.form(key='cadastro'):
+        nome = st.text_input('Cadastre novo de usuário')
+        senha = st.text_input('Digite nova senha')
+        st.form_submit_button('Cadastrar')
 
 def pg_chat():
     """Page chat."""
