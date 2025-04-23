@@ -10,6 +10,7 @@ from config import settings
 from incolume.academia_jedi import logger
 from pytz import timezone
 from unidecode import unidecode
+from icecream import ic
 
 
 def read_msg(user1: str, user2: str) -> list:
@@ -43,6 +44,10 @@ def filename_chat(user1: str, user2: str) -> Path:
     return x.with_stem(
         f'{x.stem}-{dt.datetime.now(tz=timezone(settings.tz)):%Y%m%d}',
     ).with_suffix('.pkl')
+
+def pg_login():
+    """Login page."""
+    st.title('Bem vindo ao Streamlit Messenger de JEDI Incolume.')
 
 
 def pg_chat():
@@ -83,7 +88,14 @@ def pg_chat():
 
 def main():
     """Manager application."""
-    pg_chat()
+    navigation: dict[str, callable] = {
+        'login': pg_login,
+        'chat': pg_chat,
+    }
+    if 'atualpage' not in st.session_state:
+        st.session_state['atualpage'] = 'login'
+
+    navigation[st.session_state['atualpage']]()
 
 
 if __name__ == '__main__':
