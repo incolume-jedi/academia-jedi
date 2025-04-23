@@ -1205,6 +1205,22 @@ files = [
 ]
 
 [[package]]
+name = "customtkinter"
+version = "5.2.2"
+description = "Create modern looking GUIs with Python"
+optional = false
+python-versions = ">=3.7"
+groups = ["dev"]
+files = [
+    {file = "customtkinter-5.2.2-py3-none-any.whl", hash = "sha256:14ad3e7cd3cb3b9eb642b9d4e8711ae80d3f79fb82545ad11258eeffb2e6b37c"},
+    {file = "customtkinter-5.2.2.tar.gz", hash = "sha256:fd8db3bafa961c982ee6030dba80b4c2e25858630756b513986db19113d8d207"},
+]
+
+[package.dependencies]
+darkdetect = "*"
+packaging = "*"
+
+[[package]]
 name = "cycler"
 version = "0.12.1"
 description = "Composable style cycles"
@@ -1295,6 +1311,21 @@ files = [
     {file = "Cython-3.0.11-py2.py3-none-any.whl", hash = "sha256:0e25f6425ad4a700d7f77cd468da9161e63658837d1bc34861a9861a4ef6346d"},
     {file = "cython-3.0.11.tar.gz", hash = "sha256:7146dd2af8682b4ca61331851e6aebce9fe5158e75300343f80c07ca80b1faff"},
 ]
+
+[[package]]
+name = "darkdetect"
+version = "0.8.0"
+description = "Detect OS Dark Mode from Python"
+optional = false
+python-versions = ">=3.6"
+groups = ["dev"]
+files = [
+    {file = "darkdetect-0.8.0-py3-none-any.whl", hash = "sha256:a7509ccf517eaad92b31c214f593dbcf138ea8a43b2935406bbd565e15527a85"},
+    {file = "darkdetect-0.8.0.tar.gz", hash = "sha256:b5428e1170263eb5dea44c25dc3895edd75e6f52300986353cd63533fe7df8b1"},
+]
+
+[package.extras]
+macos-listener = ["pyobjc-framework-Cocoa ; platform_system == \"Darwin\""]
 
 [[package]]
 name = "debugpy"
@@ -2592,7 +2623,6 @@ description = "IPython: Productive Interactive Computing"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
-markers = "python_version == \"3.10\""
 files = [
     {file = "ipython-8.35.0-py3-none-any.whl", hash = "sha256:e6b7470468ba6f1f0a7b116bb688a3ece2f13e2f94138e508201fad677a788ba"},
     {file = "ipython-8.35.0.tar.gz", hash = "sha256:d200b7d93c3f5883fc36ab9ce28a18249c7706e51347681f80a0aef9895f2520"},
@@ -2624,56 +2654,6 @@ parallel = ["ipyparallel"]
 qtconsole = ["qtconsole"]
 test = ["packaging", "pickleshare", "pytest", "pytest-asyncio (<0.22)", "testpath"]
 test-extra = ["curio", "ipython[test]", "jupyter_ai", "matplotlib (!=3.2.0)", "nbformat", "numpy (>=1.23)", "pandas", "trio"]
-
-[[package]]
-name = "ipython"
-version = "9.1.0"
-description = "IPython: Productive Interactive Computing"
-optional = false
-python-versions = ">=3.11"
-groups = ["dev"]
-markers = "python_version >= \"3.11\""
-files = [
-    {file = "ipython-9.1.0-py3-none-any.whl", hash = "sha256:2df07257ec2f84a6b346b8d83100bcf8fa501c6e01ab75cd3799b0bb253b3d2a"},
-    {file = "ipython-9.1.0.tar.gz", hash = "sha256:a47e13a5e05e02f3b8e1e7a0f9db372199fe8c3763532fe7a1e0379e4e135f16"},
-]
-
-[package.dependencies]
-colorama = {version = "*", markers = "sys_platform == \"win32\""}
-decorator = "*"
-ipython-pygments-lexers = "*"
-jedi = ">=0.16"
-matplotlib-inline = "*"
-pexpect = {version = ">4.3", markers = "sys_platform != \"win32\" and sys_platform != \"emscripten\""}
-prompt_toolkit = ">=3.0.41,<3.1.0"
-pygments = ">=2.4.0"
-stack_data = "*"
-traitlets = ">=5.13.0"
-typing_extensions = {version = ">=4.6", markers = "python_version < \"3.12\""}
-
-[package.extras]
-all = ["ipython[doc,matplotlib,test,test-extra]"]
-black = ["black"]
-doc = ["docrepr", "exceptiongroup", "intersphinx_registry", "ipykernel", "ipython[test]", "matplotlib", "setuptools (>=18.5)", "sphinx (>=1.3)", "sphinx-rtd-theme", "sphinx_toml (==0.0.4)", "typing_extensions"]
-matplotlib = ["matplotlib"]
-test = ["packaging", "pytest", "pytest-asyncio (<0.22)", "testpath"]
-test-extra = ["curio", "ipykernel", "ipython[test]", "jupyter_ai", "matplotlib (!=3.2.0)", "nbclient", "nbformat", "numpy (>=1.23)", "pandas", "trio"]
-
-[[package]]
-name = "ipython-pygments-lexers"
-version = "1.1.1"
-description = "Defines a variety of Pygments lexers for highlighting IPython code."
-optional = false
-python-versions = ">=3.8"
-groups = ["dev"]
-markers = "python_version >= \"3.11\""
-files = [
-    {file = "ipython_pygments_lexers-1.1.1-py3-none-any.whl", hash = "sha256:a9462224a505ade19a605f71f8fa63c2048833ce50abc86768a0d81d876dc81c"},
-    {file = "ipython_pygments_lexers-1.1.1.tar.gz", hash = "sha256:09c0138009e56b6854f9535736f4171d855c8c08a563a0dcd8022f78355c7e81"},
-]
-
-[package.dependencies]
-pygments = "*"
 
 [[package]]
 name = "ipywidgets"
@@ -3326,14 +3306,14 @@ files = [
 
 [[package]]
 name = "language-tool-python"
-version = "2.9.3"
+version = "2.9.2"
 description = "Checks grammar using LanguageTool."
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "language_tool_python-2.9.3-py3-none-any.whl", hash = "sha256:bdd49afe8dc2005314796b9b2c0998c32eb9b47a967771e19b9d61cf0e44b162"},
-    {file = "language_tool_python-2.9.3.tar.gz", hash = "sha256:205a564dda9df9629b96ca79ab94d8711e6e1aff70ae75dcfae06f9c270f2a66"},
+    {file = "language_tool_python-2.9.2-py3-none-any.whl", hash = "sha256:13db249495c422b10063fc941f55db4e8b3def7bf577ab9fbe8949795e52d1f1"},
+    {file = "language_tool_python-2.9.2.tar.gz", hash = "sha256:2b9828e8221356253e8c9989032f3be97fd2fea530fd5d58d685538d7b9126a1"},
 ]
 
 [package.dependencies]
@@ -5471,25 +5451,6 @@ files = [
     {file = "pypng-0.20220715.0-py3-none-any.whl", hash = "sha256:4a43e969b8f5aaafb2a415536c1a8ec7e341cd6a3f957fd5b5f32a4cfeed902c"},
     {file = "pypng-0.20220715.0.tar.gz", hash = "sha256:739c433ba96f078315de54c0db975aee537cbc3e1d0ae4ed9aab0ca1e427e2c1"},
 ]
-
-[[package]]
-name = "pysimplegui"
-version = "5.0.10"
-description = "Python GUIs for Humans. Launched in 2018. Grown to 5.0 in 2024."
-optional = false
-python-versions = ">=3.6"
-groups = ["dev"]
-files = [
-    {file = "PySimpleGUI-5.0.10-py3-none-any.whl", hash = "sha256:aad6cbe01cc8b545d64ac23f1f294ff0a4f3f2d4216681eb306a1e268b4c80a4"},
-]
-
-[package.dependencies]
-rsa = "*"
-
-[package.source]
-type = "legacy"
-url = "https://PySimpleGUI.net/install"
-reference = "pysimplegui"
 
 [[package]]
 name = "pysimpleguiqt"
@@ -7852,4 +7813,4 @@ propcache = ">=0.2.1"
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "04f1e9e3bfd4b6b02fd3e9a47d0d138473fe2f0ff9396e570bac6b79d6142624"
+content-hash = "f04df4a21bbe2a3bacfa705de6481cd6a72183ea54aa97c9e72e68ab4799b420"
