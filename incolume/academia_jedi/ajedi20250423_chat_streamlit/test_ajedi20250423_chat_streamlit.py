@@ -115,3 +115,19 @@ class TestCase:
     def test_check_senha(self, entrance, expected):
         """Unittest."""
         assert pkg.check_senha(*entrance) == expected
+
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param('user_one', True),
+            pytest.param('user_two', True),
+            pytest.param('user_three', True),
+            pytest.param('user_four', True),
+            pytest.param('user_five', False),
+        ],
+    )
+    def test_all_users(self, entrance, expected):
+        """Unittest."""
+        result = pkg.users_all()
+        assert isinstance(result, list)
+        assert (entrance in result) == expected
