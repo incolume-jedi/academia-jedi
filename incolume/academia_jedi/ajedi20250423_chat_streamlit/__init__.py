@@ -72,6 +72,17 @@ def check_senha(nome: str, senha: str, path: None | Path = None) -> bool:
     return (data['username'] == nome) and (data['password'] == senha)
 
 
+def __login_user(nome: str, senha: str) -> None:
+    """Login user."""
+    if check_senha(nome, senha):
+        time.sleep(2)
+        st.session_state['userlogged'] = nome.upper()
+        st.success('Loggin efetuado com sucesso')
+        time.sleep(2)
+        change_pg('chat')
+    else:
+        st.error('Erro ao logar')
+
 
 def create_new_user(nome: str, senha: str, path: Path = 'users') -> bool:
     """Create new user."""
@@ -83,19 +94,21 @@ def create_new_user(nome: str, senha: str, path: Path = 'users') -> bool:
     return filename.is_file()
 
 
-def change_pg(page_name: str):
+def change_pg(page_name: str) -> None:
     """Change page."""
     st.session_state['atualpage'] = page_name
+    st.rerun()
 
 
 def pg_login():
     """Login page."""
     st.header('Bem vindo ao Messenger de JEDI Incolume.', divider=True)
-    tab1, tab2 = st.tabs('Entrar Cadastrar'.split())
+    tab1, tab2 = st.tabs(['Entrar', 'Cadastrar'])
     with tab1.form(key='login'):
         nome = st.text_input('Digite teu nome de usuário')
         senha = st.text_input('Digite tua senha')
-        st.form_submit_button('Entrar')
+        if st.form_submit_button('Entrar'):
+            __login_user(nome, senha)
 
     with tab2.form(key='cadastro'):
         nome = st.text_input('Cadastre novo de usuário')
@@ -110,7 +123,6 @@ def pg_login():
             time.sleep(2)
             st.session_state['userlogged'] = nome.upper()
             change_pg('chat')
-            st.rerun()
         elif not nome and senha:
             st.error('Nome de usuário inválido.')
         elif senha != senha_confirm:
