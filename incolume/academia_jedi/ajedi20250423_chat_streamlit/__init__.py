@@ -16,24 +16,6 @@ from pytz import timezone
 from unidecode import unidecode
 
 
-def read_msg(user1: str, user2: str) -> list:
-    """Read messagens."""
-    result = []
-    try:
-        with filename_chat(user1, user2).open('rb') as f:
-            result = pickle.load(f)  # noqa: S301
-    except FileNotFoundError as e:
-        logger.exception(e.strerror)
-    return result
-
-
-def write_msg(user1: str, user2: str, message: dict) -> Path:
-    """Write messages."""
-    with (filename := filename_chat(user1, user2)).open('wb') as f:
-        pickle.dump(message, f)
-    return filename
-
-
 def filename_chat(user1: str, user2: str) -> Path:
     """Create filename based in chat members."""
     x = Path(__file__).parent.joinpath(
@@ -47,6 +29,24 @@ def filename_chat(user1: str, user2: str) -> Path:
     return x.with_stem(
         f'{x.stem}-{dt.datetime.now(tz=timezone(settings.tz)):%Y%m%d}',
     ).with_suffix('.pkl')
+
+
+def write_msg(user1: str, user2: str, message: dict) -> Path:
+    """Write messages."""
+    with (filename := filename_chat(user1, user2)).open('wb') as f:
+        pickle.dump(message, f)
+    return filename
+
+
+def read_msg(user1: str, user2: str) -> list:
+    """Read messagens."""
+    result = []
+    try:
+        with filename_chat(user1, user2).open('rb') as f:
+            result = pickle.load(f)  # noqa: S301
+    except FileNotFoundError as e:
+        logger.exception(e.strerror)
+    return result
 
 
 def filename_user(username: str, path: Path = 'users') -> Path:
