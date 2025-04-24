@@ -62,6 +62,15 @@ def filename_user(username: str, path: Path = 'users') -> Path:
 
 def check_senha(nome: str, senha: str, path: None | Path = None) -> bool:
     """Check password."""
+    filename = filename_user(nome, path)
+    try:
+        with filename.open('rb') as f:
+            data = pickle.load(f)
+    except:
+        return False
+
+    return (data['username'] == nome) and (data['password'] == senha)
+
 
 
 def create_new_user(nome: str, senha: str, path: Path = 'users') -> bool:
