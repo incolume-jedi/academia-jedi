@@ -2,6 +2,9 @@
 
 import pytest
 import incolume.academia_jedi.ajedi20250423_chat_streamlit as pkg
+import datetime as dt
+from config import settings
+from pytz import timezone
 
 
 class TestCase:
@@ -12,7 +15,10 @@ class TestCase:
         [
             pytest.param(
                 ('user one', 'user two', {'as': 'as'}),
-                {'mensagens', 'user_one-user_two-20250423.pkl'},
+                {
+                    'mensagens',
+                    f'user_one-user_two-{dt.datetime.now(tz=timezone(settings.tz)):%Y%m%d}.pkl',
+                },
             ),
         ],
     )

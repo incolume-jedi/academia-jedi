@@ -1,5 +1,7 @@
 """Chat streamlit."""
+
 # ruff: noqa: E501
+from __future__ import annotations
 
 import datetime as dt
 import pickle
@@ -117,7 +119,11 @@ def pg_login():
             'Digite novamente a nova senha',
             type='password',
         )
-        if st.form_submit_button('Cadastrar') and (nome !='') and (senha == senha_confirm):
+        if (
+            st.form_submit_button('Cadastrar')
+            and (nome != '')
+            and (senha == senha_confirm)
+        ):
             create_new_user(nome, senha)
             st.success('Usuário cadastrado com sucesso.')
             time.sleep(2)
@@ -163,6 +169,7 @@ def pg_chat():
         chat.markdown(msg_dict['content'])
         mensagens.append(msg_dict)
         write_msg(user1=userlogged, user2=userchat, message=mensagens)
+
 
 def starting():
     """Start configuration."""
