@@ -3,14 +3,15 @@
 
 import datetime as dt
 import pickle
+import time
 from pathlib import Path
 
 import streamlit as st
 from config import settings
+from icecream import ic
 from incolume.academia_jedi import logger
 from pytz import timezone
 from unidecode import unidecode
-from icecream import ic
 
 
 def read_msg(user1: str, user2: str) -> list:
@@ -45,6 +46,39 @@ def filename_chat(user1: str, user2: str) -> Path:
         f'{x.stem}-{dt.datetime.now(tz=timezone(settings.tz)):%Y%m%d}',
     ).with_suffix('.pkl')
 
+
+def filename_user(username: str, path: Path = 'users') -> Path:
+    """Filename users."""
+    path = path or 'users'
+    filename = (
+        Path(__file__).parent
+        / path
+        / f'{unidecode(username).replace(' ', '_').casefold()}.pkl'
+    )
+    ic(filename)
+    filename.parent.mkdir(exist_ok=True, parents=True)
+    return filename
+
+
+def check_senha(nome: str, senha: str, path: None | Path = None) -> bool:
+    """Check password."""
+
+
+def create_new_user(nome: str, senha: str, path: Path = 'users') -> bool:
+    """Create new user."""
+    filename = filename_user(nome, path)
+    if filename.exists():
+        return False
+    with filename.open('wb') as f:
+        pickle.dump({'username': nome, 'password': senha}, f)
+    return filename.is_file()
+
+
+def change_pg(page_name: str):
+    """Change page."""
+    st.session_state['atualpage'] = page_name
+
+
 def pg_login():
     """Login page."""
     st.header('Bem vindo ao Messenger de JEDI Incolume.', divider=True)
@@ -56,28 +90,41 @@ def pg_login():
 
     with tab2.form(key='cadastro'):
         nome = st.text_input('Cadastre novo de usuário')
-        senha = st.text_input('Digite nova senha')
-        st.form_submit_button('Cadastrar')
+        senha = st.text_input('Digite nova senha', type='password')
+        senha_confirm = st.text_input(
+            'Digite novamente a nova senha',
+            type='password',
+        )
+        if st.form_submit_button('Cadastrar') and (senha == senha_confirm):
+            create_new_user(nome, senha)
+            st.success('Usuário cadastrado com sucesso.')
+            time.sleep(2)
+            st.session_state['userlogged'] = nome.upper()
+            change_pg('chat')
+            st.rerun()
+        elif senha != senha_confirm:
+            st.error('Senhas não conferem.')
+
 
 def pg_chat():
     """Page chat."""
     st.title('Jedi Chat')
     st.divider()
 
-    userloged = 'Ricardo Brito'
+    userlogged = st.session_state['userlogged']
     userchat = 'Ada Brito'
 
-    mensagens = read_msg(user1=userloged, user2=userchat)
+    mensagens = read_msg(user1=userlogged, user2=userchat)
 
     for mensagem in mensagens:
         user = (
             'user'
-            if mensagem.get('username') == userloged
+            if mensagem.get('username') == userlogged
             else mensagem.get('username')
         )
         avatar = (
             None
-            if mensagem['username'] == userloged
+            if mensagem['username'] == userlogged
             else '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M580-490q-21 0-35.5-14.5T530-540q0-21 14.5-35.5T580-590q21 0 35.5 14.5T630-540q0 21-14.5 35.5T580-490Zm-200 0q-21 0-35.5-14.5T330-540q0-21 14.5-35.5T380-590q21 0 35.5 14.5T430-540q0 21-14.5 35.5T380-490Zm100 210q-60 0-108.5-33T300-400h360q-23 54-71.5 87T480-280Zm0 160q-75 0-140.5-28.5t-114-77q-48.5-48.5-77-114T120-480q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm0-80q116 0 198-82t82-198q0-116-82-198t-198-82h-12q-6 0-12 2-6 6-8 13t-2 15q0 21 14.5 35.5T496-680q9 0 16.5-3t15.5-3q12 0 20 9t8 21q0 23-21.5 29.5T496-620q-45 0-77.5-32.5T386-730v-6q0-3 1-8-83 30-135 101t-52 163q0 116 82 198t198 82Zm0-280Z"/></svg>'
         )
         chat = st.chat_message(user, avatar=avatar)
@@ -86,13 +133,13 @@ def pg_chat():
     newmsg = st.chat_input('Digite uma mensagem: ')
     if newmsg:
         msg_dict = {
-            'username': userloged,
+            'username': userlogged,
             'content': newmsg,
         }
         chat = st.chat_message('user')
         chat.markdown(msg_dict['content'])
         mensagens.append(msg_dict)
-        write_msg(user1=userloged, user2=userchat, message=mensagens)
+        write_msg(user1=userlogged, user2=userchat, message=mensagens)
 
 
 def main():
@@ -101,6 +148,7 @@ def main():
         'login': pg_login,
         'chat': pg_chat,
     }
+
     if 'atualpage' not in st.session_state:
         st.session_state['atualpage'] = 'login'
 
