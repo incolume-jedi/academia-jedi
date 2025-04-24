@@ -141,7 +141,7 @@ def pg_chat():
     st.divider()
 
     userlogged = st.session_state['userlogged']
-    userchat = 'Ada Brito'
+    userchat = st.session_state.get('userchat')
 
     mensagens = read_msg(user1=userlogged, user2=userchat)
 
@@ -179,6 +179,8 @@ def starting():
     if 'userlogged' not in st.session_state:
         st.session_state['userlogged'] = ''
 
+    if 'userchat' not in st.session_state:
+        st.session_state['userchat'] = ''
 
 def main():
     """Manager application."""
