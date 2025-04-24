@@ -95,13 +95,15 @@ def pg_login():
             'Digite novamente a nova senha',
             type='password',
         )
-        if st.form_submit_button('Cadastrar') and (senha == senha_confirm):
+        if st.form_submit_button('Cadastrar') and (nome !='') and (senha == senha_confirm):
             create_new_user(nome, senha)
             st.success('Usuário cadastrado com sucesso.')
             time.sleep(2)
             st.session_state['userlogged'] = nome.upper()
             change_pg('chat')
             st.rerun()
+        elif not nome and senha:
+            st.error('Nome de usuário inválido.')
         elif senha != senha_confirm:
             st.error('Senhas não conferem.')
 
