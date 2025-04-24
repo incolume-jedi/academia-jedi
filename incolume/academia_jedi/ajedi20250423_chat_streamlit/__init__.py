@@ -65,8 +65,8 @@ def check_senha(nome: str, senha: str, path: None | Path = None) -> bool:
     filename = filename_user(nome, path)
     try:
         with filename.open('rb') as f:
-            data = pickle.load(f)
-    except:
+            data = pickle.load(f)  # noqa: S301
+    except FileNotFoundError:
         return False
 
     return (data['username'] == nome) and (data['password'] == senha)
@@ -164,6 +164,14 @@ def pg_chat():
         mensagens.append(msg_dict)
         write_msg(user1=userlogged, user2=userchat, message=mensagens)
 
+def starting():
+    """Start configuration."""
+    if 'atualpage' not in st.session_state:
+        st.session_state['atualpage'] = 'login'
+
+    if 'userlogged' not in st.session_state:
+        st.session_state['userlogged'] = ''
+
 
 def main():
     """Manager application."""
@@ -172,8 +180,7 @@ def main():
         'chat': pg_chat,
     }
 
-    if 'atualpage' not in st.session_state:
-        st.session_state['atualpage'] = 'login'
+    starting()
 
     navigation[st.session_state['atualpage']]()
 
