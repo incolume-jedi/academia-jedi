@@ -115,6 +115,9 @@ def users_all(path: Path | None = None) -> list[str]:
 
 def change_pg(page_name: str) -> None:
     """Change page."""
+    ic()
+    ic(st.session_state.get('userlogged'))
+    ic(st.session_state.get('userchat'))
     st.session_state['atualpage'] = page_name
     st.rerun()
 
@@ -190,6 +193,8 @@ def pg_chat():
 
 def pg_select_user(element: st.Page) -> None:
     """Page select user."""
+    ic()
+    element.title(f'Logado como {st.session_state.get("userlogged")}')
     chatting = element.selectbox(
         'Selecione o usuário para conversar',
         options=[
@@ -233,7 +238,6 @@ def main():
         'select_user': pg_select_user,
     }
     starting()
-    # navigation[st.session_state['atualpage']]()
     if st.session_state['userlogged'] and (st.session_state['userchat'] == ''):
         container = st.container()
         navigation['select_user'](container)
