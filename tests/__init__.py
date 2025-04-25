@@ -1,6 +1,7 @@
 """Tests module."""
-from icecream import ic
+
 from config import settings
+from icecream import ic
 
 __author__ = '@britodfbr'  # pragma: no cover
 
