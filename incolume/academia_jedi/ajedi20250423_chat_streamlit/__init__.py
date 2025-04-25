@@ -187,29 +187,30 @@ def pg_chat():
         mensagens.append(msg_dict)
         write_msg(user1=userlogged, user2=userchat, message=mensagens)
 
+
 def pg_select_user(element: st.Page) -> None:
-    """
-    Page select user.
-    """
+    """Page select user."""
     chatting = element.selectbox(
         'Selecione o usuário para conversar',
-        options=[u.upper() for u in users_all() if u.upper() != ic(st.session_state['userlogged'])],
+        options=[
+            u.upper()
+            for u in users_all()
+            if u.upper() != ic(st.session_state['userlogged'])
+        ],
     )
     element.button(
         'Iniciar conversa',
         on_click=_select_chat,
-        args=(chatting, ),
+        args=(chatting,),
     )
 
+
 def _select_chat(userchat: str) -> None:
-    """
-    Select chat.
-    """
+    """Select chat."""
     st.session_state['userchat'] = userchat
     st.success(f'Iniciando conversa com {userchat}')
     time.sleep(1)
     change_pg('chat')
-
 
 
 def starting():
