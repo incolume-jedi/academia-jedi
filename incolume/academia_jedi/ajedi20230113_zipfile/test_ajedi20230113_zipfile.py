@@ -101,7 +101,7 @@ class TestCase:
                     pytest.mark.skipif(
                         platform().casefold()[:3] == 'win',
                         reason='ValueError: Invalid format'
-                        ' string into datefmt=%FT%T%N%z',
+                        ' string into datefmt=%Y%m%dT%H%M%',
                     ),
                 ],
             ),
