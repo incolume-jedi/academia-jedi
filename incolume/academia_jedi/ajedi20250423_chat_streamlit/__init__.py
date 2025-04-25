@@ -85,7 +85,7 @@ def __login_user(nome: str, senha: str) -> None:
     """Login user."""
     if check_senha(nome, senha):
         time.sleep(2)
-        st.session_state['userlogged'] = nome.upper()
+        st.session_state['userlogged'] = nome.upper().replace(' ', '_')
         st.success('Loggin efetuado com sucesso')
         time.sleep(2)
         change_pg('chat')
@@ -144,7 +144,7 @@ def pg_login():
             create_new_user(nome, senha)
             st.success('Usuário cadastrado com sucesso.')
             time.sleep(2)
-            st.session_state['userlogged'] = nome.upper()
+            st.session_state['userlogged'] = nome.upper().replace(' ', '_')
             change_pg('chat')
         elif not nome and senha:
             st.error('Nome de usuário inválido.')
@@ -187,6 +187,30 @@ def pg_chat():
         mensagens.append(msg_dict)
         write_msg(user1=userlogged, user2=userchat, message=mensagens)
 
+def pg_select_user():
+    """
+    Page select user.
+    """
+    chatting = st.selectbox(
+        'Selecione o usuário para conversar',
+        options=[u.upper() for u in users_all() if u.upper() != ic(st.session_state['userlogged'])],
+    )
+    st.button(
+        'Iniciar conversa',
+        on_click=_select_chat,
+        args=(chatting, ),
+    )
+
+def _select_chat(userchat: str) -> None:
+    """
+    Select chat.
+    """
+    st.session_state['userchat'] = userchat
+    st.success(f'Iniciando conversa com {userchat}')
+    time.sleep(1)
+    change_pg('chat')
+
+
 
 def starting():
     """Start configuration."""
@@ -205,11 +229,15 @@ def main():
     navigation: dict[str, callable] = {
         'login': pg_login,
         'chat': pg_chat,
+        'select_user': pg_select_user,
     }
 
     starting()
-
-    navigation[st.session_state['atualpage']]()
+    # navigation[st.session_state['atualpage']]()
+    if st.session_state['userlogged'] and (st.session_state['userchat'] == ''):
+        navigation['select_user']()
+    else:
+        navigation[st.session_state['atualpage']]()
 
 
 if __name__ == '__main__':
