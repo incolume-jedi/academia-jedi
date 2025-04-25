@@ -7,6 +7,7 @@ import datetime as dt
 import pickle
 import time
 from pathlib import Path
+from typing import Final
 
 import streamlit as st
 from config import settings
@@ -14,6 +15,9 @@ from icecream import ic
 from incolume.academia_jedi import logger
 from pytz import timezone
 from unidecode import unidecode
+
+
+DELAY: Final[int] = 3
 
 icons: list[str] = [
     '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ff0000"><path d="M360-390q-21 0-35.5-14.5T310-440q0-21 14.5-35.5T360-490q21 0 35.5 14.5T410-440q0 21-14.5 35.5T360-390Zm240 0q-21 0-35.5-14.5T550-440q0-21 14.5-35.5T600-490q21 0 35.5 14.5T650-440q0 21-14.5 35.5T600-390ZM480-160q134 0 227-93t93-227q0-24-3-46.5T786-570q-21 5-42 7.5t-44 2.5q-91 0-172-39T390-708q-32 78-91.5 135.5T160-486v6q0 134 93 227t227 93Zm0 80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-54-715q42 70 114 112.5T700-640q14 0 27-1.5t27-3.5q-42-70-114-112.5T480-800q-14 0-27 1.5t-27 3.5ZM177-581q51-29 89-75t57-103q-51 29-89 75t-57 103Zm249-214Zm-103 36Z"/></svg>',
@@ -194,7 +198,10 @@ def pg_chat():
 def pg_select_user(element: st.Page) -> None:
     """Page select user."""
     ic()
-    element.title(f'Logado como {st.session_state.get("userlogged")}')
+    if not st.session_state['userchat'] == '':
+        element.title(f"👋 Conversando com :blue[{st.session_state['userchat']}]")
+        element.divider()
+
     chatting = element.selectbox(
         'Selecione o usuário para conversar',
         options=[
@@ -238,15 +245,20 @@ def main():
         'select_user': pg_select_user,
     }
     starting()
-    if st.session_state['userlogged'] and (st.session_state['userchat'] == ''):
-        container = st.container()
-        navigation['select_user'](container)
-    if st.session_state['userlogged'] and (st.session_state['userchat'] != ''):
-        container = st.sidebar.container()
-        navigation['select_user'](container)
-    else:
-        navigation[st.session_state['atualpage']]()
+    match st.session_state['atualpage']:
+        case 'login':
+           navigation['login']()
+        case 'chat':
+            if (st.session_state['userchat'] == ''):
+                container = st.container()
+                pg_select_user(container)
+            else:
+                navigation[st.session_state['atualpage']]()
+                container = st.sidebar.container()
+                pg_select_user(container)
+                time.sleep(DELAY)
+                st.rerun()
 
-
+                
 if __name__ == '__main__':
     main()
