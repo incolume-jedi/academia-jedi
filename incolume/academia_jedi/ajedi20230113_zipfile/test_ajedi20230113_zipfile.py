@@ -111,8 +111,8 @@ class TestCase:
                     'match': 'No such file or directory',
                 },
                 '',
-                'ERROR   ; root; realpython02; tratativa1;'
-                ' No such file or directory',
+                'ERROR   ; incolume.academia_jedi.ajedi20230113_zipfile; realpython02; tratativa1;',
+                marks=[],
             ),
             pytest.param(
                 {
@@ -120,8 +120,7 @@ class TestCase:
                     'match': 'File is not a zip file',
                 },
                 Path(__file__),
-                'ERROR   ; root; realpython02; tratativa1;'
-                ' Falha no arquivo zip',
+                'ERROR   ; incolume.academia_jedi.ajedi20230113_zipfile; realpython02; tratativa1; Falha no arquivo zip',
             ),
         ],
     )

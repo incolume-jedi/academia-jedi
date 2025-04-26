@@ -19,7 +19,7 @@ def tratativa1(zipname: Path | str) -> None:
 
     try:
         if zipname in [None, '']:
-            raise FileExistsError
+            raise FileNotFoundError('No such file or directory')
 
         with zipfile.ZipFile(zipname) as archive:
             archive.printdir()
