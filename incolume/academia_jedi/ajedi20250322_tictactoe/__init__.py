@@ -1,6 +1,8 @@
 """Module."""
 
-# ruff:noqa: T201
+# ruff:noqa: T201 C901 FBT003 PLR912 PT018 E501 S311 PT012 PLR2004 PLR0912 SIM103 PLR2004
+
+import random
 
 
 class Tabuleiro:
@@ -27,15 +29,15 @@ class Tabuleiro:
         """Verifica se o jogador venceu."""
         # Verifica linhas e colunas
         for i in range(3):
-            if all([self.tabuleiro[i][j] == jogador for j in range(3)]) or all([
+            if all(self.tabuleiro[i][j] == jogador for j in range(3)) or all(
                 self.tabuleiro[j][i] == jogador for j in range(3)
-            ]):
+            ):
                 return True
 
         # Verifica diagonais
-        if all([self.tabuleiro[i][i] == jogador for i in range(3)]) or all([
+        if all(self.tabuleiro[i][i] == jogador for i in range(3)) or all(
             self.tabuleiro[i][2 - i] == jogador for i in range(3)
-        ]):
+        ):
             return True
 
         return False
@@ -51,6 +53,13 @@ class JogoDaVelha:
     """Classe principal que controla o jogo."""
 
     def __init__(self, tabuleiro: Tabuleiro | None = None):
+        """Init class.
+
+        Inicializa o tabuleiro e define o jogador atual.
+
+        Args:
+            tabuleiro (Tabuleiro | None, optional): _description_. Defaults to None.
+        """
         self.tabuleiro = tabuleiro or Tabuleiro()
         self.jogador_atual = 'X'
 
@@ -114,17 +123,17 @@ class TicTacToe:
         """Verifica se o jogador atual venceu."""
         # Verifica linhas, colunas e diagonais
         for i in range(3):
-            if all([tabuleiro[i][j] == jogador for j in range(3)]):  # Linha
+            if all(tabuleiro[i][j] == jogador for j in range(3)):  # Linha
                 return True
-            if all([tabuleiro[j][i] == jogador for j in range(3)]):  # Coluna
+            if all(tabuleiro[j][i] == jogador for j in range(3)):  # Coluna
                 return True
 
         # Diagonal principal
-        if all([tabuleiro[i][i] == jogador for i in range(3)]):
+        if all(tabuleiro[i][i] == jogador for i in range(3)):
             return True
 
         # Diagonal secundária
-        if all([tabuleiro[i][2 - i] == jogador for i in range(3)]):
+        if all(tabuleiro[i][2 - i] == jogador for i in range(3)):
             return True
 
         return False
@@ -176,13 +185,11 @@ class TicTacToe:
             print('Empate! Ninguém venceu.')
 
 
-import random
-
-
-class Tic_Tac_Toe:
+class Tictactoe:
     """Classe principal do Jogo da Velha."""
 
     def __init__(self):
+        """Init class."""
         self.tabuleiro = [[' ' for _ in range(3)] for _ in range(3)]
         self.jogador_atual = 'X'
         self.placar = {'Jogador': 0, 'Computador': 0}
@@ -381,5 +388,5 @@ if __name__ == '__main__':
     jogo = JogoDaVelha()
     jogo.jogar()
 
-    jogo = Tic_Tac_Toe()
+    jogo = Tictactoe()
     jogo.jogar()

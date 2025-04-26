@@ -1,5 +1,6 @@
 """Test module."""
 
+# ruff: noqa: E501 T201 PT018 PT011 PLR2004 PT012
 from . import Tabuleiro, JogoDaVelha
 
 import pytest
@@ -89,8 +90,7 @@ class TestTabuleiro:
         """Testa se o tabuleiro é exibido corretamente quando vazio."""
         self.tabuleiro.exibir()
         captured = capsys.readouterr()
-        expected_output = '  |   |  \n---------\n  |   |'
-        '  \n---------\n  |   |  \n---------\n'
+        expected_output = '  |   |  \n---------\n  |   |  \n---------\n  |   |  \n---------\n'
         assert captured.out == expected_output
 
     def test_marcar_posicao_valida(self):
