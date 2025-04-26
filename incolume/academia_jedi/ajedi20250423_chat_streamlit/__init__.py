@@ -65,7 +65,7 @@ def filename_user(username: str, path: Path = 'users') -> Path:
     filename = (
         Path(__file__).parent
         / path
-        / f'{unidecode(username).replace(' ', '_').casefold()}.pkl'
+        / f'{unidecode(username).replace(" ", "_").casefold()}.pkl'
     )
     ic(filename)
     filename.parent.mkdir(exist_ok=True, parents=True)
