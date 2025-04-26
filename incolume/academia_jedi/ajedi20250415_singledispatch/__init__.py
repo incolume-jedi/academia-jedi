@@ -57,7 +57,7 @@ def _(arg: float, *, verbose: bool = False) -> float | tuple:
 
 
 @fun.register
-def _(arg: list|set, *, verbose: bool = False) -> list:
+def _(arg: list | set, *, verbose: bool = False) -> list:
     """Case set or list type."""
     ic('Union[list|set]')
     result = []
