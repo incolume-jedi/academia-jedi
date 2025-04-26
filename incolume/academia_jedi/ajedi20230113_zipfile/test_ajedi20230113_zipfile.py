@@ -16,6 +16,7 @@ from incolume.academia_jedi.ajedi20230113_zipfile import (
     realpython03,
     realpython04,
     realpython05,
+    outputdir,
 )
 from tempfile import NamedTemporaryFile, gettempdir
 
@@ -169,16 +170,19 @@ class TestCase:
     @pytest.mark.parametrize(
         'entrance expected'.split(),
         [
-            (realpython04.hello, realpython04.hello.with_suffix('.zip')),
-            (
+            pytest.param(
+                realpython04.hello,
+                outputdir / realpython04.hello.with_suffix('.zip').name,
+            ),
+            pytest.param(
                 (fin := NamedTemporaryFile().name),
-                Path(fin).with_suffix('.zip'),
+                outputdir / Path(fin).with_suffix('.zip').name,
             ),
         ],
     )
     def test_estudo4(self, entrance, expected) -> NoReturn:
         """Unittest."""
-        filename = Path(entrance) if isinstance(entrance, str) else entrance
+        filename = Path(entrance)
         filename.write_text(filename.as_posix())
 
         assert realpython04.tratativa(filename=filename) == expected
