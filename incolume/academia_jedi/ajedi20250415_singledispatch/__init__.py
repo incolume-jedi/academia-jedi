@@ -1,9 +1,10 @@
 """Module."""
+
 # ruff: noqa: T201
+from __future__ import annotations
 
 import cmath
 from functools import singledispatch
-from typing import Union
 
 from icecream import ic
 
@@ -56,7 +57,7 @@ def _(arg: float, *, verbose: bool = False) -> float | tuple:
 
 
 @fun.register
-def _(arg: Union[list, set], *, verbose: bool = False) -> list:
+def _(arg: list | set, *, verbose: bool = False) -> list:
     """Case set or list type."""
     ic('Union[list|set]')
     result = []

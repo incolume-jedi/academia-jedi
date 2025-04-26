@@ -1,5 +1,7 @@
 """Test module."""
 
+from __future__ import annotations
+
 import pytest
 import incolume.academia_jedi.ajedi20250415_singledispatch as pkg
 import cmath

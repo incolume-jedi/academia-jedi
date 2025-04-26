@@ -5,7 +5,7 @@ from pathlib import Path
 
 from incolume.academia_jedi.ajedi20230113_zipfile import filezip_sample, logger
 
-# ruff:noqa: T201
+# ruff:noqa: T201 TRY301
 
 zipnames = (
     filezip_sample,
@@ -19,7 +19,8 @@ def tratativa1(zipname: Path | str) -> None:
 
     try:
         if zipname in [None, '']:
-            raise FileExistsError
+            msg = 'No such file or directory'
+            raise FileNotFoundError(msg)
 
         with zipfile.ZipFile(zipname) as archive:
             archive.printdir()
