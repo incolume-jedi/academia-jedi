@@ -3,8 +3,11 @@ import dash
 import plotly.express as px
 import pandas as pd
 
+stylesheets = [
+'https://pastebin.com/raw/rbW8zaDe',
+]
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, external_stylesheets=stylesheets)
 
 
 df0 = pd.DataFrame({
