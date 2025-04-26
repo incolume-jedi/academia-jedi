@@ -1,7 +1,6 @@
 """Module academia_jedi."""
 
 import logging
-from contextlib import suppress
 from pathlib import Path
 
 from config import settings
@@ -17,8 +16,7 @@ logging.basicConfig(
     datefmt=settings.datefmt,
 )
 
-with suppress(ValueError):
-    logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 version_file = Path(__file__).parent / 'version.txt'
 project_file = Path(__file__).parents[2] / 'pyproject.toml'
