@@ -16,7 +16,6 @@ from incolume.academia_jedi import logger
 from pytz import timezone
 from unidecode import unidecode
 
-
 DELAY: Final[int] = 3
 
 icons: list[str] = [
@@ -198,8 +197,10 @@ def pg_chat():
 def pg_select_user(element: st.Page) -> None:
     """Page select user."""
     ic()
-    if not st.session_state['userchat'] == '':
-        element.title(f"👋 Conversando com :blue[{st.session_state['userchat']}]")
+    if st.session_state['userchat'] != '':
+        element.title(
+            f"👋 Conversando com :blue[{st.session_state['userchat']}]",
+        )
         element.divider()
 
     chatting = element.selectbox(
@@ -247,9 +248,9 @@ def main():
     starting()
     match st.session_state['atualpage']:
         case 'login':
-           navigation['login']()
+            navigation['login']()
         case 'chat':
-            if (st.session_state['userchat'] == ''):
+            if st.session_state['userchat'] == '':
                 container = st.container()
                 pg_select_user(container)
             else:
@@ -259,6 +260,6 @@ def main():
                 time.sleep(DELAY)
                 st.rerun()
 
-                
+
 if __name__ == '__main__':
     main()
