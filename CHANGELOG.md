@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-04-26:
+## [0.113.0]	 &#8212; 	2025-04-26:
 ### Added
   - Estudos com arquivos compactados sobre stream em runtime;
   - Estudos com streamlit, ferramenta para dashboard;
@@ -767,4 +767,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.110.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.109.5...0.110.0
 [0.111.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.110.0...0.111.0
 [0.112.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.111.0...0.112.0
-[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.112.0...Unreleased
+[0.113.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.112.0...0.113.0
