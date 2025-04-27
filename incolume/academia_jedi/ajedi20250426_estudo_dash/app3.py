@@ -47,7 +47,6 @@ app.layout = dash.html.Div(
             value='DF',
             style={'margin-top': '20px'},
         ),
-
         dash.html.Label('Checklist', style={'margin-top': '20px'}),
         dash.dcc.Checklist(
             id='cl1',
@@ -62,7 +61,6 @@ app.layout = dash.html.Div(
             value='Hello Dash',
             style={'margin-top': '20px'},
         ),
-
         dash.html.Label('Slider', style={'margin-top': '20px'}),
         dash.dcc.Slider(
             id='slider1',

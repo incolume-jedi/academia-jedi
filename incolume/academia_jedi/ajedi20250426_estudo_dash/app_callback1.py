@@ -10,8 +10,7 @@ __all__ = ['px', 'pd', 'State']
 app = dash.Dash(__name__)
 
 
-app.layout = dash.html.Div(
-    [
+app.layout = dash.html.Div([
     dash.html.H1(children='Estudo com callback'),
     dash.html.Div([
         dash.html.Label('Altere o valor abaixo para ver o callback em ação!'),
@@ -20,11 +19,10 @@ app.layout = dash.html.Div(
         'Entrada:',
         dash.dcc.Input(id='input1', value='Valor inicial', type='text'),
         dash.html.Br(),
-        dash.html.Div(id='output1' ),
-    ]
-    )
-    ]
-)
+        dash.html.Div(id='output1'),
+    ]),
+])
+
 
 @app.callback(
     Output(component_id='output1', component_property='children'),
@@ -36,7 +34,7 @@ def update_output_div(value):
     Args:
         value (_type_): _description_
     """
-    return 'Saída: {}'.format(value)
+    return f'Saída: {value}'
 
 
 if __name__ == '__main__':
