@@ -15,7 +15,7 @@ ic()
 
 
 @singledispatch
-def fun(arg, *, verbose: bool = False) -> str | tuple:  # noqa: ANN001
+def fun(arg:str, *, verbose: bool = False) -> str | tuple:
     """Main function."""
     ic('base')
     result = f'{arg}'
@@ -57,7 +57,7 @@ def _(arg: float, *, verbose: bool = False) -> float | tuple:
 
 
 @fun.register
-def _(arg: list | set, *, verbose: bool = False) -> list:
+def _(arg: (list | set), *, verbose: bool = False) -> list:
     """Case set or list type."""
     ic('Union[list|set]')
     result = []
