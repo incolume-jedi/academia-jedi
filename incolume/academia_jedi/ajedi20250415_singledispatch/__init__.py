@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import cmath
+from collections.abc import Container
 from functools import singledispatch
 
 from icecream import ic
@@ -15,7 +16,7 @@ ic()
 
 
 @singledispatch
-def fun(arg, *, verbose: bool = False) -> str | tuple:  # noqa: ANN001
+def fun(arg: str, *, verbose: bool = False) -> str | tuple:
     """Main function."""
     ic('base')
     result = f'{arg}'
@@ -56,10 +57,12 @@ def _(arg: float, *, verbose: bool = False) -> float | tuple:
     return result
 
 
-@fun.register
-def _(arg: list | set, *, verbose: bool = False) -> list:
+@fun.register(list)
+@fun.register(set)
+def _(arg: Container, *, verbose: bool = False) -> list:
     """Case set or list type."""
-    ic('Union[list|set]')
+    ic('Union[list, set]')
+    ic('list | set')
     result = []
     if verbose:
         result.append(f'Enumerate this {type(arg).__name__}:')
