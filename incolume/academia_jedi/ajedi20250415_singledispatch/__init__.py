@@ -1,15 +1,12 @@
 """Module."""
 
-# ruff: noqa: T201 UP035
+# ruff: noqa: T201
 from __future__ import annotations
 
 import cmath
-import sys
 from functools import singledispatch
-from typing import List, Set, Union
 
 from icecream import ic
-from incolume.academia_jedi import logger
 
 __all__ = ['cmath']
 
@@ -18,7 +15,7 @@ ic()
 
 
 @singledispatch
-def fun(arg: str, *, verbose: bool = False) -> str | tuple:
+def fun(arg:str, *, verbose: bool = False) -> str | tuple:
     """Main function."""
     ic('base')
     result = f'{arg}'
@@ -59,44 +56,16 @@ def _(arg: float, *, verbose: bool = False) -> float | tuple:
     return result
 
 
-if sys.version_info < (3, 11):
-
-    @fun.register
-    def _(arg: list, *, verbose: bool = False) -> list:
-        """Case list type."""
-        ic('list')
-        result = []
-        if verbose:
-            result.append(f'Enumerate this {type(arg).__name__}:')
-        for i, elem in enumerate(sorted(arg)):
-            result.append((i, elem))
-        return result
-
-    @fun.register
-    def _(arg: set, *, verbose: bool = False) -> list:
-        """Case set type."""
-        ic('set')
-        result = []
-        if verbose:
-            result.append(f'Enumerate this {type(arg).__name__}:')
-        for i, elem in enumerate(sorted(arg)):
-            result.append((i, elem))
-        return result
-else:
-    try:
-
-        @fun.register
-        def _(arg: list | set, *, verbose: bool = False) -> list:
-            """Case set or list type."""
-            ic('list | set')
-            result = []
-            if verbose:
-                result.append(f'Enumerate this {type(arg).__name__}:')
-            for i, elem in enumerate(sorted(arg)):
-                result.append((i, elem))
-            return result
-    except TypeError:
-        logger.exception('Python 3.11+ is required for this feature.')
+@fun.register
+def _(arg: (list | set), *, verbose: bool = False) -> list:
+    """Case set or list type."""
+    ic('Union[list|set]')
+    result = []
+    if verbose:
+        result.append(f'Enumerate this {type(arg).__name__}:')
+    for i, elem in enumerate(sorted(arg)):
+        result.append((i, elem))
+    return result
 
 
 @fun.register(complex)
