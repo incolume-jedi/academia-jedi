@@ -31,7 +31,7 @@ def update_output(value: int) -> dict:
 
 
 @app.callback(Output('output', 'children'), Input('store', 'data'))
-def update_output(data: dict) -> pd.DataFrame:
+def update_output(data: dict) -> pd.DataFrame:  # noqa: F811
     """Update output.
 
     Update the output with the number of students
