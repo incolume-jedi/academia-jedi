@@ -4,10 +4,13 @@
 from __future__ import annotations
 
 import cmath
-from collections.abc import Container
 from functools import singledispatch
+from typing import TYPE_CHECKING
 
 from icecream import ic
+
+if TYPE_CHECKING:
+    from collections.abc import Container
 
 __all__ = ['cmath']
 
