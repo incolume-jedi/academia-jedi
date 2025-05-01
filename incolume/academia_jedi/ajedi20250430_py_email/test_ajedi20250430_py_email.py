@@ -1,5 +1,6 @@
 """Email with python."""
 
+from typing import ClassVar
 import pytest
 import incolume.academia_jedi.ajedi20250430_py_email as pkg
 from pathlib import Path
@@ -20,7 +21,7 @@ class TestPyEmail:
         inspect.stack()[0][3],
     )
     credentials_file: Path = path_class / 'credentials/credentials.json'
-    credentials: dict[str, str] = {
+    credentials: ClassVar[dict[str, str]] = {
         'email': 'dev@example.com',
         'google_password': 'xpto',
     }
@@ -55,13 +56,28 @@ class TestPyEmail:
     )
     def test_credentials_path(self, entrance):
         """Test the credentials path."""
-        assert getattr(entrance, 'is_file')
+        assert entrance.is_file()
 
     def test_credentials(self):
         """Test the credentials."""
         assert pkg.get_credentials(self.credentials_file)
 
-    def test_email_class(self):
+    @pytest.mark.parametrize(
+        'entrance',
+        [
+            pytest.param('username'),
+            pytest.param('password'),
+            pytest.param('hostname'),
+        ],
+    )
+    def test_email_class_attr(self, entrance):
+        """Test the email class."""
+        result = pkg.Email(
+            **pkg.get_credentials(self.credentials_file),
+        ).to_dict()
+        assert entrance in result
+
+    def test_email_class_values(self):
         """Test the email class."""
         expected = {
             'username': 'dev@example.com',

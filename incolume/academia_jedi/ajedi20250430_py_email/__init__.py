@@ -1,6 +1,7 @@
 """Email with python."""
 
 import json
+import pprint
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Final
@@ -26,8 +27,15 @@ class Email:
     password: str
     hostname: str = 'imap.gmail.com'
 
+    def __post_init__(self):
+        """Post init method."""
 
-def get_credentials(credentials: Path | None = None):
+    def to_dict(self) -> dict:
+        """Convert the class to a dictionary."""
+        return asdict(self)
+
+
+def get_credentials(credentials: Path | None = None) -> dict:
     """Get the credentials from the credentials.json file."""
     credentials = credentials or CREDENTIALS_PATH
     logger.debug(ic(f'{credentials=}'))
@@ -41,15 +49,38 @@ def get_credentials(credentials: Path | None = None):
     }
 
 
-def get_email(credentials: Path | None = None) -> Email:
+def get_email_0(credentials: Path | None = None) -> list:
     """Get the email from the credentials.json file."""
     with Imbox(**get_credentials(credentials)) as inbox:
-        unread_messages = inbox.messages(unread=True)  # Get unread messages
-        if not unread_messages:
+        messages = inbox.messages(unread=True)  # Get unread messages
+        if not messages:
             logger.info(ic('No unread messages'))
-        print(len(unread_messages))
+            return []
+        logger.info(ic(len(messages)))
+    return messages
 
+def get_email_1(credentials: Path | None = None) -> str:
+    """Get the email from the credentials.json file."""
+    with Imbox(**get_credentials(credentials)) as inbox:
+        messages = inbox.messages(unread=True)
+        for uid, message in messages[-1]:
+            print(message.sent_from, message.subject)
+
+
+def get_email_2(credentials: Path | None = None) -> str:
+    """Get the email from the credentials.json file."""
+
+    with Imbox(**get_credentials(credentials)) as inbox:
+        messages = inbox.messages(subject='Tempmail')[0]
+        body = messages[1].body['plain'][0]
+        return body
+
+def run():
+    """Run the script."""
+    get_email_0()
+    get_email_1()
+    get_email_2()
 
 
 if __name__ == '__main__':
-    get_email()
+    run()
