@@ -75,11 +75,33 @@ def get_email_2(credentials: Path | None = None) -> str:
         body = messages[1].body['plain'][0]
         return body
 
+def get_email_3(credentials: Path | None = None) -> str:
+    """Get the email from the credentials.json file."""
+
+    timestamp = '2023-01-01'
+
+    with Imbox(**get_credentials(credentials)) as inbox:
+        messages = inbox.messages(date__gt=timestamp)[0]
+
+
+
+def get_email_4(credentials: Path | None = None) -> str:
+    """Get the email from the credentials.json file."""
+
+    timestamp = '2010-01-01'
+
+    with Imbox(**get_credentials(credentials)) as inbox:
+        messages = inbox.messages(date__on=timestamp)
+        for msg in messages:
+            msg.delete()
+
 def run():
     """Run the script."""
     get_email_0()
     get_email_1()
     get_email_2()
+    get_email_3()
+    get_email_4()
 
 
 if __name__ == '__main__':
