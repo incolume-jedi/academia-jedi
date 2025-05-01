@@ -50,13 +50,6 @@ def get_email(credentials: Path | None = None) -> Email:
         print(len(unread_messages))
 
 
-#
-#    # for uid, message in unread_messages:
-#    #     print(f'From: {message.sent_from}')
-#    #     print(f'Subject: {message.subject}')
-#    #     print(f'Date: {message.date_str}')
-#    #     print(f"Body: {message.body['plain']}")
-#    #     print('-' * 40)
 
 if __name__ == '__main__':
     get_email()
