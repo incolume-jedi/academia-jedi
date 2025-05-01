@@ -6,6 +6,7 @@ from pathlib import Path
 from tempfile import gettempdir
 import inspect
 import json
+import shutil
 
 
 class TestPyEmail:
@@ -14,11 +15,11 @@ class TestPyEmail:
     This class contains test methods for the ajedi20250430_py_email package.
     """
 
-    credentials_file: Path = Path(
+    path_class: Path = Path(
         gettempdir(),
         inspect.stack()[0][3],
-        'credentials.json',
     )
+    credentials_file: Path = path_class / 'credentials/credentials.json'
     credentials: dict[str, str] = {
         'email': 'dev@example.com',
         'google_password': 'xpto',
@@ -35,6 +36,11 @@ class TestPyEmail:
             json.dumps(cls.credentials),
             encoding='utf-8',
         )
+
+    @classmethod
+    def teardown_class(cls):
+        """Teardown class."""
+        shutil.rmtree(cls.path_class, ignore_errors=True)
 
     def test_import(self):
         """Test the import of the ajedi20250430_py_email package."""
