@@ -12,8 +12,8 @@ from incolume.academia_jedi import logger
 CREDENTIALS_PATH: Final[Path] = (
     Path(__file__).parents[3] / 'credentials' / 'credentials.json'
 )
-SMTP_SERVER: Final[str] = 'smtp.gmail.com'
-IMAP_SERVER: Final[str] = 'imap.gmail.com'
+SMTP_SERVER: Final[str] = 'smtp.google.com'
+IMAP_SERVER: Final[str] = 'imap.google.com'
 
 logger.info(ic(f'{CREDENTIALS_PATH=}, {SMTP_SERVER=}, {IMAP_SERVER=}'))
 
@@ -36,20 +36,28 @@ def get_credentials(credentials: Path | None = None):
 
     logger.debug(ic(f'{credentials_data=}'))
     return {
-        'hostname': 'imap.google.com',
+        'hostname': IMAP_SERVER,
         'username': credentials_data['email'],
         'password': credentials_data['google_password'],
     }
 
 
-# with Imbox(**get_credentials()) as inbox:
-#    # Get unread messages
-#    unread_messages = inbox.messages(unread=True)
+def get_email(credentials: Path | None = None) -> Email:
+    """Get the email from the credentials.json file."""
+    with Imbox(**get_credentials(credentials)) as inbox:
+        unread_messages = inbox.messages(unread=True)  # Get unread messages
+        if not unread_messages:
+            logger.info(ic('No unread messages'))
+        print(len(unread_messages))
+
+
 #
-#    print(len(unread_messages))
 #    # for uid, message in unread_messages:
 #    #     print(f'From: {message.sent_from}')
 #    #     print(f'Subject: {message.subject}')
 #    #     print(f'Date: {message.date_str}')
 #    #     print(f"Body: {message.body['plain']}")
 #    #     print('-' * 40)
+
+if __name__ == '__main__':
+    get_email()
