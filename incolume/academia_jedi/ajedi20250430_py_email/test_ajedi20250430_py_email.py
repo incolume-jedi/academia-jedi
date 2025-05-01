@@ -82,7 +82,7 @@ class TestPyEmail:
         expected = {
             'username': 'dev@example.com',
             'password': 'xpto',
-            'hostname': 'imap.google.com',
+            'hostname': 'imap.gmail.com',
         }
         assert (
             pkg.asdict(pkg.Email(**pkg.get_credentials(self.credentials_file)))
