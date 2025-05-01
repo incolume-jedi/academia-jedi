@@ -34,7 +34,7 @@ def get_credentials(credentials: Path | None = None):
     with credentials.open() as file:
         credentials_data = json.load(file)
 
-    logger.debug(ic(f'{credentials_data=}'))
+    # logger.debug(ic(f'{credentials_data=}'))
     return {
         'hostname': IMAP_SERVER,
         'username': credentials_data['email'],
