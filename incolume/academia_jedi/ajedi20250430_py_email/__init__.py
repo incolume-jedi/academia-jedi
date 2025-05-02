@@ -177,15 +177,19 @@ def get_email_9(credentials: Path | None = None) -> list:
         imbox_messages_uids_3000 = imbox.messages(uid__range='3000:*')
         print(len(imbox_messages_uids_3000))
 
-        for atual in messages[-1]:
+        for atual in messages[-1:]:
             logger.debug(ic(f'{type(atual)=} {atual=}'))
             # break
-            uid, email, *_ = atual
-
+            print(atual)
+            print(type(atual))
+            print(len(atual))
+            print(atual[0])
+            print(atual[1])
+            uid, email = atual
             logger.debug(ic(f'{uid=}, {email=}'))
 
-            print(f'TITULO DO EMAIL: {email.subject}')
-            print(f'DATA DO EMAIL: {email.date}')
+            # print(f'TITULO DO EMAIL: {email.subject}')
+            # print(f'DATA DO EMAIL: {email.date}')
             # imbox.delete(uid)
             # for uid, message in messages:
             #
@@ -196,7 +200,6 @@ def get_email_9(credentials: Path | None = None) -> list:
             #
             # Marcar as mensagens como lidos
         # imbox.mark_seen(uid)
-
 
 
 def run():
@@ -211,7 +214,7 @@ def run():
     get_email_8()
     get_email_9()
     """
-    get_email_8()
+    get_email_9()
 
 
 if __name__ == '__main__':
