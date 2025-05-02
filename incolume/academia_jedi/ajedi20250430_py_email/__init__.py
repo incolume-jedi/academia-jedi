@@ -178,18 +178,16 @@ def get_email_9(credentials: Path | None = None) -> list:
         print(len(imbox_messages_uids_3000))
 
         for atual in messages[-1:]:
-            logger.debug(ic(f'{type(atual)=} {atual=}'))
+            logger.debug(ic(f'{type(atual)=}'))
+            logger.debug(ic(f'{atual=}'))
             # break
-            print(atual)
-            print(type(atual))
-            print(len(atual))
-            print(atual[0])
-            print(atual[1])
+            logger.debug(ic(f'{len(atual)=}'))
             uid, email = atual
-            logger.debug(ic(f'{uid=}, {email=}'))
+            logger.debug(ic(f'{uid=}'))
+            logger.debug(ic(f'{email=}'))
 
-            # print(f'TITULO DO EMAIL: {email.subject}')
-            # print(f'DATA DO EMAIL: {email.date}')
+            print(f'TITULO DO EMAIL: {email.subject}')
+            print(f'DATA DO EMAIL: {email.date}')
             # imbox.delete(uid)
             # for uid, message in messages:
             #
