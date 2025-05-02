@@ -199,7 +199,7 @@ def get_email_9(credentials: Path | None = None) -> list:
 def get_email_10(credentials: Path | None = None) -> list:
     """Get the email from the credentials.json file.
 
-    Consulta e deleta mensagens a partir de um parametro especificado.
+    Consulta e marca mensagens como lidas a partir de um parametro especificado.
     """
     credentials = credentials or CREDENTIALS_PATH
 
@@ -210,16 +210,13 @@ def get_email_10(credentials: Path | None = None) -> list:
         # Buscar e-mails a partir de uma data específica
         messages = imbox.messages(unread=True, date__gt=start_date, date__lt=end_date)
         logger.debug(ic(f'{len(messages)=}'))
-        for i, atual in enumerate(messages[:]):
+        for atual in messages[:]:
             uid, email = atual
             print(f'TITULO DO EMAIL: {email.subject}')
             print(f'DATA DO EMAIL: {email.date}')
             print(f'Remetente: {email.sent_from}')
-            # Marcar as mensagens como lidos
-            # imbox.mark_seen(uid)
-        logger.debug(ic(f'{i=}'))
 
-
+            imbox.mark_seen(uid)   # Marcar as mensagens como lidos
 
 
 def run():
