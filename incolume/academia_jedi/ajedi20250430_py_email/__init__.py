@@ -1,15 +1,22 @@
 """Email with python."""
 
+# ruff: noqa: T201 T203
+
+from __future__ import annotations
+
+import datetime as dt
 import json
-import pprint
 from dataclasses import asdict, dataclass
 from datetime import datetime
 from pathlib import Path
+from pprint import pprint
 from typing import Final
 
+from config import settings
 from icecream import ic
 from imbox import Imbox
 from incolume.academia_jedi import logger
+from pytz import timezone
 
 CREDENTIALS_PATH: Final[Path] = (
     Path(__file__).parents[3] / 'credentials' / 'credentials.json'
@@ -67,19 +74,28 @@ def get_email_1(credentials: Path | None = None) -> str:
         messages = inbox.messages(unread=True)
         for message in messages[-1]:
             print(message)
+        return messages
 
 
 def get_email_2(credentials: Path | None = None) -> str:
     """Get the email from the credentials.json file."""
     with Imbox(**get_credentials(credentials)) as inbox:
         messages = inbox.messages(subject='Tempmail')[0]
-        body = messages[1].body['plain'][0]
-        return body
+        return messages[1].body['plain'][0]
 
 
 def get_email_3(credentials: Path | None = None) -> str:
     """Get the email from the credentials.json file."""
-    timestamp = '2023-01-01'
+    timestamp = dt.datetime(
+        2023,
+        1,
+        1,
+        0,
+        1,
+        2,
+        3456,
+        tzinfo=timezone(settings.TZ),
+    )
 
     with Imbox(**get_credentials(credentials)) as inbox:
         messages = inbox.messages(date__gt=timestamp)[0]
@@ -88,7 +104,7 @@ def get_email_3(credentials: Path | None = None) -> str:
 
 def get_email_4(credentials: Path | None = None) -> str:
     """Get the email from the credentials.json file."""
-    timestamp = '2010-01-01'
+    timestamp = dt.datetime(2010, 1, 1, tzinfo=timezone(settings.TZ))
 
     with Imbox(**get_credentials(credentials)) as inbox:
         messages = inbox.messages(date__on=timestamp)
@@ -97,6 +113,14 @@ def get_email_4(credentials: Path | None = None) -> str:
 
 
 def get_email_8(credentials: Path | None = None) -> str:
+    """Example from course.
+
+    Args:
+        credentials (Path | None, optional): _description_. Defaults to None.
+
+    Returns:
+        str: _description_
+    """
     credentials = credentials or CREDENTIALS_PATH
     with credentials.open() as f:
         credentials_data = json.load(f)
@@ -105,71 +129,38 @@ def get_email_8(credentials: Path | None = None) -> str:
     email = credentials_data['email']
     password = credentials_data['google_password']
 
-    start_date = datetime(2023, 1, 1)
+    start_date = datetime(2023, 1, 1, tzinfo=timezone(settings.TZ))
     with Imbox(host, username=email, password=password) as imbox:
         # Abrindo a caixa de emails 2023
         messages = imbox.messages(date__gt=start_date)
 
-    # Pegar apenas um email
-    for uid, message in messages:
-        atual = message
-        break
+        # Pegar apenas um email
+        for uid, message in messages:
+            logger.debug(ic(f'{uid=}, {message=}'))
+            atual = message
+            break
 
     # O que é?
-    print(atual)
+    pprint(atual)
     # Quais são as chaves que temos?
-    print(atual.keys())
+    pprint(atual.keys())
     # Diferença date x parsed_date
     print(atual.date)
     print(atual.parsed_date)
     # Vamos explorar as chaves
-    atual.sent_from
-    atual.sent_to
-    atual.subject
-    atual.headers
-    atual.message_id
-    atual.body
-    atual.body['plain']
-    atual.body['html']
-    atual.attachments
+    print(
+        f'\n\n{atual.sent_from=}',
+        f'\n\n{atual.sent_to=}',
+        f'\n\n{atual.subject=}',
+        f'\n\n{atual.headers=}',
+        f'\n\n{atual.message_id=}',
+        f'\n\n{atual.body=}',
+        f"\n\n{atual.body['plain']=}",
+        f"\n\n{atual.body['html']=}",
+        f'\n\n{atual.attachments=}',
+    )
 
 
-def get_email_5(credentials: Path | None = None) -> list:
-    """Get the email from the credentials.json file."""
-    credentials = credentials or CREDENTIALS_PATH
-    with credentials.open() as f:
-        credentials_data = json.load(f)
-
-    host = 'imap.gmail.com'
-    email = credentials_data['email']
-    password = credentials_data['google_password']
-
-    start_date = datetime(2023, 1, 1)
-
-    with Imbox(**get_credentials()) as imbox:
-        # Buscar e-mails a partir de uma data específica
-        messages = imbox.messages(date__gt=start_date)
-
-    imbox_messages_uids_3000 = imbox.messages(uid__range='3000:*')
-    print(len(imbox_messages_uids_3000))
-
-    for mensagem in messages:
-        atual = ic(mensagem)
-        break
-        # uid = atual[0]
-        # email = atual[1]
-        # print(f'TITULO DO EMAIL: {email.subject}')
-        # print(f'DATA DO EMAIL: {email.date}')
-        # imbox.delete(uid)
-        # for uid, message in messages:
-        #
-        # Deletar todas mensagens coletadas
-        #
-        imbox.delete(uid)
-        #
-        #
-        # Marcar as mensagens como lidos
-    # imbox.mark_seen(uid)
 
 
 def run():
@@ -180,8 +171,11 @@ def run():
     get_email_2()
     get_email_3()
     get_email_4()
-    """
     get_email_5()
+    get_email_8()
+    get_email_9()
+    """
+    get_email_8()
 
 
 if __name__ == '__main__':
