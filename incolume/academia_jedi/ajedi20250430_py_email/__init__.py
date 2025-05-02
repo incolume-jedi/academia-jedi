@@ -190,14 +190,36 @@ def get_email_9(credentials: Path | None = None) -> list:
             print(f'DATA DO EMAIL: {email.date}')
             # imbox.delete(uid)
             # for uid, message in messages:
-            #
-            # Deletar todas mensagens coletadas
-            #
-            # imbox.delete(uid)
-            #
-            #
+                #
+                # Deletar todas mensagens coletadas
+                #
+                # imbox.delete(uid)
+
+
+def get_email_10(credentials: Path | None = None) -> list:
+    """Get the email from the credentials.json file.
+
+    Consulta e deleta mensagens a partir de um parametro especificado.
+    """
+    credentials = credentials or CREDENTIALS_PATH
+
+    start_date = datetime(2021, 1, 1, tzinfo=timezone(settings.TZ))
+    end_date = datetime(2025, 4, 30, tzinfo=timezone(settings.TZ))
+
+    with Imbox(**get_credentials(credentials=credentials)) as imbox:
+        # Buscar e-mails a partir de uma data específica
+        messages = imbox.messages(unread=True, date__gt=start_date, date__lt=end_date)
+        logger.debug(ic(f'{len(messages)=}'))
+        for i, atual in enumerate(messages[:]):
+            uid, email = atual
+            print(f'TITULO DO EMAIL: {email.subject}')
+            print(f'DATA DO EMAIL: {email.date}')
+            print(f'Remetente: {email.sent_from}')
             # Marcar as mensagens como lidos
-        # imbox.mark_seen(uid)
+            # imbox.mark_seen(uid)
+        logger.debug(ic(f'{i=}'))
+
+
 
 
 def run():
@@ -212,7 +234,7 @@ def run():
     get_email_8()
     get_email_9()
     """
-    get_email_9()
+    get_email_10()
 
 
 if __name__ == '__main__':
