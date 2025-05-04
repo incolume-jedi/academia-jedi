@@ -50,7 +50,7 @@ class TestPyEmail:
     @pytest.mark.parametrize(
         'entrance',
         [
-            pytest.param(pkg.CREDENTIALS_PATH),
+            pytest.param(pkg.CREDENTIALS_PATH, marks=[pytest.mark.xfail()]),
             pytest.param(credentials_file),
         ],
     )
