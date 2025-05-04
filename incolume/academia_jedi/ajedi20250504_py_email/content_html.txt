@@ -7,10 +7,12 @@
 </head>
 <body>
     <p>Prezados,</p>
+    <p></p>
     <p>Segue em anexo o relatório atualizado para sua análise. Estou à disposição para quaisquer dúvidas ou esclarecimentos.</p>
+    <p></p>
     <p>Atenciosamente,</p>
     <p>
-       {sing}
+       {sign}
     </p>
 </body>
 </html>
