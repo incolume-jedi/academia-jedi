@@ -43,15 +43,16 @@ class Email:
         return asdict(self)
 
 
-def get_credentials(credentials: Path | None = None) -> dict:
+def get_credentials(credentials: Path | None = None, hostname: str = '') -> dict:
     """Get the credentials from the credentials.json file."""
     credentials = credentials or CREDENTIALS_PATH
+    hostname = hostname or IMAP_SERVER
     logger.debug(ic(f'{credentials=}'))
     with credentials.open() as file:
         credentials_data = json.load(file)
 
     return {
-        'hostname': IMAP_SERVER,
+        'hostname': hostname,
         'username': credentials_data['email'],
         'password': credentials_data['google_password'],
     }
@@ -261,6 +262,38 @@ def get_email_11(credentials: Path | None = None, **kwargs) -> None:
         logger.info(ic(f'{messages_pasta_x=}'))
 
 
+class RPAEmail:
+    """Robotic Process Automation Email.
+
+    Classe para automação de processos robóticos com email.
+    Atributos:
+        credentials (Path | None): Caminho para o arquivo de credenciais.
+        hostname (str): Nome do host do servidor de email.
+        attachments (str): Pasta para anexos.
+        filtrados (str): Pasta para emails filtrados.
+        pasta (str): Pasta de emails.
+    """
+
+    def __init__(self, credentials: Path | None = None, hostname: str = ''):
+        """_summary_
+
+        Args:
+            credentials (Path | None, optional): _description_. Defaults to None.
+        """
+        with credentials.open() as file:
+            credentials_data = json.load(file)
+
+        self.credentials = credentials or CREDENTIALS_PATH
+        self.hostname = hostname or IMAP_SERVER
+        self.email = credentials_data['email']
+        self.__password = credentials_data['google_password']
+
+        self.attachments = 'attachements'
+        self.filtrados = 'filtrados'
+        self.pasta = 'pasta'
+
+
+
 def run():
     """Run the script."""
     """
@@ -273,8 +306,8 @@ def run():
     get_email_8()
     get_email_9()
     get_email_10()
-    """
     get_email_11()
+    """
 
 
 if __name__ == '__main__':
