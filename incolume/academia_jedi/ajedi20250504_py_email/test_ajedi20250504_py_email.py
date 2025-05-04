@@ -72,6 +72,26 @@ class TestPyEmail:
                     ' accepted. For more information',
                 },
             ),
+            pytest.param(
+                {
+                    'assunto': 'Test Email com anexo',
+                    'destinatarios': ['jesoxid995@benznoi.com'],
+                    'credentials_file': None,
+                    'subtype': 'html',
+                    'template_conteudo': Path(__file__).parent.joinpath(
+                        'content_html.txt',
+                    ),
+                    'sign': '<br><br><p><b>Ricardo Brito do Nascimento</b>'
+                    '<br>Analista de Sistemas<br>'
+                    'Junda Especializada de Desenvolvimento e Inovação<br>'
+                    'Desenvolvimento Incolume</p>',
+                    'anexo_path': Path(__file__)
+                    .parents[3]
+                    .joinpath('data_files', 'png', 'Logo_incolume.png'),
+                },
+                True,
+                marks=[pytest.mark.xfail()],
+            ),
         ],
     )
     def test_send_email(self, entrance, expected):

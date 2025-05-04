@@ -108,7 +108,6 @@ def send_email(credentials_file: Path | None = None, **kwargs: str) -> bool:
                 filename=anexo_path.name,
             )
 
-
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=safe) as smtp:
         smtp.login(remetente, senha)
         smtp.sendmail(remetente, destinatarios, mensagem.as_string())
