@@ -28,6 +28,14 @@ logger.info(ic(f'Destinatários: {destinatarios}'))
 assunto = 'Relatório mensal'
 logger.info(ic(f'Assunto: {assunto}'))
 body = Path(__file__).parent.joinpath('content_txt.txt').read_text()
+body = body.format(
+    sign='''
+
+    Ricardo Brito do Nascimento
+    Analista de Sistemas
+    Junta Especializada de Desenvolvimento e Inovação
+    Desenvolvimento Incolume''',
+)
 logger.info(ic(f'Conteúdo do email: {body}'))
 
 mensagem = EmailMessage()
