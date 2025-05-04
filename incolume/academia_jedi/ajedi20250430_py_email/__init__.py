@@ -1,6 +1,6 @@
 """Email with python."""
 
-# ruff: noqa: T201 T203
+# ruff: noqa: T201 T203 ANN003 F841
 
 from __future__ import annotations
 
@@ -43,7 +43,10 @@ class Email:
         return asdict(self)
 
 
-def get_credentials(credentials: Path | None = None, hostname: str = '') -> dict:
+def get_credentials(
+    credentials: Path | None = None,
+    hostname: str = '',
+) -> dict:
     """Get the credentials from the credentials.json file."""
     credentials = credentials or CREDENTIALS_PATH
     hostname = hostname or IMAP_SERVER
@@ -181,7 +184,6 @@ def get_email_9(credentials: Path | None = None) -> list:
         for atual in messages[-1:]:
             logger.debug(ic(f'{type(atual)=}'))
             logger.debug(ic(f'{atual=}'))
-            # break
             logger.debug(ic(f'{len(atual)=}'))
             uid, email = atual
             logger.debug(ic(f'{uid=}'))
@@ -189,18 +191,19 @@ def get_email_9(credentials: Path | None = None) -> list:
 
             print(f'TITULO DO EMAIL: {email.subject}')
             print(f'DATA DO EMAIL: {email.date}')
-            # imbox.delete(uid)
+            # imbox.delete(uid)  # noqa: ERA001
             # for uid, message in messages:
-                #
-                # Deletar todas mensagens coletadas
-                #
-                # imbox.delete(uid)
+            #
+            # Deletar todas mensagens coletadas
+            #
+            # imbox.delete(uid)  # noqa: ERA001
 
 
 def get_email_10(credentials: Path | None = None) -> list:
     """Get the email from the credentials.json file.
 
-    Consulta e marca mensagens como lidas a partir de um parametro especificado.
+    Consulta e marca mensagens como lidas a partir
+      de um parametro especificado.
     """
     credentials = credentials or CREDENTIALS_PATH
 
@@ -209,7 +212,11 @@ def get_email_10(credentials: Path | None = None) -> list:
 
     with Imbox(**get_credentials(credentials=credentials)) as imbox:
         # Buscar e-mails a partir de uma data específica
-        messages = imbox.messages(unread=True, date__gt=start_date, date__lt=end_date)
+        messages = imbox.messages(
+            unread=True,
+            date__gt=start_date,
+            date__lt=end_date,
+        )
         logger.debug(ic(f'{len(messages)=}'))
         for atual in messages[:]:
             uid, email = atual
@@ -217,12 +224,14 @@ def get_email_10(credentials: Path | None = None) -> list:
             print(f'DATA DO EMAIL: {email.date}')
             print(f'Remetente: {email.sent_from}')
 
-            imbox.mark_seen(uid)   # Marcar as mensagens como lidos
+            imbox.mark_seen(uid)  # Marcar as mensagens como lidos
+
 
 def get_email_11(credentials: Path | None = None, **kwargs) -> None:
     """Get the email from the credentials.json file.
 
-    Consulta e marca mensagens como lidas a partir de um parametro especificado.
+    Consulta e marca mensagens como lidas a partir
+    de um parametro especificado.
     """
     credentials = credentials or CREDENTIALS_PATH
 
@@ -235,7 +244,10 @@ def get_email_11(credentials: Path | None = None, **kwargs) -> None:
         logger.info(ic(f'{len(all_messages)=}'))
 
         # Messages RECEBIDAS DE
-        imbox_messages_de = imbox.messages(sent_from='noreply@github.com', unread=True)
+        imbox_messages_de = imbox.messages(
+            sent_from='noreply@github.com',
+            unread=True,
+        )
         logger.info(ic(f'{imbox_messages_de=}'))
 
         # Messages ENVIADAS PARA
@@ -243,7 +255,9 @@ def get_email_11(credentials: Path | None = None, **kwargs) -> None:
         logger.info(ic(f'{imbox_messages_para=}'))
 
         # Datas específicas
-        inbox_antes = imbox.messages(date__lt=dt.datetime.now())
+        inbox_antes = imbox.messages(
+            date__lt=dt.datetime.now(tz=timezone(settings.TZ)),
+        )
         logger.info(ic(f'{inbox_antes=}'))
 
         inbox_depois = imbox.messages(date__gt=dt.date(2021, 1, 1))
@@ -274,11 +288,17 @@ class RPAEmail:
         pasta (str): Pasta de emails.
     """
 
-    def __init__(self, credentials: Path | None = None, hostname: str = ''):
-        """_summary_
+    def __init__(
+        self,
+        credentials: Path | None = None,
+        hostname: str = '',
+    ) -> None:
+        """Initialize the RPAEmail class.
 
         Args:
-            credentials (Path | None, optional): _description_. Defaults to None.
+            credentials (Path | None, optional):
+              _description_. Defaults to None.
+            hostname (str, optional): _description_. Defaults to ''.
         """
         with credentials.open() as file:
             credentials_data = json.load(file)
@@ -291,7 +311,6 @@ class RPAEmail:
         self.attachments = 'attachements'
         self.filtrados = 'filtrados'
         self.pasta = 'pasta'
-
 
 
 def run():
