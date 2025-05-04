@@ -13,8 +13,10 @@ from incolume.academia_jedi import logger
 
 __all__ = ['EmailMessage', 'smtplib', 'ssl', 'os', 'mimetypes', 'Path']
 
-def send_email(credentials_file: Path |None = None, **kwargs) -> bool:
+
+def send_email(credentials_file: Path | None = None, **kwargs: str) -> bool:
     """Send email with python.
+
     Args:
         credentials_file (Path | None): Path to the credentials file.
         **kwargs: Optional arguments.
@@ -22,34 +24,47 @@ def send_email(credentials_file: Path |None = None, **kwargs) -> bool:
             template_conteudo (Path): Path to the email content template.
             destinatarios (list[str]): List of email recipients.
             sing (str): Signature of the email.
+
     Returns:
         bool: True if the email was sent successfully, False otherwise.
+
     Raises:
+        smtplib.SMTPAuthenticationError: If the email credentials are invalid.
 
     """
-
-
     logger.info(ic('Iniciando o envio de email...'))
 
     assunto: str = kwargs.get('assunto', 'Relatório mensal')
     logger.info(ic(f'Assunto: {assunto}'))
 
-    template_conteudo: Path = kwargs.get('template_conteudo', Path(__file__).parent.joinpath('content_txt.txt'))
+    template_conteudo: Path = kwargs.get(
+        'template_conteudo',
+        Path(__file__).parent.joinpath('content_txt.txt'),
+    )
     logger.info(ic(f'Template de conteúdo: {template_conteudo}'))
 
-    destinatarios: list[str] = kwargs.get('destinatarios',[
-        'jesoxid995@benznoi.com',  # email gerado por temp-mail.org
-    ])
+    destinatarios: list[str] = kwargs.get(
+        'destinatarios',
+        [
+            'jesoxid995@benznoi.com',  # email gerado por temp-mail.org
+        ],
+    )
     logger.info(ic(f'Destinatários: {destinatarios}'))
 
-    credentials_file = credentials_file or Path(__file__).parents[3].joinpath('credentials', 'credentials.json')
+    credentials_file = credentials_file or Path(__file__).parents[3].joinpath(
+        'credentials',
+        'credentials.json',
+    )
 
-    sing: str = kwargs.get('sing', """
+    sing: str = kwargs.get(
+        'sing',
+        """
 
         Ricardo Brito do Nascimento
         Analista de Sistemas
         Junta Especializada de Desenvolvimento e Inovação
-        Desenvolvimento Incolume""")
+        Desenvolvimento Incolume""",
+    )
 
     with credentials_file.open() as f:
         data = json.load(f)
