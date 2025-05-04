@@ -74,7 +74,7 @@ class TestPyEmail:
             ),
             pytest.param(
                 {
-                    'assunto': 'Test Email com anexo',
+                    'assunto': 'Test Email com anexo png',
                     'destinatarios': ['jesoxid995@benznoi.com'],
                     'credentials_file': None,
                     'subtype': 'html',
@@ -88,6 +88,26 @@ class TestPyEmail:
                     'anexo_path': Path(__file__)
                     .parents[3]
                     .joinpath('data_files', 'png', 'Logo_incolume.png'),
+                },
+                True,
+                marks=[pytest.mark.xfail()],
+            ),
+            pytest.param(
+                {
+                    'assunto': 'Test Email com anexo svg',
+                    'destinatarios': ['jesoxid995@benznoi.com'],
+                    'credentials_file': None,
+                    'subtype': 'html',
+                    'template_conteudo': Path(__file__).parent.joinpath(
+                        'content_html.txt',
+                    ),
+                    'sign': '<br><br><p><b>Ricardo Brito do Nascimento</b>'
+                    '<br>Analista de Sistemas<br>'
+                    'Junda Especializada de Desenvolvimento e Inovação<br>'
+                    'Desenvolvimento Incolume</p>',
+                    'anexo_path': Path(__file__)
+                    .parents[3]
+                    .joinpath('data_files', 'svg', 'logo_incolume.svg'),
                 },
                 True,
                 marks=[pytest.mark.xfail()],
