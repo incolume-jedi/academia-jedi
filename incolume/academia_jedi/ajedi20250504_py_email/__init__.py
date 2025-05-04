@@ -23,7 +23,8 @@ def send_email(credentials_file: Path | None = None, **kwargs: str) -> bool:
             assunto (str): Subject of the email.
             template_conteudo (Path): Path to the email content template.
             destinatarios (list[str]): List of email recipients.
-            sing (str): Signature of the email.
+            sign (str): Signature of the email.
+            subtype (str): Type of the email content (plain or html).
 
     Returns:
         bool: True if the email was sent successfully, False otherwise.
@@ -33,6 +34,13 @@ def send_email(credentials_file: Path | None = None, **kwargs: str) -> bool:
 
     """
     logger.info(ic('Iniciando o envio de email...'))
+
+    anexo_path: Path = kwargs.get('anexo_path')
+
+    subtype: str = (
+        v if (v := kwargs.get('subtype')) in ['plain', 'html'] else 'plain'
+    )
+    logger.info(ic(f'Tipo de conteúdo: {subtype}'))
 
     assunto: str = kwargs.get('assunto', 'Relatório mensal')
     logger.info(ic(f'Assunto: {assunto}'))
@@ -56,8 +64,8 @@ def send_email(credentials_file: Path | None = None, **kwargs: str) -> bool:
         'credentials.json',
     )
 
-    sing: str = kwargs.get(
-        'sing',
+    sign: str = kwargs.get(
+        'sign',
         """
 
         Ricardo Brito do Nascimento
@@ -75,7 +83,7 @@ def send_email(credentials_file: Path | None = None, **kwargs: str) -> bool:
 
     body = template_conteudo.read_text()
     body = body.format(
-        sign=sing,
+        sign=sign,
     )
     logger.info(ic(f'Conteúdo do email: {body}'))
 
@@ -83,15 +91,50 @@ def send_email(credentials_file: Path | None = None, **kwargs: str) -> bool:
     mensagem['From'] = remetente
     mensagem['To'] = ', '.join(destinatarios)
     mensagem['Subject'] = assunto
-    mensagem.set_content(body)
+
+    mensagem.set_content(body, subtype=subtype)
     safe = ssl.create_default_context()
+
+    if anexo_path:
+        logger.info(ic(f'Anexo: {anexo_path}'))
+        mime_type, mime_subtype = mimetypes.guess_type(anexo_path)[0].split(
+            '/',
+        )
+        with anexo_path.open('rb') as f:
+            mensagem.add_attachment(
+                f.read(),
+                maintype=mime_type,
+                subtype=mime_subtype,
+                filename=anexo_path.name,
+            )
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=safe) as smtp:
         smtp.login(remetente, senha)
         smtp.sendmail(remetente, destinatarios, mensagem.as_string())
-    logger.info(ic('Email enviado com sucesso!'))
+    logger.info(ic(f'Email {subtype} enviado com sucesso!'))
     return True
 
 
 if __name__ == '__main__':
-    send_email()
+    send_email(assunto='Envio de email plain com python')
+    send_email(
+        assunto='Envio de email html com python',
+        subtype='html',
+        template_conteudo=Path(__file__).parent.joinpath('content_html.txt'),
+        sign='<br><br><p><b>Ricardo Brito do Nascimento</b>'
+        '<br>Analista de Sistemas<br>'
+        'Junda Especializada de Desenvolvimento e Inovação<br>'
+        'Desenvolvimento Incolume</p>',
+    )
+    send_email(
+        assunto='Envio de email html com anexo em python',
+        subtype='html',
+        template_conteudo=Path(__file__).parent.joinpath('content_html.txt'),
+        sign='<br><br><p><b>Ricardo Brito do Nascimento</b>'
+        '<br>Analista de Sistemas<br>'
+        'Junda Especializada de Desenvolvimento e Inovação<br>'
+        'Desenvolvimento Incolume</p>',
+        anexo_path=Path(__file__)
+        .parents[3]
+        .joinpath('data_files', 'png', 'Logo_incolume.png'),
+    )
