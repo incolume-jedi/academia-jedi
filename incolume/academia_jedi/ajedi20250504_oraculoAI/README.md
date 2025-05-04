@@ -31,6 +31,13 @@ O que é esperado na conclusão deste ‘sprint’
 - unstructured
 - fake_useragent
 
+## Throubleshot
+
+### No Windows
+
+```bash
+PS# Set-ExecutionPolicy AllSigned
+```
 
 ## Exemplos
 
