@@ -218,6 +218,48 @@ def get_email_10(credentials: Path | None = None) -> list:
 
             imbox.mark_seen(uid)   # Marcar as mensagens como lidos
 
+def get_email_11(credentials: Path | None = None, **kwargs) -> None:
+    """Get the email from the credentials.json file.
+
+    Consulta e marca mensagens como lidas a partir de um parametro especificado.
+    """
+    credentials = credentials or CREDENTIALS_PATH
+
+    start_date = datetime(2021, 1, 1, tzinfo=timezone(settings.TZ))
+    end_date = datetime(2025, 4, 30, tzinfo=timezone(settings.TZ))
+
+    with Imbox(**get_credentials(credentials=credentials)) as imbox:
+        # Todas as mensagens
+        all_messages = imbox.messages(**kwargs)
+        logger.info(ic(f'{len(all_messages)=}'))
+
+        # Messages RECEBIDAS DE
+        imbox_messages_de = imbox.messages(sent_from='noreply@github.com', unread=True)
+        logger.info(ic(f'{imbox_messages_de=}'))
+
+        # Messages ENVIADAS PARA
+        imbox_messages_para = imbox.messages(sent_to='dev@incolume.com.br')
+        logger.info(ic(f'{imbox_messages_para=}'))
+
+        # Datas específicas
+        inbox_antes = imbox.messages(date__lt=dt.datetime.now())
+        logger.info(ic(f'{inbox_antes=}'))
+
+        inbox_depois = imbox.messages(date__gt=dt.date(2021, 1, 1))
+        logger.info(ic(f'{inbox_depois=}'))
+
+        # Data exata
+        inbox_data_exata = imbox.messages(date__on=dt.date(2021, 1, 1))
+        logger.info(ic(f'{inbox_data_exata=}'))
+
+        # Mensagens que contenham uma string
+        messages_string = imbox.messages(subject='Tempmail')
+        logger.info(ic(f'{messages_string=}'))
+
+        # Mensagens de uma pasta específica
+        messages_pasta_x = imbox.messages(folder='Spam')
+        logger.info(ic(f'{messages_pasta_x=}'))
+
 
 def run():
     """Run the script."""
@@ -230,8 +272,9 @@ def run():
     get_email_5()
     get_email_8()
     get_email_9()
-    """
     get_email_10()
+    """
+    get_email_11()
 
 
 if __name__ == '__main__':
