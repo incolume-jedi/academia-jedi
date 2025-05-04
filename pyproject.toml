@@ -150,6 +150,7 @@ plotly = "^6.0.1"
 streamlit = "^1.44.1"
 customtkinter = "^5.1.2"
 dash = "^3.0.4"
+imbox = "^0.9.8"
 
 
 [[tool.poetry.source]]
