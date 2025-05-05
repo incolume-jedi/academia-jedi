@@ -7,7 +7,6 @@ from langchain.memory import ConversationBufferMemory
 from langchain_groq import ChatGroq
 from langchain_openai import ChatOpenAI
 
-
 SOURCES: Final[list[str]] = [
     'CSV',
     'Excel',
@@ -41,7 +40,10 @@ cache_memory.chat_memory.add_ai_message(
     'Olá, sou o oráculo. Como posso ajudá-lo?',
 )
 
-def load_model(provedor: str, modelo: str, api_key: str):
+
+def load_model(
+    provedor: str, modelo: str, api_key: str,
+) -> ChatGroq | ChatOpenAI:
     """Load the model."""
     chat = MODELOS_AI[provedor]['chat'](model=modelo, api_key=api_key)
     st.session_state['chat'] = chat
@@ -70,34 +72,64 @@ def pg_chat():
 def sidebar():
     """Sidebar for the oracle."""
     tabs = st.tabs(['Upload de Arquivos', 'Seleção de Modelos'])
+    selectors = {
+        'csv': lambda: st.file_uploader(
+            label='Selecione o arquivo CSV',
+            type=['.csv'],
+        ),
+        'excel': lambda: st.file_uploader(
+            label='Selecione o arquivo Excel',
+            type=['.xlsx'],
+        ),
+        'pdf': lambda: st.file_uploader(
+            label='Selecione o arquivo PDF',
+            type=['.pdf'],
+        ),
+        'site': lambda: st.text_input('Digite a URL do site'),
+        'toml': lambda: st.file_uploader(
+            label='Selecione o arquivo Texto',
+            type=['.toml'],
+        ),
+        'txt': lambda: st.file_uploader(
+            label='Selecione o arquivo Texto',
+            type=['.txt'],
+        ),
+        'yml': lambda: st.file_uploader(
+            label='Selecione o arquivo Texto',
+            type=['.yml', '.yaml'],
+        ),
+        'youtube': lambda: st.text_input('Digite a URL do vídeo'),
+    }
     with tabs[0]:
         st.header('Upload de Arquivos')
         source_selected = st.selectbox(
             label='Selecione o tipo de arquivo',
-            options=SOURCES,
+            options=selectors.keys(),
             index=0,
         )
-        if source_selected == 'Site':
-            selected = st.text_input('Digite a URL do site')
-        if source_selected == 'Youtube':
-            selected = st.text_input('Digite a URL do vídeo')
-        if source_selected == 'CSV':
-            selected = st.file_uploader(
-                label='Selecione o arquivo CSV', type=['.csv'],
-            )
-        if source_selected == 'PDF':
-            selected = st.file_uploader(
-                label='Selecione o arquivo PDF', type=['.pdf'],
-            )
-        if source_selected == 'Excel':
-            selected = st.file_uploader(
-                label='Selecione o arquivo Excel', type=['.xlsx'],
-            )
-        if source_selected == 'TXT':
-            selected = st.file_uploader(
-                label='Selecione o arquivo Texto',
-                type=['.txt', '.yml', '.toml', '.yaml'],
-            )
+        # if source_selected == 'Site':
+        #     selected = st.text_input('Digite a URL do site')
+        # if source_selected == 'Youtube':
+        #     selected = st.text_input('Digite a URL do vídeo')
+        # if source_selected == 'CSV':
+        #     selected = st.file_uploader(
+        #         label='Selecione o arquivo CSV', type=['.csv'],
+        #     )
+        # if source_selected == 'PDF':
+        #     selected = st.file_uploader(
+        #         label='Selecione o arquivo PDF', type=['.pdf'],
+        #     )
+        # if source_selected == 'Excel':
+        #     selected = st.file_uploader(
+        #         label='Selecione o arquivo Excel', type=['.xlsx'],
+        #     )
+        # if source_selected == 'TXT':
+        #     selected = st.file_uploader(
+        #         label='Selecione o arquivo Texto',
+        #         type=['.txt', '.yml', '.toml', '.yaml'],
+        #     )
+        selected = selectors.get(source_selected.casefold())()
+
     with tabs[1]:
         provedor = st.selectbox('Selecione o provedor', MODELOS_AI.keys())
         modelo = st.selectbox(
@@ -112,12 +144,12 @@ def sidebar():
         )
         st.session_state[f'api_key_{provedor}'] = api_key
 
-    if st.button('Incializar agente', use_container_width=True):
-        load_model(
-            provedor=provedor,
-            modelo=modelo,
-            api_key=api_key,)
-
+        if st.button('Incializar agente', use_container_width=True):
+            load_model(
+                provedor=provedor,
+                modelo=modelo,
+                api_key=api_key,
+            )
 
 
 def main():
