@@ -54,7 +54,7 @@ def send_email(credentials_file: Path | None = None, **kwargs: str) -> bool:
     destinatarios: list[str] = kwargs.get(
         'destinatarios',
         [
-            'jesoxid995@benznoi.com',  # email gerado por temp-mail.org
+            'litov66042@suteyra.com','jesoxid995@benznoi.com',  # email gerado por temp-mail.org
         ],
     )
     logger.info(ic(f'Destinatários: {destinatarios}'))
