@@ -54,7 +54,7 @@ def load_model(
 def pg_chat():
     """Chat with the oracle."""
     st.header('Oracle incolume', divider=True)
-    chat = st.session_state.get('chat')
+    chat_agent = st.session_state.get('chat')
     memoria = st.session_state.get('memoria', cache_memory)
 
     for mensagem in memoria.buffer_as_messages:
@@ -64,7 +64,7 @@ def pg_chat():
     input_text = st.chat_input('Digite sua mensagem aqui..')
     if input_text:
         memoria.chat_memory.add_user_message(input_text)
-        resposta = chat.invoke(input_text).content
+        resposta = chat_agent.invoke(input_text).content
         memoria.chat_memory.add_ai_message(resposta)
         st.session_state['memoria'] = memoria
         st.rerun()
