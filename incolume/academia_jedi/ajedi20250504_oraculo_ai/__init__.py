@@ -2,6 +2,8 @@
 
 from typing import Final
 import streamlit as st
+from langchain.memory import ConversationBufferMemory
+
 
 SOURCES: Final[list[str]] = [
     'CSV',
@@ -25,6 +27,10 @@ MODELOS_AI: Final[list[str]] = {
     },
 }
 
+cache_memory = ConversationBufferMemory()
+cache_memory.chat_memory.add_user_message('Olá')
+cache_memory.chat_memory.add_ai_message('Olá, sou o oráculo. Como posso ajudá-lo?')
+
 MESSAGES = [
     ('user', 'Olá'),
     ('agent', 'Olá, sou o oráculo. Como posso ajudá-lo?'),
@@ -33,16 +39,16 @@ MESSAGES = [
 def pg_chat():
     """Chat with the oracle."""
     st.header("Oracle incolume", divider=True)
-    mensagens = st.session_state.get("mensagens", MESSAGES)
+    memoria = st.session_state.get("memoria", cache_memory)
 
-    for mensagem in mensagens:
-        chat = st.chat_message(name=mensagem[0] )
-        chat.markdown(mensagem[1])
+    for mensagem in memoria.buffer_as_messages:
+        chat = st.chat_message(name=mensagem.type )
+        chat.markdown(mensagem.content)
 
     input_text = st.chat_input("Digite sua mensagem aqui..")
     if input_text:
-        mensagens.append(('user', input_text))
-        st.session_state['mensagens'] = mensagens
+        memoria.chat_memory.add_user_message(input_text)
+        st.session_state['memoria'] = memoria
         st.rerun()
 
 def sidebar():
