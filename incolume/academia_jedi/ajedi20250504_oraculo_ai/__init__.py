@@ -45,11 +45,10 @@ def load_model(
     provedor: str,
     modelo: str,
     api_key: str,
-) -> ChatGroq | ChatOpenAI:
+) -> None:
     """Load the model."""
     chat = MODELOS_AI[provedor]['chat'](model=modelo, api_key=api_key)
     st.session_state['chat'] = chat
-    return chat
 
 
 def pg_chat():
