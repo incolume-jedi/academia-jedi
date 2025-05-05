@@ -42,7 +42,9 @@ cache_memory.chat_memory.add_ai_message(
 
 
 def load_model(
-    provedor: str, modelo: str, api_key: str,
+    provedor: str,
+    modelo: str,
+    api_key: str,
 ) -> ChatGroq | ChatOpenAI:
     """Load the model."""
     chat = MODELOS_AI[provedor]['chat'](model=modelo, api_key=api_key)
@@ -107,27 +109,6 @@ def sidebar():
             options=selectors.keys(),
             index=0,
         )
-        # if source_selected == 'Site':
-        #     selected = st.text_input('Digite a URL do site')
-        # if source_selected == 'Youtube':
-        #     selected = st.text_input('Digite a URL do vídeo')
-        # if source_selected == 'CSV':
-        #     selected = st.file_uploader(
-        #         label='Selecione o arquivo CSV', type=['.csv'],
-        #     )
-        # if source_selected == 'PDF':
-        #     selected = st.file_uploader(
-        #         label='Selecione o arquivo PDF', type=['.pdf'],
-        #     )
-        # if source_selected == 'Excel':
-        #     selected = st.file_uploader(
-        #         label='Selecione o arquivo Excel', type=['.xlsx'],
-        #     )
-        # if source_selected == 'TXT':
-        #     selected = st.file_uploader(
-        #         label='Selecione o arquivo Texto',
-        #         type=['.txt', '.yml', '.toml', '.yaml'],
-        #     )
         selected = selectors.get(source_selected.casefold())()
 
     with tabs[1]:
