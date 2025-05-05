@@ -10,7 +10,7 @@ settings = Dynaconf(
     load_dotenv=True,
     settings_files=[
         Path(__file__).parent.joinpath('settings.toml'),
-        Path(__file__).parent.rglob('.secrets.*'),
+        *Path(__file__).parent.rglob('.secrets.*'),
     ],
     environments=[
         'default',
