@@ -1,6 +1,6 @@
 [project]
 name = "academia-jedi"
-version = "0.114.0a10"
+version = "0.114.0a11"
 description = ""
 readme="README.md"
 requires-python = ">=3.10"
@@ -18,7 +18,7 @@ members = []
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.114.0a10"
+version = "0.114.0a11"
 description = ""
 readme="README.md"
 authors = ["Britodfbr <britodfbr@gmail.com>"]
@@ -101,7 +101,7 @@ lxml = {version=">=4.9.1", python='<3.13'}
 markdown = "^3.4.1"
 mypy = "^1.5.1"
 mypy-extensions = "^1.0.0"
-nltk = [{version="^3.8.1", python="<3.12"}]
+nltk = [{version="^3.8.1", python="<=3.12"}]
 numpy = [
   {version="<=1.24.4", python='<3.9'},
   {version="<=2.1.0", python='<3.10'},
