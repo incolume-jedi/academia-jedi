@@ -349,7 +349,7 @@ target-version = "py39"
 # Decrease the maximum line length to 79 character.
 line-length = 79
 
-namespace-packages = ["incolume/py/planalto_legis"]
+namespace-packages = ["incolume/academia_jedi"]
 
 # Allow imports relative to directories
 src = ["incolume/", "tests/", "examples/"]
