@@ -6,6 +6,7 @@ from pprint import pprint
 
 from deprecated import deprecated
 from faker import Faker
+
 from .models import pessoa
 
 __author__ = '@britodfbr'  # pragma: no cover

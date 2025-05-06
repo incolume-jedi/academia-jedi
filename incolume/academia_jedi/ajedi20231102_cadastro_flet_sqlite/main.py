@@ -1,4 +1,5 @@
 """Main Module."""
+
 import flet
 from app import main
 

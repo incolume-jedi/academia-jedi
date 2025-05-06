@@ -1,4 +1,5 @@
 """Unittests."""
+
 import logging
 from os import environ, getenv
 from pathlib import Path
@@ -6,8 +7,7 @@ from tempfile import NamedTemporaryFile
 
 import pytest
 
-from incolume.academia_jedi.\
-    ajedi20231102_cadastro_flet_sqlite.database import (
+from incolume.academia_jedi.ajedi20231102_cadastro_flet_sqlite.database import (
     get_connection,
 )
 

@@ -1,5 +1,7 @@
 """APP Module."""
 
+import logging
+
 from dotenv import load_dotenv
 from flet import (
     Card,
@@ -8,8 +10,6 @@ from flet import (
     ElevatedButton,
     IconButton,
     Page,
-    Radio,
-    RadioGroup,
     Row,
     SnackBar,
     Text,
@@ -17,14 +17,10 @@ from flet import (
     animation,
     transform,
 )
-
-from incolume.academia_jedi.\
-    ajedi20231102_cadastro_flet_sqlite.database import (
+from incolume.academia_jedi.ajedi20231102_cadastro_flet_sqlite.database import (
     create_table,
     get_connection,
 )
-
-import logging
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -58,7 +54,7 @@ def main(page: Page) -> None:
             conn.commit()
             logging.debug('write db success.')
         except Exception as err:
-            logging.error('%s' % err)
+            logging.exception('%s' % err)
             # raise err
             inputcont.offset = transform.Offset(2, 0)
             page.snack_bar = SnackBar(
@@ -85,7 +81,9 @@ def main(page: Page) -> None:
                     [
                         Text('add dados', size=20, weight='bold'),
                         IconButton(
-                            icon='Sair', icon_size=30, on_click=hidecon,
+                            icon='Sair',
+                            icon_size=30,
+                            on_click=hidecon,
                         ),
                     ],
                 ),
