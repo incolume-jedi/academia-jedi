@@ -68,15 +68,10 @@ dynaconf = "^3.2.3"
 # isort = "^5.12.0"
 # pydocstyle = "^6.3.0"
 # poetry = "^1.8.2"
-
 aiohttp = "^3.8.3"
-aspose-words = [
-  {version=">=23.12.0", python=">=3.8.2,<3.14"},
-]
 # fpdf2 = "^2.7.8"
 # pillow = {version="^9.4.0", python=">=3.9,<3.12"}
 SQLAlchemy = "^1.4.39"
-aiohttp = "^3.8.3"
 aspose-words = [{version="^23.12.0", python=">=3.9,<3.12"},{version=">=24.1.0", python="^3.12,<3.14"},]
 black = ">=22.1.0"
 bs4 = { version=">=0.0.1", python = ">3.6" }
@@ -122,9 +117,7 @@ pdf2image = "^1.16.2"
 pdfminer3 = [{version = "^2018.12.3.0", python="~3.7,<3.11"}]
 pdfplumber = "^0.7.6"
 pony = "^0.7.16"
-pwinput =  { version = ">=1.0.2", python = "<3.10" }
 # pyarrow = [{version="^10.0.1", python="<3.12"}]
-pydantic = "^1.10.2"
 pre-commit = {version="^3.7.0", python =">=3.9"}
 pwinput =  { version = ">=1.0.2", python = "<3.11" }
 pydantic = ">=1.10.2"
