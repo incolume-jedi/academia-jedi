@@ -6,6 +6,7 @@ import logging
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import MultinomialNB
 from spellchecker import SpellChecker
 
 
@@ -87,11 +88,6 @@ def exemplo2():
     """Exemplo."""
     """"""
 
-    from nltk.tokenize import word_tokenize
-    from sklearn.feature_extraction.text import CountVectorizer
-    from sklearn.linear_model import LogisticRegression
-    from spellchecker import SpellChecker
-
     # Carrega o corretor ortográfico
     spell = SpellChecker()
 
@@ -159,10 +155,6 @@ def exemplo2():
 
 def exemplo3():
     """Exemplo."""
-    from sklearn.feature_extraction.text import CountVectorizer
-    from sklearn.naive_bayes import MultinomialNB
-    from spellchecker import SpellChecker
-
     # Cria uma instância do corretor ortográfico para o idioma pt-br
     spell = SpellChecker(language='pt')
 

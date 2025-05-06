@@ -18,7 +18,7 @@ class User(BaseModel):
     """User class."""
 
     id: int
-    name = 'John Doe'
+    name: str = 'John Doe'
     signup_ts: datetime | None = None
     friends: list[int] = []
 

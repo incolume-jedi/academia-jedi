@@ -4,6 +4,8 @@ from pydantic import BaseModel, ValidationError, validator
 
 
 class UserModel(BaseModel):
+    """User model class."""
+
     name: str
     username: str
     password1: str
