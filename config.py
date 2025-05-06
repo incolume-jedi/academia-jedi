@@ -9,7 +9,7 @@ settings = Dynaconf(
     envvar_prefix='AJEDII',
     load_dotenv=True,
     settings_files=[
-        Path(__file__).parent.joinpath('settings/settings.toml'),
+        Path(__file__).parent.joinpath('settings/settings.yml'),
         *Path(__file__).parent.rglob('settings/.secrets.*'),
     ],
     environments=[
