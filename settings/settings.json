@@ -1,0 +1,31 @@
+{
+  "default": {
+    "MSG": "Hello World",
+    "BG_COLOR": "white",
+    "FONT_COLOR": "black",
+    "TEMPLATE": "system",
+    "BLUE": "#0060B5",
+    "TZ": "America/Sao_Paulo",
+    "DEBUG_MODE": false,
+    "FORMAT_LOG": "%(asctime)s;%(levelname)-8s;%(name)s;%(module)s;%(funcName)s;%(message)s",
+    "FORMAT_LOG_WIN": "%(asctime)s;%(levelname)-8s;%(name)s;%(module)s;%(funcName)s;%(message)s",
+    "DATEFMT": "%Y-%m-%dT%H:%M:%S",
+    "TIMEOUT": 0.8,
+    "SEMVER": "\\d+(\\.\\d+){2}((-\\w+\\.\\d+)|(\\w{,2}\\d+))?"
+  },
+  "development": {
+    "MSG": "Hello Dev",
+    "NAME": "Application",
+    "DEBUG_MODE": true
+  },
+  "testing": {
+    "MSG": "Hello tester",
+    "NAME": "Application",
+    "DEBUG_MODE": false,
+    "TIMEOUT": 1.2
+  },
+  "production": {
+    "MSG": "Hello User",
+    "DEBUG_MODE": false
+  }
+}

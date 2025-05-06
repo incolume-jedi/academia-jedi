@@ -5,11 +5,12 @@ from pathlib import Path
 from dynaconf import Dynaconf, Validator
 
 settings = Dynaconf(
+    environment=True,
     envvar_prefix='AJEDII',
     load_dotenv=True,
     settings_files=[
-        Path(__file__).parent.joinpath('settings.toml'),
-        Path(__file__).parent.joinpath('.secrets.toml'),
+        Path(__file__).parent.joinpath('settings/settings.yml'),
+        *Path(__file__).parent.rglob('settings/.secrets.*'),
     ],
     environments=[
         'default',
