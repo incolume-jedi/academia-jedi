@@ -23,7 +23,8 @@ description = ""
 readme="README.md"
 authors = ["Britodfbr <britodfbr@gmail.com>"]
 packages = [
-  {include='incolume', from=''}
+  {include='incolume', from=''},
+  {include='incolume/academia_jedi', from=''},
 ]
 classifiers = [
   # https://pypi.org/classifiers/
