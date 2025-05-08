@@ -3,12 +3,12 @@
 from collections.abc import Callable
 
 from langchain_community.document_loaders import (
-    CSVLoader,
     PyPDFLoader,
     TextLoader,
     WebBaseLoader,
     YoutubeLoader,
 )
+from langchain_community.document_loaders.csv_loader import CSVLoader
 
 
 def midia_loader(midia: str, loader: Callable = CSVLoader) -> str:
