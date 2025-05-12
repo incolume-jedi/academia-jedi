@@ -7,6 +7,7 @@ from langchain_community.document_loaders import (
     CSVLoader,
     PyPDFLoader,
     TextLoader,
+    UnstructuredExcelLoader,
     WebBaseLoader,
     YoutubeLoader,
 )
@@ -147,6 +148,26 @@ def load_txt(
         doc.page_content
         for doc in loader(
             file_path=file_path,
+            autodetect_encoding=autodetect_encoding,
+        ).load()
+    )
+
+
+def load_excel(
+    file_path: Path,
+    *,
+    mode: str = '',
+    autodetect_encoding: bool = True,
+    loader: Callable = UnstructuredExcelLoader,
+) -> str:
+    """Load a excel file."""
+    mode = mode or 'elements'
+
+    return '\n\n'.join(
+        doc.page_content
+        for doc in loader(
+            file_path=file_path,
+            mode=mode,
             autodetect_encoding=autodetect_encoding,
         ).load()
     )

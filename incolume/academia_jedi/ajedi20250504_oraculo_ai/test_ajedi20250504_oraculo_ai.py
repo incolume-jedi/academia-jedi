@@ -10,6 +10,7 @@ from incolume.academia_jedi.ajedi20250504_oraculo_ai.utils import (
     load_yt,
     load_csv,
     load_txt,
+    load_excel,
 )
 from langchain_community.document_loaders import (
     CSVLoader,
@@ -100,6 +101,18 @@ class TestAjedi20250504OraculoAI:
         )
         expected = 'Brasília (DF)'
         content = load_txt(file_path=entrance)
+        ic(content)
+        assert content
+        assert expected in content
+
+    def test_excel_loader(self):
+        """Test the excel loader."""
+        entrance = self.path.joinpath(
+            'xlsx',
+            'FAQ_email_portal.xlsx',
+        )
+        expected = 'Agradecemos por entrar em contato com o Centro de Estudos'
+        content = load_excel(file_path=entrance)
         ic(content)
         assert content
         assert expected in content
