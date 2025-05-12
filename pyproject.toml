@@ -170,6 +170,7 @@ langchain-groq = "^0.3.2"
 langchain-openai = "^0.3.16"
 unstructured = "^0.17.2"
 pypdf = "^5.4.0"
+youtube-transcript-api = "<=1.0.3"
 
 
 [[tool.poetry.source]]
