@@ -12,7 +12,7 @@ from langchain_community.document_loaders import (
 )
 
 
-def midia_loader(midia: str, loader: Callable = CSVLoader) -> str:
+def midia_loader(midia: str, *, loader: Callable = CSVLoader) -> str:
     """Load the media file.
 
     Args:
@@ -121,5 +121,32 @@ def load_pdf(
         doc.page_content
         for doc in loader(
             file_path=file_path,
+        ).load()
+    )
+
+
+def load_txt(
+    file_path: Path,
+    *,
+    autodetect_encoding: bool = True,
+    loader: Callable = TextLoader,
+) -> str:
+    """Load a text file.
+
+    Args:
+        file_path (Path): The path to the text file.
+        autodetect_encoding (bool, optional): Whether to automatically detect
+            the file encoding. Defaults to True.
+        loader (Callable, optional): The loader class to use for loading the
+            text file. Defaults to TextLoader.
+
+    Returns:
+        str: The content of the text file as a string.
+    """
+    return '\n\n'.join(
+        doc.page_content
+        for doc in loader(
+            file_path=file_path,
+            autodetect_encoding=autodetect_encoding,
         ).load()
     )

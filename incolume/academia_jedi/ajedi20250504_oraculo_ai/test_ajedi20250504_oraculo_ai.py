@@ -9,6 +9,7 @@ from incolume.academia_jedi.ajedi20250504_oraculo_ai.utils import (
     load_web,
     load_yt,
     load_csv,
+    load_txt,
 )
 from langchain_community.document_loaders import (
     CSVLoader,
@@ -90,6 +91,18 @@ class TestAjedi20250504OraculoAI:
         assert (
             expected in content
         ), f'Expected text not found in content: {expected}'
+
+    def test_txt_loader(self):
+        """Test the txt loader."""
+        entrance = self.path.joinpath(
+            'txt',
+            'cidades_br.txt',
+        )
+        expected = 'Brasília (DF)'
+        content = load_txt(file_path=entrance)
+        ic(content)
+        assert content
+        assert expected in content
 
     def test_pdf_loader(self):
         """Test the csv loader."""
