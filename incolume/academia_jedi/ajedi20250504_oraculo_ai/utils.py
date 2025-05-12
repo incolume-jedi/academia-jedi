@@ -1,6 +1,7 @@
 """Utils."""
 
 from collections.abc import Callable
+from pathlib import Path
 
 from langchain_community.document_loaders import (
     PyPDFLoader,
@@ -72,3 +73,15 @@ def load_yt(
         doc.page_content
         for doc in loader(video_id, add_video_info, language=language).load()
     )
+
+
+def load_csv(path: Path) -> str:
+    """Load a CSV file.
+
+    Args:
+        path (Path): The path to the CSV file.
+
+    Returns:
+        str: The content of the CSV file as a string.
+    """
+    return '\n\n'.join(doc.page_content for doc in CSVLoader(path).load())
