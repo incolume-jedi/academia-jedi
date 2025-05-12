@@ -18,6 +18,14 @@ repos:
           - requirements.txt
           - -o
           - ./requirements/prod.txt
+  - id: poetry-export
+        args:
+          - --with
+          - dev
+          - -f
+          - requirements.txt
+          - -o
+          - ./requirements/dev.txt
 
   -  repo: https://github.com/astral-sh/ruff-pre-commit
      # Ruff version.
