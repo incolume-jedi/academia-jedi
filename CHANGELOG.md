@@ -10,6 +10,13 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [0.114.0]	 &#8212; 	2025-05-12:
+### Added
+  - Implementação do jogo da velho CLI;
+  - Estudo com a biblioteca dash;
+  - Email com python utilizando biblioteca `imbox`;
+  - Email com python utilizando a biblioteca `smtplib`;
+
 ## [0.113.0]	 &#8212; 	2025-04-26:
 ### Added
   - Estudos com arquivos compactados sobre stream em runtime;
@@ -768,3 +775,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.111.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.110.0...0.111.0
 [0.112.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.111.0...0.112.0
 [0.113.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.112.0...0.113.0
+[0.114.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.113.0...0.114.0

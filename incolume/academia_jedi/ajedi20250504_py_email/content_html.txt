@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Corporativo</title>
+</head>
+<body>
+    <p>Prezados,</p>
+    <p></p>
+    <p>Segue em anexo o relatório atualizado para sua análise. Estou à disposição para quaisquer dúvidas ou esclarecimentos.</p>
+    <p></p>
+    <p>Atenciosamente,</p>
+    <p>
+       {sign}
+    </p>
+</body>
+</html>

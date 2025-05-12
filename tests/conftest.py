@@ -17,9 +17,11 @@ collect_ignore = ['setup.py', '__main__.py']
 if version_info < (3, 8):
     logging.info(ic('Does not run on python below 3.8'))
     files = []
-    files.extend(Path(
-        r'incolume/academia_jedi/ajedi20230222_Natural_language_to_OpenAI_API',
-    ).rglob('*.py'))
+    files.extend(
+        Path(
+            r'incolume/academia_jedi/ajedi20230222_Natural_language_to_OpenAI_API',
+        ).rglob('*.py'),
+    )
     collect_ignore.extend(files)
 if version_info < (3, 9):
     logging.info(ic('Does not run on python below 3.9'))
@@ -48,7 +50,9 @@ if version_info < (3, 10, 0):
         ),
     )
     files.extend(
-        Path('incolume/academia_jedi/ajedi20230222_language_tools').glob('*.py')
+        Path('incolume/academia_jedi/ajedi20230222_language_tools').glob(
+            '*.py',
+        ),
     )
     logging.debug(ic(files))
     collect_ignore.extend(files)
