@@ -6,6 +6,7 @@ import incolume.academia_jedi.ajedi20250504_oraculo_ai as pkg
 from incolume.academia_jedi.ajedi20250504_oraculo_ai.utils import (
     midia_loader,
     load_web,
+    load_yt,
 )
 from langchain_community.document_loaders import (
     CSVLoader,
@@ -56,8 +57,17 @@ class TestAjedi20250504OraculoAI:
     def test_web_loader(self, entrance, expected):
         """Test the web loader."""
         content = load_web(entrance)
-        assert len(content) > 0
         ic(content)
+        assert len(content) > 0
+        assert expected in content
+
+    def test_youtube_loader(self):
+        """Test the youtube loader."""
+        entrance = 'IGDaXFmb1NU'
+        expected = 'Doclin'
+        content = load_yt(video_id=entrance)
+        ic(content)
+        assert len(content) > 0
         assert expected in content
 
     @pytest.mark.parametrize(

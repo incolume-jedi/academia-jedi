@@ -44,3 +44,31 @@ def load_web(url: str, loader: Callable = WebBaseLoader) -> str:
         str: _description_
     """
     return '\n\n'.join(doc.page_content for doc in loader(url).load())
+
+
+def load_yt(
+    video_id: str,
+    *,
+    add_video_info: bool = False,
+    language: None | list[str] = None,
+    loader: Callable = YoutubeLoader,
+) -> str:
+    """Get the name of the file from the url.
+
+    Args:
+        video_id (str): The ID of the YouTube video to load.
+        add_video_info (bool, optional): Whether to include video metadata in
+          the output. Defaults to False.
+        language (None | list[str], optional): List of languages for subtitles.
+          Defaults to ['pt'].
+        loader (Callable, optional): The loader class to use for loading the
+            video. Defaults to YoutubeLoader.
+
+    Returns:
+        str: The content of the video as a string.
+    """
+    language = language or ['pt']
+    return '\n\n'.join(
+        doc.page_content
+        for doc in loader(video_id, add_video_info, language=language).load()
+    )
