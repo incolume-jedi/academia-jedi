@@ -5,6 +5,7 @@ from pathlib import Path
 import incolume.academia_jedi.ajedi20250504_oraculo_ai as pkg
 from incolume.academia_jedi.ajedi20250504_oraculo_ai.utils import (
     midia_loader,
+    load_web,
 )
 from langchain_community.document_loaders import (
     CSVLoader,
@@ -14,6 +15,7 @@ from langchain_community.document_loaders import (
     YoutubeLoader,
 )
 import pytest
+from icecream import ic
 
 
 class TestAjedi20250504OraculoAI:
@@ -30,6 +32,33 @@ class TestAjedi20250504OraculoAI:
         assert (
             pkg.__name__ == 'incolume.academia_jedi.ajedi20250504_oraculo_ai'
         )
+
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param(
+                'https://www4.planalto.gov.br/centrodeestudos/',
+                'Centro de Estudos Jurídicos',
+            ),
+            pytest.param(
+                'https://asimov.academy/',
+                'Asimov. Todos os direitos reservado.'
+                ' CNPJ: 41.075.192/0001-82',
+            ),
+            pytest.param(
+                'https://www4.planalto.gov.br/centrodeestudos/perguntas-frequentes/',
+                'Confira aqui as perguntas mais frequentes enviadas ao'
+                ' Centro de Estudos. Alguma delas pode'
+                ' responder suas questões.',
+            ),
+        ],
+    )
+    def test_web_loader(self, entrance, expected):
+        """Test the web loader."""
+        content = load_web(entrance)
+        assert len(content) > 0
+        ic(content)
+        assert expected in content
 
     @pytest.mark.parametrize(
         'entrance expected'.split(),
@@ -70,10 +99,12 @@ class TestAjedi20250504OraculoAI:
                     'loader': WebBaseLoader,
                 },
                 '',
+                marks=[pytest.mark.skip],
             ),
             pytest.param(
                 {'midia': 'IGDaXFmb1NU', 'loader': YoutubeLoader},
                 '',
+                marks=[pytest.mark.skip],
             ),
         ],
     )
