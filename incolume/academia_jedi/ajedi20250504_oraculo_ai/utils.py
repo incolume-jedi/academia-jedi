@@ -4,12 +4,12 @@ from collections.abc import Callable
 from pathlib import Path
 
 from langchain_community.document_loaders import (
+    CSVLoader,
     PyPDFLoader,
     TextLoader,
     WebBaseLoader,
     YoutubeLoader,
 )
-from langchain_community.document_loaders.csv_loader import CSVLoader
 
 
 def midia_loader(midia: str, loader: Callable = CSVLoader) -> str:
@@ -75,13 +75,28 @@ def load_yt(
     )
 
 
-def load_csv(path: Path) -> str:
+def load_csv(
+    file_path: Path,
+    *,
+    autodetect_encoding: bool = True,
+    loader: Callable = CSVLoader,
+) -> str:
     """Load a CSV file.
 
     Args:
-        path (Path): The path to the CSV file.
+        file_path (Path): The path to the CSV file.
+        autodetect_encoding (bool, optional): Whether to automatically detect
+            the file encoding. Defaults to True.
+        loader (Callable, optional): The loader class to use for loading the
+            CSV file. Defaults to CSVLoader.
 
     Returns:
         str: The content of the CSV file as a string.
     """
-    return '\n\n'.join(doc.page_content for doc in CSVLoader(path).load())
+    return '\n\n'.join(
+        doc.page_content
+        for doc in loader(
+            file_path=file_path,
+            autodetect_encoding=autodetect_encoding,
+        ).load()
+    )

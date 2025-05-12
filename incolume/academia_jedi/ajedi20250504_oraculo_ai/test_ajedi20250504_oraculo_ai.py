@@ -7,6 +7,7 @@ from incolume.academia_jedi.ajedi20250504_oraculo_ai.utils import (
     midia_loader,
     load_web,
     load_yt,
+    load_csv,
 )
 from langchain_community.document_loaders import (
     CSVLoader,
@@ -58,8 +59,10 @@ class TestAjedi20250504OraculoAI:
         """Test the web loader."""
         content = load_web(entrance)
         ic(content)
-        assert len(content) > 0
-        assert expected in content
+        assert content, 'Content should not be empty.'
+        assert (
+            expected in content
+        ), f'Expected text not found in content: {expected}'
 
     def test_youtube_loader(self):
         """Test the youtube loader."""
@@ -67,8 +70,25 @@ class TestAjedi20250504OraculoAI:
         expected = 'Doclin'
         content = load_yt(video_id=entrance)
         ic(content)
-        assert len(content) > 0
+        assert content
         assert expected in content
+
+    def test_csv_loader(self):
+        """Test the csv loader."""
+        entrance = self.path.joinpath(
+            'csv',
+            'faq_email_portal.CSV',
+        )
+        expected = (
+            'Agradecemos por entrar em contato com o Centro de Estudos '
+            'Jurídicos da Presidência'
+        )
+        content = load_csv(file_path=entrance)
+        ic(content)
+        assert content, 'Content should not be empty.'
+        assert (
+            expected in content
+        ), f'Expected text not found in content: {expected}'
 
     @pytest.mark.parametrize(
         'entrance expected'.split(),
@@ -120,4 +140,6 @@ class TestAjedi20250504OraculoAI:
     )
     def test_utils(self, entrance, expected):
         """Test the oracle AI module."""
-        assert midia_loader(**entrance) == expected
+        assert (
+            midia_loader(**entrance) == expected
+        ), 'Loader output does not match expected value.'
