@@ -4,6 +4,7 @@ from __future__ import annotations
 from pathlib import Path
 import incolume.academia_jedi.ajedi20250504_oraculo_ai as pkg
 from incolume.academia_jedi.ajedi20250504_oraculo_ai.utils import (
+    load_pdf,
     midia_loader,
     load_web,
     load_yt,
@@ -89,6 +90,18 @@ class TestAjedi20250504OraculoAI:
         assert (
             expected in content
         ), f'Expected text not found in content: {expected}'
+
+    def test_pdf_loader(self):
+        """Test the csv loader."""
+        entrance = self.path.joinpath(
+            'pdf',
+            'L8112consol.pdf',
+        )
+        expected = 'Este texto não substitui o publicado no DOU de 19.4.1991'
+        content = load_pdf(file_path=entrance)
+        ic(content)
+        assert content
+        assert expected in content
 
     @pytest.mark.parametrize(
         'entrance expected'.split(),

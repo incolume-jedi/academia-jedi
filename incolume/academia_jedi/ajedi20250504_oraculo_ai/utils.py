@@ -100,3 +100,26 @@ def load_csv(
             autodetect_encoding=autodetect_encoding,
         ).load()
     )
+
+
+def load_pdf(
+    file_path: Path,
+    *,
+    loader: Callable = PyPDFLoader,
+) -> str:
+    """Load a PDF file.
+
+    Args:
+        file_path (Path): The path to the PDF file.
+        loader (Callable, optional): The loader class to use for loading the
+            PDF file. Defaults to PyPDFLoader.
+
+    Returns:
+        str: The content of the PDF file as a string.
+    """
+    return '\n\n'.join(
+        doc.page_content
+        for doc in loader(
+            file_path=file_path,
+        ).load()
+    )
