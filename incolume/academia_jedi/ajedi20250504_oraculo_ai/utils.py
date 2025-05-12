@@ -22,6 +22,9 @@ def midia_loader(midia: str, *, loader: Callable = CSVLoader) -> str:
 
     Returns:
         str: _description_
+
+    Exceptions:
+        ConnectionResetError: If the connection is reset by server.
     """
     loader = (
         loader
@@ -44,6 +47,9 @@ def load_web(url: str, loader: Callable = WebBaseLoader) -> str:
 
     Returns:
         str: _description_
+
+    Exceptions:
+        ConnectionResetError: If the connection is reset by server.
     """
     return '\n\n'.join(doc.page_content for doc in loader(url).load())
 
