@@ -21,6 +21,7 @@ from langchain_community.document_loaders import (
 )
 import pytest
 from icecream import ic
+import requests
 
 
 class TestAjedi20250504OraculoAI:
@@ -42,8 +43,17 @@ class TestAjedi20250504OraculoAI:
         'entrance expected'.split(),
         [
             pytest.param(
-                'https://www4.planalto.gov.br/centrodeestudos/',
-                'Centro de Estudos Jurídicos',
+                'https://brito.blog.incolume.com.br/2013/03/guia-rapido-de-comandos-git-lado-usuario.html',
+                'reflogs - Registros Log de referência',
+                marks=[
+                    pytest.mark.xfail(
+                        raises=[
+                            ConnectionResetError,
+                            requests.exceptions.ConnectionError,
+                        ],
+                        reason='Connection reset by peer',
+                    ),
+                ],
             ),
             pytest.param(
                 'https://asimov.academy/',
