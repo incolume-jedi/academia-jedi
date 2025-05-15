@@ -152,6 +152,7 @@ streamlit = "^1.44.1"
 customtkinter = "^5.1.2"
 dash = "^3.0.4"
 imbox = "^0.9.8"
+fake-useragent = "^2.2.0"
 
 
 [[tool.poetry.source]]
