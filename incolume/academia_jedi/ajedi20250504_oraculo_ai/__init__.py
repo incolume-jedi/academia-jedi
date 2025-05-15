@@ -82,7 +82,7 @@ def load_model(
             tmp_file.write(midia.read())
             midia = Path(tmp_file.name)
         document = utils.load_txt(midia)
-    ic(document)
+    ic(f'{archive_type=}; {document=}')
     chat = MODELOS_AI[provedor]['chat'](model=modelo, api_key=api_key)
     st.session_state['chat'] = chat
 
