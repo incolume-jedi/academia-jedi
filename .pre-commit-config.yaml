@@ -18,7 +18,7 @@ repos:
           - requirements.txt
           - -o
           - ./requirements/prod.txt
-  - id: poetry-export
+      - id: poetry-export
         args:
           - --with
           - dev
