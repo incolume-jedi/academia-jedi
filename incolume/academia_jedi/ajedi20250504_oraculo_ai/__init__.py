@@ -160,14 +160,14 @@ def sidebar():
         )
         st.session_state[f'api_key_{provedor}'] = api_key
 
-        if st.button('Incializar agente', use_container_width=True):
-            load_model(
-                provedor=provedor,
-                modelo=modelo,
-                api_key=api_key,
-                midia=selected,
-                archive_type=source_selected,
-            )
+    if st.button('Incializar agente', use_container_width=True):
+        load_model(
+            provedor=provedor,
+            modelo=modelo,
+            api_key=api_key,
+            midia=selected,
+            archive_type=source_selected,
+        )
 
 
 def main():
