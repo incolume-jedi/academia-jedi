@@ -40,3 +40,32 @@ class TestCase:
         ua = pkg.UserAgent(browsers=[entrance])
         assert expected in ua.random
 
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param('Windows', ''),
+            pytest.param('Linux', ''),
+            pytest.param('Ubuntu', ''),
+            pytest.param('Chrome OS', ''),
+            pytest.param('Mac OS X', ''),
+            pytest.param('Android', ''),
+            pytest.param('iOS', ''),
+        ],
+    )
+    def test_user_agent_os(self, entrance, expected):
+        """Unitest."""
+        ua = pkg.UserAgent(os=entrance)
+        assert expected in ua.random
+
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param('desktop', ''),
+            pytest.param('mobile', ''),
+            pytest.param('tablet', ''),
+        ],
+    )
+    def test_user_agent_platform(self, entrance, expected):
+        """Unitest."""
+        ua = pkg.UserAgent(platforms=entrance)
+        assert expected in ua.random
