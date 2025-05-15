@@ -14,12 +14,12 @@ from langchain_groq import ChatGroq
 from langchain_openai import ChatOpenAI
 
 SOURCES: Final[list[str]] = [
-    'CSV',
-    'Excel',
-    'PDF',
-    'Site',
-    'TXT',
-    'Youtube',
+    'csv',
+    'excel',
+    'pdf',
+    'site',
+    'txt',
+    'youtube',
 ]
 MODELOS_AI: Final[list[str]] = {
     'Groq': {
