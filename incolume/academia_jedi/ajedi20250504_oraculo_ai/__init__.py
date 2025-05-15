@@ -1,8 +1,13 @@
 """Module oracle."""
 
+import io
+import tempfile
+from pathlib import Path
 from typing import Final
 
 import streamlit as st
+from icecream import ic
+from incolume.academia_jedi.ajedi20250504_oraculo_ai import utils
 from langchain.memory import ConversationBufferMemory
 from langchain_groq import ChatGroq
 from langchain_openai import ChatOpenAI
@@ -45,8 +50,39 @@ def load_model(
     provedor: str,
     modelo: str,
     api_key: str,
+    midia: str|Path,
+    archive_type: str,
 ) -> None:
     """Load the model."""
+    if archive_type == 'site':
+        document = utils.load_web(midia)
+    if archive_type == 'youtube':
+        document = utils.load_yt(midia)
+    if archive_type == 'pdf':
+        with tempfile.NamedTemporaryFile(
+            suffix='.pdf',
+            delete=False,
+        ) as tmp_file:
+            tmp_file.write(midia.read())
+            midia = Path(tmp_file.name)
+        document = utils.load_pdf(midia)
+    if archive_type == 'csv':
+        with tempfile.NamedTemporaryFile(
+            suffix='.CSV',
+            delete=False,
+        ) as tmp_file:
+            tmp_file.write(midia.read())
+            midia = Path(tmp_file.name)
+        document = utils.load_csv(midia)
+    if archive_type == 'txt':
+        with tempfile.NamedTemporaryFile(
+            suffix='.txt',
+            delete=False,
+        ) as tmp_file:
+            tmp_file.write(midia.read())
+            midia = Path(tmp_file.name)
+        document = utils.load_txt(midia)
+    ic(document)
     chat = MODELOS_AI[provedor]['chat'](model=modelo, api_key=api_key)
     st.session_state['chat'] = chat
 
@@ -129,6 +165,8 @@ def sidebar():
                 provedor=provedor,
                 modelo=modelo,
                 api_key=api_key,
+                midia=selected,
+                archive_type=source_selected,
             )
 
 
