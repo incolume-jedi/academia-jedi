@@ -1,4 +1,5 @@
 """Estudo com biblioteca fake_useragent."""
+# ruff: noqa: ERA001
 
 import pytest
 import incolume.academia_jedi.ajedi20250515_estudo_fake_useragent as pkg
