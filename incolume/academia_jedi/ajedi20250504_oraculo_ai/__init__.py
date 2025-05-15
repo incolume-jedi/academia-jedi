@@ -46,14 +46,8 @@ cache_memory.chat_memory.add_ai_message(
 )
 
 
-def load_model(
-    provedor: str,
-    modelo: str,
-    api_key: str,
-    midia: str|Path,
-    archive_type: str,
-) -> None:
-    """Load the model."""
+def load_content(midia: str | Path, archive_type: str) -> str:
+    """Load the content from the media."""
     if archive_type == 'site':
         document = utils.load_web(midia)
     if archive_type == 'youtube':
@@ -83,6 +77,18 @@ def load_model(
             midia = Path(tmp_file.name)
         document = utils.load_txt(midia)
     ic(f'{archive_type=}; {document=}')
+    return document
+
+
+def load_model(
+    provedor: str,
+    modelo: str,
+    api_key: str,
+    midia: str | Path,
+    archive_type: str,
+) -> None:
+    """Load the model."""
+    document = load_content(midia, archive_type)
     chat = MODELOS_AI[provedor]['chat'](model=modelo, api_key=api_key)
     st.session_state['chat'] = chat
 
