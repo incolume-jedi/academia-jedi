@@ -9,6 +9,7 @@ import streamlit as st
 from icecream import ic
 from incolume.academia_jedi.ajedi20250504_oraculo_ai import utils
 from langchain.memory import ConversationBufferMemory
+from langchain.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 from langchain_openai import ChatOpenAI
 
@@ -89,6 +90,24 @@ def load_model(
 ) -> None:
     """Load the model."""
     document = load_content(midia, archive_type)
+    system_prompt = '''Você é um assistente amigável chamado Oráculo Incolume. 
+    Você possui acesso às seguintes informações vindas de mídia {}:
+    ####
+    {}
+    ####
+    Utilize as informações fornecidas para basear as tuas respostas.
+
+    Sempre que houver $ em suas saídas, substitua por S.
+
+    Se a informação do documento for algo como "Just a moment..Enable JavaScript and cookies to continue" sugira ao usuário carregar novamente o Oráculo!
+    '''.format(archive_type, midia)
+    template = ChatPromptTemplate.from_template(
+        [
+            ('system', system_prompt),
+            ('placeholder', '{chat_history}'),
+            ('user', '{input}'),
+        ]
+    )
     chat = MODELOS_AI[provedor]['chat'](model=modelo, api_key=api_key)
     st.session_state['chat'] = chat
 
