@@ -69,3 +69,17 @@ class TestCase:
         """Unitest."""
         ua = pkg.UserAgent(platforms=entrance)
         assert expected in ua.random
+
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param(pkg.ua.getChrome, 'Chrome'),
+            pytest.param(pkg.ua.getFirefox, 'Firefox'),
+            pytest.param(pkg.ua.getSafari, 'Safari'),
+            pytest.param(pkg.ua.getEdge, 'Edge'),
+        ],
+    )
+    def test_get_dict(self, entrance, expected):
+        """Unittest."""
+        isinstance(entrance, dict)
+        assert expected in entrance.get('browser')
