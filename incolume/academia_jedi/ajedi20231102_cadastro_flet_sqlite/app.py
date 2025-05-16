@@ -1,5 +1,8 @@
 """APP Module."""
 
+# ruff: noqa: E501
+from __future__ import annotations
+
 import logging
 
 from dotenv import load_dotenv
@@ -17,6 +20,7 @@ from flet import (
     animation,
     transform,
 )
+from icecream import ic
 from incolume.academia_jedi.ajedi20231102_cadastro_flet_sqlite.database import (
     create_table,
     get_connection,
@@ -32,18 +36,21 @@ def main(page: Page) -> None:
     create_table()
     page.scroll = 'auto'
 
-    def showinput(*args) -> None:
+    def showinput(*args: str) -> None:
         """Showinput."""
+        logging.debug(ic(f'{args=}'))
         inputcont.offset = transform.Offset(0, 0)
         page.update()
 
-    def hidecon(*args) -> None:
+    def hidecon(*args: str) -> None:
         """Showinput."""
+        logging.debug(ic(f'{args=}'))
         inputcont.offset = transform.Offset(0, 0)
         page.update()
 
-    def save_data(*args) -> None:
+    def save_data(*args: str) -> None:
         """Save data."""
+        logging.debug(ic(f'{args=}'))
         try:
             conn = get_connection()
             c = conn.cursor()
@@ -53,8 +60,8 @@ def main(page: Page) -> None:
             )
             conn.commit()
             logging.debug('write db success.')
-        except Exception as err:
-            logging.exception('%s' % err)
+        except Exception:
+            logging.exception('..')
             # raise err
             inputcont.offset = transform.Offset(2, 0)
             page.snack_bar = SnackBar(
@@ -71,6 +78,7 @@ def main(page: Page) -> None:
     email = TextField(label='email')
     address = TextField(label='address')
 
+    ic(f'{name=},{contact=},{age=},{gender=},{email=},{address=}')
     inputcont = Card(
         offset=transform.Offset(2, 0),
         animate_offset=animation.Animation(600, curve='easeIn'),

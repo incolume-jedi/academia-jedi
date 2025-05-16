@@ -1,5 +1,7 @@
 """Unittests."""
 
+# ruff: noqa: E501
+from __future__ import annotations
 import logging
 from os import environ, getenv
 from pathlib import Path
@@ -20,20 +22,19 @@ def tmpfile() -> Path:
 
 def test_get_connection_forma1(caplog, tmpfile) -> None:
     """Test get_connection forma1."""
-    with tmpfile, caplog.at_level(logging.DEBUG):
+    with caplog.at_level(logging.DEBUG):
         get_connection(tmpfile)
         assert tmpfile.as_posix() in caplog.text
 
 
 def test_get_connection_forma2(caplog, tmpfile) -> None:
     """Test get_connection forma2."""
-    with tmpfile, caplog.at_level(logging.DEBUG):
+    with caplog.at_level(logging.DEBUG):
         environ['APP_INCOLUME_DB'] = tmpfile.as_posix()
         get_connection()
-        assert (
-            getenv('APP_INCOLUME_DB') in caplog.text
-            and getenv('APP_INCOLUME_DB') == tmpfile.as_posix()
-        )
+
+        assert getenv('APP_INCOLUME_DB') in caplog.text
+        assert getenv('APP_INCOLUME_DB') == tmpfile.as_posix()
 
 
 def test_get_connection_forma3(caplog) -> None:
