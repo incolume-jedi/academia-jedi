@@ -1,0 +1,10 @@
+services:
+  python:
+    restart: unless-stopped
+    image: britodfbr/pyenv:alpine3.21-python3.13
+    build:
+      context: container0
+    ports:
+      - "8000:5000"
+  redis:
+    image: "redis:alpine"
