@@ -156,6 +156,7 @@ customtkinter = "^5.1.2"
 dash = "^3.0.4"
 imbox = "^0.9.8"
 fake-useragent = "^2.2.0"
+langchain-openai = "<0.3.17"
 
 
 [[tool.poetry.source]]
