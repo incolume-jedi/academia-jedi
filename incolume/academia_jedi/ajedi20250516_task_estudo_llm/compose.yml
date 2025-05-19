@@ -1,0 +1,12 @@
+services:
+  python:
+    restart: unless-stopped
+    image: britodfbr/code:1.0.0
+    build:
+      context: ./container2
+      dockerfile: Dockerfile
+
+    volumes:
+      - .:/code
+  redis:
+    image: "redis:alpine"
