@@ -16,6 +16,7 @@ dependencies = [
 [tool.uv.workspace]
 members = [
     "incolume/academia_jedi/ajedi20250520_estudo_container",
+    "incolume/academia_jedi/ajedi20250520_wrapper_docker",
 ]
 
 [tool.poetry]
