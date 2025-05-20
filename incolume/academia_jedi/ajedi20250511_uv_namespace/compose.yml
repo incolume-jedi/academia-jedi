@@ -1,0 +1,9 @@
+services:
+  app:
+    image: britodfbr/uv_ns:0.3.0
+    build:
+      context: .
+    container_name: python-server
+    volumes:
+      - .:/code
+    restart: unless-stopped
