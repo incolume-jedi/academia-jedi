@@ -1,0 +1,17 @@
+services:
+  app:
+    image: britodfbr/estudo_container:20250520.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: server-estudo-container
+    working_dir: /code
+    volumes:
+      - .:/code
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - 8000:8000
+    command: ["python", "-V"]
+    depends_on: []
