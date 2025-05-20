@@ -1,0 +1,4 @@
+# requirements.txt
+Flask
+psycopg2-binary # Para PostgreSQL
+redis # Para Redis
