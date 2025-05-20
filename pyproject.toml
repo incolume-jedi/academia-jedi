@@ -14,7 +14,9 @@ dependencies = [
 [tool.uv]
 
 [tool.uv.workspace]
-members = []
+members = [
+    "incolume/academia_jedi/ajedi20250520_estudo_container",
+]
 
 [tool.poetry]
 name = "academia-jedi"
