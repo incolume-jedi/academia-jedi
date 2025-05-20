@@ -13,5 +13,5 @@ services:
       - PYTHONUNBUFFERED=1
     ports:
       - 8000:8000
-    command: ["python", "-V"]
+    command: ["uv", "run", "__init__.py"]
     depends_on: []
