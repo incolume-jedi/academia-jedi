@@ -1,5 +1,7 @@
 """Uv namespace."""
+
 import cowsay
+from icecream import ic
 
 if __name__ == '__main__':
-    print(cowsay.cow('mooo..'))
+    ic(cowsay.cow('mooo..'))
