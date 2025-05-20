@@ -158,6 +158,7 @@ dash = "^3.0.4"
 imbox = "^0.9.8"
 fake-useragent = "^2.2.0"
 langchain-openai = "<0.3.17"
+langchain-huggingface = "<0.3.0"
 
 
 [[tool.poetry.source]]
