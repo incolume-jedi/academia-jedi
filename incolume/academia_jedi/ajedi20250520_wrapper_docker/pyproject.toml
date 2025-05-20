@@ -15,3 +15,11 @@ ajedi20250520-wrapper-docker = "ajedi20250520_wrapper_docker:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "langchain-anthropic>=0.3.13",
+    "langchain-community>=0.3.24",
+    "langchain-google-genai>=2.1.4",
+    "langchain-openai>=0.3.17",
+]
