@@ -3,5 +3,5 @@ name = "ajedi20250520-estudo-container"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = []
+requires-python = ">=3.10,<4"
+dependencies = ["cowsay", "icecream"]
