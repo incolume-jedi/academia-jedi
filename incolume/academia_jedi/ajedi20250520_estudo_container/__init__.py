@@ -2,15 +2,15 @@
 
 # ruff:noqa: T201
 
-from icecream import ic
 import cowsay
-
+from icecream import ic
 
 
 def main():
-    print("Hello from ajedi20250520-estudo-container!")
+    """Main structure."""
+    ic('Hello from ajedi20250520-estudo-container!')
     cowsay.cow('mooo..')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
