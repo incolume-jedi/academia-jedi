@@ -1,7 +1,7 @@
 services:
   python:
     restart: unless-stopped
-    image: britodfbr/code:1.0.0
+    image: britodfbr/estudo_llm:1.0.0
     build:
       context: ./container2
       dockerfile: Dockerfile
