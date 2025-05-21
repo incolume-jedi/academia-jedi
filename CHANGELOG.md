@@ -10,6 +10,11 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [0.115.0]	 &#8212; 	2025-05-21:
+### Added
+  - Estudos com biblioteca `fake-useragent`;
+  - Estudos de isolamento dos subprojetos com containers docker;
+
 ## [0.114.0]	 &#8212; 	2025-05-12:
 ### Added
   - Implementação do jogo da velho CLI;
@@ -776,3 +781,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.112.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.111.0...0.112.0
 [0.113.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.112.0...0.113.0
 [0.114.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.113.0...0.114.0
+[0.115.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.114.0...0.115.0
