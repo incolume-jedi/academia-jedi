@@ -1,2 +1,6 @@
+"""Wrapper docker."""
+
+
 def main() -> None:
-    print("Hello from ajedi20250520-wrapper-docker!")
+    """Função principal."""
+    print('Hello from ajedi20250520-wrapper-docker!')  # noqa: T201
