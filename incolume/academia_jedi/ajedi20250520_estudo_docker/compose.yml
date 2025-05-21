@@ -3,9 +3,9 @@ services:
   app:
     # Constrói a imagem a partir do Dockerfile no diretório atual
     container_name: server-flask
-    image: britodfbr/flask-server:0.1.0
+    image: britodfbr/flask-server:20250520.0.0
     build:
-      dockerfile: Dockerfile 
+      dockerfile: Dockerfile
       context: .
     command: python app.py # ou gunicorn app:app, ou flask run, dependendo do seu framework
     volumes:
