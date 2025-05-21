@@ -1,6 +1,6 @@
 [project]
 name = "academia-jedi"
-version = "0.115.0a7"
+version = "0.115.0a8"
 description = ""
 readme="README.md"
 requires-python = ">=3.10"
@@ -21,7 +21,7 @@ members = [
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.115.0a7"
+version = "0.115.0a8"
 description = ""
 readme="README.md"
 authors = ["Britodfbr <britodfbr@gmail.com>"]
