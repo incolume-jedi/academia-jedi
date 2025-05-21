@@ -1,0 +1,18 @@
+services:
+  app:
+    image: incolume/wrapper_docker:20250520.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: server-wrapper-docker
+    working_dir: /code
+    volumes:
+      - .:/code
+    # user: "1000"
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - 8000:8000
+    command: ["uv", "run", "ajedi20250520-wrapper-docker"]
+    depends_on: []
