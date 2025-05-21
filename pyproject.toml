@@ -1,6 +1,6 @@
 [project]
 name = "academia-jedi"
-version = "0.114.0"
+version = "0.115.0"
 description = ""
 readme="README.md"
 requires-python = ">=3.10"
@@ -14,11 +14,14 @@ dependencies = [
 [tool.uv]
 
 [tool.uv.workspace]
-members = []
+members = [
+    "incolume/academia_jedi/ajedi20250520_estudo_container",
+    "incolume/academia_jedi/ajedi20250520_wrapper_docker",
+]
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.114.0"
+version = "0.115.0"
 description = ""
 readme="README.md"
 authors = ["Britodfbr <britodfbr@gmail.com>"]
@@ -152,6 +155,7 @@ streamlit = "^1.44.1"
 customtkinter = "^5.1.2"
 dash = "^3.0.4"
 imbox = "^0.9.8"
+fake-useragent = "^2.2.0"
 
 
 [[tool.poetry.source]]

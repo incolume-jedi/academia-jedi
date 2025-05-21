@@ -1,0 +1,44 @@
+services:
+  # Serviço da aplicação Python
+  app:
+    # Constrói a imagem a partir do Dockerfile no diretório atual
+    container_name: server-flask
+    image: britodfbr/flask-server:20250520.0.0
+    build:
+      dockerfile: Dockerfile
+      context: .
+    command: python app.py # ou gunicorn app:app, ou flask run, dependendo do seu framework
+    volumes:
+      - .:/app  # Monta o diretório atual do projeto dentro do contêiner em /app
+    ports:
+      - 5000:5000  # Mapeia a porta 5000 do host para a porta 5000 do contêiner
+    depends_on:
+      - db  # Garante que o serviço 'db' seja iniciado antes do 'app'
+      - redis # Garante que o serviço 'redis' seja iniciado antes do 'app'
+    environment:
+      # Variáveis de ambiente para a aplicação Python se conectar ao banco de dados e Redis
+      DATABASE_URL: postgresql://user:password@db:5432/mydatabase
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+
+  # Serviço do banco de dados PostgreSQL
+  db:
+    image: postgres:13  # Utiliza a imagem oficial do PostgreSQL versão 13
+    volumes:
+      - pgdata:/var/lib/postgresql/data  # Persiste os dados do banco em um volume nomeado
+    environment:
+      POSTGRES_DB: mydatabase  # Nome do banco de dados
+      POSTGRES_USER: user      # Usuário do banco de dados
+      POSTGRES_PASSWORD: password # Senha do banco de dados
+    ports:
+      - 5432:5432 # Opcional: Para acessar o banco de dados diretamente do host
+
+  # Serviço de cache Redis
+  redis:
+    image: redis:6  # Utiliza a imagem oficial do Redis versão 6
+    ports:
+      - 6379:6379 # Opcional: Para acessar o Redis diretamente do host
+
+# Volumes nomeados para persistência de dados
+volumes:
+  pgdata:
