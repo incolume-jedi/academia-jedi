@@ -1,14 +1,16 @@
 services:
   python:
-    container_name: python-server
+    container_name: estudo-llm-server
     restart: unless-stopped
-    image: britodfbr/estudo_llm:1.0.0
+    image: britodfbr/estudo-llm:20250516.0.0
     build:
       context: ./container2
       dockerfile: Dockerfile
 
     volumes:
       - .:/code
+
+    command: uv venv -p 3.13; source .venv/bin/activate; python -V; pip freeze
 networks:
   default:
-    name: estudo_llm_network
+    name: estudo-llm-network
