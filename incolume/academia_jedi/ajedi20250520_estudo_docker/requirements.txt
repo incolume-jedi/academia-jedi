@@ -1,4 +1,5 @@
 # requirements.txt
 Flask
+icecream
 psycopg2-binary # Para PostgreSQL
 redis # Para Redis
