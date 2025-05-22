@@ -13,4 +13,7 @@ dev = [
     "langchain-google-genai",
     "langchain-anthropic",
     "langchain-huggingface",
+    "langchain-groq>=0.3.2",
+    "jupyter>=1.1.1",
+    "huggingface-hub[hf-xet]>=0.31.4",
 ]
