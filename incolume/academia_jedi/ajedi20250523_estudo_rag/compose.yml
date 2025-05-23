@@ -1,0 +1,10 @@
+services:
+  jupyter:
+    environment:
+      - JUPYTER_TAG=python-3.11
+    image: jupyter/scipy-notebook:${JUPYTER_TAG:-latest}
+    ports:
+      - 8888:8888
+    restart: unless-stopped
+    volumes:
+      - ../:/home/jovyan/work
