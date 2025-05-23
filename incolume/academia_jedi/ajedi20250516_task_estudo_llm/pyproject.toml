@@ -1,0 +1,19 @@
+[project]
+name = "ajedi20250516-task-estudo-llm"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10,<4"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "langchain-community",
+    "langchain-openai",
+    "langchain-google-genai",
+    "langchain-anthropic",
+    "langchain-huggingface",
+    "langchain-groq>=0.3.2",
+    "jupyter>=1.1.1",
+    "huggingface-hub[hf-xet]>=0.31.4",
+]
