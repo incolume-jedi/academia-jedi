@@ -15,3 +15,9 @@ ajedi20250524-compose-dockerfile = "ajedi20250524_compose_dockerfile:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "cowsay>=6.1",
+    "icecream>=2.1.4",
+]

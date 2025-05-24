@@ -14,5 +14,6 @@ services:
       - PYTHONUNBUFFERED=1
     ports:
       - 8000:8000
+    
     command: uv run ajedi20250524-compose-dockerfile
     depends_on: []
