@@ -18,6 +18,7 @@ members = [
     "incolume/academia_jedi/ajedi20250520_estudo_container",
     "incolume/academia_jedi/ajedi20250520_wrapper_docker",
     "incolume/academia_jedi/ajedi20250516_task_estudo_llm",
+    "incolume/academia_jedi/ajedi20250524_compose_dockerfile",
 ]
 
 [tool.poetry]
