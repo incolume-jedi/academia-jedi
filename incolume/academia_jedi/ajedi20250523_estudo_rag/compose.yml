@@ -1,5 +1,6 @@
 services:
   jupyter:
+    container_name: estudo-rag
     environment:
       - JUPYTER_TAG=python-3.11
     image: jupyter/scipy-notebook:${JUPYTER_TAG:-latest}
