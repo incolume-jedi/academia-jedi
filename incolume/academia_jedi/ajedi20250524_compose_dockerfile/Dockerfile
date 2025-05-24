@@ -1,8 +1,8 @@
 # Arguments to specify for this image
-ARG ALPINE_TAG=3.21
+ARG BASEIMAGE=${BASEIMAGE:-alpine:3.21}
 
 # Use the official Alpine image as the base image
-FROM alpine:${ALPINE_TAG:-3.21}
+FROM ${BASEIMAGE}
 
 # Define the working directory
 WORKDIR /code
