@@ -1,4 +1,11 @@
-FROM alpine:3.21
+# Arguments to specify for this image
+ARG ALPINE_TAG=3.21
+
+# Use the official Alpine image as the base image
+FROM alpine:${ALPINE_TAG:-3.21}
+
+# Define the working directory
+WORKDIR /code
 
 # The installer requires curl (and certificates) to download the release archive
 RUN apk add --no-cache curl ca-certificates

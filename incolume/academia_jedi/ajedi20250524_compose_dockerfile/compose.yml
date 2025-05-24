@@ -1,6 +1,6 @@
 services:
   server:
-    image: incolume/compose-dockerfile:20250520.0.0
+    image: incolume/compose-dockerfile:20250524.0.0
     build:
       context: .
       dockerfile: Dockerfile
