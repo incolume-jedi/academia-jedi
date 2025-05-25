@@ -2,8 +2,8 @@ services:
   jupyter:
     container_name: estudo-rag
     environment:
-      - JUPYTER_TAG=python-3.11
-    image: jupyter/scipy-notebook:${JUPYTER_TAG:-latest}
+      - BASEIMAGE=ubuntu:24.04  # Ubuntu 22.04.3 LTS
+    image: incolume/ajedi20250523-estudo-rag:latest
     ports:
       - 8888:8888
     restart: unless-stopped
