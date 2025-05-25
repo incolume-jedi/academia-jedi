@@ -4,14 +4,12 @@ FROM ubuntu:24.04
 # Define the working directory
 WORKDIR /code
 
-# The installer requires curl (and certificates) to download the release archive
-RUN apt update && apt install -y build-essential curl
-
 # Download the latest installer
 ADD https://astral.sh/uv/install.sh /uv-installer.sh
 
+# The installer requires curl (and certificates) to download the release archive
 # Run the installer then remove it
-RUN sh /uv-installer.sh && rm /uv-installer.sh
+RUN apt update && apt install -y build-essential curl && sh /uv-installer.sh && rm /uv-installer.sh
 # RUN uv sync --locked
 
 # Ensure the installed binary is on the `PATH`

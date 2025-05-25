@@ -10,7 +10,7 @@ services:
       context: ${BASE_CONTEXT:-ubuntu}
       dockerfile: Dockerfile
     ports:
-      - 8888:8888
+      - "8888:8888"
     working_dir: /code
     command: "uv run --with jupyter jupyter lab --no-browser --allow-root"
     restart: unless-stopped
