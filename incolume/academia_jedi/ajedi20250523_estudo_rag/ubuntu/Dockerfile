@@ -9,7 +9,7 @@ ADD https://astral.sh/uv/install.sh /uv-installer.sh
 
 # The installer requires curl (and certificates) to download the release archive
 # Run the installer then remove it
-RUN apt update && apt install -y build-essential curl && sh /uv-installer.sh && rm /uv-installer.sh
+RUN apt update && apt install -y build-essential curl ffmpeg && sh /uv-installer.sh && rm /uv-installer.sh
 # RUN uv sync --locked
 
 # Ensure the installed binary is on the `PATH`
