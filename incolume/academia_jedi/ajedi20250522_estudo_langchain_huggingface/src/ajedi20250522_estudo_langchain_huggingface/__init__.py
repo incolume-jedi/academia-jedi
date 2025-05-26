@@ -1,5 +1,5 @@
 def main() -> None:
-    print("Hello from ajedi20250522-estudo-langchain-huggingface!")
+    print('Hello from ajedi20250522-estudo-langchain-huggingface!')
 
 
 if __name__ == '__main__':
