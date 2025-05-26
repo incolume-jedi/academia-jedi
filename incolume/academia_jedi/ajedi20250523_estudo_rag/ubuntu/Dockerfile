@@ -19,4 +19,4 @@ ENV PATH="/root/.local/bin/:$PATH"
 EXPOSE 8888
 
 # run jupyter
-CMD [ "uv", "run", "--with", "jupyter", "lab", "--no-browser"]
+CMD [ "uv", "run", "--with", "jupyter", "lab", "--no-browser", "--ip", "0.0.0.0"]

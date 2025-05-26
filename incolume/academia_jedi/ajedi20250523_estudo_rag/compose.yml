@@ -12,7 +12,7 @@ services:
     ports:
       - "8888:8888"
     working_dir: /code
-    command: "uv run --with jupyter jupyter lab --no-browser --allow-root"
+    command: "uv run --with jupyter jupyter lab --no-browser --allow-root --ip 0.0.0.0"
     restart: unless-stopped
     volumes:
-      - ../:/code
+      - ./:/code
