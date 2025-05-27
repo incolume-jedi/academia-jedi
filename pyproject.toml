@@ -98,6 +98,7 @@ members = [
     "incolume/academia_jedi/ajedi20250522_estudo_langchain_huggingface",
     "incolume/academia_jedi/ajedi20250523_estudo_rag",
     "incolume/academia_jedi/ajedi20250524_compose_dockerfile",
+    "incolume/academia_jedi/ajedi20250527_agentIA_free",
     "incolume/academia_jedi/ajedi20250529_pdf_img",
     "incolume/academia_jedi/ajedi20250530_img2txtAI",
     "incolume/academia_jedi/ajedi20250601_Python_API",
