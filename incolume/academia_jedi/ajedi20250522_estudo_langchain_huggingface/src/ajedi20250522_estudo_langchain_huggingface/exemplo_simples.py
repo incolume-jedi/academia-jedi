@@ -1,11 +1,16 @@
-"""Exemplo de integração entre LangChain e Hugging Face - Versão Simplificada
-Este script demonstra como utilizar modelos de linguagem do Hugging Face através da LangChain.
+"""Exemplo de integração entre LangChain e Hugging Face - Versão Simplificada.
+
+  Este script demonstra como utilizar modelos de linguagem do
+Hugging Face através da LangChain.
 
 Autor: Manus
 Data: 22/05/2025
 """
 
+# ruff: noqa: BLE001 T201
+
 # Importações necessárias
+from config import settings
 from dotenv import load_dotenv
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
@@ -15,7 +20,9 @@ load_dotenv()
 
 
 def configurar_llm_huggingface(
-    modelo='google/flan-t5-small', temperatura=0.7, max_tokens=256,
+    modelo='google/flan-t5-small',
+    temperatura=0.7,
+    max_tokens=256,
 ):
     """Configura uma instância de LLM do Hugging Face usando a LangChain.
 
@@ -27,12 +34,12 @@ def configurar_llm_huggingface(
     Returns:
         HuggingFaceEndpoint: Instância do LLM configurada
     """
-    llm = HuggingFaceEndpoint(
+    return HuggingFaceEndpoint(
         repo_id=modelo,
-        huggingfacehub_api_token=settings.huggingfacehub_api_token,  # Substitua pelo seu token
+        # Substitua pelo seu token
+        huggingfacehub_api_token=settings.huggingfacehub_api_token,
         model_kwargs={'temperature': temperatura, 'max_length': max_tokens},
     )
-    return llm
 
 
 def criar_chain_simples(llm, template):
@@ -46,13 +53,11 @@ def criar_chain_simples(llm, template):
         LLMChain: Chain configurada
     """
     prompt = PromptTemplate(input_variables=['pergunta'], template=template)
-    chain = LLMChain(llm=llm, prompt=prompt)
-    return chain
+    return LLMChain(llm=llm, prompt=prompt)
 
 
 def exemplo_chain_qa():
-    """Exemplo de uso de uma chain de perguntas e respostas.
-    """
+    """Exemplo de uso de uma chain de perguntas e respostas."""
     # Template para perguntas e respostas
     template = """
     Responda a seguinte pergunta de forma clara e concisa:
@@ -69,14 +74,11 @@ def exemplo_chain_qa():
     chain = criar_chain_simples(llm, template)
 
     # Executar a chain com uma pergunta
-    resposta = chain.run(pergunta='Quais são os planetas do sistema solar?')
-
-    return resposta
+    return chain.run(pergunta='Quais são os planetas do sistema solar?')
 
 
 def main():
-    """Função principal para demonstrar o exemplo.
-    """
+    """Função principal para demonstrar o exemplo."""
     print('Demonstração de integração LangChain com Hugging Face')
     print('\nExemplo simples de pergunta e resposta:')
     try:

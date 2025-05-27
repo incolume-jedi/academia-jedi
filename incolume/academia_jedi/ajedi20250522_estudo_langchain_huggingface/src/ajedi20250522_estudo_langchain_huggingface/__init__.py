@@ -1,5 +1,16 @@
+"""ajedi20250522-estudo-langchain-huggingface package.
+
+This package provides tools and entry points for studying
+LangChain and HuggingFace integration.
+"""
+
+
 def main() -> None:
-    print('Hello from ajedi20250522-estudo-langchain-huggingface!')
+    """Entry point.
+
+    for the ajedi20250522-estudo-langchain-huggingface package.
+    """
+    print('Hello from ajedi20250522-estudo-langchain-huggingface!')  # noqa: T201
 
 
 if __name__ == '__main__':

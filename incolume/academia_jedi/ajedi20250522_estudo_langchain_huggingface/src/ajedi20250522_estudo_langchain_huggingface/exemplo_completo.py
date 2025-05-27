@@ -1,11 +1,16 @@
-"""Exemplo de integração entre LangChain e Hugging Face
-Este script demonstra como utilizar modelos de linguagem do Hugging Face através da LangChain.
+"""Exemplo de integração entre LangChain e Hugging Face.
+
+  Este script demonstra como utilizar modelos de linguagem do
+Hugging Face através da LangChain.
 
 Autor: Manus
 Data: 22/05/2025
 """
+# ruff: noqa: BLE001 T201
 
 # Importações necessárias
+from config import settings
+from icecream import ic
 from langchain.agents import AgentType, initialize_agent, load_tools
 from langchain.chains import LLMChain, RetrievalQA
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -17,7 +22,9 @@ from langchain_huggingface import HuggingFaceEndpoint
 
 
 def configurar_llm_huggingface(
-    modelo='google/flan-t5-small', temperatura=0.7, max_tokens=256,
+    modelo='google/flan-t5-small',
+    temperatura=0.7,
+    max_tokens=256,
 ):
     """Configura uma instância de LLM do Hugging Face usando a LangChain.
 
@@ -31,9 +38,11 @@ def configurar_llm_huggingface(
     """
     llm = HuggingFaceEndpoint(
         repo_id=modelo,
-        huggingfacehub_api_token='hf_seu_token_aqui',  # Substitua pelo seu token
+        # Substitua pelo seu token
+        huggingfacehub_api_token=settings.huggingfacehub_api_token,
         model_kwargs={'temperature': temperatura, 'max_length': max_tokens},
     )
+    ic(llm)
     return llm
 
 
@@ -49,18 +58,18 @@ def criar_chain_simples(llm, template):
     """
     prompt = PromptTemplate(input_variables=['pergunta'], template=template)
     chain = LLMChain(llm=llm, prompt=prompt)
+    ic(chain)
     return chain
 
 
 def exemplo_chain_qa():
-    """Exemplo de uso de uma chain de perguntas e respostas.
-    """
+    """Exemplo de uso de uma chain de perguntas e respostas."""
     # Template para perguntas e respostas
     template = """
     Responda a seguinte pergunta de forma clara e concisa:
-    
+
     Pergunta: {pergunta}
-    
+
     Resposta:
     """
 
@@ -72,13 +81,12 @@ def exemplo_chain_qa():
 
     # Executar a chain com uma pergunta
     resposta = chain.run(pergunta='Quais são os planetas do sistema solar?')
-
+    ic(resposta)
     return resposta
 
 
 def exemplo_com_memoria():
-    """Exemplo usando memória para manter contexto de conversas.
-    """
+    """Exemplo usando memória para manter contexto de conversas."""
     # Criar o LLM
     llm = configurar_llm_huggingface(modelo='google/flan-t5-base')
 
@@ -86,7 +94,7 @@ def exemplo_com_memoria():
     template = """
     A conversa até agora:
     {chat_history}
-    
+
     Humano: {input}
     IA:
     """
@@ -96,7 +104,8 @@ def exemplo_com_memoria():
 
     # Criar prompt
     prompt = PromptTemplate(
-        input_variables=['chat_history', 'input'], template=template,
+        input_variables=['chat_history', 'input'],
+        template=template,
     )
 
     # Criar chain de conversação com memória
@@ -106,18 +115,22 @@ def exemplo_com_memoria():
     resposta1 = conversa.predict(input='Olá, meu nome é João.')
     resposta2 = conversa.predict(input='Qual é o meu nome?')
 
-    return resposta1, resposta2
+    return ic(resposta1, resposta2)
 
 
 def exemplo_rag_com_huggingface():
-    """Exemplo de RAG (Retrieval Augmented Generation) usando LangChain e Hugging Face.
+    """Exemplo de RAG.
+
+    Retrieval Augmented Generation(RAG) usando LangChain e Hugging Face.
     """
     # Texto de exemplo para criar nossa base de conhecimento
     documentos = [
         'O Brasil é o maior país da América do Sul.',
         'A capital do Brasil é Brasília.',
-        'O Brasil tem uma população de aproximadamente 213 milhões de pessoas.',
-        'A Amazônia é a maior floresta tropical do mundo e está localizada principalmente no Brasil.',
+        'O Brasil tem uma população de aproximadamente 213 milhões'
+        ' de pessoas.',
+        'A Amazônia é a maior floresta tropical do mundo e está'
+        ' localizada principalmente no Brasil.',
     ]
 
     # Dividir texto em chunks
@@ -137,18 +150,19 @@ def exemplo_rag_com_huggingface():
 
     # Criar chain de RAG
     qa_chain = RetrievalQA.from_chain_type(
-        llm=llm, chain_type='stuff', retriever=db.as_retriever(),
+        llm=llm,
+        chain_type='stuff',
+        retriever=db.as_retriever(),
     )
 
     # Consultar a base de conhecimento
     resposta = qa_chain.run('Qual é a capital do Brasil?')
-
+    ic(resposta)
     return resposta
 
 
 def exemplo_agente_com_ferramentas():
-    """Exemplo de um agente com ferramentas usando LangChain e Hugging Face.
-    """
+    """Exemplo de um agente com ferramentas usando LangChain e Hugging Face."""
     # Criar o LLM
     llm = configurar_llm_huggingface(modelo='google/flan-t5-large')
 
@@ -165,13 +179,12 @@ def exemplo_agente_com_ferramentas():
 
     # Executar o agente
     resultado = agente.run('Qual é a raiz quadrada de 144 mais 25?')
-
+    ic(resultado)
     return resultado
 
 
 def main():
-    """Função principal para demonstrar os exemplos.
-    """
+    """Função principal para demonstrar os exemplos."""
     print('Demonstração de integração LangChain com Hugging Face')
     print('\n1. Exemplo simples de pergunta e resposta:')
     try:
