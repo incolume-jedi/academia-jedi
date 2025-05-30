@@ -24,7 +24,7 @@ Você como linguista especialista em língua portuguesa do século 18, me entreg
 
     [
       {
-        "epigrafe": "[TIPO DO DOCUMENTO] — [DATA POR EXTENSO]",
+        "epigrafe": "[TIPO DO DOCUMENTO] [DATA POR EXTENSO]",
         "tipo": "[TIPO DO DOCUMENTO]",
         "data": "[DATA NO FORMATO ISO YYYY-MM-DD]",
         "ementa": "[RESUMO CONCISO DO DOCUMENTO EM 1 FRASE]",
@@ -48,7 +48,7 @@ Você como linguista especialista em língua portuguesa do século 18, me entreg
     ```json
     [
       {
-        "epigrafe": "DECRETO — DE 23 DE FEVEREIRO DE 1808",
+        "epigrafe": "Decreto de 23 de fevereiro de 1808",
         "tipo": "DECRETO",
         "data": "1808-02-23",
         "ementa": "Criação de cadeira de Ciência Econômica no Rio de Janeiro",
