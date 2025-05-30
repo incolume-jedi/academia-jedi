@@ -201,6 +201,71 @@ Você é um especialista em documentos históricos brasileiros do século XIX, c
     ]
 
 ```
+
+
+
+### 6ª Prompt
+
+```markdown
+Você é um especialista em documentos históricos brasileiros entre os séculos XVI e XIX, com domínio em paleografia e conhecimento em legislação colonial e imperial.
+Extraía os textos das imagens tal como abaixo
+
+####
+ALVARÁ — DE 4 DE MAIO DE 1808
+
+Crêa nesta cidade o logar de Juiz Conservador da Nação Inglesa.
+
+Eu o Principe Regente faço saber aos que este Alvará virem, que tendo consideração á representação que me fez e Consul da Nação Inglesa: hei por bem criar nesta Cidade um Juiz Conservador para que processe e senten eie as causas que pertence rem á mesma Nação, na forma que praticava o Juiz Conservador que havia em Lisboa.
+
+Pelo que mando á Mesa do Desembargo do Paço, e da Consciencia e Ordens, aos Governadores das Relações do Rio de Janeiro e Bahia, aos Governadores e Capitães Generaes, a todos os Ministros de Justiça, e mais pessoas a quem pertencer o conhecimento e execução deste Alvará, que o cumpram e guardem e façam cumprir e guardar tão inteiramente como nelle se contém, não obstante quaesquer Leis, Alvarás, Decretos, Regimentos ou Ordens em contrario, porque todas e todos hei por bem derogar para este effeito somente, como se dellas fizesse expressa e individual menção, ficando alias sempre em seu vigor. E este valerá como carta passada pela Chancellaria, ainda que por ella não ha de passar, e que o seu effeito haja de durar mais de um anno, sem embargo das Ordenações em contrario: registrando-se em todos os logares onde se costumam registrar semelhantes Alvarás. Dado no Palacio do Rio de Janeiro em 4 de Maio de 1808.
+
+PRINCIPE com guarda.
+
+D. Fernando José de Portugal.
+
+####
+
+Analise os textos fornecidos da etapa anterior, contidos em imagens de páginas digitalizadas de coletâneas de leis ou atos oficiais e extraia cada ato normativo individual no seguinte formato JSON estruturado:
+
+{
+  "epigrafe": "[TIPO DO DOCUMENTO] [DATA POR EXTENSO]",
+  "tipo": "[ALVARÁ / DECRETO / CARTA RÉGIA / ETC.]",
+  "data": "[DATA NO FORMATO ISO: YYYY-MM-DD]",
+  "ementa": "[RESUMO CONCISO DO DOCUMENTO EM UMA FRASE, UTILIZANDO LINGUAGEM CONTEMPORÂNEA COM TERMOS JURÍDICOS HISTÓRICOS]",
+  "content": "[TEXTO INTEGRAL DO DOCUMENTO, MANTENDO GRAFIA ARCAICA E FORMATAÇÃO ORIGINAL]",
+  "data_assinatura": "[LOCAL E DATA DA ASSINATURA POR EXTENSO]",
+  "assinatura": "[NOME DO AUTORIDADE OU TEXTO COMPLETO DA ASSINATURA/RUBRICA]"
+}
+
+### Regras obrigatórias:
+1. Mantenha rigorosamente o texto original em português arcaico, incluindo grafia antiga (ex: “commercio”, “sciencia”, “annuas”).
+2. Converta datas para o formato ISO (YYYY-MM-DD) sempre que possível.
+4. Remova elementos gráficos indesejados: cabeçalhos, números de página, ilustrações ou marcas de digitalização.
+5. Trate cada ato normativo como um objeto JSON separado, mesmo que ocupe múltiplas páginas.
+6. Para documentos longos que se estendem por mais de uma imagem, una o conteúdo completo no mesmo objeto JSON, mantendo a integridade textual.
+7. Preservar particularidades ortográficas, sinais de pontuação antigos e formas de tratamento histórico (ex: “Vossa Alteza”, “meus vassallos”, “heis por bem ordenar”).
+8. Garanta compatibilidade com UTF-8, preservando caracteres especiais e acentuação conforme o original.
+
+### Saída esperada:
+Retorne apenas um único arquivo JSON contendo um array com todos os documentos extraídos, conforme o modelo acima. Exemplo:
+
+[
+  {
+    "epigrafe": "Alvará de 4 de Maio de 1808",
+    "tipo": "ALVARÁ",
+    "data": "1808-05-04",
+    "ementa": "Crêa nesta cidade o logar de Juiz Conservador da Nação Inglesa.",
+    "content": "Eu o Principe Regente faço saber aos que este Alvará virem, que tendo consideração á representação que me fez e Consul da Nação Inglesa: hei por bem criar nesta Cidade um Juiz Conservador para que processe e senten eie as causas que pertence rem á mesma Nação, na forma que praticava o Juiz Conservador que havia em Lisboa.\n\nPelo que mando á Mesa do Desembargo do Paço, e da Consciencia e Ordens, aos Governadores das Relações do Rio de Janeiro e Bahia, aos Governadores e Capitães Generaes, a todos os Ministros de Justiça, e mais pessoas a quem pertencer o conhecimento e execução deste Alvará, que o cumpram e guardem e façam cumprir e guardar tão inteiramente como nelle se contém, não obstante quaesquer Leis, Alvarás, Decretos, Regimentos ou Ordens em contrario, porque todas e todos hei por bem derogar para este effeito somente, como se dellas fizesse expressa e individual menção, ficando alias sempre em seu vigor. E este valerá como carta passada pela Chancellaria, ainda que por ella não ha de passar, e que o seu effeito haja de durar mais de um anno, sem embargo das Ordenações em contrario: registrando-se em todos os logares onde se costumam registrar semelhantes Alvarás.",
+    "data_assinatura": "Dado no Palacio do Rio de Janeiro em 4 de Maio de 1808.",
+    "assinatura": "PRINCIPE com guarda.\n\nD. Fernando José de Portugal."
+  },
+  ...
+]
+
+⚠️ Importante: Não atualize, não adicione explicações, comentários ou formatação adicional — retorne apenas o JSON puro e funcional.
+```
+
+
 ## Resultado esperado
 
 O que é esperado na conclusão deste ‘sprint’
