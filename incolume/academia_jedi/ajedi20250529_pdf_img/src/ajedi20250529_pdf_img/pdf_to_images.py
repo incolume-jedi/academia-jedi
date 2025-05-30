@@ -19,6 +19,7 @@ Opções:
 """
 
 # ruff: noqa: BLE001 T201
+from __future__ import annotations
 
 import argparse
 from pathlib import Path
@@ -26,7 +27,13 @@ from pathlib import Path
 from pdf2image import convert_from_path
 
 
-def converter_pdf_para_imagens(pdf_path:str, output_dir:str, formato='png', dpi=300):
+def converter_pdf_para_imagens(
+    pdf_path: str,
+    output_dir: str,
+    formato: str = 'png',
+    dpi: int = 300,
+    poppler_path: None | Path = None,
+) -> None:
     """Converte cada página de um PDF em arquivos de imagem.
 
     Args:
@@ -34,9 +41,12 @@ def converter_pdf_para_imagens(pdf_path:str, output_dir:str, formato='png', dpi=
         output_dir (str): Diretório para salvar as imagens.
         formato (str): Formato da imagem (png, jpeg, etc.).
         dpi (int): Resolução da imagem em DPI.
+        poppler_path (Path, optional): Caminho para o executável do Poppler.
+            Se None, usa o padrão do sistema. Padrão: None.
     """
     pdf_path: Path = Path(pdf_path)
     output_dir: Path = Path(output_dir)
+    poppler_path: Path = Path(poppler_path).resolve() if poppler_path else None
 
     if not pdf_path.is_file():
         print(f"Erro: Arquivo PDF não encontrado em '{pdf_path}'")
@@ -48,7 +58,12 @@ def converter_pdf_para_imagens(pdf_path:str, output_dir:str, formato='png', dpi=
     print(f"Convertendo '{pdf_path.name}' para imagens...")
     try:
         # Converte o PDF em uma lista de objetos de imagem PIL
-        imagens = convert_from_path(pdf_path, dpi=dpi, fmt=formato)
+        imagens = convert_from_path(
+            pdf_path,
+            dpi=dpi,
+            fmt=formato,
+            poppler_path=poppler_path,
+        )
 
         # Salva cada imagem
         for i, imagem in enumerate(imagens, 1):
@@ -59,7 +74,7 @@ def converter_pdf_para_imagens(pdf_path:str, output_dir:str, formato='png', dpi=
 
         print(
             f'\nConversão concluída! {len(imagens)}'
-            " páginas salvas em '{output_dir}'.",
+            f" páginas salvas em '{output_dir}'.",
         )
 
     except Exception as e:
@@ -102,11 +117,19 @@ if __name__ == '__main__':
         'polegada (DPI). Padrão: 300.',
     )
 
+    parser.add_argument(
+        '--lib',
+        type=str,
+        default='',
+        help='Path para biblioteca poppler.',
+    )
+
     args = parser.parse_args()
 
     converter_pdf_para_imagens(
-        args.caminho_pdf_entrada,
-        args.diretorio_saida,
-        args.formato,
-        args.dpi,
+        pdf_path=args.caminho_pdf_entrada,
+        output_dir=args.diretorio_saida,
+        formato=args.formato,
+        dpi=args.dpi,
+        poppler_path=args.lib,
     )
