@@ -42,6 +42,7 @@ Você como linguista especialista em língua portuguesa do século 18, me entreg
     5. Trate cada documento como um objeto JSON separado no array
     6. Preserve todas as particularidades ortográficas originais (como "commercio", "sciencia", etc.)
     7. Para documentos longos com múltiplas páginas, una o conteúdo mantendo a integridade textual
+    8. content deverá conter texto do conteudo completo do ato.
 
     Exemplo de saída esperada:
     ```json
@@ -51,7 +52,7 @@ Você como linguista especialista em língua portuguesa do século 18, me entreg
         "tipo": "DECRETO",
         "data": "1808-02-23",
         "ementa": "Criação de cadeira de Ciência Econômica no Rio de Janeiro",
-        "content": "Sendo absolutamente necessario... [texto completo]",
+        "content": "Sendo absolutamente necessario o estudo da Sciencia Economica na presente conjunctura em que o Brazil oferece a melhor occasião de se pôr em pratica muitos dos seus princípios, para que os meus vassalios sendo melhor instruídos nele, me possam servir com mais vantagem: e por me constar que José da Silva Lisboa, Deputado e Secretario da Mesa da Inspecção da Agricultura e Commercio da Cidade da Bahia, tem dado todas as provas de ser muito hábil para o ensino daquella sciencia sem a qual se caminha às cegas e com passos muito lentos, e às vezes contrarios nas materias do Governo, lhe faço mercê da propriedade e regeneia de uma Cadeira e Aula Publica, que por este mesmo Decreto sou servido crear no Rio de Janeiro, com o ordenado de 400$000 para ir exercitar, conservando os ordenados dos dous logares que até agora tem occupado na Bahia. As Juntas da Fazenda de uma e de outra Capitania o tenham assim entendido e fazão executar.",
         "data_assinatura": "Bahia 23 de Fevereiro de 1808.",
         "assinatura": "Com a rubrica do Príncipe Regente Nosso Senhor."
       }
