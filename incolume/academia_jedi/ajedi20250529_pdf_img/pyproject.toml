@@ -7,7 +7,9 @@ authors = [
     { name = "Britodfbr", email = "britodfbr@gmail.com" }
 ]
 requires-python = ">=3.10, <4"
-dependencies = []
+dependencies = [
+    "pdf2image>=1.17.0",
+]
 
 [project.scripts]
 ajedi20250529-pdf-img = "ajedi20250529_pdf_img:main"
