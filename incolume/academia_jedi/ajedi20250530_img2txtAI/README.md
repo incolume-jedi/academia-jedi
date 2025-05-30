@@ -11,13 +11,15 @@
 
 **Converter imagens em texto através de agente de IA**
 
-Primeiro prompt
+### Primeira versão prompt
 
 ```markdown
 São paginas contém um ou mais atos normativos do governo brasileiro do século 18. Preciso que você acesse o texto identifique o encode, e mantenha o texto em português arcaico. Em cada página há um título e o número de página, remova-os.
 
 Você como linguista especialista em língua portuguesa do século 18, me entregará um arquivo com o texto revisado e corrigido sem alteração do original.
 ```
+
+### 2ª Versão de prompt
 
 ```bash
     Você é um especialista em documentos históricos brasileiros do século XIX, com domínio do português arcaico e conhecimento em paleografia. Analise os textos fornecidos e extraia cada ato normativo (cartas régias, decretos, alvarás) no seguinte formato JSON:
@@ -59,6 +61,53 @@ Você como linguista especialista em língua portuguesa do século 18, me entreg
     ]
 ```
 
+### 3ª Versão de Prompt
+
+```markdown
+
+Você é um especialista em documentos históricos brasileiros dos séculos XVIII e XIX, com domínio em paleografia e conhecimento em legislação colonial e imperial.
+
+Analise os textos fornecidos contidos em imagens de páginas digitalizadas de coletâneas de leis ou atas oficiais e extraia cada ato normativo individual no seguinte formato JSON estruturado:
+
+{
+  "epigrafe": "[TIPO DO DOCUMENTO] [DATA POR EXTENSO]",
+  "tipo": "[ALVARÁ / DECRETO / CARTA RÉGIA / ETC.]",
+  "data": "[DATA NO FORMATO ISO: YYYY-MM-DD]",
+  "ementa": "[RESUMO CONCISO DO DOCUMENTO EM UMA FRASE, UTILIZANDO LINGUAGEM CONTEMPORÂNEA COM TERMOS JURÍDICOS HISTÓRICOS]",
+  "content": "[TEXTO INTEGRAL DO DOCUMENTO, MANTENDO GRAFIA ARCAICA E FORMATAÇÃO ORIGINAL]",
+  "data_assinatura": "[LOCAL E DATA DA ASSINATURA POR EXTENSO]",
+  "assinatura": "[NOME DO AUTORIDADE OU TEXTO COMPLETO DA ASSINATURA/RUBRICA]"
+}
+
+### Regras obrigatórias:
+1. Mantenha rigorosamente o texto original em português arcaico, incluindo grafia antiga (ex: “commercio”, “sciencia”, “annuas”).
+2. Converta datas para o formato ISO (YYYY-MM-DD) sempre que possível.
+3. A ementa deve ser concisa (uma única frase) e descrever com clareza o conteúdo jurídico do documento, mantendo termos técnicos históricos.
+4. Remova elementos gráficos indesejados: cabeçalhos, números de página, ilustrações ou marcas de digitalização.
+5. Trate cada ato normativo como um objeto JSON separado, mesmo que ocupe múltiplas páginas.
+6. Para documentos longos que se estendem por mais de uma imagem, una o conteúdo completo no mesmo objeto JSON, mantendo a integridade textual.
+7. Preservar particularidades ortográficas, sinais de pontuação antigos e formas de tratamento histórico (ex: “Vossa Alteza”, “meus vassallos”, “heis por bem ordenar”).
+8. Garanta compatibilidade com UTF-8, preservando caracteres especiais e acentuação conforme o original.
+
+### Saída esperada:
+Retorne apenas um único arquivo JSON contendo um array com todos os documentos extraídos, conforme o modelo acima. Exemplo:
+
+[
+  {
+    "epigrafe": "Alvará de 22 de Abril de 1808",
+    "tipo": "ALVARÁ",
+    "data": "1808-04-22",
+    "ementa": "Criação de um tribunal no Brasil para decidir questões da Mesa do Desembargo do Paço, Consciência e Ordens, e Conselho do Ultramar.",
+    "content": "Eu o Principe Regente faço saber aos que o presente Alvará virem...",
+    "data_assinatura": "Palacio do Rio de Janeiro em 22 de Abril de 1808.",
+    "assinatura": "PRINCIPE com guarda.\n\nD. Fernando José de Portugal."
+  },
+  ...
+]
+
+⚠️ Importante: Não adicione explicações, comentários ou formatação adicional — retorne apenas o JSON puro e funcional.
+
+```
 ## Resultado esperado
 
 O que é esperado na conclusão deste ‘sprint’
