@@ -26,7 +26,7 @@ from pathlib import Path
 from pdf2image import convert_from_path
 
 
-def converter_pdf_para_imagens(pdf_path, output_dir, formato='png', dpi=300):
+def converter_pdf_para_imagens(pdf_path:str, output_dir:str, formato='png', dpi=300):
     """Converte cada página de um PDF em arquivos de imagem.
 
     Args:
@@ -35,8 +35,8 @@ def converter_pdf_para_imagens(pdf_path, output_dir, formato='png', dpi=300):
         formato (str): Formato da imagem (png, jpeg, etc.).
         dpi (int): Resolução da imagem em DPI.
     """
-    pdf_path = Path(pdf_path)
-    output_dir = Path(output_dir)
+    pdf_path: Path = Path(pdf_path)
+    output_dir: Path = Path(output_dir)
 
     if not pdf_path.is_file():
         print(f"Erro: Arquivo PDF não encontrado em '{pdf_path}'")
@@ -51,11 +51,11 @@ def converter_pdf_para_imagens(pdf_path, output_dir, formato='png', dpi=300):
         imagens = convert_from_path(pdf_path, dpi=dpi, fmt=formato)
 
         # Salva cada imagem
-        for i, imagem in enumerate(imagens):
-            nome_arquivo = f'pagina_{i + 1}.{formato.lower()}'
+        for i, imagem in enumerate(imagens, 1):
+            nome_arquivo = f'{pdf_path.stem}_p{i:03}.{formato.lower()}'
             caminho_saida = output_dir / nome_arquivo
             imagem.save(caminho_saida, formato.upper())
-            print(f"  - Página {i + 1} salva como '{caminho_saida}'")
+            print(f"  - Página {i} salva como '{caminho_saida}'")
 
         print(
             f'\nConversão concluída! {len(imagens)}'
