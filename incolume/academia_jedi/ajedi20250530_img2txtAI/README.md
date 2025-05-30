@@ -174,16 +174,15 @@ Você é um especialista em documentos históricos brasileiros do século XIX, c
     ]
 
     Regras estritas:
-    1. Mantenha rigorosamente o texto original em português arcaico
+    1. Mantenha rigorosamente o texto original em português arcaico sem alteração.
     2. Converta datas para formato ISO (1808-02-23) quando possível
-    3. Para a ementa, extraia a essência do documento em linguagem contemporânea, mas mantendo termos jurídicos históricos
-    4. Remova cabeçalhos, números de página e formatações originais
-    5. Trate cada documento como um objeto JSON separado no array
-    6. Preserve todas as particularidades ortográficas originais (como "commercio", "sciencia", etc.)
-    7. Para documentos longos com múltiplas páginas, una o conteúdo mantendo a integridade textual
-    8. O campo 'content' deve conter o texto completo do ato
-    9. O campo 'source' deve conter o nome da coleção/fonte (ex: colleccao_leis_1808_parte1)
-    10. O campo 'page' deve conter o número da página onde o documento começa
+    3. Remova cabeçalhos, números de página e formatações originais
+    4. Trate cada documento como um objeto JSON separado no array
+    5. Preserve todas as particularidades ortográficas originais (como "commercio", "sciencia", etc.)
+    6. Para documentos longos com múltiplas páginas, una o conteúdo mantendo a integridade textual
+    7. O campo 'content' deve conter o texto completo do ato
+    8. O campo 'source' deve conter o nome da coleção/fonte (ex: colleccao_leis_1808_parte1)
+    9. O campo 'page' deve conter o número da página onde o documento começa
 
     Exemplo de saída esperada:
     ```json
