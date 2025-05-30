@@ -1,7 +1,5 @@
 """Estudo container."""
 
-# ruff:noqa: T201
-
 import cowsay
 from icecream import ic
 

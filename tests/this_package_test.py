@@ -10,7 +10,7 @@ class TestPackage:
     """Test for test this package."""
 
     @pytest.mark.parametrize(
-        'environment entrance expected'.split(),
+        ['environment', 'entrance', 'expected'],
         [
             pytest.param(
                 '',

@@ -4,7 +4,7 @@ import dash
 import pandas as pd
 import plotly.express as px
 
-__all__ = ['px', 'pd']
+__all__ = ['pd', 'px']
 
 app = dash.Dash(__name__)
 

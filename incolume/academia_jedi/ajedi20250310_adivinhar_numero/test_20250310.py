@@ -13,7 +13,7 @@ ic.disable()
 
 
 @pytest.mark.parametrize(
-    'num entrance expected'.split(),
+    ['num', 'entrance', 'expected'],
     [
         pytest.param(0, 0, 'parabéns você acertou!!!\n'),
         pytest.param(

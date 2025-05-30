@@ -97,13 +97,13 @@ if version_info < (4, 0, 0):
 logging.debug(ic(collect_ignore))
 
 
-@pytest.fixture()
+@pytest.fixture
 def verdade() -> bool:
     """True."""
     return True
 
 
-@pytest.fixture()
+@pytest.fixture
 def fakefile() -> Path:
     """Fake file."""
     return Path(NamedTemporaryFile(prefix='academia-jedi-').name)

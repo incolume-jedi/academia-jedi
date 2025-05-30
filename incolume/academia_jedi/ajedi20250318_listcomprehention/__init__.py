@@ -64,7 +64,10 @@ def problema_conjunto() -> set:
 
 def problem_set() -> set:
     """Segunda solução."""
-    gostam_prog = set('Ricardo Roberto Ana Gustavo Vinicius'.split())
-    gostam_fut = set('Ada Roberto Mateus Vinicius Paulo'.split())
-    estudo_online = set('Ricardo Mateus Paulo Pedro'.split())
+    l1 = ['Ricardo', 'Roberto', 'Ana', 'Gustavo', 'Vinicius']
+    l2 = ['Ada', 'Roberto', 'Mateus', 'Vinicius', 'Paulo']
+    l3 = ['Ricardo', 'Mateus', 'Paulo', 'Pedro']
+    gostam_prog = set(l1)
+    gostam_fut = set(l2)
+    estudo_online = set(l3)
     return (gostam_prog | estudo_online) - gostam_fut

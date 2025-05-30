@@ -4,7 +4,7 @@ __author__ = '@britodfbr'  # pragma: no cover
 
 # ruff: noqa: E501
 
-labels = 'Added Changed Deprecated Removed Fixed Security'.split()
+labels = ['Added', 'Changed', 'Deprecated', 'Removed', 'Fixed', 'Security']
 
 MSG = """
 0.1.0           Added: initial commit

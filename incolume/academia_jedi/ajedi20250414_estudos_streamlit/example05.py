@@ -1,6 +1,6 @@
 """Example3 wide."""
 
-# ruff: noqa: PD002 PLR2004
+# ruff: noqa: PD002
 import pandas as pd
 import streamlit as st
 from incolume.academia_jedi.ajedi20250414_estudos_streamlit import datafile

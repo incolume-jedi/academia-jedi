@@ -30,7 +30,7 @@ class TestDashboard:
         assert entrance in URLS.__annotations__
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 URLS.zip_ds_fifa,
@@ -71,7 +71,7 @@ class TestDashboard:
             assert expected in handle.namelist()
 
     @pytest.mark.parametrize(
-        'entrance target_file expected'.split(),
+        ['entrance', 'target_file', 'expected'],
         [
             pytest.param(
                 URLS.zip_ds_fifa,

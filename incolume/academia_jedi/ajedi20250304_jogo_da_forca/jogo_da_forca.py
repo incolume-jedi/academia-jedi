@@ -122,8 +122,8 @@ class Alura:
 
     def desenha_forca(self, erros: int) -> None:
         """Desenha forca."""
-        top: str = '\n' '  _______     \n' ' |/      |    \n'
-        bottom: str = ' |            \n' '_|___         \n'
+        top: str = '\n  _______     \n |/      |    \n'
+        bottom: str = ' |            \n_|___         \n'
 
         medle: dict[str] = {
             0: (

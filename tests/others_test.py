@@ -11,8 +11,6 @@ import pytest
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-# ruff: noqa: T201
-
 
 class UnixFS:
     """Class UnixFS."""

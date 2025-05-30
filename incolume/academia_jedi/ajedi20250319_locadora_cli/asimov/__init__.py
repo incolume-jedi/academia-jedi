@@ -63,7 +63,7 @@ def alugar_carro(ls_carros: list[Carro], ls_alugados: list[Carro]) -> None:
         sep='\n',
         end='\n\n',
     )
-    if input('Deseja alugar (*s|n)? ').casefold() in 'n no não'.split():
+    if input('Deseja alugar (*s|n)? ').casefold() in ['n', 'no', 'não']:
         print('Reserva cancelada!')
         return
     print(

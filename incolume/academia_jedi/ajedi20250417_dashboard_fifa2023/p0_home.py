@@ -1,5 +1,4 @@
 """Bashboard FIFA 2023."""
-# ruff: noqa: N999
 
 import datetime as dt
 

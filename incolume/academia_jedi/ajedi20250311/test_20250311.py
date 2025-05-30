@@ -19,7 +19,7 @@ class TestCountVowel:
         assert pkg.get_text()
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('a', 189),
             pytest.param('e', 146),
@@ -37,7 +37,7 @@ class TestCesarCifer:
     """Test case."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             ({}, ''),
             ({'text': 'abcd'}, 'abcd'),
@@ -53,7 +53,7 @@ class TestCesarCifer:
         assert cc.cesar_cifer(**entrance) == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             ('abc', 'nop'),
             ('', ''),

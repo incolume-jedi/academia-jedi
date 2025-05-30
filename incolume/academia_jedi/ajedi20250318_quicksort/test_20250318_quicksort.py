@@ -6,7 +6,7 @@ from . import qsort, array
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         pytest.param(array, [2, 5, 6, 14, 20]),
         pytest.param(

@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff:noqa: T201 C901 FBT003 PLR912 PT018 E501 S311 PT012 PLR2004 PLR0912 SIM103 PLR2004
+# ruff: noqa: T201, C901, FBT003, E501, S311, PLR2004, PLR0912, SIM103
 
 import random
 
@@ -372,8 +372,8 @@ class Tictactoe:
                     break
 
             print(
-                f"\nPlacar: Jogador {self.placar['Jogador']}"
-                f" x {self.placar['Computador']} Computador",
+                f'\nPlacar: Jogador {self.placar["Jogador"]}'
+                f' x {self.placar["Computador"]} Computador',
             )
             continuar = input('Deseja jogar novamente? (s/n): ').lower()
             if continuar != 's':

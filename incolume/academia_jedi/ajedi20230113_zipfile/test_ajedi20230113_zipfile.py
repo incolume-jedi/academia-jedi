@@ -1,5 +1,7 @@
 """Test module."""
 
+# ruff: noqa: PLR0913
+
 import logging
 from pathlib import Path
 from platform import platform
@@ -21,7 +23,6 @@ from incolume.academia_jedi.ajedi20230113_zipfile import (
 from tempfile import NamedTemporaryFile, gettempdir
 
 
-# ruff: noqa: PLR0913
 class TestCase:
     """Test case."""
 
@@ -30,7 +31,7 @@ class TestCase:
         assert logger.name == 'incolume.academia_jedi.ajedi20230113_zipfile'
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(filezip_sample, True),
             pytest.param(filezip_sample_pwd1, True),
@@ -86,7 +87,7 @@ class TestCase:
         )
 
     @pytest.mark.parametrize(
-        'exct entrance expected'.split(),
+        ['exct', 'entrance', 'expected'],
         [
             pytest.param(
                 None,
@@ -148,7 +149,7 @@ class TestCase:
             assert capture.err == ''
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             (realpython03.zipnames[-1], '===\nFile is not a zip file\n'),
             (
@@ -168,7 +169,7 @@ class TestCase:
         assert capture.out == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 realpython04.hello,
@@ -188,7 +189,7 @@ class TestCase:
         assert realpython04.tratativa(filename=filename) == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             (realpython05.hello, realpython05.hello.with_suffix('.zip')),
             (

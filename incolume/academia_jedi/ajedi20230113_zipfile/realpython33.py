@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff:noqa: T201 S603
+# ruff:noqa: T201 S603 S607
 import subprocess
 from pathlib import Path
 
@@ -13,7 +13,7 @@ logger.debug(root)
 def run():
     """Run it."""
     p = subprocess.Popen(
-        'poetry run python -m zipfile --list sample.zip'.split(),
+        ['poetry', 'run', 'python', '-m', 'zipfile', '--list', 'sample.zip'],
         stdout=subprocess.PIPE,
     )
 

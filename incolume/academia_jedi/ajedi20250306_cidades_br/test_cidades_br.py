@@ -13,7 +13,7 @@ class TestMunicipios0:
     """TestMunicipios class."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(pkg.mg, list, marks=[]),
             pytest.param(pkg.sp, list, marks=[]),
@@ -25,7 +25,7 @@ class TestMunicipios0:
         assert isinstance(entrance, expected)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('exists', True),
             pytest.param('is_file', True),
@@ -97,7 +97,7 @@ class TestMunicipios:
         assert {entrance}.issubset(pkg.get_cities())
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             ('', 'output.yaml'),
             (None, 'output.yaml'),

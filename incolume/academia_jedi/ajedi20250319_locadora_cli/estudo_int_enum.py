@@ -2,7 +2,7 @@
 
 from enum import IntEnum
 
-# ruff: noqa: PLR2004 T201 SLF001
+# ruff: noqa: PLR2004, T201
 config = {
     'categorias': {
         'CARRO': 1,
@@ -36,7 +36,7 @@ Categoria: IntEnum = IntEnum(
     module=__name__,
 )
 
-Categoria._missing_ = _missing_
+Categoria._missing_ = _missing_  # noqa: SLF001
 
 
 if __name__ == '__main__':

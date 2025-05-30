@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: T201
+# ruff: noqa: ASYNC101 T201
 import asyncio
 import contextlib
 import sys
@@ -17,7 +17,7 @@ class AnotherError(Exception):
 
 async def read_file(filename: str | Path) -> str:
     """Async read file."""
-    with Path(filename).open() as f:  # noqa: ASYNC101
+    with Path(filename).open() as f:
         data: str = f.read()
     return data
 

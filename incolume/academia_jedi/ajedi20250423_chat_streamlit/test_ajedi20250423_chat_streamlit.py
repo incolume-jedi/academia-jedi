@@ -22,7 +22,7 @@ class TestCase:
         ic(f'finished class {cls.__name__} execution')
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 ('user one', 'user two'),
@@ -38,7 +38,7 @@ class TestCase:
         assert expected.issubset(pkg.filename_chat(*entrance).parts)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 ('user one', 'user two', {'as': 'as'}),
@@ -56,7 +56,7 @@ class TestCase:
         assert expected.issubset(result.parts)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(('user one', 'user two'), {'as': 'as'}),
             pytest.param(('user two', 'user one'), {'as': 'as'}),
@@ -73,7 +73,7 @@ class TestCase:
             assert pkg.read_msg(*entrance) == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('user one', {'users', 'user_one.pkl'}),
             pytest.param('user two', {'users', 'user_two.pkl'}),
@@ -89,7 +89,7 @@ class TestCase:
         assert expected.issubset(result.parts)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(('user one', '123abc'), True),
             pytest.param(('user one', '123abc'), False),
@@ -103,7 +103,7 @@ class TestCase:
         assert ic(pkg.create_new_user(*entrance)) == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(('user one', '123abc'), True),
             pytest.param(('user two', '123abc'), True),
@@ -117,7 +117,7 @@ class TestCase:
         assert pkg.check_senha(*entrance) == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('user_one', True),
             pytest.param('user_two', True),

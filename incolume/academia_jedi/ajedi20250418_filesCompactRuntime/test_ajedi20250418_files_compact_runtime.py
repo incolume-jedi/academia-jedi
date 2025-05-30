@@ -91,7 +91,7 @@ class TestCase:
             assert expected.issubset(result)
 
     @pytest.mark.parametrize(
-        'entrance target_file expected'.split(),
+        ['entrance', 'target_file', 'expected'],
         [
             pytest.param(
                 pkg.URL.fifa17,
@@ -261,7 +261,7 @@ class TestCase:
             assert file.readline() == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 Path.home()
