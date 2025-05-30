@@ -29,7 +29,7 @@ def test_academia(inst_academia):
 
 
 @pytest.mark.parametrize(
-    'func entrance expected'.split(),
+    ['func', 'entrance', 'expected'],
     [
         (
             'halteres',

@@ -10,9 +10,6 @@ from icecream import ic
 import pytest
 
 
-# ruff: noqa: PLR0913
-
-
 class TestCompactShutil:
     """Test case."""
 
@@ -78,7 +75,7 @@ class TestCompactShutil:
         assert Path(result).is_file()
 
     @pytest.mark.parametrize(
-        'filename type_format quantia expected'.split(),
+        ['filename', 'type_format', 'quantia', 'expected'],
         [
             pytest.param(
                 PATH / f'{PATH.stem}.zip',

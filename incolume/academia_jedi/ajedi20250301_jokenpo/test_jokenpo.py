@@ -39,7 +39,7 @@ class TestJokenpo:
     j2 = jogador(lance=ajedi20250301_jokenpo.Jokenpo('papel'))
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             (1, 'PAPEL'),
             (2, 'TESOURA'),
@@ -57,7 +57,7 @@ class TestJokenpo:
         )
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             ('PAPEL', 1),
             ('TESOURA', 2),
@@ -120,7 +120,7 @@ class TestJokenpo:
         assert entrance.__annotations__['nome'] == 'str'
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(('papel', 1), True),
             pytest.param(('papel', 'papel'), True),
@@ -145,7 +145,7 @@ class TestJokenpo:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(('papel', 1), False),
             pytest.param(('papel', 'papel'), False),
@@ -185,7 +185,7 @@ class TestJokenpo:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(('papel', 1), False),
             pytest.param(('papel', 'papel'), False),
@@ -225,7 +225,7 @@ class TestJokenpo:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'entrance1 entrance2 expected'.split(),
+        ['entrance1', 'entrance2', 'expected'],
         [
             pytest.param(
                 jogador(lance=ajedi20250301_jokenpo.Jokenpo(1)),
@@ -298,7 +298,7 @@ class TestJokenpo:
         )
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 'papel',

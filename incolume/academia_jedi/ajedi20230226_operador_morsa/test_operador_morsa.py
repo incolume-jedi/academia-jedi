@@ -6,14 +6,11 @@ import pytest
 import incolume.academia_jedi.ajedi20230226_operador_morsa.exemplo1 as ex1
 
 
-# ruff: noqa: ERA001 FIX002
-
-
 class TestOpMorsa:
     """Test class."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 {'func': ex1.menu},

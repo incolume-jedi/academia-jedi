@@ -12,7 +12,7 @@ class TestMappingLetters:
     """Test case."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             (
                 'missíssipi',

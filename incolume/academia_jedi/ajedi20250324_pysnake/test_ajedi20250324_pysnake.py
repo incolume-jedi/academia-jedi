@@ -9,7 +9,7 @@ class TestMyPySnake:
     """Test cases."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             (mypysnake.Personagem(), {'col': 15, 'lin': 10}),
         ],

@@ -16,7 +16,7 @@ class TestCase:
     """Test case."""
 
     @pytest.mark.parametrize(
-        'func entrance expected'.split(),
+        ['func', 'entrance', 'expected'],
         [
             (generate_triplo, {'entrada': valores}, '[90, 150, 300, 360]\n'),
             (

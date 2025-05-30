@@ -46,7 +46,7 @@ class Academia:
         return len(num_caos) / len(self.porta_halteres)
 
 
-Tipo: Enum = Enum('Tipo', 'organizado desorganizado'.split())
+Tipo: Enum = Enum('Tipo', ['organizado', 'desorganizado'])
 
 
 class Usuario:

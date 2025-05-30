@@ -58,7 +58,7 @@ class TestProductPytest:
         del self.product
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             ('id', 1),
             ('name', 'test'),
@@ -71,7 +71,7 @@ class TestProductPytest:
         assert getattr(self.product, entrance) == expected
 
     @pytest.mark.parametrize(
-        'entrance expected raise_exception'.split(),
+        ['entrance', 'expected', 'raise_exception'],
         [
             (10, 20, None),
             (
@@ -102,7 +102,7 @@ class TestProductPytest:
             assert self.product.stock == expected
 
     @pytest.mark.parametrize(
-        'entrance expected stock raise_expected'.split(),
+        ['entrance', 'expected', 'stock', 'raise_expected'],
         [
             (10, 0, 10, None),
             (

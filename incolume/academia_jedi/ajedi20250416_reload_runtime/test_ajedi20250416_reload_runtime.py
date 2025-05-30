@@ -29,7 +29,7 @@ class TestReloadRuntime:
         cls.file.unlink(missing_ok=True)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             ('__doc__', 'Fake module.'),
             (

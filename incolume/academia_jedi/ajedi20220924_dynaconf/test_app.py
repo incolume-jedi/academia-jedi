@@ -1,6 +1,5 @@
 """Estudos sobre dynaconf."""
 
-# ruff: noqa: S108 SIM112
 import os
 from typing import NoReturn
 import pytest
@@ -76,7 +75,7 @@ class TestCaseDynaconf:
         assert settings.from_env(env).get(entrance) == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 'msg',

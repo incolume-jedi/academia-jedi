@@ -2,7 +2,7 @@
 
 import click
 
-# ruff: noqa: T201 PTH123 SIM113
+# ruff: noqa: T201, SIM113
 
 
 @click.command()

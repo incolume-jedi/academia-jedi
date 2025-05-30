@@ -32,7 +32,7 @@ class TestLocadoraAsimov:
     """Testcase."""
 
     @pytest.mark.parametrize(
-        'entrance tipo expected'.split(),
+        ['entrance', 'tipo', 'expected'],
         [
             pytest.param(alugados, list, True, marks=[]),
             pytest.param(carros, list, True, marks=[]),
@@ -48,7 +48,7 @@ class TestLocadoraAsimov:
         assert is_dataclass(Carro)
 
     @pytest.mark.parametrize(
-        'entrance attr expected'.split(),
+        ['entrance', 'attr', 'expected'],
         [
             (carros[4], 'montadora', 'Hyundai'),
             (carros[4], 'modelo', 'HB20S'),
@@ -59,7 +59,7 @@ class TestLocadoraAsimov:
         assert getattr(entrance, attr) == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             (
                 carros,
@@ -87,7 +87,7 @@ class TestLocadoraAsimov:
         assert capture.out == expected
 
     @pytest.mark.parametrize(
-        'entrance side_effect expected'.split(),
+        ['entrance', 'side_effect', 'expected'],
         [
             pytest.param(
                 {
@@ -150,7 +150,7 @@ class TestLocadoraAsimov:
             assert capture.out == expected
 
     @pytest.mark.parametrize(
-        'entrance side_effect expected'.split(),
+        ['entrance', 'side_effect', 'expected'],
         [
             (
                 {
@@ -252,7 +252,7 @@ class TestLocadoraIncolume:
         assert isinstance(config, dict)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             (Categoria, False),
             (Montadora, False),
@@ -264,7 +264,7 @@ class TestLocadoraIncolume:
         assert is_dataclass(entrance) is expected
 
     @pytest.mark.parametrize(
-        'entrance fx expected'.split(),
+        ['entrance', 'fx', 'expected'],
         [
             pytest.param(1, Categoria, 'Carga', marks=[]),
             pytest.param('carga', Categoria, 'Carga', marks=[]),
@@ -281,7 +281,7 @@ class TestLocadoraIncolume:
         assert fx(entrance).name == expected
 
     @pytest.mark.parametrize(
-        'fenum entrance expected'.split(),
+        ['fenum', 'entrance', 'expected'],
         [
             pytest.param(Categoria, 1, Categoria.Carga, marks=[]),
             pytest.param(Categoria, 2, Categoria.Passeio, marks=[]),
@@ -309,7 +309,7 @@ class TestLocadoraIncolume:
             assert fenum(entrance) == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(Categoria, 'Passeio', marks=[]),
             pytest.param(Categoria, 'Carga', marks=[]),
@@ -325,7 +325,7 @@ class TestLocadoraIncolume:
         assert expected in list(entrance.__members__)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             (
                 {
@@ -380,7 +380,7 @@ class TestLocadoraIncolume:
         assert all(isinstance(v, Veiculo) for v in acervo_veiculos)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 '__annotations__',
@@ -393,7 +393,7 @@ class TestLocadoraIncolume:
         assert getattr(locadora, entrance) == expected
 
     @pytest.mark.parametrize(
-        'entrance side_effect expected'.split(),
+        ['entrance', 'side_effect', 'expected'],
         [
             ({'msg': '', 'deny_options': None}, [''], False),
             ({'msg': '', 'deny_options': []}, ['s'], True),
@@ -413,7 +413,7 @@ class TestLocadoraIncolume:
             assert locadora.finalizar(**entrance) is expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             (
                 ['0', '10', 's'],
@@ -451,7 +451,7 @@ class TestLocadoraIncolume:
             assert capture.out == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             (
                 ['1', 's'],

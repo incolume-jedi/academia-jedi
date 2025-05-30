@@ -113,8 +113,7 @@ if __name__ == '__main__':
         '--dpi',
         type=int,
         default=300,
-        help='Resolução da imagem em pontos por '
-        'polegada (DPI). Padrão: 300.',
+        help='Resolução da imagem em pontos por polegada (DPI). Padrão: 300.',
     )
 
     parser.add_argument(

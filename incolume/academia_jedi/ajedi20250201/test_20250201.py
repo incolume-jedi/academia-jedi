@@ -10,7 +10,7 @@ class TestContrants:
     """Test case."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('A001', True, marks=[]),
             pytest.param('A002', True, marks=[]),
@@ -142,7 +142,7 @@ class TestContrants:
     def test_path(self):
         """Unittest."""
         assert set(pkg.project_path.parts).issuperset(
-            'incolume academia_jedi'.split(),
+            ['incolume', 'academia_jedi'],
         )
 
     def test_files(self):

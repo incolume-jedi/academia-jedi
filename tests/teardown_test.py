@@ -45,7 +45,7 @@ class TestClass:
         assert True
 
 
-@pytest.fixture()
+@pytest.fixture
 def resource():
     """TestClass.
 

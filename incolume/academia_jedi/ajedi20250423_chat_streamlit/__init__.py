@@ -199,7 +199,7 @@ def pg_select_user(element: st.Page) -> None:
     ic()
     if st.session_state['userchat'] != '':
         element.title(
-            f"👋 Conversando com :blue[{st.session_state['userchat']}]",
+            f'👋 Conversando com :blue[{st.session_state["userchat"]}]',
         )
         element.divider()
 

@@ -1,9 +1,10 @@
 """Testes unitários para estrutura de decisão."""
 
-# ruff: noqa: A001 A002 ANN001 ANN002 ANN003 ANN201 ANN202 ANN204 ANN401 ARG001 ARG002 ASYNC101 B007 B008 B009 B011 B015 B904 B905 BLE001 C408 C419 C901 D100 D101 D102 D103 D104 D105 D107 D205 D402 D415 D419 DTZ001 DTZ003 DTZ005 DTZ007 E501 E741 EM101 EM102 ERA001 EXE005 F402 F403 F405 F601 F811 F821 F841 FBT001 FBT002 FBT003 FIX002 G001 G002 G004 N801 N802 N805 N806 N816 N999 NPY002 PD901 PERF203 PERF401 PERF402 PIE796 PLE1205 PLR0913 PLR1714 PLR2004 PLW0602 PLW0603 PLW2901 PT004 PT006 PT012 PT015 PTH118 PTH123 PYI024 PYI041 RET503 RET504 RUF001 RUF012 RUF013 S101 S113 S201 S301 S307 S310 S311 S602 S603 S605 S607 S608 SIM103 SIM109 SIM113 SIM115 SIM117 SLF001 SLOT000 T201 T203 TCH003 TD002 TD003 TD004 TRY002 TRY003 TRY300 TRY301 TRY401 W293
+# ruff: noqa: E501
 
 from re import escape
-
+from icecream import ic
+from incolume.academia_jedi import logger
 from math import isclose
 from unittest import mock
 import pytest
@@ -12,7 +13,7 @@ import incolume.academia_jedi.ajedi20231023_estrutura_decisao.estrutura_decisao 
 
 
 @pytest.mark.parametrize(
-    'entrada esperado'.split(),
+    ['entrada', 'esperado'],
     [
         ((1, 2), 2),
         ((5, 2), 5),
@@ -25,7 +26,7 @@ def test_exercicio01(entrada, esperado):
 
 
 @pytest.mark.parametrize(
-    'entrada esperado'.split(),
+    ['entrada', 'esperado'],
     [
         pytest.param(0, 'neutro', marks=''),
         (-1, 'negativo'),
@@ -38,7 +39,7 @@ def test_exercicio02(entrada, esperado):
 
 
 @pytest.mark.parametrize(
-    'entrada esperado'.split(),
+    ['entrada', 'esperado'],
     [
         pytest.param('X', 'Sexo Inválido'),
         pytest.param('F', 'F - Feminino'),
@@ -56,7 +57,7 @@ def test_exercicio03(entrada, esperado):
 
 
 @pytest.mark.parametrize(
-    'entrada esperado'.split(),
+    ['entrada', 'esperado'],
     [
         pytest.param('a', 'Vogal'),
         pytest.param('e', 'Vogal'),
@@ -80,7 +81,7 @@ def test_exercicio04(entrada, esperado):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ((10, 10), 'Aprovado com Distinção'),
         ((7, 7), 'Aprovado'),
@@ -94,7 +95,7 @@ def test_exercicio05(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ((10, 9, 1), 10),
         ((10, 100, 1), 100),
@@ -108,7 +109,7 @@ def test_exercicio06(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ((10, 9, 1), (10, 1)),
         ((10, 100, 1), (100, 1)),
@@ -122,7 +123,7 @@ def test_exercicio07(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ((10, 9, 1), 1),
         ((10, 100, 1), 1),
@@ -147,7 +148,7 @@ def test_exercicio08(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ((10, 9, 1), [10, 9, 1]),
         ((10, 100, 1), [100, 10, 1]),
@@ -172,7 +173,7 @@ def test_exercicio9(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ('m', 'Bom Dia!'),
         ('M', 'Bom Dia!'),
@@ -197,7 +198,7 @@ def test_exercicio10(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'entrance excpt'.split(),
+    ['entrance', 'excpt'],
     [
         (
             'Guitarra',
@@ -222,7 +223,7 @@ def test_exercicio10_exceptions(entrance, excpt):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         (
             1500.01,
@@ -255,6 +256,7 @@ def test_exercicio12(capsys):
     """Testar exercicio 12."""
     pkg.exercicio12(5, 220)
     out, err = capsys.readouterr()
+    logger.debug(ic(err))
     assert out == (
         '\n            Salário Bruto: (5 * 220): R$ 1100'
         '\n            (-) IR (5%)                     : R$   0'
@@ -267,7 +269,7 @@ def test_exercicio12(capsys):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         (1, '1-Domingo'),
         (2, '2-Segunda'),
@@ -287,7 +289,7 @@ def test_exercicio13(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ((10, 10), 'Notas: (10.0, 10.0), Média: 10.0, Conceito: A "APROVADO"'),
         ((7, 7), 'Notas: (7.0, 7.0), Média: 7.0, Conceito: C "APROVADO"'),
@@ -307,7 +309,7 @@ def test_exercicio14(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'entrance xcpt'.split(),
+    ['entrance', 'xcpt'],
     [
         (
             (10, 'a'),
@@ -346,7 +348,7 @@ def test_exercicio14_exceptions(entrance, xcpt):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ((2, 3, 5), 'Triângulo escaleno'),
         ((1, 1, 1), 'Triângulo equilátero'),
@@ -360,7 +362,7 @@ def test_exercicio15(entrance, expected) -> None:
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ((0, 2, 3), 'a=0. Não é uma equação de segundo grau.'),
         ((1, 2, 3), 'delta=-8. Não possui raízes reais.'),
@@ -379,7 +381,7 @@ def test_exercicio16(entrance, expected) -> None:
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         (2000, True),
         (2020, True),
@@ -395,7 +397,7 @@ def test_exercicio17(entrance, expected) -> None:
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ('1/1/2001', True),
         ('5/11/2023', True),
@@ -413,7 +415,7 @@ def test_exercicio18(entrance, expected) -> None:
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         (326, '3 centenas 2 dezenas 6 unidades'),
         (12, '1 dezena 2 unidades'),
@@ -442,7 +444,7 @@ def test_exercicio19(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ((0, 0, 0), '0.0 - Reprovado'),
         ((5, 6, 8), '6.3 - Reprovado'),
@@ -456,7 +458,7 @@ def test_exercicio20(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'xcpt entrance expected'.split(),
+    ['xcpt', 'entrance', 'expected'],
     [
         (
             {
@@ -510,7 +512,7 @@ def test_exercicio21(xcpt, entrance, expected) -> None:
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         (1, 'impar'),
         (10, 'par'),
@@ -524,7 +526,7 @@ def test_exercicio22(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         (1, 'inteiro'),
         (1.0, 'inteiro'),
@@ -538,7 +540,7 @@ def test_exercicio23(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         (('+', 1, 2), '3.00 impar positivo inteiro'),
         (('/', 7, 3), '2.33 par positivo decimal'),
@@ -553,7 +555,7 @@ def test_exercicio24(entrance, expected):
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         (('Sim', 'SIM', 'sim', 'Yes', 'y'), 'Assassino'),
         (('YES', 'sim', 'sim', 'sim', 'n'), 'Cúmplice'),
@@ -581,7 +583,7 @@ def test_exercicio25(entrance, expected) -> None:
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ((5, 'A'), 'R$9.21'),
         ((2, 'G'), 'R$4.80'),
@@ -596,7 +598,7 @@ def test_exercicio26(entrance, expected) -> None:
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         (('Morango', 5, 'não'), 12.5),
         (('Maçã', 5, 'não'), 9.0),
@@ -614,7 +616,7 @@ def test_exercicio27(entrance, expected) -> None:
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         (
             ('pix', 'file duplo', 4),

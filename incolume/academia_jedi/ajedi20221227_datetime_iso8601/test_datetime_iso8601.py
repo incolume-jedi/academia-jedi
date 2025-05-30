@@ -46,7 +46,7 @@ class TestISO8601:
         monkeypatch.setattr(dt, 'datetime', FakeDateTime)
 
     @pytest.mark.parametrize(
-        'func entrance expected'.split(),
+        ['func', 'entrance', 'expected'],
         [
             ('iso8601_format_01', DATE, '1978-06-20T01:23:45.006789-03:06'),
             ('iso8601_format_03', DATE, '1978-06-20T01:23:45.006-03:06'),

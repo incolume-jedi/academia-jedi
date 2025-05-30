@@ -49,7 +49,7 @@ class TestPyEmail:
         assert pkg.__name__ == 'incolume.academia_jedi.ajedi20250504_py_email'
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 {

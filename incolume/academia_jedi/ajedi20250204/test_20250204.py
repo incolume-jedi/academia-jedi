@@ -9,7 +9,7 @@ class TestCase:
 
     def test_0(self):
         """Unit test."""
-        assert set('academia_jedi ajedi20250204'.split()).issubset(
+        assert {'academia_jedi', 'ajedi20250204'}.issubset(
             pkg.directories.parts,
         )
 

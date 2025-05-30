@@ -3,4 +3,4 @@
 
 def main() -> None:
     """Main."""
-    print('Hello from ajedi20250529-pdf-img!')
+    print('Hello from ajedi20250529-pdf-img!')  # noqa: T201

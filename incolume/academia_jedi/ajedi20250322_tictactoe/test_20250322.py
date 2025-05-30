@@ -1,6 +1,6 @@
 """Test module."""
 
-# ruff: noqa: E501 T201 PT018 PT011 PLR2004 PT012
+# ruff: noqa: E501, PT018, PT011, PLR2004, PT012
 from . import Tabuleiro, JogoDaVelha
 
 import pytest

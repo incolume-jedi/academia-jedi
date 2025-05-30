@@ -9,7 +9,7 @@ class TestCase:
     """Unit test."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 {'array': [1, 2, 3], 'length': 2},
