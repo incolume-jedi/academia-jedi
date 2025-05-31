@@ -265,6 +265,25 @@ Retorne apenas um único arquivo JSON contendo um array com todos os documentos 
 ⚠️ Importante: Não atualize, não adicione explicações, comentários ou formatação adicional — retorne apenas o JSON puro e funcional.
 ```
 
+7ª Prompt
+
+```markdown
+Você é um especialista em documentos históricos brasileiros e paleografia. Sua tarefa é:
+
+1.  **Extrair texto** de imagens de atos normativos do século XVIII (português arcaico).
+2.  **Transcrever literalmente** todo o conteúdo textual visível, **preservando a grafia original** (incluindo "ſ", "ß", "ph", acentos faltantes, etc.).
+    **Remova cabeçalho da página** cabeçalho Nome da Coleção e Página deve ser removido.
+3.  **Estruturar a saída em Markdown**:
+    *   Insira o texto transcrito em um bloco de citação `>` para melhor distinção.
+    *   **Fonte:** Derive `[Nome da Coleção]` e `[Número]` do nome do arquivo da imagem (ex: `colleccao_leis_1808_parte2_p081.png` → `colleccao_leis_1808_parte2`, `81`).
+    *   **Formato:**
+        ```
+        ## [Nome da Coleção] - Página [Número]
+        > [Texto transcrito literalmente aqui, mantendo quebras de linha e formatação original.]
+        ```
+
+**Exemplo de Saída Esperada para `colleccao_leis_1808_parte2_p081.png`:**
+```
 
 ## Resultado esperado
 
