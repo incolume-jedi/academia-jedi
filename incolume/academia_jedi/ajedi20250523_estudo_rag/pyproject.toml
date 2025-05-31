@@ -1,0 +1,17 @@
+[project]
+name = "ajedi20250523-estudo-rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Britodfbr", email = "britodfbr@gmail.com" }
+]
+requires-python = ">=3.10, <4"
+dependencies = []
+
+[project.scripts]
+ajedi20250523-estudo-rag = "ajedi20250523_estudo_rag:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

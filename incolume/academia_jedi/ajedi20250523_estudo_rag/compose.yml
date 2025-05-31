@@ -1,0 +1,29 @@
+services:
+  jupyter:
+    container_name: estudo-rag
+    environment:
+      - BASEIMAGE=ubuntu:24.04  # Ubuntu 22.04.3 LTS
+      - PYTHONUNBUFFERED=1
+      - BASE_CONTEXT=./ubuntu
+    image: incolume/ajedi20250523-estudo-rag:latest
+    build:
+      context: ${BASE_CONTEXT:-ubuntu}
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    working_dir: /code
+    command: "uv run --with jupyter jupyter lab --no-browser --allow-root --ip 0.0.0.0"
+    restart: unless-stopped
+    volumes:
+      - ../../../:/code
+    networks:
+      - default
+
+
+networks:
+  default:
+    driver: bridge
+    name: jedi_network
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"
+      com.docker.network.bridge.enable_ip_masquerade: "true"
