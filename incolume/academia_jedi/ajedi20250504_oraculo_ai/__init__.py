@@ -1,5 +1,6 @@
 """Module oracle."""
 
+# ruff: noqa: F401 F841 E501
 import io
 import tempfile
 from pathlib import Path
@@ -47,7 +48,7 @@ cache_memory.chat_memory.add_ai_message(
 )
 
 
-def load_content(midia: str | Path, archive_type: str) -> str:
+def load_content(midia: str | Path, archive_type: str) -> str:  # noqa: C901
     """Load the content from the media."""
     if archive_type == 'site':
         document = utils.load_web(midia)
@@ -90,24 +91,22 @@ def load_model(
 ) -> None:
     """Load the model."""
     document = load_content(midia, archive_type)
-    system_prompt = '''Você é um assistente amigável chamado Oráculo Incolume. 
-    Você possui acesso às seguintes informações vindas de mídia {}:
+    system_prompt = f"""Você é um assistente amigável chamado Oráculo Incolume.
+    Você possui acesso às seguintes informações vindas de mídia {archive_type}:
     ####
-    {}
+    {midia}
     ####
     Utilize as informações fornecidas para basear as tuas respostas.
 
     Sempre que houver $ em suas saídas, substitua por S.
 
     Se a informação do documento for algo como "Just a moment..Enable JavaScript and cookies to continue" sugira ao usuário carregar novamente o Oráculo!
-    '''.format(archive_type, midia)
-    template = ChatPromptTemplate.from_template(
-        [
-            ('system', system_prompt),
-            ('placeholder', '{chat_history}'),
-            ('user', '{input}'),
-        ]
-    )
+    """
+    template = ChatPromptTemplate.from_template([
+        ('system', system_prompt),
+        ('placeholder', '{chat_history}'),
+        ('user', '{input}'),
+    ])
     chat = MODELOS_AI[provedor]['chat'](model=modelo, api_key=api_key)
     st.session_state['chat'] = chat
 

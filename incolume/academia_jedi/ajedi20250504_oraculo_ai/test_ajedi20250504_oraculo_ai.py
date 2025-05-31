@@ -65,6 +65,15 @@ class TestAjedi20250504OraculoAI:
                 'Confira aqui as perguntas mais frequentes enviadas ao'
                 ' Centro de Estudos. Alguma delas pode'
                 ' responder suas questões.',
+                marks=[
+                    pytest.mark.xfail(
+                        raises=[
+                            ConnectionResetError,
+                            requests.exceptions.ConnectionError,
+                        ],
+                        reason='Connection reset by peer',
+                    ),
+                ],
             ),
         ],
     )
