@@ -9,10 +9,10 @@ from copy import copy
 from typing import Any
 
 from icecream import ic
+from incolume.academia_jedi import logger
 from incolume.academia_jedi.ajedi20221128_mapping_values.constantes import (
     MSG,
     labels,
-    logger,
 )
 
 __author__ = '@britodfbr'  # pragma: no cover
