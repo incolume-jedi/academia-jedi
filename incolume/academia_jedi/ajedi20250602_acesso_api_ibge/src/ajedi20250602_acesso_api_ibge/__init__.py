@@ -6,11 +6,11 @@ from incolume.academia_jedi import logger
 
 url_api = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/{nome}'
 
-
-def get_nome(nome: str, params: dict | None = None) -> dict:
+def get_api(params: dict | None = None, url_api: str = '') -> dict:
+    """Get API information."""
     params = params or {}
     try:
-        response = httpx.get(url_api.format(nome=nome), params=params)
+        response = httpx.get(url_api, params=params)
         response.raise_for_status()
         logger.info(ic(response.json()))
         return response.json()
@@ -19,18 +19,46 @@ def get_nome(nome: str, params: dict | None = None) -> dict:
             f'HTTP error occurred: {e.response.status_code} - {e.response.text}',
         )
 
+def get_nome(nome: str, params: dict | None = None) -> dict:
+    params = params or {}
+    return get_api(url_api=url_api.format(nome=nome), params=params)
+
+
+def get_region(params: dict | None = None, url_api: str = 'https://servicodados.ibge.gov.br/api/v1/localidades/distritos') -> dict:
+    """Get region information for a given name."""
+    params = params or {'view':'nivelado'}
+    return get_api(url_api=url_api, params=params)
+
+def get_uf(params: dict | None = None, url_api: str = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados') -> dict:
+    """Get UF information."""
+    params = params or {'view': 'nivelado'}
+    return get_api(url_api=url_api, params=params)
+
+def get_uf_by_id(uf_id: str|int, params: dict | None = None, url_api: str = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados') -> dict:
+    """Get UF information."""
+    params = params or {'view': 'nivelado'}
+    uf_id = int(uf_id) if isinstance(uf_id, str) and uf_id.isdigit() else uf_id
+    for uf in get_api(url_api=url_api, params=params):
+        if uf.get('UF-id') == uf_id:
+            ic(uf)
+            return uf
+    return {}
+
 
 def main() -> None:
     """Main function to execute the script."""
     print('Hello from ajedi20250602-acesso-api-ibge!')  # noqa: T201
-    get_nome('ada')
-    get_nome('ana')
-    get_nome('eliana')
-    get_nome('ricardo')
-    (get_nome('ariel', params={'sexo': 'F'}),)
-    (get_nome('ariel', params={'sexo': 'M'}),)
-    (get_nome('ada', params={'sexo': 'F', 'groupBy': 'UF'}),)
-    (get_nome('ada', params={'sexo': 'M', 'groupBy': 'UF'}),)
+    # get_nome('ada')
+    # get_nome('ana')
+    # get_nome('eliana')
+    # get_nome('ricardo')
+    # get_nome('ariel', params={'sexo': 'F'})
+    # get_nome('ariel', params={'sexo': 'M'})
+    # get_nome('ada', params={'sexo': 'F', 'groupBy': 'UF'})
+    # get_nome('ada', params={'sexo': 'M', 'groupBy': 'UF'})
+    # get_region()
+    # get_uf()
+    get_uf_by_id(53)
 
 
 if __name__ == '__main__':
