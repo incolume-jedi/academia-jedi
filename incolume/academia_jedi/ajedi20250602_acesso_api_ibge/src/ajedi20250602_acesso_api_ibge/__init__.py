@@ -6,6 +6,7 @@ from incolume.academia_jedi import logger
 
 url_api = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/{nome}'
 
+
 def get_api(params: dict | None = None, url_api: str = '') -> dict:
     """Get API information."""
     params = params or {}
@@ -16,25 +17,40 @@ def get_api(params: dict | None = None, url_api: str = '') -> dict:
         return response.json()
     except httpx.HTTPStatusError as e:
         logger.error(
-            f'HTTP error occurred: {e.response.status_code} - {e.response.text}',
+            f'HTTP error occurred: {e.response.status_code}'
+            f' - {e.response.text}',
         )
 
+
 def get_nome(nome: str, params: dict | None = None) -> dict:
+    """Get name information from IBGE API."""
     params = params or {}
     return get_api(url_api=url_api.format(nome=nome), params=params)
 
 
-def get_region(params: dict | None = None, url_api: str = 'https://servicodados.ibge.gov.br/api/v1/localidades/distritos') -> dict:
+def get_region(
+    params: dict | None = None,
+    url_api: str = 'https://servicodados.ibge.gov.br/api/v1/localidades/distritos',
+) -> dict:
     """Get region information for a given name."""
-    params = params or {'view':'nivelado'}
+    params = params or {'view': 'nivelado'}
     return get_api(url_api=url_api, params=params)
 
-def get_uf(params: dict | None = None, url_api: str = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados') -> dict:
+
+def get_uf(
+    params: dict | None = None,
+    url_api: str = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados',
+) -> dict:
     """Get UF information."""
     params = params or {'view': 'nivelado'}
     return get_api(url_api=url_api, params=params)
 
-def get_uf_by_id(uf_id: str|int, params: dict | None = None, url_api: str = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados') -> dict:
+
+def get_uf_by_id(
+    uf_id: str | int,
+    params: dict | None = None,
+    url_api: str = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados',
+) -> dict:
     """Get UF information."""
     params = params or {'view': 'nivelado'}
     uf_id = int(uf_id) if isinstance(uf_id, str) and uf_id.isdigit() else uf_id
@@ -48,16 +64,6 @@ def get_uf_by_id(uf_id: str|int, params: dict | None = None, url_api: str = 'htt
 def main() -> None:
     """Main function to execute the script."""
     print('Hello from ajedi20250602-acesso-api-ibge!')  # noqa: T201
-    # get_nome('ada')
-    # get_nome('ana')
-    # get_nome('eliana')
-    # get_nome('ricardo')
-    # get_nome('ariel', params={'sexo': 'F'})
-    # get_nome('ariel', params={'sexo': 'M'})
-    # get_nome('ada', params={'sexo': 'F', 'groupBy': 'UF'})
-    # get_nome('ada', params={'sexo': 'M', 'groupBy': 'UF'})
-    # get_region()
-    # get_uf()
     get_uf_by_id(53)
 
 
