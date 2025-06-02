@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-06-01:
+## [Unreleased]	 &#8212; 	2025-06-02:
 ### Added
   - Estudos com LLM (AI);
   - Aplicado namespace UV;
@@ -18,6 +18,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Estudos com LangChain;
   - Estudos com RAG (AI);
   - Acesso a informações não estruturadas com LangChain;
+  - Estudos API com Python: Acesso https://httpbin.org;
 
 ## [0.115.0]	 &#8212; 	2025-05-21:
 ### Added
