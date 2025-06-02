@@ -24,6 +24,7 @@ members = [
     "incolume/academia_jedi/ajedi20250524_compose_dockerfile",
     "incolume/academia_jedi/ajedi20250529_pdf_img",
     "incolume/academia_jedi/ajedi20250523_estudo_rag",
+    "incolume/academia_jedi/ajedi20250530_img2txtAI",
 ]
 
 [tool.poetry]

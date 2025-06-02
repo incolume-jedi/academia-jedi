@@ -1,0 +1,29 @@
+[
+  {
+    "epigrafe": "Alvará de 22 de Abril de 1808",
+    "tipo": "ALVARÁ",
+    "data": "1808-04-22",
+    "ementa": "Criação de um tribunal no Brasil para decidir questões da Mesa do Desembargo do Paço, Consciência e Ordens, e Conselho do Ultramar.",
+    "content": "[Texto completo do Alvará]",
+    "data_assinatura": "Palacio do Rio de Janeiro em 22 de Abril de 1808.",
+    "assinatura": "[Assinatura completa]"
+  },
+  {
+    "epigrafe": "Decreto de 25 de Abril de 1808",
+    "tipo": "DECRETO",
+    "data": "1808-04-25",
+    "ementa": "Fixa o ordenado anual de 800$000 para o Cirurgião-Mor dos Reais Exércitos e Armada...",
+    "content": "[Texto completo do Decreto]",
+    "data_assinatura": "Palacio do Rio de Janeiro em 25 de Abril de 1808.",
+    "assinatura": "[Assinatura completa]"
+  },
+  {
+    "epigrafe": "Decreto de 2 de Maio de 1808",
+    "tipo": "DECRETO",
+    "data": "1808-05-02",
+    "ementa": "Extinção do posto de Sargento de Mar e Guerra na Real Marinha...",
+    "content": "[Texto completo do Decreto]",
+    "data_assinatura": "Palacio do Rio de Janeiro aos 2 de Maio de 1808.",
+    "assinatura": "[Assinatura completa]"
+  }
+]
