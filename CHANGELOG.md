@@ -19,6 +19,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Estudos com RAG (AI);
   - Acesso a informações não estruturadas com LangChain;
   - Estudos API com Python: Acesso https://httpbin.org;
+  - Recuperado issue #49, sem alterações, e trata de CRUD com flet;
 
 ## [0.115.0]	 &#8212; 	2025-05-21:
 ### Added
