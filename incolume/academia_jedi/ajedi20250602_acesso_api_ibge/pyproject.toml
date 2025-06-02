@@ -1,0 +1,17 @@
+[project]
+name = "ajedi20250602-acesso-api-ibge"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Ricardo Brito do Nascimento", email = "ricardo.brito@presidencia.gov.br" }
+]
+requires-python = ">=3.10, <4"
+dependencies = []
+
+[project.scripts]
+ajedi20250602-acesso-api-ibge = "ajedi20250602_acesso_api_ibge:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
