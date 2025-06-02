@@ -145,7 +145,6 @@ parsel = [{version=">=1.7.0"}]
 seaborn = "^0.13.2"
 icecream = "^2.1.3"
 plotly = "^6.0.1"
-streamlit = "^1.44.1"
 customtkinter = "^5.1.2"
 dash = "^3.0.4"
 imbox = "^0.9.8"
@@ -159,6 +158,9 @@ unstructured = "^0.17.2"
 pypdf = "^5.4.0"
 youtube-transcript-api = "<=1.0.3"
 networkx = "^3.4.2"
+streamlit = "^1.44.1"
+streamlit-authenticator = "^0.4.2"
+psycopg2-binary = "^2.9.10"
 
 
 [[tool.poetry.source]]
