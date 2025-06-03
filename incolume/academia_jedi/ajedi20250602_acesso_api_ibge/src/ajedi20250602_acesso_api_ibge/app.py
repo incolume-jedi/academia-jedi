@@ -1,7 +1,7 @@
 """Web app."""
 
 import streamlit as st
-from incolume.academia_jedi.ajedi20250602_acesso_api_ibge import get_nome
+from ajedi20250602_acesso_api_ibge import get_nome
 from icecream import ic
 
 
