@@ -4,7 +4,7 @@ from __future__ import annotations
 import pytest
 
 
-import ajedi20250602_acesso_api_ibge as pkg
+import incolume.academia_jedi.ajedi20250602_acesso_api_ibge as pkg
 from icecream import ic
 
 

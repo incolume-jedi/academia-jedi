@@ -3,6 +3,7 @@
 import pandas as pd
 import streamlit as st
 from icecream import ic
+
 try:
     from incolume.academia_jedi.ajedi20250602_acesso_api_ibge import get_nome
 except (ImportError, ModuleNotFoundError):
@@ -45,7 +46,9 @@ def main():
 
     ic(dict_values)
     df_names = pd.DataFrame.from_dict(
-        dict_values, orient='index', columns=['Frequência'],
+        dict_values,
+        orient='index',
+        columns=['Frequência'],
     )
 
     col1, col2 = st.columns([0.3, 0.7])
