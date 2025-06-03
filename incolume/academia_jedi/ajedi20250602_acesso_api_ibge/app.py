@@ -2,8 +2,11 @@
 
 import pandas as pd
 import streamlit as st
-from ajedi20250602_acesso_api_ibge import get_nome
 from icecream import ic
+try:
+    from incolume.academia_jedi.ajedi20250602_acesso_api_ibge import get_nome
+except (ImportError, ModuleNotFoundError):
+    from ajedi20250602_acesso_api_ibge import get_nome
 
 ic.configureOutput(prefix='[ajedi20250602-acesso-api-ibge] ')
 
