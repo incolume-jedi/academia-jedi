@@ -1,12 +1,11 @@
 services:
   server:
-    image: alpine:3.21
+    image: incolume/ajedi20250524-api-ibge:latest
     build:
       args:
-        - BASEIMAGE=ubuntu:latest
       context: .
       dockerfile: Dockerfile
-    container_name: server-compose-dockerfile
+    container_name: server-api-ibge
     working_dir: /code
     volumes:
       - .:/code
@@ -15,7 +14,7 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
     ports:
-      - 8000:8000
+      - 8501:8501
 
     command: uv run ajedi20250524-compose-dockerfile
     depends_on: []
