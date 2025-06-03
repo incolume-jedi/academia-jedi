@@ -1,0 +1,21 @@
+services:
+  server:
+    image: incolume/ajedi20250524-api-ibge:latest
+    build:
+      args:
+        - DEBUG=1
+      context: .
+      dockerfile: Dockerfile
+    container_name: server-api-ibge
+    working_dir: /code
+    volumes:
+      - .:/code
+    # user: "1000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - 8501:8501
+
+    command: "uvx streamlit run --server.port 8501 --server.address 0.0.0.0 ./src/ajedi20250602_acesso_api_ibge/app.py"
+    depends_on: []
+    restart: unless-stopped

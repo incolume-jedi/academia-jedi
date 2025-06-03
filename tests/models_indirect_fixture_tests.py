@@ -3,7 +3,7 @@
 import pytest
 
 
-@pytest.fixture
+@pytest.fixture()
 def fixture_name(request):
     """Fixture."""
     return request.param
