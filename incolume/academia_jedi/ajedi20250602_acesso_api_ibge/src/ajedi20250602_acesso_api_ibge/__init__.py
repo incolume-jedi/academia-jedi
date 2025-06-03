@@ -1,10 +1,16 @@
 """Acesso API IBGE - Academia Jedi 20250602."""
 
 import httpx
+from config import settings
 from icecream import ic
 from incolume.academia_jedi import logger
 
 url_api = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/{nome}'
+
+ic.configureOutput(prefix='[ajedi20250602-acesso-api-ibge] ')
+ic.disable()
+if settings.DEBUG_MODE:
+    ic.enable()
 
 
 def get_api(params: dict | None = None, url_api: str = '') -> dict:
@@ -25,7 +31,7 @@ def get_api(params: dict | None = None, url_api: str = '') -> dict:
 def get_nome(nome: str, params: dict | None = None) -> dict:
     """Get name information from IBGE API."""
     params = params or {}
-    return get_api(url_api=url_api.format(nome=nome), params=params)
+    return get_api(url_api=url_api.format(nome=nome), params=params) or {}
 
 
 def get_region(
