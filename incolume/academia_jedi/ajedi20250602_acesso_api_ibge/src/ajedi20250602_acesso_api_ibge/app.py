@@ -12,7 +12,7 @@ def main():
     """Main function to run the Streamlit app."""
     st.title('Web App Nomes')
     st.write(
-        'Dados da API IBGE (https://servicodados.ibge.gov.br/api/docs/nomes?versao=2)'
+        'Dados da API IBGE (https://servicodados.ibge.gov.br/api/docs/nomes?versao=2)',
     )
     params = {}
     col1, col2 = st.columns([0.6, 0.4])
@@ -22,7 +22,7 @@ def main():
         sexo = st.selectbox(
             'Selecione o sexo',
             options=['M', 'F'],
-            placeholder="[F]eminino ou [M]asculino",
+            placeholder='[F]eminino ou [M]asculino',
             index=None,
         )
     if not nome:
@@ -42,7 +42,7 @@ def main():
 
     ic(dict_values)
     df_names = pd.DataFrame.from_dict(
-        dict_values, orient='index', columns=['Frequência']
+        dict_values, orient='index', columns=['Frequência'],
     )
 
     col1, col2 = st.columns([0.3, 0.7])
