@@ -14,14 +14,26 @@ def main():
     st.write(
         'Dados da API IBGE (https://servicodados.ibge.gov.br/api/docs/nomes?versao=2)'
     )
-
-    nome = st.text_input('Consulte um nome')
+    params = {}
+    col1, col2 = st.columns([0.6, 0.4])
+    with col1:
+        nome = st.text_input('Consulte um nome')
+    with col2:
+        sexo = st.selectbox(
+            'Selecione o sexo',
+            options=['M', 'F'],
+            placeholder="[F]eminino ou [M]asculino",
+            index=None,
+        )
     if not nome:
         st.stop()
 
+    if sexo:
+        params.update({'sexo': sexo})
+
     try:
         dict_values = {}
-        for x in get_nome(nome)[0]['res']:
+        for x in get_nome(nome, params=params)[0]['res']:
             k, v = x.values()
             dict_values[k] = v
     except KeyError:
