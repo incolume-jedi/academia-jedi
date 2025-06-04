@@ -10,13 +10,11 @@ from icecream import ic
 user = 'username'
 pw = 'password'
 
-url = 'https://httpbin.org/basic-auth/{user}/{pw}'
 
-
-def authenticate(
+def auth_basic(
     user: str = '',
     pw: str = '',
-    url: str = url,
+    url: str = 'https://httpbin.org/basic-auth/{user}/{pw}',
 ) -> httpx.Response:
     """Authenticate using Basic Auth."""
     user = user or 'username'
@@ -25,20 +23,20 @@ def authenticate(
     auth_str = base64.b64encode(f'{user}:{pw}'.encode()).decode()
 
     ic(auth_str)
-
     headers = {'Authorization': f'Basic {auth_str}'}
+
 
     response = httpx.get(url.format(user=user, pw=pw), headers=headers)
     response.raise_for_status()  # Ensure we raise an error for bad responses
-    ic(response)
+    ic(response.json())
     return response
 
 
 def main() -> None:
     """Main function for ajedi20250603-api-auth."""
     print('Hello from ajedi20250603-api-auth!')  # noqa: T201
-    authenticate()  # Replace with actual credentials
-    authenticate().json()  # Print the JSON response for debugging
+    auth_basic()  # Replace with actual credentials
+    auth_basic('figueredo', 'pudim') # Print the JSON response for debugging
 
 
 if __name__ == '__main__':

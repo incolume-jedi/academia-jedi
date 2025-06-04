@@ -8,4 +8,4 @@ class TestApiAuth:
 
     def test_api_auth(self):
         """Test API authentication."""
-        assert isinstance(pkg.authenticate(), pkg.httpx.Response)
+        assert isinstance(pkg.auth_basic(), pkg.httpx.Response)
