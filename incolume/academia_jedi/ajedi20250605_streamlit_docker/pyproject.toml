@@ -7,7 +7,11 @@ authors = [
     { name = "Britodfbr", email = "britodfbr@gmail.com" }
 ]
 requires-python = ">=3.10, <4"
-dependencies = []
+dependencies = [
+    "numpy>=2.2.6",
+    "pandas>=2.2.3",
+    "streamlit>=1.45.1",
+]
 
 [project.scripts]
 ajedi20250605-streamlit-docker = "ajedi20250605_streamlit_docker:main"
