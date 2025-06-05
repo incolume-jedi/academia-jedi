@@ -49,9 +49,9 @@ def auth_basic(
 
 
 def auth_token(
-        city: str = '',
-        token: str = '',
-        url: str = 'https://api.openweathermap.org/data/2.5/weather',
+    city: str = '',
+    token: str = '',
+    url: str = 'https://api.openweathermap.org/data/2.5/weather',
 ) -> httpx.Response:
     """Authenticate using a token.
 

@@ -31,10 +31,10 @@ class TestApiAuth:
     )
     def test_api_auth(self, entrance, expected):
         """Test API authentication."""
-        result = pkg.auth_basic(**entrance)
-        assert isinstance(result, pkg.httpx.Response)
         if 'expected_exception' in expected:
             with pytest.raises(**expected):
-                result.raise_for_status()
+                pkg.auth_basic(**entrance)
         else:
+            result = pkg.auth_basic(**entrance)
+            assert isinstance(result, pkg.httpx.Response)
             assert result.json().get('authenticated')
