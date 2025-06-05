@@ -1,0 +1,21 @@
+services:
+  server:
+    image: incolume/ajedi20250605_streamlit_docker:latest
+    build:
+      args:
+        - DEBUG=1
+      context: .
+      dockerfile: Dockerfile
+    container_name: server-ajedi20250605-streamlit
+    working_dir: /code
+    volumes:
+      - ./src:/code
+    # user: "1000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - 8501:8501
+
+    command: "uvx streamlit run --server.port 8501 --server.address 0.0.0.0 app.py"
+    depends_on: []
+    restart: unless-stopped
