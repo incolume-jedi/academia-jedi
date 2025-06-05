@@ -1,0 +1,17 @@
+[project]
+name = "ajedi20250605-streamlit-docker"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Britodfbr", email = "britodfbr@gmail.com" }
+]
+requires-python = ">=3.10, <4"
+dependencies = []
+
+[project.scripts]
+ajedi20250605-streamlit-docker = "ajedi20250605_streamlit_docker:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
