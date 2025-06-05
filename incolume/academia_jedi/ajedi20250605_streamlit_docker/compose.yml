@@ -16,6 +16,6 @@ services:
     ports:
       - 8501:8501
 
-    command: "uvx streamlit run --server.port 8501 --server.address 0.0.0.0 app.py"
+    command: "uvx streamlit run --server.port 8501 --server.address 0.0.0.0 main.py"
     depends_on: []
     restart: unless-stopped
