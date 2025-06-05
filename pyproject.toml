@@ -15,20 +15,19 @@ dependencies = [
 
 [tool.uv.workspace]
 members = [
+    "incolume/academia_jedi/ajedi20250516_task_estudo_llm",
     "incolume/academia_jedi/ajedi20250520_estudo_container",
     "incolume/academia_jedi/ajedi20250520_wrapper_docker",
-    "incolume/academia_jedi/ajedi20250516_task_estudo_llm",
-    "incolume/academia_jedi/ajedi20250524_compose_dockerfile",
     "incolume/academia_jedi/ajedi20250522_estudo_langchain_huggingface",
-    "incolume/academia_jedi/ajedi20250516_task_estudo_llm",
+    "incolume/academia_jedi/ajedi20250523_estudo_rag",
     "incolume/academia_jedi/ajedi20250524_compose_dockerfile",
     "incolume/academia_jedi/ajedi20250529_pdf_img",
-    "incolume/academia_jedi/ajedi20250523_estudo_rag",
     "incolume/academia_jedi/ajedi20250530_img2txtAI",
     "incolume/academia_jedi/ajedi20250601_Python_API",
     "incolume/academia_jedi/ajedi20250602_acesso_api_ibge",
     "incolume/academia_jedi/ajedi20250603_api_auth",
     "incolume/academia_jedi/ajedi20250605_streamlit_docker",
+    "incolume/academia_jedi/ajedi20250606_acesso_openweather",
 ]
 
 [tool.poetry]
