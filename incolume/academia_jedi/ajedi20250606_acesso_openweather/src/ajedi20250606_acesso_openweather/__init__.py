@@ -27,10 +27,11 @@ def auth_token(
         'appid': token or os.getenv('OPEN_WEATHER_MAP_API_KEY'),
         'q': city or 'Brasília',
         'units': 'metric',
+        'lang': 'pt_br',
     }
     response = httpx.get(url, params=params)
     # response.raise_for_status()  # Ensure we raise an error for bad responses
-    # ic(response.json())
+    ic(response.json())
     return response
 
 
