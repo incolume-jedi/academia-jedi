@@ -14,6 +14,7 @@ dependencies = [
 ]
 
 [tool.uv.sources]
+ajedi20250605_streamlit_docker = { workspace = true }
 
 [project.scripts]
 ajedi20250605-streamlit-docker = "ajedi20250605_streamlit_docker:main"
@@ -23,3 +24,6 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [dependency-groups]
+dev = [
+    "ajedi20250605_streamlit_docker",
+]
