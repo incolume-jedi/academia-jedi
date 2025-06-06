@@ -9,7 +9,7 @@ services:
     container_name: server-ajedi20250605-streamlit
     working_dir: /code
     volumes:
-      - ./src:/code
+      - .:/code
     # user: "1000"
     environment:
       - PYTHONUNBUFFERED=1
