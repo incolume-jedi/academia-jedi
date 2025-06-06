@@ -14,8 +14,14 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
     ports:
-      - 8501:8501
+      - 8500-8599:8500-8599
 
-    command: "uvx streamlit run --server.port 8501 --server.address 0.0.0.0 main.py"
+    command: >
+      /bin/sh -c
+      "uv venv
+      & uv sync
+      & source .venv/bin/activate
+      & streamlit run --server.port 8501 --server.address 0.0.0.0 main.py"
+
     depends_on: []
     restart: unless-stopped
