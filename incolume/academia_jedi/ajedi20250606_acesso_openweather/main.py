@@ -17,7 +17,7 @@ def main():
         st.stop()
 
     try:
-        result = auth_token(city=city, token='2126063e2374e8abb4c56139559f6f79')
+        result = auth_token(city=city)
         result.raise_for_status()  # Raise an error for bad responses
     except HTTPStatusError:
         match result.status_code:
