@@ -340,9 +340,11 @@ dev = [{ name = "ajedi20250605-streamlit-docker", editable = "incolume/academia_
 [[package]]
 name = "ajedi20250606-acesso-openweather"
 version = "0.1.0"
-source = { virtual = "incolume/academia_jedi/ajedi20250606_acesso_openweather" }
+source = { editable = "incolume/academia_jedi/ajedi20250606_acesso_openweather" }
 dependencies = [
     { name = "httpx" },
+    { name = "icecream" },
+    { name = "python-dotenv" },
     { name = "streamlit" },
 ]
 
@@ -354,11 +356,13 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "httpx", specifier = ">=0.28.1" },
+    { name = "icecream", specifier = ">=2.1.4" },
+    { name = "python-dotenv", specifier = ">=1.1.0" },
     { name = "streamlit", specifier = ">=1.45.1" },
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "ajedi20250606-acesso-openweather", virtual = "incolume/academia_jedi/ajedi20250606_acesso_openweather" }]
+dev = [{ name = "ajedi20250606-acesso-openweather", editable = "incolume/academia_jedi/ajedi20250606_acesso_openweather" }]
 
 [[package]]
 name = "altair"

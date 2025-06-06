@@ -1,8 +1,14 @@
 """Module to access OpenWeatherMap API."""
 
 import httpx
-from config import settings
 from icecream import ic
+try:
+    from config import settings
+except (ImportError, ModuleNotFoundError):
+    from dotenv import load_dotenv
+    import os
+    load_dotenv()
+
 
 
 def auth_token(
@@ -18,7 +24,7 @@ def auth_token(
         url (str): URL for the OpenWeatherMap API endpoint.
     """
     params = {
-        'appid': token or settings.OPEN_WEATHER_MAP_API_KEY,
+        'appid': token or os.getenv('OPEN_WEATHER_MAP_API_KEY'),
         'q': city or 'Brasília',
         'units': 'metric',
     }
