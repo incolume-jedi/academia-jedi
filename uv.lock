@@ -24,11 +24,12 @@ members = [
     "ajedi20250602-acesso-api-ibge",
     "ajedi20250603-api-auth",
     "ajedi20250605-streamlit-docker",
+    "ajedi20250606-acesso-openweather",
 ]
 
 [[package]]
 name = "academia-jedi"
-version = "0.116.0a12"
+version = "0.116.0a13"
 source = { editable = "." }
 dependencies = [
     { name = "deprecated" },
@@ -335,6 +336,29 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [{ name = "ajedi20250605-streamlit-docker", editable = "incolume/academia_jedi/ajedi20250605_streamlit_docker" }]
+
+[[package]]
+name = "ajedi20250606-acesso-openweather"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250606_acesso_openweather" }
+dependencies = [
+    { name = "httpx" },
+    { name = "streamlit" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "ajedi20250606-acesso-openweather" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "httpx", specifier = ">=0.28.1" },
+    { name = "streamlit", specifier = ">=1.45.1" },
+]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ajedi20250606-acesso-openweather", virtual = "incolume/academia_jedi/ajedi20250606_acesso_openweather" }]
 
 [[package]]
 name = "altair"
