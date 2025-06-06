@@ -1,5 +1,5 @@
 [project]
-name = "ajedi20250605-streamlit-docker"
+name = "ajedi20250605_streamlit_docker"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -11,7 +11,12 @@ dependencies = [
     "numpy>=2.2.6",
     "pandas>=2.2.3",
     "streamlit>=1.45.1",
+    "ajedi20250605_streamlit_docker",
 ]
+
+[tool.uv.sources]
+ajedi20250605-streamlit-docker = { workspace = true }
+# ajedi20250605_streamlit_docker = { path = "./src", editable = true }
 
 [project.scripts]
 ajedi20250605-streamlit-docker = "ajedi20250605_streamlit_docker:main"
@@ -19,3 +24,8 @@ ajedi20250605-streamlit-docker = "ajedi20250605_streamlit_docker:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ajedi20250605-streamlit-docker",
+]

@@ -321,12 +321,21 @@ dependencies = [
     { name = "streamlit" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "ajedi20250605-streamlit-docker" },
+]
+
 [package.metadata]
 requires-dist = [
+    { name = "ajedi20250605-streamlit-docker", editable = "incolume/academia_jedi/ajedi20250605_streamlit_docker" },
     { name = "numpy", specifier = ">=2.2.6" },
     { name = "pandas", specifier = ">=2.2.3" },
     { name = "streamlit", specifier = ">=1.45.1" },
 ]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ajedi20250605-streamlit-docker", editable = "incolume/academia_jedi/ajedi20250605_streamlit_docker" }]
 
 [[package]]
 name = "altair"
