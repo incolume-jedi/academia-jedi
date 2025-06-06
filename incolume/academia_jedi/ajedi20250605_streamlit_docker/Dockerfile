@@ -19,4 +19,4 @@ RUN sh /uv-installer.sh && rm /uv-installer.sh
 # Ensure the installed binary is on the `PATH`
 ENV PATH="/root/.local/bin/:${PATH}"
 
-EXPOSE 8501
+EXPOSE 8500-8599
