@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-06-03:
+## [Unreleased]	 &#8212; 	2025-06-06:
 ### Added
   - Estudos com LLM (AI);
   - Aplicado namespace UV;
@@ -22,6 +22,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Recuperado issue #49, sem alterações, e trata de CRUD com flet;
   - Tarefa de autenticação no Streamlit;
   - Consumo de API do IBGE com Python e montagem de dashboard com streamlit para exibir as informações captadas;
+  - Container independente para streamlit com configuração compose.yml;
 
 ## [0.115.0]	 &#8212; 	2025-05-21:
 ### Added
