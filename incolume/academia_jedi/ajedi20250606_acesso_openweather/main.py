@@ -2,6 +2,9 @@
 
 import streamlit as st
 from ajedi20250606_acesso_openweather import auth_token
+from icecream import ic
+from httpx import HTTPStatusError
+from http import HTTPStatus
 
 
 def main():
@@ -15,10 +18,15 @@ def main():
 
     try:
         result = auth_token(city=city, token='2126063e2374e8abb4c56139559f6f79')
-    except Exception as e:
-        raise
-        st.warning(f'Informações não disponíveis para a cidade "{city}".')
-        st.stop()
+        result.raise_for_status()  # Raise an error for bad responses
+    except HTTPStatusError:
+        match result.status_code:
+            case HTTPStatus.UNAUTHORIZED:
+                st.error('Token inválido ou expirado. Verifique o token de acesso à API OpenWeatherMap.')
+                st.stop()
+            case HTTPStatus.NOT_FOUND:
+                st.warning(f'Informações encontradas para a cidade "{city}".')
+                st.stop()
 
     ic(result.json())
 

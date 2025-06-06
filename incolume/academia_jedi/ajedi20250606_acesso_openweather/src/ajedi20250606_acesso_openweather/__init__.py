@@ -29,8 +29,8 @@ def auth_token(
         'units': 'metric',
     }
     response = httpx.get(url, params=params)
-    response.raise_for_status()  # Ensure we raise an error for bad responses
-    ic(response.json())
+    # response.raise_for_status()  # Ensure we raise an error for bad responses
+    # ic(response.json())
     return response
 
 
