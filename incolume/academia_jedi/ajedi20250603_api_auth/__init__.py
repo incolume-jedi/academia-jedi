@@ -3,11 +3,15 @@
 from __future__ import annotations
 
 import base64
+import os
+from pathlib import Path
 
 import httpx
 from config import settings
+from dotenv import load_dotenv
 from icecream import ic
 
+load_dotenv(Path(__file__).parent / 'dotenv')
 user = 'username'
 pw = 'password'
 
@@ -68,6 +72,38 @@ def auth_token(
     response = httpx.get(url, params=params)
     response.raise_for_status()  # Ensure we raise an error for bad responses
     ic(response.json())
+    return response
+
+
+def auth_bearer(
+    user_id: str = '',
+    user_pw: str = '',
+    url: str = '',
+) -> httpx.Response:
+    """Authenticate using Bearer token.
+
+    Args:
+        url (str): URL for the Bearer token endpoint.
+
+    Returns:
+        httpx.Response: Response object containing the result of the request.
+
+    hiyik95265@jio1.com:MDjrJEHJTnVfbE2
+    """
+    url = url or 'https://accounts.spotify.com/api/token'
+    user_id = user_id or os.environ.get('SPOTIFY_CLIENT_ID')
+    user_pw = user_pw or os.environ.get('SPOTIFY_CLIENT_SECRET')
+    auth = httpx.BasicAuth(user_id, user_pw)
+
+    body = {
+        'grant_type': 'client_credentials',
+    }
+    response = httpx.post(
+        url,
+        data=body,
+        auth=auth,
+    )
+
     return response
 
 
