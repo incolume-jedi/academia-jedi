@@ -6,6 +6,7 @@ import json
 
 import toml
 import yaml
+from icecream import ic
 
 content: str = """
 default:
@@ -17,7 +18,7 @@ production:
   password: sek@987342$
 
 testing:
-  password: 777777
+  password: 777777a
 
 """
 
@@ -45,3 +46,11 @@ def dumps_toml(data: dict) -> str:
 def main() -> None:
     """Main function to run the secrets management."""
     print('Hello from ajedi20250604-secrets-dynaconf!')  # noqa: T201
+    data = load_yaml_from_str(content=content)
+    ic(dumps_json(data))
+    ic(dumps_yaml(data))
+    ic(dumps_toml(data))
+
+
+if __name__ == '__main__':
+    main()
