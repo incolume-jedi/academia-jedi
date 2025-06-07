@@ -23,13 +23,14 @@ members = [
     "ajedi20250601-python-api",
     "ajedi20250602-acesso-api-ibge",
     "ajedi20250603-api-auth",
+    "ajedi20250604-secrets-dynaconf",
     "ajedi20250605-streamlit-docker",
     "ajedi20250606-acesso-openweather",
 ]
 
 [[package]]
 name = "academia-jedi"
-version = "0.116.0a13"
+version = "0.116.0a14"
 source = { editable = "." }
 dependencies = [
     { name = "deprecated" },
@@ -311,6 +312,21 @@ requires-dist = [
 name = "ajedi20250603-api-auth"
 version = "0.1.0"
 source = { editable = "incolume/academia_jedi/ajedi20250603_api_auth" }
+
+[[package]]
+name = "ajedi20250604-secrets-dynaconf"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250604_secrets_dynaconf" }
+
+[package.dev-dependencies]
+dev = [
+    { name = "ajedi20250604-secrets-dynaconf" },
+]
+
+[package.metadata]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ajedi20250604-secrets-dynaconf", editable = "incolume/academia_jedi/ajedi20250604_secrets_dynaconf" }]
 
 [[package]]
 name = "ajedi20250605-streamlit-docker"
