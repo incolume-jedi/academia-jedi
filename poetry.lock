@@ -1461,21 +1461,6 @@ wrapt = ">=1.10,<2"
 dev = ["PyTest", "PyTest-Cov", "bump2version (<1)", "setuptools ; python_version >= \"3.12\"", "tox"]
 
 [[package]]
-name = "deprecation"
-version = "2.1.0"
-description = "A library to handle automated deprecations"
-optional = false
-python-versions = "*"
-groups = ["dev"]
-files = [
-    {file = "deprecation-2.1.0-py2.py3-none-any.whl", hash = "sha256:a10811591210e1fb0e768a8c25517cabeabcba6f0bf96564f8ff45189f90b14a"},
-    {file = "deprecation-2.1.0.tar.gz", hash = "sha256:72b3bde64e5d778694b0cf68178aed03d15e15477116add3fb773e581f9518ff"},
-]
-
-[package.dependencies]
-packaging = "*"
-
-[[package]]
 name = "distlib"
 version = "0.3.9"
 description = "Distribution utilities"
@@ -2736,29 +2721,6 @@ files = [
 click = ">=8.1.5,<9.0.0"
 gitpython = ">=3.1.43,<4.0.0"
 toml = {version = ">=0.10.2,<0.11.0", extras = ["tomli"]}
-
-[[package]]
-name = "incolumepy-utils"
-version = "2.11.0"
-description = "package incolume python utils"
-optional = false
-python-versions = "^3.8"
-groups = ["dev"]
-files = []
-develop = false
-
-[package.dependencies]
-click = "^8.1.5"
-Deprecated = "^1.2.10"
-deprecation = "^2.1.0"
-rstr = "^2.2.6"
-toml = {version = "^0.10.2", extras = ["tomli"]}
-
-[package.source]
-type = "git"
-url = "https://gitlab.com/development-incolume/incolumepy.utils.git"
-reference = "master"
-resolved_reference = "ca39bb03e00b24abbbb6fbc632309f8dd17abde8"
 
 [[package]]
 name = "iniconfig"
@@ -9199,4 +9161,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<4"
-content-hash = "2445704062f705bfadcbc2941006fad530d7d701a9f38e210c6cfd2e49a76d2b"
+content-hash = "6089ccc91468cdbdf96a81a0a722e7da5931fa61825b5d5481ad5717a03ed3f6"

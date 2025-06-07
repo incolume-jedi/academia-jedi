@@ -74,6 +74,7 @@ dynaconf = "^3.2.3"
 aiohttp = "^3.8.3"
 # fpdf2 = "^2.7.8"
 # pillow = {version="^9.4.0", python=">=3.9,<3.12"}
+# incolumepy-utils = {git = "https://gitlab.com/development-incolume/incolumepy.utils.git", rev = "master"}
 SQLAlchemy = "^1.4.39"
 aspose-words = [{version="^23.12.0", python=">=3.9,<3.12"},{version=">=24.1.0", python="^3.12,<3.14"},]
 black = ">=22.1.0"
@@ -97,7 +98,6 @@ html5lib = "^1.1"
 # httpx = [{version="^0.13.3", python="<=3.9"}, {version="^0.25.0", python=">3.9,<=3.11"}, {version="*", python=">=3.12"}]
 httpx = '>=0.13.3'
 incolume-py-changelog = {version=">=0.8.0", python=">=3.8.1,<4"}
-incolumepy-utils = {git = "https://gitlab.com/development-incolume/incolumepy.utils.git", rev = "master"}
 jupyter = {version="^1.0.0", python='>=3.9'}
 language-tool-python = ">=2.7.1,<2.9.3"
 lxml = {version=">=4.9.1", python='<3.13'}
