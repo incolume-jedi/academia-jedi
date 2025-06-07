@@ -1,0 +1,25 @@
+[project]
+name = "ajedi20250604-secrets-dynaconf"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Britodfbr", email = "britodfbr@gmail.com" }
+]
+requires-python = ">=3.10, <4"
+dependencies = []
+
+[project.scripts]
+ajedi20250604-secrets-dynaconf = "ajedi20250604_secrets_dynaconf:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ajedi20250604-secrets-dynaconf",
+]
+
+[tool.uv.sources]
+ajedi20250604-secrets-dynaconf = { workspace = true }
