@@ -29,6 +29,7 @@ members = [
     "incolume/academia_jedi/ajedi20250605_streamlit_docker",
     "incolume/academia_jedi/ajedi20250606_acesso_openweather",
     "incolume/academia_jedi/ajedi20250604_secrets_dynaconf",
+    "incolume/academia_jedi/ajedi20250607_dockerfile_inline",
 ]
 
 [tool.poetry]
