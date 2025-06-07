@@ -9,6 +9,7 @@ from dynaconf import Dynaconf
 import pytest
 import shutil
 
+
 class TestAjedi20250604SecretsDynaconf:
     """Test suite for ajedi20250604-secrets-dynaconf."""
 
@@ -26,7 +27,6 @@ class TestAjedi20250604SecretsDynaconf:
         )
         cls.settings = Dynaconf(
             environment=True,
-
             settings_files=[secret],
             environments=[
                 'default',
@@ -41,7 +41,6 @@ class TestAjedi20250604SecretsDynaconf:
         """Teardown class."""
         ic(f'finishing class {cls.__name__} execution')
         shutil.rmtree(cls.output_dir, ignore_errors=True)
-
 
     def test_package_import(self) -> None:
         """Test if the package can be imported successfully."""
@@ -60,7 +59,7 @@ class TestAjedi20250604SecretsDynaconf:
             yaml_str.strip()
             == 'default:\n  password: 123@pwd\ndevelopment: null\n'
             'production:\n'
-            '  password: sek@987342$\ntesting:\n  password: 777777'
+            '  password: sek@987342$\ntesting:\n  password: 777777a'
         )
 
     def test_dumps_toml(self) -> None:
@@ -70,8 +69,9 @@ class TestAjedi20250604SecretsDynaconf:
         assert isinstance(toml_str, str)
         assert (
             toml_str.strip()
-            == '[default]\npassword = "123@pwd"\n\n[production]\npassword'
-            ' = "sek@987342$"\n\n[testing]\npassword = 777777'
+            == '[default]\npassword = "123@pwd"\n\n[production]\n'
+            'password = "sek@987342$"\n\n'
+            '[testing]\npassword = "777777a"'
         )
 
     def test_dumps_json(self) -> None:
@@ -84,7 +84,7 @@ class TestAjedi20250604SecretsDynaconf:
             == '{\n  "default": {\n    "password": "123@pwd"\n  },\n  '
             '"development": null,\n  "production": {\n    '
             '"password": "sek@987342$"\n  },\n  '
-            '"testing": {\n    "password": 777777\n  }\n}'
+            '"testing": {\n    "password": "777777a"\n  }\n}'
         )
 
     @pytest.mark.parametrize(
