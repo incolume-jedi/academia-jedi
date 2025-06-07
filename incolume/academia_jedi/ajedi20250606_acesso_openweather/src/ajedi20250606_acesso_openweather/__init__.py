@@ -7,7 +7,7 @@ try:
     from config import settings
 
     token_api = settings.OPEN_WEATHER_MAP_API_KEY
-except (ImportError, ModuleNotFoundError):
+except (ImportError, ModuleNotFoundError, AttributeError):
     import os
 
     from dotenv import load_dotenv
