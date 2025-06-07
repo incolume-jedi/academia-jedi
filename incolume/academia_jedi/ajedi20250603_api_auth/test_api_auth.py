@@ -75,4 +75,35 @@ class TestApiAuth:
             'access_token',
             'expires_in',
             'token_type',
-        }.issubset(pkg.auth_bearer().json().keys())
+        }.issubset(pkg.get_bearer().json().keys())
+
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param(
+                {},
+                HTTPStatus.UNAUTHORIZED.value,
+                marks=[],
+            ),
+            pytest.param(
+                {
+                    'token': pkg.get_bearer().json().get('access_token'),
+                    'artist_id': '0gO5Vbklho8yrBrUdHhuLH',  # Oficina G3
+                },
+                HTTPStatus.OK.value,
+                marks=[],
+            ),
+            pytest.param(
+                {
+                    'token': pkg.get_bearer().json().get('access_token'),
+                    'artist_id': '2aKyKSggb31Kw9s9i3iXoo',  # Aline Barros
+                },
+                HTTPStatus.OK.value,
+                marks=[],
+            ),
+        ],
+    )
+    def test_get_spotify(self, entrance, expected):
+        """Test Spotify token retrieval."""
+        response = pkg.get_spotify(**entrance)
+        assert response.status_code == expected
