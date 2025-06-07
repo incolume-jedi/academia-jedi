@@ -2,13 +2,18 @@
 
 import httpx
 from icecream import ic
+
 try:
     from config import settings
-except (ImportError, ModuleNotFoundError):
-    from dotenv import load_dotenv
-    import os
-    load_dotenv()
 
+    token_api = settings.OPEN_WEATHER_MAP_API_KEY
+except (ImportError, ModuleNotFoundError):
+    import os
+
+    from dotenv import load_dotenv
+
+    load_dotenv()
+    token_api = os.getenv('OPEN_WEATHER_MAP_API_KEY')
 
 
 def auth_token(
@@ -24,21 +29,20 @@ def auth_token(
         url (str): URL for the OpenWeatherMap API endpoint.
     """
     params = {
-        'appid': token or os.getenv('OPEN_WEATHER_MAP_API_KEY'),
+        'appid': token or token_api,
         'q': city or 'Brasília',
         'units': 'metric',
         'lang': 'pt_br',
     }
     response = httpx.get(url, params=params)
-    # response.raise_for_status()  # Ensure we raise an error for bad responses
     ic(response.json())
     return response
 
 
-def main():
+def info():
     """Main function to run the OpenWeatherMap access module."""
     print('Hello from ajedi20250606-acesso-openweather!')  # noqa: T201
 
 
 if __name__ == '__main__':
-    main()
+    info()
