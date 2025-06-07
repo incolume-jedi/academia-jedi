@@ -1,12 +1,12 @@
 services:
   server:
-    image: incolume/ajedi20250606_acesso_openweather:latest
+    image: incolume/ajedi20250606_docker_openweather:latest
     build:
       args:
         - DEBUG=1
       context: .
       dockerfile: Dockerfile
-    container_name: server-ajedi20250606-openweather
+    container_name: server-ajedi20250606-docker_openweather
     working_dir: /code
     volumes:
       - .:/code
@@ -14,6 +14,7 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
       - UV_LINK_MODE=copy
+      - OPEN_WEATHER_MAP_API_KEY=/run/secrets/openweatherAPIKey
     ports:
       - 8500-8599:8500-8599
 
@@ -26,3 +27,7 @@ services:
 
     depends_on: []
     restart: unless-stopped
+
+secrets:
+   openweatherAPIKey:
+     file: secrets/openweather-token.txt
