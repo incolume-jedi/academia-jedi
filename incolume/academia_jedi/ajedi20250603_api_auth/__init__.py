@@ -93,7 +93,6 @@ def auth_bearer(
     url = url or 'https://accounts.spotify.com/api/token'
     user_id = user_id or os.environ.get('SPOTIFY_CLIENT_ID')
     user_pw = user_pw or os.environ.get('SPOTIFY_CLIENT_SECRET')
-    auth = httpx.BasicAuth(user_id, user_pw)
 
     body = {
         'grant_type': 'client_credentials',
@@ -101,7 +100,7 @@ def auth_bearer(
     response = httpx.post(
         url,
         data=body,
-        auth=auth,
+        auth=httpx.BasicAuth(user_id, user_pw),
     )
 
     return response
