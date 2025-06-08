@@ -11,7 +11,7 @@ class TestCase:
     """Testcase."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(0, 'Sair', marks=[]),
             pytest.param('0', 'Sair', marks=[]),
@@ -25,7 +25,7 @@ class TestCase:
         assert Options(entrance).name == expected
 
     @pytest.mark.parametrize(
-        'op msg deny_op expected'.split(),
+        ['op', 'msg', 'deny_op', 'expected'],
         [
             pytest.param('', '', [], False),
             pytest.param('2', '', [], False),
@@ -51,7 +51,7 @@ class TestCase:
             assert output.out == ''
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('', ''),
         ],

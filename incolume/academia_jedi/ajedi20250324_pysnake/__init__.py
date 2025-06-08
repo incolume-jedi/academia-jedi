@@ -10,8 +10,6 @@ from dataclasses import dataclass, field
 
 from icecream import ic
 
-# ruff: noqa: T201
-
 
 @dataclass
 class Personagem:

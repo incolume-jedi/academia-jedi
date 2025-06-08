@@ -1,7 +1,5 @@
 """Estudo para Exception group."""
 
-# ruff:noqa: T201
-
 import contextlib
 import sys
 

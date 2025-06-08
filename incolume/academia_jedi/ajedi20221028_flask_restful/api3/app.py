@@ -57,7 +57,7 @@ class GameList(Resource):
             logging.exception('%s', 'game id already exists.')
             return {
                 'error': f'game id '
-                f"**{new_game.get('game_id')}** already exists",
+                f'**{new_game.get("game_id")}** already exists',
             }
 
 

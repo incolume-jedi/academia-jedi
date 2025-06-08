@@ -5,9 +5,6 @@ import pytest
 import incolume.academia_jedi.ajedi20250304_jogo_da_forca.jogo_da_forca as pkg
 
 
-# ruff: noqa: PLR0913
-
-
 class CheckAlura:
     """Testcase."""
 
@@ -25,7 +22,7 @@ class CheckAlura:
         assert err == ''
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(0, 'CAJUEIRO'),
             pytest.param(1, 'BICICLETA'),
@@ -42,7 +39,7 @@ class CheckAlura:
         assert self.obj.carrega_palavra_secreta() == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(0, 'CAJUEIRO'),
             pytest.param(1, 'BICICLETA'),
@@ -66,7 +63,7 @@ class CheckAlura:
         ]
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('j', 'J', marks=[]),
             pytest.param('e', 'E', marks=[]),
@@ -145,7 +142,7 @@ class CheckAlura:
         )
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 0,
@@ -247,7 +244,7 @@ class TestCase:
     """Testcase."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('', '', marks=[]),
         ],
@@ -257,7 +254,7 @@ class TestCase:
         assert entrance == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 'cep',

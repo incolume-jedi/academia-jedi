@@ -15,15 +15,15 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
 
-# ruff: noqa: A002, ANN001, ANN201, ARG001, ARG002, BLE001, C901, D101, D102, D103, D107, DTZ003,DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
+# ruff: noqa: ANN001, ANN201, D101, D103, DTZ003, E501, T201
 
 load_dotenv(Path(__file__).parent.joinpath('.env'))
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 ALGORITHM = os.getenv('ALGORITHM')
 ACCESS_TOKEN_EXPIRE_MINUTES = (
-    (t := os.getenv('ACCESS_TOKEN_EXPIRE_MINUTES')) and int(t) or 0
-)
+    (t := os.getenv('ACCESS_TOKEN_EXPIRE_MINUTES')) and int(t)
+) or 0
 
 logging.debug(ic(SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES))
 

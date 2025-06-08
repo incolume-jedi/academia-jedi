@@ -20,7 +20,7 @@ class TestCase:
         assert config.exists()
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 bp.resp,
@@ -49,7 +49,7 @@ class TestCase:
         assert isinstance(entrance, requests.Response) is expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 bp.resp,

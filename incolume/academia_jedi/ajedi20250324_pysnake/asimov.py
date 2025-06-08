@@ -8,8 +8,6 @@ import time
 from config import settings
 from icecream import ic
 
-# ruff: noqa: T201
-
 ic.disable()
 if settings.debug_mode:
     ic.enable()

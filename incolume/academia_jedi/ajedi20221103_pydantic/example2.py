@@ -1,6 +1,6 @@
 """Pydantic python 3.9+."""
 
-# ruff: noqa: T201 UP036
+# ruff: noqa: T201
 
 from datetime import datetime
 from typing import Optional

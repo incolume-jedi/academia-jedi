@@ -1,0 +1,21 @@
+services:
+  server:
+    image: incolume/compose-dockerfile:20250524.0.0
+    build:
+      args:
+        - BASEIMAGE=ubuntu:latest
+      context: .
+      dockerfile: Dockerfile
+    container_name: server-compose-dockerfile
+    working_dir: /code
+    volumes:
+      - .:/code
+    # user: "1000"
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - 8000:8000
+
+    command: uv run ajedi20250524-compose-dockerfile
+    depends_on: []

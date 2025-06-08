@@ -11,7 +11,7 @@ from config import settings
 __author__ = '@britodfbr'  # pragma: no cover
 
 
-@pytest.mark.parametrize('entrance expected'.split(), [(__version__, True)])
+@pytest.mark.parametrize(['entrance', 'expected'], [(__version__, True)])
 def test_semver(entrance, expected):
     """Test for semantic versioning.
 
@@ -24,7 +24,7 @@ def test_semver(entrance, expected):
             re.fullmatch(
                 settings.semver,
                 entrance,
-                flags=re.I,
+                flags=re.IGNORECASE,
             ),
         )
         == expected

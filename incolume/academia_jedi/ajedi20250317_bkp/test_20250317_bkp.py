@@ -163,7 +163,7 @@ class TestOrganizer:
         assert output == organizer_dir(self.path_test, output)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             (
                 {
@@ -173,7 +173,7 @@ class TestOrganizer:
                     'path_files_out': None,
                     'path_files_in': path_test,
                 },
-                'TestOrganizer test_organizer'.split(),
+                ['TestOrganizer', 'test_organizer'],
             ),
         ],
     )
@@ -182,7 +182,7 @@ class TestOrganizer:
         assert set(expected).issubset(organizer_dir(**entrance).parts)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 {
@@ -203,7 +203,7 @@ class TestOrganizer:
         )
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('exists', True),
             pytest.param('is_dir', False),
@@ -216,7 +216,7 @@ class TestOrganizer:
         assert getattr(result, entrance)() is expected
 
     @pytest.mark.parametrize(
-        'entrance type_format expected'.split(),
+        ['entrance', 'type_format', 'expected'],
         [
             pytest.param(
                 {
@@ -260,7 +260,7 @@ class TestOrganizer:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'param1 param2 expected'.split(),
+        ['param1', 'param2', 'expected'],
         [
             pytest.param(
                 {

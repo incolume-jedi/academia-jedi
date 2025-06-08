@@ -9,7 +9,7 @@ class TestCase:
     """Casos de testes para estudo com fake-useragent."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('Google', 'GSA'),
             pytest.param('Chrome', 'Chrome'),
@@ -42,7 +42,7 @@ class TestCase:
         assert expected in ua.random
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('Windows', ''),
             pytest.param('Linux', ''),
@@ -59,7 +59,7 @@ class TestCase:
         assert expected in ua.random
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('desktop', ''),
             pytest.param('mobile', ''),
@@ -72,7 +72,7 @@ class TestCase:
         assert expected in ua.random
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(pkg.ua.getChrome, 'Chrome'),
             pytest.param(pkg.ua.getFirefox, 'Firefox'),

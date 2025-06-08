@@ -17,7 +17,7 @@ from flet import (
 )
 from incolume.academia_jedi.ajedi20240402_ft_ex022_flet_db.myaction import conn
 
-# ruff: noqa: A002, ANN001, ANN201, ARG001, ARG002, BLE001, C901, D101, D102, D103, D107, DTZ005, DTZ011, E501, ERA001, N802, N803, N806, PLR2004, S608, T201, TRY300
+# ruff: noqa: ARG001, BLE001, D103, ERA001, T201
 
 tb = DataTable(
     columns=[

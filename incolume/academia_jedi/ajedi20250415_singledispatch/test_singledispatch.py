@@ -13,7 +13,7 @@ class TestCase:
     """Case de teste para singledispatch."""
 
     @pytest.mark.parametrize(
-        'entrance kwargs expected'.split(),
+        ['entrance', 'kwargs', 'expected'],
         [
             pytest.param('', {}, '', marks=[]),
             pytest.param(

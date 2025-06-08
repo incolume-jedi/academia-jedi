@@ -9,7 +9,7 @@ from incolume.academia_jedi.ajedi20221212_python_regex_search_replace import (
 
 
 @pytest.mark.parametrize(
-    'entrance expected'.split(),
+    ['entrance', 'expected'],
     [
         ('jOE kIM mAx ABY lIzA', 'Joe Kim MaX aby LiZa'),
         ('bRASIL!@$', 'Brasil!@$'),

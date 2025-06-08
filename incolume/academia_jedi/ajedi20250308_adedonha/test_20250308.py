@@ -9,7 +9,7 @@ class TestAdedonha:
     """Test case."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             (1, 'A'),
             (5, 'E'),

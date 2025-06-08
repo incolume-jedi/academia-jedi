@@ -11,7 +11,7 @@ from pathlib import Path
 from icecream import ic
 from incolume.academia_jedi import logger
 
-__all__ = ['EmailMessage', 'smtplib', 'ssl', 'os', 'mimetypes', 'Path']
+__all__ = ['EmailMessage', 'Path', 'mimetypes', 'os', 'smtplib', 'ssl']
 
 
 def send_email(credentials_file: Path | None = None, **kwargs: str) -> bool:

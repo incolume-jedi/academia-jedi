@@ -1,6 +1,6 @@
 [project]
 name = "academia-jedi"
-version = "0.115.0"
+version = "0.116.0"
 description = ""
 readme="README.md"
 requires-python = ">=3.10"
@@ -15,13 +15,27 @@ dependencies = [
 
 [tool.uv.workspace]
 members = [
+    "incolume/academia_jedi/ajedi20250516_task_estudo_llm",
     "incolume/academia_jedi/ajedi20250520_estudo_container",
     "incolume/academia_jedi/ajedi20250520_wrapper_docker",
+    "incolume/academia_jedi/ajedi20250522_estudo_langchain_huggingface",
+    "incolume/academia_jedi/ajedi20250523_estudo_rag",
+    "incolume/academia_jedi/ajedi20250524_compose_dockerfile",
+    "incolume/academia_jedi/ajedi20250529_pdf_img",
+    "incolume/academia_jedi/ajedi20250530_img2txtAI",
+    "incolume/academia_jedi/ajedi20250601_Python_API",
+    "incolume/academia_jedi/ajedi20250602_acesso_api_ibge",
+    "incolume/academia_jedi/ajedi20250603_api_auth",
+    "incolume/academia_jedi/ajedi20250605_streamlit_docker",
+    "incolume/academia_jedi/ajedi20250606_acesso_openweather",
+    "incolume/academia_jedi/ajedi20250604_secrets_dynaconf",
+    "incolume/academia_jedi/ajedi20250607_dockerfile_inline",
+    "incolume/academia_jedi/ajedi20250607_docker_subprojetos",
 ]
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.115.0"
+version = "0.116.0"
 description = ""
 readme="README.md"
 authors = ["Britodfbr <britodfbr@gmail.com>"]
@@ -49,42 +63,28 @@ classifiers = [
 
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10,<4"
 icecream = "^2.1.3"
-
-[tool.poetry.group.docs]
-optional = true
-
-[tool.poetry.group.docs.dependencies]
-mkdocs = "^1.5.3"
-mkdocstrings = "*"
-mkdocstrings-python = "*"
-mkdocs-material = "*"
-mkdocs-static-i18n = "*"
-
-[tool.poetry.group.linters.dependencies]
-isort = "^5.12.0"
-pytest = "^7.1.2"
-pytest-cov = "^4.0.0"
-pydocstyle = "^6.3.0"
-pylint = "^3.0.0"
-ruff = "^0.3.3"
-incolume-py-changelog = {version=">=0.8.0", python=">=3.8.1,<4"}
+deprecated = "^1.2.13"
+dynaconf = "^3.2.3"
 
 [tool.poetry.group.dev.dependencies]
 # blue = ">=0.9.1"
+# isort = "^5.12.0"
+# pydocstyle = "^6.3.0"
 # poetry = "^1.8.2"
-
 aiohttp = "^3.8.3"
-aspose-words = [
-  {version=">=23.12.0", python=">=3.8.2,<3.14"},
-]
+# fpdf2 = "^2.7.8"
 # pillow = {version="^9.4.0", python=">=3.9,<3.12"}
+# incolumepy-utils = {git = "https://gitlab.com/development-incolume/incolumepy.utils.git", rev = "master"}
+SQLAlchemy = "^1.4.39"
+aspose-words = [{version="^23.12.0", python=">=3.9,<3.12"},{version=">=24.1.0", python="^3.12,<3.14"},]
+black = ">=22.1.0"
 bs4 = { version=">=0.0.1", python = ">3.6" }
 click = "^8.1.3"
 deprecated = "^1.2.13"
 pre-commit = {version="^3.7.0", python =">=3.9"}
-python-dotenv = "^0.20.0"
+python-dotenv = ">=0.20.0"
 dynaconf = "^3.2.3"
 easygui = "^0.98.3"
 faker = "^19.6.2"
@@ -92,13 +92,14 @@ fastapi = "^0.110.1"
 fastparquet = [{version="^2022.12.0", python="<3.11"}, {version="^2024.11.0", python=">=3.11"}]
 flask-restful = "^0.3.9"
 flet = "^0.21.2"
-# fpdf2 = "^2.7.8"
 # getch = { version = "^1.0", python = "<3.11" }
+getch = "^1.0"
 googletrans = [{ version = "^3.0.0", python = "<=3.9" }, {version="^4.0.0", python=">=3.10"}]
 gspread = "^5.12.0"
 html5lib = "^1.1"
-httpx = '>=0.13.3'
 # httpx = [{version="^0.13.3", python="<=3.9"}, {version="^0.25.0", python=">3.9,<=3.11"}, {version="*", python=">=3.12"}]
+httpx = '>=0.13.3'
+incolume-py-changelog = {version=">=0.8.0", python=">=3.8.1,<4"}
 jupyter = {version="^1.0.0", python='>=3.9'}
 language-tool-python = ">=2.7.1,<2.9.3"
 lxml = {version=">=4.9.1", python='<3.13'}
@@ -115,29 +116,27 @@ oauth2client = "^4.1.3"
 openai =  [{ version = ">=0.26", python = "<3.11" }]
 opencv-python = "^4.7.0.68"
 openpyxl = "^3.0.10"
-# pandas = "^1.4.3"
+pandas = ">=1.4.3"
 passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 pdf2image = "^1.16.2"
 pdfminer3 = [{version = "^2018.12.3.0", python="~3.7,<3.11"}]
 pdfplumber = "^0.7.6"
 pony = "^0.7.16"
-pwinput =  { version = ">=1.0.2", python = "<3.10" }
 # pyarrow = [{version="^10.0.1", python="<3.12"}]
-pydantic = "^1.10.2"
+pwinput =  { version = ">=1.0.2", python = "<3.11" }
+pydantic = ">=1.10.2"
 pymupdf = "^1.21.1"
 pypdf2 = "^3.0.1"
 # pysimplegui = {version = ">=4.60.4", source = "pysimplegui"}
 pysimpleguiqt = { version = ">=0.35.0", python = "<3.11" }
 pyspellchecker = "^0.7.1"
 pytesseract = "^0.3.10"
-python-docx = { version = ">=0.8.11", python = "<3.11" }
-python-jose = {extras = ["cryptography"], version = "^3.3.0"}
-python-multipart = "^0.0.9"
+pytest = "^7.1.2"
+pytest-cov = "^4.0.0"
 requests = "^2.28.1"
-rstr = "*"
-# scikit-learn = [{version="^1.2.1", python='>=3.9'}]
-selectolax = [{version="^0.3.11", extras=["cython"]}]
-SQLAlchemy = "^1.4.39"
+rstr = ">=2.2.6"
+ruff = "^0.3.3"
+selectolax = "^0.3.11"
 taskipy = "^1.10.3"
 textblob = [{version="^0.17.1", python="<3.12"}]
 transformers = [{version="^4.26.1", python="<3.12"}]
@@ -151,11 +150,22 @@ parsel = [{version=">=1.7.0"}]
 seaborn = "^0.13.2"
 icecream = "^2.1.3"
 plotly = "^6.0.1"
-streamlit = "^1.44.1"
 customtkinter = "^5.1.2"
 dash = "^3.0.4"
 imbox = "^0.9.8"
 fake-useragent = "^2.2.0"
+langchain-huggingface = "<0.3.0"
+langchain = "^0.3.25"
+langchain-community = "^0.3.23"
+langchain-groq = "^0.3.2"
+langchain-openai = "^0.3.16"
+unstructured = "^0.17.2"
+pypdf = "^5.4.0"
+youtube-transcript-api = "<=1.0.3"
+networkx = "^3.4.2"
+streamlit = "^1.44.1"
+streamlit-authenticator = "^0.4.2"
+psycopg2-binary = "^2.9.10"
 
 
 [[tool.poetry.source]]

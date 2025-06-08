@@ -10,6 +10,26 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [0.116.0]	 &#8212; 	2025-06-08:
+### Added
+  - Estudos com LLM (AI);
+  - Aplicado namespace UV;
+  - Contenerização com docker;
+  - Estudos com LangChain;
+  - Estudos com RAG (AI);
+  - Acesso a informações não estruturadas com LangChain;
+  - Estudos API com Python: Acesso https://httpbin.org;
+  - Recuperado issue #49, sem alterações, e trata de CRUD com flet;
+  - Tarefa de autenticação no Streamlit;
+  - Consumo de API do IBGE com Python e montagem de dashboard com streamlit para exibir as informações captadas;
+  - Container independente para streamlit com configuração compose.yml;
+  - Estudos com secrets em dynaconf;
+  - Acrescentados exemplos de autenticação: Basic e Bearer/JWT;
+  - Estudos docker com dockerfile-inline, unificado com compose.yml;
+  - Configurado estruturas avançadas para docker (ssh, watch);
+### Removed
+  - Removido pacote incolumepy.utils;
+
 ## [0.115.0]	 &#8212; 	2025-05-21:
 ### Added
   - Estudos com biblioteca `fake-useragent`;
@@ -782,3 +802,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.113.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.112.0...0.113.0
 [0.114.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.113.0...0.114.0
 [0.115.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.114.0...0.115.0
+[0.116.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.115.0...0.116.0

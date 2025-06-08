@@ -31,7 +31,7 @@ def show(ctx):
 @click.pass_context
 def sync(ctx):
     """Show debug state."""
-    click.echo('Debug is %s' % (ctx.obj['debug'] and 'on' or 'off'))
+    click.echo('Debug is %s' % ((ctx.obj['debug'] and 'on') or 'off'))
 
 
 if __name__ == '__main__':
