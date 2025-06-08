@@ -15,7 +15,7 @@ class TestApiAuth:
     """Test class for API authentication."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 {},
@@ -78,7 +78,7 @@ class TestApiAuth:
         }.issubset(pkg.get_bearer().json().keys())
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 {},
