@@ -15,3 +15,10 @@ ajedi20250607-docker-subprojetos = "ajedi20250607_docker_subprojetos:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest-cov>=6.1.1",
+    "ruff>=0.11.13",
+    "streamlit>=1.45.1",
+]
