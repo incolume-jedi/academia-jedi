@@ -16,7 +16,11 @@ __author__ = '@britodfbr'  # pragma: no cover
 config = dotenv.load_dotenv(dotenv.find_dotenv())
 logging.debug(config)
 
-fileoutput = Path(__file__).parent / 'databases' / os.getenv('BASENAME')
+fileoutput = (
+    Path(__file__).parent
+    / 'databases'
+    / (os.getenv('BASENAME') or 'ajedi20230129')
+)
 fileoutput.parent.mkdir(exist_ok=True, parents=True)
 logging.debug(fileoutput)
 
