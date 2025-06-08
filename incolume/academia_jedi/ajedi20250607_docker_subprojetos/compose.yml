@@ -18,7 +18,11 @@ services:
 
         # Expose the necessary ports
         EXPOSE 8080-8599
-
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /code
     container_name: server-ajedi20250607-dockerfile-inline
     working_dir: /code
     volumes:
