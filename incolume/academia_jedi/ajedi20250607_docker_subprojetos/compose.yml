@@ -18,6 +18,8 @@ services:
 
         # Expose the necessary ports
         EXPOSE 8080-8599
+      ssh:
+        - default   # mount the default SSH agent
     develop:
       watch:
         - action: sync
