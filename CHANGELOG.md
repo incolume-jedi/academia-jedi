@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-06-06:
+## [Unreleased]	 &#8212; 	2025-06-08:
 ### Added
   - Estudos com LLM (AI);
   - Aplicado namespace UV;
@@ -23,6 +23,12 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Tarefa de autenticação no Streamlit;
   - Consumo de API do IBGE com Python e montagem de dashboard com streamlit para exibir as informações captadas;
   - Container independente para streamlit com configuração compose.yml;
+  - Estudos com secrets em dynaconf;
+  - Acrescentados exemplos de autenticação: Basic e Bearer/JWT;
+  - Estudos docker com dockerfile-inline, unificado com compose.yml;
+  - Configurado estruturas avançadas para docker (ssh, watch);
+### Removed
+  - Removido pacote incolumepy.utils;
 
 ## [0.115.0]	 &#8212; 	2025-05-21:
 ### Added
