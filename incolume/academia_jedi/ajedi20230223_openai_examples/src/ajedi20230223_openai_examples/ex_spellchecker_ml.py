@@ -1,8 +1,8 @@
 """Module."""
+# ruff: noqa: T201
 
 from collections import Counter
 
-# ruff: noqa: T201
 from spellchecker import SpellChecker
 
 # Carrega o corretor ortográfico

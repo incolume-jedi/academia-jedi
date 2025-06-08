@@ -5,9 +5,11 @@
 import logging
 from platform import python_version
 
-import ex_ml_sklearn_nltk_spellchecker
-import ex_spellchecker
-import ex_textblob
+from incolume.academia_jedi.ajedi20230223_openai_examples import (
+    ex_ml_sklearn_nltk_spellchecker,
+    ex_spellchecker,
+    ex_textblob,
+)
 
 logging.basicConfig(
     level=logging.DEBUG,
