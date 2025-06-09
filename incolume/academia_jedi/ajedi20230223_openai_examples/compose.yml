@@ -1,0 +1,54 @@
+services:
+  server:
+    # container_name: server-ajedi20250607-dockerfile-inline
+    image: incolume/ajedi20230223_openai_examples:latest
+    build:
+      args:
+        - DEBUG=1
+      context: .
+      # dockerfile: Dockerfile
+      dockerfile_inline: |
+        # Dockerfile content goes here
+        # This is an inline Dockerfile for the compose service
+        FROM ghcr.io/astral-sh/uv:alpine3.21
+
+        # Define the working directory
+        WORKDIR /code
+        # Install necessary packages
+        RUN apk add --no-cache build-base git curl
+
+        # Expose the necessary ports
+        EXPOSE 22 8080-8599
+      ssh:
+        - default   # mount the default SSH agent
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /code
+    working_dir: /code
+    volumes:
+      - .:/code
+    # user: "1000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - UV_LINK_MODE=copy
+      - OPEN_WEATHER_MAP_API_KEY=/run/secrets/APIKey
+    ports:
+      - 8522:22
+      - 8500-8519:8500-8519
+
+    command: >
+      /bin/sh -c
+      "uv venv
+      && uv sync
+      && source .venv/bin/activate
+      && echo 'Running server...'
+      && tail -f /dev/null"
+
+    depends_on: []
+    restart: unless-stopped
+
+secrets:
+   APIKey:
+     file: secrets/token.txt

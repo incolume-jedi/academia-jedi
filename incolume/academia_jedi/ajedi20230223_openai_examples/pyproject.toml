@@ -1,0 +1,27 @@
+[project]
+name = "ajedi20230223-openai-examples"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10, <4"
+dependencies = [
+    "icecream>=2.1.4",
+]
+
+[dependency-groups]
+dev = [
+    "ajedi20230223-openai-examples",
+    "nltk>=3.9.1",
+    "openai>=1.79.0",
+    "scikit-learn>=1.6.1",
+    "spellchecker>=0.4",
+    "textblob>=0.19.0",
+    "transformers>=4.52.3",
+]
+
+[tool.uv.sources]
+ajedi20230223-openai-examples = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
