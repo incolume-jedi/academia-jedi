@@ -15,10 +15,10 @@ services:
         # Define the working directory
         WORKDIR /code
         # Install necessary packages
-        # RUN apk add --no-cache git curl
+        RUN apk add --no-cache build-base git curl
 
         # Expose the necessary ports
-        EXPOSE 8080-8599
+        EXPOSE 22 8080-8599
       ssh:
         - default   # mount the default SSH agent
     develop:
@@ -35,14 +35,16 @@ services:
       - UV_LINK_MODE=copy
       - OPEN_WEATHER_MAP_API_KEY=/run/secrets/APIKey
     ports:
-      - 8500-8599:8500-8599
+      - 8522:22
+      - 8500-8519:8500-8519
 
     command: >
       /bin/sh -c
       "uv venv
       && uv sync
       && source .venv/bin/activate
-      && sh"
+      && echo 'Running server...'
+      && tail -f /dev/null"
 
     depends_on: []
     restart: unless-stopped
