@@ -35,4 +35,4 @@ ENV PATH="/app/.venv/bin:$PATH"
 EXPOSE $PORT
 
 # Start the FastAPI application using Uvicorn
-CMD ["uvicorn", "src.main:app", "--log-level", "info", "--host", "0.0.0.0" , "--port", "8080"]
+CMD ["uvicorn", "ajedi20250608_fastapi_docker.main:app", "--log-level", "info", "--host", "0.0.0.0" , "--port", "8080"]

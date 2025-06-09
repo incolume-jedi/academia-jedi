@@ -18,3 +18,11 @@ ajedi20250608-fastapi-docker = "ajedi20250608_fastapi_docker:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ajedi20250608-fastapi-docker",
+]
+
+[tool.uv.sources]
+ajedi20250608-fastapi-docker = { workspace = true }
