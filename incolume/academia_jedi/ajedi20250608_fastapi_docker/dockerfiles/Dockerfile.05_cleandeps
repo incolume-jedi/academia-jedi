@@ -1,0 +1,37 @@
+FROM python:3.13-slim-bookworm
+
+RUN apt-get update && apt-get install --no-install-recommends -y \
+        build-essential \
+        curl \
+        ca-certificates && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+
+RUN curl -sSL https://install.python-poetry.org | python3 -
+
+# Set up the Poetry environment path correctly
+ENV PATH="/root/.local/bin:${PATH}"
+
+# Set environment variables for database and secrets
+ENV DB_PASSWORD=${DB_PASSWORD}
+ENV DB_USER=${DB_USER}
+ENV DB_NAME=${DB_NAME}
+ENV DB_HOST=${DB_HOST}
+ENV ACCESS_TOKEN_SECRET_KEY=${ACCESS_TOKEN_SECRET_KEY}
+
+WORKDIR /app
+
+# Copy the application files into the container
+COPY . .
+
+# Install dependencies with Poetry
+RUN poetry config virtualenvs.in-project true
+RUN poetry install --no-interaction --no-root
+
+ENV PATH="/app/.venv/bin:{$PATH}"
+
+# Expose the specified port for FastAPI
+EXPOSE $PORT
+
+# Start the application with Uvicorn in production mode, using environment variable references
+CMD ["uvicorn", "src.ajedi20250608_fastapi_docker.main:app", "--log-level", "info", "--host", "0.0.0.0" , "--port", "8080"]
