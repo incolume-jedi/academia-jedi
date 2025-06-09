@@ -10,6 +10,13 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [Unreleased]	 &#8212; 	2025-06-09:
+### Added
+  - Estudos container com docker;
+  - Arquivos Dockerfile de exemplos;
+### Changed
+  - Corrigido Violação de acesso ao NoneType do projeto ajedi20230129_files;
+
 ## [0.116.0]	 &#8212; 	2025-06-08:
 ### Added
   - Estudos com LLM (AI);
@@ -803,3 +810,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.114.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.113.0...0.114.0
 [0.115.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.114.0...0.115.0
 [0.116.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.115.0...0.116.0
+[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.116.0...Unreleased
