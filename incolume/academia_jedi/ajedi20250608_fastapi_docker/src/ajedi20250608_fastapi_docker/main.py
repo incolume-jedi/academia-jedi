@@ -1,5 +1,6 @@
 """FastAPI application example with a simple endpoint."""
 
+from ajedi20250608_fastapi_docker import main
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -15,4 +16,4 @@ def hello(name: str = 'World') -> str:
     Returns:
         str: A greeting message.
     """
-    return f'Hello, {name}!'
+    return f'{main()} - Hello, {name}!'
