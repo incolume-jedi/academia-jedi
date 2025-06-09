@@ -157,11 +157,11 @@ export ACCESS_TOKEN_SECRET_KEY="mysecretkey"
 ```
 
 ```
-docker build --secret id=DB_PASSWORD \
-             --secret id=DB_USER \
-             --secret id=DB_NAME \
-             --secret id=DB_HOST \
-             --secret id=ACCESS_TOKEN_SECRET_KEY \
+docker build --secret id=DB_PASSWORD,env=DB_PASSWORD \
+             --secret id=DB_USER,env=DB_USER \
+             --secret id=DB_NAME,env=DB_NAME \
+             --secret id=DB_HOST,env=DB_HOST \
+             --secret id=ACCESS_TOKEN_SECRET_KEY,env=ACCESS_TOKEN_SECRET_KEY \
              --target=production \
              -f Dockerfile.10_final . -t 10_final
 ```
