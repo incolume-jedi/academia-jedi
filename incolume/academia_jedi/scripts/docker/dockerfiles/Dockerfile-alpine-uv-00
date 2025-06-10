@@ -1,0 +1,10 @@
+FROM ghcr.io/astral-sh/uv:alpine3.21
+
+# Define the working directory
+WORKDIR /code
+
+# Install necessary packages
+RUN apk add --no-cache git curl
+
+# Expose the necessary ports
+EXPOSE 8080 8500-8599
