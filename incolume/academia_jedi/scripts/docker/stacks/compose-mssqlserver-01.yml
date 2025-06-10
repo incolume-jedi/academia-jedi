@@ -1,0 +1,36 @@
+# vim:set ft=dockerfile:
+# Call example:
+# $ docker-stacks up
+
+# https://hub.docker.com/_/microsoft-mssql-server?tab=description
+# docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=yourStrong(!)Password" -e "MSSQL_PID=Express" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
+# docker exec -it <container_id|container_name> /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P <your_password>
+
+version: "3.9"
+
+networks:
+  inside:
+    external: false
+
+services:
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: "ms-sql-server-2022"
+    user: 0:0
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: A123!@#z
+      MSSQL_PID: Developer
+      MSQL_COLLATION: Latin1_General_CI_AI
+      # MSQL_AGENT_ENABLED: True
+      MSQL_AGENT_ENABLED: 1
+      MSQL_MEMORY_LIMIT_MB: 1024
+    volumes:
+      - ./msqlserver/2022/data:/var/opt/mssql/data
+      - ./msqlserver/2022/log:/var/opt/mssql/log
+    networks:
+      - inside
+    ports:
+      - 21433:1433
+    restart: unless-stopped
+

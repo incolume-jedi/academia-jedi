@@ -1,0 +1,17 @@
+# from https://youtu.be/gDHmxPlVRZ0
+
+version: '3'
+
+networks:
+  incolumenet:
+    driver: bridge
+
+services:
+  mongo:
+    image: mongo:5.0.8
+    container_name: mongodb
+    networks:
+      incolumenet:
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongouser
+      MONGO_INITDB_ROOT_PASSWORD: mongopw
