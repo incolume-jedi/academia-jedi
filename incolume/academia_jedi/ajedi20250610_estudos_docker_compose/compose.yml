@@ -1,5 +1,6 @@
 services:
-  nginx:
+  fontend:
+    container_name: frontent
     build:
       context: ./nginx
       dockerfile: Dockerfile
