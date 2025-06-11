@@ -6,8 +6,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - 80:80
-    # depends_on:
-      # - webapp
+    depends_on:
+      - backend-core
     restart: unless-stopped
     networks:
       - public_network
