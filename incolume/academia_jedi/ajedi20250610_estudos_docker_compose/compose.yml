@@ -1,0 +1,64 @@
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    # depends_on:
+      # - webapp
+    restart: unless-stopped
+    networks:
+      - public_network
+
+  db-postgres:
+    image: postgres:15
+    container_name: db_postgres
+    environment:
+      POSTGRES_USER: userdb
+      POSTGRES_PASSWORD: userdb_pass
+      POSTGRES_DB: ajedi_db
+    restart: unless-stopped
+    networks:
+      - private_network
+
+  backend-core:
+    build:
+      context: ./backend-core
+      dockerfile: Dockerfile
+    container_name: backend_core
+    depends_on:
+      - db-postgres
+    environment:
+      DB_HOST: db-postgres
+      DB_USER: userdb
+      DB_PASSWORD: userdb_pass
+      POSTGRES_DB: ajedi_db
+      EMAIL_SERVICE_URL: http://ms-email-sender:5000
+    restart: unless-stopped
+    networks:
+      - private_network
+      - public_network
+
+  ms-email-sender:
+    build:
+      context: ./ms-email-sender
+      dockerfile: Dockerfile
+    container_name: ms_email_sender
+    restart: unless-stopped
+    networks:
+      - private_network
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend_service
+    restart: unless-stopped
+    networks:
+      - public_network
+
+networks:
+  private_network:
+    driver: bridge
+  public_network:
+    driver: bridge
