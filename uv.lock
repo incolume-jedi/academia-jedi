@@ -29,11 +29,12 @@ members = [
     "ajedi20250606-acesso-openweather",
     "ajedi20250607-docker-subprojetos",
     "ajedi20250607-dockerfile-inline",
+    "ajedi20250609-img2txtai",
 ]
 
 [[package]]
 name = "academia-jedi"
-version = "0.117.0a0"
+version = "0.117.0a8"
 source = { editable = "." }
 dependencies = [
     { name = "deprecated" },
@@ -154,7 +155,7 @@ wheels = [
 [[package]]
 name = "ajedi20230223-openai-examples"
 version = "0.1.0"
-source = { virtual = "incolume/academia_jedi/ajedi20230223_openai_examples" }
+source = { editable = "incolume/academia_jedi/ajedi20230223_openai_examples" }
 dependencies = [
     { name = "icecream" },
 ]
@@ -175,7 +176,7 @@ requires-dist = [{ name = "icecream", specifier = ">=2.1.4" }]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "ajedi20230223-openai-examples", virtual = "incolume/academia_jedi/ajedi20230223_openai_examples" },
+    { name = "ajedi20230223-openai-examples", editable = "incolume/academia_jedi/ajedi20230223_openai_examples" },
     { name = "nltk", specifier = ">=3.9.1" },
     { name = "openai", specifier = ">=1.79.0" },
     { name = "scikit-learn", specifier = ">=1.6.1" },
@@ -452,6 +453,21 @@ requires-dist = [
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "icecream", specifier = ">=2.1.4" },
     { name = "streamlit", specifier = ">=1.45.1" },
+]
+
+[[package]]
+name = "ajedi20250609-img2txtai"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250609_img2txtAI" }
+dependencies = [
+    { name = "jupyterlab" },
+    { name = "notebook" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "jupyterlab", specifier = ">=4.4.3" },
+    { name = "notebook", specifier = ">=7.4.3" },
 ]
 
 [[package]]

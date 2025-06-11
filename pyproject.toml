@@ -32,6 +32,7 @@ members = [
     "incolume/academia_jedi/ajedi20250607_dockerfile_inline",
     "incolume/academia_jedi/ajedi20250607_docker_subprojetos",
     "incolume/academia_jedi/ajedi20230223_openai_examples",
+    "incolume/academia_jedi/ajedi20250609_img2txtAI",
 ]
 
 [tool.poetry]
