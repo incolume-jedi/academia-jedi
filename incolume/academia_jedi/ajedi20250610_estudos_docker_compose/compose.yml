@@ -25,17 +25,39 @@ services:
 
   backend-core:
     build:
-      context: ./backend-core
-      dockerfile: Dockerfile
+      context: .
+      dockerfile_inline: |
+        # Dockerfile content goes here
+        # This is an inline Dockerfile for the compose service
+        FROM ghcr.io/astral-sh/uv:alpine3.21
+
+        # Define the working directory
+        WORKDIR /code
+        # Install necessary packages
+        # RUN apk add --no-cache git curl
+
+        # Expose the necessary ports
+        EXPOSE 8000
+    working_dir: /code
+    volumes:
+      - .:/code
+    command: >
+      /bin/sh -c
+      "uv venv -p 3.10
+      && uv sync
+      && source .venv/bin/activate
+      && uvicorn main:app --host 0.0.0.0 --port 8000"
     container_name: backend_core
     depends_on:
       - db-postgres
+      - cache-service
     environment:
       DB_HOST: db-postgres
       DB_USER: userdb
       DB_PASSWORD: userdb_pass
       POSTGRES_DB: ajedi_db
-      EMAIL_SERVICE_URL: http://ms-email-sender:5000
+      REDIS_PORT: 6379
+      REDIS_HOST: cache-service
     restart: unless-stopped
     networks:
       - private_network
