@@ -10,10 +10,12 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-06-09:
+## [Unreleased]	 &#8212; 	2025-06-11:
 ### Added
   - Estudos container com docker;
   - Arquivos Dockerfile de exemplos;
+  - Adicionado estrutura para centralização e importação de configuração para containeres docker;
+  - Estudos e refinamentos de prompt para extração de texto contido em imagens da CLBr;
 ### Changed
   - Corrigido Violação de acesso ao NoneType do projeto ajedi20230129_files;
 
