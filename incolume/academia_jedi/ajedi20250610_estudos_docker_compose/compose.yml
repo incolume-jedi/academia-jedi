@@ -41,22 +41,12 @@ services:
       - private_network
       - public_network
 
-  ms-email-sender:
-    build:
-      context: ./ms-email-sender
-      dockerfile: Dockerfile
-    container_name: ms_email_sender
+  cache-service:
+    image: redis:8-alpine3.21
+    container_name: cache_service
     restart: unless-stopped
     networks:
       - private_network
-
-  frontend:
-    build:
-      context: ./frontend
-    container_name: frontend_service
-    restart: unless-stopped
-    networks:
-      - public_network
 
 networks:
   private_network:
