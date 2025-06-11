@@ -1,0 +1,22 @@
+# This is an inline Dockerfile for the compose service
+FROM ghcr.io/astral-sh/uv:alpine3.21
+
+LABEL maintainer="Incolume.com.br"
+
+# Create a group and user
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+# Tell docker that all future commands should run as the appuser user
+USER appuser
+
+# Define the working directory
+WORKDIR /code
+
+# Install necessary packages
+RUN apk update && apk upgrade && apk add --no-cache build-base git curl
+
+# Expose the necessary ports
+EXPOSE 22 80 443 8080 8888
+EXPOSE 8500-8599
+
+CMD echo 'Running server...' && tail -f /dev/null
