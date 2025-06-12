@@ -60,6 +60,7 @@ services:
 
 
   backend-core:
+    container_name: backend_core
     build:
       context: .
       dockerfile_inline: |
@@ -82,8 +83,9 @@ services:
       "uv venv -p 3.10
       && uv sync
       && source .venv/bin/activate
-      && uvicorn main:app --host 0.0.0.0 --port 8000"
-    container_name: backend_core
+      && uvicorn ajedi20250610_estudos_docker_compose.api:app --host 0.0.0.0 --port 8000"
+    ports:
+      - 8000:8000
     depends_on:
       - db-postgres
       - cache-service
