@@ -7,7 +7,7 @@ services:
     ports:
       - 80:80
     depends_on:
-      - backend-core
+      - webapp
     restart: unless-stopped
     networks:
       - public_network
@@ -23,8 +23,8 @@ services:
     networks:
       - private_network
 
-  frontend-core:
-    container_name: frontend_core
+  webapp:
+    container_name: webapp
     build:
       dockerfile_inline: |
         # Dockerfile content goes here
@@ -40,18 +40,16 @@ services:
         EXPOSE 8000
     working_dir: /code
     volumes:
-      - .:/code
+      - ./webapp:/code
     command: >
       /bin/sh -c
-      "uv venv -p 3.10
-      && uv sync
-      && source .venv/bin/activate
-      && streamlit run --server.port 8501 --server.address 0.0.0.0 ajedi20250610_estudos_docker_compose/main.py"
+      "uvx python -V
+      && uvx -p 3.13 streamlit run --server.port 8501 --server.address 0.0.0.0 webapp.py"
     ports:
       - 8501:8501
     depends_on:
       - db-postgres
-      - cache-service
+      - backend-core
     environment:
       REDIS_HOST: cache-service
     restart: unless-stopped
