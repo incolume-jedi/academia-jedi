@@ -23,6 +23,42 @@ services:
     networks:
       - private_network
 
+  frontend-core:
+    container_name: frontend_core
+    build:
+      dockerfile_inline: |
+        # Dockerfile content goes here
+        # This is an inline Dockerfile for the compose service
+        FROM ghcr.io/astral-sh/uv:alpine3.21
+
+        # Define the working directory
+        WORKDIR /code
+        # Install necessary packages
+        # RUN apk add --no-cache git curl
+
+        # Expose the necessary ports
+        EXPOSE 8000
+    working_dir: /code
+    volumes:
+      - .:/code
+    command: >
+      /bin/sh -c
+      "uv venv -p 3.10
+      && uv sync
+      && source .venv/bin/activate
+      && streamlit run --server.port 8501 --server.address 0.0.0.0 ajedi20250610_estudos_docker_compose/main.py"
+    ports:
+      - 8501:8501
+    depends_on:
+      - db-postgres
+      - cache-service
+    environment:
+      REDIS_HOST: cache-service
+    restart: unless-stopped
+    networks:
+      - private_network
+
+
   backend-core:
     build:
       context: .
