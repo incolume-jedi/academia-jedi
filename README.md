@@ -16,4 +16,6 @@ A partir desta versão há utilização em conjunto dos gerenciadores de pacotes
 
 - Para outros gerenciadores de pacotes, utilize Python conforme a versão indicada, atualmente Python 3.10+.
 
+- Para ativar a configuração fina do `git` em ambientes Unix-Like, execute: `sh settings/gitconfig.sh`
+
 As dependências estão contidas em pyproject.toml;
