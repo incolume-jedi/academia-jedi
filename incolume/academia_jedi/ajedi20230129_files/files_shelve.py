@@ -22,7 +22,11 @@ logging.debug(config)
 dados = massa_pessoas(is_json=False)
 logging.debug(dados)
 
-fileoutput = Path(__file__).parent / 'databases' / os.getenv('BASENAME')
+fileoutput = (
+    Path(__file__).parent
+    / 'databases'
+    / (os.getenv('BASENAME') or 'ajedi20230129')
+)
 fileoutput.parent.mkdir(exist_ok=True, parents=True)
 logging.debug(fileoutput)
 

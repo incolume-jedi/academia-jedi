@@ -10,6 +10,16 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [0.117.0]	 &#8212; 	2025-06-13:
+### Added
+  - Acrescentado shellscript para configuração refinada do git;
+  - Estudos container com docker;
+  - Arquivos Dockerfile de exemplos;
+  - Adicionado estrutura para centralização e importação de configuração para containeres docker;
+  - Estudos e refinamentos de prompt para extração de texto contido em imagens da CLBr;
+### Changed
+  - Corrigido Violação de acesso ao NoneType do projeto ajedi20230129_files;
+
 ## [0.116.0]	 &#8212; 	2025-06-08:
 ### Added
   - Estudos com LLM (AI);
@@ -803,3 +813,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.114.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.113.0...0.114.0
 [0.115.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.114.0...0.115.0
 [0.116.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.115.0...0.116.0
+[0.117.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.116.0...0.117.0
