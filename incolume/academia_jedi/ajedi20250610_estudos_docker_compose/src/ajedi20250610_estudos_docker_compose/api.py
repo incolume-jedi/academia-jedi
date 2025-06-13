@@ -33,7 +33,9 @@ async def counter() -> dict[str, int]:
     """
     redis.incr('hits-counter')
     return {
-        'total hits': sum(int(x) for x in [redis.get('hits-root'), redis.get('hits-counter')]),
+        'total hits': sum(
+            int(x) for x in [redis.get('hits-root'), redis.get('hits-counter')]
+        ),
         'root hits': redis.get('hits-root'),
-        'counter hits': redis.get('hits-counter')
+        'counter hits': redis.get('hits-counter'),
     }
