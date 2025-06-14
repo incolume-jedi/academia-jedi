@@ -34,7 +34,11 @@ members = [
     "incolume/academia_jedi/ajedi20230223_openai_examples",
     "incolume/academia_jedi/ajedi20250609_img2txtAI",
     "incolume/academia_jedi/ajedi20250610_estudos_docker_compose",
+    "incolume/academia_jedi/ajedi20250614_logging",
 ]
+
+[tool.uv.sources]
+ajedi20250614-logging = { path = "incolume/academia_jedi/ajedi20250611_logging" }
 
 [tool.poetry]
 name = "academia-jedi"
@@ -351,6 +355,11 @@ disallow_untyped_defs = true
 [pycodestyle]
 max_line_length = 79
 ignore = ['E203']
+
+[dependency-groups]
+dev = [
+    "ajedi20250614-logging",
+]
 
 [tool.ruff]
 required-version = ">=0.3.0"

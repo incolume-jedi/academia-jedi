@@ -15,3 +15,11 @@ ajedi20250614-logging = "ajedi20250614_logging:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ajedi20250614-logging",
+]
+
+[tool.uv.sources]
+ajedi20250614-logging = { workspace = true }
