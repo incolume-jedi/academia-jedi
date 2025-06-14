@@ -1,0 +1,17 @@
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    # volumes:
+      # - ./nginx.conf:/etc/nginx/nginx.conf
+    # depends_on:
+      # - webapp
+    networks:
+      - jedi_network
+    restart: unless-stopped
+
+
+networks:
+  jedi_network:
+    driver: bridge
