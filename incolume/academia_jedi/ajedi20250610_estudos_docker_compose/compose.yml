@@ -4,8 +4,8 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile
-    volumes:
-      - ./nginx:/etc/nginx
+    # volumes:
+      # - ./nginx:/etc/nginx
     ports:
       - 80:80
     depends_on:
@@ -46,8 +46,7 @@ services:
       - ./webapp:/code
     command: >
       /bin/sh -c
-      "uvx python -V
-      && uvx -p 3.13 streamlit run --server.port 8501 --server.address 0.0.0.0 webapp.py"
+      "uvx -p 3.13 streamlit run --server.port 8501 --server.address 0.0.0.0 webapp.py"
     ports:
       - 8501:8501
     depends_on:
@@ -85,7 +84,7 @@ services:
       "uv venv -p 3.10
       && uv sync
       && source .venv/bin/activate
-      && uvicorn ajedi20250610_estudos_docker_compose.api:app --host 0.0.0.0 --port 8000"
+      && uvicorn --host 0.0.0.0 --port 8000 ajedi20250610_estudos_docker_compose.api:app"
     ports:
       - 8000:8000
     depends_on:
