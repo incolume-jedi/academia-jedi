@@ -38,7 +38,7 @@ services:
         # RUN apk add --no-cache git curl
 
         # Expose the necessary ports
-        EXPOSE 8000
+        EXPOSE 8501
     working_dir: /code
     volumes:
       - ./webapp:/code
