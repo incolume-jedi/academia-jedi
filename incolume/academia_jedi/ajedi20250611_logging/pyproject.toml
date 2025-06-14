@@ -1,0 +1,17 @@
+[project]
+name = "ajedi20250614-logging"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Britodfbr", email = "britodfbr@gmail.com" }
+]
+requires-python = ">=3.10, <4"
+dependencies = []
+
+[project.scripts]
+ajedi20250614-logging = "ajedi20250614_logging:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
