@@ -7,7 +7,9 @@ authors = [
     { name = "Britodfbr", email = "britodfbr@gmail.com" }
 ]
 requires-python = ">=3.10, <4"
-dependencies = []
+dependencies = [
+    "icecream>=2.1.4",
+]
 
 [project.scripts]
 ajedi20250614-logging = "ajedi20250614_logging:main"

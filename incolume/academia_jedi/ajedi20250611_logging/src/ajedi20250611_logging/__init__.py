@@ -1,5 +1,6 @@
 """Logging in an Application."""
 
+from icecream import ic
 from ajedi20250611_logging.example01 import staff
 
 
@@ -11,4 +12,4 @@ def main() -> str:
 
 
 if __name__ == '__main__':
-    main()
+    ic(main())

@@ -498,8 +498,12 @@ requires-dist = [
 name = "ajedi20250614-logging"
 version = "0.1.0"
 source = { directory = "incolume/academia_jedi/ajedi20250611_logging" }
+dependencies = [
+    { name = "icecream" },
+]
 
 [package.metadata]
+requires-dist = [{ name = "icecream", specifier = ">=2.1.4" }]
 
 [package.metadata.requires-dev]
 dev = [{ name = "ajedi20250614-logging", editable = "incolume/academia_jedi/ajedi20250611_logging" }]
