@@ -35,12 +35,17 @@ members = [
 
 [[package]]
 name = "academia-jedi"
-version = "0.117.0a10"
+version = "0.118.0a0"
 source = { editable = "." }
 dependencies = [
     { name = "deprecated" },
     { name = "icecream" },
     { name = "tomli", marker = "python_full_version < '3.11'" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "ajedi20250614-logging" },
 ]
 
 [package.metadata]
@@ -49,6 +54,9 @@ requires-dist = [
     { name = "icecream", specifier = ">=2.1.3" },
     { name = "tomli", marker = "python_full_version < '3.11'", specifier = ">=2.0.1,<3.0" },
 ]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ajedi20250614-logging", directory = "incolume/academia_jedi/ajedi20250611_logging" }]
 
 [[package]]
 name = "aiohappyeyeballs"
@@ -485,6 +493,20 @@ requires-dist = [
     { name = "fastapi", extras = ["standard"], specifier = ">=0.115.12" },
     { name = "redis", specifier = ">=6.2.0" },
 ]
+
+[[package]]
+name = "ajedi20250614-logging"
+version = "0.1.0"
+source = { directory = "incolume/academia_jedi/ajedi20250611_logging" }
+dependencies = [
+    { name = "icecream" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "icecream", specifier = ">=2.1.4" }]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ajedi20250614-logging", editable = "incolume/academia_jedi/ajedi20250611_logging" }]
 
 [[package]]
 name = "altair"
