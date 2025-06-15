@@ -1,18 +1,46 @@
 version: 1
+disable_existing_loggers: False
+
 formatters:
-  simple:
-    format: '%(asctime)s - %(levelname)s - %(name)s - %(message)s'
+    simple:
+        format: '%(asctime)s;%(name)s;%(levelname)-8s;%(module)s;%(funcName)s;%(message)s'
+        datefmt: '%Y-%m-%dT%H:%M:%S'
+
 handlers:
-  console:
-    class: logging.StreamHandler
-    level: DEBUG
-    formatter: simple
-    stream: ext://sys.stdout
+    console:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: simple
+        stream: ext://sys.stdout
+
+    file:
+        class: logging.FileHandler
+        level: INFO
+        formatter: simple
+        filename: academia-jedi.log
+        mode: a
+
 loggers:
-  simpleExample:
+    development:
+        level: NOTSET
+        handlers: [console]
+        propagate: no
+
+    testing:
+        level: DEBUG
+        handlers: [console, file]
+        propagate: no
+
+    staging:
+        level: INFO
+        handlers: [console, file]
+        propagate: no
+
+    production:
+        level: WARNING
+        handlers: [file]
+        propagate: no
+
+root:
     level: DEBUG
     handlers: [console]
-    propagate: no
-root:
-  level: DEBUG
-  handlers: [console]
