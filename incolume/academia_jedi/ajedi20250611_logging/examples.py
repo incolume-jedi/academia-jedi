@@ -4,6 +4,8 @@ from logging.config import dictConfig
 from pathlib import Path
 from icecream import ic
 
+
+
 def load_conf_ini():
     """Example Configuration via an INI File."""
     logconf = Path(__file__).parents[3].joinpath('settings/logging_config.ini')

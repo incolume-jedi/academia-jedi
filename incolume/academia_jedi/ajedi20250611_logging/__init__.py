@@ -2,7 +2,7 @@
 
 from icecream import ic
 from incolume.academia_jedi.ajedi20250611_logging.example01 import staff
-from incolume.academia_jedi.ajedi20250611_logging.example02 import load_conf_ini, load_conf_dict
+from incolume.academia_jedi.ajedi20250611_logging.examples import load_conf_ini, load_conf_dict
 
 
 def main() -> str:
