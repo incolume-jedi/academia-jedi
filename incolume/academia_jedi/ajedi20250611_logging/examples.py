@@ -4,6 +4,7 @@ import logging
 from inspect import stack
 from logging.config import dictConfig, fileConfig
 from pathlib import Path
+
 import yaml
 from icecream import ic
 
@@ -61,7 +62,7 @@ def load_conf_dict():
 
 
 def load_conf_from_code():
-    """Example Configuration Directly in Code"""
+    """Example Configuration Directly in Code."""
     logger = logging.getLogger()
     handler = logging.StreamHandler()
     formatter = logging.Formatter(
@@ -73,6 +74,7 @@ def load_conf_from_code():
 
     logger.debug('often makes a very good meal of %s', 'visiting tourists')
 
+
 def load_conf_file():
     """Configuração via conf."""
     logconf = Path(__file__).parents[3].joinpath('settings/logging.conf')
@@ -81,9 +83,15 @@ def load_conf_file():
     logger = logging.getLogger()
     logger.info('Tudo é difícil .%s', '. até fácil se tornar.')
 
+
 def load_conf_yml():
     """Configuração via YAML."""
-    with Path(__file__).parents[3].joinpath('settings/logging.yml').open('rt') as file:
+    with (
+        Path(__file__)
+        .parents[3]
+        .joinpath('settings/logging.yml')
+        .open('rt') as file
+    ):
         logconf = yaml.safe_load(file.read())
 
     dictConfig(ic(logconf))
@@ -112,6 +120,7 @@ def load_conf_yaml():
     logger.error('This is an error message')
     logger.critical('This is a critical message')
 
+
 def load_conf_yaml_1():
     """Configuração via YAML."""
     # Load the config file
@@ -134,6 +143,7 @@ def load_conf_yaml_1():
         logger.error('This is an error message')
         logger.critical('This is a critical message')
 
-def logging_config_load(file_or_dict: dict|Path):
-    """Load configuration for logging."""
 
+def logging_config_load(file_or_dict: dict | Path) -> None:
+    """Load configuration for logging."""
+    ic(file_or_dict)
