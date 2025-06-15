@@ -1,4 +1,8 @@
-"""https://docs.aiohttp.org/en/stable/."""
+"""Estudo com aiohttp.
+
+https://docs.aiohttp.org/en/stable/
+
+"""
 
 # ruff: noqa: D103, SIM117, T201
 
