@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-06-15:
+## [Unreleased]	 &#8212; 	2025-06-16:
 ### Added
   - Acrescentado shellscript para configuração refinada do git;
   - Estudos container com docker;
@@ -26,6 +26,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Estudos de configuração para logging com arquivos .ini, .json, yml e direto no código;
 ### Changed
   - Corrigido Violação de acesso ao NoneType do projeto ajedi20230129_files;
+  - Melhoria na documentação quanto a inicialização do ambiente de projeto;
 
 ## [0.117.0]	 &#8212; 	2025-06-13:
 ### Added

@@ -27,10 +27,11 @@ Instalação do `uv` com detalhes disponível em `https://docs.astral.sh/uv/gett
 
 
 - Na raiz do projeto execute: 
-   - `uv venv -p <python-version> `;
-   - `source .venv/Script/activate` (para windows)
-   - `source .venv/bin/activate` (para unix like)
-   - `uvx poetry install`;
+   - `uv venv -p <python-version> `; # cria ambiente virtual
+   - `source .venv/Script/activate`; # (somente para windows)
+   - `source .venv/bin/activate`; # (somente para unix like)
+   - `uvx poetry install`;  # instala as dependências
+   - `pre-commit`;  # ativa regras de commit para git
 
 - Para outros gerenciadores de pacotes, utilize Python conforme a versão indicada, atualmente Python 3.10+.
 
