@@ -8,6 +8,24 @@ Todo o conteúdo criado, produzido e armazenado, para fins de aprendizado, é de
 
 A partir desta versão há utilização em conjunto dos gerenciadores de pacotes `uv` e `poetry`.
 
+Instalação do `uv` com detalhes disponível em `https://docs.astral.sh/uv/getting-started/installation/`
+
+- Unixlike
+   ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+   ou
+   
+   ```bash
+   wget -qO- https://astral.sh/uv/install.sh | sh
+   ```
+
+- Windows
+   ```bash
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+   ```
+
+
 - Na raiz do projeto execute: 
    - `uv venv -p <python-version> `;
    - `source .venv/Script/activate` (para windows)
