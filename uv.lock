@@ -35,7 +35,7 @@ members = [
 
 [[package]]
 name = "academia-jedi"
-version = "0.118.0a0"
+version = "0.118.0a3"
 source = { editable = "." }
 dependencies = [
     { name = "deprecated" },
