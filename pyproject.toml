@@ -100,7 +100,7 @@ fastparquet = [{version="^2022.12.0", python="<3.11"}, {version="^2024.11.0", py
 flask-restful = "^0.3.9"
 flet = "^0.21.2"
 # getch = { version = "^1.0", python = "<3.11" }
-getch = "^1.0"
+# getch = "^1.0"
 googletrans = [{ version = "^3.0.0", python = "<=3.9" }, {version="^4.0.0", python=">=3.10"}]
 gspread = "^5.12.0"
 html5lib = "^1.1"
@@ -142,7 +142,7 @@ pytest = "^7.1.2"
 pytest-cov = "^4.0.0"
 requests = "^2.28.1"
 rstr = ">=2.2.6"
-ruff = "^0.3.3"
+ruff = ">=0.3.3"
 selectolax = "^0.3.11"
 taskipy = "^1.10.3"
 textblob = [{version="^0.17.1", python="<3.12"}]

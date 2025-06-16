@@ -2139,18 +2139,6 @@ test-full = ["adlfs", "aiohttp (!=4.0.0a0,!=4.0.0a1)", "cloudpickle", "dask", "d
 tqdm = ["tqdm"]
 
 [[package]]
-name = "getch"
-version = "1.0"
-description = "Does single char input, like C getch/getche"
-optional = false
-python-versions = "*"
-groups = ["dev"]
-files = [
-    {file = "getch-1.0-python2.tar.gz", hash = "sha256:be451438f7a2b389f96753aea39b6ed2540a390f1b9a12badcbc110cf9a5ce7f"},
-    {file = "getch-1.0.tar.gz", hash = "sha256:a6c22717c10051ce65b8fb7bddb171af705b1175e694a73be956990f6089d8b1"},
-]
-
-[[package]]
 name = "gitdb"
 version = "4.0.12"
 description = "Git Object Database"
@@ -9164,4 +9152,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<4"
-content-hash = "16ac8638cfe45c0b1548b2c982378f85874dc388cf73c54d80c575317c85454d"
+content-hash = "6566bc9aa4cd30d60c3162c69f5d71ee4935d93224e4d78ec25f58f973fa43e3"
