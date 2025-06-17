@@ -35,10 +35,11 @@ members = [
 
 [[package]]
 name = "academia-jedi"
-version = "0.118.0a3"
+version = "0.118.0a5"
 source = { editable = "." }
 dependencies = [
     { name = "deprecated" },
+    { name = "dynaconf" },
     { name = "icecream" },
     { name = "tomli", marker = "python_full_version < '3.11'" },
 ]
@@ -51,6 +52,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "deprecated", specifier = ">=1.2.13" },
+    { name = "dynaconf", specifier = ">=3.2.11" },
     { name = "icecream", specifier = ">=2.1.3" },
     { name = "tomli", marker = "python_full_version < '3.11'", specifier = ">=2.0.1,<3.0" },
 ]
@@ -1038,6 +1040,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/b5/4a/263763cb2ba3816dd94b08ad3a33d5fdae34ecb856678773cc40a3605829/dnspython-2.7.0.tar.gz", hash = "sha256:ce9c432eda0dc91cf618a5cedf1a4e142651196bbcd2c80e89ed5a907e5cfaf1", size = 345197, upload-time = "2024-10-05T20:14:59.362Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/68/1b/e0a87d256e40e8c888847551b20a017a6b98139178505dc7ffb96f04e954/dnspython-2.7.0-py3-none-any.whl", hash = "sha256:b4c34b7d10b51bcc3a5071e7b8dee77939f1e878477eeecc965e9835f63c6c86", size = 313632, upload-time = "2024-10-05T20:14:57.687Z" },
+]
+
+[[package]]
+name = "dynaconf"
+version = "3.2.11"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/62/eb/e9d1249ff56b11e63fd8c7d0fcc1f94704e21693c16862bf0ebfb07bd61a/dynaconf-3.2.11.tar.gz", hash = "sha256:4cfc6a730c533bf1a1d0bf266ae202133a22236bb3227d23eff4b8542d4034a5", size = 234694, upload-time = "2025-05-06T15:44:59.16Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/36/64/580c74003a356c5662e7b1da43ecd7cbda6e8f970c87b30c5a654c8ccb53/dynaconf-3.2.11-py2.py3-none-any.whl", hash = "sha256:660de90879d4da236f79195692a7d197957224d7acf922bcc6899187dc7b4a27", size = 236536, upload-time = "2025-05-06T15:44:56.18Z" },
 ]
 
 [[package]]
