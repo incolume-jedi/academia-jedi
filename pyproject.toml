@@ -12,6 +12,14 @@ dependencies = [
   "dynaconf>=3.2.11",
 ]
 
+[dependency-groups]
+dev = [
+    "ajedi20250614-logging",
+    "aspose-words>=23.12.0",
+    "bs4>=0.0.2 ; python_full_version >= '3.7'",
+    "windows-curses>=2.4.1 ; sys_platform == 'win32'",
+]
+
 [tool.uv]
 
 [tool.uv.workspace]
@@ -67,7 +75,6 @@ classifiers = [
   "Topic :: Education",
   "License :: Free For Educational Use",
 ]
-
 
 
 [tool.poetry.dependencies]
@@ -357,10 +364,6 @@ disallow_untyped_defs = true
 max_line_length = 79
 ignore = ['E203']
 
-[dependency-groups]
-dev = [
-    "ajedi20250614-logging",
-]
 
 [tool.ruff]
 required-version = ">=0.3.0"

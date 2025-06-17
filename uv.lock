@@ -47,6 +47,9 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "ajedi20250614-logging" },
+    { name = "aspose-words" },
+    { name = "bs4" },
+    { name = "windows-curses", marker = "sys_platform == 'win32'" },
 ]
 
 [package.metadata]
@@ -58,7 +61,12 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "ajedi20250614-logging", directory = "incolume/academia_jedi/ajedi20250611_logging" }]
+dev = [
+    { name = "ajedi20250614-logging", directory = "incolume/academia_jedi/ajedi20250611_logging" },
+    { name = "aspose-words", specifier = ">=23.12.0" },
+    { name = "bs4", marker = "python_full_version >= '3.7'", specifier = ">=0.0.2" },
+    { name = "windows-curses", marker = "sys_platform == 'win32'", specifier = ">=2.4.1" },
+]
 
 [[package]]
 name = "aiohappyeyeballs"
@@ -624,6 +632,18 @@ wheels = [
 ]
 
 [[package]]
+name = "aspose-words"
+version = "25.6.0"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7e/e4/6879eb9b4ee06660d251d44041ac4d4ff51863eccb26280912222d0a4179/aspose_words-25.6.0-py3-none-macosx_10_14_x86_64.whl", hash = "sha256:1a1fb2054d2efb12ff43050dd3dfdfb63c5c46489c2fc8aa29a9b97698ed5104", size = 86273470, upload-time = "2025-06-12T06:59:47.142Z" },
+    { url = "https://files.pythonhosted.org/packages/1d/71/d488c67ebb1c07aaa0a6d7e20ceffbff26d3d2f01c2574e620fa18e30376/aspose_words-25.6.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:904ff7fac3c2f08b13c63d22c3949f23e6fd3296023a80d6ee7dbd76ca018105", size = 73250925, upload-time = "2025-06-12T06:59:57.256Z" },
+    { url = "https://files.pythonhosted.org/packages/71/da/db9e4bcf135c688f24c9181f3e8b5a0185d5a8858b74c5ceb0e43183c1da/aspose_words-25.6.0-py3-none-manylinux1_x86_64.whl", hash = "sha256:bcb147f0c17cbfb4990e2e071f5052e5428e572365f67f5d8f965a9891a26c86", size = 90357022, upload-time = "2025-06-12T07:00:08.109Z" },
+    { url = "https://files.pythonhosted.org/packages/f2/2c/ede1b1ca29e73ff1b1f475dde1e5181f29f53b33fa417aa2cfd094ca20c2/aspose_words-25.6.0-py3-none-win32.whl", hash = "sha256:c553f970dde03c943364e9c6b78ba6501db04ba17ab2e823d12d7588267f9a18", size = 59790164, upload-time = "2025-06-12T07:00:16.481Z" },
+    { url = "https://files.pythonhosted.org/packages/92/9c/d0ad22734c50ddc9e99c3e5e9f9d0c984477793e0cabc20e0f18aa12be30/aspose_words-25.6.0-py3-none-win_amd64.whl", hash = "sha256:95e59bb5fe0e63bea23c1b0b4d579e82e42315c8086a373e6675f439640fdfbe", size = 68252358, upload-time = "2025-06-12T07:00:26.019Z" },
+]
+
+[[package]]
 name = "asttokens"
 version = "3.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -708,6 +728,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/21/28/9b3f50ce0e048515135495f198351908d99540d69bfdc8c1d15b73dc55ce/blinker-1.9.0.tar.gz", hash = "sha256:b4ce2265a7abece45e7cc896e98dbebe6cead56bcf805a3d23136d145f5445bf", size = 22460, upload-time = "2024-11-08T17:25:47.436Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/10/cb/f2ad4230dc2eb1a74edf38f1a38b9b52277f75bef262d8908e60d957e13c/blinker-1.9.0-py3-none-any.whl", hash = "sha256:ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc", size = 8458, upload-time = "2024-11-08T17:25:46.184Z" },
+]
+
+[[package]]
+name = "bs4"
+version = "0.0.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "beautifulsoup4" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c9/aa/4acaf814ff901145da37332e05bb510452ebed97bc9602695059dd46ef39/bs4-0.0.2.tar.gz", hash = "sha256:a48685c58f50fe127722417bae83fe6badf500d54b55f7e39ffe43b798653925", size = 698, upload-time = "2024-01-17T18:15:47.371Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/51/bb/bf7aab772a159614954d84aa832c129624ba6c32faa559dfb200a534e50b/bs4-0.0.2-py2.py3-none-any.whl", hash = "sha256:abf8742c0805ef7f662dce4b51cca104cffe52b835238afc169142ab9b3fbccc", size = 1189, upload-time = "2024-01-17T18:15:48.613Z" },
 ]
 
 [[package]]
@@ -5074,6 +5106,21 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/41/53/2e0253c5efd69c9656b1843892052a31c36d37ad42812b5da45c62191f7e/widgetsnbextension-4.0.14.tar.gz", hash = "sha256:a3629b04e3edb893212df862038c7232f62973373869db5084aed739b437b5af", size = 1097428, upload-time = "2025-04-10T13:01:25.628Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ca/51/5447876806d1088a0f8f71e16542bf350918128d0a69437df26047c8e46f/widgetsnbextension-4.0.14-py3-none-any.whl", hash = "sha256:4875a9eaf72fbf5079dc372a51a9f268fc38d46f767cbf85c43a36da5cb9b575", size = 2196503, upload-time = "2025-04-10T13:01:23.086Z" },
+]
+
+[[package]]
+name = "windows-curses"
+version = "2.4.1"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/15/34/e70815e7ae6f157c00121180a607dbcdc82acfd949c70bba28c45d206dec/windows_curses-2.4.1-cp310-cp310-win32.whl", hash = "sha256:53d711e07194d0d3ff7ceff29e0955b35479bc01465d46c3041de67b8141db2f", size = 71136, upload-time = "2025-01-11T00:26:15.273Z" },
+    { url = "https://files.pythonhosted.org/packages/a6/1d/1bb512c445af24fb0a3dccf9537c8727bba5920e69539227b87f5351f608/windows_curses-2.4.1-cp310-cp310-win_amd64.whl", hash = "sha256:325439cd4f37897a1de8a9c068a5b4c432f9244bf9c855ee2fbeb3fa721a770c", size = 81418, upload-time = "2025-01-11T00:26:16.963Z" },
+    { url = "https://files.pythonhosted.org/packages/74/b3/46a2508fff83b5affb5a311797c584c494b4b0c4c8796a1afa2c1b1e03ac/windows_curses-2.4.1-cp311-cp311-win32.whl", hash = "sha256:4fa1a176bfcf098d0c9bb7bc03dce6e83a4257fc0c66ad721f5745ebf0c00746", size = 71129, upload-time = "2025-01-11T00:26:19.137Z" },
+    { url = "https://files.pythonhosted.org/packages/50/29/fd7c0c80177d8df55f841504a5f332b95b0002c80f82055913b6caac94e6/windows_curses-2.4.1-cp311-cp311-win_amd64.whl", hash = "sha256:fd7d7a9cf6c1758f46ed76b8c67f608bc5fcd5f0ca91f1580fd2d84cf41c7f4f", size = 81431, upload-time = "2025-01-11T00:26:20.359Z" },
+    { url = "https://files.pythonhosted.org/packages/f4/99/60f34e51514c82631aa5c6d21eab88ce1701562de9844608411e39462a46/windows_curses-2.4.1-cp312-cp312-win32.whl", hash = "sha256:bdbe7d58747408aef8a9128b2654acf6fbd11c821b91224b9a046faba8c6b6ca", size = 71489, upload-time = "2025-01-11T00:26:22.726Z" },
+    { url = "https://files.pythonhosted.org/packages/62/8f/d908bcab1954375b156a9300fa86ceccb110f39457cd6fd59c72777626ab/windows_curses-2.4.1-cp312-cp312-win_amd64.whl", hash = "sha256:5c9c2635faf171a229caca80e1dd760ab00db078e2a285ba2f667bbfcc31777c", size = 81777, upload-time = "2025-01-11T00:26:25.273Z" },
+    { url = "https://files.pythonhosted.org/packages/25/a0/e8d074f013117633f6b502ca123ecfc377fe0bd36818fe65e8935c91ca9c/windows_curses-2.4.1-cp313-cp313-win32.whl", hash = "sha256:05d1ca01e5199a435ccb6c8c2978df4a169cdff1ec99ab15f11ded9de8e5be26", size = 71390, upload-time = "2025-01-11T00:26:27.66Z" },
+    { url = "https://files.pythonhosted.org/packages/2b/4b/2838a829b074a68c570d54ae0ae8539979657d3e619a4dc5a4b03eb69745/windows_curses-2.4.1-cp313-cp313-win_amd64.whl", hash = "sha256:8cf653f8928af19c103ae11cfed38124f418dcdd92643c4cd17239c0cec2f9da", size = 81636, upload-time = "2025-01-11T00:26:29.595Z" },
 ]
 
 [[package]]
