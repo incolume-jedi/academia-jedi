@@ -1,6 +1,6 @@
 [project]
 name = "academia-jedi"
-version = "0.118.0a6"
+version = "0.118.0a7"
 description = ""
 readme="README.md"
 requires-python = ">=3.10,<4"
@@ -68,7 +68,7 @@ ajedi20250614-logging = { path = "incolume/academia_jedi/ajedi20250611_logging" 
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.118.0a6"
+version = "0.118.0a7"
 description = ""
 readme="README.md"
 authors = ["Britodfbr <britodfbr@gmail.com>"]

@@ -10,13 +10,14 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-06-16:
+## [Unreleased]	 &#8212; 	2025-06-18:
 ### Added
   - Acrescentado shellscript para configuração refinada do git;
   - Estudos container com docker;
   - Arquivos Dockerfile de exemplos;
   - Adicionado estrutura para centralização e importação de configuração para containeres docker;
   - Estudos e refinamentos de prompt para extração de texto contido em imagens da CLBr;
+  - Raspagem de dados utilizando agente google gemini com multiplos formatos de saída (CSV, JSON, MD, ANSI-SQL, dict);
   - Ambiente com multiplos serviços em containeres;
   - Proxy reverso com nginx;
   - Frontent com streamlit;
@@ -27,6 +28,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ### Changed
   - Corrigido Violação de acesso ao NoneType do projeto ajedi20230129_files;
   - Melhoria na documentação quanto a inicialização do ambiente de projeto;
+  - Replicação parcial das dependências `poetry` para `uv`;
 
 ## [0.117.0]	 &#8212; 	2025-06-13:
 ### Added
