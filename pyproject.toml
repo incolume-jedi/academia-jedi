@@ -60,6 +60,7 @@ members = [
     "incolume/academia_jedi/ajedi20250609_img2txtAI",
     "incolume/academia_jedi/ajedi20250610_estudos_docker_compose",
     "incolume/academia_jedi/ajedi20250614_logging",
+    "incolume/academia_jedi/ajedi20250614_raspagem_AI",
 ]
 
 [tool.uv.sources]
