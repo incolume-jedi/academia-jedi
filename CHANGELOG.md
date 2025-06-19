@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-06-18:
+## [Unreleased]	 &#8212; 	2025-06-19:
 ### Added
   - Acrescentado shellscript para configuração refinada do git;
   - Estudos container com docker;
@@ -25,6 +25,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Webcache com redis;
   - Banco de dados com Postgres;
   - Estudos de configuração para logging com arquivos .ini, .json, yml e direto no código;
+  - Estudo de como gerar barcode(código de barra) em Python;
 ### Changed
   - Corrigido Violação de acesso ao NoneType do projeto ajedi20230129_files;
   - Melhoria na documentação quanto a inicialização do ambiente de projeto;
