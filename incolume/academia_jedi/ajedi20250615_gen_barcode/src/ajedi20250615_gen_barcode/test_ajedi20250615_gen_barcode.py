@@ -1,5 +1,6 @@
 """Module test."""
 
+import shutil
 from faker import Faker
 from . import gen_barcode, barcode
 import pytest
