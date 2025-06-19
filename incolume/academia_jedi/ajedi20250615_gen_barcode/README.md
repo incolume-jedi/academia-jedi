@@ -50,6 +50,7 @@ N/A - Exemplos de solução e resposta do problema. Geralmente utilizado para va
 ## Referências
 
  - https://youtu.be/AP4Dyedatns?si=Acdrx2mh_yKSzcjE
+ - https://www.youtube.com/watch?v=KaQitCvE1YE
  - N/A (Caso haja referências podem ser listadas aqui)
 
 

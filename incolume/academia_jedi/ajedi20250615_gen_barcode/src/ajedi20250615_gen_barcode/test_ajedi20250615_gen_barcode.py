@@ -5,7 +5,6 @@ from . import gen_barcode, barcode
 import pytest
 from tempfile import gettempdir
 from pathlib import Path
-import shutil
 from icecream import ic
 
 
@@ -78,10 +77,88 @@ class Testclass:
             ),
         ],
     )
-    def test_length(self, entrance, expected):
-        """Verify length."""
+    def test_type_upc(self, entrance, expected):
+        """Verify upc."""
         if isinstance(expected, dict) and 'expected_exception' in expected:
             with pytest.raises(**expected):
                 gen_barcode(entrance, diroutput=self.dout)
         else:
             assert ic(gen_barcode(entrance, diroutput=self.dout)) == expected
+
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param(
+                {
+                    'padron': 'isbn13',
+                    'code': fake.numerify(text='9791#########'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'isbn13',
+                    'code': fake.numerify(text='978##########'),
+                },
+                {},
+            ),
+        ],
+    )
+    def test_type_isbn(self, entrance, expected):
+        """Verify isbn."""
+        if 'expected_exception' in expected:
+            with pytest.raises(**expected):
+                gen_barcode(entrance, diroutput=self.dout)
+        assert gen_barcode(**ic(entrance), diroutput=self.dout)
+
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param(
+                {
+                    'padron': 'ean13',
+                    'code': fake.numerify(text='############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'ean13',
+                    'code': fake.numerify(text='978##########'),
+                },
+                {},
+            ),
+        ],
+    )
+    def test_type_ean(self, entrance, expected):
+        """Verify isbn."""
+        if 'expected_exception' in expected:
+            with pytest.raises(**expected):
+                gen_barcode(entrance, diroutput=self.dout)
+        assert gen_barcode(**ic(entrance), diroutput=self.dout)
+
+    @pytest.mark.parametrize(
+        'entrance expected'.split(),
+        [
+            pytest.param(
+                {
+                    'padron': 'code39',
+                    'code': fake.numerify(text='############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'code128',
+                    'code': fake.numerify(text='978##########'),
+                },
+                {},
+            ),
+        ],
+    )
+    def test_type_code(self, entrance, expected):
+        """Verify isbn."""
+        if 'expected_exception' in expected:
+            with pytest.raises(**expected):
+                gen_barcode(entrance, diroutput=self.dout)
+        assert gen_barcode(**ic(entrance), diroutput=self.dout)
