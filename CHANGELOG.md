@@ -10,6 +10,21 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [0.118.0]	 &#8212; 	2025-06-19:
+### Added
+  - Ambiente com multiplos serviços em containeres;
+  - Banco de dados com Postgres;
+  - Estudo de como gerar barcode(código de barra) em Python;
+  - Estudos de configuração para logging com arquivos .ini, .json,     yml e direto no código;
+  - Frontent com streamlit;
+  - Proxy reverso com nginx;
+  - REST API com FastAPI;
+  - Raspagem de dados utilizando agente google gemini com multiplos formatos de saída (CSV, JSON, MD, ANSI-SQL,     dict);
+  - Webcache com redis;
+### Changed
+  - Melhoria na documentação quanto a inicialização do ambiente de projeto;
+  - Replicação parcial das dependências `poetry` para `uv`;
+
 ## [0.117.0]	 &#8212; 	2025-06-13:
 ### Added
   - Acrescentado shellscript para configuração refinada do git;
@@ -814,3 +829,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.115.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.114.0...0.115.0
 [0.116.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.115.0...0.116.0
 [0.117.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.116.0...0.117.0
+[0.118.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.117.0...0.118.0

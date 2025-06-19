@@ -1,0 +1,30 @@
+[project]
+name = "ajedi20250611-logging"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Britodfbr", email = "britodfbr@gmail.com" }
+]
+requires-python = ">=3.10, <4"
+dependencies = [
+    "icecream>=2.1.4",
+]
+
+[project.scripts]
+ajedi20250611-logging = "ajedi20250611_logging:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ajedi20250611_logging"]
+
+[dependency-groups]
+dev = [
+    "ajedi20250611-logging",
+]
+
+[tool.uv.sources]
+ajedi20250611-logging = { workspace = true }

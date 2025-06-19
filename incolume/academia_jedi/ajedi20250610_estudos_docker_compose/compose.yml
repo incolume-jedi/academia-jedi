@@ -1,0 +1,115 @@
+services:
+  fontend:
+    container_name: frontent
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    # volumes:
+      # - ./nginx:/etc/nginx
+    ports:
+      - 80:80
+    depends_on:
+      - webapp
+    restart: unless-stopped
+    networks:
+      - public_network
+      - private_network
+
+  db-postgres:
+    image: postgres:15
+    container_name: db_postgres
+    environment:
+      POSTGRES_USER: userdb
+      POSTGRES_PASSWORD: userdb_pass
+      POSTGRES_DB: ajedi_db
+    restart: unless-stopped
+    networks:
+      - private_network
+
+  webapp:
+    container_name: webapp
+    build:
+      dockerfile_inline: |
+        # Dockerfile content goes here
+        # This is an inline Dockerfile for the compose service
+        FROM ghcr.io/astral-sh/uv:alpine3.21
+
+        # Define the working directory
+        WORKDIR /code
+        # Install necessary packages
+        # RUN apk add --no-cache git curl
+
+        # Expose the necessary ports
+        EXPOSE 8501
+    working_dir: /code
+    volumes:
+      - ./webapp:/code
+    command: >
+      /bin/sh -c
+      "uvx -p 3.13 streamlit run --server.port 8501 --server.address 0.0.0.0 webapp.py"
+    ports:
+      - 8501:8501
+    depends_on:
+      - db-postgres
+      - backend-core
+    environment:
+      REDIS_HOST: cache-service
+    restart: unless-stopped
+    networks:
+      - private_network
+
+
+
+  backend-core:
+    container_name: backend_core
+    build:
+      context: .
+      dockerfile_inline: |
+        # Dockerfile content goes here
+        # This is an inline Dockerfile for the compose service
+        FROM ghcr.io/astral-sh/uv:alpine3.21
+
+        # Define the working directory
+        WORKDIR /code
+        # Install necessary packages
+        # RUN apk add --no-cache git curl
+
+        # Expose the necessary ports
+        EXPOSE 8000
+    working_dir: /code
+    volumes:
+      - .:/code
+    command: >
+      /bin/sh -c
+      "uv venv -p 3.10
+      && uv sync
+      && source .venv/bin/activate
+      && uvicorn --host 0.0.0.0 --port 8000 ajedi20250610_estudos_docker_compose.api:app"
+    ports:
+      - 8000:8000
+    depends_on:
+      - db-postgres
+      - cache-service
+    environment:
+      DB_HOST: db-postgres
+      DB_USER: userdb
+      DB_PASSWORD: userdb_pass
+      POSTGRES_DB: ajedi_db
+      REDIS_PORT: 6379
+      REDIS_HOST: cache-service
+    restart: unless-stopped
+    networks:
+      - private_network
+
+  cache-service:
+    image: redis:8-alpine3.21
+    container_name: cache_service
+    restart: unless-stopped
+    networks:
+      - private_network
+
+networks:
+  private_network:
+    driver: bridge
+  public_network:
+    driver: bridge
