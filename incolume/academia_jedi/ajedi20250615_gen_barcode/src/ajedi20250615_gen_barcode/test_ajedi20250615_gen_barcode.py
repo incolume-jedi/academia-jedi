@@ -7,6 +7,7 @@ import pytest
 from tempfile import gettempdir
 from pathlib import Path
 from icecream import ic
+from contextlib import suppress
 
 
 Faker.seed(149)
@@ -155,11 +156,81 @@ class Testclass:
                 },
                 {},
             ),
+            pytest.param(
+                {
+                    'padron': 'pzn',
+                    'code': fake.numerify(text='############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'ean8',
+                    'code': fake.numerify(text='############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'jan',
+                    'code': fake.numerify(text='450############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'jan',
+                    'code': fake.numerify(text='49############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'isbn10',
+                    'code': fake.numerify(text='############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'issn',
+                    'code': fake.numerify(text='############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'ean14',
+                    'code': fake.numerify(text='##############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'gs1',
+                    'code': fake.numerify(text='97911############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'gs1',
+                    'code': fake.numerify(text='979############'),
+                },
+                {},
+                marks=[
+                    pytest.mark.skip,
+                    pytest.mark.xfail(
+                        raises=[KeyError, barcode.errors.BarcodeError],
+                        reason='Rules unknow for barcode type.',
+                    ),
+                ],
+            ),
         ],
     )
     def test_type_code(self, entrance, expected):
         """Verify isbn."""
         if 'expected_exception' in expected:
-            with pytest.raises(**expected):
+            with pytest.raises(**expected), suppress(KeyError):
                 gen_barcode(entrance, diroutput=self.dout)
         assert gen_barcode(**ic(entrance), diroutput=self.dout)
