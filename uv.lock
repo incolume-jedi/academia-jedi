@@ -31,11 +31,14 @@ members = [
     "ajedi20250607-dockerfile-inline",
     "ajedi20250609-img2txtai",
     "ajedi20250610-estudos-docker-compose",
+    "ajedi20250611-logging",
+    "ajedi20250614-raspagem-ai",
+    "ajedi20250615-gen-barcode",
 ]
 
 [[package]]
 name = "academia-jedi"
-version = "0.118.0a5"
+version = "0.118.0a8"
 source = { editable = "." }
 dependencies = [
     { name = "click" },
@@ -537,6 +540,25 @@ requires-dist = [
 ]
 
 [[package]]
+name = "ajedi20250611-logging"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250611_logging" }
+dependencies = [
+    { name = "icecream" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "ajedi20250611-logging" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "icecream", specifier = ">=2.1.4" }]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ajedi20250611-logging", editable = "incolume/academia_jedi/ajedi20250611_logging" }]
+
+[[package]]
 name = "ajedi20250614-logging"
 version = "0.1.0"
 source = { directory = "incolume/academia_jedi/ajedi20250611_logging" }
@@ -548,7 +570,23 @@ dependencies = [
 requires-dist = [{ name = "icecream", specifier = ">=2.1.4" }]
 
 [package.metadata.requires-dev]
-dev = [{ name = "ajedi20250614-logging", editable = "incolume/academia_jedi/ajedi20250611_logging" }]
+dev = [{ name = "ajedi20250611-logging", editable = "incolume/academia_jedi/ajedi20250611_logging" }]
+
+[[package]]
+name = "ajedi20250614-raspagem-ai"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250614_raspagem_AI" }
+
+[[package]]
+name = "ajedi20250615-gen-barcode"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250615_gen_barcode" }
+dependencies = [
+    { name = "python-barcode" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "python-barcode", specifier = ">=0.15.1" }]
 
 [[package]]
 name = "altair"
@@ -4025,6 +4063,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/25/69/5f1e57f6c5a39f81411b550027bf72842c4567ff5fd572bed1edc9e4b5d9/pytest_cov-6.1.1.tar.gz", hash = "sha256:46935f7aaefba760e716c2ebfbe1c216240b9592966e7da99ea8292d4d3e2a0a", size = 66857, upload-time = "2025-04-05T14:07:51.592Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/28/d0/def53b4a790cfb21483016430ed828f64830dd981ebe1089971cd10cab25/pytest_cov-6.1.1-py3-none-any.whl", hash = "sha256:bddf29ed2d0ab6f4df17b4c55b0a657287db8684af9c42ea546b21b1041b3dde", size = 23841, upload-time = "2025-04-05T14:07:49.641Z" },
+]
+
+[[package]]
+name = "python-barcode"
+version = "0.15.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/22/63/bc2fb47c9ba904b376780917f053b1c85b87085fd44948590e71c11187b0/python-barcode-0.15.1.tar.gz", hash = "sha256:3b1825fbdb11e597466dff4286b4ea9b1e86a57717b59e563ae679726fc854de", size = 228161, upload-time = "2023-07-05T22:56:59.962Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/10/27/9b5c5bb1938d4e6b12f4c95f40ea905c11df3cd58e128e9305397b9a2697/python_barcode-0.15.1-py3-none-any.whl", hash = "sha256:057636fba37369c22852410c8535b36adfbeb965ddfd4e5b6924455d692e0886", size = 212956, upload-time = "2023-07-05T22:56:58.596Z" },
 ]
 
 [[package]]

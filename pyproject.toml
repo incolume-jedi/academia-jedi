@@ -59,8 +59,9 @@ members = [
     "incolume/academia_jedi/ajedi20230223_openai_examples",
     "incolume/academia_jedi/ajedi20250609_img2txtAI",
     "incolume/academia_jedi/ajedi20250610_estudos_docker_compose",
-    "incolume/academia_jedi/ajedi20250614_logging",
+    "incolume/academia_jedi/ajedi20250611_logging",
     "incolume/academia_jedi/ajedi20250614_raspagem_AI",
+    "incolume/academia_jedi/ajedi20250615_gen_barcode",
 ]
 
 [tool.uv.sources]
@@ -210,7 +211,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 log_format = '%(asctime)s; %(levelname)-8s; %(name)s; %(module)s; %(funcName)s; %(message)s'
-log_date_format ='%FT%T%N%z'
+log_date_format ='%Y%m%dT%H%M%N%z'
 addopts = "--doctest-modules --cov=incolume -sx --cov-report term-missing --cov-report html:coverage_report/html --cov-report xml:coverage_report/cov.xml"
 testpaths = [
   "tests/",
