@@ -155,6 +155,62 @@ class Testclass:
                 },
                 {},
             ),
+            pytest.param(
+                {
+                    'padron': 'pzn',
+                    'code': fake.numerify(text='############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'ean8',
+                    'code': fake.numerify(text='############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'jan',
+                    'code': fake.numerify(text='450############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'jan',
+                    'code': fake.numerify(text='49############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'isbn10',
+                    'code': fake.numerify(text='############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'issn',
+                    'code': fake.numerify(text='############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'ean14',
+                    'code': fake.numerify(text='##############'),
+                },
+                {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'gs1',
+                    'code': fake.numerify(text='############'),
+                },
+                {},
+            ),
         ],
     )
     def test_type_code(self, entrance, expected):

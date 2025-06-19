@@ -17,7 +17,7 @@ def gen_barcode(
 ) -> bool:
     """Generate barcode."""
     msg = 'UPC must have 11 digits, not more.'
-    if len(code) > 13:  # noqa: PLR2004
+    if padron == 'upc' and len(code) > 13:  # noqa: PLR2004
         raise ValueError(msg)
 
     diroutput = diroutput or Path()
