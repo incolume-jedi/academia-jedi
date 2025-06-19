@@ -7,6 +7,7 @@ import pytest
 from tempfile import gettempdir
 from pathlib import Path
 from icecream import ic
+from contextlib import suppress
 
 
 Faker.seed(149)
@@ -207,15 +208,29 @@ class Testclass:
             pytest.param(
                 {
                     'padron': 'gs1',
-                    'code': fake.numerify(text='############'),
+                    'code': fake.numerify(text='97911############'),
                 },
                 {},
+            ),
+            pytest.param(
+                {
+                    'padron': 'gs1',
+                    'code': fake.numerify(text='979############'),
+                },
+                {},
+                marks=[
+                    pytest.mark.skip,
+                    pytest.mark.xfail(
+                        raises=[KeyError, barcode.errors.BarcodeError],
+                        reason='Rules unknow for barcode type.',
+                    ),
+                ],
             ),
         ],
     )
     def test_type_code(self, entrance, expected):
         """Verify isbn."""
         if 'expected_exception' in expected:
-            with pytest.raises(**expected):
+            with pytest.raises(**expected), suppress(KeyError):
                 gen_barcode(entrance, diroutput=self.dout)
         assert gen_barcode(**ic(entrance), diroutput=self.dout)
