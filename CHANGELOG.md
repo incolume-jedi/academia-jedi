@@ -10,24 +10,18 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-06-19:
+## [0.118.0]	 &#8212; 	2025-06-19:
 ### Added
-  - Acrescentado shellscript para configuração refinada do git;
-  - Estudos container com docker;
-  - Arquivos Dockerfile de exemplos;
-  - Adicionado estrutura para centralização e importação de configuração para containeres docker;
-  - Estudos e refinamentos de prompt para extração de texto contido em imagens da CLBr;
-  - Raspagem de dados utilizando agente google gemini com multiplos formatos de saída (CSV, JSON, MD, ANSI-SQL, dict);
   - Ambiente com multiplos serviços em containeres;
-  - Proxy reverso com nginx;
-  - Frontent com streamlit;
-  - REST API com FastAPI;
-  - Webcache com redis;
   - Banco de dados com Postgres;
-  - Estudos de configuração para logging com arquivos .ini, .json, yml e direto no código;
   - Estudo de como gerar barcode(código de barra) em Python;
+  - Estudos de configuração para logging com arquivos .ini, .json,     yml e direto no código;
+  - Frontent com streamlit;
+  - Proxy reverso com nginx;
+  - REST API com FastAPI;
+  - Raspagem de dados utilizando agente google gemini com multiplos formatos de saída (CSV, JSON, MD, ANSI-SQL,     dict);
+  - Webcache com redis;
 ### Changed
-  - Corrigido Violação de acesso ao NoneType do projeto ajedi20230129_files;
   - Melhoria na documentação quanto a inicialização do ambiente de projeto;
   - Replicação parcial das dependências `poetry` para `uv`;
 
@@ -835,4 +829,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.115.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.114.0...0.115.0
 [0.116.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.115.0...0.116.0
 [0.117.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.116.0...0.117.0
-[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.117.0...Unreleased
+[0.118.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.117.0...0.118.0
