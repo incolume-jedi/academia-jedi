@@ -1,1 +1,1 @@
-COPY table_name FROM '/data/brasileiroA2022.csv' DELIMITER ',' CSV HEADER;
+COPY tb_brasileiro FROM '/data/brasileiroA2022.csv' DELIMITER ',' CSV HEADER;
