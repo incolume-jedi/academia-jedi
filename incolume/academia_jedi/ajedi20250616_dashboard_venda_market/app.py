@@ -35,7 +35,7 @@ app.layout = html.Div(
                     dbc.Card(
                         [
                             html.H2(
-                                'ASIMOV',
+                                'JEDI',
                                 style={
                                     'font-family': 'Voltaire',
                                     'font-size': '60px',
