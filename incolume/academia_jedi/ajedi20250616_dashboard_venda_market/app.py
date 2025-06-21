@@ -1,3 +1,5 @@
+"""App dash."""
+
 from pathlib import Path
 
 import dash
@@ -117,6 +119,7 @@ app.layout = html.Div(
     [Input('check_city', 'value'), Input('main_variable', 'value')],
 )
 def render_graphs(cities, main_variable):
+    """Render graphics."""
     # cities = ["Yangon", "Mandalay"]
     # main_variable= "gross income"
 
@@ -156,10 +159,17 @@ def render_graphs(cities, main_variable):
 
     fig_city = px.bar(df_city, x='City', y=main_variable)
     fig_payment = px.bar(
-        df_payment, y='Payment', x=main_variable, orientation='h',
+        df_payment,
+        y='Payment',
+        x=main_variable,
+        orientation='h',
     )
     fig_gender = px.bar(
-        df_gender, y=main_variable, x='Gender', color='City', barmode='group',
+        df_gender,
+        y=main_variable,
+        x='Gender',
+        color='City',
+        barmode='group',
     )
     fig_product_income = px.bar(
         df_product_income,
@@ -173,11 +183,14 @@ def render_graphs(cities, main_variable):
 
     for fig in [fig_city, fig_payment, fig_gender, fig_income_date]:
         fig.update_layout(
-            margin=dict(l=0, r=0, t=20, b=20), height=200, template='minty',
+            margin=dict(l=0, r=0, t=20, b=20),
+            height=200,
+            template='minty',
         )
 
     fig_product_income.update_layout(
-        margin=dict(l=0, r=0, t=20, b=20), height=500,
+        margin=dict(l=0, r=0, t=20, b=20),
+        height=500,
     )
 
     return (
