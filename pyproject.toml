@@ -199,12 +199,6 @@ networkx = "^3.4.2"
 streamlit = "^1.44.1"
 streamlit-authenticator = "^0.4.2"
 psycopg2-binary = "^2.9.10"
-dash-auth = "^2.3.0"
-dash-bootstrap-components = "^2.0.2"
-dash-bootstrap-templates = "^2.1.0"
-dash-core-components = "^2.0.0"
-gunicorn = "^23.0.0"
-pandas = "^2.2.3"
 
 
 [[tool.poetry.source]]
