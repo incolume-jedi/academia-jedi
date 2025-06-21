@@ -10,6 +10,13 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [Unreleased]	 &#8212; 	2025-06-20:
+### Added
+  - Estudos com postgresql rodando em docker;
+  - Estudos compose inline;
+  - Estudos volumes docker;
+  - Exemplos de tipos direfentes de barcode em python;
+
 ## [0.118.0]	 &#8212; 	2025-06-19:
 ### Added
   - Ambiente com multiplos serviços em containeres;
@@ -830,3 +837,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.116.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.115.0...0.116.0
 [0.117.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.116.0...0.117.0
 [0.118.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.117.0...0.118.0
+[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.118.0...Unreleased

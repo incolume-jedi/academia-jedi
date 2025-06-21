@@ -3,7 +3,6 @@
 from typing import NoReturn
 
 import pytest
-import incolume.academia_jedi as pkg
 from config import settings
 
 
@@ -54,6 +53,4 @@ class TestPackage:
         expected,
     ) -> NoReturn:
         """Unittest."""
-        assert (
-            getattr(settings.from_env(environment), entrance) == expected
-        )
+        assert getattr(settings.from_env(environment), entrance) == expected
