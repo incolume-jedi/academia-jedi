@@ -10,12 +10,13 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-06-20:
+## [Unreleased]	 &#8212; 	2025-06-21:
 ### Added
   - Estudos com postgresql rodando em docker;
   - Estudos compose inline;
   - Estudos volumes docker;
   - Exemplos de tipos direfentes de barcode em python;
+  - Projeto dashboard completo com pacote dash e plotly;
 
 ## [0.118.0]	 &#8212; 	2025-06-19:
 ### Added
