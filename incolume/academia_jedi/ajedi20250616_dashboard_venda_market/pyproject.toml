@@ -1,0 +1,17 @@
+[project]
+name = "ajedi20250616-dashboard-venda-market"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10, <4"
+dependencies = [
+    "dash>=3.0.4",
+    "dash-auth>=2.3.0",
+    "dash-bootstrap-components>=2.0.3",
+    "dash-bootstrap-templates>=2.1.0",
+    "dash-core-components>=2.0.0",
+    "gunicorn>=23.0.0",
+    "numpy>=2.2.6",
+    "pandas>=2.2.3",
+    "plotly>=6.1.2",
+]
