@@ -11,6 +11,8 @@ services:
     volumes:
       - ./data:/data
       - pgdata:/var/lib/postgresql/data
+      - type: tmpfs
+        target: /dev/shm
 
 volumes:
   pgdata:
