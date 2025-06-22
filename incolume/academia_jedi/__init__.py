@@ -2,6 +2,7 @@
 
 import logging
 import os
+from logging.config import dictConfig
 from pathlib import Path
 
 import yaml
@@ -17,7 +18,7 @@ file_config_log = Path(__file__).parents[2].joinpath('settings/logging.yml')
 with file_config_log.open('rt') as f:
     config = yaml.safe_load(f.read())
 
-logging.config.dictConfig(config)
+dictConfig(config)
 
 logger = logging.getLogger(ic(os.getenv('INCOLUME_MODE') or 'testing'))
 
