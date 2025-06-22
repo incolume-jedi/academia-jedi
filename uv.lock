@@ -69,6 +69,8 @@ dev = [
     { name = "markdown" },
     { name = "passlib", extra = ["bcrypt"] },
     { name = "pre-commit" },
+    { name = "pytest-cov" },
+    { name = "ruff" },
     { name = "sqlalchemy" },
     { name = "windows-curses", marker = "sys_platform == 'win32'" },
 ]
@@ -101,6 +103,8 @@ dev = [
     { name = "markdown", specifier = ">=3.4.1" },
     { name = "passlib", extras = ["bcrypt"], specifier = ">=1.7.4" },
     { name = "pre-commit", marker = "python_full_version >= '3.9'", specifier = ">=3.7.0" },
+    { name = "pytest-cov", specifier = ">=6.2.1" },
+    { name = "ruff", specifier = ">=0.12.0" },
     { name = "sqlalchemy", specifier = ">=1.4.39,<2" },
     { name = "windows-curses", marker = "sys_platform == 'win32'", specifier = ">=2.4.1" },
 ]

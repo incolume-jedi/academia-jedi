@@ -32,6 +32,8 @@ dev = [
     "markdown>=3.4.1",
     "passlib[bcrypt]>=1.7.4",
     "pre-commit>=3.7.0 ; python_full_version >= '3.9'",
+    "pytest-cov>=6.2.1",
+    "ruff>=0.12.0",
     "sqlalchemy>=1.4.39,<2",
     "windows-curses>=2.4.1 ; sys_platform == 'win32'",
 ]
