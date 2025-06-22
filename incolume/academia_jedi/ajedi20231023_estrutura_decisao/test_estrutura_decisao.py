@@ -1,6 +1,5 @@
 """Testes unitários para estrutura de decisão."""
 
-
 from re import escape
 from icecream import ic
 from incolume.academia_jedi import logger

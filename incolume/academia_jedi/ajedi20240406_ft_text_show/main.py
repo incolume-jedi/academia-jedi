@@ -1,6 +1,5 @@
 """Module."""
 
-
 __author__ = '@britodfbr'  # pragma: no cover
 
 from typing import NoReturn

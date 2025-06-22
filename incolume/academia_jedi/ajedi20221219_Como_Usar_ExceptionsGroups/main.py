@@ -1,6 +1,5 @@
 """Module."""
 
-
 import sys
 from platform import python_version
 

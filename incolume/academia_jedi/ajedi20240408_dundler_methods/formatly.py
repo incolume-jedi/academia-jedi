@@ -15,7 +15,6 @@ except ImportError:
     from typing_extensions import Self
 
 
-
 class Fruit2:
     """Class fruit2."""
 
