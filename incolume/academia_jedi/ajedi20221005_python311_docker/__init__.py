@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: D104, D205
+# ruff: noqa: D104, D205, E501
 __author__ = '@britodfbr'  # pragma: no cover
 import keyword
 

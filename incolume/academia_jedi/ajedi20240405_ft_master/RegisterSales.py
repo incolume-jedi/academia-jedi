@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: A002, ARG002, C901, D101, D102, D107, DTZ005, DTZ007, ERA001, N999
+# ruff: noqa: A002, ARG002, C901, D101, D102, D107, DTZ005, DTZ007, E501, ERA001, N999
 
 import asyncio
 from datetime import datetime
@@ -32,7 +32,7 @@ from SelectCustomer import SelectCustomer
 from SelectProduct import SelectProduct
 from Validator import Validator
 
-# ruff: noqa: ARG002, A002, C901, ERA001, D101, D102, D107, DTZ005
+# ruff: noqa: ARG002, A002, C901, ERA001, D101, D102, D107, E501, DTZ005
 
 
 class RegisterSales(UserControl):
