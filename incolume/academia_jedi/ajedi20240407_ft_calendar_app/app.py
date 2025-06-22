@@ -1,7 +1,5 @@
 """Module."""
 
-# ruff: noqa: PLR0913
-
 import calendar
 from datetime import datetime
 from typing import NoReturn

@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: ASYNC101 T201
+# ruff: noqa: T201
 import asyncio
 import contextlib
 import sys

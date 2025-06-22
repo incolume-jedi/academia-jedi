@@ -5,7 +5,6 @@ from __future__ import annotations
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
 
 import openpyxl
 import requests
@@ -39,7 +38,7 @@ class ScrapingIMDB:
         url: str = '',
         excel_output: (str | Path) = '',
         sheet_title: str = '',
-        columns_name: Optional[list] = None,
+        columns_name: list | None = None,
     ) -> None:
         """Init class."""
         self.url = url or 'https://www.imdb.com/chart/top'
@@ -108,7 +107,7 @@ class ScrapingIMDB:
         self,
         *,
         excel_output: (str | Path) = '',
-        columns_name: Optional[list] = None,
+        columns_name: list | None = None,
         **kwargs: dict,
     ) -> bool:
         """Save excel."""

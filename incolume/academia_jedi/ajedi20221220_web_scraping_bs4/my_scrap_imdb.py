@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Optional
 
 import openpyxl
 import requests
@@ -15,7 +14,7 @@ from incolume.academia_jedi import logger
 def scraping_ranking(
     url: str = '',
     excel_output: str | Path = '',
-    columns_name: Optional[list] = None,
+    columns_name: list | None = None,
 ) -> bool:
     """Scraping ranking.
 

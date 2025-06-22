@@ -12,7 +12,7 @@ if settings.debug_mode:
     ic.enable()
 
 
-@pytest.fixture()
+@pytest.fixture
 def inst_academia() -> Generator:
     """TestClass.
 

@@ -8,7 +8,7 @@ from . import TicTacToe
 
 
 # Fixture para inicializar a classe TicTacToe
-@pytest.fixture()
+@pytest.fixture
 def jogo():
     """Fixture instancia."""
     return TicTacToe()
@@ -62,7 +62,7 @@ class TestTicTacToe:
             jogo.verificar_vitoria(tabuleiro, 'X') is False
         )  # Ninguém venceu
 
-    @pytest.mark.skip()
+    @pytest.mark.skip
     def test_entrada_invalida(self, monkeypatch, capsys):
         """Simula entrada inválida e verifica a mensagem de erro."""
         monkeypatch.setattr('builtins.input', lambda _: 'invalid')

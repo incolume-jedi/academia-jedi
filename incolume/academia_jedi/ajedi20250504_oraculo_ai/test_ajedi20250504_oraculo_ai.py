@@ -40,7 +40,7 @@ class TestAjedi20250504OraculoAI:
         )
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 'https://brito.blog.incolume.com.br/2013/03/guia-rapido-de-comandos-git-lado-usuario.html',
@@ -82,9 +82,9 @@ class TestAjedi20250504OraculoAI:
         content = load_web(entrance)
         ic(content)
         assert content, 'Content should not be empty.'
-        assert (
-            expected in content
-        ), f'Expected text not found in content: {expected}'
+        assert expected in content, (
+            f'Expected text not found in content: {expected}'
+        )
 
     def test_youtube_loader(self):
         """Test the youtube loader."""
@@ -108,9 +108,9 @@ class TestAjedi20250504OraculoAI:
         content = load_csv(file_path=entrance)
         ic(content)
         assert content, 'Content should not be empty.'
-        assert (
-            expected in content
-        ), f'Expected text not found in content: {expected}'
+        assert expected in content, (
+            f'Expected text not found in content: {expected}'
+        )
 
     def test_txt_loader(self):
         """Test the txt loader."""
@@ -149,7 +149,7 @@ class TestAjedi20250504OraculoAI:
         assert expected in content
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 {
@@ -198,6 +198,6 @@ class TestAjedi20250504OraculoAI:
     )
     def test_utils(self, entrance, expected):
         """Test the oracle AI module."""
-        assert (
-            midia_loader(**entrance) == expected
-        ), 'Loader output does not match expected value.'
+        assert midia_loader(**entrance) == expected, (
+            'Loader output does not match expected value.'
+        )

@@ -88,7 +88,7 @@ class TestAjedi20250604SecretsDynaconf:
         )
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             ('production', 'sek@987342$'),
             ('development', '123@pwd'),

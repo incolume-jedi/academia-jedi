@@ -2,7 +2,6 @@
 
 # ruff: noqa: ANN201, D100, D103, D205, E501, T201
 from collections.abc import Iterable
-from typing import Optional
 
 __author__ = '@britodfbr'  # pragma: no cover
 
@@ -23,7 +22,7 @@ tup = (
 tups = list(tup)
 
 
-def example01(t: Optional[tuple] = None) -> dict:
+def example01(t: tuple | None = None) -> dict:
     """Python tuple to dictionary.
 
     To convert a tuple to dictionary in Python, use the dict() method.
@@ -39,7 +38,7 @@ def example01(t: Optional[tuple] = None) -> dict:
     return {y: x for x, y in t}
 
 
-def example02(t: Optional[Iterable] = None) -> dict:
+def example02(t: Iterable | None = None) -> dict:
     """Using dict(), map() and reversed() method
     You can use the combination of the dict(), map(), and reversed()
     method to convert a tuple to the dictionary. The map() method returns a
@@ -57,7 +56,7 @@ def example02(t: Optional[Iterable] = None) -> dict:
     return dict(map(reversed, t))
 
 
-def example03(t: Optional[Iterable] = None):
+def example03(t: Iterable | None = None):
     """To convert a list of tuples into a dictionary, use the setdefault() method.
      The setdefault() method takes the first parameter to the key and the
      second parameter to a value of the dictionary.

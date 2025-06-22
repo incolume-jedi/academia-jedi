@@ -19,8 +19,8 @@ if settings.debug_mode:
     ic.enable()
 
 
-@pytest.mark.slow()
-@pytest.mark.webtest()
+@pytest.mark.slow
+@pytest.mark.webtest
 class TestCase:
     """TestCase."""
 

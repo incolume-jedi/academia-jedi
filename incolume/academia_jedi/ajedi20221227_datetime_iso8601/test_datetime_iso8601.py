@@ -30,7 +30,7 @@ class TestISO8601:
         pytz.timezone('America/Sao_Paulo'),
     )
 
-    @pytest.fixture()
+    @pytest.fixture
     def _patch_datetime_now(self, monkeypatch):
         """Fixture."""
 

@@ -1,6 +1,6 @@
 import asyncio
 
-# ruff: noqa: ANN201, ASYNC101, D100, D103, S113, S311, T201, TRY401
+# ruff: noqa: ANN201, D100, D103, S113, S311, T201, TRY401
 import inspect
 import logging
 from collections.abc import Iterable

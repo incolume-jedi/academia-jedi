@@ -50,7 +50,7 @@ Categoria: IntEnum = IntEnum(
     module=__name__,
 )
 
-Categoria._missing_, Montadora._missing_ = _missing_, _missing_  # noqa: SLF001
+Categoria._missing_, Montadora._missing_ = _missing_, _missing_
 
 
 @dataclass

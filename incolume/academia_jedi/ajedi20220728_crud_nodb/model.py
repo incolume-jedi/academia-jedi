@@ -1,6 +1,6 @@
 """model package."""
 
-# ruff: noqa: B007, T201, TC003
+# ruff: noqa: B007, T201
 
 from __future__ import annotations
 
