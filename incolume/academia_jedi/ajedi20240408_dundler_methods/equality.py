@@ -1,7 +1,6 @@
 """Module."""
 
 import datetime as dt
-from typing import Optional
 
 import pytz
 from config import settings
@@ -23,7 +22,7 @@ class Fruit0:
         *,
         name: str,
         grams: float,
-        date: Optional[dt.datetime] = None,
+        date: dt.datetime | None = None,
     ):
         """Init Fruit."""
         self.name = name
@@ -43,7 +42,7 @@ class Fruit1:
         *,
         name: str,
         grams: float,
-        date: Optional[dt.datetime] = None,
+        date: dt.datetime | None = None,
     ):
         """Init Fruit."""
         self.name = name

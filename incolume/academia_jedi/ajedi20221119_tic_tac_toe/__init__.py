@@ -1,7 +1,6 @@
 """Module tic tak toe."""
 
 import logging
-from typing import Optional
 
 # ruff: noqa: ANN001, ANN201, ANN202, C901, D103, T201
 board = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
@@ -20,7 +19,7 @@ def move_game(
     gamer: str,
     row: int,
     col: int,
-    options: Optional[list] = None,
+    options: list | None = None,
 ):
     options = options or ['X', 'O']
     gamer = gamer.upper()

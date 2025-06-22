@@ -4,8 +4,6 @@ from inspect import stack
 from icecream import ic
 import pytest
 
-# ruff: noqa: T201
-
 
 class TestClass:
     """TestClass.
@@ -45,7 +43,7 @@ class TestClass:
         assert True
 
 
-@pytest.fixture()
+@pytest.fixture
 def resource():
     """TestClass.
 

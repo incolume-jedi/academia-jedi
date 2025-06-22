@@ -3,7 +3,6 @@
 # ruff: noqa: T201
 import timeit
 from collections.abc import Callable
-from typing import Optional
 
 from incolume.academia_jedi import logger
 from incolume.academia_jedi.ajedi20230115_pythonic.truncus import (
@@ -11,13 +10,13 @@ from incolume.academia_jedi.ajedi20230115_pythonic.truncus import (
 )
 
 
-def tratativa1(list_names: Optional[list] = None) -> list:
+def tratativa1(list_names: list | None = None) -> list:
     """Uppercase."""
     list_names = list_names or []
     return list(map(str.upper, list_names))
 
 
-def tratativa2(list_names: Optional[list] = None) -> list:
+def tratativa2(list_names: list | None = None) -> list:
     """Uppercase."""
     list_names = list_names or []
     return [name.upper() for name in list_names]

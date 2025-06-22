@@ -36,7 +36,7 @@ class Testclass:
         shutil.rmtree(cls.dout)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param('123456789098', True),
             pytest.param('314159265358', True),
@@ -88,7 +88,7 @@ class Testclass:
             assert ic(gen_barcode(entrance, diroutput=self.dout)) == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 {
@@ -114,7 +114,7 @@ class Testclass:
         assert gen_barcode(**ic(entrance), diroutput=self.dout)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 {
@@ -140,7 +140,7 @@ class Testclass:
         assert gen_barcode(**ic(entrance), diroutput=self.dout)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 {

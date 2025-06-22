@@ -8,7 +8,7 @@ import pytest
 import incolume.academia_jedi.ajedi20230928_manipulacao_arquivos.files as pkg
 
 
-@pytest.fixture()
+@pytest.fixture
 def nfile(ext: str = '') -> Path:
     """Arquivo temp."""
     ext = f'.{ext.strip(".")}' if ext else '.txt'

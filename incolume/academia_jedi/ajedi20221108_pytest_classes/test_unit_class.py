@@ -17,7 +17,7 @@ import pytest
 class TestGroup:
     """A class with common parameters, `param1` and `param2`."""
 
-    @pytest.fixture()
+    @pytest.fixture
     def fixt(self):
         """This fixture will only be available within the scope of TestGroup."""
         return 123

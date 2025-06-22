@@ -14,7 +14,7 @@ from incolume.academia_jedi.ajedi20231102_cadastro_flet_sqlite.database import (
 )
 
 
-@pytest.fixture()
+@pytest.fixture
 def tmpfile() -> Path:
     """Return a tempfile."""
     return Path(NamedTemporaryFile().name)

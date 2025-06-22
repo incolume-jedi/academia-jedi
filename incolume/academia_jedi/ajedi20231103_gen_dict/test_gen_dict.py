@@ -28,7 +28,7 @@ class TestCaseTratativa01:
 class TestCaseTratativa02:
     """Test case."""
 
-    @pytest.fixture()
+    @pytest.fixture
     def fakefile(self) -> Path:
         """Fake file."""
         return Path(NamedTemporaryFile(prefix='academia-jedi-').name)
@@ -61,13 +61,13 @@ class TestCaseTratativa02:
                 caplog.records[-1].message,
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip
     def test_set_credentials(self) -> None:
         """Test this."""
         with pytest.raises(FileExistsError, match=''):
             set_credentials()
 
-    @pytest.mark.skip()
+    @pytest.mark.skip
     def test_get_client_google(self, fakefile) -> None:
         """Test this."""
         fakefile.write_text('')
@@ -87,7 +87,7 @@ class TestCaseTratativa02:
 
 
 class TestCaseTratativa03:
-    @pytest.fixture()
+    @pytest.fixture
     def obj_gsheet(self):
         """Objeto GSheet."""
         return GSheet()

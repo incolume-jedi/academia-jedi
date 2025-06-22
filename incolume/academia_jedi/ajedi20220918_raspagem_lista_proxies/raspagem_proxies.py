@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: D100, D103, PD901, S113, T201
+# ruff: noqa: D100, D103, S113, T201
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup

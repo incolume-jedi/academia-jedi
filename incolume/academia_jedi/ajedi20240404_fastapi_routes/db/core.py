@@ -3,7 +3,6 @@
 # ruff: noqa: D101, D103
 
 import os
-from typing import Optional
 
 from sqlalchemy import ForeignKey, create_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
@@ -26,7 +25,7 @@ class DBItem(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     name: Mapped[str]
-    description: Mapped[Optional[str]]
+    description: Mapped[str | None]
 
 
 class DBAutomation(Base):

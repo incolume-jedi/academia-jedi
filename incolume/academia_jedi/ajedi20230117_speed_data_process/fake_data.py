@@ -1,6 +1,6 @@
 import numpy as np
 
-# ruff: noqa: ANN201, D100, D103, NPY002, PD901
+# ruff: noqa: ANN201, D100, D103, NPY002
 import pandas as pd
 
 __author__ = '@britodfbr'  # pragma: no cover

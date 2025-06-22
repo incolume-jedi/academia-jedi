@@ -206,7 +206,7 @@ class TestLocadoraAsimov:
             assert m.called
 
 
-@pytest.fixture()
+@pytest.fixture
 def list_veic() -> list[Veiculo]:
     """Fixture lista de veículo."""
     return [
@@ -234,7 +234,7 @@ def list_veic() -> list[Veiculo]:
     ]
 
 
-@pytest.fixture()
+@pytest.fixture
 def locadora(list_veic) -> Locadora:
     """Fixture instance Locadora."""
     return Locadora(veiculos=list_veic)
