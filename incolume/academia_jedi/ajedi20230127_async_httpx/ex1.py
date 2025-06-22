@@ -1,6 +1,6 @@
 import logging
 
-# ruff: noqa: D100, D103, G004, S113, T201
+# ruff: noqa: D100, D103, G004, S113
 from time import perf_counter
 
 import requests

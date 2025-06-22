@@ -1,5 +1,4 @@
 """estudos LLM."""
-# ruff: noqa: T201
 
 
 def main():

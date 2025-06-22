@@ -7,8 +7,6 @@ from incolume.academia_jedi.ajedi20230113_zipfile import (
     filezip_sample,
 )
 
-# ruff:noqa: T201
-
 zipnames = (
     filezip_sample,
     base_dir / 'bad_sample.zip',

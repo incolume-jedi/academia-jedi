@@ -1,7 +1,5 @@
 """Module."""
 
-# ruff: noqa: T201
-
 from config import settings
 from openai import OpenAI
 

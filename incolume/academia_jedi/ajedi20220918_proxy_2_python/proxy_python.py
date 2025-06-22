@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: D103, S113, T201
+# ruff: noqa: D103, S113
 """Proxy with python."""
 
 import requests

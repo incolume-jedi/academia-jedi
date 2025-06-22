@@ -1,6 +1,5 @@
 """Module."""
 
-# ruff: noqa: T201
 import timeit
 from collections.abc import Callable
 

@@ -2,7 +2,7 @@
 
 import logging
 
-# ruff: noqa: E501 T201 S301
+# ruff: noqa: E501, S301
 import os
 import shelve
 from pathlib import Path

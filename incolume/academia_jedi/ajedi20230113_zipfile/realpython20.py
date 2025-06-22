@@ -4,8 +4,6 @@ import zipfile
 
 from incolume.academia_jedi.ajedi20230113_zipfile import filezip_sample, logger
 
-# ruff: noqa: T201
-
 
 def run():
     """Run it."""

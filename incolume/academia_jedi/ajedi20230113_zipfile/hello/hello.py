@@ -1,5 +1,4 @@
 """Print a greeting message."""
-# ruff: noqa: T201
 
 
 def greet(name='World'):

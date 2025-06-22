@@ -2,7 +2,7 @@
 
 import logging
 
-# ruff: noqa: E501 T201
+# ruff: noqa: E501
 from nltk.tokenize import word_tokenize
 from spellchecker import SpellChecker
 

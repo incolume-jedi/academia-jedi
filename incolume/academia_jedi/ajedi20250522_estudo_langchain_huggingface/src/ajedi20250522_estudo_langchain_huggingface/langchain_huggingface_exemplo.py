@@ -6,7 +6,7 @@ Hugging Face através da LangChain.
 Autor: Manus
 Data: 22/05/2025
 """
-# ruff: noqa: BLE001 T201
+# ruff: noqa: BLE001
 
 from config import settings
 from langchain.chains import LLMChain

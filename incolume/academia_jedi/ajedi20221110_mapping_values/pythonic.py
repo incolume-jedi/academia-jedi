@@ -1,7 +1,5 @@
 """Example pythonic."""
 
-# ruff: noqa: T201
-
 from incolume.academia_jedi.ajedi20221110_mapping_values.database import (
     get_client_list,
 )

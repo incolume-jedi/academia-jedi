@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: D101, D102, D103, D107, PTH123, S101, S301, T201
+# ruff: noqa: D101, D102, D103, D107, PTH123, S101, S301
 
 from abc import ABC, abstractmethod
 from json import dumps as json_dumps
@@ -9,7 +9,7 @@ from pickle import dumps as pickle_dumps
 from pickle import loads as pickle_loads
 from typing import Protocol
 
-# ruff: noqa: D101, D102, D103, D107, T201
+# ruff: noqa: D101, D102, D103, D107
 
 
 class SerializedFileHandler(ABC):

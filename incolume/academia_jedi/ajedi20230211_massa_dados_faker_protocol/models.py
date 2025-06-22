@@ -1,6 +1,6 @@
 """Atualização de incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.models."""
 
-# ruff: noqa: D101, D102, D103, D105, D419, DTZ007, E501, T201, TRY401
+# ruff: noqa: D101, D102, D103, D105, D419, DTZ007, E501, TRY401
 
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-

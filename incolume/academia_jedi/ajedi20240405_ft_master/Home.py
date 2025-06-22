@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: ANN201, ARG002, D101, D102, D107, E501, ERA001, N999, T201
+# ruff: noqa: ANN201, ARG002, D101, D102, D107, E501, ERA001, N999
 
 from datetime import date, timedelta
 
@@ -46,7 +46,7 @@ from flet import (
 )
 from Validator import Validator
 
-# ruff: noqa: ARG002, DTZ011, T201, ANN201, ERA001, D101, D102, D107, E501
+# ruff: noqa: ARG002, DTZ011, ANN201, ERA001, D101, D102, D107, E501
 
 
 class Home(UserControl):

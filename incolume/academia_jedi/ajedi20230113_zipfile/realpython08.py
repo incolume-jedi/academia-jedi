@@ -7,8 +7,6 @@ from config import settings
 from incolume.academia_jedi.ajedi20230113_zipfile import filezip_sample
 from pytz import timezone
 
-# ruff: noqa: T201
-
 
 def run():
     """Run it."""

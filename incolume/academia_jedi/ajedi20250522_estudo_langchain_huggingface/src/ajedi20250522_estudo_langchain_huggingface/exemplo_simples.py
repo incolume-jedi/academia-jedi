@@ -7,7 +7,7 @@ Autor: Manus
 Data: 22/05/2025
 """
 
-# ruff: noqa: BLE001 T201
+# ruff: noqa: BLE001
 
 # Importações necessárias
 from config import settings

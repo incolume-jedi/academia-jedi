@@ -5,8 +5,6 @@ from pathlib import Path
 
 from incolume.academia_jedi.ajedi20230113_zipfile import base_dir, outputdir
 
-# ruff: noqa: T201
-
 hello = Path(base_dir, 'hello.txt')
 hello.write_text(__file__)
 hello.with_stem('new_hello').write_text('hello again.')

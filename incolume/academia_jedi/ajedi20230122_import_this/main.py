@@ -1,6 +1,6 @@
 """zen do python."""
 
-# ruff: noqa: D419, G004, T201, TRY401
+# ruff: noqa: D419, G004, TRY401
 
 import logging
 

@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff:noqa: T201 S603 S607
+# ruff: noqa: S603, S607
 import subprocess
 from pathlib import Path
 

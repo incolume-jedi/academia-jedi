@@ -1,6 +1,6 @@
 """test_class_parametrization.py."""
 
-# ruff: noqa: D102, E501, PT006, T201
+# ruff: noqa: D102, E501, PT006
 
 import inspect
 

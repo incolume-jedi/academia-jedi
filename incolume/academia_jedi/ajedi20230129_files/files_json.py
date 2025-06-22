@@ -1,6 +1,5 @@
 """Modelo."""
 
-# ruff: noqa: T201
 import json
 import logging
 

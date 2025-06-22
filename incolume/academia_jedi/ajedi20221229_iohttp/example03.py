@@ -12,7 +12,7 @@ import aiohttp
 from bs4 import BeautifulSoup
 
 
-# ruff: noqa: D103, D205, T201, TRY401
+# ruff: noqa: D103, D205, TRY401
 async def get_page(session, url):
     async with session.get(url, ssl=False) as r:
         return await r.text()

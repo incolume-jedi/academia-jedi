@@ -16,7 +16,7 @@ from docx.enum.style import WD_STYLE_TYPE
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Cm, Pt, RGBColor
 
-# ruff: noqa: D205, T201
+# ruff: noqa: D205
 texto: str = Path('texto_template.txt').read_text()
 bottom: str = (
     'Generated 15 paragraphs, 1394 words, 9332 bytes of Lorem Ipsum at {}'

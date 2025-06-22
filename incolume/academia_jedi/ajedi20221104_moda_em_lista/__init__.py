@@ -5,7 +5,7 @@ from collections import Counter
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-# ruff: noqa: D103 E741 T201 S311
+# ruff: noqa: D103, E741, S311
 random.seed(17)
 
 l = [random.randint(1, 10) for _ in range(100)]

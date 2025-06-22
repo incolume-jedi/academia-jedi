@@ -1,6 +1,6 @@
 """Exhaustiveness."""
 
-# ruff: noqa: B011, D101, D103, PT015, S101, T201
+# ruff: noqa: B011, D101, D103, PT015, S101
 
 from enum import Enum
 from typing import NoReturn

@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: D101, D103, D105, T201
+# ruff: noqa: D101, D103, D105
 
 import abc
 from typing import Protocol

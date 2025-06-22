@@ -1,6 +1,6 @@
 """Estudos com pwinput e ofuscação de senhas."""
 
-# ruff: noqa: UP036 T201
+# ruff: noqa: UP036
 
 import contextlib
 import sys

@@ -10,7 +10,7 @@ def cli(ctx):
     if ctx.invoked_subcommand is None:
         click.echo('I was invoked without subcommand')
     else:
-        click.echo('I am about to invoke %s' % ctx.invoked_subcommand)
+        click.echo(f'I am about to invoke {ctx.invoked_subcommand}')
 
 
 @cli.command()

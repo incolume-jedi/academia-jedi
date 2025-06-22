@@ -1,6 +1,5 @@
 """Module."""
 
-# ruff: noqa:T201
 import csv
 import logging
 

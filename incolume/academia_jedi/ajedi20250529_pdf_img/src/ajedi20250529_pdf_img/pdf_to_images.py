@@ -18,7 +18,7 @@ Opções:
       polegada (DPI). Padrão: 300.
 """
 
-# ruff: noqa: BLE001 T201
+# ruff: noqa: BLE001
 from __future__ import annotations
 
 import argparse

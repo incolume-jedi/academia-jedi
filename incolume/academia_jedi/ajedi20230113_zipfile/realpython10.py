@@ -9,8 +9,6 @@ from incolume.academia_jedi.ajedi20230113_zipfile import (
     logger,
 )
 
-# ruff: noqa: T201
-
 hello = Path(base_dir, 'hello.txt')
 hello.write_text('hello')
 logger.info('created: %s', hello)

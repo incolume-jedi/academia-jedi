@@ -1,6 +1,6 @@
 from datetime import datetime
 
-# ruff: noqa: D100, D101, T201
+# ruff: noqa: D100, D101
 from decimal import Decimal
 
 import pony.orm.core

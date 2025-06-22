@@ -1,6 +1,6 @@
 """Should you use "not not x" instead of "bool(x)" in Python? (NO!)."""
 
-# ruff: noqa: D103, D419, G004, T201, TRY401
+# ruff: noqa: D103, D419, G004, TRY401
 
 import logging
 import timeit

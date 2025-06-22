@@ -1,6 +1,6 @@
 import asyncio
 
-# ruff: noqa: D100, D103, G004, T201
+# ruff: noqa: D100, D103, G004
 import logging
 from time import perf_counter
 

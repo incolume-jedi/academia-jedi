@@ -1,7 +1,5 @@
 """Module."""
 
-# ruff: noqa: T201
-
 from flet import (
     Column,
     Container,
@@ -11,8 +9,6 @@ from flet import (
     UserControl,
     VerticalDivider,
 )
-
-# ruff: noqa: T201
 
 
 class ClassName(UserControl):

@@ -13,7 +13,7 @@ from tempfile import gettempdir
 from typing import Protocol
 
 
-# ruff: noqa: D205, T201
+# ruff: noqa: D205
 class Writable(Protocol):
     """Writeble with abstract method."""
 

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-# ruff: noqa: D100, D101, D103, T201
+# ruff: noqa: D100, D101, D103
 
 
 @dataclass

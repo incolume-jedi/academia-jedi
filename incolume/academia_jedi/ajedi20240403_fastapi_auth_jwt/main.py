@@ -15,7 +15,7 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
 
-# ruff: noqa: ANN001, ANN201, D101, D103, DTZ003, E501, T201
+# ruff: noqa: ANN001, ANN201, D101, D103, DTZ003, E501
 
 load_dotenv(Path(__file__).parent.joinpath('.env'))
 

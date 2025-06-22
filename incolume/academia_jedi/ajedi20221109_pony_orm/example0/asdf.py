@@ -1,6 +1,6 @@
 from pony import orm
 
-# ruff: noqa: D100, D101, D103, PLR2004, T201
+# ruff: noqa: D100, D101, D103, PLR2004
 
 db = orm.Database()
 

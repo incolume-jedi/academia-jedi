@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: S311 T201
+# ruff: noqa: S311
 from random import random, seed
 
 from incolume.academia_jedi.ajedi20230107_magic_mathods.currency import (

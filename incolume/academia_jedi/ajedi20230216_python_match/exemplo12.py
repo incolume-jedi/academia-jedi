@@ -1,6 +1,6 @@
 from enum import Enum, auto
 
-# ruff: noqa: D100, D101, D103, T201
+# ruff: noqa: D100, D101, D103
 
 
 class Weekday0(Enum):

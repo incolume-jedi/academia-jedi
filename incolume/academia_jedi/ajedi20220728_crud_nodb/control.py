@@ -3,7 +3,7 @@ from incolume.academia_jedi.ajedi20220728_crud_nodb.model import Pessoa
 
 faker = Faker('pt_BR')
 
-# ruff: noqa: B007, D100, T201
+# ruff: noqa: B007, D100
 
 
 if __name__ == '__main__':

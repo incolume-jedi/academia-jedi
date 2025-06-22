@@ -1,6 +1,6 @@
 """Manipulação de NFe."""
 
-# ruff: noqa: SLOT000, T201
+# ruff: noqa: SLOT000
 
 import logging
 import re

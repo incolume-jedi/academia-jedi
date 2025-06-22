@@ -1,6 +1,6 @@
 """Modulo para manipulação de arquivos."""
 
-# ruff: noqa: SIM113, T201, T203
+# ruff: noqa: SIM113, T203
 
 import csv
 import json

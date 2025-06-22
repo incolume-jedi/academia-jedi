@@ -1,6 +1,6 @@
 import contextlib
 
-# ruff: noqa: D100, D419, PYI024, T201
+# ruff: noqa: D100, D419, PYI024
 import io
 from collections import namedtuple
 

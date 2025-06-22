@@ -1,6 +1,6 @@
 import dbm
 
-# ruff: noqa: D100, D103, D205, D419, E501, RUF001, S101, SIM115, T201, TRY401
+# ruff: noqa: D100, D103, D205, D419, E501, RUF001, S101, SIM115, TRY401
 import logging
 import os
 from pathlib import Path

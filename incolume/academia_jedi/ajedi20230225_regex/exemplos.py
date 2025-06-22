@@ -1,6 +1,6 @@
 """Module ..."""
 
-# ruff: noqa: D101, E501, G004, T201, TRY401
+# ruff: noqa: D101, E501, G004, TRY401
 
 import inspect
 import logging

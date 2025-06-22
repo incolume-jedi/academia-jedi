@@ -1,6 +1,6 @@
 import logging
 
-# ruff: noqa: D100, D103, G004, T201
+# ruff: noqa: D100, D103, G004
 from spellchecker import SpellChecker
 
 

@@ -10,7 +10,7 @@ from typing import NoReturn
 import flet as ft
 
 
-# ruff: noqa: D205, T201
+# ruff: noqa: D205
 def main(page: ft.Page) -> NoReturn:
     """Main it."""
     page.bgcolor = ft.colors.BLACK

@@ -1,6 +1,6 @@
 import googletrans
 
-# ruff: noqa: D100, D103, T201
+# ruff: noqa: D100, D103
 from googletrans import Translator
 
 __author__ = '@britodfbr'  # pragma: no cover

@@ -13,7 +13,7 @@ from incolume.academia_jedi.ajedi20240402_ft_ex022_flet_db.myaction import (
     create_table,
 )
 
-# ruff: noqa: ANN201, ARG001, BLE001, D103, F821, N802, T201
+# ruff: noqa: ANN201, ARG001, BLE001, D103, F821, N802
 
 
 def main(page: Page):

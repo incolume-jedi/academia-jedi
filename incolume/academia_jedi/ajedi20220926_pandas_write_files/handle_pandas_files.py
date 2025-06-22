@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: D100, D103, E501, N816, T201
+# ruff: noqa: D100, D103, E501, N816
 import inspect
 import logging
 from pathlib import Path

@@ -8,7 +8,6 @@ from typing import ClassVar
 from icecream import ic
 from tomli import load
 
-# ruff:noqa:T201
 alfabeto = 'abcdefghijklmnopqrstuvxwyz'
 
 chances = 6

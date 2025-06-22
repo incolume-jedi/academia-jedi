@@ -2,7 +2,7 @@
 
 from enum import IntEnum
 
-# ruff: noqa: PLR2004, T201
+# ruff: noqa: PLR2004
 config = {
     'categorias': {
         'CARRO': 1,

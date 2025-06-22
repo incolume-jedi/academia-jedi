@@ -1,7 +1,5 @@
 """Exemplo assincrono."""
 
-# ruff: noqa: T201
-
 import asyncio
 from itertools import starmap
 from time import perf_counter

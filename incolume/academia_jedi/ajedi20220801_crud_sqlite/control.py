@@ -1,6 +1,6 @@
 from faker import Faker
 
-# ruff: noqa: B007, D100, T201
+# ruff: noqa: B007, D100
 from incolume.academia_jedi.ajedi20220801_crud_sqlite.model import Pessoa
 
 faker = Faker('pt_BR')

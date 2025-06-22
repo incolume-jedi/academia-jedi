@@ -9,7 +9,7 @@ from icecream import ic
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-# ruff: noqa: T201 PERF203
+# ruff: noqa: PERF203
 
 df0 = pd.read_csv(
     'https://raw.githubusercontent.com/jhnwr/flask-restful-demo/main/data.csv',
