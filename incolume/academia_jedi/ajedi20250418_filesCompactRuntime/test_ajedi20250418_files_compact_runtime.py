@@ -1,5 +1,4 @@
 """Estudo sobre compactação em runtime."""
-# ruff: noqa: E501
 
 import io
 from typing import ClassVar, NoReturn

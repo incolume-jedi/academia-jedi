@@ -14,7 +14,6 @@ try:
 except ImportError:
     from typing_extensions import Self
 
-# ruff: noqa: E501
 
 
 class Fruit2:

@@ -1,6 +1,5 @@
 """Testes unitários para estrutura de decisão."""
 
-# ruff: noqa: E501
 
 from re import escape
 from icecream import ic

@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: C901, FBT003, E501, S311, PLR2004, PLR0912, SIM103
+# ruff: noqa: C901, FBT003, S311, PLR2004, PLR0912, SIM103
 
 import random
 

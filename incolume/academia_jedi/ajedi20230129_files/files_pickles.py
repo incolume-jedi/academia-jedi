@@ -1,6 +1,6 @@
 import logging
 
-# ruff: noqa: D100, D103, E501, S301
+# ruff: noqa: D100, D103, S301
 import os
 import pickle
 from pathlib import Path

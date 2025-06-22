@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: ANN201, D100, D103, D205, E501
+# ruff: noqa: ANN201, D100, D103, D205
 from collections.abc import Iterable
 
 __author__ = '@britodfbr'  # pragma: no cover

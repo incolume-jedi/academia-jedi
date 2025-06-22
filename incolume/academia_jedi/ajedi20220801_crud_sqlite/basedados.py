@@ -1,6 +1,6 @@
 import logging
 
-# ruff: noqa: A002, ANN201, ARG001, D100, D103, E501, FBT001, FBT002
+# ruff: noqa: A002, ANN201, ARG001, D100, D103, FBT001, FBT002
 import sqlite3
 from pathlib import Path
 

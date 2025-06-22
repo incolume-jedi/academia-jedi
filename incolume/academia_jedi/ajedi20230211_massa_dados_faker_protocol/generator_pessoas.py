@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: A002, D100, D102, D103, DTZ007, E501, G004, T203
+# ruff: noqa: A002, D100, D102, D103, DTZ007, G004, T203
 import datetime as dt
 import logging
 from pprint import pprint

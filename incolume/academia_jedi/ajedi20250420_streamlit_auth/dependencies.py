@@ -1,5 +1,4 @@
 """DB conection."""
-# ruff: noqa: E501
 
 import os
 from collections.abc import Generator

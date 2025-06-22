@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: A002, ANN001, BLE001, D101, D102, D107, E501, N806, N999, S608, TRY300
+# ruff: noqa: A002, ANN001, BLE001, D101, D102, D107, N806, N999, S608, TRY300
 
 import contextlib
 from datetime import date, timedelta
@@ -8,7 +8,7 @@ from datetime import date, timedelta
 import bcrypt
 import mysql.connector
 
-# ruff: noqa: A002, ANN001, BLE001, D101, D102, D107, DTZ011, E501, N803, N806, S608, TRY300
+# ruff: noqa: A002, ANN001, BLE001, D101, D102, D107, DTZ011, N803, N806, S608, TRY300
 
 
 class UserDatabase:

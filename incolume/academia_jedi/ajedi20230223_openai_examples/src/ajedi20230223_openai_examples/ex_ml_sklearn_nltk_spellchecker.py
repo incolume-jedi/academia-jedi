@@ -2,7 +2,6 @@
 
 import logging
 
-# ruff: noqa: E501
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression

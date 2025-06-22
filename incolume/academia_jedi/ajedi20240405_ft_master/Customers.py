@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: A002, ANN201, ARG002, D101, D102, D107, E501, ERA001, N999, PLR2004
+# ruff: noqa: A002, ANN201, ARG002, D101, D102, D107, ERA001, N999, PLR2004
 
 from ConfirmDialog import ConfirmDialog
 from Database import CustomerDatabase, SalesDatabase
@@ -31,7 +31,7 @@ from Notification import Notification
 from Reports import CustomerReport
 from Validator import Validator
 
-# ruff: noqa: A002, ANN201, ARG002, D101, D102, D107, E501, ERA001, PLR2004
+# ruff: noqa: A002, ANN201, ARG002, D101, D102, D107, ERA001, PLR2004
 
 
 class Customers(UserControl):

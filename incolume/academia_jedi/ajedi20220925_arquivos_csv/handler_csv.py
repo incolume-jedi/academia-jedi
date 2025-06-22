@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: D100, D103, E501, G001, N816, PTH123
+# ruff: noqa: D100, D103, G001, N816, PTH123
 __author__ = '@britodfbr'  # pragma: no cover
 import csv
 import logging

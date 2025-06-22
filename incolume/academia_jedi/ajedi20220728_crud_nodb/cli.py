@@ -8,7 +8,7 @@ from incolume.academia_jedi.ajedi20220728_crud_nodb.basedados import (
 )
 from incolume.academia_jedi.ajedi20220728_crud_nodb.model import Pessoa
 
-# ruff: noqa: ARG001, D103, E501
+# ruff: noqa: ARG001, D103
 
 # @click.group(context_settings=CONTEXT_SETTINGS, invoke_without_command=True)
 # @click.option('--debug/--no-debug', default=False, help='Activate debug mode.')

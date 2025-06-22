@@ -1,7 +1,5 @@
 """Module."""
 
-# ruff: noqa: E501
-# ruff: noqa: E501
 
 __author__ = '@britodfbr'  # pragma: no cover
 

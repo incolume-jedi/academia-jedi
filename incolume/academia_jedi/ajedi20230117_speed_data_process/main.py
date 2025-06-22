@@ -1,6 +1,5 @@
 """Module."""
 
-# ruff: noqa: E501
 from pathlib import Path
 from tempfile import gettempdir
 from time import perf_counter
