@@ -36,6 +36,7 @@ dev = [
     "pytest-cov>=6.2.1",
     "ruff>=0.12.0",
     "sqlalchemy>=1.4.39,<2",
+    "testcontainers>=4.10.0",
     "windows-curses>=2.4.1 ; sys_platform == 'win32'",
 ]
 
@@ -207,6 +208,7 @@ streamlit = "^1.44.1"
 streamlit-authenticator = "^0.4.2"
 psycopg2-binary = "^2.9.10"
 cx-freeze = "^8.3.0"
+testcontainers = "^4.10.0"
 
 
 [[tool.poetry.source]]
