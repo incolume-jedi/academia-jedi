@@ -67,6 +67,7 @@ members = [
     "incolume/academia_jedi/ajedi20250614_raspagem_AI",
     "incolume/academia_jedi/ajedi20250615_gen_barcode",
     "incolume/academia_jedi/ajedi20250616_dashboard_venda_market",
+    "incolume/academia_jedi/ajedi20250620_py_script",
 ]
 
 [tool.uv.sources]
