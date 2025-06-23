@@ -23,7 +23,7 @@ from ucimlrepo import fetch_ucirepo
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
+    format='%(asctime)s;%(name)s;%(levelname)-8s;%(module)s;%(funcName)s;%(message)s'
 )
 
 logging.info('Hello from script iris.py!')
