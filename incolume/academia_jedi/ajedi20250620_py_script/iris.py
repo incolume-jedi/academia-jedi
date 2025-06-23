@@ -5,6 +5,7 @@
 # dependencies = [
 #     "click>=8.1.8",
 #     "pandas==2.2.3",
+#     "rich==14.0.0",
 #     "ucimlrepo>=0.0.7",
 # ]
 # ///
