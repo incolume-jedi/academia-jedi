@@ -4,6 +4,7 @@
 # requires-python = ">=3.10"
 # dependencies = [
 #     "click>=8.1.8",
+#     "pandas==2.2.3",
 #     "ucimlrepo>=0.0.7",
 # ]
 # ///
