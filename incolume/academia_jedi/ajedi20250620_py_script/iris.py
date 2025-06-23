@@ -2,7 +2,9 @@
 """Script iris."""
 # /// script
 # requires-python = ">=3.10"
-# dependencies = []
+# dependencies = [
+#     "ucimlrepo",
+# ]
 # ///
 
 import urllib.request
