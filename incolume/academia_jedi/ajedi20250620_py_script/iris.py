@@ -20,11 +20,15 @@ import click
 import pandas as pd
 from icecream import ic
 from ucimlrepo import fetch_ucirepo
+from rich.logging import RichHandler
+from rich.console import Console
+from rich.table import Table
 
 
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s;%(name)s;%(levelname)-8s;%(module)s;%(funcName)s;%(message)s'
+    format='%(asctime)s;%(name)s;%(levelname)-8s;%(module)s;%(funcName)s;%(message)s',
+    handlers=[RichHandler(rich_tracebacks=True)]
 )
 
 logging.info('Hello from script iris.py!')
@@ -106,17 +110,13 @@ class DescriptiveStatistics:
 def main(operation: str, variable: str) -> None:
     """Chamada script iris."""
 
+    console = Console()
     iris = fetch_iris()
 
     match operation:
         case Operation.SUMMARY:
             if variable:
-                logging.info(f'{IrisVariable(variable)} summary:')
-                logging.info(
-                    DescriptiveStatistics(
-                        iris.data.features[IrisVariable(variable).value],
-                    ),
-                )
+                console.print(generate_table(iris, variable))
             else:
                 logging.info('All variables:')
                 logging.info(pformat(iris.variables))
@@ -137,6 +137,18 @@ def fetch_iris():
     else:
         logging.info("Iris dataset fetched successfully")
         return iris_data
+
+def generate_table(dataset, variable):
+    """Generate a formatted table of descriptive statistics for a variable."""
+    column = IrisVariable(variable).value
+    stats = DescriptiveStatistics(dataset.data.features[column])
+    table = Table(title=f"{column} summary")
+    table.add_column("Metric", style="cyan", justify="right")
+    table.add_column("Value", style="magenta")
+    table.add_row("Mean", f"{stats.mean:.2f}")
+    table.add_row("Median", f"{stats.median:.2f}")
+    table.add_row("Mean-Median Diff", f"{stats.mm_diff:.2f}")
+    return table
 
 
 if __name__ == '__main__':
