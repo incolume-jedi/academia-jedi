@@ -658,11 +658,15 @@ name = "ajedi20250620-py-script"
 version = "0.1.0"
 source = { virtual = "incolume/academia_jedi/ajedi20250620_py_script" }
 dependencies = [
+    { name = "click" },
     { name = "ucimlrepo" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "ucimlrepo", specifier = ">=0.0.7" }]
+requires-dist = [
+    { name = "click", specifier = ">=8.1.8" },
+    { name = "ucimlrepo", specifier = ">=0.0.7" },
+]
 
 [[package]]
 name = "altair"

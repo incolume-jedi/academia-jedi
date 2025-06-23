@@ -3,21 +3,39 @@
 # /// script
 # requires-python = ">=3.10"
 # dependencies = [
-#     "ucilmrepo>=0.0.7",
+#     "click>=8.1.8",
+#     "ucimlrepo>=0.0.7",
 # ]
 # ///
 
 from ucimlrepo import fetch_ucirepo
+from pprint import pprint as pp
+import click
 
 
 IRIS_DATASET_ID = 53
-def main() -> None:
+
+@click.command()
+@click.option(
+    "--operation",
+    default="summary",
+    type=click.Choice(["summary", "metadata"]),
+    help="Operation to perform: variable summary or dataset metadata",
+)
+def main(operation: str) -> None:
     """Chamada script iris."""
     print('Hello from script iris.py!')
     print("Fetching Iris dataset using ucimlrepo...")
     iris = fetch_ucirepo(id=IRIS_DATASET_ID)
     print("Dataset fetched successfully. Variable summary:")
     print(iris.variables)
+
+    if operation == "summary":
+        print("Variable summary:")
+        pp(iris.variables)
+    elif operation == "metadata":
+        print("Metadata summary:")
+        pp(iris.metadata)
 
 
 
