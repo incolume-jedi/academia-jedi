@@ -9,12 +9,16 @@
 # ]
 # ///
 
+from dataclasses import dataclass, field
 from enum import IntEnum, StrEnum, auto
+from pprint import pformat
 from pprint import pprint as pp
 
 import click
-from ucimlrepo import fetch_ucirepo
+import pandas as pd
 from icecream import ic
+from ucimlrepo import fetch_ucirepo
+
 
 class UCIDataset(IntEnum):
     """class for UCIDataSet."""
@@ -35,7 +39,10 @@ class IrisVariable(StrEnum):
         """Get item."""
         value = str(value).casefold()
         for member in cls:
-            if member.value == value or member.name == value.upper().replace(' ', '_'):
+            if member.value == value or member.name == value.upper().replace(
+                ' ',
+                '_',
+            ):
                 return member
         return None
 
@@ -46,9 +53,30 @@ class IrisVariable(StrEnum):
         result.extend(x.value for x in cls)
         return result
 
+
 class Operation(StrEnum):
     SUMMARY = auto()
     METADATA = auto()
+
+
+@dataclass
+class DescriptiveStatistics:
+    data: pd.Series
+    mean: float = field(init=False)
+    median: float = field(init=False)
+    mm_diff: float = field(init=False)
+
+    def __post_init__(self):
+        if not isinstance(self.data, pd.Series):
+            raise TypeError(
+                f'data must be a pandas Series, not {type(self.data)}',
+            )
+        self.mean = self.data.mean()
+        self.median = self.data.median()
+        self.mm_diff = self.mean - self.median
+
+    def __str__(self):
+        return pformat(self)
 
 
 @click.command()
@@ -74,12 +102,14 @@ def main(operation: str, variable: str) -> None:
     print('Dataset fetched successfully.')
 
     match operation:
-
         case Operation.SUMMARY:
             if variable:
                 print(f'{IrisVariable(variable)} summary:')
-                ic(IrisVariable(variable))
-                pp(iris.data.features[IrisVariable(variable).value])
+                print(
+                    DescriptiveStatistics(
+                        iris.data.features[IrisVariable(variable).value],
+                    ),
+                )
             else:
                 print('All variables:')
                 pp(iris.variables)

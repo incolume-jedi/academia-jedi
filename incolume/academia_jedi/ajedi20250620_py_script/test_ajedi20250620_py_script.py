@@ -3,7 +3,6 @@
 import pytest
 from incolume.academia_jedi.ajedi20250620_py_script import iris
 from typing import NoReturn
-from icecream import ic
 
 
 class TestPythonScript:
