@@ -29,6 +29,15 @@ class IrisVariable(StrEnum):
     SEPAL_WIDTH = 'sepal width'
     SEPAL_LENGTH = 'sepal length'
 
+    @classmethod
+    def _missing_(cls, value):
+        """Get item."""
+        value = value.lower()
+        for member in cls:
+            if member.value == value:
+                return member
+        return None
+
 
 @click.command()
 @click.option(
