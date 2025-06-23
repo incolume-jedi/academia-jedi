@@ -9,11 +9,14 @@
 # ///
 
 from pprint import pprint as pp
-
+from enum import IntEnum
 import click
 from ucimlrepo import fetch_ucirepo
 
-IRIS_DATASET_ID = 53
+
+class UCIDataset(IntEnum):
+    """class for UCIDataSet."""
+    IRIS = 53
 
 
 @click.command()
@@ -28,7 +31,7 @@ def main(operation: str) -> None:
     """Chamada script iris."""
     print('Hello from script iris.py!')
     print('Fetching Iris dataset using ucimlrepo...')
-    iris = fetch_ucirepo(id=IRIS_DATASET_ID)
+    iris = fetch_ucirepo(id=UCIDataset.IRIS.value)
     print('Dataset fetched successfully. Variable summary:')
     print(iris.variables)
 
