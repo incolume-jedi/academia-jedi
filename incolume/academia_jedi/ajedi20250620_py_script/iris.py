@@ -8,15 +8,26 @@
 # ]
 # ///
 
+from enum import IntEnum, StrEnum
 from pprint import pprint as pp
-from enum import IntEnum
+
 import click
 from ucimlrepo import fetch_ucirepo
 
 
 class UCIDataset(IntEnum):
     """class for UCIDataSet."""
+
     IRIS = 53
+
+
+class IrisVariable(StrEnum):
+    """class for IrisVariable."""
+
+    PETAL_LENGTH = 'petal length'
+    PETAL_WIDTH = 'petal width'
+    SEPAL_WIDTH = 'sepal width'
+    SEPAL_LENGTH = 'sepal length'
 
 
 @click.command()
@@ -27,7 +38,14 @@ class UCIDataset(IntEnum):
     type=click.Choice(['summary', 'metadata']),
     help='Operation to perform: variable summary or dataset metadata',
 )
-def main(operation: str) -> None:
+@click.option(
+    '--variable',
+    '-v',
+    type=click.Choice(IrisVariable),
+    help='Variable to summarize.',
+    required=False,
+)
+def main(operation: str, variable: str) -> None:
     """Chamada script iris."""
     print('Hello from script iris.py!')
     print('Fetching Iris dataset using ucimlrepo...')
@@ -36,8 +54,12 @@ def main(operation: str) -> None:
     print(iris.variables)
 
     if operation == 'summary':
-        print('Variable summary:')
-        pp(iris.variables)
+        if variable:
+            print(f'{IrisVariable(variable)} summary:')
+            pp(iris.data.features[IrisVariable(variable).value])
+        else:
+            print('All variables:')
+            pp(iris.variables)
     elif operation == 'metadata':
         print('Metadata summary:')
         pp(iris.metadata)
