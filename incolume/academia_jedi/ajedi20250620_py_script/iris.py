@@ -129,6 +129,7 @@ def fetch_iris():
     logging.info("Fetching Iris dataset...")
     try:
         iris_data = fetch_ucirepo(id=UCIDataset.IRIS.value)
+        assert "data" in iris_data.keys(), "Object does not have expected structure"
     except Exception as e:
         logging.critical(f"Failed to correctly fetch Iris dataset: {e}")
         sys.exit(1)
