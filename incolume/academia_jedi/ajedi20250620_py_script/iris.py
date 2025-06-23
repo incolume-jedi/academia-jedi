@@ -8,7 +8,7 @@
 # ]
 # ///
 
-from enum import IntEnum, StrEnum
+from enum import IntEnum, StrEnum, auto
 from pprint import pprint as pp
 
 import click
@@ -45,13 +45,17 @@ class IrisVariable(StrEnum):
         result.extend(x.value for x in cls)
         return result
 
+class Operation(StrEnum):
+    SUMMARY = auto()
+    METADATA = auto()
+
 
 @click.command()
 @click.option(
     '--operation',
     '-o',
-    default='summary',
-    type=click.Choice(['summary', 'metadata']),
+    default=Operation.SUMMARY,
+    type=click.Choice(Operation, case_sensitive=False),
     help='Operation to perform: variable summary or dataset metadata',
 )
 @click.option(
@@ -68,17 +72,19 @@ def main(operation: str, variable: str) -> None:
     iris = fetch_ucirepo(id=UCIDataset.IRIS.value)
     print('Dataset fetched successfully.')
 
-    if operation == 'summary':
-        if variable:
-            print(f'{IrisVariable(variable)} summary:')
-            ic(IrisVariable(variable))
-            pp(iris.data.features[IrisVariable(variable).value])
-        else:
-            print('All variables:')
-            pp(iris.variables)
-    elif operation == 'metadata':
-        print('Metadata summary:')
-        pp(iris.metadata)
+    match operation:
+
+        case Operation.SUMMARY:
+            if variable:
+                print(f'{IrisVariable(variable)} summary:')
+                ic(IrisVariable(variable))
+                pp(iris.data.features[IrisVariable(variable).value])
+            else:
+                print('All variables:')
+                pp(iris.variables)
+        case Operation.METADATA:
+            print('Metadata summary:')
+            pp(iris.metadata)
 
 
 if __name__ == '__main__':
