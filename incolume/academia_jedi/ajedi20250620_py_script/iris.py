@@ -23,6 +23,7 @@ from ucimlrepo import fetch_ucirepo
 from rich.logging import RichHandler
 from rich.console import Console
 from rich.table import Table
+from rich.console import Console, Text
 
 
 logging.basicConfig(
@@ -116,7 +117,14 @@ def main(operation: str, variable: str) -> None:
     match operation:
         case Operation.SUMMARY:
             if variable:
-                console.print(generate_table(iris, variable))
+                table = generate_table(iris, variable)
+                logging.info(format_rich_for_log(table))
+                logging.info(f"{IrisVariable(variable)} summary:")
+                logging.info(
+                DescriptiveStatistics(
+                    iris.data.features[IrisVariable(variable).value]
+                )
+            )
             else:
                 logging.info('All variables:')
                 logging.info(pformat(iris.variables))
@@ -149,6 +157,13 @@ def generate_table(dataset, variable):
     table.add_row("Median", f"{stats.median:.2f}")
     table.add_row("Mean-Median Diff", f"{stats.mm_diff:.2f}")
     return table
+
+def format_rich_for_log(renderable, width=80):
+    """Render a rich object to a plain text string suitable for logging."""
+    console = Console(width=width)
+    with console.capture() as capture:
+        console.print(renderable)
+    return Text.from_ansi(capture.get())
 
 
 if __name__ == '__main__':
