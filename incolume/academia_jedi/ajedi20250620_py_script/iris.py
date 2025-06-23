@@ -13,12 +13,20 @@ from dataclasses import dataclass, field
 from enum import IntEnum, StrEnum, auto
 from pprint import pformat
 from pprint import pprint as pp
-
+import logging
+import sys
 import click
 import pandas as pd
 from icecream import ic
 from ucimlrepo import fetch_ucirepo
 
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+logging.info('Hello from script iris.py!')
 
 class UCIDataset(IntEnum):
     """class for UCIDataSet."""
@@ -96,26 +104,37 @@ class DescriptiveStatistics:
 )
 def main(operation: str, variable: str) -> None:
     """Chamada script iris."""
-    print('Hello from script iris.py!')
-    print('Fetching Iris dataset using ucimlrepo...')
-    iris = fetch_ucirepo(id=UCIDataset.IRIS.value)
-    print('Dataset fetched successfully.')
+
+    iris = fetch_iris()
 
     match operation:
         case Operation.SUMMARY:
             if variable:
-                print(f'{IrisVariable(variable)} summary:')
-                print(
+                logging.info(f'{IrisVariable(variable)} summary:')
+                logging.info(
                     DescriptiveStatistics(
                         iris.data.features[IrisVariable(variable).value],
                     ),
                 )
             else:
-                print('All variables:')
-                pp(iris.variables)
+                logging.info('All variables:')
+                logging.info(pformat(iris.variables))
         case Operation.METADATA:
-            print('Metadata summary:')
-            pp(iris.metadata)
+            logging.info('Metadata summary:')
+            logging.info(pformat(iris.metadata))
+
+
+def fetch_iris():
+    """Return the Iris dataset from the UCI ML Repository."""
+    logging.info("Fetching Iris dataset...")
+    try:
+        iris_data = fetch_ucirepo(id=UCIDataset.IRIS.value)
+    except Exception as e:
+        logging.critical(f"Failed to correctly fetch Iris dataset: {e}")
+        sys.exit(1)
+    else:
+        logging.info("Iris dataset fetched successfully")
+        return iris_data
 
 
 if __name__ == '__main__':
