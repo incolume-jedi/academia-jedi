@@ -20,6 +20,7 @@ dev = [
     "aiohttp>=3.8.3,<4",
     "aspose-words>=23.12.0",
     "bs4>=0.0.2 ; python_full_version >= '3.7'",
+    "cx-freeze>=8.3.0",
     "easygui>=0.98.3,<1",
     "faker>=19.6.2",
     "fastapi>=0.110.1",
@@ -202,6 +203,7 @@ networkx = "^3.4.2"
 streamlit = "^1.44.1"
 streamlit-authenticator = "^0.4.2"
 psycopg2-binary = "^2.9.10"
+cx-freeze = "^8.3.0"
 
 
 [[tool.poetry.source]]
