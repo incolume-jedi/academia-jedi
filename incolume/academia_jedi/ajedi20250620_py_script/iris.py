@@ -13,7 +13,7 @@ from pprint import pprint as pp
 
 import click
 from ucimlrepo import fetch_ucirepo
-
+from icecream import ic
 
 class UCIDataset(IntEnum):
     """class for UCIDataSet."""
@@ -32,7 +32,7 @@ class IrisVariable(StrEnum):
     @classmethod
     def _missing_(cls, value):
         """Get item."""
-        value = value.lower()
+        value = str(value).casefold()
         for member in cls:
             if member.value == value:
                 return member
@@ -75,4 +75,5 @@ def main(operation: str, variable: str) -> None:
 
 
 if __name__ == '__main__':
-    main()
+    # main()
+    ic(IrisVariable(''))
