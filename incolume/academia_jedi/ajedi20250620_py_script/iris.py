@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Script iris."""
 
-# ruff: noqa: EXE001 S101 BLE001
+# ruff: noqa: EXE001 S101 BLE001 RUF100
 
 # /// script
 # requires-python = ">=3.10"
