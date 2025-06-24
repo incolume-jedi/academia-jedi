@@ -17,7 +17,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "aiohttp>=3.8.3,<4",
+    "aiohttp[speedups]>=3.8.3,<4",
     "aspose-words>=23.12.0",
     "bs4>=0.0.2 ; python_full_version >= '3.7'",
     "cx-freeze>=8.3.0",
@@ -111,7 +111,7 @@ dynaconf = "^3.2.3"
 # isort = "^5.12.0"
 # pydocstyle = "^6.3.0"
 # poetry = "^1.8.2"
-aiohttp = "^3.8.3"
+aiohttp = {extras = ["speedups"], version = "^3.12.13"}
 # fpdf2 = "^2.7.8"
 # pillow = {version="^9.4.0", python=">=3.9,<3.12"}
 # incolumepy-utils = {git = "https://gitlab.com/development-incolume/incolumepy.utils.git", rev = "master"}
