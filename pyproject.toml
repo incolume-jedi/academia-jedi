@@ -71,7 +71,8 @@ members = [
 ]
 
 [tool.uv.sources]
-ajedi20250614-logging = { path = "incolume/academia_jedi/ajedi20250611_logging" }
+ajedi20230223-openai-examples = {path = "incolume/academia_jedi/ajedi20230223_openai_examples"}
+ajedi20250611-logging = { path = "incolume/academia_jedi/ajedi20250611_logging" }
 
 [tool.poetry]
 name = "academia-jedi"
