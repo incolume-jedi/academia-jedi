@@ -1,7 +1,5 @@
 """XML handler."""
 
-# ruff: noqa: T201
-
 import os
 from pathlib import Path
 

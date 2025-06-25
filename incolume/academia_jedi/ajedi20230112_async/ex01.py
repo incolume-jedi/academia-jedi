@@ -2,8 +2,6 @@
 
 from time import perf_counter, sleep
 
-# ruff: noqa: T201
-
 # exemplo sincrono
 st = perf_counter()
 print(1)

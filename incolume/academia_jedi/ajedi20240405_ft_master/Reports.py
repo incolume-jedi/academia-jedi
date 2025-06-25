@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: ANN001, BLE001, D101, D102, D107, DTZ005, E501, ERA001, N802, N999
+# ruff: noqa: ANN001, BLE001, D101, D102, D107, DTZ005, ERA001, N802, N999
 
 from datetime import datetime
 
@@ -21,7 +21,7 @@ from reportlab.platypus import (
 )
 
 
-# ruff: noqa: ANN001, ERA001, D101, D102, D107, E501, BLE001, DTZ005, N802
+# ruff: noqa: ANN001, ERA001, D101, D102, D107, BLE001, DTZ005, N802
 class CustomerReport:
     def __init__(self, filename, data) -> None:
         self.data = data

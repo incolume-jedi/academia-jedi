@@ -2,8 +2,6 @@
 
 import asyncio
 
-# ruff: noqa: T201
-
 
 async def function_asyc():
     """Async."""

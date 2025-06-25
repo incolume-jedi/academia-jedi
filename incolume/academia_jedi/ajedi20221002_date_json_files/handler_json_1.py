@@ -1,6 +1,6 @@
 import json
 
-# ruff: noqa: ANN201, D100, D101, D102, D103, D105, DTZ005, E501, G004, N816, T201
+# ruff: noqa: ANN201, D100, D101, D102, D103, D105, DTZ005, G004, N816
 import logging
 from copy import copy
 from dataclasses import dataclass, field

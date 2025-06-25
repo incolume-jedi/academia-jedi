@@ -1,6 +1,6 @@
 """Criar cadeias de códons para massa de testes."""
 
-# ruff: noqa: B007, PLR2004, S311, T201
+# ruff: noqa: B007, PLR2004, S311
 
 import random
 from typing import Final
@@ -9,10 +9,8 @@ from typing import Final
 def massa_codon_dna0(tamanho_codon: int = 4) -> str:
     """Verificar se codon está no alfabeto do DNA."""
     alfabeto: Final = 'ACGT'
-    if tamanho_codon > 1000:  # pylint: disable=R1730  noqa:PLR2004
-        tamanho_codon = 1000
-    if tamanho_codon <= 4:  # pylint: disable=R1731  noqa:PLR2004
-        tamanho_codon = 4
+    tamanho_codon = min(tamanho_codon, 1000)
+    tamanho_codon = max(4, tamanho_codon)
     codon = random.choices(alfabeto, k=tamanho_codon)
     return ''.join(codon)
 

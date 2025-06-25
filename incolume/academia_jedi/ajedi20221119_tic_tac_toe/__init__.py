@@ -2,7 +2,7 @@
 
 import logging
 
-# ruff: noqa: ANN001, ANN201, ANN202, C901, D103, T201
+# ruff: noqa: ANN001, ANN201, ANN202, C901, D103
 board = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
 
 logging.debug(board)

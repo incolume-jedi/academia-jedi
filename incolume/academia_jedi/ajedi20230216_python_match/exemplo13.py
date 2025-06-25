@@ -1,5 +1,5 @@
 def subareas(*args):
-    # ruff: noqa: D100, D103, D419, T201
+    # ruff: noqa: D100, D103, D419
     match args:
         case [area]:
             print(f'{area} não possui subareas.')

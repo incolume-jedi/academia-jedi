@@ -1,6 +1,6 @@
 """Matching Positional Arguments."""
 
-# ruff: noqa: ANN001, C901, D101, D103, D107, T201
+# ruff: noqa: ANN001, C901, D101, D103, D107
 
 
 class Location:

@@ -1,6 +1,6 @@
 """JSON Processing."""
 
-# ruff: noqa: ANN201, D103, PLR2004, T201
+# ruff: noqa: ANN201, D103, PLR2004
 
 orders = [
     {

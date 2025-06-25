@@ -1,5 +1,5 @@
 """Estudos com Pytz."""
-# ruff: noqa: DTZ005 T201
+# ruff: noqa: DTZ005
 
 import datetime as dt
 

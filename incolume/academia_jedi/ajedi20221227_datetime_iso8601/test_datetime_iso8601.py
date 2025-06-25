@@ -1,7 +1,5 @@
 """Test iso8601."""
 
-# ruff: noqa: E501
-
 import logging
 from icecream import ic
 import datetime as dt

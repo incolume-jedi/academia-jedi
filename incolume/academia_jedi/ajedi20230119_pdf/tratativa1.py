@@ -1,6 +1,6 @@
 # importing required modules
 
-# ruff: noqa: D100, D103, N806, PTH123, SIM115, T201
+# ruff: noqa: D100, D103, N806, PTH123, SIM115
 import inspect
 import logging
 

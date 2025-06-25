@@ -2,8 +2,6 @@
 
 from language_tool_python import LanguageTool
 
-# ruff: noqa: T201
-
 # criar objeto LanguageTool para português do Brasil
 tool = LanguageTool('pt-BR')
 

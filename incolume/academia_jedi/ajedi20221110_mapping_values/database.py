@@ -1,7 +1,5 @@
 """Modulo com exemplos de mapeamento de valores em objetos."""
 
-# ruff: noqa: T201
-
 import datetime as dt
 from dataclasses import dataclass
 from sys import getsizeof

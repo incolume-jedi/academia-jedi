@@ -1,7 +1,5 @@
 """Module."""
 
-# ruff: noqa: T201
-
 from typing import NoReturn, Protocol
 
 

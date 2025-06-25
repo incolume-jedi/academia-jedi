@@ -1,6 +1,6 @@
 """Module oracle."""
 
-# ruff: noqa: F401 F841 E501
+# ruff: noqa: F401, F841
 import io
 import tempfile
 from pathlib import Path

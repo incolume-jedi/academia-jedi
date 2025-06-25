@@ -1,6 +1,6 @@
 """Solução dos exercícios estrutura de decisão."""
 
-# ruff: noqa: ANN001, ANN002, ANN201, ANN202, B904, B905, C408, C901, D205, D415, DTZ007, EM101, ERA001, F841, N802, PERF401, PLR1714, PLR2004, PYI024, RET503, SIM103, SIM109, T201, TRY003
+# ruff: noqa: ANN001, ANN002, ANN201, ANN202, B904, B905, C408, C901, D205, D415, DTZ007, EM101, ERA001, F841, N802, PERF401, PLR1714, PLR2004, PYI024, RET503, SIM103, SIM109, TRY003
 
 import datetime
 import operator
@@ -117,7 +117,8 @@ def exercicio10(turno: str):
     try:
         return turnos[turno.casefold()]
     except KeyError:
-        raise ValueError('Turno inválido: "%s".' % turno)
+        msg = f'Turno inválido: "{turno}".'
+        raise ValueError(msg)
 
 
 def exercicio11(salario: float) -> str:

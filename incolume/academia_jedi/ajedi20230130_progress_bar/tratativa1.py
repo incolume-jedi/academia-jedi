@@ -3,7 +3,7 @@
 import logging
 from time import sleep
 
-from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.generator_pessoas import (  # noqa: E501
+from incolume.academia_jedi.ajedi20220925_massa_dados_faker_protocol.generator_pessoas import (
     massa_pessoas,
 )
 from tqdm import tqdm

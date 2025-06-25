@@ -1,6 +1,6 @@
 """Exhaustiveness."""
 
-# ruff: noqa: B011, D101, D103, PT015, S101, T201, TRY401
+# ruff: noqa: B011, D101, D103, PT015, S101, TRY401
 
 import logging
 from enum import Enum

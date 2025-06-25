@@ -14,8 +14,6 @@ else:
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-# ruff: noqa: T201
-
 
 class Jokenpo(Enum):
     """Jokenpo enumerate."""

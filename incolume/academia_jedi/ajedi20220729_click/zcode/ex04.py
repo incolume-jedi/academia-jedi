@@ -5,8 +5,6 @@ from operator import mul
 
 import click
 
-# ruff: noqa: T201
-
 
 @click.command()
 @click.argument('vals', type=int, nargs=-1)

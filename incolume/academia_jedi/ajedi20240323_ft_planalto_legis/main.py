@@ -20,7 +20,7 @@ from incolume.academia_jedi.ajedi20240323_ft_planalto_legis.views.pages import (
     set_navbar,
 )
 
-# ruff: noqa: E501, EM102, ERA001, TRY003
+# ruff: noqa: EM102, ERA001, TRY003
 
 assets = Path(__file__).parent / 'assets'
 

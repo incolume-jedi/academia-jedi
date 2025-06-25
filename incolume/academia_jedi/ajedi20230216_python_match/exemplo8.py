@@ -1,6 +1,6 @@
 """Branch Reachability."""
 
-# ruff: noqa: C901, D103, T201
+# ruff: noqa: C901, D103
 
 
 def run():

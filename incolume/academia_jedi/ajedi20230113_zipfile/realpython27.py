@@ -5,8 +5,6 @@ from pathlib import Path
 
 from incolume.academia_jedi.ajedi20230113_zipfile import filezip_sample, logger
 
-# ruff: noqa: T201
-
 root = Path(__file__).parent
 logger.debug(root)
 

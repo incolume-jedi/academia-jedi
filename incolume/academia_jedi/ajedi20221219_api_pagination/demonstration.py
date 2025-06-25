@@ -9,7 +9,7 @@ from collections.abc import Iterator
 import requests
 
 __author__ = '@britodfbr'  # pragma: no cover
-# ruff: noqa: ANN202, D103, D415, D419, PERF402, S113, T201
+# ruff: noqa: ANN202, D103, D415, D419, PERF402, S113
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s;%(levelname)-8s;%(name)s;'

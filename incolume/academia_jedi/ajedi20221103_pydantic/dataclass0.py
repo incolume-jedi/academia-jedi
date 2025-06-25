@@ -1,6 +1,5 @@
 """Module study pydantic dataclass."""
 
-# ruff: noqa: T201
 from datetime import datetime
 
 from pydantic.dataclasses import dataclass

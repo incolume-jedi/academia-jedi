@@ -69,7 +69,7 @@ def get_uf_by_id(
 
 def main() -> None:
     """Main function to execute the script."""
-    print('Hello from ajedi20250602-acesso-api-ibge!')  # noqa: T201
+    print('Hello from ajedi20250602-acesso-api-ibge!')
     get_uf_by_id(53)
 
 

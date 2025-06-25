@@ -3,7 +3,7 @@
 from config import settings
 from icecream import ic
 
-# ruff: noqa: T201 PERF401
+# ruff: noqa: PERF401
 
 ic.disable()
 if settings.debug_mode:

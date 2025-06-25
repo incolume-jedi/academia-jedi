@@ -12,7 +12,7 @@ from incolume.academia_jedi.ajedi20221107_params.positional_params import (
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-# ruff: noqa: F402 T201
+# ruff: noqa: F402
 
 
 def example1():

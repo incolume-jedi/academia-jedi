@@ -1,6 +1,6 @@
 import logging
 
-# ruff: noqa: D100, D103, F821, G004, N816, T201
+# ruff: noqa: D100, D103, F821, G004, N816
 from getpass import getpass
 
 logFormat = (

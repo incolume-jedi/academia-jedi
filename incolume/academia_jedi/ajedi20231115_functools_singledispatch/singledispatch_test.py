@@ -2,7 +2,7 @@ import pytest
 from incolume.academia_jedi import logger
 from icecream import ic
 
-# ruff: noqa: D100, D419, E501, FBT003
+# ruff: noqa: D100, D419, FBT003
 from incolume.academia_jedi.ajedi20231115_functools_singledispatch.main import (
     fun,
 )

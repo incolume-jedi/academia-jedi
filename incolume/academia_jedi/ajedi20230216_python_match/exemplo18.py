@@ -1,6 +1,6 @@
 import re
 
-# ruff: noqa: C901, D100, D103, PYI024, T201
+# ruff: noqa: C901, D100, D103, PYI024
 from collections import namedtuple
 
 

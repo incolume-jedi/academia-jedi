@@ -1,6 +1,5 @@
 """Locadora CLI."""
 
-# ruff:noqa: T201
 import os
 from collections.abc import Container
 from dataclasses import asdict, dataclass, field

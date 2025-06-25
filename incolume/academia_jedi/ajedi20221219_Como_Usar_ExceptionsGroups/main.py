@@ -1,7 +1,5 @@
 """Module."""
 
-# ruff: noqa: E501 T201
-
 import sys
 from platform import python_version
 

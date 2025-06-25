@@ -1,6 +1,6 @@
 import re
 
-# ruff: noqa: D100, D101, D103, D105, SLOT000, T201
+# ruff: noqa: D100, D101, D103, D105, SLOT000
 from dataclasses import dataclass
 
 

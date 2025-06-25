@@ -1,6 +1,6 @@
 """Argumento python."""
 
-# ruff: noqa: ARG001, T201
+# ruff: noqa: ARG001
 
 from typing import NoReturn
 

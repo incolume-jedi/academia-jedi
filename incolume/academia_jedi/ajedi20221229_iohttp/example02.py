@@ -1,6 +1,6 @@
 """https://youtu.be/lUwZ9rS0SeM."""
 
-# ruff: noqa: D103, SIM117, T201
+# ruff: noqa: D103, SIM117
 
 import asyncio
 

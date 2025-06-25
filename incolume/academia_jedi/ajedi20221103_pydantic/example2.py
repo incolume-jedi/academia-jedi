@@ -1,7 +1,5 @@
 """Pydantic python 3.9+."""
 
-# ruff: noqa: T201
-
 from datetime import datetime
 
 from pydantic import BaseModel

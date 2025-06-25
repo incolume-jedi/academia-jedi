@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: ANN001, ANN401, C901, D100, D103, DTZ005, G004, PERF203, PERF401, S605, S607, T201
+# ruff: noqa: ANN001, ANN401, C901, D100, D103, DTZ005, G004, PERF203, PERF401, S605, S607
 import datetime as dt
 import logging
 import re

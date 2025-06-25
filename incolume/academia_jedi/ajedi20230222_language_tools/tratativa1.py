@@ -2,7 +2,6 @@
 
 import logging
 
-# ruff: noqa: T201
 from language_tool_python import LanguageTool
 
 

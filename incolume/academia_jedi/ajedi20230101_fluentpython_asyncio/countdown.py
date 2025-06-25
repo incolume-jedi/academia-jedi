@@ -1,6 +1,6 @@
 ##!/usr/bin/env python3
 
-# ruff: noqa: D100, D103, T201
+# ruff: noqa: D100, D103
 
 # Inspired by
 # https://snarky.ca/how-the-heck-does-async-await-work-in-python-3-5/

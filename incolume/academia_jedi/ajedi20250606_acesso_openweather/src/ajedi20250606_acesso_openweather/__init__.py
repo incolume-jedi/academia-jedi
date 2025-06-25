@@ -41,7 +41,7 @@ def auth_token(
 
 def info():
     """Main function to run the OpenWeatherMap access module."""
-    print('Hello from ajedi20250606-acesso-openweather!')  # noqa: T201
+    print('Hello from ajedi20250606-acesso-openweather!')
 
 
 if __name__ == '__main__':

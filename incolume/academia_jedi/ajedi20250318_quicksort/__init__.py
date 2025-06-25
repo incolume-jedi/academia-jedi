@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: T201 PLR2004
+# ruff: noqa: PLR2004
 
 from collections.abc import Container
 

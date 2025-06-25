@@ -12,7 +12,7 @@ from sqlalchemy import create_engine
 Faker(seed=13)
 fake = Faker()
 
-# ruff: noqa: T201, ANN401, ANN201, S608
+# ruff: noqa: ANN401, ANN201, S608
 
 
 def massa_test():

@@ -1,5 +1,4 @@
 """Module."""
-# ruff: noqa: T201
 
 from collections import Counter
 

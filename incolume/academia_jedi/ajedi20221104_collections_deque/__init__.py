@@ -11,7 +11,7 @@ from pathlib import Path
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-# ruff: noqa: ANN202, D103, D205, D402, E741, PERF203, PTH123, T201
+# ruff: noqa: ANN202, D103, D205, D402, E741, PERF203, PTH123
 
 
 def example1():

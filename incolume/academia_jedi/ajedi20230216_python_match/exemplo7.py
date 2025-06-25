@@ -1,6 +1,6 @@
 """Soft Keywords."""
 
-# ruff: noqa: ANN201, D103, T201
+# ruff: noqa: ANN201, D103
 
 import re
 

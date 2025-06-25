@@ -2,8 +2,6 @@
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-# ruff: noqa: T201
-
 
 def tratativa1():
     """Tratativa."""

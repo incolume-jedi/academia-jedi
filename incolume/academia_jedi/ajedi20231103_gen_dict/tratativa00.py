@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-# ruff: noqa: D100, D105, D107, D415, ERA001, SLF001, T201
+# ruff: noqa: D100, D105, D107, D415, ERA001, SLF001
 
 
 class Veiculo:

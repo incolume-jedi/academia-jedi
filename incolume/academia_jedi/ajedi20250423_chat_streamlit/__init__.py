@@ -1,6 +1,5 @@
 """Chat streamlit."""
 
-# ruff: noqa: E501
 from __future__ import annotations
 
 import datetime as dt

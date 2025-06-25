@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 
-# ruff: noqa: B007, D100, D101, D103, T201
+# ruff: noqa: B007, D100, D101, D103
 from datetime import datetime
 
 

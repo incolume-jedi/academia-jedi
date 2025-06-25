@@ -2,7 +2,7 @@
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-# ruff: noqa: T201 PLR0913
+# ruff: noqa: PLR0913
 
 
 def func(a, b, /, c, d, *, e, f):

@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: D100, T201
+# ruff: noqa: D100
 from incolume.academia_jedi.ajedi20220924_dynaconf.config import settings
 
 __author__ = '@britodfbr'  # pragma: no cover

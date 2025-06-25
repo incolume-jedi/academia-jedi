@@ -1,6 +1,6 @@
 from pydantic import BaseModel, ValidationError, validator
 
-# ruff: noqa: ARG002, D100, D102, N805, S101, T201
+# ruff: noqa: ARG002, D100, D102, N805, S101
 
 
 class UserModel(BaseModel):

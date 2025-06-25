@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: ARG002, C901, D101, D102, D107, E501, ERA001, N999, PLR2004
+# ruff: noqa: ARG002, C901, D101, D102, D107, ERA001, N999, PLR2004
 
 from flet import (
     Container,
@@ -17,7 +17,7 @@ from flet import (
 from SetGeneralConfig import SetGeneralConfig
 
 
-# ruff: noqa: ARG002, C901, ERA001, D101, D102, D107, E501, PLR2004
+# ruff: noqa: ARG002, C901, ERA001, D101, D102, D107, PLR2004
 class SideMenu(UserControl):
     def __init__(self, route):
         super().__init__()

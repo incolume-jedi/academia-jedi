@@ -70,7 +70,7 @@ def new_post_api_response(**kwargs: str) -> requests.Response:
 
 def main() -> None:
     """Main function to run the API example."""
-    print('Hello from ajedi20250601-python-api!')  # noqa: T201
+    print('Hello from ajedi20250601-python-api!')
     resp1 = get_api_response()
     ic(resp1.json())
 

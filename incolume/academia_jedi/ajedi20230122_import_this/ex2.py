@@ -1,6 +1,6 @@
 import contextlib
 
-# ruff: noqa: D100, D103, T201
+# ruff: noqa: D100, D103
 import io
 
 

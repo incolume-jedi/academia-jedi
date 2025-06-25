@@ -1,6 +1,6 @@
 import pytest
 
-# ruff: noqa: D100, D101, D102, E501, PLR2004
+# ruff: noqa: D100, D101, D102, PLR2004
 
 from incolume.academia_jedi.ajedi20231004_largest_sum_continuous_subarray_pythonico import (
     max_sub_array_sum,

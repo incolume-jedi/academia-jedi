@@ -1,6 +1,5 @@
 """Module."""
 
-# ruff:noqa: T201
 import sys
 
 from incolume.academia_jedi.ajedi20230113_zipfile import logger

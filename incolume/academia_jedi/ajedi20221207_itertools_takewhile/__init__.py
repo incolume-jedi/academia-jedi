@@ -1,5 +1,4 @@
 """EStudo takewhile."""
-# ruff: noqa: T201
 
 from collections.abc import Container
 from itertools import takewhile

@@ -11,7 +11,7 @@ import itertools
 import threading
 import time
 
-# ruff: noqa: D103, D415, T201
+# ruff: noqa: D103, D415
 
 
 def spin(msg, done):  # <1>

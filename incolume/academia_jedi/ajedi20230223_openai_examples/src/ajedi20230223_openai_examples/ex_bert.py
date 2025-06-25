@@ -1,5 +1,4 @@
 """Module estudo com transformers."""
-# ruff: noqa: T201
 
 import contextlib
 import sys

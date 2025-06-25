@@ -8,7 +8,7 @@ from enum import Enum
 from typing import NoReturn
 
 
-# ruff: noqa: B011, D101, D103, G004, PERF203, PT015, S101, T201, TRY401
+# ruff: noqa: B011, D101, D103, G004, PERF203, PT015, S101, TRY401
 class Color(Enum):
     RED = 'Red'
     GREEN = 'Green'

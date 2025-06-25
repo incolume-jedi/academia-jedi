@@ -7,7 +7,7 @@
 
 def main() -> None:
     """Main function to run the Image to Text AI module."""
-    print('Hello from ajedi20250530_img2txtAI!')  # noqa: T201
+    print('Hello from ajedi20250530_img2txtAI!')
 
 
 if __name__ == '__main__':

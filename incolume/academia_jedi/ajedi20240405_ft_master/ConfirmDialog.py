@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: ARG002, D102, D107, E501, N999
+# ruff: noqa: ARG002, D102, D107, N999
 
 from flet import (
     AlertDialog,
@@ -10,7 +10,7 @@ from flet import (
     TextButton,
 )
 
-# ruff: noqa: ARG002, D102, D107, E501
+# ruff: noqa: ARG002, D102, D107
 
 
 class ConfirmDialog(AlertDialog):

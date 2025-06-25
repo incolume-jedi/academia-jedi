@@ -1,6 +1,6 @@
 """Enum examples."""
 
-# ruff: noqa: ARG002, C901, D101, D102, D103, D105, N805, PIE796, PLR2004, T201
+# ruff: noqa: ARG002, C901, D101, D102, D103, D105, N805, PIE796, PLR2004
 
 import string
 from enum import Enum, auto

@@ -1,6 +1,6 @@
 """Dojo contagem de nucleotídeos."""
 
-# ruff: noqa: C901, E501
+# ruff: noqa: C901
 
 
 def contador_nucleotideos(nucleotideo: str) -> str:
