@@ -4,12 +4,13 @@ https://docs.aiohttp.org/en/stable/
 
 """
 
-# ruff: noqa: D103, SIM117, T201
+# ruff: noqa: D103, SIM117
 
 import asyncio
 
 import aiohttp
 from icecream import ic
+
 
 async def main():
     async with aiohttp.ClientSession() as session:
