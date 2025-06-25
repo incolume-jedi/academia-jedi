@@ -4,7 +4,6 @@ https://www.geeksforgeeks.org/convert-pdf-to-image-using-python/.
 
 sudo apt install poppler-utils
 """
-# ruff: noqa: T201
 
 from pathlib import Path
 from typing import Final

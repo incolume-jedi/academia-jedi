@@ -1,5 +1,4 @@
 """Mescla de planilhas."""
-# ruff: noqa: T201
 
 import inspect
 from pathlib import Path

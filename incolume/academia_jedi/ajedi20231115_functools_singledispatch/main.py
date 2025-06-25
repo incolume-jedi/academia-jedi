@@ -1,6 +1,6 @@
 from functools import singledispatch
 
-# ruff: noqa: ANN001, ANN202, D100, D103, FBT001, FBT002, T201
+# ruff: noqa: ANN001, ANN202, D100, D103, FBT001, FBT002
 
 __author__ = '@britodfbr'  # pragma: no cover
 

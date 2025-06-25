@@ -1,6 +1,6 @@
 import logging
 
-# ruff: noqa: C419, D100, D103, D205, FBT001, FBT002, FBT003, PLR2004, T201, TRY401
+# ruff: noqa: C419, D100, D103, D205, FBT001, FBT002, FBT003, PLR2004, TRY401
 import re
 
 import rstr

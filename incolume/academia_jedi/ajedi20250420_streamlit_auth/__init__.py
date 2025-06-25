@@ -4,7 +4,6 @@ Dependências:
    $ poetry add -G dev streamlit streamlit-authenticator psycopg2-binary python-dotenv
 
 """
-# ruff: noqa: E501
 
 from time import sleep
 from typing import Final

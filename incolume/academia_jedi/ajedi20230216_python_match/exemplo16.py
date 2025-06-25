@@ -1,6 +1,6 @@
 import re
 
-# ruff: noqa: ANN204, D100, D101, D103, D105, FIX002, N801, S101, T201, TD002, TD003, TD004
+# ruff: noqa: ANN204, D100, D101, D103, D105, FIX002, N801, S101, TD002, TD003, TD004
 from dataclasses import dataclass
 
 

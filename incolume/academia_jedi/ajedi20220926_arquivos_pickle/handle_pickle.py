@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: D100, D103, E501, G004, N816, PTH123, S301
+# ruff: noqa: D100, D103, G004, N816, PTH123, S301
 __author__ = '@britodfbr'  # pragma: no cover
 import logging
 import pickle

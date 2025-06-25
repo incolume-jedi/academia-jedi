@@ -1,6 +1,6 @@
 """test_class_parametrization.py."""
 
-# ruff: noqa: D102, E501, PT006, T201
+# ruff: noqa: D102, PT006
 
 import inspect
 
@@ -17,7 +17,7 @@ import pytest
 class TestGroup:
     """A class with common parameters, `param1` and `param2`."""
 
-    @pytest.fixture()
+    @pytest.fixture
     def fixt(self):
         """This fixture will only be available within the scope of TestGroup."""
         return 123

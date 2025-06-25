@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: ANN201, D100, D101, D103, DTZ005, T201
+# ruff: noqa: ANN201, D100, D101, DTZ005
 import datetime as dt
 from dataclasses import dataclass
 

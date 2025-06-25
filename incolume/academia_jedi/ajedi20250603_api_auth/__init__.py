@@ -132,7 +132,7 @@ def get_spotify(**kwargs: str) -> httpx.Response:
 
 def main() -> None:
     """Main function for ajedi20250603-api-auth."""
-    print('Hello from ajedi20250603-api-auth!')  # noqa: T201
+    print('Hello from ajedi20250603-api-auth!')
     try:
         auth_basic()  # Replace with actual credentials
     except httpx.HTTPStatusError as e:

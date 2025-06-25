@@ -1,7 +1,5 @@
 """Testes dojo20231016."""
 
-# ruff: noqa: E501
-
 # !/usr/bin/env python
 import pytest
 

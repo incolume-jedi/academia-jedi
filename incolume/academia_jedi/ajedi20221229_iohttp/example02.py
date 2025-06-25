@@ -1,6 +1,6 @@
 """https://youtu.be/lUwZ9rS0SeM."""
 
-# ruff: noqa: D103, SIM117, T201
+# ruff: noqa: D103, SIM117
 
 import asyncio
 
@@ -14,5 +14,7 @@ async def main():
             print(await resp.text())
 
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
+    asyncio.run(main())

@@ -1,6 +1,6 @@
 from sys import getsizeof
 
-# ruff: noqa: D100, T201
+# ruff: noqa: D100
 
 tupla = (1, 2, 3, 4, 5, 6, 7, 8, 9)
 lista = [1, 2, 3, 4, 5, 6, 7, 8, 9]

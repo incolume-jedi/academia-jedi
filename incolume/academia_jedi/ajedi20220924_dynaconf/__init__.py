@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: D104, E501, FBT001, FBT002, FBT003
+# ruff: noqa: D104, FBT001, FBT002, FBT003
 from os import environ
 
 from incolume.academia_jedi.ajedi20220924_dynaconf.app import run

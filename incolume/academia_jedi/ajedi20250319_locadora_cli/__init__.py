@@ -1,6 +1,5 @@
 """Locadora CLI."""
 
-# ruff:noqa: T201
 import os
 from collections.abc import Container
 from dataclasses import asdict, dataclass, field
@@ -50,7 +49,7 @@ Categoria: IntEnum = IntEnum(
     module=__name__,
 )
 
-Categoria._missing_, Montadora._missing_ = _missing_, _missing_  # noqa: SLF001
+Categoria._missing_, Montadora._missing_ = _missing_, _missing_
 
 
 @dataclass

@@ -1,6 +1,6 @@
 __author__ = '@britodfbr'  # pragma: no cover
 
-# ruff: noqa: ANN201, ANN401, D100, D103, T201
+# ruff: noqa: ANN201, ANN401, D100, D103
 
 from functools import wraps
 from typing import Any

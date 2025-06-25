@@ -1,6 +1,6 @@
 import re
 
-# ruff: noqa: ANN201, D100, D103, T201
+# ruff: noqa: ANN201, D100, D103
 from collections.abc import Callable
 from functools import wraps
 

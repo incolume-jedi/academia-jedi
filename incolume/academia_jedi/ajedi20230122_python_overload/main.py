@@ -1,6 +1,6 @@
 import logging
 
-# ruff: noqa: D100, D419, FBT003, T201
+# ruff: noqa: D100, D419, FBT003
 from incolume.academia_jedi.ajedi20230122_python_overload.tratativa1 import (
     inverse,
 )

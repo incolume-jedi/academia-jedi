@@ -1,6 +1,6 @@
 import requests
 
-# ruff: noqa: ANN201, ARG001, D100, D103, D205, N806, S113, T201
+# ruff: noqa: ANN201, ARG001, D100, D103, D205, N806, S113
 
 
 def tratativa1(session: requests.Session, city_name: str):

@@ -1,7 +1,5 @@
 """Constantes module."""
 
-# ruff: noqa: E501
-
 __author__ = '@britodfbr'  # pragma: no cover
 
 labels = ['Added', 'Changed', 'Deprecated', 'Removed', 'Fixed', 'Security']

@@ -12,7 +12,7 @@ class TestAjedi20250602AcessoApiIbge:
     """Test class for ajedi20250602_acesso_api_ibge package."""
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 {'url_api': pkg.url_api.format(nome='ada')},
@@ -66,7 +66,7 @@ class TestAjedi20250602AcessoApiIbge:
         assert response == expected
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 {'nome': 'ada'},
@@ -101,7 +101,7 @@ class TestAjedi20250602AcessoApiIbge:
         assert expected.issubset(response[0]['res'][0].keys())
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 'UF-id',
@@ -119,7 +119,7 @@ class TestAjedi20250602AcessoApiIbge:
         assert all(r for r in response if r.get(entrance) == expected)
 
     @pytest.mark.parametrize(
-        'entrance expected'.split(),
+        ['entrance', 'expected'],
         [
             pytest.param(
                 'UF-id',

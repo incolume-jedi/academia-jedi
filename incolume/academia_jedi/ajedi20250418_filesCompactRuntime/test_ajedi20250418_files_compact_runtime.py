@@ -1,5 +1,4 @@
 """Estudo sobre compactação em runtime."""
-# ruff: noqa: E501
 
 import io
 from typing import ClassVar, NoReturn
@@ -19,8 +18,8 @@ if settings.debug_mode:
     ic.enable()
 
 
-@pytest.mark.slow()
-@pytest.mark.webtest()
+@pytest.mark.slow
+@pytest.mark.webtest
 class TestCase:
     """TestCase."""
 

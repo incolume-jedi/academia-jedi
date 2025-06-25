@@ -1,6 +1,6 @@
 import logging
 
-# ruff: noqa: D100, D419, G004, T201, TRY401
+# ruff: noqa: D100, D419, G004, TRY401
 import typing
 from pathlib import Path
 

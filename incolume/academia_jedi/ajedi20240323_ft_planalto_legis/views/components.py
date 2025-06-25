@@ -1,6 +1,6 @@
 """Components."""
 
-# ruff: noqa: E501, ERA001
+# ruff: noqa: ERA001
 
 import logging
 from pathlib import Path

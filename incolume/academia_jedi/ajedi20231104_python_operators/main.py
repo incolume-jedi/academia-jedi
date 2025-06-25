@@ -1,6 +1,6 @@
 """Operador examples."""
 
-# ruff: noqa: T201, T203
+# ruff: noqa: T203
 
 from functools import reduce
 from operator import add, floordiv, itemgetter, mod, mul, sub

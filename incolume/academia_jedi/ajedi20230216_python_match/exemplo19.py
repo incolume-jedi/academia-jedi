@@ -1,6 +1,6 @@
 import logging
 
-# ruff: noqa: D100, D103, G004, PERF203, T201, TRY401
+# ruff: noqa: D100, D103, G004, PERF203, TRY401
 
 
 def check_point(point: tuple) -> None:

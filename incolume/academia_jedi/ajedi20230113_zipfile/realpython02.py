@@ -5,7 +5,7 @@ from pathlib import Path
 
 from incolume.academia_jedi.ajedi20230113_zipfile import filezip_sample, logger
 
-# ruff:noqa: T201 TRY301
+# ruff: noqa: TRY301
 
 zipnames = (
     filezip_sample,

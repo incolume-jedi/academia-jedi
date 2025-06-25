@@ -3,7 +3,6 @@
 [Is This a Good Way to deal with API Pagination?](https://www.youtube.com/watch?v=X4WctWZ2ANw).
 """
 
-# ruff: noqa: T201
 import logging
 from collections.abc import Iterator
 

@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: ERA001, F811, PLR2004, S101, T201
+# ruff: noqa: ERA001, F811, PLR2004, S101
 
 __author__ = '@britodfbr'  # pragma: no cover
 from dataclasses import dataclass
@@ -8,7 +8,7 @@ from typing import Union
 
 from dataclass_wizard import property_wizard
 
-# ruff: noqa: S101 T201 ERA001 PLR2004
+# ruff: noqa: S101, ERA001, PLR2004
 
 
 @dataclass

@@ -8,13 +8,13 @@ from pathlib import Path
 from tempfile import gettempdir
 
 
-@pytest.fixture()
+@pytest.fixture
 def fout():
     """Tempdir."""
     return Path(gettempdir()) / 'test-file.txt'
 
 
-@pytest.fixture()
+@pytest.fixture
 def data_test():
     """Data test."""
     return {'name': 'John Doe', 'age': 30}

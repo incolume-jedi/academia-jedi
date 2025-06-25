@@ -2,7 +2,6 @@
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
 
 import openpyxl
 import requests
@@ -25,7 +24,7 @@ class Movie:
 def scraping_ranking1(
     url: str = '',
     excel_output: str | Path = '',
-    columns_name: Optional[list] = None,
+    columns_name: list | None = None,
 ) -> bool:
     """Scraping ranking."""
     excel_output = Path(excel_output or 'my_IMDB_Movies_Ratings.xlsx')

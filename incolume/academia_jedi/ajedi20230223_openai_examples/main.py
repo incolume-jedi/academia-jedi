@@ -1,7 +1,5 @@
 """Main Module."""
 
-# ruff: noqa: T201
-
 import logging
 from platform import python_version
 

@@ -97,7 +97,7 @@ class LogApp:
         """Result."""
         self.e = e.control.value
         self.result = self.db_execute(
-            "select * from register where cidade like '%s'" % self.e,
+            f"select * from register where cidade like '{self.e}'",
         )
         self.page.update()
 

@@ -1,7 +1,5 @@
 """Exemplo sincrono."""
 
-# ruff: noqa: T201
-
 from itertools import starmap
 from time import perf_counter, sleep
 

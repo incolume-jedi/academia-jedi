@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: ANN201, D100, D103, PYI024, T201
+# ruff: noqa: ANN201, D100, D103, PYI024
 __author__ = '@britodfbr'  # pragma: no cover
 
 import re

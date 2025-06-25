@@ -14,7 +14,7 @@ from pathlib import Path
 import cv2
 import pytesseract
 
-# ruff: noqa: D103, D205, D419, E501, T201
+# ruff: noqa: D103, D205, D419
 
 
 def exemplo1() -> None:

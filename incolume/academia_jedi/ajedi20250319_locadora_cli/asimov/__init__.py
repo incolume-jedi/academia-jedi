@@ -1,6 +1,5 @@
 """Exemplo Asimov adaptado."""
 
-# ruff:noqa: T201
 from dataclasses import dataclass
 
 from icecream import ic

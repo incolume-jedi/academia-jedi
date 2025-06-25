@@ -10,8 +10,6 @@ from incolume.academia_jedi.ajedi20230113_zipfile import (
     logger,
 )
 
-# ruff: noqa: T201
-
 
 def run():
     """Run it."""

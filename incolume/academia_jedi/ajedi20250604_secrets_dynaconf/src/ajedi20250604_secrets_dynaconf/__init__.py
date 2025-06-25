@@ -45,7 +45,7 @@ def dumps_toml(data: dict) -> str:
 
 def main() -> None:
     """Main function to run the secrets management."""
-    print('Hello from ajedi20250604-secrets-dynaconf!')  # noqa: T201
+    print('Hello from ajedi20250604-secrets-dynaconf!')
     data = load_yaml_from_str(content=content)
     ic(dumps_json(data))
     ic(dumps_yaml(data))

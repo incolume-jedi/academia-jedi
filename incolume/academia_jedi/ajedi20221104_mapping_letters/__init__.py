@@ -6,7 +6,6 @@ from unidecode import unidecode
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-# ruff: noqa: T201
 
 words = [
     'missíssipi',

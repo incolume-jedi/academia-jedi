@@ -1,6 +1,6 @@
 [project]
 name = "academia-jedi"
-version = "0.118.0"
+version = "0.119.0"
 description = ""
 readme="README.md"
 requires-python = ">=3.10,<4"
@@ -12,14 +12,15 @@ dependencies = [
   "dynaconf>=3.2.3",
   "click>=8.1.3",
   "python-dotenv>=0.20.0",
+  "unidecode>=1.4.0",
 ]
 
 [dependency-groups]
 dev = [
-    "aiohttp>=3.8.3,<4",
-    "ajedi20250614-logging",
+    "aiohttp[speedups]>=3.8.3,<4",
     "aspose-words>=23.12.0",
     "bs4>=0.0.2 ; python_full_version >= '3.7'",
+    "cx-freeze>=8.3.0",
     "easygui>=0.98.3,<1",
     "faker>=19.6.2",
     "fastapi>=0.110.1",
@@ -32,6 +33,8 @@ dev = [
     "markdown>=3.4.1",
     "passlib[bcrypt]>=1.7.4",
     "pre-commit>=3.7.0 ; python_full_version >= '3.9'",
+    "pytest-cov>=6.2.1",
+    "ruff>=0.12.0",
     "sqlalchemy>=1.4.39,<2",
     "windows-curses>=2.4.1 ; sys_platform == 'win32'",
 ]
@@ -40,6 +43,7 @@ dev = [
 
 [tool.uv.workspace]
 members = [
+    "incolume/academia_jedi/ajedi20230223_openai_examples",
     "incolume/academia_jedi/ajedi20250516_task_estudo_llm",
     "incolume/academia_jedi/ajedi20250520_estudo_container",
     "incolume/academia_jedi/ajedi20250520_wrapper_docker",
@@ -51,25 +55,28 @@ members = [
     "incolume/academia_jedi/ajedi20250601_Python_API",
     "incolume/academia_jedi/ajedi20250602_acesso_api_ibge",
     "incolume/academia_jedi/ajedi20250603_api_auth",
+    "incolume/academia_jedi/ajedi20250604_secrets_dynaconf",
     "incolume/academia_jedi/ajedi20250605_streamlit_docker",
     "incolume/academia_jedi/ajedi20250606_acesso_openweather",
-    "incolume/academia_jedi/ajedi20250604_secrets_dynaconf",
-    "incolume/academia_jedi/ajedi20250607_dockerfile_inline",
     "incolume/academia_jedi/ajedi20250607_docker_subprojetos",
-    "incolume/academia_jedi/ajedi20230223_openai_examples",
+    "incolume/academia_jedi/ajedi20250607_dockerfile_inline",
     "incolume/academia_jedi/ajedi20250609_img2txtAI",
     "incolume/academia_jedi/ajedi20250610_estudos_docker_compose",
     "incolume/academia_jedi/ajedi20250611_logging",
+    "incolume/academia_jedi/ajedi20250613_postgres_docker",
     "incolume/academia_jedi/ajedi20250614_raspagem_AI",
     "incolume/academia_jedi/ajedi20250615_gen_barcode",
+    "incolume/academia_jedi/ajedi20250616_dashboard_venda_market",
+    "incolume/academia_jedi/ajedi20250620_py_script",
 ]
 
 [tool.uv.sources]
-ajedi20250614-logging = { path = "incolume/academia_jedi/ajedi20250611_logging" }
+ajedi20230223-openai-examples = {path = "incolume/academia_jedi/ajedi20230223_openai_examples"}
+ajedi20250611-logging = { path = "incolume/academia_jedi/ajedi20250611_logging" }
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.118.0"
+version = "0.119.0"
 description = ""
 readme="README.md"
 authors = ["Britodfbr <britodfbr@gmail.com>"]
@@ -105,7 +112,7 @@ dynaconf = "^3.2.3"
 # isort = "^5.12.0"
 # pydocstyle = "^6.3.0"
 # poetry = "^1.8.2"
-aiohttp = "^3.8.3"
+aiohttp = {extras = ["speedups"], version = "^3.12.13"}
 # fpdf2 = "^2.7.8"
 # pillow = {version="^9.4.0", python=">=3.9,<3.12"}
 # incolumepy-utils = {git = "https://gitlab.com/development-incolume/incolumepy.utils.git", rev = "master"}
@@ -123,7 +130,7 @@ faker = "^19.6.2"
 fastapi = "^0.110.1"
 fastparquet = [{version="^2022.12.0", python="<3.11"}, {version="^2024.11.0", python=">=3.11"}]
 flask-restful = "^0.3.9"
-flet = "^0.21.2"
+flet = ">=0.21.2"
 # getch = { version = "^1.0", python = "<3.11" }
 # getch = "^1.0"
 googletrans = [{ version = "^3.0.0", python = "<=3.9" }, {version="^4.0.0", python=">=3.10"}]
@@ -198,6 +205,7 @@ networkx = "^3.4.2"
 streamlit = "^1.44.1"
 streamlit-authenticator = "^0.4.2"
 psycopg2-binary = "^2.9.10"
+cx-freeze = "^8.3.0"
 
 
 [[tool.poetry.source]]
@@ -211,7 +219,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 log_format = '%(asctime)s; %(levelname)-8s; %(name)s; %(module)s; %(funcName)s; %(message)s'
-log_date_format ='%Y%m%dT%H%M%N%z'
+log_date_format ='%Y%m%dT%H%M%S%z'
 addopts = "--doctest-modules --cov=incolume -sx --cov-report term-missing --cov-report html:coverage_report/html --cov-report xml:coverage_report/cov.xml"
 testpaths = [
   "tests/",

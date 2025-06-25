@@ -1,6 +1,6 @@
 import logging
 
-# ruff: noqa: D100, G004, PLE1205, S113, S310, T201, TRY300, TRY401
+# ruff: noqa: D100, G004, PLE1205, S113, S310, TRY300, TRY401
 import re
 import typing
 import urllib.request

@@ -1,6 +1,6 @@
 """Pydantic python 3.10+."""
 
-# ruff: noqa: T201 UP036
+# ruff: noqa: UP036
 
 import contextlib
 import sys

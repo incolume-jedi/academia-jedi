@@ -1,6 +1,6 @@
 """Matching Builtin Types."""
 
-# ruff: noqa: ANN201, ANN401, D103, D419, T201
+# ruff: noqa: ANN201, ANN401, D103, D419
 
 import builtins
 from typing import Any

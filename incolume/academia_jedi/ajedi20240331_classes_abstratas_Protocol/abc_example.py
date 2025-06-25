@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-# ruff: noqa: ANN201, D100, D101, D102, D103, D107, PTH123, T201
+# ruff: noqa: ANN201, D100, D101, D102, D103, D107, PTH123
 
 
 class SerializedFileHandler(ABC):

@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: ARG001, D103, E501
+# ruff: noqa: ARG001, D103
 
 import flet as ft
 

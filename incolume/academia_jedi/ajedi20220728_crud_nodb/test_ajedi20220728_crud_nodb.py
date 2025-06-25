@@ -50,7 +50,7 @@ def test_get_id(expected: int) -> None:
     assert get_id() == expected
 
 
-@pytest.fixture()
+@pytest.fixture
 def pessoa():
     """Fixture pessoa."""
     fname = fake.first_name()

@@ -1,5 +1,4 @@
 """Exemplo."""
-# ruff: noqa: T201
 
 import logging
 from argparse import ArgumentParser, Namespace

@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: ANN201, ARG002, C901, D101, D102, D107, E501, ERA001, N999, PERF401, T201
+# ruff: noqa: ANN201, ARG002, C901, D101, D102, D107, ERA001, N999, PERF401
 
 import contextlib
 
@@ -38,7 +38,7 @@ from Reports import SaleReport
 from Validator import Validator
 
 
-# ruff: noqa: ARG002, C901, T201, ANN201, ERA001, D101, D102, D107, E501
+# ruff: noqa: ARG002, C901, ANN201, ERA001, D101, D102, D107
 class Sales(UserControl):
     def __init__(self, route):
         super().__init__()

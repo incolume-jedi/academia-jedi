@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-# ruff: noqa: D100, D101, D102, D103, D107, PTH123, S101, S301, T201
+# ruff: noqa: D100, D101, D102, D103, D107, PTH123, S101, S301
 from json import dumps as json_dumps
 from json import loads as json_loads
 from pickle import dumps as pickle_dumps

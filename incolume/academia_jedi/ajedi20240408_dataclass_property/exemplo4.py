@@ -1,13 +1,13 @@
 """Module."""
 
-# ruff: noqa: ERA001, F811, PLR2004, S101, T201
+# ruff: noqa: ERA001, F811, PLR2004, S101
 
 __author__ = '@britodfbr'  # pragma: no cover
 
 from dataclasses import dataclass, field
 from typing import Union
 
-# ruff: noqa: S101 T201 PLR2004 ERA001
+# ruff: noqa: S101, PLR2004, ERA001
 
 
 @dataclass

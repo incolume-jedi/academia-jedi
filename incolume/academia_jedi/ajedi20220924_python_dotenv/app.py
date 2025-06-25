@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-# ruff: noqa: D100, T201
+# ruff: noqa: D100
 from os import environ, getenv
 
 from dotenv import load_dotenv

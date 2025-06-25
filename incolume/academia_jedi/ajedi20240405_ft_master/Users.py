@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: A002, ANN201, ARG002, C901, D101, D107, ERA001, N999, T201
+# ruff: noqa: A002, ANN201, ARG002, C901, D101, D107, ERA001, N999
 
 from datetime import date
 
@@ -33,7 +33,7 @@ from flet import (
 from Notification import Notification
 
 
-# ruff: noqa: ARG002 A002 DTZ011 C901 T201 ANN201 ERA001 D101 D107
+# ruff: noqa: ARG002, A002, DTZ011, C901, ANN201, ERA001, D101, D107
 class Users(UserControl):
     def __init__(self, route):
         super().__init__()

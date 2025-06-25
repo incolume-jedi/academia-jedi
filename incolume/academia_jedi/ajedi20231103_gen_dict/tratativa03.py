@@ -9,7 +9,6 @@ import logging
 from collections.abc import Iterator
 from itertools import chain
 from pathlib import Path
-from typing import Optional
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -24,8 +23,8 @@ class GSheet:
 
     def __init__(
         self,
-        credentials: Optional[Path] = None,
-        escopo: Optional[Iterator] = None,
+        credentials: Path | None = None,
+        escopo: Iterator | None = None,
     ):
         """"""
         self.credentials: Path = credentials

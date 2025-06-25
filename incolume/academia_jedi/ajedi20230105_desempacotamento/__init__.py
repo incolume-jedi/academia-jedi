@@ -5,12 +5,12 @@ def ex1():
     """Exemplo 1."""
     x = (1, 2, 3)
     a, b, c = x
-    print(f'{a=} {b=} {c=}')  # noqa: T201
+    print(f'{a=} {b=} {c=}')
 
 
 def func(a, b, c):
     """Func for printing."""
-    print(f'{a=} {b=} {c=}')  # noqa: T201
+    print(f'{a=} {b=} {c=}')
 
 
 def ex2():

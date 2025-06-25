@@ -1,5 +1,5 @@
 def run():
-    # ruff: noqa: D100, D103, T201
+    # ruff: noqa: D100, D103
     import this
 
     return ''.join([this.d.get(c, c) for c in this.s])

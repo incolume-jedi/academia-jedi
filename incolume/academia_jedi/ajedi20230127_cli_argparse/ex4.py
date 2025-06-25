@@ -2,7 +2,7 @@
 
 from argparse import ArgumentParser, Namespace
 
-# ruff: noqa: PLR2004, T201
+# ruff: noqa: PLR2004
 
 parser = ArgumentParser()
 

@@ -1,7 +1,5 @@
 """Test module."""
 
-# ruff: noqa: PLR0913
-
 import logging
 from pathlib import Path
 from platform import platform

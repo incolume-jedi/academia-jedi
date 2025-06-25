@@ -14,8 +14,6 @@ from incolume.academia_jedi.ajedi20230113_zipfile import (
 )
 from pytz import timezone
 
-# ruff: noqa: T201
-
 file_test: Path = Path(base_dir, Path(__file__).stem).with_suffix('.zip')
 file_test.write_bytes(filezip_sample.read_bytes())
 ic(file_test)

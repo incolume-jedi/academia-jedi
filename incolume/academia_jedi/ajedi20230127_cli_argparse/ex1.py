@@ -2,8 +2,6 @@
 
 from argparse import ArgumentParser, Namespace
 
-# ruff: noqa: T201
-
 parser = ArgumentParser()
 
 parser.add_argument('echo', help='echo the given string ')

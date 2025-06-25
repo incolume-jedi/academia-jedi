@@ -1,6 +1,6 @@
 """tarefas comcorrentes."""
 
-# ruff: noqa: ANN001, ANN201, D103, SIM117, T201
+# ruff: noqa: ANN001, ANN201, D103, SIM117
 
 import asyncio
 import logging

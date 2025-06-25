@@ -2,8 +2,6 @@
 
 # ruff: noqa: D101, D103
 
-from typing import Optional
-
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
@@ -16,17 +14,17 @@ from .core import DBAutomation, DBItem, NotFoundError
 class Item(BaseModel):
     id: int
     name: str
-    description: Optional[str] = None
+    description: str | None = None
 
 
 class ItemCreate(BaseModel):
     name: str
-    description: Optional[str] = None
+    description: str | None = None
 
 
 class ItemUpdate(BaseModel):
-    name: Optional[str] = None
-    description: Optional[str] = None
+    name: str | None = None
+    description: str | None = None
 
 
 def read_db_item(item_id: int, session: Session) -> DBItem:

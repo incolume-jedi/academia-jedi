@@ -1,5 +1,4 @@
 """DB conection."""
-# ruff: noqa: E501
 
 import os
 from collections.abc import Generator
@@ -40,7 +39,7 @@ def instance_cursor(mode: str = 'r') -> Generator:
     try:
         yield cursor
     finally:
-        if connection and mode in 'r w'.split():
+        if connection and mode in ['r', 'w']:
             if mode == 'w':
                 connection.commit()
                 logger.debug(ic('Commit realizado com sucesso.'))

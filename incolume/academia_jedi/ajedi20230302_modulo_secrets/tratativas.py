@@ -1,6 +1,6 @@
 import logging
 
-# ruff: noqa: ANN201, D100, D419, G004, T201, TRY401
+# ruff: noqa: ANN201, D100, D419, G004, TRY401
 import secrets
 import string
 import typing

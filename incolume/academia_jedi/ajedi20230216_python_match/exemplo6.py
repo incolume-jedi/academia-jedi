@@ -1,6 +1,6 @@
 """Matching Positional Arguments."""
 
-# ruff: noqa: C901, D101, D103, T201
+# ruff: noqa: C901, D101, D103
 
 from dataclasses import dataclass
 

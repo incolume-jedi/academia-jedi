@@ -1,6 +1,6 @@
 import click
 
-# ruff: noqa: ARG001, D100, D103, E501, PLR0913
+# ruff: noqa: ARG001, D100, D103, PLR0913
 from incolume.academia_jedi.ajedi20220801_crud_sqlite.basedados import (
     create_person,
     select_all_person,

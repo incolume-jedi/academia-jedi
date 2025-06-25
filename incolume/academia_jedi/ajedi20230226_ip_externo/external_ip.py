@@ -1,6 +1,6 @@
 """Baseado em https://www.youtube.com/watch?v=jF3_g8eDeEo."""
 
-# ruff: noqa: D103, T201
+# ruff: noqa: D103
 
 import logging
 import re

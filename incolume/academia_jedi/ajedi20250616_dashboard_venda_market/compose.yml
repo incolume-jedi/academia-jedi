@@ -1,0 +1,32 @@
+services:
+  dash_server:
+    build:
+      context: .
+      dockerfile_inline: |
+        # Dockerfile content goes here
+        # This is an inline Dockerfile for the compose service
+        FROM ghcr.io/astral-sh/uv:alpine3.21
+
+        # Define the working directory
+        WORKDIR /code
+        # Install necessary packages
+        # RUN apk add --no-cache git curl
+
+        # Expose the necessary ports
+        EXPOSE 8080-8599
+
+    container_name: dash_server
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=db_campionato2022
+    volumes:
+      - ./data:/data
+      - pgdata:/var/lib/postgresql/data
+      - type: tmpfs
+        target: /dev/shm
+
+volumes:
+  pgdata:

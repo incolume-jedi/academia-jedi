@@ -2,7 +2,7 @@
 
 from itertools import islice
 
-# ruff: noqa: T201 PLR2004
+# ruff: noqa: PLR2004
 
 lines = [
     'line1',

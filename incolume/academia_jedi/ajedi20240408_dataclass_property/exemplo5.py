@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: S311, T201
+# ruff: noqa: S311
 
 from dataclasses import dataclass, field
 from enum import Enum, auto
@@ -8,7 +8,7 @@ from random import choice
 
 __author__ = '@britodfbr'  # pragma: no cover
 
-# ruff: noqa: S311 T201
+# ruff: noqa: S311
 
 
 class Color(Enum):

@@ -1,0 +1,39 @@
+-- Criação da Tabela
+CREATE TABLE campeonato_brasileiro_2022 (
+    classificacao INT PRIMARY KEY,
+    time VARCHAR(50) NOT NULL,
+    pontos INT,
+    jogos INT,
+    vitorias INT,
+    empates INT,
+    derrotas INT,
+    gols_pro INT,
+    gols_contra INT,
+    saldo_gols INT,
+    aproveitamento INT, -- Porcentagem sem o símbolo de %
+    cartoes_amarelos INT,
+    cartoes_vermelhos INT
+);
+
+-- Inserção dos Dados
+INSERT INTO campeonato_brasileiro_2022 (classificacao, time, pontos, jogos, vitorias, empates, derrotas, gols_pro, gols_contra, saldo_gols, aproveitamento, cartoes_amarelos, cartoes_vermelhos) VALUES
+(1, 'Palmeiras', 81, 38, 23, 12, 3, 66, 27, 39, 71, 85, 6),
+(2, 'Internacional', 73, 38, 20, 13, 5, 58, 31, 27, 64, 94, 5),
+(3, 'Fluminense', 70, 38, 21, 7, 10, 63, 41, 22, 61, 85, 11),
+(4, 'Corinthians', 65, 38, 18, 11, 9, 44, 36, 8, 57, 84, 6),
+(5, 'Flamengo', 62, 38, 18, 8, 12, 60, 39, 21, 54, 84, 4),
+(6, 'Athletico Paranaense', 58, 38, 16, 10, 12, 48, 48, 0, 50, 95, 4),
+(7, 'Atlético Mineiro', 58, 38, 15, 13, 10, 45, 37, 8, 50, 93, 3),
+(8, 'Fortaleza', 55, 38, 15, 10, 13, 46, 39, 7, 48, 88, 8),
+(9, 'São Paulo', 54, 38, 13, 15, 10, 55, 42, 13, 47, 102, 9),
+(10, 'America Saf', 53, 38, 15, 8, 15, 40, 40, 0, 46, 88, 5),
+(11, 'Botafogo', 53, 38, 15, 8, 15, 41, 43, -2, 46, 98, 6),
+(12, 'Santos Fc', 47, 38, 12, 11, 15, 44, 41, 3, 41, 102, 7),
+(13, 'Goiás', 46, 38, 11, 13, 14, 40, 53, -13, 40, 117, 8),
+(14, 'Red Bull Bragantino', 44, 38, 11, 11, 16, 49, 59, -10, 38, 93, 7),
+(15, 'Coritiba', 42, 38, 12, 6, 20, 39, 60, -21, 36, 113, 12),
+(16, 'Cuiabá Saf', 41, 38, 10, 11, 17, 31, 42, -11, 35, 82, 11),
+(17, 'Ceará', 37, 38, 7, 16, 15, 34, 41, -7, 32, 127, 10),
+(18, 'Atlético', 36, 38, 8, 12, 18, 39, 57, -18, 31, 104, 9),
+(19, 'Avaí', 35, 38, 9, 8, 21, 34, 60, -26, 30, 102, 4),
+(20, 'Juventude', 22, 38, 3, 13, 22, 29, 69, -40, 19, 112, 8);

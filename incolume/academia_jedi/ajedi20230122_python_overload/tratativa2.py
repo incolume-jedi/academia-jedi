@@ -1,6 +1,6 @@
 """Exemplo singledispatchmethod."""
 
-# ruff: noqa: ANN002, ANN003, ANN202, D101, D102, D107, E501, FBT001, G004, PYI041, TRY002
+# ruff: noqa: ANN002, ANN003, ANN202, D101, D102, D107, FBT001, PYI041, TRY002
 
 import platform
 import sys

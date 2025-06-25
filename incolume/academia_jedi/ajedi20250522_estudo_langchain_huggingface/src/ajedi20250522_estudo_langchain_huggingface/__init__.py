@@ -10,7 +10,7 @@ def main() -> None:
 
     for the ajedi20250522-estudo-langchain-huggingface package.
     """
-    print('Hello from ajedi20250522-estudo-langchain-huggingface!')  # noqa: T201
+    print('Hello from ajedi20250522-estudo-langchain-huggingface!')
 
 
 if __name__ == '__main__':

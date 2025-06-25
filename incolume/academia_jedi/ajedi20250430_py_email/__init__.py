@@ -1,6 +1,6 @@
 """Email with python."""
 
-# ruff: noqa: T201 T203 ANN003 F841
+# ruff: noqa: T203, ANN003, F841
 
 from __future__ import annotations
 

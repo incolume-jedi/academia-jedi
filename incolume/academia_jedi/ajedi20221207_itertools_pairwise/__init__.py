@@ -1,5 +1,4 @@
 """Estudo pairwise."""
-# ruff: noqa: T201
 
 import string
 from itertools import pairwise
