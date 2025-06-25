@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-06-23:
+## [0.119.0]	 &#8212; 	2025-06-25:
 ### Added
   - Estudos com postgresql rodando em docker;
   - Estudos compose inline;
@@ -22,6 +22,8 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Estudos com Enum para otimização do scripts;
   - Estudos com Dataclass para otimização de scripts;
   - Estudos com CLICK para atimização de scripts;
+### Changed
+  - Correções pontuais para atualização de projeto;
 
 ## [0.118.0]	 &#8212; 	2025-06-19:
 ### Added
@@ -843,4 +845,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.116.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.115.0...0.116.0
 [0.117.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.116.0...0.117.0
 [0.118.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.117.0...0.118.0
-[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.118.0...Unreleased
+[0.119.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.118.0...0.119.0
