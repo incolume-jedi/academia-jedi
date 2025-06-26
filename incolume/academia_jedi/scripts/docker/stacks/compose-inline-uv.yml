@@ -24,7 +24,7 @@ services:
         WORKDIR /code
 
         # Install necessary packages
-        RUN apk update && apk upgrade && apk add --no-cache build-base git curl
+        RUN sudo apk update && sudo apk upgrade && sudo apk add --no-cache build-base git curl
 
         # Expose the necessary ports
         EXPOSE 22 80 443 8000 8080 8888
