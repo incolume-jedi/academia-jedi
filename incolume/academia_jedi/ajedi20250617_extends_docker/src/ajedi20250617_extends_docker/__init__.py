@@ -1,15 +1,17 @@
 """Module for ajedi20250617-extends-docker."""
+
 from __future__ import annotations
 
-from icecream import ic
 import os
 
+from icecream import ic
 
 DEBUG = os.environ.get('INCOLUME_MODE')
 
 ic.disable()
 if DEBUG:
     ic.enable()
+
 
 def main() -> str:
     """Hello from ajedi20250617-extends-docker."""
@@ -18,4 +20,3 @@ def main() -> str:
 
 if __name__ == '__main__':
     main()
- 

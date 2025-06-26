@@ -10,6 +10,19 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [Unreleased]	 &#8212; 	2025-06-23:
+### Added
+  - Estudos com postgresql rodando em docker;
+  - Estudos compose inline;
+  - Estudos volumes docker;
+  - Exemplos de tipos direfentes de barcode em python;
+  - Projeto dashboard completo com pacote dash e plotly;
+  - Estudos com scrits python com foco em boas praticas e PEP723;
+  - Estudos com cx-freeze para gerar executáveis;
+  - Estudos com Enum para otimização do scripts;
+  - Estudos com Dataclass para otimização de scripts;
+  - Estudos com CLICK para atimização de scripts;
+
 ## [0.119.0]	 &#8212; 	2025-06-25:
 ### Added
   - Estudos com postgresql rodando em docker;
@@ -846,3 +859,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.117.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.116.0...0.117.0
 [0.118.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.117.0...0.118.0
 [0.119.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.118.0...0.119.0
+[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.119.0...Unreleased
