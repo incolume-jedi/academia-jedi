@@ -1,0 +1,56 @@
+services:
+  server:
+    image: incolume/ajedi20250607_dockerfile_inline:latest
+    build:
+      args:
+        - DEBUG=1
+      context: .
+      # dockerfile: Dockerfile
+      dockerfile_inline: |
+        # Dockerfile content goes here
+        # This is an inline Dockerfile for the compose service
+        # This is an inline Dockerfile for the compose service
+        FROM ghcr.io/astral-sh/uv:alpine3.21
+
+        LABEL maintainer="Incolume.com.br"
+
+        # Create a group and user
+        RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+        # Tell docker that all future commands should run as the appuser user
+        USER appuser
+
+        # Define the working directory
+        WORKDIR /code
+
+        # Install necessary packages
+        RUN apk update && apk upgrade && apk add --no-cache build-base git curl
+
+        # Expose the necessary ports
+        EXPOSE 22 80 443 8000 8080 8888
+
+        CMD echo 'Running server...' && tail -f /dev/null
+
+    working_dir: /code
+    volumes:
+      - .:/code
+    environment:
+      - PYTHONUNBUFFERED=1
+      - UV_LINK_MODE=copy
+      - OPEN_WEATHER_MAP_API_KEY=/run/secrets/APIKey
+    ports:
+      - 8500-8599:8500-8599
+
+    command: >
+      /bin/sh -c
+      "uv venv
+      && uv sync
+      && source .venv/bin/activate
+      && streamlit run --server.port 8501 --server.address 0.0.0.0 main.py"
+
+    depends_on: []
+    restart: unless-stopped
+
+secrets:
+   APIKey:
+     file: secrets/token.txt
