@@ -70,9 +70,9 @@ members = [
     "ajedi20250617-extends-docker",
     "ajedi20250617-tests-in-docker",
     "ajedi20250619-base64-encode",
-    "ajedi20250619-urlshortner",
     "ajedi20250620-py-script",
     "ajedi20250621-token-shortener",
+    "ajedi20250621-urlshortner",
     "ajedi20250622-estudos-monkeypatch",
     "ajedi20250623-estudo-respx",
     "ajedi20250624-notificar-area-trabalho",
@@ -732,9 +732,29 @@ version = "0.1.0"
 source = { editable = "incolume/academia_jedi/ajedi20250619_base64_encode" }
 
 [[package]]
-name = "ajedi20250619-urlshortner"
+name = "ajedi20250620-py-script"
 version = "0.1.0"
-source = { virtual = "incolume/academia_jedi/ajedi20250619_urlshortner" }
+source = { virtual = "incolume/academia_jedi/ajedi20250620_py_script" }
+dependencies = [
+    { name = "click" },
+    { name = "ucimlrepo" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "click", specifier = ">=8.1.8" },
+    { name = "ucimlrepo", specifier = ">=0.0.7" },
+]
+
+[[package]]
+name = "ajedi20250621-token-shortener"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250621_token_shortener" }
+
+[[package]]
+name = "ajedi20250621-urlshortner"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250621_urlshortner" }
 dependencies = [
     { name = "flask" },
     { name = "flask-restful" },
@@ -755,26 +775,6 @@ requires-dist = [
     { name = "python-dotenv", specifier = ">=1.1.0" },
     { name = "validators", specifier = ">=0.35.0" },
 ]
-
-[[package]]
-name = "ajedi20250620-py-script"
-version = "0.1.0"
-source = { virtual = "incolume/academia_jedi/ajedi20250620_py_script" }
-dependencies = [
-    { name = "click" },
-    { name = "ucimlrepo" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "click", specifier = ">=8.1.8" },
-    { name = "ucimlrepo", specifier = ">=0.0.7" },
-]
-
-[[package]]
-name = "ajedi20250621-token-shortener"
-version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20250621_token_shortener" }
 
 [[package]]
 name = "ajedi20250622-estudos-monkeypatch"
