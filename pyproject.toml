@@ -60,7 +60,6 @@ members = [
     "incolume/academia_jedi/ajedi20250605_streamlit_docker",
     "incolume/academia_jedi/ajedi20250606_acesso_openweather",
     "incolume/academia_jedi/ajedi20250607_docker_subprojetos",
-    "incolume/academia_jedi/ajedi20250607_dockerfile_inline",
     "incolume/academia_jedi/ajedi20250609_img2txtAI",
     "incolume/academia_jedi/ajedi20250610_estudos_docker_compose",
     "incolume/academia_jedi/ajedi20250611_logging",
@@ -70,6 +69,7 @@ members = [
     "incolume/academia_jedi/ajedi20250615_gen_barcode",
     "incolume/academia_jedi/ajedi20250616_dashboard_venda_market",
     "incolume/academia_jedi/ajedi20250617_extends_docker",
+    "incolume/academia_jedi/ajedi20250618_dockerfile_inline",
     "incolume/academia_jedi/ajedi20250620_py_script",
 ]
 
