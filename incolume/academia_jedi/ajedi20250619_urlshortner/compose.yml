@@ -1,0 +1,9 @@
+services:
+  mongo-server:
+    image: mongo:8-nanoserver
+    container_name: mongo-server-db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongouser
+      MONGO_INITDB_ROOT_PASSWORD: mongopw
+    ports:
+      - 27017:27017
