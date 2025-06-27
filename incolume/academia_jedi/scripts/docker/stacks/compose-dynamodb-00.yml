@@ -8,3 +8,4 @@ services:
     command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
     volumes:
       - "./docker/dynamodb:/home/dynamodblocal/data"
+    restart: unless-stopped
