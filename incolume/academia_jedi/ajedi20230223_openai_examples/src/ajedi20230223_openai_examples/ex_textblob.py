@@ -2,6 +2,7 @@
 
 import logging
 
+# ruff: noqa: E501
 from textblob import Blobber, TextBlob
 
 __author__ = '@britodfbr'  # pragma: no cover
