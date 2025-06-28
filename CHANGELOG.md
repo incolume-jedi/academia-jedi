@@ -24,6 +24,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Estudos com CLICK para atimização de scripts;
   - Estudos sobre modulo base64;
   - Prospecção para geração de token para urlshortener;
+  - Acrescentado docker-compose para API httpbin.org;
 
 ## [0.119.0]	 &#8212; 	2025-06-25:
 ### Added
