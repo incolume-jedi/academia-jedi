@@ -7,7 +7,7 @@ import base64
 from icecream import ic
 
 
-def main() -> None:
+def main() -> None:  # pragma: no cover
     """Estudos sobre base64."""
     ic(base64.b16encode(b'Hello from ajedi20250619-base64-encode!'))
 

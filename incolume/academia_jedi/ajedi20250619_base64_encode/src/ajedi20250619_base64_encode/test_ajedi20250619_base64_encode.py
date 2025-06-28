@@ -60,7 +60,7 @@ class TestAjedi20250619Base64Encode:
         [
             pytest.param(
                 'https://github.com/incolume-jedi/academia-jedi/issues/287',
-                'afasf',
+                'aHR0cHM6Ly9naXRodWIuY29tL2luY29sdW1lLWplZGkvYWNhZGVtaWEtamVkaS9pc3N1ZXMvMjg3',
             ),
             pytest.param(
                 'Tudo é difícil até fácil se tornar.',
@@ -71,7 +71,10 @@ class TestAjedi20250619Base64Encode:
     )
     def test_base64_urlsafe(self, entrance, expected) -> None:
         """Test the base64 encoding."""
-        pkg.base64.urlsafe_b64encode(entrance.encode()).decode() == expected
+        assert (
+            pkg.base64.urlsafe_b64encode(entrance.encode()).decode()
+            == expected
+        )
 
     @pytest.mark.parametrize(
         ['entrance', 'expected'],
