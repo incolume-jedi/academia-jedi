@@ -70,6 +70,7 @@ members = [
     "incolume/academia_jedi/ajedi20250616_dashboard_venda_market",
     "incolume/academia_jedi/ajedi20250617_extends_docker",
     "incolume/academia_jedi/ajedi20250618_dockerfile_inline",
+    "incolume/academia_jedi/ajedi20250619_base64_encode",
     "incolume/academia_jedi/ajedi20250620_py_script",
 ]
 
