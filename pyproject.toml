@@ -72,6 +72,7 @@ members = [
     "incolume/academia_jedi/ajedi20250618_dockerfile_inline",
     "incolume/academia_jedi/ajedi20250619_base64_encode",
     "incolume/academia_jedi/ajedi20250620_py_script",
+    "incolume/academia_jedi/ajedi20250621_token_shortener",
 ]
 
 [tool.uv.sources]
