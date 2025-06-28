@@ -23,6 +23,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Estudos com Dataclass para otimização de scripts;
   - Estudos com CLICK para atimização de scripts;
   - Estudos sobre modulo base64;
+  - Prospecção para geração de token para urlshortener;
 
 ## [0.119.0]	 &#8212; 	2025-06-25:
 ### Added
