@@ -1,0 +1,55 @@
+services:
+  server:
+    image: incolume/generic_dockerfile_inline:latest
+    container_name: spotify-server
+    build:
+      args:
+        - DEBUG=1
+      context: .
+      # dockerfile: Dockerfile
+      dockerfile_inline: |
+        # Dockerfile content goes here
+        # This is an inline Dockerfile for the compose service
+        FROM ghcr.io/astral-sh/uv:alpine3.21
+
+        # Define the working directory
+        WORKDIR /code
+
+        # Install necessary packages
+        RUN apk add --no-cache git curl
+
+        # Expose the necessary ports
+        EXPOSE 8500
+      secrets:
+        - SPOTIFY_CLIENT_ID
+        - SPOTIFY_CLIENT_SECRET
+
+    working_dir: /code
+    volumes:
+      - .:/code
+    environment:
+      PYTHONUNBUFFERED: 1
+      UV_LINK_MODE: copy
+      OPEN_WEATHER_MAP_API_KEY: /run/secrets/APIKey
+      SPOTIFY_CLIENT_ID: /run/secrets/SPOTIFY_CLIENT_ID
+      SPOTIFY_CLIENT_SECRET: /run/secrets/SPOTIFY_CLIENT_SECRET
+    ports:
+      - 8500-8599:8500-8599
+
+    command: >
+      /bin/sh -c
+      "uv venv
+      && uv sync
+      && source .venv/bin/activate
+      && streamlit run --server.port 8501 --server.address 0.0.0.0 main.py"
+
+    depends_on: []
+    restart: unless-stopped
+
+secrets:
+  APIKey:
+    file: secrets/token.txt
+  SPOTIFY_CLIENT_ID:
+    environment: "SPOTIFY_CLIENT_ID"
+  SPOTIFY_CLIENT_SECRET:
+    environment: "SPOTIFY_CLIENT_SECRET"
