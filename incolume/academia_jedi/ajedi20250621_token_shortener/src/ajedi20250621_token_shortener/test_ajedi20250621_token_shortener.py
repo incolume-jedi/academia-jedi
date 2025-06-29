@@ -16,6 +16,7 @@ class Entrance:
     method: str = field(default='token_urlsafe')
     value: str = field(default=None)
 
+
 @dataclass
 class MockSecrets:
     """Mock secrets module for testing."""
@@ -215,4 +216,3 @@ class TestAjedi20250621TokenShortener:
 
         func = getattr(entrance.module, entrance.method)
         assert func(entrance.value) == expected
-
