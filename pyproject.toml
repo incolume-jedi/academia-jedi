@@ -213,6 +213,7 @@ streamlit-authenticator = "^0.4.2"
 psycopg2-binary = "^2.9.10"
 cx-freeze = "^8.3.0"
 testcontainers = "^4.10.0"
+respx = "^0.22.0"
 
 
 [[tool.poetry.source]]
