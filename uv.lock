@@ -73,6 +73,7 @@ members = [
     "ajedi20250620-py-script",
     "ajedi20250621-token-shortener",
     "ajedi20250622-estudos-monkeypatch",
+    "ajedi20250622-streamlit-spotify",
     "ajedi20250623-estudo-respx",
     "ajedi20250624-notificar-area-trabalho",
     "ajedi20250625-compact-files-py",
@@ -754,6 +755,25 @@ source = { editable = "incolume/academia_jedi/ajedi20250621_token_shortener" }
 name = "ajedi20250622-estudos-monkeypatch"
 version = "0.1.0"
 source = { virtual = "incolume/academia_jedi/ajedi20250622_estudos_monkeypatch" }
+
+[[package]]
+name = "ajedi20250622-streamlit-spotify"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250622_streamlit_spotify" }
+dependencies = [
+    { name = "httpx" },
+    { name = "icecream" },
+    { name = "python-dotenv" },
+    { name = "streamlit" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "httpx", specifier = ">=0.28.1" },
+    { name = "icecream", specifier = ">=2.1.5" },
+    { name = "python-dotenv", specifier = ">=1.1.1" },
+    { name = "streamlit", specifier = ">=1.46.1" },
+]
 
 [[package]]
 name = "ajedi20250623-estudo-respx"
@@ -2457,7 +2477,7 @@ hf-xet = [
 
 [[package]]
 name = "icecream"
-version = "2.1.4"
+version = "2.1.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "asttokens" },
@@ -2465,9 +2485,9 @@ dependencies = [
     { name = "executing" },
     { name = "pygments" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/78/5e/9f41831f032b9ce456c919c4989952562fcc2b0eb8c038080c24ce20d6cd/icecream-2.1.4.tar.gz", hash = "sha256:58755e58397d5350a76f25976dee7b607f5febb3c6e1cddfe6b1951896e91573", size = 15872, upload-time = "2025-01-09T16:23:20.993Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/0e/5f/9635c20f14f558768e89b0e20c32ca852640b8973e102ff2f6ee229bbebc/icecream-2.1.5.tar.gz", hash = "sha256:14d21e3383326a69a8c1a3bcf11f83283459f0d269ece5af83fce2c0d663efec", size = 16744, upload-time = "2025-06-25T18:02:31.44Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/57/1d/43ef7a6875190e6745ffcd1b12c7aaa7efed082897401e311ee1cd75c8b2/icecream-2.1.4-py3-none-any.whl", hash = "sha256:7bb715f69102cae871b3a361c3b656536db02cfcadac9664c673581cac4df4fd", size = 14782, upload-time = "2025-01-09T16:23:18.213Z" },
+    { url = "https://files.pythonhosted.org/packages/36/0a/9496191b82b2839cc92fc713a5888931ab301dfcc55b9d5a49665cdb2aa5/icecream-2.1.5-py3-none-any.whl", hash = "sha256:c020917c5cb180a528dbba170250ccd8b74ebc75f2a7a8e839819bf959b9f80c", size = 14378, upload-time = "2025-06-25T18:02:30.262Z" },
 ]
 
 [[package]]
@@ -5007,11 +5027,11 @@ wheels = [
 
 [[package]]
 name = "python-dotenv"
-version = "1.1.0"
+version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/88/2c/7bb1416c5620485aa793f2de31d3df393d3686aa8a8506d11e10e13c5baf/python_dotenv-1.1.0.tar.gz", hash = "sha256:41f90bc6f5f177fb41f53e87666db362025010eb28f60a01c9143bfa33a2b2d5", size = 39920, upload-time = "2025-03-25T10:14:56.835Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f6/b0/4bc07ccd3572a2f9df7e6782f52b0c6c90dcbb803ac4a167702d7d0dfe1e/python_dotenv-1.1.1.tar.gz", hash = "sha256:a8a6399716257f45be6a007360200409fce5cda2661e3dec71d23dc15f6189ab", size = 41978, upload-time = "2025-06-24T04:21:07.341Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1e/18/98a99ad95133c6a6e2005fe89faedf294a748bd5dc803008059409ac9b1e/python_dotenv-1.1.0-py3-none-any.whl", hash = "sha256:d7c01d9e2293916c18baf562d95698754b0dbbb5e74d457c45d4f6561fb9d55d", size = 20256, upload-time = "2025-03-25T10:14:55.034Z" },
+    { url = "https://files.pythonhosted.org/packages/5f/ed/539768cf28c661b5b068d66d96a2f155c4971a5d55684a514c1a0e0dec2f/python_dotenv-1.1.1-py3-none-any.whl", hash = "sha256:31f23644fe2602f88ff55e1f5c79ba497e01224ee7737937930c448e4d0e24dc", size = 20556, upload-time = "2025-06-24T04:21:06.073Z" },
 ]
 
 [[package]]
@@ -5840,7 +5860,7 @@ wheels = [
 
 [[package]]
 name = "streamlit"
-version = "1.46.0"
+version = "1.47.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "altair" },
@@ -5863,9 +5883,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "watchdog", marker = "sys_platform != 'darwin'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/72/83/f2aac961479594d1d7ee42cf485e3674992769d506732005cea91e11504a/streamlit-1.46.0.tar.gz", hash = "sha256:0b2734b48f11f1e5c8046011b6b1a2274982dc657eef2ade8db70f0e1dc53dda", size = 9651454, upload-time = "2025-06-18T09:12:01.221Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/19/da/cef67ed4614f04932a00068fe6291455deb884a04fd94f7ad78492b0e91a/streamlit-1.47.1.tar.gz", hash = "sha256:daed79763d1cafeb03cdd800b91aa9c7adc3688c6b2cbf4ecc2ca899aab82a2a", size = 9544057, upload-time = "2025-07-25T15:37:08.482Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/be/26/79bbb77bec3d605f7de7a4b45c806b44d112e8c9bce77fb620e03d9f2b88/streamlit-1.46.0-py3-none-any.whl", hash = "sha256:f8624acabafcf18611a0fac2635cf181a7ba922b45bd131ae15fc8f80e1a5482", size = 10050930, upload-time = "2025-06-18T09:11:58.447Z" },
+    { url = "https://files.pythonhosted.org/packages/c0/4d/701f5fcf9c0d388dad9d94ba272d333c7efa6231ddee1babc59d26dc14d2/streamlit-1.47.1-py3-none-any.whl", hash = "sha256:c7881549e3ba1daecfb5541f32ee6ff70e549f1c3400c92d045897cb7a29772a", size = 9944872, upload-time = "2025-07-25T15:37:05.758Z" },
 ]
 
 [[package]]

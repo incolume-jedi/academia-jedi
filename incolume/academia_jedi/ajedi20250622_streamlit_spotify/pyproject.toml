@@ -1,5 +1,5 @@
 [project]
-name = "ajedi20250612-streamlit-spotify"
+name = "ajedi20250622-streamlit-spotify"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -7,10 +7,15 @@ authors = [
     { name = "Britodfbr", email = "britodfbr@gmail.com" }
 ]
 requires-python = ">=3.10, <4"
-dependencies = []
+dependencies = [
+    "httpx>=0.28.1",
+    "icecream>=2.1.5",
+    "python-dotenv>=1.1.1",
+    "streamlit>=1.46.1",
+]
 
 [project.scripts]
-ajedi20250612-streamlit-spotify = "ajedi20250612_streamlit_spotify:main"
+ajedi20250622-streamlit-spotify = "ajedi20250622_streamlit_spotify:main"
 
 [build-system]
 requires = ["hatchling"]
