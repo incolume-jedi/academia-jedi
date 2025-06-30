@@ -18,3 +18,12 @@ ajedi20250623-estudo-respx = "ajedi20250623_estudo_respx:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest-asyncio>=1.0.0",
+]
+
+[tool.poetry.group.dev.dependencies]
+pytest-asyncio = "^1.0.0"
+

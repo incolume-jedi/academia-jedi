@@ -176,7 +176,6 @@ pypdf2 = "^3.0.1"
 pysimpleguiqt = { version = ">=0.35.0", python = "<3.11" }
 pyspellchecker = "^0.7.1"
 pytesseract = "^0.3.10"
-pytest = "^7.1.2"
 pytest-cov = "^4.0.0"
 requests = "^2.28.1"
 rstr = ">=2.2.6"
@@ -214,6 +213,7 @@ psycopg2-binary = "^2.9.10"
 cx-freeze = "^8.3.0"
 testcontainers = "^4.10.0"
 respx = "^0.22.0"
+pytest-asyncio = "^1.0.0"
 
 
 [[tool.poetry.source]]
