@@ -1,6 +1,10 @@
+"""Module for monkeypatch's studies."""
+
+
 def main():
-    print("Hello from ajedi20250622-estudos-monkeypatch!")
+    """For monkeypatch's studies."""
+    print('Hello from ajedi20250622-estudos-monkeypatch!')  # noqa: T201
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
