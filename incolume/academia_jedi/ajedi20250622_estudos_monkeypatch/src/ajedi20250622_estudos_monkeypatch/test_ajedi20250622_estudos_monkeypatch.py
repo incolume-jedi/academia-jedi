@@ -14,7 +14,7 @@ import pytest
 @pytest.fixture(autouse=True)
 def no_httpx(monkeypatch):
     """Remove requests.sessions.Session.request for all tests."""
-    # monkeypatch.delattr('httpx.sessions.Session.request')
+    # monkeypatch.delattr('httpx.sessions.Session.request') # noqa: ERA001
 
 
 @pytest.fixture(autouse=True)
