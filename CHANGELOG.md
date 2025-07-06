@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-06-28:
+## [Unreleased]	 &#8212; 	2025-07-06:
 ### Added
   - Estudos com postgresql rodando em docker;
   - Estudos compose inline;
@@ -23,6 +23,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Estudos com Dataclass para otimização de scripts;
   - Estudos com CLICK para atimização de scripts;
   - Estudos sobre modulo base64;
+  - Estudos sobre pytest-mock;
   - Prospecção para geração de token para urlshortener;
   - Acrescentado docker-compose para API httpbin.org;
 
