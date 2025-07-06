@@ -1,2 +1,8 @@
+"""Module."""
+
+URL = 'https://www.httpbin.org/get'
+
+
 def main() -> None:
-    print("Hello from ajedi20250623-estudo-respx!")
+    """Main function."""
+    print('Hello from ajedi20250623-estudo-respx!')  # noqa: T201
