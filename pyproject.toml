@@ -74,6 +74,7 @@ members = [
     "incolume/academia_jedi/ajedi20250620_py_script",
     "incolume/academia_jedi/ajedi20250621_token_shortener",
     "incolume/academia_jedi/ajedi20250623_estudo_respx",
+    "incolume/academia_jedi/ajedi20250624_Notificar_area_trabalho",
 ]
 
 [tool.uv.sources]
