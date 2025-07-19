@@ -76,6 +76,7 @@ members = [
     "incolume/academia_jedi/ajedi20250623_estudo_respx",
     "incolume/academia_jedi/ajedi20250624_Notificar_area_trabalho",
     "incolume/academia_jedi/ajedi20250622_estudos_monkeypatch",
+    "incolume/academia_jedi/ajedi20250625_compact_files_py",
 ]
 
 [tool.uv.sources]
