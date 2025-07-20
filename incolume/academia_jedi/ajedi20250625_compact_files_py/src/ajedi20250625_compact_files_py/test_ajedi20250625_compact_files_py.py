@@ -167,3 +167,15 @@ class TestCompressFile:
         # Check if the output file was created
         assert result is expected, 'Decompression failed'
         assert entrance.output_file.is_file(), 'Output file does not exist'
+
+    def test_decompress_file_invalid(self) -> NoReturn:
+        """Test decompress_file with an invalid file."""
+        input_file = self.PATH / 'invalid.gz'
+        output_file = self.PATH / 'invalid_output.txt'
+
+        # Call the decompress_file function with an invalid file
+        result = decompress_file(input_file, output_file)
+
+        # Check if the result is False
+        assert not result, 'Decompression should have failed for invalid file'
+        assert not output_file.exists(), 'Output file should not exist'
