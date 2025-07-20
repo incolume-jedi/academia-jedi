@@ -9,24 +9,40 @@ from pathlib import Path
 from tempfile import tempdir
 from inspect import stack
 from icecream import ic
+from dataclasses import dataclass, fields
+
+
+@dataclass
+class Entrance:
+    """Entrance data class for test parameters."""
+
+    input_file: Path | str
+    output_file: Path | str
+
+    def keys(self):
+        """Return the names of the fields in the dataclass."""
+        return (f.name for f in fields(self))
+
+    def __getitem__(self, item):
+        """Return the value of the given attribute name."""
+        return getattr(self, item)
 
 
 class TestCompressFile:
     """Test class for compress_file function."""
 
     BASE: ClassVar = Path(__file__).parents[-6] / 'data_files'
-    PATH: ClassVar = None
+    PATH: ClassVar = Path(tempdir, stack()[0][3])
 
     @classmethod
     def setup_class(cls):
         """Setup class."""
-        cls.PATH = Path(tempdir, cls.__name__)
-
         cls.PATH.joinpath(stack()[0][3]).mkdir(
             parents=True,
             exist_ok=True,
         )
-        ic(cls.PATH)
+        ic(f'{cls.PATH=}')
+        ic(f'{cls.BASE=}')
 
     @classmethod
     def teardown_class(cls):
@@ -56,30 +72,30 @@ class TestCompressFile:
         ['entrance', 'expected'],
         [
             pytest.param(
-                {
-                    'input_file': BASE / 'csv/01Spotify.csv',
-                    'output_file': Path(
+                Entrance(
+                    input_file=BASE / 'csv/01Spotify.csv',
+                    output_file=Path(
                         tempdir,
                         stack()[0][3],
                         'xpto',
                         'test_output.gz',
                     ),
-                },
+                ),
                 True,
                 marks=[
                     # pytest.mark.skip
                 ],
             ),
             pytest.param(
-                {
-                    'input_file': 'csv/01Spotify.csv',
-                    'output_file': Path(
+                Entrance(
+                    'csv/01Spotify.csv',
+                    Path(
                         tempdir,
                         stack()[0][3],
                         'xpto',
                         'test_output_3.gz',
                     ),
-                },
+                ),
                 False,
                 marks=[
                     # pytest.mark.skip
@@ -89,10 +105,6 @@ class TestCompressFile:
     )
     def test_compress(self, entrance, expected) -> NoReturn:
         """Test compress_file function."""
-        entrance['output_file'].parent.mkdir(
-            parents=True,
-            exist_ok=True,
-        )
         result = compress_file(**entrance)
         assert result == expected, (
             f'Expected {expected}, got {result} for {entrance}'

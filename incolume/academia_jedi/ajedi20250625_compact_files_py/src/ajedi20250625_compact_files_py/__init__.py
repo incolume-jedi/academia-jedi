@@ -16,6 +16,7 @@ def compress_file(input_file: str | Path, output_file: str | Path) -> bool:
         Path(output_file) if isinstance(output_file, str) else output_file
     )
     try:
+        output_file.parent.mkdir(parents=True, exist_ok=True)
         with (
             input_file.open('rb') as f_in,
             gzip.open(output_file, 'wb') as f_out,
