@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-07-06:
+## [Unreleased]	 &#8212; 	2025-07-20:
 ### Added
   - Estudos com postgresql rodando em docker;
   - Estudos compose inline;
@@ -26,6 +26,9 @@ This file was automatically generated for [incolume.py.changelog](https://github
   - Estudos sobre pytest-mock;
   - Notificações com pacote plyer;
   - Estudos monkeypatch em pytest;
+  - Estudos com pacote gzip;
+  - Configuração de dataclass para operador de descompactação em testes com suite pytest;
+  - Configuração de setup e teardown na suite pytest;
   - Prospecção para geração de token para urlshortener;
   - Acrescentado docker-compose para API httpbin.org;
 
