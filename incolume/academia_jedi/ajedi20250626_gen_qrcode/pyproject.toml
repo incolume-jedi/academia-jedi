@@ -7,7 +7,9 @@ authors = [
     { name = "Britodfbr", email = "britodfbr@gmail.com" }
 ]
 requires-python = ">=3.10, <4"
-dependencies = []
+dependencies = [
+    "qrcode[pil]>=8.2",
+]
 
 [project.scripts]
 ajedi20250626-gen-qrcode = "ajedi20250626_gen_qrcode:main"
