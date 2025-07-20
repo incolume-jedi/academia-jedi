@@ -1,0 +1,17 @@
+[project]
+name = "ajedi20250625-compact-files-py"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Britodfbr", email = "britodfbr@gmail.com" }
+]
+requires-python = ">=3.10, <4"
+dependencies = []
+
+[project.scripts]
+ajedi20250625-compact-files-py = "ajedi20250625_compact_files_py:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
