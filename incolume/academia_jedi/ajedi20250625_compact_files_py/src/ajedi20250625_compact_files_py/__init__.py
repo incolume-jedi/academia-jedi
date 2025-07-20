@@ -29,6 +29,25 @@ def compress_file(input_file: str | Path, output_file: str | Path) -> bool:
     return True
 
 
+def decompress_file(input_file: str | Path, output_file: str | Path) -> bool:
+    """Decompress a gzip file."""
+    input_file = (
+        Path(input_file) if isinstance(input_file, str) else input_file
+    )
+    output_file = (
+        Path(output_file) if isinstance(output_file, str) else output_file
+    )
+    try:
+        output_file.parent.mkdir(parents=True, exist_ok=True)
+        with gzip.open(input_file, 'rb') as f_in:
+            output_file.write_bytes(f_in.read())
+    except (FileNotFoundError, Exception) as e:
+        msg = f'Error decompressing file: {e}'
+        logging.exception(msg)
+        return False
+    return True
+
+
 def main() -> None:
     """Hello from ajedi20250625-compact-files-py!"""
 

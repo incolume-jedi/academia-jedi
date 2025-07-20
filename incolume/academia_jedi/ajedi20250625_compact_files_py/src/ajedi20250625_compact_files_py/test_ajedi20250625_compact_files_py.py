@@ -4,7 +4,7 @@ from __future__ import annotations
 import shutil
 from typing import NoReturn, ClassVar
 import pytest
-from . import compress_file
+from . import compress_file, decompress_file
 from pathlib import Path
 from tempfile import tempdir
 from inspect import stack
@@ -109,3 +109,61 @@ class TestCompressFile:
         assert result == expected, (
             f'Expected {expected}, got {result} for {entrance}'
         )
+
+    @pytest.mark.parametrize(
+        ['entrance', 'expected'],
+        [
+            pytest.param(
+                Entrance(
+                    output_file=PATH / 'csv/01Spotify.csv',
+                    input_file=Path(
+                        tempdir,
+                        stack()[0][3],
+                        'xpto',
+                        'test_input0.gz',
+                    ),
+                ),
+                True,
+                marks=[
+                    # pytest.mark.skip
+                ],
+            ),
+            pytest.param(
+                Entrance(
+                    Path(
+                        tempdir,
+                        stack()[0][3],
+                        'xpto',
+                        'test_input1.gz',
+                    ),
+                    PATH / 'c3po' / 'csv' / '01Spotify.csv',
+                ),
+                True,
+                marks=[
+                    # pytest.mark.skip
+                ],
+            ),
+            pytest.param(
+                Entrance(
+                    input_file=PATH / 'r2d2' / 'test_output.gz',
+                    output_file=PATH / 'r2d2' / 'test_decompressed.txt',
+                ),
+                True,
+                marks=[],
+            ),
+        ],
+    )
+    def test_decompress_file(self, entrance, expected) -> NoReturn:
+        """Test decompress_file function."""
+        # Create a sample compressed file
+        compress_file(
+            input_file=self.BASE / 'csv/01Spotify.csv',
+            output_file=entrance.input_file,
+        )
+
+        # Call the decompress_file function
+        result = decompress_file(**entrance)
+
+        # Check if the output file was created
+        assert result is expected, 'Decompression failed'
+        assert entrance.output_file.is_file(), 'Output file does not exist'
