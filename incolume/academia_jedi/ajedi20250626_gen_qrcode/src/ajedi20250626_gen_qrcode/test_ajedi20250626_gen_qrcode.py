@@ -56,10 +56,9 @@ class TestAjedi20250626GenQRCode:
         shutil.rmtree(cls.PATH, ignore_errors=True)
 
     @pytest.mark.parametrize(
-        ['entrance', 'expected'],
+        'entrance',
         [
             pytest.param(
-                '',
                 '',
                 marks=[pytest.mark.xfail(reason='Not implemented')],
             ),
@@ -68,11 +67,11 @@ class TestAjedi20250626GenQRCode:
                     'Tudo é difícil até fácil se tornar.',
                     PATH / 'test_qrcode.png',
                 ),
-                'QR code saved as test_qrcode.png',
                 marks=[],
             ),
         ],
     )
-    def test_with_segno(self, entrance, expected) -> None:
+    def test_with_segno(self, entrance) -> None:
         """Test the main function."""
-        assert with_segno.generate_qr_code(**entrance) == expected
+        result = with_segno.generate_qr_code(**entrance)
+        assert result.is_file()
