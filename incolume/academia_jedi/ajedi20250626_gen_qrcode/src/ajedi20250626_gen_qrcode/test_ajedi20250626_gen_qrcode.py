@@ -25,7 +25,9 @@ class Entrance:
     def keys(self):
         """Return the names of the fields in the dataclass."""
         return (
-            f.name for f in fields(self) if getattr(self, f.name) is not None
+            f.name
+            for f in fields(self)
+            if f.name == 'light' or getattr(self, f.name) is not None
         )
 
     def __getitem__(self, item):
@@ -53,7 +55,7 @@ class TestAjedi20250626GenQRCode:
         Teardown da classe. Remove todos os arquivos
          e diretórios gerados ao final.
         """
-        shutil.rmtree(cls.PATH, ignore_errors=True)
+        shutil.rmtree(cls.PATH / '', ignore_errors=True)
 
     @pytest.mark.parametrize(
         'entrance',
@@ -65,7 +67,105 @@ class TestAjedi20250626GenQRCode:
             pytest.param(
                 Entrance(
                     'Tudo é difícil até fácil se tornar.',
-                    PATH / 'test_qrcode.png',
+                    PATH / 'test_qrcode0.png',
+                ),
+                marks=[],
+            ),
+            pytest.param(
+                Entrance(
+                    'Tudo é difícil até fácil se tornar.',
+                    PATH / 'test_qrcode1.png',
+                    scale=10,
+                ),
+                marks=[],
+            ),
+            pytest.param(
+                Entrance(
+                    'Tudo é difícil até fácil se tornar.',
+                    PATH / 'test_qrcode2.png',
+                    light=None,
+                ),
+                marks=[],
+            ),
+            pytest.param(
+                Entrance(
+                    'Tudo é difícil até fácil se tornar.',
+                    PATH / 'test_qrcode3.png',
+                    dark='darkblue',
+                ),
+                marks=[],
+            ),
+            pytest.param(
+                Entrance(
+                    'Tudo é difícil até fácil se tornar.',
+                    PATH / 'test_qrcode4.pdf',
+                    scale=10,
+                ),
+                marks=[],
+            ),
+            pytest.param(
+                Entrance(
+                    'Tudo é difícil até fácil se tornar.',
+                    PATH / 'test_qrcode5.svg',
+                    scale=10,
+                    dark='darkblue',
+                ),
+                marks=[],
+            ),
+            pytest.param(
+                Entrance(
+                    'Tudo é difícil até fácil se tornar.',
+                    PATH / 'test_qrcode6.svg',
+                    scale=10,
+                    dark='blue',
+                ),
+                marks=[],
+            ),
+            pytest.param(
+                Entrance(
+                    'Tudo é difícil até fácil se tornar.',
+                    PATH / 'test_qrcode7.svg',
+                    scale=10,
+                    dark='blue',
+                    light='black',
+                ),
+                marks=[],
+            ),
+            pytest.param(
+                Entrance(
+                    'Tudo é difícil até fácil se tornar.',
+                    PATH / 'test_qrcode8.svg',
+                    scale=30,
+                    dark='black',
+                ),
+                marks=[],
+            ),
+            pytest.param(
+                Entrance(
+                    'Tudo é difícil até fácil se tornar.',
+                    PATH / 'test_qrcode9.svg',
+                    scale=30,
+                    dark='white',
+                ),
+                marks=[],
+            ),
+            pytest.param(
+                Entrance(
+                    'Tudo é difícil até fácil se tornar.',
+                    PATH / 'test_qrcode10.svg',
+                    scale=30,
+                    dark='white',
+                    light='black',
+                ),
+                marks=[],
+            ),
+            pytest.param(
+                Entrance(
+                    'Tudo é difícil até fácil se tornar.',
+                    PATH / 'test_qrcode11.svg',
+                    scale=30,
+                    dark='white',
+                    light='blue',
                 ),
                 marks=[],
             ),
