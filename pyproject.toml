@@ -86,7 +86,7 @@ ajedi20250611-logging = { path = "incolume/academia_jedi/ajedi20250611_logging" 
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.120.0a13"
+version = "0.120.0a14"
 description = ""
 readme="README.md"
 authors = ["Britodfbr <britodfbr@gmail.com>"]
