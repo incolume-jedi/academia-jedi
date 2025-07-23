@@ -76,6 +76,7 @@ members = [
     "ajedi20250624-notificar-area-trabalho",
     "ajedi20250625-compact-files-py",
     "ajedi20250626-gen-qrcode",
+    "ajedi20250627-check-cpf-cnpj",
 ]
 
 [[package]]
@@ -776,6 +777,17 @@ requires-dist = [
     { name = "qrcode", extras = ["pil"], specifier = ">=8.2" },
     { name = "segno", specifier = ">=1.6.6" },
 ]
+
+[[package]]
+name = "ajedi20250627-check-cpf-cnpj"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250627_check_cpf_cnpj" }
+dependencies = [
+    { name = "validate-docbr" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "validate-docbr", specifier = ">=1.11.1" }]
 
 [[package]]
 name = "altair"
@@ -6233,6 +6245,14 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/d2/19/f5b78616566ea68edd42aacaf645adbf71fbd83fc52281fba555dc27e3f1/uvloop-0.21.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f3df876acd7ec037a3d005b3ab85a7e4110422e4d9c1571d4fc89b0fc41b6816", size = 4701068, upload-time = "2024-10-14T23:38:06.385Z" },
     { url = "https://files.pythonhosted.org/packages/47/57/66f061ee118f413cd22a656de622925097170b9380b30091b78ea0c6ea75/uvloop-0.21.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:bd53ecc9a0f3d87ab847503c2e1552b690362e005ab54e8a48ba97da3924c0dc", size = 4454428, upload-time = "2024-10-14T23:38:08.416Z" },
     { url = "https://files.pythonhosted.org/packages/63/9a/0962b05b308494e3202d3f794a6e85abe471fe3cafdbcf95c2e8c713aabd/uvloop-0.21.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:a5c39f217ab3c663dc699c04cbd50c13813e31d917642d459fdcec07555cc553", size = 4660018, upload-time = "2024-10-14T23:38:10.888Z" },
+]
+
+[[package]]
+name = "validate-docbr"
+version = "1.11.1"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1e/7d/68e162b18b3620e1b0ddbc4831f8db01e3487b1d6ef4407017fec6c45e0d/validate_docbr-1.11.1-py3-none-any.whl", hash = "sha256:dcd58ba672f0661f387515e42a26e9fc201b437498b9de7e96369a7e9563f36c", size = 20637, upload-time = "2025-06-18T15:27:45.672Z" },
 ]
 
 [[package]]
