@@ -78,6 +78,7 @@ members = [
     "incolume/academia_jedi/ajedi20250624_Notificar_area_trabalho",
     "incolume/academia_jedi/ajedi20250625_compact_files_py",
     "incolume/academia_jedi/ajedi20250626_gen_qrcode",
+    "incolume/academia_jedi/ajedi20250627_check_cpf_cnpj",
 ]
 
 [tool.uv.sources]
