@@ -1,0 +1,17 @@
+[project]
+name = "ajedi20250726-method-overload"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Britodfbr", email = "britodfbr@gmail.com" }
+]
+requires-python = ">=3.10, <4"
+dependencies = []
+
+[project.scripts]
+ajedi20250726-method-overload = "ajedi20250726_method_overload:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
