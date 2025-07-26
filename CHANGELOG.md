@@ -10,7 +10,7 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-07-26:
+## [0.120.0]	 &#8212; 	2025-07-26:
 ### Added
   - Estudo na geração de QRCode com a biblioteca qrcode;
   - Estudo na geração de QRCode com a biblioteca segno;
@@ -871,4 +871,4 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.117.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.116.0...0.117.0
 [0.118.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.117.0...0.118.0
 [0.119.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.118.0...0.119.0
-[Unreleased]: https://github.com/incolume-jedi/academia-jedi/compare/0.119.0...Unreleased
+[0.120.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.119.0...0.120.0
