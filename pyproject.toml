@@ -1,6 +1,6 @@
 [project]
 name = "academia-jedi"
-version = "0.119.0"
+version = "0.120.0"
 description = ""
 readme="README.md"
 requires-python = ">=3.10,<4"
@@ -36,6 +36,7 @@ dev = [
     "pytest-cov>=6.2.1",
     "ruff>=0.12.0",
     "sqlalchemy>=1.4.39,<2",
+    "testcontainers>=4.10.0",
     "windows-curses>=2.4.1 ; sys_platform == 'win32'",
 ]
 
@@ -59,15 +60,25 @@ members = [
     "incolume/academia_jedi/ajedi20250605_streamlit_docker",
     "incolume/academia_jedi/ajedi20250606_acesso_openweather",
     "incolume/academia_jedi/ajedi20250607_docker_subprojetos",
-    "incolume/academia_jedi/ajedi20250607_dockerfile_inline",
     "incolume/academia_jedi/ajedi20250609_img2txtAI",
     "incolume/academia_jedi/ajedi20250610_estudos_docker_compose",
     "incolume/academia_jedi/ajedi20250611_logging",
+    "incolume/academia_jedi/ajedi20250612_tests_in_docker",
     "incolume/academia_jedi/ajedi20250613_postgres_docker",
     "incolume/academia_jedi/ajedi20250614_raspagem_AI",
     "incolume/academia_jedi/ajedi20250615_gen_barcode",
     "incolume/academia_jedi/ajedi20250616_dashboard_venda_market",
+    "incolume/academia_jedi/ajedi20250617_extends_docker",
+    "incolume/academia_jedi/ajedi20250618_dockerfile_inline",
+    "incolume/academia_jedi/ajedi20250619_base64_encode",
     "incolume/academia_jedi/ajedi20250620_py_script",
+    "incolume/academia_jedi/ajedi20250621_token_shortener",
+    "incolume/academia_jedi/ajedi20250622_estudos_monkeypatch",
+    "incolume/academia_jedi/ajedi20250623_estudo_respx",
+    "incolume/academia_jedi/ajedi20250624_Notificar_area_trabalho",
+    "incolume/academia_jedi/ajedi20250625_compact_files_py",
+    "incolume/academia_jedi/ajedi20250626_gen_qrcode",
+    "incolume/academia_jedi/ajedi20250627_check_cpf_cnpj",
 ]
 
 [tool.uv.sources]
@@ -76,7 +87,7 @@ ajedi20250611-logging = { path = "incolume/academia_jedi/ajedi20250611_logging" 
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.119.0"
+version = "0.120.0"
 description = ""
 readme="README.md"
 authors = ["Britodfbr <britodfbr@gmail.com>"]
@@ -170,7 +181,6 @@ pypdf2 = "^3.0.1"
 pysimpleguiqt = { version = ">=0.35.0", python = "<3.11" }
 pyspellchecker = "^0.7.1"
 pytesseract = "^0.3.10"
-pytest = "^7.1.2"
 pytest-cov = "^4.0.0"
 requests = "^2.28.1"
 rstr = ">=2.2.6"
@@ -206,6 +216,9 @@ streamlit = "^1.44.1"
 streamlit-authenticator = "^0.4.2"
 psycopg2-binary = "^2.9.10"
 cx-freeze = "^8.3.0"
+testcontainers = "^4.10.0"
+respx = "^0.22.0"
+pytest-asyncio = "^1.0.0"
 
 
 [[tool.poetry.source]]

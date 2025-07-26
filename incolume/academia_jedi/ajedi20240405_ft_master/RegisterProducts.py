@@ -1,6 +1,6 @@
 """Module."""
 
-# ruff: noqa: A002, ARG002, D101, D102, D107, ERA001, N999
+# ruff: noqa: A002, ARG002, D101, D102, D107, E501, ERA001, N999
 
 from CategoryBrand import Brand, Category
 from Database import ProductsDatabase, SalesDatabase
@@ -31,7 +31,7 @@ from flet import (
 from Notification import Notification
 from Validator import Validator
 
-# ruff: noqa: ARG002, A002, ERA001, D101, D102, D107
+# ruff: noqa: ARG002, A002, ERA001, D101, D102, D107, E501
 
 
 class RegisterProducts(UserControl):

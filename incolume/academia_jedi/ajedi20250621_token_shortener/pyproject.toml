@@ -1,0 +1,17 @@
+[project]
+name = "ajedi20250621-token-shortener"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Britodfbr", email = "britodfbr@gmail.com" }
+]
+requires-python = ">=3.10, <4"
+dependencies = []
+
+[project.scripts]
+ajedi20250621-token-shortener = "ajedi20250621_token_shortener:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
