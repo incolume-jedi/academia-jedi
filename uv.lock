@@ -77,11 +77,12 @@ members = [
     "ajedi20250625-compact-files-py",
     "ajedi20250626-gen-qrcode",
     "ajedi20250627-check-cpf-cnpj",
+    "ajedi20250726-method-overload",
 ]
 
 [[package]]
 name = "academia-jedi"
-version = "0.120.0a9"
+version = "0.121.0a0"
 source = { editable = "." }
 dependencies = [
     { name = "click" },
@@ -788,6 +789,11 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [{ name = "validate-docbr", specifier = ">=1.11.1" }]
+
+[[package]]
+name = "ajedi20250726-method-overload"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250726_method_overload" }
 
 [[package]]
 name = "altair"
