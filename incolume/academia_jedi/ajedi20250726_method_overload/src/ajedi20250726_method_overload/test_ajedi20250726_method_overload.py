@@ -72,7 +72,7 @@ class TestNegator:
         ic(entrance, expected)
 
         if entrance.exception:
-            with pytest.raises(**entrance.exception):
+            with pytest.raises(**entrance.exception):  # noqa: PT010
                 Negator.neg(entrance.value)
         else:
             assert Negator.neg(entrance.value) == expected, (
