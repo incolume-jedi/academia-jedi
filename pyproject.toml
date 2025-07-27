@@ -17,8 +17,8 @@ dependencies = [
 
 [tool.poetry]
 name = "academia-jedi"
-version = "0.121.0a0"
 description = ""
+version = "0.121.0a0"
 readme="README.md"
 authors = ["Britodfbr <britodfbr@gmail.com>"]
 packages = [
@@ -41,6 +41,11 @@ classifiers = [
   "Topic :: Education",
   "License :: Free For Educational Use",
 ]
+
+[build-system]
+requires = ["hatchling", "poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
 
 [dependency-groups]
 dev = [
@@ -226,10 +231,6 @@ pytest-asyncio = "^1.0.0"
 name = "pysimplegui"
 url = "https://PySimpleGUI.net/install"
 priority = "explicit"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 log_format = '%(asctime)s; %(levelname)-8s; %(name)s; %(module)s; %(funcName)s; %(message)s'
