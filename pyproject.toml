@@ -112,9 +112,11 @@ members = [
     "incolume/academia_jedi/ajedi20250626_gen_qrcode",
     "incolume/academia_jedi/ajedi20250627_check_cpf_cnpj",
     "incolume/academia_jedi/ajedi20250726_method_overload",
+    "incolume/academia_jedi/ajedi20220731_sgbd_pandas",
 ]
 
 [tool.uv.sources]
+ajedi20220731-sgbd-pandas={path="incolume/academia_jedi/ajedi20220731_sgbd_pandas"}
 ajedi20230223-openai-examples = {path = "incolume/academia_jedi/ajedi20230223_openai_examples"}
 ajedi20250611-logging = { path = "incolume/academia_jedi/ajedi20250611_logging" }
 
