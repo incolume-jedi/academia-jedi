@@ -117,6 +117,7 @@ members = [
     "incolume/academia_jedi/ajedi20250627_check_cpf_cnpj",
     "incolume/academia_jedi/ajedi20250726_method_overload",
     "incolume/academia_jedi/ajedi20220731_sgbd_pandas",
+    "incolume/academia_jedi/ajedi20250802_threads",
 ]
 
 [tool.uv.sources]
