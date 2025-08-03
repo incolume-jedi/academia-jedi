@@ -1,0 +1,17 @@
+[project]
+name = "ajedi20250802-threads"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Britodfbr", email = "britodfbr@gmail.com" }
+]
+requires-python = ">=3.10, <4"
+dependencies = []
+
+[project.scripts]
+ajedi20250802-threads = "ajedi20250802_threads:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

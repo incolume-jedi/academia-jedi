@@ -83,7 +83,7 @@ members = [
 
 [[package]]
 name = "academia-jedi"
-version = "0.121.0a1"
+version = "0.121.0a2"
 source = { editable = "." }
 dependencies = [
     { name = "click" },
@@ -109,14 +109,18 @@ dev = [
     { name = "html5lib" },
     { name = "httpx" },
     { name = "incolume-py-changelog" },
+    { name = "ipykernel" },
+    { name = "jupyterlab" },
     { name = "lxml" },
     { name = "markdown" },
+    { name = "pandas" },
     { name = "passlib", extra = ["bcrypt"] },
     { name = "pre-commit" },
     { name = "pytest-cov" },
     { name = "ruff" },
     { name = "sqlalchemy" },
     { name = "testcontainers" },
+    { name = "tqdm" },
     { name = "windows-curses", marker = "sys_platform == 'win32'" },
 ]
 
@@ -145,14 +149,18 @@ dev = [
     { name = "html5lib", specifier = ">=1.1" },
     { name = "httpx", specifier = ">=0.13.3" },
     { name = "incolume-py-changelog", specifier = ">=0.8.0" },
+    { name = "ipykernel", specifier = ">=6.29.5" },
+    { name = "jupyterlab", specifier = ">=4.4.3" },
     { name = "lxml", specifier = ">=4.9.1" },
     { name = "markdown", specifier = ">=3.4.1" },
+    { name = "pandas", specifier = ">=2.3.0" },
     { name = "passlib", extras = ["bcrypt"], specifier = ">=1.7.4" },
     { name = "pre-commit", marker = "python_full_version >= '3.9'", specifier = ">=3.7.0" },
     { name = "pytest-cov", specifier = ">=6.2.1" },
     { name = "ruff", specifier = ">=0.12.0" },
     { name = "sqlalchemy", specifier = ">=1.4.39,<2" },
     { name = "testcontainers", specifier = ">=4.10.0" },
+    { name = "tqdm", specifier = ">=4.67.1" },
     { name = "windows-curses", marker = "sys_platform == 'win32'", specifier = ">=2.4.1" },
 ]
 

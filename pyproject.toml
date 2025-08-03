@@ -61,14 +61,18 @@ dev = [
     "html5lib>=1.1",
     "httpx>=0.13.3",
     "incolume-py-changelog>=0.8.0",
+    "ipykernel>=6.29.5",
+    "jupyterlab>=4.4.3",
     "lxml>=4.9.1",
     "markdown>=3.4.1",
+    "pandas>=2.3.0",
     "passlib[bcrypt]>=1.7.4",
     "pre-commit>=3.7.0 ; python_full_version >= '3.9'",
     "pytest-cov>=6.2.1",
     "ruff>=0.12.0",
     "sqlalchemy>=1.4.39,<2",
     "testcontainers>=4.10.0",
+    "tqdm>=4.67.1",
     "windows-curses>=2.4.1 ; sys_platform == 'win32'",
 ]
 
@@ -113,6 +117,7 @@ members = [
     "incolume/academia_jedi/ajedi20250627_check_cpf_cnpj",
     "incolume/academia_jedi/ajedi20250726_method_overload",
     "incolume/academia_jedi/ajedi20220731_sgbd_pandas",
+    "incolume/academia_jedi/ajedi20250802_threads",
 ]
 
 [tool.uv.sources]
