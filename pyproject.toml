@@ -1,6 +1,6 @@
 [project]
 name = "academia-jedi"
-version = "0.120.0"
+version = "0.122.0"
 description = ""
 readme="README.md"
 requires-python = ">=3.10,<4"
@@ -14,6 +14,38 @@ dependencies = [
   "python-dotenv>=0.20.0",
   "unidecode>=1.4.0",
 ]
+
+[tool.poetry]
+name = "academia-jedi"
+description = ""
+version = "0.121.0a2"
+readme="README.md"
+authors = ["Britodfbr <britodfbr@gmail.com>"]
+packages = [
+  {include='incolume', from=''},
+  {include='incolume/academia_jedi', from=''},
+]
+classifiers = [
+  # https://pypi.org/classifiers/
+  "Development Status :: 5 - Production/Stable",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Natural Language :: Portuguese (Brazilian)",
+  "Intended Audience :: Education",
+  "Topic :: Education",
+  "License :: Free For Educational Use",
+]
+
+[build-system]
+requires = ["hatchling", "poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
 
 [dependency-groups]
 dev = [
@@ -29,14 +61,18 @@ dev = [
     "html5lib>=1.1",
     "httpx>=0.13.3",
     "incolume-py-changelog>=0.8.0",
+    "ipykernel>=6.29.5",
+    "jupyterlab>=4.4.3",
     "lxml>=4.9.1",
     "markdown>=3.4.1",
+    "pandas>=2.3.0",
     "passlib[bcrypt]>=1.7.4",
     "pre-commit>=3.7.0 ; python_full_version >= '3.9'",
     "pytest-cov>=6.2.1",
     "ruff>=0.12.0",
     "sqlalchemy>=1.4.39,<2",
     "testcontainers>=4.10.0",
+    "tqdm>=4.67.1",
     "windows-curses>=2.4.1 ; sys_platform == 'win32'",
 ]
 
@@ -79,38 +115,15 @@ members = [
     "incolume/academia_jedi/ajedi20250625_compact_files_py",
     "incolume/academia_jedi/ajedi20250626_gen_qrcode",
     "incolume/academia_jedi/ajedi20250627_check_cpf_cnpj",
+    "incolume/academia_jedi/ajedi20250726_method_overload",
+    "incolume/academia_jedi/ajedi20220731_sgbd_pandas",
+    "incolume/academia_jedi/ajedi20250802_threads",
 ]
 
 [tool.uv.sources]
+ajedi20220731-sgbd-pandas={path="incolume/academia_jedi/ajedi20220731_sgbd_pandas"}
 ajedi20230223-openai-examples = {path = "incolume/academia_jedi/ajedi20230223_openai_examples"}
 ajedi20250611-logging = { path = "incolume/academia_jedi/ajedi20250611_logging" }
-
-[tool.poetry]
-name = "academia-jedi"
-version = "0.120.0"
-description = ""
-readme="README.md"
-authors = ["Britodfbr <britodfbr@gmail.com>"]
-packages = [
-  {include='incolume', from=''},
-  {include='incolume/academia_jedi', from=''},
-]
-classifiers = [
-  # https://pypi.org/classifiers/
-  "Development Status :: 5 - Production/Stable",
-  "Operating System :: OS Independent",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3.13",
-  "Natural Language :: Portuguese (Brazilian)",
-  "Intended Audience :: Education",
-  "Topic :: Education",
-  "License :: Free For Educational Use",
-]
 
 
 [tool.poetry.dependencies]
@@ -225,10 +238,6 @@ pytest-asyncio = "^1.0.0"
 name = "pysimplegui"
 url = "https://PySimpleGUI.net/install"
 priority = "explicit"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 log_format = '%(asctime)s; %(levelname)-8s; %(name)s; %(module)s; %(funcName)s; %(message)s'

@@ -1,0 +1,10 @@
+[project]
+name = "ajedi20220731-sgbd-pandas"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10, <4"
+dependencies = [
+    "pandas>=2.3.0",
+    "sqlalchemy>=1.4.54",
+]

@@ -42,6 +42,7 @@ resolution-markers = [
 [manifest]
 members = [
     "academia-jedi",
+    "ajedi20220731-sgbd-pandas",
     "ajedi20230223-openai-examples",
     "ajedi20250516-task-estudo-llm",
     "ajedi20250520-estudo-container",
@@ -77,11 +78,13 @@ members = [
     "ajedi20250625-compact-files-py",
     "ajedi20250626-gen-qrcode",
     "ajedi20250627-check-cpf-cnpj",
+    "ajedi20250726-method-overload",
+    "ajedi20250802-threads",
 ]
 
 [[package]]
 name = "academia-jedi"
-version = "0.120.0a9"
+version = "0.122.0"
 source = { editable = "." }
 dependencies = [
     { name = "click" },
@@ -107,14 +110,18 @@ dev = [
     { name = "html5lib" },
     { name = "httpx" },
     { name = "incolume-py-changelog" },
+    { name = "ipykernel" },
+    { name = "jupyterlab" },
     { name = "lxml" },
     { name = "markdown" },
+    { name = "pandas" },
     { name = "passlib", extra = ["bcrypt"] },
     { name = "pre-commit" },
     { name = "pytest-cov" },
     { name = "ruff" },
     { name = "sqlalchemy" },
     { name = "testcontainers" },
+    { name = "tqdm" },
     { name = "windows-curses", marker = "sys_platform == 'win32'" },
 ]
 
@@ -143,14 +150,18 @@ dev = [
     { name = "html5lib", specifier = ">=1.1" },
     { name = "httpx", specifier = ">=0.13.3" },
     { name = "incolume-py-changelog", specifier = ">=0.8.0" },
+    { name = "ipykernel", specifier = ">=6.29.5" },
+    { name = "jupyterlab", specifier = ">=4.4.3" },
     { name = "lxml", specifier = ">=4.9.1" },
     { name = "markdown", specifier = ">=3.4.1" },
+    { name = "pandas", specifier = ">=2.3.0" },
     { name = "passlib", extras = ["bcrypt"], specifier = ">=1.7.4" },
     { name = "pre-commit", marker = "python_full_version >= '3.9'", specifier = ">=3.7.0" },
     { name = "pytest-cov", specifier = ">=6.2.1" },
     { name = "ruff", specifier = ">=0.12.0" },
     { name = "sqlalchemy", specifier = ">=1.4.39,<2" },
     { name = "testcontainers", specifier = ">=4.10.0" },
+    { name = "tqdm", specifier = ">=4.67.1" },
     { name = "windows-curses", marker = "sys_platform == 'win32'", specifier = ">=2.4.1" },
 ]
 
@@ -278,6 +289,21 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/ba/b5/6d55e80f6d8a08ce22b982eafa278d823b541c925f11ee774b0b9c43473d/aiosignal-1.3.2.tar.gz", hash = "sha256:a8c255c66fafb1e499c9351d0bf32ff2d8a0321595ebac3b93713656d2436f54", size = 19424, upload-time = "2024-12-13T17:10:40.86Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ec/6a/bc7e17a3e87a2985d3e8f4da4cd0f481060eb78fb08596c42be62c90a4d9/aiosignal-1.3.2-py2.py3-none-any.whl", hash = "sha256:45cde58e409a301715980c2b01d0c28bdde3770d8290b5eb2173759d9acb31a5", size = 7597, upload-time = "2024-12-13T17:10:38.469Z" },
+]
+
+[[package]]
+name = "ajedi20220731-sgbd-pandas"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220731_sgbd_pandas" }
+dependencies = [
+    { name = "pandas" },
+    { name = "sqlalchemy" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "pandas", specifier = ">=2.3.0" },
+    { name = "sqlalchemy", specifier = ">=1.4.54" },
 ]
 
 [[package]]
@@ -788,6 +814,16 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [{ name = "validate-docbr", specifier = ">=1.11.1" }]
+
+[[package]]
+name = "ajedi20250726-method-overload"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250726_method_overload" }
+
+[[package]]
+name = "ajedi20250802-threads"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250802_threads" }
 
 [[package]]
 name = "altair"
