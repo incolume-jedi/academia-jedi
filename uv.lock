@@ -79,11 +79,12 @@ members = [
     "ajedi20250626-gen-qrcode",
     "ajedi20250627-check-cpf-cnpj",
     "ajedi20250726-method-overload",
+    "ajedi20250802-threads",
 ]
 
 [[package]]
 name = "academia-jedi"
-version = "0.121.0a2"
+version = "0.122.0"
 source = { editable = "." }
 dependencies = [
     { name = "click" },
@@ -818,6 +819,11 @@ requires-dist = [{ name = "validate-docbr", specifier = ">=1.11.1" }]
 name = "ajedi20250726-method-overload"
 version = "0.1.0"
 source = { editable = "incolume/academia_jedi/ajedi20250726_method_overload" }
+
+[[package]]
+name = "ajedi20250802-threads"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250802_threads" }
 
 [[package]]
 name = "altair"
