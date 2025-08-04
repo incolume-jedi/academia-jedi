@@ -10,6 +10,37 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
+## [0.122.0]	 &#8212; 	2025-08-03:
+### Added
+  - Estudos com Threads;
+  - Estudos com Multiprocess;
+  - Incluído `uv version` para gestão de versão;
+
+## [0.121.0]	 &#8212; 	2025-08-03:
+### Added
+  - Estudo na geração de QRCode com a biblioteca qrcode;
+  - Estudo na geração de QRCode com a biblioteca segno;
+  - Estudo com a biblioteca validate_docbr para gerar e validar CPF e CNPJ;
+  - Estudos com postgresql rodando em docker;
+  - Estudos compose inline;
+  - Estudos volumes docker;
+  - Exemplos de tipos direfentes de barcode em python;
+  - Projeto dashboard completo com pacote dash e plotly;
+  - Estudos com scrits python com foco em boas praticas e PEP723;
+  - Estudos com cx-freeze para gerar executáveis;
+  - Estudos com Enum para otimização do scripts;
+  - Estudos com Dataclass para otimização de scripts;
+  - Estudos com CLICK para atimização de scripts;
+  - Estudos sobre modulo base64;
+  - Estudos sobre pytest-mock;
+  - Notificações com pacote plyer;
+  - Estudos monkeypatch em pytest;
+  - Estudos com pacote gzip;
+  - Configuração de dataclass para operador de descompactação em testes com suite pytest;
+  - Configuração de setup e teardown na suite pytest;
+  - Prospecção para geração de token para urlshortener;
+  - Acrescentado docker-compose para API httpbin.org;
+
 ## [0.120.0]	 &#8212; 	2025-07-26:
 ### Added
   - Estudo na geração de QRCode com a biblioteca qrcode;
@@ -872,3 +903,5 @@ This file was automatically generated for [incolume.py.changelog](https://github
 [0.118.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.117.0...0.118.0
 [0.119.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.118.0...0.119.0
 [0.120.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.119.0...0.120.0
+[0.121.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.120.0...0.121.0
+[0.122.0]: https://github.com/incolume-jedi/academia-jedi/compare/0.121.0...0.122.0
