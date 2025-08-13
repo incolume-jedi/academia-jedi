@@ -15,6 +15,10 @@ dependencies = [
   "unidecode>=1.4.0",
 ]
 
+[tool.uv.build-backend]
+module-name = "academia_jedi"
+module-root = "incolume"
+
 [tool.poetry]
 name = "academia-jedi"
 description = ""
