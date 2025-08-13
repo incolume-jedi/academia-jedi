@@ -15,6 +15,10 @@ dependencies = [
   "unidecode>=1.4.0",
 ]
 
+[tool.uv.build-backend]
+module-name = "academia_jedi"
+module-root = "incolume"
+
 [tool.poetry]
 name = "academia-jedi"
 description = ""
@@ -43,8 +47,8 @@ classifiers = [
 ]
 
 [build-system]
-requires = ["hatchling", "poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.8.9,<0.9.0"]
+build-backend = "uv_build"
 
 
 [dependency-groups]
