@@ -6,7 +6,9 @@ from typing import Any
 
 from icecream import ic
 from playwright import sync_playwright
-import tempfile
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+
+
 
 html_text="""
 <html>
@@ -114,9 +116,12 @@ def automation(
 
 def main() -> None:
     """Run it."""
-    ic("Hello from ajedi20251013-getting-elements-in-a-table-with-playwright!")
+    ic('Hello from ajedi20251013-getting-elements-in-a-table-with-playwright!')
     config()
     ic(html_text)
+    httpd = HTTPServer(('localhost', 8000), SimpleHTTPRequestHandler)
+    httpd.serve_forever()
+
 
 
 if __name__ == "__main__":
