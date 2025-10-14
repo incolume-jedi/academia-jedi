@@ -6,6 +6,7 @@ from typing import Any
 from icecream import ic
 from playwright.sync_api import sync_playwright
 
+
 html_text="""
 <html>
 <head><title>Fake page</title></head>
@@ -106,7 +107,7 @@ def filename(**kwargs: [str, Any]) -> Path:
         return fl.name
 
 
-def automation(
+def automation0(
     username: str,
     password: str,
     url: str = '',
@@ -132,6 +133,16 @@ def automation(
             page.get_by_role('button', name='ACESSAR').click()
             page.screenshot(path=filename())
 
+def automation1(url: str = '')-> None:
+    """Automation."""
+    url = url or 'http://localhost:8000'
+    with sync_playwright() as handler:
+        browser = handler.webkit.launch(headless=False)
+        with browser.new_context() as context:
+            page = context.new_page()
+            page.goto(url)
+            # expect(page.get_by_text("Welcome, John!")).to_be_visible()
+            page.screenshot(path=filename())
 
 
 
@@ -140,6 +151,7 @@ def main() -> None:
     ic('Hello from ajedi20251013-getting-elements-in-a-table-with-playwright!')
     config()
     ic(html_text)
+    automation1()
 
 
 
