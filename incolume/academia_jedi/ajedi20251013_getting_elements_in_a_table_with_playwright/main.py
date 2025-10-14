@@ -7,6 +7,7 @@ from typing import Any
 
 from icecream import ic
 from playwright.sync_api import expect, sync_playwright
+import contextlib
 
 html_text = """
 <html>
@@ -152,7 +153,8 @@ def main() -> None:
     """Run it."""
     ic('Hello from ajedi20251013-getting-elements-in-a-table-with-playwright!')
     site = config()
-    Popen(f'python -m http.server 8000 -d {site.parent}', shell=False)
+    with contextlib.suppress(FileNotFoundError):
+        Popen(f'python -m http.server 8000 -d {site.parent}', shell=False)
     ic(html_text)
     automation1()
 
