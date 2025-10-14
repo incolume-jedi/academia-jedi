@@ -4,8 +4,7 @@ from pathlib import Path
 from typing import Any
 
 from icecream import ic
-from playwright.sync_api import sync_playwright
-
+from playwright.sync_api import sync_playwright, expect
 
 html_text="""
 <html>
@@ -17,7 +16,7 @@ html_text="""
       <td>&nbsp;</td>
       <td><img src='https://www.gov.br/favicon.ico'></td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td>Steve</td>
     </tr>
     <tr>
       <td>&nbsp;</td>
@@ -59,7 +58,7 @@ html_text="""
         <input lotsofuselesstext value="Mark">
 
       </td>
-      <td>&nbsp;</td>
+      <td>&nbsp;Welcome, John!</td>
     </tr>
   </tbody>
 </table>
@@ -141,8 +140,9 @@ def automation1(url: str = '')-> None:
         with browser.new_context() as context:
             page = context.new_page()
             page.goto(url)
-            # expect(page.get_by_text("Welcome, John!")).to_be_visible()
             page.screenshot(path=filename())
+            ic(expect(page.get_by_text("Steve")).to_be_visible())
+            ic(expect(page.get_by_text("Welcome, John!")).to_be_visible())
 
 
 
