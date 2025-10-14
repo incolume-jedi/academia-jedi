@@ -67,7 +67,7 @@ html_text = """
         <input id=lotsofuse name=lesstext value="Mark">
 
       </td>
-      <td>&nbsp;Welcome, John!</td>
+      <td>&nbsp;<label>Welcome, John!<lable></td>
     </tr>
   </tbody>
   <caption>Table demonstration</caption>
@@ -146,6 +146,7 @@ def automation0(
 def automation1(url: str = '') -> None:
     """Automation."""
     url = url or 'http://localhost:8000'
+    result: list = []
     with sync_playwright() as handler:
         browser = handler.webkit.launch(headless=False)
         with browser.new_context() as context:
@@ -154,6 +155,14 @@ def automation1(url: str = '') -> None:
             page.screenshot(path=filename())
             ic(expect(page.get_by_text('Steve')).to_be_visible())
             ic(expect(page.get_by_text('Table demonstration')).to_be_visible())
+            child = page.get_by_text("Welcome, John")
+            result.append(child)
+            result.append(page.get_by_role("listitem").filter(has=child))
+
+            ic(result[-1])
+            result.append(page.get_by_text("Welcome, John").locator('xpath=..'))
+            ic(result[-1])
+
 
 
 def main() -> None:
