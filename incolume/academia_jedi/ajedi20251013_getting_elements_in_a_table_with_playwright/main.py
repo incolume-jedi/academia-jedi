@@ -1,5 +1,6 @@
 """Module."""
 
+import contextlib
 import tempfile
 from pathlib import Path
 from subprocess import Popen
@@ -7,7 +8,6 @@ from typing import Any
 
 from icecream import ic
 from playwright.sync_api import expect, sync_playwright
-import contextlib
 
 html_text = """
 <html>
@@ -15,26 +15,32 @@ html_text = """
 <body>
 <table border=1>
   <tbody>
+    <thead>
+      <td>id</td>
+      <td>ico</td>
+      <td>field</td>
+      <td>name</td>
+    </thead>
     <tr>
-      <td>&nbsp;</td>
+      <td>1</td>
       <td><img src='https://www.gov.br/favicon.ico'></td>
       <td>&nbsp;</td>
       <td>Steve</td>
     </tr>
     <tr>
-      <td>&nbsp;</td>
+      <td>2</td>
       <td><img src='https://www.gov.br/favicon.ico'></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td>&nbsp;</td>
+      <td>3</td>
       <td><img src='https://www.gov.br/favicon.ico'></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td>&nbsp;</td>
+      <td>4</td>
       <td><img src='https://protocolosip.presidencia.gov.br/favicon.ico'></td>
       <td>
         <input lotsofuselesstext value="Steve">
@@ -43,19 +49,19 @@ html_text = """
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td>&nbsp;</td>
+      <td>5</td>
       <td><img src='https://www.gov.br/favicon.ico'></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td>&nbsp;</td>
+      <td>6</td>
       <td><img src='https://www.gov.br/favicon.ico'></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td>&nbsp;</td>
+      <td>7</td>
       <td><img src='https://protocolosip.presidencia.gov.br/favicon.ico'></td>
       <td>
         <input lotsofuselesstext value="Mark">
@@ -64,6 +70,7 @@ html_text = """
       <td>&nbsp;Welcome, John!</td>
     </tr>
   </tbody>
+  <caption>Table demonstration</caption>
 </table>
 </body>
 </html>
@@ -146,7 +153,7 @@ def automation1(url: str = '') -> None:
             page.goto(url)
             page.screenshot(path=filename())
             ic(expect(page.get_by_text('Steve')).to_be_visible())
-            ic(expect(page.get_by_text('Welcome, John!')).to_be_visible())
+            ic(expect(page.get_by_text('Table demonstration')).to_be_visible())
 
 
 def main() -> None:
