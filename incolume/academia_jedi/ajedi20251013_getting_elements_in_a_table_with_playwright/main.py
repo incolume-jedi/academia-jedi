@@ -43,7 +43,7 @@ html_text = """
       <td>4</td>
       <td><img src='https://protocolosip.presidencia.gov.br/favicon.ico'></td>
       <td>
-        <input lotsofuselesstext value="Steve">
+        <input name=lotsofuse id=lesstext value="Steve">
 
       </td>
       <td>&nbsp;</td>
@@ -64,7 +64,7 @@ html_text = """
       <td>7</td>
       <td><img src='https://protocolosip.presidencia.gov.br/favicon.ico'></td>
       <td>
-        <input lotsofuselesstext value="Mark">
+        <input id=lotsofuse name=lesstext value="Mark">
 
       </td>
       <td>&nbsp;Welcome, John!</td>
