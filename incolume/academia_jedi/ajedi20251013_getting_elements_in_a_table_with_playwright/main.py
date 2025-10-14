@@ -1,12 +1,14 @@
 """Module."""
+
+from subprocess import Popen
 import tempfile
 from pathlib import Path
 from typing import Any
 
 from icecream import ic
-from playwright.sync_api import sync_playwright, expect
+from playwright.sync_api import expect, sync_playwright
 
-html_text="""
+html_text = """
 <html>
 <head><title>Fake page</title></head>
 <body>
@@ -66,14 +68,17 @@ html_text="""
 </html>
 """
 
-dout = Path(tempfile.gettempdir())/Path(__file__).parent.stem
+dout = Path(tempfile.gettempdir()) / Path(__file__).parent.stem
 
-def config():
+
+def config() -> Path:
     """Config it."""
-    dsite: Path = dout/'site-fake'
+    dsite: Path = dout / 'site-fake'
     dsite.mkdir(parents=True, exist_ok=True)
-    site = dsite/'index.html'
+    site = dsite / 'index.html'
     site.write_text(html_text)
+    return site
+
 
 def filename(**kwargs: [str, Any]) -> Path:
     """Filename.
@@ -113,10 +118,7 @@ def automation0(
     department: str = '',
 ) -> None:
     """Automation."""
-    url = (
-        url
-        or 'http://localhost:8000'
-    )
+    url = url or 'http://localhost:8000'
     department = department or 'PR'
     ic(username, department)
     with sync_playwright() as handler:
@@ -132,7 +134,8 @@ def automation0(
             page.get_by_role('button', name='ACESSAR').click()
             page.screenshot(path=filename())
 
-def automation1(url: str = '')-> None:
+
+def automation1(url: str = '') -> None:
     """Automation."""
     url = url or 'http://localhost:8000'
     with sync_playwright() as handler:
@@ -141,22 +144,18 @@ def automation1(url: str = '')-> None:
             page = context.new_page()
             page.goto(url)
             page.screenshot(path=filename())
-            ic(expect(page.get_by_text("Steve")).to_be_visible())
-            ic(expect(page.get_by_text("Welcome, John!")).to_be_visible())
-
+            ic(expect(page.get_by_text('Steve')).to_be_visible())
+            ic(expect(page.get_by_text('Welcome, John!')).to_be_visible())
 
 
 def main() -> None:
     """Run it."""
     ic('Hello from ajedi20251013-getting-elements-in-a-table-with-playwright!')
-    config()
+    site = config()
+    Popen(f'python -m http.server 8000 -d {site.parent}', shell=False)
     ic(html_text)
     automation1()
 
 
-
-
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
