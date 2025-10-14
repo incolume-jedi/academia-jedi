@@ -4,35 +4,61 @@ from pathlib import Path
 from typing import Any
 
 from icecream import ic
+from playwright.sync_api import sync_playwright
 
 html_text="""
 <html>
 <head><title>Fake page</title></head>
 <body>
-<table>
+<table border=1>
   <tbody>
     <tr>
-    <tr>
-    <tr>
-    <tr>
-      <td>
-      <td>
-      <td>
-        <input lotsofuselesstext value="Steve">
-        <img>
-      </td>
-      <td>
+      <td>&nbsp;</td>
+      <td><img src='https://www.gov.br/favicon.ico'></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
     </tr>
     <tr>
+      <td>&nbsp;</td>
+      <td><img src='https://www.gov.br/favicon.ico'></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
     <tr>
+      <td>&nbsp;</td>
+      <td><img src='https://www.gov.br/favicon.ico'></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
     <tr>
+      <td>&nbsp;</td>
+      <td><img src='https://protocolosip.presidencia.gov.br/favicon.ico'></td>
       <td>
-      <td>
+        <input lotsofuselesstext value="Steve">
+
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><img src='https://www.gov.br/favicon.ico'></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><img src='https://www.gov.br/favicon.ico'></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><img src='https://protocolosip.presidencia.gov.br/favicon.ico'></td>
       <td>
         <input lotsofuselesstext value="Mark">
-        <img>
+
       </td>
-      <td>
+      <td>&nbsp;</td>
     </tr>
   </tbody>
 </table>
