@@ -1,14 +1,9 @@
 """Module."""
 import tempfile
-from inspect import stack
 from pathlib import Path
 from typing import Any
 
 from icecream import ic
-from playwright import sync_playwright
-from http.server import HTTPServer, SimpleHTTPRequestHandler
-
-
 
 html_text="""
 <html>
@@ -91,10 +86,10 @@ def automation(
     url: str = '',
     department: str = '',
 ) -> None:
-    """Automation for SEI."""
+    """Automation."""
     url = (
         url
-        or 'https://protocolosip.presidencia.gov.br/login.php?sigla_orgao_sistema=PR&sigla_sistema=SEI'
+        or 'http://localhost:8000'
     )
     department = department or 'PR'
     ic(username, department)
@@ -119,8 +114,9 @@ def main() -> None:
     ic('Hello from ajedi20251013-getting-elements-in-a-table-with-playwright!')
     config()
     ic(html_text)
-    httpd = HTTPServer(('localhost', 8000), SimpleHTTPRequestHandler)
-    httpd.serve_forever()
+
+
+
 
 
 
