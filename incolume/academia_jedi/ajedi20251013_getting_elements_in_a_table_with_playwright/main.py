@@ -1,8 +1,8 @@
 """Module."""
 
-from subprocess import Popen
 import tempfile
 from pathlib import Path
+from subprocess import Popen
 from typing import Any
 
 from icecream import ic
