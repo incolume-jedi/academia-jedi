@@ -7,6 +7,8 @@ from dataclasses import dataclass, field
 from enum import Enum
 from secrets import choice
 
+from icecream import ic
+
 if sys.version_info < (3, 12):
     from typing_extensions import Self
 else:
@@ -162,31 +164,31 @@ def jogo():  # pragma: no cover
     0 - sair
 {line}\n
     """
-    print(f'{title}\n\nIniciado o {name}. Contra o computador.')
+    ic(f'{title}\n\nIniciado o {name}. Contra o computador.')
     nome = input('    Qual o teu nome? ')
     members = Jokenpo.__members__
-    print(menu)
+    ic(menu)
     jogador = Jogador(nome, lance=None)
     computador = Jogador('PC', lance=None)
     while (op := input('    Escolha uma opção: ')) not in members:
-        print(op)
+        ic(op)
         if op not in [str(x) for x in members] + sair:
-            print('\n\nInforme apenas as opções do Menu.\n\n\n')
+            ic('\n\nInforme apenas as opções do Menu.\n\n\n')
         if op in sair:
             break
         jogador.lance = Jokenpo(op)
         computador.lance = Jokenpo(choice(range(1, 4)))
-        print(
+        ic(
             'JO \nKEN \nPO\n'
             f'{line}\n{jogador.nome}({jogador.lance.name})\n'
             f'{computador.nome}({computador.lance.name})\n'
             f'{line}\n',
         )
-        print(start_jokenpo(jogador, computador))
+        ic(start_jokenpo(jogador, computador))
 
-        print(menu)
-    print(jogador)
-    print(computador)
+        ic(menu)
+    ic(jogador)
+    ic(computador)
 
 
 if __name__ == '__main__':
