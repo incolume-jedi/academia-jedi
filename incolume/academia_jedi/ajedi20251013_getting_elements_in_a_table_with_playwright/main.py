@@ -170,7 +170,7 @@ def main() -> None:
     ic('Hello from ajedi20251013-getting-elements-in-a-table-with-playwright!')
     site = config()
     with contextlib.suppress(FileNotFoundError):
-        Popen(f'python -m http.server 8000 -d {site.parent}', shell=False)
+        Popen(f'python -m http.server 8000 -d {site.parent}', shell=True)
     ic(html_text)
     automation1()
 
