@@ -1,15 +1,8 @@
 """Module."""
 from __future__ import annotations
 
-import contextlib
-import tempfile
-from pathlib import Path
-from subprocess import Popen
-from typing import Any
-
 from icecream import ic
 from playwright.sync_api import expect, sync_playwright
-
 
 html_text = """
 <html>
