@@ -15,9 +15,6 @@ dependencies = [
   "unidecode>=1.4.0",
 ]
 
-[tool.uv.build-backend]
-module-name = "academia_jedi"
-module-root = "incolume"
 
 [tool.poetry]
 name = "academia-jedi"
@@ -82,7 +79,15 @@ dev = [
     "windows-curses>=2.4.1 ; sys_platform == 'win32'",
 ]
 
+
+
 [tool.uv]
+
+
+[tool.uv.build-backend]
+# namespace = true
+module-root = ""
+module-name = "incolume.academia_jedi"
 
 [tool.uv.workspace]
 members = [
