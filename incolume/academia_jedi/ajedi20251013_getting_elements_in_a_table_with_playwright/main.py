@@ -162,6 +162,8 @@ def automation1(url: str = '') -> None:
             ic(result[-1])
             result.append(page.get_by_text("Welcome, John").locator('xpath=..'))
             ic(result[-1])
+            for elem in result[0]:
+                ic(elem)
 
 
 
