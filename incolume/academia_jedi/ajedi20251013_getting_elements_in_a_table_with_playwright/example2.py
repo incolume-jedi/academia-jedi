@@ -1,12 +1,17 @@
 """Example 2."""
+
 from __future__ import annotations
 
 from icecream import ic
 from playwright.sync_api import sync_playwright
 
-
 str_html: str = """
 <html>
+<head>
+<title>Savings</title>
+<link rel="icon"
+href="/favicon.ico" type="image/x-icon">
+</head>
 <body>
 <table>
   <caption style="caption-side:bottom">Monthly savings</caption>
@@ -80,7 +85,7 @@ str_html: str = """
 """
 
 
-def actions(url: str = '')->None:
+def actions(url: str = '') -> None:
     """Automation here."""
     with sync_playwright() as handler:
         browser = handler.chromium.launch(headless=False)
@@ -88,6 +93,8 @@ def actions(url: str = '')->None:
             page = context.new_page()
             page.goto(url)
 
-            link_locators = page.locator('table.stats_table').get_by_role('link').all()
+            link_locators = (
+                page.locator('table.stats_table').get_by_role('link').all()
+            )
             for lk in link_locators:
                 ic(lk.get_attribute('href'))

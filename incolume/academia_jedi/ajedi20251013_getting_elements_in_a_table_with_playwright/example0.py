@@ -1,4 +1,5 @@
 """Module."""
+
 from __future__ import annotations
 
 from icecream import ic
@@ -76,7 +77,8 @@ def automation0(
     username: str,
     password: str,
     url: str = '',
-    department: str = '',*,
+    department: str = '',
+    *,
     filename: callable | None = None,
 ) -> None:
     """Automation."""
@@ -97,8 +99,7 @@ def automation0(
             page.screenshot(path=filename())
 
 
-
-def automation1(url: str = '', *, filename: callable | None=None) -> None:
+def automation1(url: str = '', *, filename: callable | None = None) -> None:
     """Automation."""
     url = url or 'http://localhost:8000'
     result: list = []
@@ -110,12 +111,14 @@ def automation1(url: str = '', *, filename: callable | None=None) -> None:
             page.screenshot(path=filename())
             ic(expect(page.get_by_text('Steve')).to_be_visible())
             ic(expect(page.get_by_text('Table demonstration')).to_be_visible())
-            child = page.get_by_text("Welcome, John")
+            child = page.get_by_text('Welcome, John')
             result.append(child)
-            result.append(page.get_by_role("listitem").filter(has=child))
+            result.append(page.get_by_role('listitem').filter(has=child))
 
             ic(result[-1])
-            result.append(page.get_by_text("Welcome, John").locator('xpath=..'))
+            result.append(
+                page.get_by_text('Welcome, John').locator('xpath=..')
+            )
             ic(result[-1])
             result.append(page.get_by_role('table').all())
             ic(result[-1])

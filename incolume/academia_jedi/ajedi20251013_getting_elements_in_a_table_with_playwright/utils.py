@@ -12,6 +12,12 @@ def config(content_index: str = '') -> Path:
     dsite: Path = dout / 'site-fake'
     dsite.mkdir(parents=True, exist_ok=True)
     site = dsite / 'index.html'
+    dsite.joinpath('favicon.ico').write_bytes(
+        Path(__file__)
+        .parents[3]
+        .joinpath('data_files', 'ico', 'favicon2.ico')
+        .read_bytes()
+    )
     site.write_text(content_index)
     return site
 
