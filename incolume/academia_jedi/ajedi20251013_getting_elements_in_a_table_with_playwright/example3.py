@@ -984,5 +984,7 @@ def actions(url: str = '') -> None:
             for g in process_receved.get_by_role('link').all():
                 ic(g.text_content())
 
-            for h in process_receved.locator('//*[@id="P6779498"]/td[3]'):
-                ic(h.text_content())
+            for i, h in enumerate(
+                process_receved.locator('//*[@id]/td[3]').all(), 1
+            ):
+                ic(i, h.text_content())
