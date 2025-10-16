@@ -974,3 +974,7 @@ def actions(url: str = '') -> None:
                 ic(f.get_attribute('name'))
                 ic(f.get_attribute('aria-label'))
                 ic(f.get_attribute('onmouseover'))
+
+            href=page.locator('a').get_attribute('href')
+
+            ic(href)
