@@ -1,20 +1,30 @@
 """utils for submodule."""
 
 import tempfile
+from functools import wraps
 from pathlib import Path
 from typing import Any
-from icecream import ic
 
+from icecream import ic
 
 dout = Path(tempfile.gettempdir()) / Path(__file__).parent.stem
 
-def nonexequi(func: callable):
-    """Decorator nonexequi."""
-    def inner(*args, **kwargs)->None:
-        """Action."""
-        ic(f'Suprimido: {func.__name__}({args}, {kwargs})')
 
-    return inner
+def nonexequi(*, suppress: bool = True) -> Any:
+    """Decorator nonexequi."""
+
+    def wrapper(func: callable) -> None:
+        """Wrapper function."""
+
+        @wraps(func)
+        def inner(*args, **kwargs) -> None:
+            """Action."""
+            if suppress:
+                ic(f'Suprimido: {func.__name__}({args}, {kwargs})')
+
+        return inner
+
+    return wrapper
 
 
 def config(content_index: str = '') -> Path:
