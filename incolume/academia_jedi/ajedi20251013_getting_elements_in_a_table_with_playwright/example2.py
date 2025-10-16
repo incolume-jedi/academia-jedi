@@ -89,12 +89,15 @@ def actions(url: str = '') -> None:
     """Automation here."""
     with sync_playwright() as handler:
         browser = handler.chromium.launch(headless=False)
+        ic()
         with browser.new_context() as context:
             page = context.new_page()
             page.goto(url)
-
+            ic()
             link_locators = (
-                page.locator('table.stats_table').get_by_role('link').all()
+                page.locator('table').get_by_role('link').all()
             )
             for lk in link_locators:
+                ic(lk)
                 ic(lk.get_attribute('href'))
+            
