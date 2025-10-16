@@ -954,7 +954,7 @@ Transporte" onmouseover="return infraTooltipMostrar('Ate 31/10/2025 23:59\nTrans
 </div>
 </body>
 </html>
-"""
+"""  # noqa: E501
 
 
 def actions(url: str = '') -> None:
