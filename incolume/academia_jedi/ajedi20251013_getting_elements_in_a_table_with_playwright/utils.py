@@ -3,8 +3,18 @@
 import tempfile
 from pathlib import Path
 from typing import Any
+from icecream import ic
+
 
 dout = Path(tempfile.gettempdir()) / Path(__file__).parent.stem
+
+def nonexequi(func: callable):
+    """Decorator nonexequi."""
+    def inner(*args, **kwargs)->None:
+        """Action."""
+        ic(f'Suprimido: {func.__name__}({args}, {kwargs})')
+
+    return inner
 
 
 def config(content_index: str = '') -> Path:
