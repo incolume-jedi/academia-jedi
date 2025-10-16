@@ -15,9 +15,6 @@ dependencies = [
   "unidecode>=1.4.0",
 ]
 
-[tool.uv.build-backend]
-module-name = "academia_jedi"
-module-root = "incolume"
 
 [tool.poetry]
 name = "academia-jedi"
@@ -74,6 +71,7 @@ dev = [
     "pre-commit>=3.7.0 ; python_full_version >= '3.9'",
     "pytest-cov>=6.2.1",
     "python-dotenv>=1.1.0",
+    "pytest-playwright>=0.7.1",
     "ruff>=0.12.0",
     "sqlalchemy>=1.4.39,<2",
     "testcontainers>=4.10.0",
@@ -81,7 +79,15 @@ dev = [
     "windows-curses>=2.4.1 ; sys_platform == 'win32'",
 ]
 
+
+
 [tool.uv]
+
+
+[tool.uv.build-backend]
+# namespace = true
+module-root = ""
+module-name = "incolume.academia_jedi"
 
 [tool.uv.workspace]
 members = [
@@ -123,6 +129,7 @@ members = [
     "incolume/academia_jedi/ajedi20250726_method_overload",
     "incolume/academia_jedi/ajedi20220731_sgbd_pandas",
     "incolume/academia_jedi/ajedi20250802_threads",
+    "incolume/academia_jedi/ajedi20251013_getting_elements_in_a_table_with_playwright",
 ]
 
 [tool.uv.sources]
