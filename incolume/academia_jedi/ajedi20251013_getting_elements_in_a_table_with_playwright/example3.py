@@ -966,15 +966,23 @@ def actions(url: str = '') -> None:
             page = context.new_page()
             page.goto(url)
             ic()
-            expect(process_receved:=page.locator('#tblProcessosRecebidos')).to_be_visible()
+            expect(
+                process_receved := page.locator('#tblProcessosRecebidos'),
+            ).to_be_visible()
             ic(process_receved)
             for e in process_receved.get_by_role('row').all():
                 ic(e)
-            for f in process_receved.get_by_role("link", name='.').all():
+            for f in process_receved.get_by_role('link', name='.').all():
                 ic(f.get_attribute('name'))
                 ic(f.get_attribute('aria-label'))
                 ic(f.get_attribute('onmouseover'))
 
-            href=process_receved.locator('a').get_attribute('href')
+            # FIXME Dont working.
+            # href=process_receved.locator('a').get_attribute('href')
+            # ic(href)
 
-            ic(href)
+            for g in process_receved.get_by_role('link').all():
+                ic(g.text_content())
+
+            for h in process_receved.locator('//*[@id="P6779498"]/td[3]'):
+                ic(h.text_content())
