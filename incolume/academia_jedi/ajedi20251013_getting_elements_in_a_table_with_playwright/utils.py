@@ -18,7 +18,7 @@ def config(content_index: str = '') -> Path:
         .joinpath('data_files', 'ico', 'favicon2.ico')
         .read_bytes(),
     )
-    site.write_text(content_index)
+    site.write_text(content_index, encoding='utf-8')
     return site
 
 
