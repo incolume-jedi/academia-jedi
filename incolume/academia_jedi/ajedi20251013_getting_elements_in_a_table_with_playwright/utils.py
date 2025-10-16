@@ -17,10 +17,10 @@ def nonexequi(*, suppress: bool = True) -> Any:
         """Wrapper function."""
 
         @wraps(func)
-        def inner(*args, **kwargs) -> None:
+        def inner(*args: str, **kwargs: str) -> None:
             """Action."""
             if suppress:
-                ic(f'Suprimido: {func.__name__}({args}, {kwargs})')
+                ic(f'Supressed: {func.__name__}({args}, {kwargs})')
 
         return inner
 
