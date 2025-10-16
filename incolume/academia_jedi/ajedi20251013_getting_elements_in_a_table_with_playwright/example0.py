@@ -117,7 +117,7 @@ def automation1(url: str = '', *, filename: callable | None = None) -> None:
 
             ic(result[-1])
             result.append(
-                page.get_by_text('Welcome, John').locator('xpath=..')
+                page.get_by_text('Welcome, John').locator('xpath=..'),
             )
             ic(result[-1])
             result.append(page.get_by_role('table').all())

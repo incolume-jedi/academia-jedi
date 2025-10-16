@@ -16,7 +16,7 @@ def config(content_index: str = '') -> Path:
         Path(__file__)
         .parents[3]
         .joinpath('data_files', 'ico', 'favicon2.ico')
-        .read_bytes()
+        .read_bytes(),
     )
     site.write_text(content_index)
     return site

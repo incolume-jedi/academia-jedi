@@ -14,6 +14,9 @@ from incolume.academia_jedi.ajedi20251013_getting_elements_in_a_table_with_playw
     example1 as ex1,
 )
 from incolume.academia_jedi.ajedi20251013_getting_elements_in_a_table_with_playwright import (
+    example3 as ex3,
+)
+from incolume.academia_jedi.ajedi20251013_getting_elements_in_a_table_with_playwright import (
     utils,
 )
 
@@ -46,12 +49,20 @@ def tratativa3() -> None:
     ex2.actions('http://localhost:8000')
 
 
+def tratativa4() -> None:
+    """Exemplo 3."""
+    site = utils.config(content_index=ex3.str_html)
+    ic(site)
+    ex3.actions('http://localhost:8000')
+
+
 def main() -> None:
     """Run it."""
     ic('Hello from ajedi20251013-getting-elements-in-a-table-with-playwright!')
     # tratativa1()
     # tratativa2()
-    tratativa3()
+    # tratativa3()
+    tratativa4()
 
 
 if __name__ == '__main__':

@@ -94,10 +94,7 @@ def actions(url: str = '') -> None:
             page = context.new_page()
             page.goto(url)
             ic()
-            link_locators = (
-                page.locator('table').get_by_role('link').all()
-            )
+            link_locators = page.locator('table').get_by_role('link').all()
             for lk in link_locators:
                 ic(lk)
                 ic(lk.get_attribute('href'))
-            
