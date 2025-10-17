@@ -34,7 +34,7 @@ def config(content_index: str = '') -> Path:
     site = dsite / 'index.html'
     dsite.joinpath('favicon.ico').write_bytes(
         Path(__file__)
-        .parents[3]
+        .parents[2]
         .joinpath('data_files', 'ico', 'favicon2.ico')
         .read_bytes(),
     )

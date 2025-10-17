@@ -7,6 +7,7 @@ from subprocess import Popen
 
 import incolume.academia_jedi.ajedi20251013_getting_elements_in_a_table_with_playwright.example2 as ex2
 from icecream import ic
+from incolume.academia_jedi import utils
 from incolume.academia_jedi.ajedi20251013_getting_elements_in_a_table_with_playwright import (
     example0 as ex0,
 )
@@ -15,9 +16,6 @@ from incolume.academia_jedi.ajedi20251013_getting_elements_in_a_table_with_playw
 )
 from incolume.academia_jedi.ajedi20251013_getting_elements_in_a_table_with_playwright import (
     example3 as ex3,
-)
-from incolume.academia_jedi.ajedi20251013_getting_elements_in_a_table_with_playwright import (
-    utils,
 )
 
 
