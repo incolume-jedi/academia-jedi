@@ -10,11 +10,12 @@ This file was automatically generated for [incolume.py.changelog](https://github
 ---
 
 
-## [Unreleased]	 &#8212; 	2025-07-26:
+## [Unreleased]	 &#8212; 	2025-10-17:
 ### Added
   - Estudo na geração de QRCode com a biblioteca qrcode;
   - Estudo na geração de QRCode com a biblioteca segno;
   - Estudo com a biblioteca validate_docbr para gerar e validar CPF e CNPJ;
+  - Estudos raspagem no sei com playwright;
   - Estudos com postgresql rodando em docker;
   - Estudos compose inline;
   - Estudos volumes docker;
