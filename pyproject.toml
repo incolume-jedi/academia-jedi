@@ -90,6 +90,7 @@ dev = [
     "customtkinter>=5.2.2",
     "openai>=1.90.0",
     "language-tool-python>=2.7.1,<2.9.3",
+    "opencv-python>=4.12.0.88",
 ]
 
 
