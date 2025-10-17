@@ -88,6 +88,7 @@ dev = [
     "pdf2image>=1.17.0",
     "googletrans>=4.0.2",
     "customtkinter>=5.2.2",
+    "openai>=1.90.0",
 ]
 
 
