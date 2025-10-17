@@ -82,6 +82,6 @@ def check_web_resource(url: str = 'http://localhost:8000') -> bool:
         response = httpx.get(url)
         ic(response.status_code)
         response.raise_for_status()
-    except httpx.HTTPStatusError:
+    except (httpx.HTTPStatusError, httpx.ConnectError, Exception):
         return False
     return True
