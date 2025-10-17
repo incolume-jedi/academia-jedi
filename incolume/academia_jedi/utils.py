@@ -8,8 +8,8 @@ from typing import Any
 import httpx
 from icecream import ic
 
-
 dout = Path(tempfile.gettempdir()) / Path(__file__).parent.stem
+
 
 def nonexequi(*, suppress: bool = True) -> Any:
     """Decorator nonexequi."""
@@ -30,7 +30,7 @@ def nonexequi(*, suppress: bool = True) -> Any:
     return wrapper
 
 
-def config(content_index: str = '', dout:Path = dout) -> Path:
+def config(content_index: str = '', dout: Path = dout) -> Path:
     """Config it."""
     dsite: Path = dout / 'site-fake'
     dsite.mkdir(parents=True, exist_ok=True)

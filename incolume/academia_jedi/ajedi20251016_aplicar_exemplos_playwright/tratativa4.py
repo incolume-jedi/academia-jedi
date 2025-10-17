@@ -2,6 +2,6 @@
 
 str_html = ''
 
-def actions(url: str = '') -> None:
+
+def actions(url: str = 'http://localhost:8000') -> None:
     """Automation."""
-    
