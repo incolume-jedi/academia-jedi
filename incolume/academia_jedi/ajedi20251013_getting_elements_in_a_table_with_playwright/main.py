@@ -57,7 +57,7 @@ def tratativa3() -> None:
     ex2.actions('http://localhost:8000')
 
 
-# @utils.nonexequi()
+@utils.nonexequi(suppress=False)
 def tratativa4() -> None:
     """Exemplo 3."""
     site = utils.config(content_index=ex3.str_html)

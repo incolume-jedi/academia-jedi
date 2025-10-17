@@ -21,6 +21,8 @@ def nonexequi(*, suppress: bool = True) -> Any:
             """Action."""
             if suppress:
                 ic(f'Supressed: {func.__name__}({args}, {kwargs})')
+                return None
+            return func(*args, **kwargs)
 
         return inner
 
