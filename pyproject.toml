@@ -77,6 +77,22 @@ dev = [
     "testcontainers>=4.10.0",
     "tqdm>=4.67.1",
     "windows-curses>=2.4.1 ; sys_platform == 'win32'",
+    "pony>=0.7.19",
+    "parsel>=1.10.0",
+    "selectolax>=0.4.0",
+    "openpyxl>=3.1.5",
+    "rstr>=3.2.2",
+    "fitz>=0.0.1.dev2",
+    "pypdf2>=3.0.1",
+    "pdfplumber>=0.11.7",
+    "pdf2image>=1.17.0",
+    "googletrans>=4.0.2",
+    "customtkinter>=5.2.2",
+    "openai>=1.90.0",
+    "language-tool-python>=2.7.1,<2.9.3",
+    "opencv-python>=4.12.0.88",
+    "pytesseract>=0.3.13",
+    "pyspellchecker>=0.8.3",
 ]
 
 
@@ -130,6 +146,7 @@ members = [
     "incolume/academia_jedi/ajedi20220731_sgbd_pandas",
     "incolume/academia_jedi/ajedi20250802_threads",
     "incolume/academia_jedi/ajedi20251013_getting_elements_in_a_table_with_playwright",
+    "incolume/academia_jedi/ajedi20251016_aplicar_exemplos_playwright",
 ]
 
 [tool.uv.sources]

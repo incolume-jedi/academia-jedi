@@ -3,7 +3,7 @@
 import logging
 from platform import python_version
 
-from ajedi20230223_openai_examples import (
+from incolume.academia_jedi.ajedi20230223_openai_examples import (
     ex_ml_sklearn_nltk_spellchecker,
     ex_spellchecker,
     ex_textblob,
