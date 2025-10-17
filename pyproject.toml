@@ -130,6 +130,7 @@ members = [
     "incolume/academia_jedi/ajedi20220731_sgbd_pandas",
     "incolume/academia_jedi/ajedi20250802_threads",
     "incolume/academia_jedi/ajedi20251013_getting_elements_in_a_table_with_playwright",
+    "incolume/academia_jedi/ajedi20251016_aplicar_exemplos_playwright",
 ]
 
 [tool.uv.sources]
