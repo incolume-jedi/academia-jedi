@@ -117,6 +117,7 @@ dev = [
     { name = "incolume-py-changelog" },
     { name = "ipykernel" },
     { name = "jupyterlab" },
+    { name = "language-tool-python" },
     { name = "lxml" },
     { name = "markdown" },
     { name = "openai" },
@@ -171,6 +172,7 @@ dev = [
     { name = "incolume-py-changelog", specifier = ">=0.8.0" },
     { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "jupyterlab", specifier = ">=4.4.3" },
+    { name = "language-tool-python", specifier = ">=2.9.4" },
     { name = "lxml", specifier = ">=4.9.1" },
     { name = "markdown", specifier = ">=3.4.1" },
     { name = "openai", specifier = ">=1.90.0" },
@@ -3542,6 +3544,21 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/f6/ef/fa15298f31833118429c03c552fde3f600788f480cc73700177599656334/langsmith-0.4.1.tar.gz", hash = "sha256:ae8ec403fb2b9cabcfc3b0c54556d65555598c85879dac83b009576927f7eb1d", size = 349576, upload-time = "2025-06-10T19:01:45.163Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/80/9d/a2fa9f15f8834de882a92b51e9f33a25da4b38c683a16c2a94a92d86f640/langsmith-0.4.1-py3-none-any.whl", hash = "sha256:19c4c40bbb6735cb1136c453b2edcde265ca5ba1b108b7e0e3583ec4bda28625", size = 364599, upload-time = "2025-06-10T19:01:42.433Z" },
+]
+
+[[package]]
+name = "language-tool-python"
+version = "2.9.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "psutil" },
+    { name = "requests" },
+    { name = "toml" },
+    { name = "tqdm" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/67/ae/a69f4dd0f6c1f797187ea84216e1b9e27edb452f4024b00a63348de2cf54/language_tool_python-2.9.4.tar.gz", hash = "sha256:a3a97014ffb5db1d8bedabd48feb26e8d3a5fe719152d7f873056fa0202d05c9", size = 72612, upload-time = "2025-06-03T19:19:10.315Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3a/02/1fc1cd6bfbdaddb31f6466eb9db9aacee30b37cd39ff9b067d34ca20a51a/language_tool_python-2.9.4-py3-none-any.whl", hash = "sha256:0496a0420f5f2e6404f5d7939e24f46ea6c0e3fce90313e6bd0507b5e918cba7", size = 55578, upload-time = "2025-06-03T19:19:08.856Z" },
 ]
 
 [[package]]
