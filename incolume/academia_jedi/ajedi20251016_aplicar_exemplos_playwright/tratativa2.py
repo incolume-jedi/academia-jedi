@@ -1,7 +1,7 @@
 """Exemplo 2."""
 
 from icecream import ic
-from playwright.sync_api import expect, sync_playwright
+from playwright.sync_api import Locator, expect, sync_playwright
 
 str_html = """
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -958,6 +958,12 @@ a.ancMarcador div{
 """
 
 
+def action1(elements: list[Locator]) -> None:
+    """Iteration over list locator."""
+    for i, element in enumerate(elements):
+        ic(i, element.inner_html())
+
+
 def actions(url: str = 'http://localhost:8000') -> None:
     """Automation."""
     with sync_playwright() as handler:
@@ -970,3 +976,6 @@ def actions(url: str = 'http://localhost:8000') -> None:
             process_receved = page.locator('#tblProcessosRecebidos')
             expect(process_receved).to_be_visible()
             ic(process_receved)
+            action1(process_receved.locator('tr').all())
+            action1(process_receved.locator('tr').locator('//td[3]').all())
+            action1(process_receved.locator('tr').locator('nth=3').all())
