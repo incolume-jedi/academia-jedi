@@ -979,3 +979,4 @@ def actions(url: str = 'http://localhost:8000') -> None:
             action1(process_receved.locator('tr').all())
             action1(process_receved.locator('tr').locator('//td[3]').all())
             action1(process_receved.locator('tr').locator('nth=3').all())  # fail get 3th tr
+            action1(process_receved.locator('tr').locator('//td[3]>>a').all())
