@@ -30,9 +30,8 @@ def nonexequi(*, suppress: bool = True) -> Any:
     return wrapper
 
 
-def config(content_index: str = '', dout:Path|None = None) -> Path:
+def config(content_index: str = '', dout:Path = dout) -> Path:
     """Config it."""
-    dout = dout or Path()
     dsite: Path = dout / 'site-fake'
     dsite.mkdir(parents=True, exist_ok=True)
     site = dsite / 'index.html'
