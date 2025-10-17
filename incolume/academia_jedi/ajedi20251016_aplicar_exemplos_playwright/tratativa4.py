@@ -28,5 +28,7 @@ def actions(url: str = 'http://localhost:8000') -> None:
             # td = page.get_by_role("td", name=re.compile("submit", re.IGNORECASE)).click()
             td=page.locator('td', has_text=re.compile('.*Visualizado', flags=re.IGNORECASE))
             action(td.all())
-            action(process_receved.locator(re.compile('processoVisualizado|processoNaoVisualizado')).all())
+            action(process_receved.locator('.processoNaoVisualizado').all())
+            action(process_receved.locator('.processoVisualizado').all())
+            action(process_receved.locator('[class*=Visualizado]').all())  # locate for partial classname  # noqa: E501
 
