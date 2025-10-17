@@ -12,7 +12,7 @@ str_html = """
 <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
 <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
 <link rel="manifest" href="favicon/site.webmanifest" />
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="robots" content="noindex"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>SEI - Controle de Processos</title>

@@ -44,7 +44,7 @@ def tratativa3() -> None:
 @utils.nonexequi()
 def tratativa4() -> None:
     """Example 4."""
-    site = utils.config(str_html)
+    site = utils.config(ex2.str_html)
     ic(site)
     ex4.actions()
 
