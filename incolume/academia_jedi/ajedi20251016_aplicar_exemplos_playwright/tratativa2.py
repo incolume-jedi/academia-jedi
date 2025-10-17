@@ -955,7 +955,7 @@ a.ancMarcador div{
 <div id="infraBs-lg" class="d-none d-lg-block"></div>
 </body>
 </html>
-"""
+"""  # noqa: E501
 
 
 def action1(elements: list[Locator]) -> None:
