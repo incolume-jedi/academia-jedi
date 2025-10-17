@@ -968,6 +968,21 @@ def action2(elements: list[Locator]) -> None:
     for i, element in enumerate(elements):
         ic(i, element.evaluate_all('els => els.map(el => el.href)'))
 
+def action3(elements: list[Locator]) -> None:
+    """Iteration over list locator."""
+    for i, element in enumerate(elements):
+        ic(i, element.evaluate_all('list => list.map(el => el.textContent)'))
+        ic(i, element.evaluate_all('list => list.map(el => el.href)'))
+        ic(i, element.evaluate_all('list => list.map(el => el.ariaLabel)'))
+
+def action4(elements: list[Locator]) -> None:
+    """Iteration over list locator."""
+    for i, element in enumerate(elements):
+        ic(i, element.evaluate_all('list => list.map(el => el.textContent)'))
+        ic(i, element.evaluate_all('list => list.map(el => el.href)'))
+        ic(i, element.get_attribute('href'))
+        ic(i, element.get_attribute('aria-label'))
+
 
 def actions(url: str = 'http://localhost:8000') -> None:
     """Automation."""
@@ -986,4 +1001,6 @@ def actions(url: str = 'http://localhost:8000') -> None:
             action1(process_receved.locator('tr').locator('nth=3').all())  # fail get 3th tr
             action1(process_receved.locator('tr').locator('//td[3]>>a').all())
             action2(process_receved.locator('tr').locator('//td[3]>>a').all())
+            action3(process_receved.locator('tr').locator('//td[3]>>a').all())
+            action4(process_receved.locator('tr').locator('//td[3]>>a').all())
 
