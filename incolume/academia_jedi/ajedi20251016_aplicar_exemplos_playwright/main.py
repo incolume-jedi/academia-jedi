@@ -41,7 +41,7 @@ def tratativa3() -> None:
     ex3.actions()
 
 
-@utils.nonexequi()
+@utils.nonexequi(suppress=False)
 def tratativa4() -> None:
     """Example 4."""
     site = utils.config(ex2.str_html)
