@@ -1,3 +1,6 @@
+"""Module."""
+
+
 def main():
     print('Hello from ajedi20251016-aplicar-exemplos-playwright!')
 

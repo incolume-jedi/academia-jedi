@@ -81,6 +81,7 @@ members = [
     "ajedi20250726-method-overload",
     "ajedi20250802-threads",
     "ajedi20251013-getting-elements-in-a-table-with-playwright",
+    "ajedi20251016-aplicar-exemplos-playwright",
 ]
 
 [[package]]
@@ -117,6 +118,7 @@ dev = [
     { name = "markdown" },
     { name = "pandas" },
     { name = "passlib", extra = ["bcrypt"] },
+    { name = "pony" },
     { name = "pre-commit" },
     { name = "pytest-cov" },
     { name = "pytest-playwright" },
@@ -159,6 +161,7 @@ dev = [
     { name = "markdown", specifier = ">=3.4.1" },
     { name = "pandas", specifier = ">=2.3.0" },
     { name = "passlib", extras = ["bcrypt"], specifier = ">=1.7.4" },
+    { name = "pony", specifier = ">=0.7.19" },
     { name = "pre-commit", marker = "python_full_version >= '3.9'", specifier = ">=3.7.0" },
     { name = "pytest-cov", specifier = ">=6.2.1" },
     { name = "pytest-playwright", specifier = ">=0.7.1" },
@@ -834,6 +837,11 @@ source = { editable = "incolume/academia_jedi/ajedi20250802_threads" }
 name = "ajedi20251013-getting-elements-in-a-table-with-playwright"
 version = "0.1.0"
 source = { virtual = "incolume/academia_jedi/ajedi20251013_getting_elements_in_a_table_with_playwright" }
+
+[[package]]
+name = "ajedi20251016-aplicar-exemplos-playwright"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20251016_aplicar_exemplos_playwright" }
 
 [[package]]
 name = "altair"
@@ -4420,6 +4428,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/20/85/f61425aa9be1f9108eec1c13861c1e11c9a04eb786eb4832a8f7188317df/plyer-2.1.0.tar.gz", hash = "sha256:65b7dfb7e11e07af37a8487eb2aa69524276ef70dad500b07228ce64736baa61", size = 121371, upload-time = "2022-11-12T13:36:48.978Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d3/89/a41c2643fc8eabeb84791acb9d0e4d139b1e4b53473cc4dae947b5fa33ed/plyer-2.1.0-py2.py3-none-any.whl", hash = "sha256:1b1772060df8b3045ed4f08231690ec8f7de30f5a004aa1724665a9074eed113", size = 142266, upload-time = "2022-11-12T13:36:47.181Z" },
+]
+
+[[package]]
+name = "pony"
+version = "0.7.19"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/60/59/ab6542afa95de0d5a16545ce6ce683960352cfd9a2318722593b81a98123/pony-0.7.19.tar.gz", hash = "sha256:f7f83b2981893e49f7f18e8def52ad8fa8f8e6c5f9583b9aaed62d4d85036a0f", size = 258589, upload-time = "2024-08-27T12:29:29.963Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/16/cb/0ef8429024309fe6f5edf1debc7cf63adeaeb34b2242490cc18710658abd/pony-0.7.19-py3-none-any.whl", hash = "sha256:5112b4cf40d3f24e93ae66dc5ab7dc6813388efa870e750928d60dc699873cf5", size = 317259, upload-time = "2024-08-27T12:29:28.247Z" },
 ]
 
 [[package]]
