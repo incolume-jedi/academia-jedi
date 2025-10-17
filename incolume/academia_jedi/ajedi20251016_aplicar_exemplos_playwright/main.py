@@ -11,7 +11,9 @@ from incolume.academia_jedi.ajedi20251013_getting_elements_in_a_table_with_playw
 )
 
 
-@utils.nonexequi(suppress=False)
+@utils.nonexequi(
+    # suppress=False
+)
 def tratativa1() -> None:
     """Example 1."""
     site = utils.config(str_html)
@@ -19,7 +21,9 @@ def tratativa1() -> None:
     ex1.actions()
 
 
-@utils.nonexequi(suppress=False)
+@utils.nonexequi(
+    # suppress=False
+)
 def tratativa2() -> None:
     """Example 2."""
     site = utils.config(ex2.str_html)
@@ -27,10 +31,12 @@ def tratativa2() -> None:
     ex2.actions()
 
 
-@utils.nonexequi()
+@utils.nonexequi(
+    suppress=False
+)
 def tratativa3() -> None:
     """Example 3."""
-    site = utils.config(str_html)
+    site = utils.config(ex2.str_html)
     ic(site)
     ex3.actions()
 

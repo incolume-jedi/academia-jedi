@@ -9,10 +9,12 @@ def action1(elements: list[Locator]) -> None:
     for element in elements:
         ic(element.text_content())
 
+
 def action2(elements: list[Locator]) -> None:
     """Iteration over list locator."""
     for element in elements:
         ic(element.inner_html())
+
 
 def action3(elements: list[Locator]) -> None:
     """Iteration over list locator."""
