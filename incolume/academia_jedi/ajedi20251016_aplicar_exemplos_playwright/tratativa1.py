@@ -1,7 +1,23 @@
 """Exemplo 1."""
-from icecream import ic
 
-from playwright.sync_api import expect, sync_playwright
+from icecream import ic
+from playwright.sync_api import Locator, expect, sync_playwright
+
+
+def action1(elements: list[Locator]) -> None:
+    """Iteration over list locator."""
+    for element in elements:
+        ic(element.text_content())
+
+def action2(elements: list[Locator]) -> None:
+    """Iteration over list locator."""
+    for element in elements:
+        ic(element.inner_html())
+
+def action3(elements: list[Locator]) -> None:
+    """Iteration over list locator."""
+    for element in elements:
+        ic(element.all_text_contents())
 
 
 def actions(url: str = 'http://localhost:8000') -> None:
@@ -18,17 +34,8 @@ def actions(url: str = 'http://localhost:8000') -> None:
             ic(process_receved)
             anchors = process_receved.locator('a').all()
 
-            for e in anchors:
-                ic(e.text_content())
-
-            for element in anchors:
-                ic(element.inner_html())
-
-            for elem in anchors:
-                ic(elem.all_text_contents())
-
-            for el in process_receved.locator('//td[3]').all():
-                ic(el.text_content())
-
-            for elt in process_receved.locator('//td[3]').all():
-                ic(elt.inner_html())
+            action1(anchors)
+            action2(anchors)
+            action3(anchors)
+            action1(process_receved.locator('//td[3]').all())
+            action2(process_receved.locator('//td[3]').all())
