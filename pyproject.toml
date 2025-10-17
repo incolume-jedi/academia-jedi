@@ -78,6 +78,7 @@ dev = [
     "tqdm>=4.67.1",
     "windows-curses>=2.4.1 ; sys_platform == 'win32'",
     "pony>=0.7.19",
+    "parsel>=1.10.0",
 ]
 
 
