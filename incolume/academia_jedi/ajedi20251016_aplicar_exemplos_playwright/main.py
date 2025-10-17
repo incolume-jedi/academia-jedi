@@ -1,10 +1,5 @@
 """Module."""
 
-
-
-import tempfile
-from pathlib import Path
-
 import incolume.academia_jedi.ajedi20251016_aplicar_exemplos_playwright.tratativa1 as ex1
 import incolume.academia_jedi.ajedi20251016_aplicar_exemplos_playwright.tratativa2 as ex2
 import incolume.academia_jedi.ajedi20251016_aplicar_exemplos_playwright.tratativa3 as ex3
@@ -23,12 +18,14 @@ def tratativa1() -> None:
     ic(site)
     ex1.actions()
 
-@utils.nonexequi()
+
+@utils.nonexequi(suppress=False)
 def tratativa2() -> None:
     """Example 2."""
-    site = utils.config(str_html)
+    site = utils.config(ex2.str_html)
     ic(site)
     ex2.actions()
+
 
 @utils.nonexequi()
 def tratativa3() -> None:
@@ -37,13 +34,13 @@ def tratativa3() -> None:
     ic(site)
     ex3.actions()
 
+
 @utils.nonexequi()
 def tratativa4() -> None:
     """Example 4."""
     site = utils.config(str_html)
     ic(site)
     ex4.actions()
-
 
 
 def main():
