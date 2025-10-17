@@ -75,3 +75,14 @@ def filename(**kwargs: [str, Any]) -> Path:
     }
     with tempfile.NamedTemporaryFile(**args) as fl:
         return fl.name
+
+
+def check_web_resource(url: str = 'http://localhost:8000') -> bool:
+    """Check if web resource activate."""
+    try:
+        response = httpx.get(url)
+        ic(response.status_code)
+        response.raise_for_status()
+    except httpx.HTTPStatusError:
+        return False
+    return True
