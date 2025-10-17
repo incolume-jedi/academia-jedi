@@ -1,10 +1,15 @@
 """Module initialyzer."""
 
+import contextlib
 import logging
 from pathlib import Path
 
 import requests
-from tomli import load
+
+with contextlib.suppress(ModuleNotFoundError, ImportError):
+    from tomli import load  # type: ignore
+with contextlib.suppress(ModuleNotFoundError, ImportError):
+    from tomllib import load  # type: ignore
 
 config: Path = Path(__file__).parent / 'conf.toml'
 timeout: float = 1.5
