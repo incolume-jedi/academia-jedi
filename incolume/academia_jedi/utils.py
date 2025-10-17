@@ -5,6 +5,7 @@ from functools import wraps
 from pathlib import Path
 from typing import Any
 
+import httpx
 from icecream import ic
 
 dout = Path(tempfile.gettempdir()) / Path(__file__).parent.stem
@@ -21,20 +22,22 @@ def nonexequi(*, suppress: bool = True) -> Any:
             """Action."""
             if suppress:
                 ic(f'Supressed: {func.__name__}({args}, {kwargs})')
+                return None
+            return func(*args, **kwargs)
 
         return inner
 
     return wrapper
 
 
-def config(content_index: str = '') -> Path:
+def config(content_index: str = '', dout: Path = dout) -> Path:
     """Config it."""
     dsite: Path = dout / 'site-fake'
     dsite.mkdir(parents=True, exist_ok=True)
     site = dsite / 'index.html'
     dsite.joinpath('favicon.ico').write_bytes(
         Path(__file__)
-        .parents[3]
+        .parents[2]
         .joinpath('data_files', 'ico', 'favicon2.ico')
         .read_bytes(),
     )
@@ -71,3 +74,14 @@ def filename(**kwargs: [str, Any]) -> Path:
     }
     with tempfile.NamedTemporaryFile(**args) as fl:
         return fl.name
+
+
+def check_web_resource(url: str = 'http://localhost:8000') -> bool:
+    """Check if web resource activate."""
+    try:
+        response = httpx.get(url)
+        ic(response.status_code)
+        response.raise_for_status()
+    except (httpx.HTTPStatusError, httpx.ConnectError, Exception):
+        return False
+    return True
