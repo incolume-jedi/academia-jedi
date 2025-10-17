@@ -80,6 +80,7 @@ dev = [
     "pony>=0.7.19",
     "parsel>=1.10.0",
     "selectolax>=0.4.0",
+    "openpyxl>=3.1.5",
 ]
 
 
