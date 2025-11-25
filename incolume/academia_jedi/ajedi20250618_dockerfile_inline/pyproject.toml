@@ -1,5 +1,5 @@
 [project]
-name = "ajedi20250618-dockerfile-inline"
+name = "ajedi20250607-dockerfile-inline"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [project.scripts]
-# ajedi20250618-dockerfile-inline = "ajedi20250618_dockerfile_inline:main"
+ajedi20250607-dockerfile-inline = "ajedi20250607_dockerfile_inline:main"
 
 [build-system]
 requires = ["hatchling"]

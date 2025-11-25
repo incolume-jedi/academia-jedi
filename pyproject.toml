@@ -93,9 +93,11 @@ dev = [
     "opencv-python>=4.12.0.88",
     "pytesseract>=0.3.13",
     "pyspellchecker>=0.8.3",
+    "ajedi20250602-acesso-api-ibge",
     "ajedi20250603_api_auth",
-    "ajedi20250602_acesso_api_ibge",
-    "ajedi20250618_dockerfile_inline",
+    "ajedi20250617_extends_docker",
+   # "ajedi20250618_dockerfile_inline",
+   "ajedi20250612-tests-in-docker",
 ]
 
 
@@ -114,13 +116,13 @@ members = ["incolume/academia_jedi/ajedi*"]
 [tool.uv.sources]
 ajedi20220731-sgbd-pandas = {workspace=true}
 ajedi20230223-openai-examples = {workspace=true}
+ajedi20250611-logging = {workspace=true}
 ajedi20250602-acesso-api-ibge = {workspace=true}
 ajedi20250603_api_auth = {workspace=true}
 ajedi20250607_docker_subprojetos = {workspace=true}
-ajedi20250611-logging = {workspace=true}
 ajedi20250612-tests-in-docker={workspace=true}
 ajedi20250617_extends_docker = {workspace=true}
-ajedi20250618_dockerfile_inline = {workspace=true}
+#ajedi20250618_dockerfile_inline = {workspace=true}
 
 
 [tool.poetry.dependencies]

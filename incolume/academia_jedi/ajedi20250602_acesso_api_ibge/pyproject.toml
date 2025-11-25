@@ -13,6 +13,7 @@ dependencies = [
 ]
 
 [project.scripts]
+ajedi20250602-acesso-api-ibge = "ajedi20250602_acesso_api_ibge:main"
 
 [build-system]
 requires = ["hatchling"]
