@@ -42,10 +42,251 @@ resolution-markers = [
 [manifest]
 members = [
     "academia-jedi",
+    "ajedi20220728-crud-nodb",
+    "ajedi20220729-click",
     "ajedi20220731-sgbd-pandas",
+    "ajedi20220801-crud-sqlite",
+    "ajedi20220801-dockerfile-apache",
+    "ajedi20220801-ojs",
+    "ajedi20220806-docker-nginx",
+    "ajedi20220806-docker-stack",
+    "ajedi20220807-docker-mariadb",
+    "ajedi20220807-docker-mssql",
+    "ajedi20220807-docker-mysql",
+    "ajedi20220807-docker-pgsql",
+    "ajedi20220815-pytest-doctest",
+    "ajedi20220816-docker-python-pgsql",
+    "ajedi20220817-docker-ojs-pgsql",
+    "ajedi20220818-docker-ojs-local-vol",
+    "ajedi20220819-docker-ojs-rjp-hom-recover",
+    "ajedi20220822-docker-ojs-update-php8",
+    "ajedi20220824-docker-ojs-php7-psql",
+    "ajedi20220829-docker-ojs-php7-psql",
+    "ajedi20220830-docker-ojs-php7-psql",
+    "ajedi20220831-docker-ojs",
+    "ajedi20220918-proxy-2-python",
+    "ajedi20220918-raspagem-lista-proxies",
+    "ajedi20220924-dynaconf",
+    "ajedi20220924-massa-dados",
+    "ajedi20220924-python-dotenv",
+    "ajedi20220925-arquivos-csv",
+    "ajedi20220925-massa-dados-faker-protocol",
+    "ajedi20220926-arquivos-json",
+    "ajedi20220926-arquivos-pickle",
+    "ajedi20220926-pandas-write-files",
+    "ajedi20220928-morsa-op",
+    "ajedi20220928-regex",
+    "ajedi20221002-date-json-files",
+    "ajedi20221003-datetime-milliseconds",
+    "ajedi20221004-enum",
+    "ajedi20221004-hidden-password",
+    "ajedi20221005-python311-docker",
+    "ajedi20221006-fpdf",
+    "ajedi20221006-redis",
+    "ajedi20221008-codigo-paralelo",
+    "ajedi20221009-verificar-proxies-ativos",
+    "ajedi20221028-flask-restful",
+    "ajedi20221030-bandeiras-estados-brasileiros",
+    "ajedi20221101-firebase-estados-municipios",
+    "ajedi20221103-pydantic",
+    "ajedi20221104-collections-deque",
+    "ajedi20221104-decorators",
+    "ajedi20221104-mapping-letters",
+    "ajedi20221104-moda-em-lista",
+    "ajedi20221107-params",
+    "ajedi20221108-pytest-classes",
+    "ajedi20221109-pony-orm",
+    "ajedi20221110-mapping-values",
+    "ajedi20221112-postgresql-pandas",
+    "ajedi20221113-csv2zip",
+    "ajedi20221116-fstring-use",
+    "ajedi20221119-tic-tac-toe",
+    "ajedi20221121-performance-list-tuple",
+    "ajedi20221128-mapping-values",
+    "ajedi20221207-docker-ojs",
+    "ajedi20221207-itertools-islice",
+    "ajedi20221207-itertools-pairwise",
+    "ajedi20221207-itertools-takewhile",
+    "ajedi20221210-html-parsin",
+    "ajedi20221212-python-regex-search-replace",
+    "ajedi20221219-api-pagination",
+    "ajedi20221219-como-usar-exceptionsgroups",
+    "ajedi20221220-web-scraping-bs4",
+    "ajedi20221222-regex-socratica",
+    "ajedi20221223-streamlit-prophet",
+    "ajedi20221226-cpf",
+    "ajedi20221227-datetime-iso8601",
+    "ajedi20221229-iohttp",
+    "ajedi20221230-asyncio",
+    "ajedi20221230-fibonacci-generator",
+    "ajedi20230101-fluentpython-asyncio",
+    "ajedi20230102-iohttp",
+    "ajedi20230103-iohttp",
+    "ajedi20230105-desempacotamento",
+    "ajedi20230105-oop",
+    "ajedi20230107-magic-mathods",
+    "ajedi20230111-pytz",
+    "ajedi20230112-async",
+    "ajedi20230112-async-aiohttp",
+    "ajedi20230112-greek-async",
+    "ajedi20230113-zipfile",
+    "ajedi20230114-cli-password",
+    "ajedi20230115-calleble",
+    "ajedi20230115-fuzzing-prevent",
+    "ajedi20230115-pythonic",
+    "ajedi20230116-iter-group",
+    "ajedi20230117-speed-data-process",
+    "ajedi20230118-constaints",
+    "ajedi20230119-pdf",
+    "ajedi20230121-python-translate",
+    "ajedi20230122-import-this",
+    "ajedi20230122-logging-config",
+    "ajedi20230122-python-overload",
+    "ajedi20230127-async-httpx",
+    "ajedi20230127-cli-argparse",
+    "ajedi20230127-str-trans",
+    "ajedi20230129-files",
+    "ajedi20230130-progress-bar",
+    "ajedi20230203-gui-increment-count",
+    "ajedi20230211-massa-dados-faker-protocol",
+    "ajedi20230216-particularizacao",
+    "ajedi20230216-python-match",
+    "ajedi20230222-handler-pdf",
+    "ajedi20230222-language-tools",
+    "ajedi20230222-natural-language-to-openai-api",
+    "ajedi20230222-opencv",
+    "ajedi20230222-pyspellchecker",
+    "ajedi20230223-handler-pdf",
     "ajedi20230223-openai-examples",
+    "ajedi20230225-massa-dados-faker-protocol",
+    "ajedi20230225-regex",
+    "ajedi20230226-ip-externo",
+    "ajedi20230226-operador-morsa",
+    "ajedi20230228-xml-nfe",
+    "ajedi20230301-bool-pythonic",
+    "ajedi20230302-modulo-secrets",
+    "ajedi20230302-python-msword",
+    "ajedi20230306-weather",
+    "ajedi20230310-pytesseract",
+    "ajedi20230928-manipulacao-arquivos",
+    "ajedi20231002-python-string",
+    "ajedi20231004-largest-sum-continuous-subarray-pythonico",
+    "ajedi20231020-complementar-fita-dna",
+    "ajedi20231020-contagem-nucleotideos",
+    "ajedi20231020-fatorar-romanos-arabicos",
+    "ajedi20231020-massa-test-codons",
+    "ajedi20231022-raspagem-municipios-brasileiros",
+    "ajedi20231023-estrutura-decisao",
+    "ajedi20231026-raspagem-httpx",
+    "ajedi20231030-epoch-python",
+    "ajedi20231030-palindrome-string",
+    "ajedi20231101-handler-docx",
+    "ajedi20231102-cadastro-flet-sqlite",
+    "ajedi20231103-gen-dict",
+    "ajedi20231104-python-operators",
+    "ajedi20231106-module-incolume-py-util",
+    "ajedi20231106-preventing-del-obj",
+    "ajedi20231107-extrair-txt-pdf",
+    "ajedi20231115-functools-singledispatch",
+    "ajedi20231115-typing-overload",
+    "ajedi20231123-extrair-txt-img",
+    "ajedi20231213-aspose-pkg",
+    "ajedi20240217-flet-ex001",
+    "ajedi20240217-flet-ex002",
+    "ajedi20240220-flet-school",
+    "ajedi20240228-flet-ex003",
+    "ajedi20240229-flet-ex004",
+    "ajedi20240312-flet-ex006",
+    "ajedi20240313-flet-ex007",
+    "ajedi20240313-flet-ex008",
+    "ajedi20240315-flet-ex009",
+    "ajedi20240317-flet-ex010",
+    "ajedi20240318-flet-ex011",
+    "ajedi20240320-ft-navegacao",
+    "ajedi20240321-ft-rotas",
+    "ajedi20240322-ft-rotas",
+    "ajedi20240323-ft-planalto-legis",
+    "ajedi20240324-ft-clashofclans",
+    "ajedi20240324-ft-ex012",
+    "ajedi20240326-argumentos",
+    "ajedi20240326-flet-ex010",
+    "ajedi20240328-ft-ex014",
+    "ajedi20240328-ft-ex015",
+    "ajedi20240328-ft-ex016",
+    "ajedi20240328-ft-ex017",
+    "ajedi20240328-ft-ex018",
+    "ajedi20240329-ft-load-api",
+    "ajedi20240331-classes-abstratas-abc",
+    "ajedi20240331-classes-abstratas-protocol",
+    "ajedi20240401-ft-ex019",
+    "ajedi20240401-ft-ex020",
+    "ajedi20240402-ft-control-refs",
+    "ajedi20240402-ft-ex021-todo-bd",
+    "ajedi20240402-ft-ex022-flet-db",
+    "ajedi20240402-ft-webview",
+    "ajedi20240403-fastapi-auth-jwt",
+    "ajedi20240404-fastapi-routes",
+    "ajedi20240405-ft-master",
+    "ajedi20240406-ft-load-markdown-from-api",
+    "ajedi20240406-ft-load-text-from-api",
+    "ajedi20240406-ft-markdown-import",
+    "ajedi20240406-ft-markdown-into-file",
+    "ajedi20240406-ft-progress-ring",
+    "ajedi20240406-ft-responsiverow-request-api",
+    "ajedi20240406-ft-text-show",
+    "ajedi20240406-ft-text-show-from-web",
+    "ajedi20240407-ft-advanced-login",
+    "ajedi20240407-ft-calendar-app",
+    "ajedi20240407-ft-ex023",
+    "ajedi20240408-dataclass-property",
+    "ajedi20240408-dundler-methods",
+    "ajedi20240409-class-decorators",
+    "ajedi20240409-namedtuple-typing",
+    "ajedi20240414-report-python",
+    "ajedi20240423-ft-app-trajetos",
+    "ajedi20250201",
+    "ajedi20250204",
+    "ajedi20250221-readme",
+    "ajedi20250224-estudo-itertools-batched",
+    "ajedi20250301-jokenpo",
+    "ajedi20250304-jogo-da-forca",
+    "ajedi20250306-cidades-br",
+    "ajedi20250308-adedonha",
+    "ajedi20250310-adivinhar-numero",
+    "ajedi20250311",
+    "ajedi20250313",
+    "ajedi20250315-calculadora-cli",
+    "ajedi20250317-bkp",
+    "ajedi20250318-listcomprehention",
+    "ajedi20250318-quicksort",
+    "ajedi20250319-fatorar-py",
+    "ajedi20250319-locadora-cli",
+    "ajedi20250322-caos-academia",
+    "ajedi20250322-tictactoe",
+    "ajedi20250324-pysnake",
+    "ajedi20250328-mescla-planilhas",
+    "ajedi20250403-pd-sql",
+    "ajedi20250405-obesity-mundial",
+    "ajedi20250412-estudos-plotly",
+    "ajedi20250414-estudos-streamlit",
+    "ajedi20250415-singledispatch",
+    "ajedi20250416-reload-runtime",
+    "ajedi20250417-dashboard-fifa2023",
+    "ajedi20250417-streamlit-part2",
+    "ajedi20250418-filescompactruntime",
+    "ajedi20250420-streamlit-auth",
+    "ajedi20250421-docker-ojs-php7-psql",
+    "ajedi20250423-chat-streamlit",
+    "ajedi20250426-estudo-dash",
+    "ajedi20250430-py-email",
+    "ajedi20250504-oraculo-ai",
+    "ajedi20250504-py-email",
+    "ajedi20250506-docker-uv",
+    "ajedi20250508-poetry-namespace",
+    "ajedi20250515-estudo-fake-useragent",
     "ajedi20250516-task-estudo-llm",
     "ajedi20250520-estudo-container",
+    "ajedi20250520-estudo-docker",
     "ajedi20250520-wrapper-docker",
     "ajedi20250522-estudo-langchain-huggingface",
     "ajedi20250523-estudo-rag",
@@ -59,15 +300,17 @@ members = [
     "ajedi20250605-streamlit-docker",
     "ajedi20250606-acesso-openweather",
     "ajedi20250607-docker-subprojetos",
+    "ajedi20250608-fastapi-docker",
     "ajedi20250609-img2txtai",
     "ajedi20250610-estudos-docker-compose",
     "ajedi20250611-logging",
+    "ajedi20250612-tests-in-docker",
     "ajedi20250613-postgres-docker",
     "ajedi20250614-raspagem-ai",
     "ajedi20250615-gen-barcode",
     "ajedi20250616-dashboard-venda-market",
     "ajedi20250617-extends-docker",
-    "ajedi20250617-tests-in-docker",
+    "ajedi20250618-dockerfile-inline",
     "ajedi20250619-base64-encode",
     "ajedi20250620-py-script",
     "ajedi20250621-token-shortener",
@@ -81,6 +324,7 @@ members = [
     "ajedi20250802-threads",
     "ajedi20251013-getting-elements-in-a-table-with-playwright",
     "ajedi20251016-aplicar-exemplos-playwright",
+    "example",
 ]
 
 [[package]]
@@ -102,7 +346,7 @@ dev = [
     { name = "aiohttp", extra = ["speedups"] },
     { name = "ajedi20250602-acesso-api-ibge" },
     { name = "ajedi20250603-api-auth" },
-    { name = "ajedi20250617-extends-docker" },
+    { name = "ajedi20250618-dockerfile-inline" },
     { name = "aspose-words" },
     { name = "bs4" },
     { name = "customtkinter" },
@@ -163,7 +407,7 @@ dev = [
     { name = "aiohttp", extras = ["speedups"], specifier = ">=3.8.3,<4" },
     { name = "ajedi20250602-acesso-api-ibge", editable = "incolume/academia_jedi/ajedi20250602_acesso_api_ibge" },
     { name = "ajedi20250603-api-auth", editable = "incolume/academia_jedi/ajedi20250603_api_auth" },
-    { name = "ajedi20250617-extends-docker", editable = "incolume/academia_jedi/ajedi20250617_extends_docker" },
+    { name = "ajedi20250618-dockerfile-inline", editable = "incolume/academia_jedi/ajedi20250618_dockerfile_inline" },
     { name = "aspose-words", specifier = ">=23.12.0" },
     { name = "bs4", marker = "python_full_version >= '3.7'", specifier = ">=0.0.2" },
     { name = "customtkinter", specifier = ">=5.2.2" },
@@ -344,6 +588,16 @@ wheels = [
 ]
 
 [[package]]
+name = "ajedi20220728-crud-nodb"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220728_crud_nodb" }
+
+[[package]]
+name = "ajedi20220729-click"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220729_click" }
+
+[[package]]
 name = "ajedi20220731-sgbd-pandas"
 version = "0.1.0"
 source = { editable = "incolume/academia_jedi/ajedi20220731_sgbd_pandas" }
@@ -357,6 +611,566 @@ requires-dist = [
     { name = "pandas", specifier = ">=2.3.0" },
     { name = "sqlalchemy", specifier = ">=1.4.54" },
 ]
+
+[[package]]
+name = "ajedi20220801-crud-sqlite"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220801_crud_sqlite" }
+
+[[package]]
+name = "ajedi20220801-dockerfile-apache"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220801_Dockerfile_apache" }
+
+[[package]]
+name = "ajedi20220801-ojs"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220801_ojs" }
+
+[[package]]
+name = "ajedi20220806-docker-nginx"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220806_docker_nginx" }
+
+[[package]]
+name = "ajedi20220806-docker-stack"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220806_docker_stack" }
+
+[[package]]
+name = "ajedi20220807-docker-mariadb"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220807_docker_mariadb" }
+
+[[package]]
+name = "ajedi20220807-docker-mssql"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220807_docker_mssql" }
+
+[[package]]
+name = "ajedi20220807-docker-mysql"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220807_docker_mysql" }
+
+[[package]]
+name = "ajedi20220807-docker-pgsql"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220807_docker_pgsql" }
+
+[[package]]
+name = "ajedi20220815-pytest-doctest"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220815_pytest_doctest" }
+
+[[package]]
+name = "ajedi20220816-docker-python-pgsql"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220816_docker_python_pgsql" }
+
+[[package]]
+name = "ajedi20220817-docker-ojs-pgsql"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220817_docker_ojs_pgsql" }
+
+[[package]]
+name = "ajedi20220818-docker-ojs-local-vol"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220818_docker_ojs_local_vol" }
+
+[[package]]
+name = "ajedi20220819-docker-ojs-rjp-hom-recover"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220819_docker_ojs_rjp_hom_recover" }
+
+[[package]]
+name = "ajedi20220822-docker-ojs-update-php8"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220822_docker_ojs_update_php8" }
+
+[[package]]
+name = "ajedi20220824-docker-ojs-php7-psql"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220824_docker_ojs_php7_psql" }
+
+[[package]]
+name = "ajedi20220829-docker-ojs-php7-psql"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220829_docker_ojs_php7_psql" }
+
+[[package]]
+name = "ajedi20220830-docker-ojs-php7-psql"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220830_docker_ojs_php7_psql" }
+
+[[package]]
+name = "ajedi20220831-docker-ojs"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220831_docker_ojs" }
+
+[[package]]
+name = "ajedi20220918-proxy-2-python"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220918_proxy_2_python" }
+
+[[package]]
+name = "ajedi20220918-raspagem-lista-proxies"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220918_raspagem_lista_proxies" }
+
+[[package]]
+name = "ajedi20220924-dynaconf"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220924_dynaconf" }
+
+[[package]]
+name = "ajedi20220924-massa-dados"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220924_massa_dados" }
+
+[[package]]
+name = "ajedi20220924-python-dotenv"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220924_python_dotenv" }
+
+[[package]]
+name = "ajedi20220925-arquivos-csv"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220925_arquivos_csv" }
+
+[[package]]
+name = "ajedi20220925-massa-dados-faker-protocol"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220925_massa_dados_faker_protocol" }
+
+[[package]]
+name = "ajedi20220926-arquivos-json"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220926_arquivos_json" }
+
+[[package]]
+name = "ajedi20220926-arquivos-pickle"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220926_arquivos_pickle" }
+
+[[package]]
+name = "ajedi20220926-pandas-write-files"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220926_pandas_write_files" }
+
+[[package]]
+name = "ajedi20220928-morsa-op"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220928_morsa_op" }
+
+[[package]]
+name = "ajedi20220928-regex"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220928_regex" }
+
+[[package]]
+name = "ajedi20221002-date-json-files"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221002_date_json_files" }
+
+[[package]]
+name = "ajedi20221003-datetime-milliseconds"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221003_datetime_milliseconds" }
+
+[[package]]
+name = "ajedi20221004-enum"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221004_enum" }
+
+[[package]]
+name = "ajedi20221004-hidden-password"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221004_hidden_password" }
+
+[[package]]
+name = "ajedi20221005-python311-docker"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221005_python311_docker" }
+
+[[package]]
+name = "ajedi20221006-fpdf"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221006_fpdf" }
+
+[[package]]
+name = "ajedi20221006-redis"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221006_redis" }
+
+[[package]]
+name = "ajedi20221008-codigo-paralelo"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221008_codigo_paralelo" }
+
+[[package]]
+name = "ajedi20221009-verificar-proxies-ativos"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221009_verificar_proxies_ativos" }
+
+[[package]]
+name = "ajedi20221028-flask-restful"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221028_flask_restful" }
+
+[[package]]
+name = "ajedi20221030-bandeiras-estados-brasileiros"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221030_bandeiras_estados_brasileiros" }
+
+[[package]]
+name = "ajedi20221101-firebase-estados-municipios"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221101_firebase_estados_municipios" }
+
+[[package]]
+name = "ajedi20221103-pydantic"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221103_pydantic" }
+
+[[package]]
+name = "ajedi20221104-collections-deque"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221104_collections_deque" }
+
+[[package]]
+name = "ajedi20221104-decorators"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221104_decorators" }
+
+[[package]]
+name = "ajedi20221104-mapping-letters"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221104_mapping_letters" }
+
+[[package]]
+name = "ajedi20221104-moda-em-lista"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221104_moda_em_lista" }
+
+[[package]]
+name = "ajedi20221107-params"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221107_params" }
+
+[[package]]
+name = "ajedi20221108-pytest-classes"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221108_pytest_classes" }
+
+[[package]]
+name = "ajedi20221109-pony-orm"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221109_pony_orm" }
+
+[[package]]
+name = "ajedi20221110-mapping-values"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221110_mapping_values" }
+
+[[package]]
+name = "ajedi20221112-postgresql-pandas"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221112_postgresql_pandas" }
+
+[[package]]
+name = "ajedi20221113-csv2zip"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221113_csv2zip" }
+
+[[package]]
+name = "ajedi20221116-fstring-use"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221116_fstring_use" }
+
+[[package]]
+name = "ajedi20221119-tic-tac-toe"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221119_tic_tac_toe" }
+
+[[package]]
+name = "ajedi20221121-performance-list-tuple"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221121_performance_list_tuple" }
+
+[[package]]
+name = "ajedi20221128-mapping-values"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221128_mapping_values" }
+
+[[package]]
+name = "ajedi20221207-docker-ojs"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221207_docker_ojs" }
+
+[[package]]
+name = "ajedi20221207-itertools-islice"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221207_itertools_islice" }
+
+[[package]]
+name = "ajedi20221207-itertools-pairwise"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221207_itertools_pairwise" }
+
+[[package]]
+name = "ajedi20221207-itertools-takewhile"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221207_itertools_takewhile" }
+
+[[package]]
+name = "ajedi20221210-html-parsin"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221210_html_parsin" }
+
+[[package]]
+name = "ajedi20221212-python-regex-search-replace"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221212_python_regex_search_replace" }
+
+[[package]]
+name = "ajedi20221219-api-pagination"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221219_api_pagination" }
+
+[[package]]
+name = "ajedi20221219-como-usar-exceptionsgroups"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221219_Como_Usar_ExceptionsGroups" }
+
+[[package]]
+name = "ajedi20221220-web-scraping-bs4"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221220_web_scraping_bs4" }
+
+[[package]]
+name = "ajedi20221222-regex-socratica"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221222_regex_socratica" }
+
+[[package]]
+name = "ajedi20221223-streamlit-prophet"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221223_streamlit_prophet" }
+
+[[package]]
+name = "ajedi20221226-cpf"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221226_cpf" }
+
+[[package]]
+name = "ajedi20221227-datetime-iso8601"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221227_datetime_iso8601" }
+
+[[package]]
+name = "ajedi20221229-iohttp"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221229_iohttp" }
+
+[[package]]
+name = "ajedi20221230-asyncio"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221230_asyncio" }
+
+[[package]]
+name = "ajedi20221230-fibonacci-generator"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221230_fibonacci_generator" }
+
+[[package]]
+name = "ajedi20230101-fluentpython-asyncio"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230101_fluentpython_asyncio" }
+
+[[package]]
+name = "ajedi20230102-iohttp"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230102_iohttp" }
+
+[[package]]
+name = "ajedi20230103-iohttp"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230103_iohttp" }
+
+[[package]]
+name = "ajedi20230105-desempacotamento"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230105_desempacotamento" }
+
+[[package]]
+name = "ajedi20230105-oop"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230105_oop" }
+
+[[package]]
+name = "ajedi20230107-magic-mathods"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230107_magic_mathods" }
+
+[[package]]
+name = "ajedi20230111-pytz"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230111_pytz" }
+
+[[package]]
+name = "ajedi20230112-async"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230112_async" }
+
+[[package]]
+name = "ajedi20230112-async-aiohttp"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230112_async_aiohttp" }
+
+[[package]]
+name = "ajedi20230112-greek-async"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230112_greek_async" }
+
+[[package]]
+name = "ajedi20230113-zipfile"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230113_zipfile" }
+
+[[package]]
+name = "ajedi20230114-cli-password"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230114_cli_password" }
+
+[[package]]
+name = "ajedi20230115-calleble"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230115_calleble" }
+
+[[package]]
+name = "ajedi20230115-fuzzing-prevent"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230115_fuzzing_prevent" }
+
+[[package]]
+name = "ajedi20230115-pythonic"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230115_pythonic" }
+
+[[package]]
+name = "ajedi20230116-iter-group"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230116_iter_group" }
+
+[[package]]
+name = "ajedi20230117-speed-data-process"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230117_speed_data_process" }
+
+[[package]]
+name = "ajedi20230118-constaints"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230118_constaints" }
+
+[[package]]
+name = "ajedi20230119-pdf"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230119_pdf" }
+
+[[package]]
+name = "ajedi20230121-python-translate"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230121_python_translate" }
+
+[[package]]
+name = "ajedi20230122-import-this"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230122_import_this" }
+
+[[package]]
+name = "ajedi20230122-logging-config"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230122_logging_config" }
+
+[[package]]
+name = "ajedi20230122-python-overload"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230122_python_overload" }
+
+[[package]]
+name = "ajedi20230127-async-httpx"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230127_async_httpx" }
+
+[[package]]
+name = "ajedi20230127-cli-argparse"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230127_cli_argparse" }
+
+[[package]]
+name = "ajedi20230127-str-trans"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230127_str_trans" }
+
+[[package]]
+name = "ajedi20230129-files"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230129_files" }
+
+[[package]]
+name = "ajedi20230130-progress-bar"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230130_progress_bar" }
+
+[[package]]
+name = "ajedi20230203-gui-increment-count"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230203_GUI_increment_count" }
+
+[[package]]
+name = "ajedi20230211-massa-dados-faker-protocol"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230211_massa_dados_faker_protocol" }
+
+[[package]]
+name = "ajedi20230216-particularizacao"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230216_particularizacao" }
+
+[[package]]
+name = "ajedi20230216-python-match"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230216_python_match" }
+
+[[package]]
+name = "ajedi20230222-handler-pdf"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230222_handler_pdf" }
+
+[[package]]
+name = "ajedi20230222-language-tools"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230222_language_tools" }
+
+[[package]]
+name = "ajedi20230222-natural-language-to-openai-api"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230222_Natural_language_to_OpenAI_API" }
+
+[[package]]
+name = "ajedi20230222-opencv"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230222_opencv" }
+
+[[package]]
+name = "ajedi20230222-pyspellchecker"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230222_pyspellchecker" }
+
+[[package]]
+name = "ajedi20230223-handler-pdf"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230223_handler_pdf" }
 
 [[package]]
 name = "ajedi20230223-openai-examples"
@@ -390,6 +1204,642 @@ dev = [
     { name = "textblob", specifier = ">=0.19.0" },
     { name = "transformers", specifier = ">=4.52.3" },
 ]
+
+[[package]]
+name = "ajedi20230225-massa-dados-faker-protocol"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230225_massa_dados_faker_protocol" }
+
+[[package]]
+name = "ajedi20230225-regex"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230225_regex" }
+
+[[package]]
+name = "ajedi20230226-ip-externo"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230226_ip_externo" }
+
+[[package]]
+name = "ajedi20230226-operador-morsa"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230226_operador_morsa" }
+
+[[package]]
+name = "ajedi20230228-xml-nfe"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230228_XML_NFe" }
+
+[[package]]
+name = "ajedi20230301-bool-pythonic"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230301_bool_pythonic" }
+
+[[package]]
+name = "ajedi20230302-modulo-secrets"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230302_modulo_secrets" }
+
+[[package]]
+name = "ajedi20230302-python-msword"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230302_python_MSWord" }
+
+[[package]]
+name = "ajedi20230306-weather"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230306_weather" }
+
+[[package]]
+name = "ajedi20230310-pytesseract"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230310_pytesseract" }
+
+[[package]]
+name = "ajedi20230928-manipulacao-arquivos"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230928_manipulacao_arquivos" }
+
+[[package]]
+name = "ajedi20231002-python-string"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231002_python_string" }
+
+[[package]]
+name = "ajedi20231004-largest-sum-continuous-subarray-pythonico"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231004_largest_sum_continuous_subarray_pythonico" }
+
+[[package]]
+name = "ajedi20231020-complementar-fita-dna"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231020_complementar_fita_dna" }
+
+[[package]]
+name = "ajedi20231020-contagem-nucleotideos"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231020_contagem_nucleotideos" }
+
+[[package]]
+name = "ajedi20231020-fatorar-romanos-arabicos"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231020_fatorar_romanos_arabicos" }
+
+[[package]]
+name = "ajedi20231020-massa-test-codons"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231020_massa_test_codons" }
+
+[[package]]
+name = "ajedi20231022-raspagem-municipios-brasileiros"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231022_raspagem_municipios_brasileiros" }
+
+[[package]]
+name = "ajedi20231023-estrutura-decisao"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231023_estrutura_decisao" }
+
+[[package]]
+name = "ajedi20231026-raspagem-httpx"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231026_raspagem_httpx" }
+
+[[package]]
+name = "ajedi20231030-epoch-python"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231030_epoch_python" }
+
+[[package]]
+name = "ajedi20231030-palindrome-string"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231030_palindrome_string" }
+
+[[package]]
+name = "ajedi20231101-handler-docx"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231101_handler_docx" }
+
+[[package]]
+name = "ajedi20231102-cadastro-flet-sqlite"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231102_cadastro_flet_sqlite" }
+
+[[package]]
+name = "ajedi20231103-gen-dict"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231103_gen_dict" }
+
+[[package]]
+name = "ajedi20231104-python-operators"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231104_python_operators" }
+
+[[package]]
+name = "ajedi20231106-module-incolume-py-util"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231106_module_incolume_py_util" }
+
+[[package]]
+name = "ajedi20231106-preventing-del-obj"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231106_preventing_del_obj" }
+
+[[package]]
+name = "ajedi20231107-extrair-txt-pdf"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231107_extrair_txt_pdf" }
+
+[[package]]
+name = "ajedi20231115-functools-singledispatch"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231115_functools_singledispatch" }
+
+[[package]]
+name = "ajedi20231115-typing-overload"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231115_typing_overload" }
+
+[[package]]
+name = "ajedi20231123-extrair-txt-img"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231123_extrair_txt_img" }
+
+[[package]]
+name = "ajedi20231213-aspose-pkg"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20231213_aspose_pkg" }
+
+[[package]]
+name = "ajedi20240217-flet-ex001"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240217_flet_ex001" }
+
+[[package]]
+name = "ajedi20240217-flet-ex002"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240217_flet_ex002" }
+
+[[package]]
+name = "ajedi20240220-flet-school"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240220_flet_school" }
+
+[[package]]
+name = "ajedi20240228-flet-ex003"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240228_flet_ex003" }
+
+[[package]]
+name = "ajedi20240229-flet-ex004"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240229_flet_ex004" }
+
+[[package]]
+name = "ajedi20240312-flet-ex006"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240312_flet_ex006" }
+
+[[package]]
+name = "ajedi20240313-flet-ex007"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240313_flet_ex007" }
+
+[[package]]
+name = "ajedi20240313-flet-ex008"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240313_flet_ex008" }
+
+[[package]]
+name = "ajedi20240315-flet-ex009"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240315_flet_ex009" }
+
+[[package]]
+name = "ajedi20240317-flet-ex010"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240317_flet_ex010" }
+
+[[package]]
+name = "ajedi20240318-flet-ex011"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240318_flet_ex011" }
+
+[[package]]
+name = "ajedi20240320-ft-navegacao"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240320_ft_navegacao" }
+
+[[package]]
+name = "ajedi20240321-ft-rotas"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240321_ft_rotas" }
+
+[[package]]
+name = "ajedi20240322-ft-rotas"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240322_ft_rotas" }
+
+[[package]]
+name = "ajedi20240323-ft-planalto-legis"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240323_ft_planalto_legis" }
+
+[[package]]
+name = "ajedi20240324-ft-clashofclans"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240324_ft_clashofclans" }
+
+[[package]]
+name = "ajedi20240324-ft-ex012"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240324_ft_ex012" }
+
+[[package]]
+name = "ajedi20240326-argumentos"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240326_argumentos" }
+
+[[package]]
+name = "ajedi20240326-flet-ex010"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240326_flet_ex010" }
+
+[[package]]
+name = "ajedi20240328-ft-ex014"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240328_ft_ex014" }
+
+[[package]]
+name = "ajedi20240328-ft-ex015"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240328_ft_ex015" }
+
+[[package]]
+name = "ajedi20240328-ft-ex016"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240328_ft_ex016" }
+
+[[package]]
+name = "ajedi20240328-ft-ex017"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240328_ft_ex017" }
+
+[[package]]
+name = "ajedi20240328-ft-ex018"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240328_ft_ex018" }
+
+[[package]]
+name = "ajedi20240329-ft-load-api"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240329_ft_load_api" }
+
+[[package]]
+name = "ajedi20240331-classes-abstratas-abc"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240331_classes_abstratas_ABC" }
+
+[[package]]
+name = "ajedi20240331-classes-abstratas-protocol"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240331_classes_abstratas_Protocol" }
+
+[[package]]
+name = "ajedi20240401-ft-ex019"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240401_ft_ex019" }
+
+[[package]]
+name = "ajedi20240401-ft-ex020"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240401_ft_ex020" }
+
+[[package]]
+name = "ajedi20240402-ft-control-refs"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240402_ft_control_refs" }
+
+[[package]]
+name = "ajedi20240402-ft-ex021-todo-bd"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240402_ft_ex021_todo_bd" }
+
+[[package]]
+name = "ajedi20240402-ft-ex022-flet-db"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240402_ft_ex022_flet_db" }
+
+[[package]]
+name = "ajedi20240402-ft-webview"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240402_ft_webview" }
+
+[[package]]
+name = "ajedi20240403-fastapi-auth-jwt"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240403_fastapi_auth_jwt" }
+
+[[package]]
+name = "ajedi20240404-fastapi-routes"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240404_fastapi_routes" }
+
+[[package]]
+name = "ajedi20240405-ft-master"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240405_ft_master" }
+
+[[package]]
+name = "ajedi20240406-ft-load-markdown-from-api"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240406_ft_load_markdown_from_api" }
+
+[[package]]
+name = "ajedi20240406-ft-load-text-from-api"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240406_ft_load_text_from_api" }
+
+[[package]]
+name = "ajedi20240406-ft-markdown-import"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240406_ft_markdown_import" }
+
+[[package]]
+name = "ajedi20240406-ft-markdown-into-file"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240406_ft_markdown_into_file" }
+
+[[package]]
+name = "ajedi20240406-ft-progress-ring"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240406_ft_progress_ring" }
+
+[[package]]
+name = "ajedi20240406-ft-responsiverow-request-api"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240406_ft_ResponsiveRow_Request_API" }
+
+[[package]]
+name = "ajedi20240406-ft-text-show"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240406_ft_text_show" }
+
+[[package]]
+name = "ajedi20240406-ft-text-show-from-web"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240406_ft_text_show_from_web" }
+
+[[package]]
+name = "ajedi20240407-ft-advanced-login"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240407_ft_advanced_login" }
+
+[[package]]
+name = "ajedi20240407-ft-calendar-app"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240407_ft_calendar_app" }
+
+[[package]]
+name = "ajedi20240407-ft-ex023"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240407_ft_ex023" }
+
+[[package]]
+name = "ajedi20240408-dataclass-property"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240408_dataclass_property" }
+
+[[package]]
+name = "ajedi20240408-dundler-methods"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240408_dundler_methods" }
+
+[[package]]
+name = "ajedi20240409-class-decorators"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240409_Class_decorators" }
+
+[[package]]
+name = "ajedi20240409-namedtuple-typing"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240409_NamedTuple_typing" }
+
+[[package]]
+name = "ajedi20240414-report-python"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240414_report_python" }
+
+[[package]]
+name = "ajedi20240423-ft-app-trajetos"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20240423_ft_app_trajetos" }
+
+[[package]]
+name = "ajedi20250201"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250201" }
+
+[[package]]
+name = "ajedi20250204"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250204" }
+
+[[package]]
+name = "ajedi20250221-readme"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250221_README" }
+
+[[package]]
+name = "ajedi20250224-estudo-itertools-batched"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250224_estudo_itertools_batched" }
+
+[[package]]
+name = "ajedi20250301-jokenpo"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250301_jokenpo" }
+
+[[package]]
+name = "ajedi20250304-jogo-da-forca"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250304_jogo_da_forca" }
+
+[[package]]
+name = "ajedi20250306-cidades-br"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250306_cidades_br" }
+
+[[package]]
+name = "ajedi20250308-adedonha"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250308_adedonha" }
+
+[[package]]
+name = "ajedi20250310-adivinhar-numero"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250310_adivinhar_numero" }
+
+[[package]]
+name = "ajedi20250311"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250311" }
+
+[[package]]
+name = "ajedi20250313"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250313" }
+
+[[package]]
+name = "ajedi20250315-calculadora-cli"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250315_calculadora_CLI" }
+
+[[package]]
+name = "ajedi20250317-bkp"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250317_bkp" }
+
+[[package]]
+name = "ajedi20250318-listcomprehention"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250318_listcomprehention" }
+
+[[package]]
+name = "ajedi20250318-quicksort"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250318_quicksort" }
+
+[[package]]
+name = "ajedi20250319-fatorar-py"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250319_fatorar_py" }
+
+[[package]]
+name = "ajedi20250319-locadora-cli"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250319_locadora_cli" }
+
+[[package]]
+name = "ajedi20250322-caos-academia"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250322_caos_academia" }
+
+[[package]]
+name = "ajedi20250322-tictactoe"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250322_tictactoe" }
+
+[[package]]
+name = "ajedi20250324-pysnake"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250324_pysnake" }
+
+[[package]]
+name = "ajedi20250328-mescla-planilhas"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250328_mescla_planilhas" }
+
+[[package]]
+name = "ajedi20250403-pd-sql"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250403_pd_sql" }
+
+[[package]]
+name = "ajedi20250405-obesity-mundial"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250405_obesity_mundial" }
+
+[[package]]
+name = "ajedi20250412-estudos-plotly"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250412_estudos_plotly" }
+
+[[package]]
+name = "ajedi20250414-estudos-streamlit"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250414_estudos_streamlit" }
+
+[[package]]
+name = "ajedi20250415-singledispatch"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250415_singledispatch" }
+
+[[package]]
+name = "ajedi20250416-reload-runtime"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250416_reload_runtime" }
+
+[[package]]
+name = "ajedi20250417-dashboard-fifa2023"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250417_dashboard_fifa2023" }
+
+[[package]]
+name = "ajedi20250417-streamlit-part2"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250417_streamlit_part2" }
+
+[[package]]
+name = "ajedi20250418-filescompactruntime"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250418_filesCompactRuntime" }
+
+[[package]]
+name = "ajedi20250420-streamlit-auth"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250420_streamlit_auth" }
+
+[[package]]
+name = "ajedi20250421-docker-ojs-php7-psql"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250421_docker_ojs_php7_psql" }
+
+[[package]]
+name = "ajedi20250423-chat-streamlit"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250423_chat_streamlit" }
+
+[[package]]
+name = "ajedi20250426-estudo-dash"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250426_estudo_dash" }
+
+[[package]]
+name = "ajedi20250430-py-email"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250430_py_email" }
+
+[[package]]
+name = "ajedi20250504-oraculo-ai"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250504_oraculo_ai" }
+
+[[package]]
+name = "ajedi20250504-py-email"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250504_py_email" }
+
+[[package]]
+name = "ajedi20250506-docker-uv"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250506_docker_uv" }
+
+[[package]]
+name = "ajedi20250508-poetry-namespace"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250508_poetry_namespace" }
+dependencies = [
+    { name = "cowsay" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "cowsay", specifier = ">=6.1,<7.0" }]
+
+[[package]]
+name = "ajedi20250515-estudo-fake-useragent"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250515_estudo_fake_useragent" }
 
 [[package]]
 name = "ajedi20250516-task-estudo-llm"
@@ -436,6 +1886,11 @@ requires-dist = [
     { name = "cowsay" },
     { name = "icecream" },
 ]
+
+[[package]]
+name = "ajedi20250520-estudo-docker"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250520_estudo_docker" }
 
 [[package]]
 name = "ajedi20250520-wrapper-docker"
@@ -645,6 +2100,21 @@ dev = [
 ]
 
 [[package]]
+name = "ajedi20250608-fastapi-docker"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250608_fastapi_docker" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi", specifier = ">=0.95.0" },
+    { name = "uvicorn", specifier = ">=0.21.1" },
+]
+
+[[package]]
 name = "ajedi20250609-img2txtai"
 version = "0.1.0"
 source = { editable = "incolume/academia_jedi/ajedi20250609_img2txtAI" }
@@ -692,6 +2162,11 @@ requires-dist = [{ name = "icecream", specifier = ">=2.1.4" }]
 
 [package.metadata.requires-dev]
 dev = [{ name = "ajedi20250611-logging", editable = "incolume/academia_jedi/ajedi20250611_logging" }]
+
+[[package]]
+name = "ajedi20250612-tests-in-docker"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250612_tests_in_docker" }
 
 [[package]]
 name = "ajedi20250613-postgres-docker"
@@ -749,9 +2224,21 @@ version = "0.1.0"
 source = { editable = "incolume/academia_jedi/ajedi20250617_extends_docker" }
 
 [[package]]
-name = "ajedi20250617-tests-in-docker"
+name = "ajedi20250618-dockerfile-inline"
 version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20250612_tests_in_docker" }
+source = { editable = "incolume/academia_jedi/ajedi20250618_dockerfile_inline" }
+dependencies = [
+    { name = "httpx" },
+    { name = "icecream" },
+    { name = "streamlit" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "httpx", specifier = ">=0.28.1" },
+    { name = "icecream", specifier = ">=2.1.4" },
+    { name = "streamlit", specifier = ">=1.45.1" },
+]
 
 [[package]]
 name = "ajedi20250619-base64-encode"
@@ -1988,6 +3475,21 @@ dependencies = [
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/83/27/f997c9da0e179986fadd6c8474d16743f1b3697c129c2fcd1e739cd038c2/etelemetry-0.3.1-py3-none-any.whl", hash = "sha256:a64f09bcd55cbfa5684e4d9fb6d1d6a018ab99d2ea28e638435c4c26e6814a6b", size = 6416, upload-time = "2023-10-13T15:13:16.067Z" },
+]
+
+[[package]]
+name = "example"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250511_uv_namespace" }
+dependencies = [
+    { name = "cowsay" },
+    { name = "icecream" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "cowsay" },
+    { name = "icecream" },
 ]
 
 [[package]]
