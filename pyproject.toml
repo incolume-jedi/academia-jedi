@@ -147,6 +147,7 @@ members = [
     "incolume/academia_jedi/ajedi20250802_threads",
     "incolume/academia_jedi/ajedi20251013_getting_elements_in_a_table_with_playwright",
     "incolume/academia_jedi/ajedi20251016_aplicar_exemplos_playwright",
+    "incolume/academia_jedi/ajedi20251125_djago_basic",
 ]
 
 [tool.uv.sources]
