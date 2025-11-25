@@ -1,5 +1,4 @@
-"""
-ASGI config for meuprojeto project.
+"""ASGI config for meuprojeto project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

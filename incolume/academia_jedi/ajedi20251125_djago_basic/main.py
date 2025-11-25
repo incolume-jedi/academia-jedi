@@ -1,6 +1,6 @@
 def main():
-    print("Hello from ajedi20251125-djago-basic!")
+    print('Hello from ajedi20251125-djago-basic!')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

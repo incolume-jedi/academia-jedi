@@ -1,5 +1,4 @@
-"""
-WSGI config for meuprojeto project.
+"""WSGI config for meuprojeto project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
