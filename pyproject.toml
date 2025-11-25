@@ -93,6 +93,11 @@ dev = [
     "opencv-python>=4.12.0.88",
     "pytesseract>=0.3.13",
     "pyspellchecker>=0.8.3",
+    "ajedi20250602-acesso-api-ibge",
+    "ajedi20250603_api_auth",
+    "ajedi20250617_extends_docker",
+   # "ajedi20250618_dockerfile_inline",
+   "ajedi20250612-tests-in-docker",
 ]
 
 
@@ -106,53 +111,18 @@ module-root = ""
 module-name = "incolume.academia_jedi"
 
 [tool.uv.workspace]
-members = [
-    "incolume/academia_jedi/ajedi20230223_openai_examples",
-    "incolume/academia_jedi/ajedi20250516_task_estudo_llm",
-    "incolume/academia_jedi/ajedi20250520_estudo_container",
-    "incolume/academia_jedi/ajedi20250520_wrapper_docker",
-    "incolume/academia_jedi/ajedi20250522_estudo_langchain_huggingface",
-    "incolume/academia_jedi/ajedi20250523_estudo_rag",
-    "incolume/academia_jedi/ajedi20250524_compose_dockerfile",
-    "incolume/academia_jedi/ajedi20250529_pdf_img",
-    "incolume/academia_jedi/ajedi20250530_img2txtAI",
-    "incolume/academia_jedi/ajedi20250601_Python_API",
-    "incolume/academia_jedi/ajedi20250602_acesso_api_ibge",
-    "incolume/academia_jedi/ajedi20250603_api_auth",
-    "incolume/academia_jedi/ajedi20250604_secrets_dynaconf",
-    "incolume/academia_jedi/ajedi20250605_streamlit_docker",
-    "incolume/academia_jedi/ajedi20250606_acesso_openweather",
-    "incolume/academia_jedi/ajedi20250607_docker_subprojetos",
-    "incolume/academia_jedi/ajedi20250609_img2txtAI",
-    "incolume/academia_jedi/ajedi20250610_estudos_docker_compose",
-    "incolume/academia_jedi/ajedi20250611_logging",
-    "incolume/academia_jedi/ajedi20250612_tests_in_docker",
-    "incolume/academia_jedi/ajedi20250613_postgres_docker",
-    "incolume/academia_jedi/ajedi20250614_raspagem_AI",
-    "incolume/academia_jedi/ajedi20250615_gen_barcode",
-    "incolume/academia_jedi/ajedi20250616_dashboard_venda_market",
-    "incolume/academia_jedi/ajedi20250617_extends_docker",
-    "incolume/academia_jedi/ajedi20250618_dockerfile_inline",
-    "incolume/academia_jedi/ajedi20250619_base64_encode",
-    "incolume/academia_jedi/ajedi20250620_py_script",
-    "incolume/academia_jedi/ajedi20250621_token_shortener",
-    "incolume/academia_jedi/ajedi20250622_estudos_monkeypatch",
-    "incolume/academia_jedi/ajedi20250623_estudo_respx",
-    "incolume/academia_jedi/ajedi20250624_Notificar_area_trabalho",
-    "incolume/academia_jedi/ajedi20250625_compact_files_py",
-    "incolume/academia_jedi/ajedi20250626_gen_qrcode",
-    "incolume/academia_jedi/ajedi20250627_check_cpf_cnpj",
-    "incolume/academia_jedi/ajedi20250726_method_overload",
-    "incolume/academia_jedi/ajedi20220731_sgbd_pandas",
-    "incolume/academia_jedi/ajedi20250802_threads",
-    "incolume/academia_jedi/ajedi20251013_getting_elements_in_a_table_with_playwright",
-    "incolume/academia_jedi/ajedi20251016_aplicar_exemplos_playwright",
-]
+members = ["incolume/academia_jedi/ajedi*"]
 
 [tool.uv.sources]
-ajedi20220731-sgbd-pandas={path="incolume/academia_jedi/ajedi20220731_sgbd_pandas"}
-ajedi20230223-openai-examples = {path = "incolume/academia_jedi/ajedi20230223_openai_examples"}
-ajedi20250611-logging = { path = "incolume/academia_jedi/ajedi20250611_logging" }
+ajedi20220731-sgbd-pandas = {workspace=true}
+ajedi20230223-openai-examples = {workspace=true}
+ajedi20250611-logging = {workspace=true}
+ajedi20250602-acesso-api-ibge = {workspace=true}
+ajedi20250603_api_auth = {workspace=true}
+ajedi20250607_docker_subprojetos = {workspace=true}
+ajedi20250612-tests-in-docker={workspace=true}
+ajedi20250617_extends_docker = {workspace=true}
+#ajedi20250618_dockerfile_inline = {workspace=true}
 
 
 [tool.poetry.dependencies]
