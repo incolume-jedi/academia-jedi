@@ -5,8 +5,15 @@ from pytz import timezone
 
 
 # Create your views here.
-def home(request: HttpRequest) -> HttpResponse:
+
+def home(request: HttpRequest, nome: str = '') -> HttpResponse:
     """Home."""
+    nome = nome or 'Visitante'
+    return render(request, 'home.html', {'nome': nome})
+
+
+def timestamp(request: HttpRequest) -> HttpResponse:
+    """Timestamp."""
     hora_atual = datetime.now(tz=timezone('America/Sao_Paulo'))
 
     return HttpResponse(f'São {hora_atual}')
