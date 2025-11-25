@@ -18,3 +18,16 @@ def saudacao(request: HttpRequest, nome: str= '') -> HttpResponse:
 
     return HttpResponse(msg)
 
+def produtos(request: HttpRequest, id_produto: int) -> HttpResponse:
+    """Produtos."""
+    produtos ={
+        1: 'produto1',
+        2: 'produto2',
+        3: 'produto3',
+        4: 'produto4',
+        5: 'produto5',
+        6: 'produto6',
+        7: 'produto7',
+    }
+    produto = produtos.get(id_produto, 'Produto não encontrado.')
+    return HttpResponse(f'{produto}')
