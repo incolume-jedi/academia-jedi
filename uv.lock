@@ -59,6 +59,7 @@ members = [
     "ajedi20250605-streamlit-docker",
     "ajedi20250606-acesso-openweather",
     "ajedi20250607-docker-subprojetos",
+    "ajedi20250607-dockerfile-inline",
     "ajedi20250609-img2txtai",
     "ajedi20250610-estudos-docker-compose",
     "ajedi20250611-logging",
@@ -100,9 +101,6 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "aiohttp", extra = ["speedups"] },
-    { name = "ajedi20250602-acesso-api-ibge" },
-    { name = "ajedi20250603-api-auth" },
-    { name = "ajedi20250617-extends-docker" },
     { name = "aspose-words" },
     { name = "bs4" },
     { name = "customtkinter" },
@@ -161,9 +159,6 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "aiohttp", extras = ["speedups"], specifier = ">=3.8.3,<4" },
-    { name = "ajedi20250602-acesso-api-ibge", editable = "incolume/academia_jedi/ajedi20250602_acesso_api_ibge" },
-    { name = "ajedi20250603-api-auth", editable = "incolume/academia_jedi/ajedi20250603_api_auth" },
-    { name = "ajedi20250617-extends-docker", editable = "incolume/academia_jedi/ajedi20250617_extends_docker" },
     { name = "aspose-words", specifier = ">=23.12.0" },
     { name = "bs4", marker = "python_full_version >= '3.7'", specifier = ">=0.0.2" },
     { name = "customtkinter", specifier = ">=5.2.2" },
@@ -346,7 +341,7 @@ wheels = [
 [[package]]
 name = "ajedi20220731-sgbd-pandas"
 version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20220731_sgbd_pandas" }
+source = { virtual = "incolume/academia_jedi/ajedi20220731_sgbd_pandas" }
 dependencies = [
     { name = "pandas" },
     { name = "sqlalchemy" },
@@ -641,6 +636,23 @@ dev = [
 dev = [
     { name = "pytest-cov", specifier = ">=6.1.1" },
     { name = "ruff", specifier = ">=0.11.13" },
+    { name = "streamlit", specifier = ">=1.45.1" },
+]
+
+[[package]]
+name = "ajedi20250607-dockerfile-inline"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20250618_dockerfile_inline" }
+dependencies = [
+    { name = "httpx" },
+    { name = "icecream" },
+    { name = "streamlit" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "httpx", specifier = ">=0.28.1" },
+    { name = "icecream", specifier = ">=2.1.4" },
     { name = "streamlit", specifier = ">=1.45.1" },
 ]
 
