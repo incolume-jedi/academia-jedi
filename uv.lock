@@ -83,6 +83,7 @@ members = [
     "ajedi20251013-getting-elements-in-a-table-with-playwright",
     "ajedi20251016-aplicar-exemplos-playwright",
     "ajedi20251125-djago-basic",
+    "ajedi20251126-383-task-django-models-admin-e-dados",
 ]
 
 [[package]]
@@ -885,6 +886,17 @@ source = { virtual = "incolume/academia_jedi/ajedi20251016_aplicar_exemplos_play
 name = "ajedi20251125-djago-basic"
 version = "0.1.0"
 source = { virtual = "incolume/academia_jedi/ajedi20251125_djago_basic" }
+dependencies = [
+    { name = "django" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "django", specifier = ">=5.2.8" }]
+
+[[package]]
+name = "ajedi20251126-383-task-django-models-admin-e-dados"
+version = "0.1.0"
+source = { editable = "incolume/academia_jedi/ajedi20251126-383-task-django-models-admin-e-dados" }
 dependencies = [
     { name = "django" },
 ]
