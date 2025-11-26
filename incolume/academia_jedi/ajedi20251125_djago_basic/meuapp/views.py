@@ -6,13 +6,13 @@ from pytz import timezone
 
 # Create your views here.
 estoque_produtos ={
-        1: 'produto1',
-        2: 'produto2',
-        3: 'produto3',
-        4: 'produto4',
-        5: 'produto5',
-        6: 'produto6',
-        7: 'produto7',
+        1: 'produto 01',
+        2: 'produto 02',
+        3: 'produto 03',
+        4: 'produto 04',
+        5: 'produto 05',
+        6: 'produto 06',
+        7: 'produto 07',
     }
 
 
@@ -38,7 +38,7 @@ def saudacao(request: HttpRequest, nome: str= '') -> HttpResponse:
 def produto(request: HttpRequest, id_produto: int) -> HttpResponse:
     """Produto."""
     produto = estoque_produtos.get(id_produto, 'Produto não encontrado.')
-    return HttpResponse(f'{produto}')
+    return HttpResponse(f'Descrição: {produto}')
 
 
 def produtos(request: HttpRequest) -> HttpResponse:
