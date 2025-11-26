@@ -48,3 +48,8 @@ def produtos(request: HttpRequest) -> HttpResponse:
         'produtos.html',
         {'produtos': estoque_produtos.values()},
     )
+
+
+def index(request: HttpRequest) -> HttpResponse:
+    """Index."""
+    return render(request, 'index.html', {'title': 'Index page', 'head': 'Index Page'})
