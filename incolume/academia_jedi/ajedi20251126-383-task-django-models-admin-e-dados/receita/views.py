@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 
@@ -27,6 +28,7 @@ def nova_receita(request: HttpRequest) -> HttpResponse:
         form = ReceitaForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Receita cadastrada com sucesso!')
             redirect('receitas')
     form = ReceitaForm()
     return render(request, 'nova_receita.html', context={'form': form})
