@@ -93,6 +93,7 @@ dev = [
     "opencv-python>=4.12.0.88",
     "pytesseract>=0.3.13",
     "pyspellchecker>=0.8.3",
+#    "ajedi20251127-384-geeks4geeks-django-crud",
 ]
 
 
@@ -101,7 +102,6 @@ dev = [
 
 
 [tool.uv.build-backend]
-# namespace = true
 module-root = ""
 module-name = "incolume.academia_jedi"
 
@@ -156,6 +156,7 @@ members = [
 ajedi20220731-sgbd-pandas={path="incolume/academia_jedi/ajedi20220731_sgbd_pandas"}
 ajedi20230223-openai-examples = {path = "incolume/academia_jedi/ajedi20230223_openai_examples"}
 ajedi20250611-logging = { path = "incolume/academia_jedi/ajedi20250611_logging" }
+ajedi20251127-384-geeks4geeks-django-crud = { path = "incolume/academia_jedi/ajedi20251127-384-geeks4geeks-django-crud" }
 
 
 [tool.poetry.dependencies]
