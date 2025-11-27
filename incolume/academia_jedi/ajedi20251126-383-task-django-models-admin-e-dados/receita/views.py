@@ -29,7 +29,8 @@ def nova_receita(request: HttpRequest) -> HttpResponse:
         if form.is_valid():
             form.save()
             messages.success(request, 'Receita cadastrada com sucesso!')
-            redirect('receitas')
+            return redirect('receitas')
+
     form = ReceitaForm()
     return render(request, 'nova_receita.html', context={'form': form})
 
