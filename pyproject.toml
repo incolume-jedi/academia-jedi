@@ -1,6 +1,6 @@
 [project]
 name = "academia-jedi"
-version = "0.124.0a6"
+version = "0.124.0a7"
 description = ""
 readme="README.md"
 requires-python = ">=3.10,<4"

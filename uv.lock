@@ -89,7 +89,7 @@ members = [
 
 [[package]]
 name = "academia-jedi"
-version = "0.124.0a6"
+version = "0.124.0a7"
 source = { editable = "." }
 dependencies = [
     { name = "click" },
