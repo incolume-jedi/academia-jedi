@@ -149,6 +149,7 @@ members = [
     "incolume/academia_jedi/ajedi20251016_aplicar_exemplos_playwright",
     "incolume/academia_jedi/ajedi20251125_djago_basic",
     "incolume/academia_jedi/ajedi20251126-383-task-django-models-admin-e-dados",
+    "incolume/academia_jedi/ajedi20251127-384-geeks4geeks-django-crud",
 ]
 
 [tool.uv.sources]
