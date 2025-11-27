@@ -84,12 +84,11 @@ members = [
     "ajedi20251016-aplicar-exemplos-playwright",
     "ajedi20251125-djago-basic",
     "ajedi20251126-383-task-django-models-admin-e-dados",
-    "ajedi20251127-384-geeks4geeks-django-crud",
 ]
 
 [[package]]
 name = "academia-jedi"
-version = "0.124.0a6"
+version = "0.124.0a5"
 source = { editable = "." }
 dependencies = [
     { name = "click" },
@@ -898,17 +897,6 @@ requires-dist = [{ name = "django", specifier = ">=5.2.8" }]
 name = "ajedi20251126-383-task-django-models-admin-e-dados"
 version = "0.1.0"
 source = { editable = "incolume/academia_jedi/ajedi20251126-383-task-django-models-admin-e-dados" }
-dependencies = [
-    { name = "django" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "django", specifier = ">=5.2.8" }]
-
-[[package]]
-name = "ajedi20251127-384-geeks4geeks-django-crud"
-version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20251127-384-geeks4geeks-django-crud" }
 dependencies = [
     { name = "django" },
 ]
