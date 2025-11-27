@@ -1,6 +1,7 @@
 """Views."""
-from django.http import HttpResponse
+from django.http import HttpRequest, HttpResponse
 
-def hello_geeks(request):
+
+def index(request: HttpRequest) -> HttpResponse:
     return HttpResponse("Hello Geeks")
 
