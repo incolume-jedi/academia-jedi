@@ -42,6 +42,7 @@ resolution-markers = [
 [manifest]
 members = [
     "academia-jedi",
+    "ajedi20220728-crud-nodb",
     "ajedi20220731-sgbd-pandas",
     "ajedi20230223-openai-examples",
     "ajedi20250516-task-estudo-llm",
@@ -59,16 +60,16 @@ members = [
     "ajedi20250605-streamlit-docker",
     "ajedi20250606-acesso-openweather",
     "ajedi20250607-docker-subprojetos",
-    "ajedi20250607-dockerfile-inline",
     "ajedi20250609-img2txtai",
     "ajedi20250610-estudos-docker-compose",
     "ajedi20250611-logging",
+    "ajedi20250612-tests-in-docker",
     "ajedi20250613-postgres-docker",
     "ajedi20250614-raspagem-ai",
     "ajedi20250615-gen-barcode",
     "ajedi20250616-dashboard-venda-market",
     "ajedi20250617-extends-docker",
-    "ajedi20250617-tests-in-docker",
+    "ajedi20250618-dockerfile-inline",
     "ajedi20250619-base64-encode",
     "ajedi20250620-py-script",
     "ajedi20250621-token-shortener",
@@ -342,6 +343,11 @@ wheels = [
 ]
 
 [[package]]
+name = "ajedi20220728-crud-nodb"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220728_crud_nodb" }
+
+[[package]]
 name = "ajedi20220731-sgbd-pandas"
 version = "0.1.0"
 source = { virtual = "incolume/academia_jedi/ajedi20220731_sgbd_pandas" }
@@ -537,7 +543,7 @@ source = { editable = "incolume/academia_jedi/ajedi20250601_Python_API" }
 [[package]]
 name = "ajedi20250602-acesso-api-ibge"
 version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20250602_acesso_api_ibge" }
+source = { virtual = "incolume/academia_jedi/ajedi20250602_acesso_api_ibge" }
 dependencies = [
     { name = "pandas" },
     { name = "streamlit" },
@@ -552,7 +558,7 @@ requires-dist = [
 [[package]]
 name = "ajedi20250603-api-auth"
 version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20250603_api_auth" }
+source = { virtual = "incolume/academia_jedi/ajedi20250603_api_auth" }
 
 [[package]]
 name = "ajedi20250604-secrets-dynaconf"
@@ -624,40 +630,13 @@ dev = [{ name = "ajedi20250606-acesso-openweather", editable = "incolume/academi
 [[package]]
 name = "ajedi20250607-docker-subprojetos"
 version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20250607_docker_subprojetos" }
-
-[package.dev-dependencies]
-dev = [
-    { name = "pytest-cov" },
-    { name = "ruff" },
-    { name = "streamlit" },
-]
-
-[package.metadata]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "pytest-cov", specifier = ">=6.1.1" },
-    { name = "ruff", specifier = ">=0.11.13" },
-    { name = "streamlit", specifier = ">=1.45.1" },
-]
-
-[[package]]
-name = "ajedi20250607-dockerfile-inline"
-version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20250618_dockerfile_inline" }
+source = { virtual = "incolume/academia_jedi/ajedi20250607_docker_subprojetos" }
 dependencies = [
-    { name = "httpx" },
-    { name = "icecream" },
     { name = "streamlit" },
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "httpx", specifier = ">=0.28.1" },
-    { name = "icecream", specifier = ">=2.1.4" },
-    { name = "streamlit", specifier = ">=1.45.1" },
-]
+requires-dist = [{ name = "streamlit", specifier = ">=1.46.0" }]
 
 [[package]]
 name = "ajedi20250609-img2txtai"
@@ -707,6 +686,11 @@ requires-dist = [{ name = "icecream", specifier = ">=2.1.4" }]
 
 [package.metadata.requires-dev]
 dev = [{ name = "ajedi20250611-logging", editable = "incolume/academia_jedi/ajedi20250611_logging" }]
+
+[[package]]
+name = "ajedi20250612-tests-in-docker"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250612_tests_in_docker" }
 
 [[package]]
 name = "ajedi20250613-postgres-docker"
@@ -764,9 +748,25 @@ version = "0.1.0"
 source = { editable = "incolume/academia_jedi/ajedi20250617_extends_docker" }
 
 [[package]]
-name = "ajedi20250617-tests-in-docker"
+name = "ajedi20250618-dockerfile-inline"
 version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20250612_tests_in_docker" }
+source = { virtual = "incolume/academia_jedi/ajedi20250618_dockerfile_inline" }
+
+[package.dev-dependencies]
+dev = [
+    { name = "httpx" },
+    { name = "icecream" },
+    { name = "streamlit" },
+]
+
+[package.metadata]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "httpx", specifier = ">=0.28.1" },
+    { name = "icecream", specifier = ">=2.1.4" },
+    { name = "streamlit", specifier = ">=1.45.1" },
+]
 
 [[package]]
 name = "ajedi20250619-base64-encode"

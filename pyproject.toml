@@ -150,6 +150,10 @@ members = [
     "incolume/academia_jedi/ajedi20251125_djago_basic",
     "incolume/academia_jedi/ajedi20251126-383-task-django-models-admin-e-dados",
     "incolume/academia_jedi/ajedi20251127-384-geeks4geeks-django-crud",
+    "incolume/academia_jedi/ajedi20220728_crud_nodb",
+    "incolume/academia_jedi/ajedi20250603_api_auth",
+    "incolume/academia_jedi/ajedi20250618_dockerfile_inline",
+    "incolume/academia_jedi/ajedi20250602_acesso_api_ibge",
 ]
 
 [tool.uv.sources]

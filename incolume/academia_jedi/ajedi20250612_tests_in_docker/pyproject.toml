@@ -1,17 +1,7 @@
 [project]
-name = "ajedi20250617-tests-in-docker"
+name = "ajedi20250612-tests-in-docker"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-authors = [
-    { name = "Britodfbr", email = "britodfbr@gmail.com" }
-]
 requires-python = ">=3.10, <4"
 dependencies = []
-
-[project.scripts]
-ajedi20250617-tests-in-docker = "ajedi20250617_tests_in_docker:main"
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
