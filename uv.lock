@@ -42,6 +42,7 @@ resolution-markers = [
 [manifest]
 members = [
     "academia-jedi",
+    "ajedi20220728-crud-nodb",
     "ajedi20220731-sgbd-pandas",
     "ajedi20230223-openai-examples",
     "ajedi20250516-task-estudo-llm",
@@ -342,6 +343,11 @@ wheels = [
 ]
 
 [[package]]
+name = "ajedi20220728-crud-nodb"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20220728_crud_nodb" }
+
+[[package]]
 name = "ajedi20220731-sgbd-pandas"
 version = "0.1.0"
 source = { virtual = "incolume/academia_jedi/ajedi20220731_sgbd_pandas" }
@@ -624,23 +630,13 @@ dev = [{ name = "ajedi20250606-acesso-openweather", editable = "incolume/academi
 [[package]]
 name = "ajedi20250607-docker-subprojetos"
 version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20250607_docker_subprojetos" }
-
-[package.dev-dependencies]
-dev = [
-    { name = "pytest-cov" },
-    { name = "ruff" },
+source = { virtual = "incolume/academia_jedi/ajedi20250607_docker_subprojetos" }
+dependencies = [
     { name = "streamlit" },
 ]
 
 [package.metadata]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "pytest-cov", specifier = ">=6.1.1" },
-    { name = "ruff", specifier = ">=0.11.13" },
-    { name = "streamlit", specifier = ">=1.45.1" },
-]
+requires-dist = [{ name = "streamlit", specifier = ">=1.46.0" }]
 
 [[package]]
 name = "ajedi20250607-dockerfile-inline"
