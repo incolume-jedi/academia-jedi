@@ -60,7 +60,6 @@ members = [
     "ajedi20250605-streamlit-docker",
     "ajedi20250606-acesso-openweather",
     "ajedi20250607-docker-subprojetos",
-    "ajedi20250607-dockerfile-inline",
     "ajedi20250609-img2txtai",
     "ajedi20250610-estudos-docker-compose",
     "ajedi20250611-logging",
@@ -70,6 +69,7 @@ members = [
     "ajedi20250616-dashboard-venda-market",
     "ajedi20250617-extends-docker",
     "ajedi20250617-tests-in-docker",
+    "ajedi20250618-dockerfile-inline",
     "ajedi20250619-base64-encode",
     "ajedi20250620-py-script",
     "ajedi20250621-token-shortener",
@@ -558,7 +558,7 @@ requires-dist = [
 [[package]]
 name = "ajedi20250603-api-auth"
 version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20250603_api_auth" }
+source = { virtual = "incolume/academia_jedi/ajedi20250603_api_auth" }
 
 [[package]]
 name = "ajedi20250604-secrets-dynaconf"
@@ -637,23 +637,6 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [{ name = "streamlit", specifier = ">=1.46.0" }]
-
-[[package]]
-name = "ajedi20250607-dockerfile-inline"
-version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20250618_dockerfile_inline" }
-dependencies = [
-    { name = "httpx" },
-    { name = "icecream" },
-    { name = "streamlit" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "httpx", specifier = ">=0.28.1" },
-    { name = "icecream", specifier = ">=2.1.4" },
-    { name = "streamlit", specifier = ">=1.45.1" },
-]
 
 [[package]]
 name = "ajedi20250609-img2txtai"
@@ -763,6 +746,27 @@ source = { editable = "incolume/academia_jedi/ajedi20250617_extends_docker" }
 name = "ajedi20250617-tests-in-docker"
 version = "0.1.0"
 source = { editable = "incolume/academia_jedi/ajedi20250612_tests_in_docker" }
+
+[[package]]
+name = "ajedi20250618-dockerfile-inline"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250618_dockerfile_inline" }
+
+[package.dev-dependencies]
+dev = [
+    { name = "httpx" },
+    { name = "icecream" },
+    { name = "streamlit" },
+]
+
+[package.metadata]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "httpx", specifier = ">=0.28.1" },
+    { name = "icecream", specifier = ">=2.1.4" },
+    { name = "streamlit", specifier = ">=1.45.1" },
+]
 
 [[package]]
 name = "ajedi20250619-base64-encode"

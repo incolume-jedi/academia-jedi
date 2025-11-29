@@ -152,6 +152,7 @@ members = [
     "incolume/academia_jedi/ajedi20251127-384-geeks4geeks-django-crud",
     "incolume/academia_jedi/ajedi20220728_crud_nodb",
     "incolume/academia_jedi/ajedi20250603_api_auth",
+    "incolume/academia_jedi/ajedi20250618_dockerfile_inline",
 ]
 
 [tool.uv.sources]
