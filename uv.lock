@@ -63,12 +63,12 @@ members = [
     "ajedi20250609-img2txtai",
     "ajedi20250610-estudos-docker-compose",
     "ajedi20250611-logging",
+    "ajedi20250612-tests-in-docker",
     "ajedi20250613-postgres-docker",
     "ajedi20250614-raspagem-ai",
     "ajedi20250615-gen-barcode",
     "ajedi20250616-dashboard-venda-market",
     "ajedi20250617-extends-docker",
-    "ajedi20250617-tests-in-docker",
     "ajedi20250618-dockerfile-inline",
     "ajedi20250619-base64-encode",
     "ajedi20250620-py-script",
@@ -543,7 +543,7 @@ source = { editable = "incolume/academia_jedi/ajedi20250601_Python_API" }
 [[package]]
 name = "ajedi20250602-acesso-api-ibge"
 version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20250602_acesso_api_ibge" }
+source = { virtual = "incolume/academia_jedi/ajedi20250602_acesso_api_ibge" }
 dependencies = [
     { name = "pandas" },
     { name = "streamlit" },
@@ -688,6 +688,11 @@ requires-dist = [{ name = "icecream", specifier = ">=2.1.4" }]
 dev = [{ name = "ajedi20250611-logging", editable = "incolume/academia_jedi/ajedi20250611_logging" }]
 
 [[package]]
+name = "ajedi20250612-tests-in-docker"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20250612_tests_in_docker" }
+
+[[package]]
 name = "ajedi20250613-postgres-docker"
 version = "0.1.0"
 source = { editable = "incolume/academia_jedi/ajedi20250613_postgres_docker" }
@@ -741,11 +746,6 @@ requires-dist = [
 name = "ajedi20250617-extends-docker"
 version = "0.1.0"
 source = { editable = "incolume/academia_jedi/ajedi20250617_extends_docker" }
-
-[[package]]
-name = "ajedi20250617-tests-in-docker"
-version = "0.1.0"
-source = { editable = "incolume/academia_jedi/ajedi20250612_tests_in_docker" }
 
 [[package]]
 name = "ajedi20250618-dockerfile-inline"
