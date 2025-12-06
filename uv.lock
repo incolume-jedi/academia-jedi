@@ -86,11 +86,12 @@ members = [
     "ajedi20251125-djago-basic",
     "ajedi20251126-383-task-django-models-admin-e-dados",
     "ajedi20251127-384-geeks4geeks-django-crud",
+    "ajedi20251206-zipfile",
 ]
 
 [[package]]
 name = "academia-jedi"
-version = "0.124.0a8"
+version = "0.124.0a9"
 source = { editable = "." }
 dependencies = [
     { name = "click" },
@@ -915,6 +916,11 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [{ name = "django", specifier = ">=5.2.8" }]
+
+[[package]]
+name = "ajedi20251206-zipfile"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20251206_zipfile" }
 
 [[package]]
 name = "altair"
