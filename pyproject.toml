@@ -154,6 +154,7 @@ members = [
     "incolume/academia_jedi/ajedi20250603_api_auth",
     "incolume/academia_jedi/ajedi20250618_dockerfile_inline",
     "incolume/academia_jedi/ajedi20250602_acesso_api_ibge",
+    "incolume/academia_jedi/ajedi20251206_zipfile",
 ]
 
 [tool.uv.sources]
