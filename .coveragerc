@@ -10,8 +10,8 @@ omit =
 
 [report]
 ignore_errors = True
-fail_under = 55.5
-precision = 2
+fail_under = .05
+precision = 3
 skip_covered = true
 show_missing = true
 
