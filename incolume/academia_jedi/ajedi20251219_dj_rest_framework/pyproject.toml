@@ -4,4 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10, <4"
-dependencies = []
+dependencies = [
+    "django>=5.2.8",
+    "djangorestframework>=3.16.1",
+]
