@@ -156,6 +156,7 @@ members = [
     "incolume/academia_jedi/ajedi20251126-383-task-django-models-admin-e-dados",
     "incolume/academia_jedi/ajedi20251127-384-geeks4geeks-django-crud",
     "incolume/academia_jedi/ajedi20251206_zipfile",
+    "incolume/academia_jedi/ajedi20251219_dj_rest_framework",
 ]
 
 [tool.uv.sources]

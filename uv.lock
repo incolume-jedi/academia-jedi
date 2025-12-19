@@ -88,6 +88,7 @@ members = [
     "ajedi20251126-383-task-django-models-admin-e-dados",
     "ajedi20251127-384-geeks4geeks-django-crud",
     "ajedi20251206-zipfile",
+    "ajedi20251219-dj-rest-framework",
 ]
 
 [[package]]
@@ -933,6 +934,11 @@ requires-dist = [{ name = "django", specifier = ">=5.2.8" }]
 name = "ajedi20251206-zipfile"
 version = "0.1.0"
 source = { virtual = "incolume/academia_jedi/ajedi20251206_zipfile" }
+
+[[package]]
+name = "ajedi20251219-dj-rest-framework"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20251219_dj_rest_framework" }
 
 [[package]]
 name = "altair"
