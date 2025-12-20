@@ -44,6 +44,7 @@ members = [
     "academia-jedi",
     "ajedi20220728-crud-nodb",
     "ajedi20220731-sgbd-pandas",
+    "ajedi20221028-flask-restful",
     "ajedi20230223-openai-examples",
     "ajedi20250516-task-estudo-llm",
     "ajedi20250520-estudo-container",
@@ -362,6 +363,17 @@ requires-dist = [
     { name = "pandas", specifier = ">=2.3.0" },
     { name = "sqlalchemy", specifier = ">=1.4.54" },
 ]
+
+[[package]]
+name = "ajedi20221028-flask-restful"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20221028_flask_restful" }
+dependencies = [
+    { name = "flask-restful" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "flask-restful", specifier = ">=0.3.9" }]
 
 [[package]]
 name = "ajedi20230223-openai-examples"
