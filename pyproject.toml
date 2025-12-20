@@ -107,6 +107,9 @@ module-name = "incolume.academia_jedi"
 
 [tool.uv.workspace]
 members = [
+    "incolume/academia_jedi/ajedi20220728_crud_nodb",
+    "incolume/academia_jedi/ajedi20220731_sgbd_pandas",
+    "incolume/academia_jedi/ajedi20221028_flask_restful",
     "incolume/academia_jedi/ajedi20230223_openai_examples",
     "incolume/academia_jedi/ajedi20250516_task_estudo_llm",
     "incolume/academia_jedi/ajedi20250520_estudo_container",
@@ -118,6 +121,8 @@ members = [
     "incolume/academia_jedi/ajedi20250530_img2txtAI",
     "incolume/academia_jedi/ajedi20250601_Python_API",
     "incolume/academia_jedi/ajedi20250602_acesso_api_ibge",
+    "incolume/academia_jedi/ajedi20250602_acesso_api_ibge",
+    "incolume/academia_jedi/ajedi20250603_api_auth",
     "incolume/academia_jedi/ajedi20250603_api_auth",
     "incolume/academia_jedi/ajedi20250604_secrets_dynaconf",
     "incolume/academia_jedi/ajedi20250605_streamlit_docker",
@@ -133,6 +138,7 @@ members = [
     "incolume/academia_jedi/ajedi20250616_dashboard_venda_market",
     "incolume/academia_jedi/ajedi20250617_extends_docker",
     "incolume/academia_jedi/ajedi20250618_dockerfile_inline",
+    "incolume/academia_jedi/ajedi20250618_dockerfile_inline",
     "incolume/academia_jedi/ajedi20250619_base64_encode",
     "incolume/academia_jedi/ajedi20250620_py_script",
     "incolume/academia_jedi/ajedi20250621_token_shortener",
@@ -143,17 +149,12 @@ members = [
     "incolume/academia_jedi/ajedi20250626_gen_qrcode",
     "incolume/academia_jedi/ajedi20250627_check_cpf_cnpj",
     "incolume/academia_jedi/ajedi20250726_method_overload",
-    "incolume/academia_jedi/ajedi20220731_sgbd_pandas",
     "incolume/academia_jedi/ajedi20250802_threads",
     "incolume/academia_jedi/ajedi20251013_getting_elements_in_a_table_with_playwright",
     "incolume/academia_jedi/ajedi20251016_aplicar_exemplos_playwright",
     "incolume/academia_jedi/ajedi20251125_djago_basic",
     "incolume/academia_jedi/ajedi20251126-383-task-django-models-admin-e-dados",
     "incolume/academia_jedi/ajedi20251127-384-geeks4geeks-django-crud",
-    "incolume/academia_jedi/ajedi20220728_crud_nodb",
-    "incolume/academia_jedi/ajedi20250603_api_auth",
-    "incolume/academia_jedi/ajedi20250618_dockerfile_inline",
-    "incolume/academia_jedi/ajedi20250602_acesso_api_ibge",
     "incolume/academia_jedi/ajedi20251206_zipfile",
 ]
 
@@ -205,7 +206,7 @@ easygui = "^0.98.3"
 faker = "^19.6.2"
 fastapi = "^0.110.1"
 fastparquet = [{version="^2022.12.0", python="<3.11"}, {version="^2024.11.0", python=">=3.11"}]
-flask-restful = "^0.3.9"
+
 flet = ">=0.21.2"
 googletrans = [{ version = "^3.0.0", python = "<=3.9" }, {version="^4.0.0", python=">=3.10"}]
 gspread = "^5.12.0"
