@@ -1,4 +1,5 @@
 """Models for geek."""
+
 from django.db import models
 
 
@@ -7,7 +8,7 @@ class GeeksModel(models.Model):
     """Models."""
 
     # fields of the model
-    title = models.CharField(max_length = 200)
+    title = models.CharField(max_length=200)
     description = models.TextField()
 
     # renames the instances of the model with their title name

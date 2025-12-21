@@ -1,4 +1,5 @@
 from typing import ClassVar
+
 from django import forms
 
 from .models import Receita
@@ -6,11 +7,18 @@ from .models import Receita
 
 class ReceitaForm(forms.ModelForm):
     """Class ReceitaForm."""
+
     class Meta:
         """Meta class."""
+
         model = Receita
         # fields = '__all__'
-        fields: ClassVar[list[str]] = ['titulo', 'ingredientes', 'modo_preparo', 'categoria']
+        fields: ClassVar[list[str]] = [
+            'titulo',
+            'ingredientes',
+            'modo_preparo',
+            'categoria',
+        ]
 
         def clean_titulo(self):
             """Validation."""
