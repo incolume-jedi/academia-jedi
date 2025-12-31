@@ -4,9 +4,10 @@
 import inspect
 import logging
 
-import fitz  # pyMuPDF
+# import fitz  # pyMuPDF (This was archived by the owner on Aug 3, 2022. It is now read-only.)
 import PyPDF2
 from incolume.academia_jedi.ajedi20230119_pdf.variaveis import file
+from incolume.academia_jedi.utils import nonexequi
 
 
 def ex01():
@@ -51,6 +52,7 @@ def ex02():
         print(pageObj.extract_text())
 
 
+@nonexequi()
 def ex03():
     """Exemplo PyMUPDF oriundo de https://www.geeksforgeeks.org/extract-text-from-pdf-file-using-python/."""
     logging.debug(inspect.stack()[0][3].__doc__)
@@ -61,6 +63,7 @@ def ex03():
     print(text)
 
 
+@nonexequi()
 def ex04():
     """Exemplo PyMUPDF baseado de https://www.geeksforgeeks.org/extract-text-from-pdf-file-using-python/."""
     logging.debug(inspect.stack()[0][3].__doc__)

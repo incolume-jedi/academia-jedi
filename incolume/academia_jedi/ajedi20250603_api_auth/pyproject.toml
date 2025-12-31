@@ -1,5 +1,5 @@
 [project]
-name = "ajedi20250603_api_auth"
+name = "ajedi20250603-api-auth"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -8,10 +8,3 @@ authors = [
 ]
 requires-python = ">=3.10, <4"
 dependencies = []
-
-[project.scripts]
-ajedi20250603-api-auth = "ajedi20250603_api_auth:main"
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"

@@ -1,7 +1,8 @@
-import logging
-
 # ruff: noqa: D100, D103, F821, G004, N816
+import logging
 from getpass import getpass
+
+from icecream import ic
 
 logFormat = (
     '%(asctime)s; %(levelname)-8s; %(name)s; %(module)s;'
@@ -39,15 +40,15 @@ def auth1():
 
 
 def encoded_input(message: str) -> str:
-    print(message)
+    ic(message)
     pw = ''
     while True:
         symbol = getch.getch()
         if symbol in ['\r', '\n']:
             break
-        print('**', end='', flush=True)
+        ic('**', end='', flush=True)
         pw += symbol
-    print()
+    ic()
     return pw
 
 
@@ -67,7 +68,7 @@ def auth2():
 
 def run():
     auth0()
-    print()
+    ic()
     auth1()
 
 

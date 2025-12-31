@@ -2,6 +2,7 @@
 
 from datetime import datetime
 
+from icecream import ic
 from pydantic import BaseModel
 
 
@@ -21,13 +22,13 @@ if __name__ == '__main__':  # pragma: no cover
         'friends': [1, 2, '3'],
     }
     user = User(**external_data)
-    print(user.id)
+    ic(user.id)
     # > 123
-    print(repr(user.signup_ts))
+    ic(repr(user.signup_ts))
     # > datetime.datetime(2019, 6, 1, 12, 22)
-    print(user.friends)
+    ic(user.friends)
     # > [1, 2, 3]
-    print(user.dict())
+    ic(user.dict())
     """
     {
         'id': 123,
