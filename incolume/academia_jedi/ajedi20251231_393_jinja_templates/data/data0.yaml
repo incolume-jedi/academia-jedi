@@ -1,0 +1,37 @@
+students:
+  - name: Brito
+    score: 100
+  - name: Ana Brito
+    score: 95
+  - name: Ada Brito
+    score: 85
+  - name: Eliana Brito
+    score: 70
+  - name: Naome Brito
+    score: 60
+header:
+  - pt:
+      header text
+  - en:
+      header text
+  - de:
+      header text
+  - it:
+      header text
+  - es:
+      header text
+  - fr:
+      header text
+footer:
+  - pt:
+      footer message
+  - de:
+      footer message
+  - en:
+      footer message
+  - fr:
+      footer message
+  - es:
+      footer message
+  - it:
+      footer message

@@ -111,13 +111,7 @@ def data_recover():
     ic(data)
 
 
-def data_load():
-    """Docstring para data_load."""
-    fout = Path(__file__).parent.joinpath('data', 'data.yaml')
-    data = yaml.safe_load(fout.open())
-    ic(data)
-
-def example_for_all_yaml(students: Container[dict] | None = None):
+def example_for_all_yaml(students: Container[dict] | None = None) -> None:
     """Docstring para example_msg_for_all."""
     MAX_SCORE: Final[int] = 100
     TEST_NAME: Final[str] = 'Python Challenge'
@@ -150,6 +144,20 @@ def example_for_all_yaml(students: Container[dict] | None = None):
         fout.write_text(content)
         ic(f'{fout} is {fout.is_file()}')
 
+
+def data_load0():
+    """Docstring para data_load."""
+    fout = Path(__file__).parent.joinpath('data', 'data0.yaml')
+    data = yaml.safe_load(fout.open())
+    ic(data)
+
+
+def data_load():
+    """Docstring para data_load."""
+    fout = Path(__file__).parent.joinpath('data', 'data.yaml')
+    data = yaml.safe_load(fout.open())
+    ic(data)
+
 def run():
     """Run it."""
     example1()
@@ -157,8 +165,9 @@ def run():
     example_msg_for_all()
     data_generate()
     data_recover()
-    data_load()
     example_for_all_yaml()
+    data_load0()
+    data_load()
 
 
 if __name__ == '__main__':
