@@ -1,5 +1,9 @@
+"""Main module."""
+
+
 def main():
-    print('Hello from ajedi20251231-393-jinja-templates!')
+    """Docstring para main."""
+    return 'Hello from ajedi20251231-393-jinja-templates!'
 
 
 if __name__ == '__main__':
