@@ -89,6 +89,7 @@ members = [
     "ajedi20251126-383-task-django-models-admin-e-dados",
     "ajedi20251127-384-geeks4geeks-django-crud",
     "ajedi20251206-zipfile",
+    "ajedi20251231-393-jinja-templates",
 ]
 
 [[package]]
@@ -945,6 +946,17 @@ requires-dist = [{ name = "django", specifier = ">=5.2.8" }]
 name = "ajedi20251206-zipfile"
 version = "0.1.0"
 source = { virtual = "incolume/academia_jedi/ajedi20251206_zipfile" }
+
+[[package]]
+name = "ajedi20251231-393-jinja-templates"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20251231_393_jinja_templates" }
+dependencies = [
+    { name = "jinja2" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "jinja2", specifier = ">=3.1.6" }]
 
 [[package]]
 name = "altair"
