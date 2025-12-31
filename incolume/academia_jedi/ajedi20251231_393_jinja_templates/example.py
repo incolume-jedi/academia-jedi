@@ -124,7 +124,7 @@ def example_for_all_yaml(students: Container[dict] | None = None) -> None:
         autoescape=True,
     )
     template = env.get_template('msg4all.tmpl')
-    students = yaml.safe_load(students_fl.open())
+    students = students or yaml.safe_load(students_fl.open())
 
     for student in students:
         name: str = student.get('name')
@@ -151,12 +151,6 @@ def data_load0():
     data = yaml.safe_load(fout.open())
     ic(data)
 
-
-def data_load():
-    """Docstring para data_load."""
-    fout = Path(__file__).parent.joinpath('data', 'data.yaml')
-    data = yaml.safe_load(fout.open())
-    ic(data)
 
 def example_csv_tmpl(students: Container[dict] | None = None) -> None:
     """Docstring para example_msg_for_all."""
@@ -188,6 +182,50 @@ def example_csv_tmpl(students: Container[dict] | None = None) -> None:
     ic(f'{fout} is {fout.is_file()}')
 
 
+def data_load():
+    """Docstring para data_load."""
+    fout = Path(__file__).parent.joinpath('data', 'data.yaml')
+    data = yaml.safe_load(fout.open())
+    ic(data)
+
+
+
+def example_langs():
+    """
+    Docstring para example_langs
+    """
+    tmpl_dir = Path(__file__).parent.joinpath('templates')
+    ic(tmpl_dir.exists())
+
+    data_fl = Path(__file__).parent.joinpath('data', 'data.yaml')
+    data = yaml.safe_load(data_fl.open())
+
+    env = jinja2.Environment(
+        loader=jinja2.FileSystemLoader(tmpl_dir),
+        autoescape=True,
+    )
+    template = env.get_template('lang.tmpl')
+    langs = data.get('lang').keys()
+
+    for lang in langs:
+
+        fout: Path = Path(
+                tempfile.gettempdir(),
+            ).joinpath(
+                inspect.stack()[0][3],
+                f'{template.name.split(".")[0]}-{lang}.txt',
+            )
+        fout.parent.mkdir(parents=True, exist_ok=True)
+
+        context = {'lang': lang, 'data': data}
+
+        content = template.render(context)
+        # ic(content)
+
+        fout.write_text(content)
+        ic(f'{fout} is {fout.is_file()}')
+
+
 def run():
     """Run it."""
     example1()
@@ -197,8 +235,9 @@ def run():
     data_recover()
     example_for_all_yaml()
     data_load0()
-    data_load()
     example_csv_tmpl()
+    data_load()
+    example_langs()
 
 
 if __name__ == '__main__':

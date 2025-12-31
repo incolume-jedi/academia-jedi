@@ -1,0 +1,5 @@
+{# templates/lang.tmpl #}
+{{ data['lang'][lang]['header'] }}
+{% for student in data['students'] %} - {{ student.name }} ({{ student.score }});
+{% endfor %}
+{{ data['lang'][lang]['footer']}}
