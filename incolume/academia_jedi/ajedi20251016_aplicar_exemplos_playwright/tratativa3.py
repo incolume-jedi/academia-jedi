@@ -52,14 +52,14 @@ def actions(url: str = 'http://localhost:8000') -> None:
             expect(process_receved).to_be_visible()
             ic(process_receved)
             action1(
-                process_receved.locator('//td[3]').get_by_role('link').all()
+                process_receved.locator('//td[3]').get_by_role('link').all(),
             )
             action2(
-                process_receved.locator('//td[3]').get_by_role('link').all()
+                process_receved.locator('//td[3]').get_by_role('link').all(),
             )
             action3(
-                process_receved.locator('//td[3]').get_by_role('link').all()
+                process_receved.locator('//td[3]').get_by_role('link').all(),
             )
             action4(
-                process_receved.locator('//td[3]').get_by_role('link').all()
+                process_receved.locator('//td[3]').get_by_role('link').all(),
             )

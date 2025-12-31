@@ -21,7 +21,9 @@ def detalhes_receita(request: HttpRequest, id_receita: int) -> HttpResponse:
     context = {'receita': receita}
 
     return render(
-        request, template_name='detalhes_receita.html', context=context
+        request,
+        template_name='detalhes_receita.html',
+        context=context,
     )
 
 
