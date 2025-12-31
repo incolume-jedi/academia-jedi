@@ -158,6 +158,36 @@ def data_load():
     data = yaml.safe_load(fout.open())
     ic(data)
 
+def example_csv_tmpl(students: Container[dict] | None = None) -> None:
+    """Docstring para example_msg_for_all."""
+    MAX_SCORE: Final[int] = 100
+    TEST_NAME: Final[str] = 'Python Challenge'
+
+    tmpl_dir = Path(__file__).parent.joinpath('templates')
+    ic(tmpl_dir.exists())
+
+    env = jinja2.Environment(
+        loader=jinja2.FileSystemLoader(tmpl_dir),
+        autoescape=True,
+    )
+    template = env.get_template('csv.tmpl')
+    students = students or yaml.safe_load(students_fl.open())
+
+    fout: Path = Path(
+            tempfile.gettempdir(),
+        ).joinpath(
+            inspect.stack()[0][3],
+            f'medias.csv',
+        )
+    fout.parent.mkdir(parents=True, exist_ok=True)
+    context = {'students': students, 'max_score': MAX_SCORE}
+    content = template.render(context)
+    ic(content)
+
+    fout.write_text(content)
+    ic(f'{fout} is {fout.is_file()}')
+
+
 def run():
     """Run it."""
     example1()
@@ -168,6 +198,7 @@ def run():
     example_for_all_yaml()
     data_load0()
     data_load()
+    example_csv_tmpl()
 
 
 if __name__ == '__main__':

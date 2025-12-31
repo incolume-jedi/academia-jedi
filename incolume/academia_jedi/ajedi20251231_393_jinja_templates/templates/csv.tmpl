@@ -1,0 +1,4 @@
+{# templates/csv.tmpl #}
+STUDENT NAME, STUDENT SCORE,MAX SCORE
+{% for student in students %}{{ student.name }},{{ student.score }},{{ max_score }}
+{% endfor %}
