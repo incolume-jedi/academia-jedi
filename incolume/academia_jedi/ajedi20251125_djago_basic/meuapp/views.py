@@ -55,5 +55,7 @@ def produtos(request: HttpRequest) -> HttpResponse:
 def index(request: HttpRequest) -> HttpResponse:
     """Index."""
     return render(
-        request, 'index.html', {'title': 'Index page', 'head': 'Index Page'}
+        request,
+        'index.html',
+        {'title': 'Index page', 'head': 'Index Page'},
     )

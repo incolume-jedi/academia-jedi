@@ -1,0 +1,15 @@
+{# templates/msg4all.tmpl #}
+Hello {{ name }},
+{% if score > 80 %}
+I'm happy to inform you that you did very well on today's {{ test_name }}.
+
+Nice pontuation. Continue that way!
+{% else %}
+Your score today's test {{ test_name }} could have been better. More studying,
+less vampire hunting! 
+{% endif %}
+You achieved {{ score }} out of {{ max_score }} points!
+
+So long!
+
+Mr. Brito
