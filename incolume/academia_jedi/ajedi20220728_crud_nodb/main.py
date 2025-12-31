@@ -1,6 +1,6 @@
 def main():
-    print("Hello from ajedi20220728-crud-nodb!")
+    print('Hello from ajedi20220728-crud-nodb!')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

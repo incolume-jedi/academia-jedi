@@ -1,4 +1,5 @@
 """Exemplo 4."""
+
 import re
 
 from icecream import ic
@@ -26,9 +27,12 @@ def actions(url: str = 'http://localhost:8000') -> None:
             expect(process_receved).to_be_visible()
             ic(process_receved)
             # td = page.get_by_role("td", name=re.compile("submit", re.IGNORECASE)).click()
-            td=page.locator('td', has_text=re.compile('.*Visualizado', flags=re.IGNORECASE))
+            td = page.locator(
+                'td', has_text=re.compile('.*Visualizado', flags=re.IGNORECASE)
+            )
             action(td.all())
             action(process_receved.locator('.processoNaoVisualizado').all())
             action(process_receved.locator('.processoVisualizado').all())
-            action(process_receved.locator('[class*=Visualizado]').all())  # locate for partial classname  # noqa: E501
-
+            action(
+                process_receved.locator('[class*=Visualizado]').all()
+            )  # locate for partial classname  # noqa: E501

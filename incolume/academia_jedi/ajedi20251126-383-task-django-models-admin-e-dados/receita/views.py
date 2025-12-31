@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import ReceitaForm
 from .models import Receita
@@ -20,7 +20,10 @@ def detalhes_receita(request: HttpRequest, id_receita: int) -> HttpResponse:
     receita = Receita.objects.get(id=id_receita)
     context = {'receita': receita}
 
-    return render(request, template_name='detalhes_receita.html', context=context)
+    return render(
+        request, template_name='detalhes_receita.html', context=context
+    )
+
 
 def nova_receita(request: HttpRequest) -> HttpResponse:
     """Nova receita."""
@@ -34,7 +37,8 @@ def nova_receita(request: HttpRequest) -> HttpResponse:
         form = ReceitaForm()
     return render(request, 'nova_receita.html', context={'form': form})
 
-def editar_receita(request: HttpRequest, id_receita:int) -> HttpResponse:
+
+def editar_receita(request: HttpRequest, id_receita: int) -> HttpResponse:
     """Editar receita."""
     receita = get_object_or_404(Receita, id=id_receita)
     if request.method == 'POST':
@@ -45,4 +49,8 @@ def editar_receita(request: HttpRequest, id_receita:int) -> HttpResponse:
             return redirect('receitas')
     else:
         form = ReceitaForm(instance=receita)
-    return render(request, template_name='nova_receita.html', context={'form': form, 'editar': True})
+    return render(
+        request,
+        template_name='nova_receita.html',
+        context={'form': form, 'editar': True},
+    )

@@ -1,8 +1,8 @@
-"""
-URL configuration for blog project.
+"""URL configuration for blog project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
+
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -14,13 +14,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.urls import path
 
 from . import views
 
 urlpatterns = [
     path('receitas/', views.receitas, name='receitas'),
-    path('detalhes_receita/<int:id_receita>/', views.detalhes_receita, name='detalhes_receita'),
+    path(
+        'detalhes_receita/<int:id_receita>/',
+        views.detalhes_receita,
+        name='detalhes_receita',
+    ),
     path('nova_receita/', views.nova_receita, name='nova_receita'),
-    path('editar_receita/<int:id_receita>/', views.editar_receita, name='editar_receita'),
+    path(
+        'editar_receita/<int:id_receita>/',
+        views.editar_receita,
+        name='editar_receita',
+    ),
 ]

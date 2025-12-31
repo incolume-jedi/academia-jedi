@@ -45,6 +45,7 @@ members = [
     "ajedi20220728-crud-nodb",
     "ajedi20220731-sgbd-pandas",
     "ajedi20221028-flask-restful",
+    "ajedi20230222-pyspellchecker",
     "ajedi20230223-openai-examples",
     "ajedi20250516-task-estudo-llm",
     "ajedi20250520-estudo-container",
@@ -374,6 +375,17 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [{ name = "flask-restful", specifier = ">=0.3.9" }]
+
+[[package]]
+name = "ajedi20230222-pyspellchecker"
+version = "0.1.0"
+source = { virtual = "incolume/academia_jedi/ajedi20230222_pyspellchecker" }
+dependencies = [
+    { name = "pyspellchecker" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "pyspellchecker", specifier = ">=0.7.1,<1.0.0" }]
 
 [[package]]
 name = "ajedi20230223-openai-examples"

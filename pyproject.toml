@@ -156,6 +156,7 @@ members = [
     "incolume/academia_jedi/ajedi20251126-383-task-django-models-admin-e-dados",
     "incolume/academia_jedi/ajedi20251127-384-geeks4geeks-django-crud",
     "incolume/academia_jedi/ajedi20251206_zipfile",
+    "incolume/academia_jedi/ajedi20230222_pyspellchecker",
 ]
 
 [tool.uv.sources]
@@ -248,7 +249,6 @@ pymupdf = "^1.21.1"
 pypdf = "^5.4.0"
 #pypdf2 = "^3.0.1"
 pysimpleguiqt = { version = ">=0.35.0", python = "<3.11" }
-pyspellchecker = "^0.7.1"
 pytesseract = "^0.3.10"
 pytest-asyncio = "^1.0.0"
 pytest-cov = "^4.0.0"
