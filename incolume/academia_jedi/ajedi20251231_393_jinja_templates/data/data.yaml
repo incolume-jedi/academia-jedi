@@ -9,38 +9,39 @@ students:
     score: 70
   - name: Naome Brito
     score: 60
-pt:
-  header:
-    Este conteúdo está disponível em teu idioma.
-  footer:
-    execute o script novamente para atualizações
-en:
-  header:
-    This content is available in your language.
-  footer:
-    Run the script again for updates
-de:
-  header:
-    Dieser Inhalt ist in Ihrer Sprache verfügbar.
-  footer:
-    Führen Sie das Skript erneut aus, um Aktualisierungen zu erhalten.
-it:
-  header:
-    Questo contenuto è disponibile nella tua lingua.
-  footer:
-    Eseguire nuovamente lo script per gli aggiornamenti
-es:
-  header:
-    Este contenido está disponible en tu idioma.
-  footer:
-    Ejecute el script de nuevo para obtener actualizaciones
-fr:
-  header:
-    Ce contenu est disponible dans votre langue.
-  footer:
-    Réexécutez le script pour les mises à jour.
-jp:
-  header:
-    このコンテンツはあなたの言語で利用可能です。
-  footer:
-    更新のためにスクリプトを再度実行してください
+lang:    
+- pt:
+    header:
+      Este conteúdo está disponível em teu idioma.
+    footer:
+      execute o script novamente para atualizações
+- en:
+    header:
+      This content is available in your language.
+    footer:
+      Run the script again for updates
+- de:
+    header:
+      Dieser Inhalt ist in Ihrer Sprache verfügbar.
+    footer:
+      Führen Sie das Skript erneut aus, um Aktualisierungen zu erhalten.
+- it:
+    header:
+      Questo contenuto è disponibile nella tua lingua.
+    footer:
+      Eseguire nuovamente lo script per gli aggiornamenti
+- es:
+    header:
+      Este contenido está disponible en tu idioma.
+    footer:
+      Ejecute el script de nuevo para obtener actualizaciones
+- fr:
+    header:
+      Ce contenu est disponible dans votre langue.
+    footer:
+      Réexécutez le script pour les mises à jour.
+- jp:
+    header:
+      このコンテンツはあなたの言語で利用可能です。
+    footer:
+      更新のためにスクリプトを再度実行してください
