@@ -168,11 +168,11 @@ def example_csv_tmpl(students: Container[dict] | None = None) -> None:
     students = students or yaml.safe_load(students_fl.open())
 
     fout: Path = Path(
-            tempfile.gettempdir(),
-        ).joinpath(
-            inspect.stack()[0][3],
-            f'medias.csv',
-        )
+        tempfile.gettempdir(),
+    ).joinpath(
+        inspect.stack()[0][3],
+        'medias.csv',
+    )
     fout.parent.mkdir(parents=True, exist_ok=True)
     context = {'students': students, 'max_score': MAX_SCORE}
     content = template.render(context)
@@ -189,11 +189,8 @@ def data_load():
     ic(data)
 
 
-
 def example_langs():
-    """
-    Docstring para example_langs
-    """
+    """Docstring para example_langs"""
     tmpl_dir = Path(__file__).parent.joinpath('templates')
     ic(tmpl_dir.exists())
 
@@ -208,13 +205,12 @@ def example_langs():
     langs = data.get('lang').keys()
 
     for lang in langs:
-
         fout: Path = Path(
-                tempfile.gettempdir(),
-            ).joinpath(
-                inspect.stack()[0][3],
-                f'{template.name.split(".")[0]}-{lang}.txt',
-            )
+            tempfile.gettempdir(),
+        ).joinpath(
+            inspect.stack()[0][3],
+            f'{template.name.split(".")[0]}-{lang}.txt',
+        )
         fout.parent.mkdir(parents=True, exist_ok=True)
 
         context = {'lang': lang, 'data': data}
