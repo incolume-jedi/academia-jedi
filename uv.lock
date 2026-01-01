@@ -382,11 +382,15 @@ name = "ajedi20230222-pyspellchecker"
 version = "0.1.0"
 source = { virtual = "incolume/academia_jedi/ajedi20230222_pyspellchecker" }
 dependencies = [
+    { name = "icecream" },
     { name = "pyspellchecker" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pyspellchecker", specifier = ">=0.7.1,<1.0.0" }]
+requires-dist = [
+    { name = "icecream", specifier = ">=2.1.3" },
+    { name = "pyspellchecker", specifier = ">=0.7.1,<1.0.0" },
+]
 
 [[package]]
 name = "ajedi20230223-openai-examples"

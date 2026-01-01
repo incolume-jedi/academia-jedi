@@ -1,8 +1,10 @@
 """Estudos com pyspellchecker."""
 
-import logging
 
 # ruff: noqa: G004
+import logging
+
+from icecream import ic
 from spellchecker import SpellChecker
 
 
@@ -17,14 +19,14 @@ def ex1():
 
     # separar o texto em palavras
     palavras = texto.split()
-    logging.debug(f'{palavras}')
+    logging.debug(palavras)
 
     # verificar a ortografia de cada palavra
     for palavra in palavras:
         s = spell.correction(palavra)
         logging.debug(f'{palavra}: {s=}')
         if s != palavra:
-            print(
+            ic(
                 f'A palavra {palavra} está'
                 f' escrita incorretamente. Sugestão: {s}',
             )
