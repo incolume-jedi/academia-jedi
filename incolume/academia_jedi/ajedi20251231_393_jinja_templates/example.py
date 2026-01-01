@@ -18,7 +18,7 @@ students_db: Container[dict] = [
     {'name': 'Naome Brito', 'score': 60},
 ]
 students_fl = Path(__file__).parent.joinpath('data', 'students.yaml')
-
+dout: Path = Path(tempfile.gettempdir()).joinpath(*Path(__file__).parent.parts[-1:])
 
 def example1():
     """Docstring para example1."""
@@ -224,6 +224,7 @@ def example_langs():
 
 def run():
     """Run it."""
+    ic(dout)
     example1()
     example_good_msg()
     example_msg_for_all()
