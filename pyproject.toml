@@ -92,7 +92,6 @@ dev = [
     "language-tool-python>=2.7.1,<2.9.3",
     "opencv-python>=4.12.0.88",
     "pytesseract>=0.3.13",
-    "pyspellchecker>=0.8.3",
 #    "ajedi20251127-384-geeks4geeks-django-crud",
 ]
 
