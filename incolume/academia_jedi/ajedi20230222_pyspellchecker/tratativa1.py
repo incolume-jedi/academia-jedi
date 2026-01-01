@@ -1,17 +1,19 @@
+"""Estudos com pyspellchecker."""
+
 import logging
 
-# ruff: noqa: D100, D103, G004
+# ruff: noqa: G004
 from spellchecker import SpellChecker
 
 
 def ex1():
-    # criar um objeto SpellChecker para o português do Brasil
+    """Criar um objeto SpellChecker para o português do Brasil."""
     spell = SpellChecker(language='pt')
     logging.debug(spell)
 
     # texto com palavras com erros ortográficos
     texto = 'Eu fiz uma conpra pela internete e a empressa entrego errado.'
-    logging.debug(f'{texto=}')
+    logging.debug('texto=%s', texto)
 
     # separar o texto em palavras
     palavras = texto.split()

@@ -2,7 +2,7 @@
 
 import logging
 
-from .tratativa1 import ex1
+from incolume.academia_jedi.ajedi20230222_pyspellchecker.tratativa1 import ex1
 
 logging.basicConfig(
     level=logging.DEBUG,
