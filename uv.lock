@@ -415,12 +415,12 @@ requires-dist = [{ name = "icecream", specifier = ">=2.1.4" }]
 [package.metadata.requires-dev]
 dev = [
     { name = "ajedi20230223-openai-examples", editable = "incolume/academia_jedi/ajedi20230223_openai_examples" },
-    { name = "nltk", specifier = ">=3.9.1" },
-    { name = "openai", specifier = ">=1.79.0" },
+    { name = "nltk", specifier = ">=3.8.1" },
+    { name = "openai", specifier = ">=0.26.0" },
     { name = "pyspellchecker" },
     { name = "scikit-learn", specifier = ">=1.6.1" },
-    { name = "textblob", specifier = ">=0.19.0" },
-    { name = "transformers", specifier = ">=4.52.3" },
+    { name = "textblob", specifier = ">=0.17.1" },
+    { name = "transformers", specifier = ">=4.26.1" },
 ]
 
 [[package]]
