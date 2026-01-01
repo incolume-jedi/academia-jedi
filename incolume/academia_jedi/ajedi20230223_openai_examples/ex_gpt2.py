@@ -1,9 +1,6 @@
 """Module."""
 
-import contextlib
-
-with contextlib.suppress(ModuleNotFoundError):
-    from transformers import pipeline, set_seed
+from transformers import pipeline, set_seed
 
 
 def exemplo1():
