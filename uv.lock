@@ -139,7 +139,6 @@ dev = [
     { name = "pony" },
     { name = "pre-commit" },
     { name = "pypdf2" },
-    { name = "pyspellchecker" },
     { name = "pytesseract" },
     { name = "pytest-cov" },
     { name = "pytest-playwright" },
@@ -197,7 +196,6 @@ dev = [
     { name = "pony", specifier = ">=0.7.19" },
     { name = "pre-commit", marker = "python_full_version >= '3.9'", specifier = ">=3.7.0" },
     { name = "pypdf2", specifier = ">=3.0.1" },
-    { name = "pyspellchecker", specifier = ">=0.8.3" },
     { name = "pytesseract", specifier = ">=0.3.13" },
     { name = "pytest-cov", specifier = ">=6.2.1" },
     { name = "pytest-playwright", specifier = ">=0.7.1" },
@@ -382,11 +380,15 @@ name = "ajedi20230222-pyspellchecker"
 version = "0.1.0"
 source = { virtual = "incolume/academia_jedi/ajedi20230222_pyspellchecker" }
 dependencies = [
+    { name = "icecream" },
     { name = "pyspellchecker" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pyspellchecker", specifier = ">=0.7.1,<1.0.0" }]
+requires-dist = [
+    { name = "icecream", specifier = ">=2.1.3" },
+    { name = "pyspellchecker", specifier = ">=0.7.1,<1.0.0" },
+]
 
 [[package]]
 name = "ajedi20230223-openai-examples"
@@ -401,8 +403,8 @@ dev = [
     { name = "ajedi20230223-openai-examples" },
     { name = "nltk" },
     { name = "openai" },
+    { name = "pyspellchecker" },
     { name = "scikit-learn" },
-    { name = "spellchecker" },
     { name = "textblob" },
     { name = "transformers" },
 ]
@@ -413,12 +415,12 @@ requires-dist = [{ name = "icecream", specifier = ">=2.1.4" }]
 [package.metadata.requires-dev]
 dev = [
     { name = "ajedi20230223-openai-examples", editable = "incolume/academia_jedi/ajedi20230223_openai_examples" },
-    { name = "nltk", specifier = ">=3.9.1" },
-    { name = "openai", specifier = ">=1.79.0" },
+    { name = "nltk", specifier = ">=3.8.1" },
+    { name = "openai", specifier = ">=0.26.0" },
+    { name = "pyspellchecker" },
     { name = "scikit-learn", specifier = ">=1.6.1" },
-    { name = "spellchecker", specifier = ">=0.4" },
-    { name = "textblob", specifier = ">=0.19.0" },
-    { name = "transformers", specifier = ">=4.52.3" },
+    { name = "textblob", specifier = ">=0.17.1" },
+    { name = "transformers", specifier = ">=4.26.1" },
 ]
 
 [[package]]
@@ -2918,16 +2920,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/57/10/402b2d903164f5ac4
 wheels = [
     { url = "https://files.pythonhosted.org/packages/46/41/8b1a7f6ffaa2f1d88f04742ff5b0f25790ee0b873c632079ac9f220848b9/incolume_py_changelog-0.14.0-py3-none-any.whl", hash = "sha256:18e4200e61ad10c86ae6b3bc548519ddb596388c6ae54c15651d128cbad7e5f7", size = 11287, upload-time = "2025-01-15T11:23:00.094Z" },
 ]
-
-[[package]]
-name = "inexactsearch"
-version = "1.0.2"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "silpa-common" },
-    { name = "soundex" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/45/23/0b398af4295da99c5ab69d7b0bff36a2cb68e260a65f64717c17f6a20035/inexactsearch-1.0.2.tar.gz", hash = "sha256:b7df09c46e1ea73996449ceb4df265483e4dc6b61dac2ea4df6f2e5ad8d53b75", size = 21057, upload-time = "2014-06-01T14:15:50.74Z" }
 
 [[package]]
 name = "iniconfig"
@@ -6397,12 +6389,6 @@ wheels = [
 ]
 
 [[package]]
-name = "silpa-common"
-version = "0.3"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/8d/55/452f5103cb7071d188a818d9e2f12c19c4c8a12124a28aaa212eb6716a4d/silpa_common-0.3.tar.gz", hash = "sha256:d4a4366193fd606fdcbf6d6e996a57a8bed9ff54ec8e2f798d2b7bc885dde3fd", size = 9364, upload-time = "2014-05-03T04:09:04.051Z" }
-
-[[package]]
 name = "simplejson"
 version = "3.20.2"
 source = { registry = "https://pypi.org/simple" }
@@ -6491,15 +6477,6 @@ wheels = [
 ]
 
 [[package]]
-name = "soundex"
-version = "1.1.3"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "silpa-common" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/f8/8f/37b9711595d007e82f70ae6f41b6ab6a1fda406a8321ccfc458fb5023b5f/soundex-1.1.3.tar.gz", hash = "sha256:f837692afab3dc4f0132a36d8e8a8384f6ac8349fffdf5103291c3d1c2d48ad3", size = 9061, upload-time = "2014-06-01T14:14:54.914Z" }
-
-[[package]]
 name = "soupsieve"
 version = "2.7"
 source = { registry = "https://pypi.org/simple" }
@@ -6507,16 +6484,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/3f/f4/4a80cd6ef364b2e8b
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e7/9c/0e6afc12c269578be5c0c1c9f4b49a8d32770a080260c333ac04cc1c832d/soupsieve-2.7-py3-none-any.whl", hash = "sha256:6e60cc5c1ffaf1cebcc12e8188320b72071e922c2e897f737cadce79ad5d30c4", size = 36677, upload-time = "2025-04-20T18:50:07.196Z" },
 ]
-
-[[package]]
-name = "spellchecker"
-version = "0.4"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "inexactsearch" },
-    { name = "setuptools" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/8d/2f/95ff55a821f6fc83999f8418045ee472edcfd5fb06905090f68fda56a82a/spellchecker-0.4.tar.gz", hash = "sha256:7ebe5480641d2fa555e4a9d0592e6f6866d095c37c5563e38a349f8ce26358c7", size = 3929271, upload-time = "2013-07-31T17:56:09.196Z" }
 
 [[package]]
 name = "sqlalchemy"

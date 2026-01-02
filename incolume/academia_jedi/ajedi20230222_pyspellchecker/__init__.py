@@ -2,7 +2,7 @@
 
 import logging
 
-from .tratativa1 import ex1
+from incolume.academia_jedi.ajedi20230222_pyspellchecker import tratativa1
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -14,7 +14,8 @@ logging.basicConfig(
 def run():
     """Run main module."""
     logging.debug('starting ..')
-    ex1()
+    tratativa1.ex0()
+    tratativa1.ex1()
 
 
 if __name__ == '__main__':

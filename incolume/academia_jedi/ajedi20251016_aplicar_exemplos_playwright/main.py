@@ -6,9 +6,6 @@ import incolume.academia_jedi.ajedi20251016_aplicar_exemplos_playwright.tratativ
 import incolume.academia_jedi.ajedi20251016_aplicar_exemplos_playwright.tratativa4 as ex4
 from icecream import ic
 from incolume.academia_jedi import utils
-from incolume.academia_jedi.ajedi20251013_getting_elements_in_a_table_with_playwright.example3 import (
-    str_html,
-)
 
 
 @utils.nonexequi(

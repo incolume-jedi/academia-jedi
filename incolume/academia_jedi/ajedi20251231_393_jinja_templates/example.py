@@ -10,6 +10,8 @@ import jinja2
 import yaml
 from icecream import ic
 
+# ruff: noqa: N806
+
 students_db: Container[dict] = [
     {'name': 'Brito', 'score': 100},
     {'name': 'Ana Brito', 'score': 95},
@@ -18,6 +20,7 @@ students_db: Container[dict] = [
     {'name': 'Naome Brito', 'score': 60},
 ]
 students_fl = Path(__file__).parent.joinpath('data', 'students.yaml')
+dout: Path = Path(tempfile.gettempdir()) / Path(__file__).parent.parts[-1]
 
 
 def example1():
@@ -27,7 +30,7 @@ def example1():
     ic(template.render(name='World'))
 
 
-def example_good_msg(students: Container[dict] | None = None):
+def example_good_msg(students: Container[dict] | None = None) -> None:
     """Docstring para example_good_msg."""
     MAX_SCORE: Final[int] = 100
     TEST_NAME: Final[str] = 'Python Challenge'
@@ -43,11 +46,10 @@ def example_good_msg(students: Container[dict] | None = None):
 
     for student in students:
         name: str = student.get('name')
-        fout: Path = Path(
-            tempfile.gettempdir(),
-        ).joinpath(
+        fout: Path = dout.joinpath(
             inspect.stack()[0][3],
-            f'{template.name.split(".")[0]}-{name.casefold().replace(" ", "-")}.txt',
+            f'{template.name.split(".")[0]}'
+            f'-{name.casefold().replace(" ", "-")}.txt',
         )
         fout.parent.mkdir(parents=True, exist_ok=True)
         content = template.render(
@@ -60,7 +62,7 @@ def example_good_msg(students: Container[dict] | None = None):
         ic(f'{fout} is {fout.is_file()}')
 
 
-def example_msg_for_all(students: Container[dict] | None = None):
+def example_msg_for_all(students: Container[dict] | None = None) -> None:
     """Docstring para example_msg_for_all."""
     MAX_SCORE: Final[int] = 100
     TEST_NAME: Final[str] = 'Python Challenge'
@@ -77,11 +79,10 @@ def example_msg_for_all(students: Container[dict] | None = None):
 
     for student in students:
         name: str = student.get('name')
-        fout: Path = Path(
-            tempfile.gettempdir(),
-        ).joinpath(
+        fout: Path = dout.joinpath(
             inspect.stack()[0][3],
-            f'{template.name.split(".")[0]}-{name.casefold().replace(" ", "-")}.txt',
+            f'{template.name.split(".")[0]}'
+            f'-{name.casefold().replace(" ", "-")}.txt',
         )
         fout.parent.mkdir(parents=True, exist_ok=True)
         content = template.render(
@@ -128,9 +129,7 @@ def example_for_all_yaml(students: Container[dict] | None = None) -> None:
 
     for student in students:
         name: str = student.get('name')
-        fout: Path = Path(
-            tempfile.gettempdir(),
-        ).joinpath(
+        fout: Path = dout.joinpath(
             inspect.stack()[0][3],
             f'msg-yaml-load-{name.casefold().replace(" ", "-")}.txt',
         )
@@ -155,7 +154,6 @@ def data_load0():
 def example_csv_tmpl(students: Container[dict] | None = None) -> None:
     """Docstring para example_msg_for_all."""
     MAX_SCORE: Final[int] = 100
-    TEST_NAME: Final[str] = 'Python Challenge'
 
     tmpl_dir = Path(__file__).parent.joinpath('templates')
     ic(tmpl_dir.exists())
@@ -167,9 +165,7 @@ def example_csv_tmpl(students: Container[dict] | None = None) -> None:
     template = env.get_template('csv.tmpl')
     students = students or yaml.safe_load(students_fl.open())
 
-    fout: Path = Path(
-        tempfile.gettempdir(),
-    ).joinpath(
+    fout: Path = dout.joinpath(
         inspect.stack()[0][3],
         'medias.csv',
     )
@@ -184,13 +180,13 @@ def example_csv_tmpl(students: Container[dict] | None = None) -> None:
 
 def data_load():
     """Docstring para data_load."""
-    fout = Path(__file__).parent.joinpath('data', 'data.yaml')
-    data = yaml.safe_load(fout.open())
+    fin = Path(__file__).parent.joinpath('data', 'data.yaml')
+    data = yaml.safe_load(fin.open())
     ic(data)
 
 
 def example_langs():
-    """Docstring para example_langs"""
+    """Docstring para example_langs."""
     tmpl_dir = Path(__file__).parent.joinpath('templates')
     ic(tmpl_dir.exists())
 
@@ -205,9 +201,7 @@ def example_langs():
     langs = data.get('lang').keys()
 
     for lang in langs:
-        fout: Path = Path(
-            tempfile.gettempdir(),
-        ).joinpath(
+        fout: Path = dout.joinpath(
             inspect.stack()[0][3],
             f'{template.name.split(".")[0]}-{lang}.txt',
         )
@@ -216,7 +210,6 @@ def example_langs():
         context = {'lang': lang, 'data': data}
 
         content = template.render(context)
-        # ic(content)
 
         fout.write_text(content)
         ic(f'{fout} is {fout.is_file()}')
@@ -224,6 +217,7 @@ def example_langs():
 
 def run():
     """Run it."""
+    ic(dout)
     example1()
     example_good_msg()
     example_msg_for_all()
