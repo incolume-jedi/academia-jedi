@@ -157,6 +157,7 @@ members = [
     "incolume/academia_jedi/ajedi20251206_zipfile",
     "incolume/academia_jedi/ajedi20230222_pyspellchecker",
     "incolume/academia_jedi/ajedi20251231_393_jinja_templates",
+    "incolume/academia_jedi/ajedi20261107_agent_ia_local",
 ]
 
 [tool.uv.sources]

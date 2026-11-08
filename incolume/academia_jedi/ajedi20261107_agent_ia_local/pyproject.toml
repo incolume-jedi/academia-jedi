@@ -1,0 +1,26 @@
+[project]
+name = "ajedi20261107-agent-ia-local"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Ricardo Brito do Nascimento", email = "britodfbr@gmail.com" }
+]
+requires-python = ">=3.10, <4"
+dependencies = [
+    "faiss-cpu",
+    "langchain",
+    "langchain-community",
+    "langchain-openai",
+    "langchain-text-splitters",
+    "pypdf",
+    "python-dotenv",
+    "streamlit",
+]
+
+[project.scripts]
+ajedi20261107-agent-ia-local = "ajedi20261107_agent_ia_local:main"
+
+[build-system]
+requires = ["uv_build>=0.12.7,<0.13.0"]
+build-backend = "uv_build"
